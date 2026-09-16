@@ -1,42 +1,282 @@
-<!DOCTYPE html>
-<html>
-<head>
-<title>Page Title</title>
-</head>
-<br>
-<h4>Description</h4>
-<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard <br> dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type <br> specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially <br> unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and <br> more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-<a href="See more" target="_blank">See more</a>
-<br>
-<h4>Person List</h4>
-<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard <br> dummy text ever since the 1500s, when an <b><u>unknown printer took a galley of type and scrambled it to make a type</u> </b> <br> specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially <br> unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and <br> more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-<br>
-<style>
-    table, th, td {
-      border:1px solid black;
-    }
-    </style>
-<body>
-    <table style="width:40%">
-         <thead>
-            <tr>
-                 <th>Person 1</th>
-                 <th>Person 2</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>16</td>
-                <td>14</td>
-            </tr>
-        </tbody>
-      </table>
-      <br>
-<h4>Picture</h4>
-<img src="img5.png" alt="img" width="301px" height="241px"
-<br>
-<br>
-<br>
-<br>
-</body>
+<!doctype html>
+<html lang="ka">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#091426" />
+    <meta
+      name="description"
+      content="ლუკა შახყულაშვილის მიერ მართული ტექნოლოგიური და ციფრული სამართლის პრაქტიკა — სამართლებრივი, მარეგულირებელი და შესაბამისობის მხარდაჭერა საქართველოში და საერთაშორისო ბაზრებზე."
+    />
+    <meta property="og:title" content="Luka / Law — Technology & Digital Law" />
+    <meta
+      property="og:description"
+      content="Technology, digital, regulatory and cross-border legal support for businesses operating in Georgia and internationally."
+    />
+    <meta property="og:type" content="website" />
+    <title>Luka / Law — ტექნოლოგიური და ციფრული სამართალი</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+Georgian:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header class="site-header" id="top">
+      <div class="container header-inner">
+        <a class="brand" href="#top" aria-label="Luka Law — მთავარი გვერდი">
+          <span class="brand-mark">LS</span>
+          <span class="brand-name">LUKA <i>/</i> LAW</span>
+          <span class="brand-note">TECH + DIGITAL</span>
+        </a>
+
+        <nav class="desktop-nav" aria-label="მთავარი ნავიგაცია">
+          <a href="#services" data-i18n="nav.services">სერვისები</a>
+          <a href="#model" data-i18n="nav.model">მუშაობის მოდელი</a>
+          <a href="#about" data-i18n="nav.about">დამფუძნებელი</a>
+          <a href="#contact" data-i18n="nav.contact">კონტაქტი</a>
+        </nav>
+
+        <div class="header-actions">
+          <button class="language-switch" type="button" data-language-toggle aria-label="Switch to English">EN</button>
+          <a class="button button-small button-light" href="#contact" data-i18n="nav.cta">საუბრის დაწყება</a>
+          <button class="menu-toggle" type="button" aria-label="მენიუს გახსნა" aria-expanded="false" aria-controls="mobile-menu">
+            <span></span><span></span>
+          </button>
+        </div>
+      </div>
+      <nav class="mobile-nav" id="mobile-menu" aria-label="მობილური ნავიგაცია">
+        <a href="#services" data-i18n="nav.services">სერვისები</a>
+        <a href="#model" data-i18n="nav.model">მუშაობის მოდელი</a>
+        <a href="#about" data-i18n="nav.about">დამფუძნებელი</a>
+        <a href="#contact" data-i18n="nav.contact">კონტაქტი</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero section-dark" aria-labelledby="hero-title">
+        <div class="hero-glow hero-glow-one"></div>
+        <div class="hero-glow hero-glow-two"></div>
+        <div class="container hero-grid">
+          <div class="hero-copy reveal">
+            <p class="eyebrow"><span class="eyebrow-dot"></span><span data-i18n="hero.eyebrow">ლუკას მიერ მართული პრაქტიკა · თბილისი / საერთაშორისო</span></p>
+            <h1 id="hero-title" data-i18n="hero.title">ტექნოლოგია იცვლება. სამართლებრივი სირთულე არ უნდა გახდეს ზრდის ბარიერი.</h1>
+            <p class="hero-lead" data-i18n="hero.lead">ტექნოლოგიური, ციფრული, ფინანსური და საერთაშორისო ბიზნესებისთვის ვქმნით სამართლებრივ სიცხადეს — პროდუქტის იდეიდან ბაზარზე გასვლასა და ყოველდღიურ შესაბამისობამდე.</p>
+            <div class="hero-actions">
+              <a class="button button-primary" href="#contact"><span data-i18n="hero.primary">მოაყოლეთ თქვენი ამოცანა</span><span class="button-arrow">↗</span></a>
+              <a class="button button-ghost" href="#services" data-i18n="hero.secondary">მიმართულებების ნახვა</a>
+            </div>
+            <div class="hero-proof" aria-label="ძირითადი მიმართულებები">
+              <span data-i18n="hero.proof1">Technology &amp; Digital Law</span>
+              <span data-i18n="hero.proof2">Georgia + international</span>
+              <span data-i18n="hero.proof3">ერთი საკონტაქტო პირი</span>
+            </div>
+          </div>
+
+          <div class="hero-art reveal reveal-delay" aria-label="სამართლებრივი მხარდაჭერის სამუშაო მოდელი">
+            <div class="art-orbit orbit-one"></div>
+            <div class="art-orbit orbit-two"></div>
+            <div class="art-core">
+              <span class="core-label">LEGAL</span>
+              <strong>OPERATING<br />LAYER</strong>
+              <span class="core-caption">for digital business</span>
+            </div>
+            <div class="art-card art-card-top"><span>01</span><b data-i18n="art.map">MAP</b><small data-i18n="art.mapSmall">რისკები და გზა</small></div>
+            <div class="art-card art-card-right"><span>02</span><b data-i18n="art.build">BUILD</b><small data-i18n="art.buildSmall">დოკუმენტები და სტრუქტურა</small></div>
+            <div class="art-card art-card-bottom"><span>03</span><b data-i18n="art.run">RUN</b><small data-i18n="art.runSmall">მუდმივი მხარდაჭერა</small></div>
+            <div class="art-line line-one"></div><div class="art-line line-two"></div><div class="art-line line-three"></div>
+          </div>
+        </div>
+        <div class="hero-scroll"><span data-i18n="hero.scroll">გააგრძელეთ</span><i></i></div>
+      </section>
+
+      <section class="intro section-light" id="intro">
+        <div class="container intro-grid">
+          <div class="section-kicker reveal"><span>01</span><span data-i18n="intro.kicker">კონცეფცია</span></div>
+          <div class="intro-content reveal">
+            <h2 data-i18n="intro.title">ერთი საკონტაქტო პირი. სპეციალისტების კოორდინირებული გუნდი.</h2>
+            <p data-i18n="intro.body">თქვენ არ გჭირდებათ სხვადასხვა იურისტის, საგადასახადო მრჩევლისა და ტექნიკური სპეციალისტის ცალ-ცალკე მოძიება და მართვა. ლუკა განსაზღვრავს საკითხის სრულ ფარგლებს, აყალიბებს სამუშაო გეგმას და საჭიროების შემთხვევაში აერთიანებს შესაბამის პროფესიონალებს.</p>
+            <div class="intro-note"><span class="note-mark">+</span><span data-i18n="intro.note">საჯარო სახე და მთავარი საკონტაქტო პირი — Luka Shakhkulashvili. გუნდი ერთიანდება კონკრეტული ამოცანის მიხედვით.</span></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="services section-light" id="services" aria-labelledby="services-title">
+        <div class="container">
+          <div class="section-heading reveal">
+            <div class="section-kicker"><span>02</span><span data-i18n="services.kicker">მომსახურების მიმართულებები</span></div>
+            <h2 id="services-title" data-i18n="services.title">ტექნოლოგია და ციფრული სამართალი — წინა პლანზე.</h2>
+            <p data-i18n="services.lead">დანარჩენი მიმართულებები ამ ბირთვს ავსებს, რათა ბიზნესმა ერთიანი სამართლებრივი მხარდაჭერა მიიღოს.</p>
+          </div>
+
+          <div class="service-grid">
+            <article class="service-card service-card-featured reveal">
+              <div class="service-top"><span class="service-number">01</span><span class="service-label" data-i18n="service1.label">ძირითადი მიმართულება</span></div>
+              <h3 data-i18n="service1.title">ტექნოლოგია და ციფრული სამართალი</h3>
+              <p data-i18n="service1.body">პროდუქტის, პლატფორმისა და ტექნოლოგიური ბიზნესის სამართლებრივი არქიტექტურა — იდეიდან კომერციალიზაციამდე.</p>
+              <ul>
+                <li data-i18n="service1.item1">SaaS, IT და კომერციული ხელშეკრულებები</li>
+                <li data-i18n="service1.item2">ციფრული პროდუქტების სამართლებრივი დიზაინი</li>
+                <li data-i18n="service1.item3">პერსონალური მონაცემები და კონფიდენციალურობა</li>
+                <li data-i18n="service1.item4">AI, ავტომატიზაცია და ახალი ტექნოლოგიები</li>
+              </ul>
+              <a class="text-link" href="#contact"><span data-i18n="service.learn">განვიხილოთ თქვენი პროდუქტი</span><span>↗</span></a>
+            </article>
+
+            <article class="service-card reveal reveal-delay-1">
+              <div class="service-top"><span class="service-number">02</span><span class="service-icon">⌁</span></div>
+              <h3 data-i18n="service2.title">ინფორმაციული უსაფრთხოება და კიბერრისკები</h3>
+              <p data-i18n="service2.body">უსაფრთხოების საკითხების სამართლებრივი მხარე — პოლიტიკებიდან ინციდენტზე რეაგირებამდე.</p>
+              <ul>
+                <li data-i18n="service2.item1">კონფიდენციალურობისა და უსაფრთხოების მართვა</li>
+                <li data-i18n="service2.item2">ინციდენტზე რეაგირების სამართლებრივი გეგმა</li>
+                <li data-i18n="service2.item3">DPA, აუთსორსინგი და მომწოდებლების შემოწმება</li>
+              </ul>
+            </article>
+
+            <article class="service-card reveal reveal-delay-2">
+              <div class="service-top"><span class="service-number">03</span><span class="service-icon">◌</span></div>
+              <h3 data-i18n="service3.title">ფინანსური ტექნოლოგიები და კრიპტოაქტივები</h3>
+              <p data-i18n="service3.body">ფინანსური და Web3 პროექტების სამართლებრივი რუკა საქართველოში და შესაბამის საერთაშორისო იურისდიქციებში.</p>
+              <ul>
+                <li data-i18n="service3.item1">მარეგულირებელი მოთხოვნების შეფასება</li>
+                <li data-i18n="service3.item2">AML/KYC, სანქციები და რისკებზე დაფუძნებული მიდგომა</li>
+                <li data-i18n="service3.item3">ლიცენზირებისა და რეგისტრაციის პროცესის მხარდაჭერა</li>
+                <li data-i18n="service3.item4">ტოკენები, ციფრული აქტივები და პროექტის სტრუქტურა</li>
+              </ul>
+            </article>
+
+            <article class="service-card reveal">
+              <div class="service-top"><span class="service-number">04</span><span class="service-icon">□</span></div>
+              <h3 data-i18n="service4.title">კომპანიის შექმნა და კორპორაციული მხარდაჭერა</h3>
+              <p data-i18n="service4.body">ბიზნესის დაწყებისთვის და გამართული ფუნქციონირებისთვის საჭირო დოკუმენტები, პროცესები და კორპორაციული წესრიგი.</p>
+              <ul>
+                <li data-i18n="service4.item1">კომპანიის რეგისტრაცია და დამფუძნებელი დოკუმენტები</li>
+                <li data-i18n="service4.item2">წესდება, პარტნიორთა და დირექტორთა გადაწყვეტილებები</li>
+                <li data-i18n="service4.item3">ბენეფიციარი მესაკუთრისა და KYC პაკეტის მომზადება</li>
+                <li data-i18n="service4.item4">საბანკო ანგარიშის გახსნის დოკუმენტური მხარდაჭერა</li>
+              </ul>
+            </article>
+
+            <article class="service-card reveal reveal-delay-1">
+              <div class="service-top"><span class="service-number">05</span><span class="service-icon">↗</span></div>
+              <h3 data-i18n="service5.title">საერთაშორისო ბაზარზე გასვლა</h3>
+              <p data-i18n="service5.body">უცხოური ბიზნესისთვის — საქართველოში შემოსვლა; ქართული ბიზნესისთვის — საერთაშორისო გაფართოების სამართლებრივი მომზადება.</p>
+              <ul>
+                <li data-i18n="service5.item1">საქართველოს ბაზარზე შესვლის სამართლებრივი რუკა</li>
+                <li data-i18n="service5.item2">საერთაშორისო ხელშეკრულებები და მონაცემთა გადაცემა</li>
+                <li data-i18n="service5.item3">უცხოელ მრჩევლებთან კოორდინაცია</li>
+                <li data-i18n="service5.item4">სანქციები, KYB და პარტნიორების შემოწმება</li>
+              </ul>
+            </article>
+
+            <article class="service-card reveal reveal-delay-2">
+              <div class="service-top"><span class="service-number">06</span><span class="service-icon">⌂</span></div>
+              <h3 data-i18n="service6.title">მიგრაცია, ბინადრობა და სპეციალური სტატუსები</h3>
+              <p data-i18n="service6.body">დამფუძნებლებისა და გუნდებისთვის გადაადგილებასთან, დასაქმებასა და საქართველოში საქმიანობასთან დაკავშირებული მხარდაჭერა.</p>
+              <ul>
+                <li data-i18n="service6.item1">ბინადრობის ნებართვისა და მოქალაქეობის საკითხები</li>
+                <li data-i18n="service6.item2">უცხოელთა დასაქმება და სამუშაოსთან დაკავშირებული მოთხოვნები</li>
+                <li data-i18n="service6.item3">დისტანციური მუშაობა, nomad და relocation საკითხები</li>
+                <li data-i18n="service6.item4">სპეციალური ბიზნეს- და საგადასახადო სტატუსების შეფასება</li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="pathways section-navy" id="model" aria-labelledby="pathways-title">
+        <div class="container">
+          <div class="pathways-heading reveal">
+            <div class="section-kicker section-kicker-dark"><span>03</span><span data-i18n="pathways.kicker">საქართველოსთვის შექმნილი ჩარჩო</span></div>
+            <h2 id="pathways-title" data-i18n="pathways.title">სადაც არ უნდა იყოს თქვენი ბიზნესი, სამართლებრივი გზა მკაფიო უნდა იყოს.</h2>
+            <p data-i18n="pathways.lead">ჩვენი მუშაობა აერთიანებს ადგილობრივ პრაქტიკას, საერთაშორისო ხედვასა და საჭირო სპეციალისტებთან კოორდინაციას.</p>
+          </div>
+          <div class="pathway-grid">
+            <article class="pathway reveal"><span class="pathway-index">A</span><h3 data-i18n="pathway1.title">დაწყება საქართველოში</h3><p data-i18n="pathway1.body">სტრუქტურა, რეგისტრაცია, დოკუმენტები, საბანკო ანგარიში და პირველი შესაბამისობის ნაბიჯები.</p><span class="pathway-tag" data-i18n="pathway1.tag">Launch</span></article>
+            <article class="pathway reveal reveal-delay-1"><span class="pathway-index">B</span><h3 data-i18n="pathway2.title">უსაფრთხო ოპერირება</h3><p data-i18n="pathway2.body">ხელშეკრულებები, მონაცემები, შიდა პოლიტიკები, AML/KYC და კონტროლირებადი ყოველდღიური პროცესები.</p><span class="pathway-tag" data-i18n="pathway2.tag">Operate</span></article>
+            <article class="pathway reveal reveal-delay-2"><span class="pathway-index">C</span><h3 data-i18n="pathway3.title">გუნდისა და დამფუძნებლების გადაადგილება</h3><p data-i18n="pathway3.body">ბინადრობა, მოქალაქეობა, უცხოელთა დასაქმება, relocation და nomad საკითხები.</p><span class="pathway-tag" data-i18n="pathway3.tag">Move</span></article>
+            <article class="pathway reveal reveal-delay-3"><span class="pathway-index">D</span><h3 data-i18n="pathway4.title">საერთაშორისო გაფართოება</h3><p data-i18n="pathway4.body">საერთაშორისო პარტნიორები, სხვა იურისდიქციები, მონაცემთა გადაცემა და cross-border კონტრაქტები.</p><span class="pathway-tag" data-i18n="pathway4.tag">Expand</span></article>
+          </div>
+        </div>
+      </section>
+
+      <section class="process section-light" aria-labelledby="process-title">
+        <div class="container process-grid">
+          <div class="process-intro reveal">
+            <div class="section-kicker"><span>04</span><span data-i18n="process.kicker">მუშაობის წესი</span></div>
+            <h2 id="process-title" data-i18n="process.title">საკითხიდან გადაწყვეტილებამდე — მკაფიო პროცესით.</h2>
+            <p data-i18n="process.lead">ვიწყებთ ბიზნესის მიზნიდან და არა მზა შაბლონიდან. შედეგი უნდა იყოს გამოყენებადი, გასაგები და დანერგვადი.</p>
+          </div>
+          <div class="process-list">
+            <div class="process-step reveal"><span>01</span><div><h3 data-i18n="process1.title">მიზნის გაგება</h3><p data-i18n="process1.body">ვაზუსტებთ პროდუქტს, ბაზარს, ვადებსა და რეალურ ბიზნესრისკებს.</p></div></div>
+            <div class="process-step reveal reveal-delay-1"><span>02</span><div><h3 data-i18n="process2.title">სამართლებრივი რუკა</h3><p data-i18n="process2.body">ვყოფთ საკითხს პრიორიტეტებად და ვაჩვენებთ შესაძლო გზებსა და შეზღუდვებს.</p></div></div>
+            <div class="process-step reveal reveal-delay-2"><span>03</span><div><h3 data-i18n="process3.title">დოკუმენტები და განხორციელება</h3><p data-i18n="process3.body">ვამზადებთ საჭირო დოკუმენტებს, ვაკოორდინირებთ სპეციალისტებს და ვეხმარებით დანერგვაში.</p></div></div>
+            <div class="process-step reveal reveal-delay-3"><span>04</span><div><h3 data-i18n="process4.title">მიმდინარე მხარდაჭერა</h3><p data-i18n="process4.body">საჭიროების მიხედვით ვრჩებით თქვენი გუნდის სამართლებრივ პარტნიორად.</p></div></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="about section-cream" id="about" aria-labelledby="about-title">
+        <div class="container about-grid">
+          <div class="about-mark reveal"><span>LS</span><small>FOUNDER<br />&amp; LEAD</small></div>
+          <div class="about-copy reveal">
+            <div class="section-kicker"><span>05</span><span data-i18n="about.kicker">დამფუძნებელი</span></div>
+            <h2 id="about-title" data-i18n="about.title">ლუკა შახყულაშვილი</h2>
+            <p class="about-role" data-i18n="about.role">Founder &amp; Lead Technology Lawyer</p>
+            <p data-i18n="about.body1">ლონდონში, Queen Mary University of London-ში Technology, Media and Telecommunications Law-ის სამაგისტრო პროგრამაზე მიღებულ ცოდნას ვაერთიანებ საქართველოში მიღებულ პრაქტიკულ გამოცდილებასთან.</p>
+            <p data-i18n="about.body2">ჩემი გამოცდილება მოიცავს კერძო და საჯარო სექტორს, BDO-ს, ციფრულ ეკოსისტემასა და ტექნოლოგიურ ბიზნესებთან დაკავშირებულ იურიდიულ საკითხებს. დღეს ჩემი მთავარი ფოკუსია ტექნოლოგიური და ციფრული სამართალი — იმ ენაზე, რომელიც ბიზნესს ესმის და გადაწყვეტილების მიღებაში ეხმარება.</p>
+            <div class="about-pills"><span data-i18n="about.pill1">Technology &amp; Digital Law</span><span data-i18n="about.pill2">Commercial &amp; Corporate</span><span data-i18n="about.pill3">Cross-border</span></div>
+            <a class="text-link text-link-dark" href="https://www.linkedin.com/in/luka-shakhkulashvili/" target="_blank" rel="noopener"><span data-i18n="about.linkedin">ლინკდინზე გაცნობა</span><span>↗</span></a>
+          </div>
+        </div>
+      </section>
+
+      <section class="team section-light" aria-labelledby="team-title">
+        <div class="container team-grid">
+          <div class="section-kicker reveal"><span>06</span><span data-i18n="team.kicker">გუნდი</span></div>
+          <div class="team-copy reveal">
+            <h2 id="team-title" data-i18n="team.title">ერთი პასუხისმგებელი ხმა. საჭიროებისამებრ — მრავალდისციპლინური გუნდი.</h2>
+            <p data-i18n="team.body">ლუკა არის თქვენი მთავარი საკონტაქტო პირი და საქმის ხელმძღვანელი. კონკრეტული ამოცანის მიხედვით ერთიანდებიან შესაბამისი იურიდიული, compliance-ის, საგადასახადო, კიბერუსაფრთხოების და უცხოური იურისდიქციის სპეციალისტები.</p>
+          </div>
+          <div class="team-roles reveal reveal-delay-1">
+            <span data-i18n="team.role1">იურისტები</span><span data-i18n="team.role2">Compliance მრჩევლები</span><span data-i18n="team.role3">საგადასახადო სპეციალისტები</span><span data-i18n="team.role4">კიბერუსაფრთხოების ექსპერტები</span><span data-i18n="team.role5">უცხოური იურისდიქციის მრჩევლები</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="contact section-dark" id="contact" aria-labelledby="contact-title">
+        <div class="contact-grid-lines"></div>
+        <div class="container contact-inner">
+          <div class="contact-copy reveal">
+            <div class="section-kicker section-kicker-dark"><span>07</span><span data-i18n="contact.kicker">შემდეგი ნაბიჯი</span></div>
+            <h2 id="contact-title" data-i18n="contact.title">გაქვთ პროდუქტი, ბაზარზე გასვლის გეგმა ან რთული მარეგულირებელი საკითხი?</h2>
+            <p data-i18n="contact.body">მომწერეთ მოკლედ, რა გჭირდებათ. დაგიბრუნდებით საკითხის ფარგლებისა და მუშაობის შესაძლო ფორმატის შესახებ.</p>
+            <a class="button button-primary" href="https://www.linkedin.com/in/luka-shakhkulashvili/" target="_blank" rel="noopener"><span data-i18n="contact.button">მომწერეთ LinkedIn-ზე</span><span class="button-arrow">↗</span></a>
+          </div>
+          <div class="contact-aside reveal reveal-delay-1">
+            <div class="contact-aside-label" data-i18n="contact.asideLabel">სასაუბრო თემები</div>
+            <div class="contact-topics"><span data-i18n="contact.topic1">Tech / Digital</span><span data-i18n="contact.topic2">Fintech / Crypto</span><span data-i18n="contact.topic3">Georgia market entry</span><span data-i18n="contact.topic4">Corporate setup</span><span data-i18n="contact.topic5">Migration / Mobility</span><span data-i18n="contact.topic6">Information security</span></div>
+            <div class="contact-location"><span class="eyebrow-dot"></span><span data-i18n="contact.location">თბილისი · საქართველო · საერთაშორისო პროექტები</span></div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-top">
+        <a class="brand brand-footer" href="#top" aria-label="Luka Law — მთავარი გვერდი"><span class="brand-mark">LS</span><span class="brand-name">LUKA <i>/</i> LAW</span></a>
+        <p data-i18n="footer.tagline">Technology, digital and cross-border legal support.</p>
+        <a class="footer-link" href="https://www.linkedin.com/in/luka-shakhkulashvili/" target="_blank" rel="noopener">LinkedIn ↗</a>
+      </div>
+      <div class="container footer-bottom">
+        <p data-i18n="footer.disclaimer">საიტზე განთავსებული ინფორმაცია ზოგადი საინფორმაციო ხასიათისაა და არ წარმოადგენს კონკრეტულ სამართლებრივ დასკვნას ან კლიენტთან შეთანხმებულ სამართლებრივ მომსახურებას. მომსახურების ფარგლები და პირობები განისაზღვრება წერილობითი შეთანხმებით.</p>
+        <p>© <span id="year"></span> Luka / Law</p>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
 </html>
