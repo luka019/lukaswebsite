@@ -2,6 +2,8 @@
 
 ეს არის ერთგვერდიანი, ორენოვანი (ქართული/ინგლისური) სტატიკური საიტი ტექნოლოგიური და ციფრული სამართლის პრაქტიკისთვის. გვერდი არ იყენებს ფასიან ჰოსტინგს ან გარე ბექენდს და მზად არის GitHub Pages-ზე ასატვირთად.
 
+საიტის მიმდინარე repository: [github.com/luka019/lukaswebsite](https://github.com/luka019/lukaswebsite)
+
 ## GitHub Pages-ზე გაშვება
 
 1. GitHub-ზე შექმენით ახალი repository (მაგალითად `luka-law` ან `luka-shakhkulashvili.github.io`).
@@ -9,5 +11,7 @@
 3. გახსენით **Settings → Pages**.
 4. **Build and deployment → Source**-ში აირჩიეთ **Deploy from a branch**, შემდეგ `main` და `/ (root)`.
 5. დააჭირეთ **Save**-ს. რამდენიმე წუთში GitHub გამოგიჩენთ უფასო მისამართს.
+
+ამ repository-სთვის მოსალოდნელი მისამართია: `https://luka019.github.io/lukaswebsite/`
 
 საიტის საკონტაქტო ღილაკი ამ ეტაპზე LinkedIn-ზე გადადის. ელფოსტისა და დომენის დამატება შესაძლებელია `index.html`-ში მათი საბოლოო არჩევის შემდეგ.
