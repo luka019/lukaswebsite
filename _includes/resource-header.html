@@ -1,11 +1,11 @@
 <header class="site-header" id="top">
   <div class="container header-inner">
-    <a class="brand" href="{{ '/' | relative_url }}" data-site-link aria-label="Shakhkulashvili Legal — მთავარი" data-en-aria="Shakhkulashvili Legal — home"><svg class="brand-symbol" viewBox="0 0 38 38" aria-hidden="true"><path d="M7 5v26h12M19 7v24h12M7 19h24"/></svg><span class="brand-wordmark"><span>SHAKHKULASHVILI</span><span>LEGAL</span></span></a>
+    <a class="brand" href="{{ '/' | relative_url }}" data-site-link aria-label="Digital Law &amp; Advisory — მთავარი" data-en-aria="Digital Law &amp; Advisory — home"><svg class="brand-symbol" viewBox="0 0 38 38" aria-hidden="true"><path d="M7 5v26h12M19 7v24h12M7 19h24"/></svg><span class="brand-wordmark"><span>DIGITAL LAW</span><span>&amp; ADVISORY</span></span></a>
     <nav class="site-nav" id="site-nav" aria-label="მთავარი ნავიგაცია" data-en-aria="Main navigation">
       <a href="{{ '/' | relative_url }}#services" data-site-link data-en="Services">მომსახურება</a>
       <a href="{{ '/' | relative_url }}#about" data-site-link data-en="Founder">დამფუძნებელი</a>
       <a href="{{ '/' | relative_url }}#team" data-site-link data-en="Our team">გუნდი</a>
-      <a href="{{ '/resources/' | relative_url }}" data-site-link aria-current="page" data-en="Resources">რესურსები</a>
+      <a href="{{ '/resources/' | relative_url }}" data-site-link{% unless page.section == 'services' %} aria-current="page"{% endunless %} data-en="Resources">რესურსები</a>
       <a href="{{ '/' | relative_url }}#contact" data-site-link data-en="Contact">კონტაქტი</a>
     </nav>
     <div class="header-controls"><div class="language-control" role="group" aria-label="ენის არჩევა" data-en-aria="Choose language"><button type="button" data-language="ka" aria-pressed="true" aria-label="ქართული">KA</button><span aria-hidden="true">/</span><button type="button" data-language="en" aria-pressed="false" aria-label="English">EN</button></div><button class="menu-toggle" type="button" aria-controls="site-nav" aria-expanded="false" aria-label="მენიუს გახსნა" data-menu-toggle><span></span><span></span></button></div>

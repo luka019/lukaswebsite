@@ -552,6 +552,70 @@ details[open] > summary .plus { transform: rotate(45deg); }
 }
 .contact-section .enquiry-form :focus-visible { outline-color: var(--accent); }
 
+/* Detailed services stay available without overwhelming the home page. */
+.ai-service-link { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: 17px; padding: 13px 0; border-top: 1px solid var(--line); color: var(--accent); font-size: 13px; line-height: 1.7; }
+.ai-service-link:hover { text-decoration: underline; text-underline-offset: 4px; }
+.ongoing-detail { margin-top: 18px; border: 1px solid var(--line); border-radius: 4px; background: white; }
+.ongoing-detail > summary { list-style: none; display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 20px 23px; font-size: 14px; line-height: 1.85; font-weight: 500; cursor: pointer; }
+.ongoing-detail > summary::-webkit-details-marker { display: none; }
+.ongoing-detail > summary:hover { color: var(--accent); }
+.ongoing-plus { flex-shrink: 0; font-size: 24px; line-height: 1; color: var(--accent); }
+.ongoing-detail[open] .ongoing-plus { transform: rotate(45deg); }
+.ongoing-body { max-width: 930px; padding: 0 23px 23px; font-size: 14px; line-height: 1.9; }
+.ongoing-body ul { padding-left: 20px; margin-top: 14px; color: #465551; }
+.ongoing-body li + li { margin-top: 10px; }
+.ongoing-body .service-result { max-width: 760px; }
+
+/* A focused AI service page, using the shared site navigation and type scale. */
+.ai-hero-grid { display: grid; grid-template-columns: minmax(0, 1.65fr) minmax(0, 1fr); gap: 55px; align-items: center; }
+.ai-hero h1 { max-width: 630px; }
+.ai-hero .resource-hero-description { max-width: 670px; }
+.ai-hero .hero-actions { gap: 23px; margin-top: 24px; flex-wrap: wrap; }
+.ai-start { padding: 25px; border: 1px solid #c8d5cc; background: white; border-radius: 4px; }
+.ai-start .eyebrow { font-size: 10px; }
+.ai-start h2 { font-size: 19px; line-height: 1.7; }
+.ai-start ol { list-style: decimal-leading-zero; padding-left: 27px; margin-block: 19px; font-size: 13px; color: var(--ink); }
+.ai-start li { padding-left: 6px; line-height: 1.85; }
+.ai-start li + li { margin-top: 9px; }
+.ai-start li::marker { color: var(--accent); font-size: 11px; }
+.ai-start > p:last-child { font-size: 12px; line-height: 1.85; border-top: 1px solid var(--line); padding-top: 16px; }
+.ai-service-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
+.ai-card { padding: 25px; border: 1px solid var(--line); border-radius: 4px; display: flex; flex-direction: column; }
+.ai-card .small-number { margin-bottom: 13px; font-size: 10px; }
+.ai-card h3 { font-size: 18px; line-height: 1.7; margin-bottom: 14px; }
+.ai-card ul { padding-left: 18px; color: #465551; font-size: 13px; line-height: 1.9; margin-bottom: 22px; }
+.ai-card li + li { margin-top: 11px; }
+.ai-card li::marker { color: var(--accent); }
+.ai-deliverable { margin-top: auto; border-top: 1px solid var(--line); padding-top: 17px; font-size: 12px; line-height: 1.85; }
+.ai-deliverable strong { display: block; font-weight: 600; color: var(--accent); margin-bottom: 6px; }
+.ai-scope-note { margin-top: 26px; padding: 23px 25px; border-left: 2px solid var(--accent); background: var(--wash); }
+.ai-scope-note h3 { font-size: 16px; margin-bottom: 9px; }
+.ai-scope-note p { font-size: 13px; line-height: 1.9; max-width: 1000px; }
+.ai-references { padding-block: 30px; border-top: 1px solid var(--line); }
+.ai-references h2 { font-size: 19px; margin-bottom: 16px; }
+.ai-source-links { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 22px; }
+.ai-source-links a { display: flex; justify-content: space-between; align-items: flex-start; gap: 15px; font-size: 12px; line-height: 1.85; color: var(--accent); padding-block: 6px 12px; min-height: 44px; }
+.ai-source-links a:hover { text-decoration: underline; text-underline-offset: 4px; }
+.ai-references .text-link { margin-top: 12px; font-size: 12px; }
+@media (max-width: 850px) {
+  .ai-hero-grid { gap: 28px; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); }
+  .ai-start, .ai-card { padding: 21px; }
+  .ai-card h3 { font-size: 17px; }
+}
+@media (max-width: 620px) {
+  .ai-hero-grid, .ai-service-grid, .ai-source-links { grid-template-columns: 1fr; }
+  .ai-hero h1 { font-size: 27px; }
+  .ai-hero .hero-actions { gap: 12px; }
+  .ai-hero-grid { gap: 23px; }
+  .ai-service-grid { gap: 15px; }
+  .ai-card, .ai-scope-note { padding: 21px; }
+  .ai-card ul { font-size: 14px; }
+  .ai-deliverable { font-size: 13px; }
+  .ai-source-links { gap: 5px; }
+  .ongoing-detail > summary { padding: 17px 20px; font-size: 13px; gap: 15px; }
+  .ongoing-body { padding: 0 20px 20px; }
+}
+
 /* Client needs replace the biographical strip above the services. */
 [hidden] { display: none !important; }
 .client-needs { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 28px; border-top: 1px solid var(--line); padding-block: 24px 27px; }

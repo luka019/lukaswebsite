@@ -1,4 +1,4 @@
-# Shakhkulashvili Legal
+# Digital Law & Advisory
 
 Bilingual technology and digital law practice website founded by Luka Shakhkulashvili.
 
@@ -17,6 +17,7 @@ GitHub Pages publishes `main` from the repository root. Its built-in Jekyll buil
 - `_config.yml`, `_layouts/`, `_includes/`: GitHub Pages/Jekyll resource and article layouts.
 - `_data/`: official-source catalogue and topic labels.
 - `resources/`: resource hub, search and filters.
+- `services/ai/index.html`: bilingual AI legal services, delivered through the shared Jekyll layout.
 - `_drafts/article-template.md`: unpublished authoring template.
 - `PUBLISHING.md`: Georgian publishing instructions.
 
@@ -61,13 +62,17 @@ Documentation:
 
 Technology and digital law is the primary practice: technology contracts, AI and data protection, information security law, digital products and intellectual property, fintech and cryptoassets, and LegalTech/contract management.
 
+The AI page covers systems and legal roles, governance and AI-agent permissions, data and intellectual property, vendor contracts, product launches, training and ongoing support. Its enquiry link carries the AI service selection to the home-page form.
+
+The expanded scope includes day-to-day legal support for group companies and digital platforms, as well as legal documentation, governance, supervisory engagement and ongoing support for asset managers and investment funds. The supplied TNET and legal-counsel job descriptions inform service coverage only; neither is presented as an employer or credential of the founder.
+
 Supporting services cover corporate and banking documentation, employment, investment funds and asset management, disputes, international business, residence, citizenship and foreign employment. Tax services have been removed.
 
 The resource hub includes bilingual search, topic and format filters, honest empty states, shareable filter URLs and six official-source links. No authored articles have been fabricated. Markdown posts added to `_posts/` are rendered with their own article pages and added to the hub automatically. Full instructions: [PUBLISHING.md](PUBLISHING.md). Article body language is explicitly identified; it is not machine-translated when the interface language changes.
 
 The founder's profile highlights London education, Chevening, BDO Legal, public-sector experience and the two years of LegalStepy involvement and CLO responsibilities described by the founder. Team support is described by expertise; Luka is the only individually featured professional.
 
-**Shakhkulashvili Legal** is the website's working brand. This website update does not establish a registered company or confirm trade-name, trademark or domain availability. The footer identifies Luka Shakhkulashvili as the person with whom services are agreed.
+**Digital Law & Advisory** is the website's working brand. This website update does not establish a registered company or confirm trade-name, trademark or domain availability. The footer identifies Luka Shakhkulashvili as the person with whom services are agreed.
 
 University and employer references describe experience, not endorsements. The LLM is described as a programme/studies without an unconfirmed award date. There are no invented client logos, testimonials, headcounts, addresses, fees or response-time guarantees. Banking and regulatory outcomes are not guaranteed. Foreign-law and technical work are scoped with appropriately qualified specialists.
 
@@ -100,6 +105,12 @@ Descriptions avoid fixed thresholds, rates and application deadlines. Primary re
 - VASP framework: https://nbg.gov.ge/en/page/virtual-asset-service-providers-vasps
 - Payment service providers: https://nbg.gov.ge/en/page/payment-service-providers
 - Investment funds: https://nbg.gov.ge/en/page/investment-funds
+- AI Act overview: https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai
+- AI literacy: https://digital-strategy.ec.europa.eu/en/faqs/ai-literacy-questions-answers
+- NIS2: https://digital-strategy.ec.europa.eu/en/policies/nis2-directive
+- DORA: https://www.eiopa.europa.eu/digital-operational-resilience-act-dora_en
+- Digital Services Act: https://digital-strategy.ec.europa.eu/en/policies/digital-services-act-package
+- Georgian data protection: https://matsne.gov.ge/ka/document/view/5827307
 
 Check the current rules and individual circumstances for each engagement.
 

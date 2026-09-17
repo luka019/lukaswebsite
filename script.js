@@ -8,7 +8,7 @@
     ...Array.from(document.querySelectorAll("[data-en-aria]")).map(element => ({ element, attribute: "aria-label", ka: element.getAttribute("aria-label"), en: element.dataset.enAria })),
     ...Array.from(document.querySelectorAll("[data-en-alt]")).map(element => ({ element, attribute: "alt", ka: element.getAttribute("alt"), en: element.dataset.enAlt }))
   ];
-  const titles = { ka: "Shakhkulashvili Legal — ტექნოლოგიური და ციფრული სამართალი", en: "Shakhkulashvili Legal — Technology & Digital Law" };
+  const titles = { ka: "Digital Law & Advisory — ტექნოლოგიური და ციფრული სამართალი", en: "Digital Law & Advisory — Technology & Digital Law" };
   const descriptions = {
     ka: "ტექნოლოგიური და ციფრული სამართალი, მონაცემთა დაცვა, ფინანსური რეგულირება და ბიზნესის იურიდიული მომსახურება. დამფუძნებელი — ლუკა შახყულაშვილი.",
     en: "Technology and digital law, data protection, financial regulation and business legal support in Georgia. Founded by Luka Shakhkulashvili."
@@ -90,6 +90,7 @@
     const pageTitle = document.body.dataset[currentLanguage === "en" ? "titleEn" : "titleKa"];
     const pageDescription = document.body.dataset[currentLanguage === "en" ? "descriptionEn" : "descriptionKa"];
     document.title = pageTitle || titles[currentLanguage];
+    document.querySelector('meta[property="og:title"]')?.setAttribute("content", document.title);
     document.querySelector('meta[name="description"]').setAttribute("content", pageDescription || descriptions[currentLanguage]);
     document.querySelector('meta[property="og:description"]').setAttribute("content", pageDescription || descriptions[currentLanguage]);
     updateMenuLabel();
@@ -142,6 +143,10 @@
   openLinkedPrivacy();
   window.addEventListener("hashchange", openLinkedPrivacy);
   if (!form) return;
+  const requestedService = new URLSearchParams(window.location.search).get("service");
+  if ([...form.elements.service.options].some(option => option.value === requestedService)) {
+    form.elements.service.value = requestedService;
+  }
 
   // Native HTML validation remains available when JavaScript is disabled.
   form.noValidate = true;
@@ -174,7 +179,7 @@
       language: currentLanguage,
       consent: form.elements.consent.closest("label").textContent.trim(),
       privacy_notice_version: "2026-09-17",
-      _subject: "Shakhkulashvili Legal — website enquiry",
+      _subject: "Digital Law & Advisory — website enquiry",
       _template: "table",
       _honey: ""
     };
