@@ -395,3 +395,159 @@ details[open] > summary .plus { transform: rotate(45deg); }
   .contact-section { background: white; color: var(--ink); }
   .contact-section p { color: var(--muted) !important; }
 }
+
+/* September 2026: firm identity, real founder portrait and enquiries. */
+.brand-wordmark { display: grid; gap: 5px; line-height: 1.05; }
+.brand-wordmark > span:first-child { font-size: 13px; font-weight: 600; letter-spacing: .065em; }
+.brand-wordmark > span:last-child { font-size: 10px; font-weight: 500; letter-spacing: .25em; color: var(--accent); }
+.header-inner { gap: 25px; }
+.site-nav { gap: 22px; }
+.service-result { padding-top: 17px; margin-top: 18px; border-top: 1px solid var(--line); }
+.service-result strong { display: block; color: var(--accent); font-size: 12px; font-weight: 600; margin-bottom: 6px; }
+.service-result > span { display: block; font-size: 13px; line-height: 1.85; }
+.service-enquiry { margin-top: 13px; font-size: 12px; }
+.business-detail > .service-enquiry { font-size: 13px; }
+.founder-card { padding: 0; min-height: 0; background: #fff; overflow: hidden; align-self: start; }
+.founder-photo { width: 100%; height: auto; aspect-ratio: 1; object-fit: contain; background: white; }
+.founder-card-copy { padding: 23px 26px 24px; border-top: 1px solid var(--line); background: var(--wash); }
+.founder-card h2 { font-size: 24px; }
+.founder-card .text-link { padding-top: 13px; margin-top: 17px; width: 100%; justify-content: space-between; }
+.founder-role { font-size: 13px; line-height: 1.8; }
+.about-grid { grid-template-columns: .88fr 1.5fr; gap: 60px; }
+.about-copy > h3 { font-size: 26px; }
+.legalstepy-experience { border-left: 3px solid var(--accent); background: #f2f6f3; padding: 18px 21px; margin-top: 24px; }
+.experience-kicker { display: block; color: var(--accent); font-size: 13px; font-weight: 600; margin-bottom: 5px; }
+.legalstepy-experience h4 { font-size: 15px; line-height: 1.7; font-weight: 600; margin: 0 0 9px; }
+.legalstepy-experience p { font-size: 14px; line-height: 1.9; }
+.engagement-heading { padding-top: 30px; margin-top: 34px; border-top: 1px solid var(--line); display: flex; gap: 30px; align-items: baseline; justify-content: space-between; }
+.engagement-heading h3 { font-size: 19px; }
+.engagement-heading > p { font-size: 13px; max-width: 450px; line-height: 1.85; }
+.engagement-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 16px; margin-top: 22px; }
+.engagement-grid article { background: white; border: 1px solid var(--line); border-radius: 4px; padding: 21px; display: flex; flex-direction: column; }
+.engagement-number { color: var(--accent); font-size: 11px; margin-bottom: 10px; }
+.engagement-grid h4 { margin: 0 0 10px; font-size: 16px; line-height: 1.7; font-weight: 600; }
+.engagement-grid p { font-size: 13px; line-height: 1.85; margin-bottom: 12px; }
+.engagement-grid .text-link { margin-top: auto; font-size: 12px; justify-content: space-between; }
+.faq-section { border-top: 1px solid var(--line); }
+.faq-grid { display: grid; grid-template-columns: 1fr 1.65fr; gap: 70px; }
+.faq-intro { font-size: 14px; margin-top: 14px; line-height: 1.8; max-width: 350px; }
+.faq-list details { border-top: 1px solid var(--line); }
+.faq-list details:last-child { border-bottom: 1px solid var(--line); }
+.faq-list summary { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 19px 0; font-size: 15px; font-weight: 500; line-height: 1.75; }
+.faq-list summary:hover { color: var(--accent); }
+.faq-list details > p { font-size: 14px; line-height: 1.9; padding: 0 28px 22px 0; }
+
+.contact-section { padding-block: 52px; }
+.contact-inner { grid-template-columns: .9fr 1.25fr; align-items: start; gap: 66px; }
+.contact-copy { padding-top: 12px; min-width: 0; }
+.contact-email { display: inline-flex; align-items: center; gap: 12px; padding-block: 12px; margin-top: 21px; font-size: 17px; line-height: 1.5; overflow-wrap: anywhere; }
+.contact-email .icon { width: 18px; height: 18px; }
+.contact-email:hover { text-decoration: underline; text-underline-offset: 5px; }
+.contact-section .contact-meta { font-size: 12px !important; line-height: 1.8; color: #c5d9cb; margin-top: 8px !important; }
+.contact-expectation { border-top: 1px solid #537362; padding-top: 24px; margin-top: 27px; }
+.contact-expectation > span { color: #d7e7dc; font-size: 13px; font-weight: 500; }
+.contact-section .contact-expectation > p { font-size: 13px; line-height: 1.9; margin-top: 10px; }
+.enquiry-form { background: #fff; border-radius: 6px; border: 1px solid #fff; padding: 28px; color: var(--ink); min-width: 0; box-shadow: 0 14px 32px rgba(5,25,18,.12); }
+.enquiry-form h3 { color: var(--ink); font-size: 21px; margin-bottom: 6px; }
+.contact-section .enquiry-form p { color: var(--muted); max-width: none; margin: 0; font-size: 12px; line-height: 1.8; }
+.contact-section .enquiry-form .form-intro { font-size: 11px; margin-bottom: 20px; }
+.form-row { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 15px; }
+.form-field { margin-bottom: 15px; min-width: 0; }
+.form-field > label { display: block; font-size: 13px; line-height: 1.65; font-weight: 500; margin-bottom: 7px; }
+.optional { font-size: 11px; font-weight: 400; color: var(--muted); }
+.form-field input, .form-field select, .form-field textarea { width: 100%; border: 1px solid #9faea5; border-radius: 3px; background: #fff; color: var(--ink); font: inherit; font-size: 14px; line-height: 1.6; padding: 10px 12px; min-height: 45px; }
+.form-field select { padding-right: 25px; text-overflow: ellipsis; }
+.form-field textarea { resize: vertical; min-height: 112px; max-height: 450px; }
+.form-field input:hover, .form-field select:hover, .form-field textarea:hover { border-color: #688073; }
+.form-field input:focus-visible, .form-field select:focus-visible, .form-field textarea:focus-visible, .form-consent input:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+.form-field [aria-invalid="true"] { border-color: #a32b31; }
+.field-hint { display: block; font-size: 11px; line-height: 1.85; color: var(--muted); margin-top: 6px; }
+.field-error { display: block; font-size: 12px; line-height: 1.7; color: #a0212a; margin-top: 5px; }
+.field-error:empty { display: none; }
+.form-consent { margin: 2px 0 19px; font-size: 12px; line-height: 1.8; }
+.form-consent > label { display: flex; align-items: flex-start; gap: 10px; cursor: pointer; min-height: 44px; }
+.form-consent input { width: 18px; height: 18px; flex: 0 0 18px; margin: 4px 0 0; accent-color: var(--accent); }
+.form-consent > a { display: inline-flex; color: var(--accent); text-decoration: underline; text-underline-offset: 3px; margin-left: 28px; min-height: 34px; align-items: center; }
+.form-honey { display: none; }
+.form-submit { width: 100%; justify-content: space-between; min-height: 48px; }
+.form-submit[disabled] { opacity: .75; cursor: wait; }
+.form-status { font-size: 13px; line-height: 1.9; background: #edf5ee; border: 1px solid #9ebda9; border-radius: 3px; color: #24533c; padding: 13px 15px; margin-bottom: 15px; }
+.form-status[data-state="error"], .form-status[data-state="inactive"], .form-status[data-state="invalid"] { background: #fff4f3; border-color: #d4a49e; color: #85292d; }
+.form-status:focus { outline: 2px solid var(--accent); outline-offset: 3px; }
+.contact-section .enquiry-form .form-footnote { font-size: 10px; margin-top: 11px; }
+.footer-top .brand-wordmark > span:first-child { font-size: 11px; }
+.footer-top .brand-wordmark > span:last-child { font-size: 9px; }
+.privacy-details p + p { margin-top: 12px; }
+.privacy-details { scroll-margin-top: 95px; }
+.privacy-links { column-gap: 14px; }
+
+@media (max-width: 1100px) {
+  .header-inner { gap: 19px; }
+  .site-nav { gap: 18px; }
+  .brand-wordmark > span:first-child { font-size: 12px; }
+  .contact-inner { gap: 38px; grid-template-columns: .85fr 1.25fr; }
+  .contact-email { font-size: 15px; }
+  .about-grid { gap: 40px; }
+  .faq-grid { gap: 40px; }
+}
+@media (max-width: 850px) {
+  .about-grid { gap: 28px; grid-template-columns: .9fr 1.4fr; }
+  .founder-card h2 { font-size: 21px; }
+  .founder-card-copy { padding: 20px; }
+  .about-copy > h3 { font-size: 24px; }
+  .legalstepy-experience { padding: 16px 18px; }
+  .legalstepy-experience p { font-size: 13px; }
+  .engagement-grid { gap: 12px; }
+  .engagement-grid article { padding: 17px; }
+  .engagement-grid h4 { font-size: 15px; }
+  .engagement-heading { display: block; }
+  .engagement-heading > p { margin-top: 10px; max-width: none; }
+  .faq-grid { grid-template-columns: 1fr 1.5fr; gap: 28px; }
+  .contact-inner { grid-template-columns: 1fr; gap: 26px; }
+  .contact-copy { padding: 0; }
+  .contact-section .contact-copy > p { max-width: 600px; }
+  .contact-email { font-size: 17px; margin-top: 15px; }
+  .contact-expectation { display: none; }
+  .enquiry-form { max-width: 660px; width: 100%; }
+}
+@media (max-width: 620px) {
+  .header-inner { gap: 8px; }
+  .brand-wordmark { gap: 4px; }
+  .brand-wordmark > span:first-child { font-size: 10px; letter-spacing: .025em; }
+  .brand-wordmark > span:last-child { font-size: 9px; letter-spacing: .2em; }
+  .about-grid { grid-template-columns: 1fr; }
+  .founder-card { max-width: 430px; width: 100%; margin-inline: auto; }
+  .founder-card-copy { padding: 22px; }
+  .founder-card h2 { font-size: 25px; }
+  .about-copy > h3 { font-size: 24px; }
+  .legalstepy-experience p { font-size: 14px; }
+  .engagement-grid { grid-template-columns: 1fr; gap: 12px; }
+  .engagement-grid article { padding: 21px; }
+  .engagement-grid h4 { font-size: 17px; }
+  .engagement-grid p { font-size: 14px; }
+  .engagement-grid .text-link { font-size: 13px; }
+  .faq-grid { grid-template-columns: 1fr; gap: 24px; }
+  .faq-list summary { font-size: 14px; padding-block: 17px; }
+  .faq-list details > p { padding-right: 12px; }
+  .contact-section { padding-block: 35px; }
+  .enquiry-form { padding: 21px 18px; }
+  .form-row { grid-template-columns: 1fr; gap: 0; }
+  .form-field input, .form-field select, .form-field textarea { font-size: 16px; }
+  .form-field > label { font-size: 13px; }
+  .form-consent { font-size: 12px; }
+  .contact-email { font-size: 16px; gap: 9px; }
+  .contact-section .enquiry-form .form-footnote { font-size: 11px; }
+  .footer-top > p { max-width: 190px; font-size: 10px; }
+}
+@media (max-width: 359px) {
+  .brand-wordmark > span:first-child { font-size: 9px; }
+  .header-controls { gap: 0; }
+  .language-control button { width: 33px; }
+  .enquiry-form { padding-inline: 15px; }
+  .contact-email { font-size: 14px; }
+}
+@media print {
+  .enquiry-form, .service-enquiry { display: none; }
+.contact-email { color: var(--ink); }
+}
+.contact-section .enquiry-form :focus-visible { outline-color: var(--accent); }
