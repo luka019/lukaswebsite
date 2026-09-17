@@ -1,0 +1,32 @@
+title: Shakhkulashvili Legal
+url: https://luka019.github.io
+baseurl: /lukaswebsite
+markdown: kramdown
+highlighter: rouge
+permalink: /resources/:title/
+future: false
+show_drafts: false
+exclude:
+  - README.md
+  - PUBLISHING.md
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - upload
+  - preview-desktop.png
+  - preview-english.png
+  - preview-founder.png
+  - preview-contact.png
+  - preview-full.png
+  - preview-mobile.png
+  - preview-mobile-full.png
+  - luka-law-github-pages.zip
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: article
+      lang: ka
+      format: blog
+      topic: business

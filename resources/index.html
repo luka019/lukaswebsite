@@ -1,0 +1,47 @@
+---
+layout: resource-shell
+title: "რესურსები"
+title_en: "Resource hub"
+description: "ბლოგი, პრაქტიკული გზამკვლევები და ოფიციალური წყაროები ტექნოლოგიების, მონაცემთა დაცვისა და ბიზნესის სამართლებრივ საკითხებზე."
+description_en: "Articles, practical guides and official sources on technology, data protection and business law."
+permalink: /resources/
+---
+<main id="main">
+  <section class="resource-hero">
+    <div class="container"><a class="resource-back" href="{{ '/' | relative_url }}" data-site-link data-en="← Home">← მთავარი</a><p class="eyebrow" data-en="RESOURCE HUB">რესურსები</p><h1 data-en="Law, explained for business.">სამართალი ბიზნესისთვის — გასაგებად.</h1><p class="resource-hero-description" data-en="Articles, practical guides and official sources on technology and business law. Find a topic that matters to your business.">ბლოგი, პრაქტიკული გზამკვლევები და ოფიციალური წყაროები ტექნოლოგიებისა და ბიზნესის სამართლებრივ საკითხებზე. იპოვეთ თქვენი საქმიანობისთვის საინტერესო თემა.</p></div>
+  </section>
+  <section class="resource-library section" aria-label="რესურსების კატალოგი" data-en-aria="Resource catalogue">
+    <div class="container">
+      <div class="resource-controls" id="resource-controls" hidden>
+        <div class="resource-search-row"><div class="resource-search"><label for="resource-search" data-en="Search resources">მოძებნეთ რესურსი</label><input type="search" id="resource-search" name="q" maxlength="120" placeholder="თემა ან საკვანძო სიტყვა" data-en-placeholder="Topic or keyword" autocomplete="off"></div><div class="resource-topic"><label for="resource-topic" data-en="Topic">თემა</label><select id="resource-topic"><option value="all" data-en="All topics">ყველა თემა</option>{% for topic in site.data.topics %}<option value="{{ topic[0] }}" data-en="{{ topic[1].en | escape }}">{{ topic[1].ka }}</option>{% endfor %}</select></div></div>
+        <div class="resource-filter-row"><div class="resource-tabs" role="group" aria-label="მასალის ტიპი" data-en-aria="Resource type"><button type="button" data-resource-type="all" aria-pressed="true" data-en="All resources">ყველა</button><button type="button" data-resource-type="blog" aria-pressed="false" data-en="Blog">ბლოგი</button><button type="button" data-resource-type="guide" aria-pressed="false" data-en="Guides">გზამკვლევები</button><button type="button" data-resource-type="source" aria-pressed="false" data-en="Official sources">ოფიციალური წყაროები</button></div><p id="resource-count" class="resource-count" role="status" aria-live="polite"></p></div>
+      </div>
+      <div class="resource-grid" id="resource-grid">
+        {% for post in site.posts %}
+        {% assign topic = site.data.topics[post.topic] %}
+        <article class="resource-card" data-resource-card data-kind="{{ post.format | default: 'blog' }}" data-topic="{{ post.topic | default: 'business' }}" data-search="{{ post.title | escape }} {{ post.title_en | escape }} {{ post.summary | escape }} {{ post.summary_en | escape }} {{ post.tags | join: ' ' | escape }}">
+          <div class="resource-card-top"><span class="resource-mark" aria-hidden="true">{% if post.format == 'guide' %}↗{% else %}¶{% endif %}</span><span class="resource-type" data-en="{% if post.format == 'guide' %}GUIDE{% else %}BLOG{% endif %}">{% if post.format == 'guide' %}გზამკვლევი{% else %}ბლოგი{% endif %}</span></div>
+          <p class="resource-topic-label" data-en="{{ topic.en | default: 'Business' | escape }}">{{ topic.ka | default: 'ბიზნესი' }}</p>
+          <h2><a href="{{ post.url | relative_url }}" data-site-link{% if post.title_en %} data-en="{{ post.title_en | escape }}"{% endif %}>{{ post.title }}</a></h2>
+          <p class="resource-summary"{% if post.summary_en %} data-en="{{ post.summary_en | escape }}"{% endif %}>{{ post.summary }}</p>
+          <div class="resource-card-bottom"><time datetime="{{ post.date | date: '%Y-%m-%d' }}">{{ post.date | date: '%d.%m.%Y' }}</time><span>{% if post.lang == 'en' %}English{% else %}<span data-en="Georgian">ქართული</span>{% endif %}<span aria-hidden="true"> ↗</span></span></div>
+        </article>
+        {% endfor %}
+        {% for item in site.data.resources %}
+        {% assign topic = site.data.topics[item.topic] %}
+        <article class="resource-card" data-resource-card data-kind="source" data-topic="{{ item.topic }}" data-search="{{ item.title | escape }} {{ item.title_en | escape }} {{ item.summary | escape }} {{ item.summary_en | escape }} {{ item.publisher | escape }} {{ item.publisher_en | escape }}">
+          <div class="resource-card-top"><span class="resource-mark" aria-hidden="true">{{ item.mark }}</span><span class="resource-type" data-en="OFFICIAL SOURCE">ოფიციალური წყარო</span></div>
+          <p class="resource-topic-label" data-en="{{ topic.en | escape }}">{{ topic.ka }}</p>
+          <h2><a href="{{ item.url }}" target="_blank" rel="noopener noreferrer" data-en="{{ item.title_en | escape }}">{{ item.title }}</a></h2>
+          <p class="resource-summary" data-en="{{ item.summary_en | escape }}">{{ item.summary }}</p>
+          <p class="resource-publisher" data-en="{{ item.publisher_en | escape }}">{{ item.publisher }}</p>
+          <div class="resource-card-bottom"><span data-en="{{ item.scope_en | escape }}">{{ item.scope }}</span><span aria-hidden="true">↗</span></div>
+        </article>
+        {% endfor %}
+      </div>
+      <div class="resource-empty" id="resource-empty" hidden><h2 id="resource-empty-title"></h2><p id="resource-empty-description"></p><button type="button" class="button button-primary" id="resource-reset" data-en="Show all resources">ყველა რესურსის ნახვა</button></div>
+      <p class="resource-source-note" data-en="Official-source links open on the issuing organisation’s website. They are separate from our own articles and commentary.">ოფიციალური წყაროების ბმულები შესაბამისი ორგანიზაციის ვებგვერდზე გადაგიყვანთ. ისინი ჩვენი ავტორობით გამოქვეყნებული სტატიებისა და განმარტებებისგან ცალკეა გამოყოფილი.</p>
+    </div>
+  </section>
+  <section class="resource-help"><div class="container"><div><h2 data-en="Have a question about your business?">თქვენს საქმიანობაზე კითხვა გაქვთ?</h2><p data-en="Tell us about your matter and we’ll discuss the next steps.">მოგვწერეთ საკითხის შესახებ და შევთანხმდეთ შემდეგ ნაბიჯებზე.</p></div><a class="button button-primary" href="{{ '/' | relative_url }}#contact" data-site-link data-en="Get in touch">დაგვიკავშირდით</a></div></section>
+</main>

@@ -1,0 +1,80 @@
+[
+  {
+    "mark": "GE",
+    "publisher": "საქართველოს საკანონმდებლო მაცნე",
+    "publisher_en": "Legislative Herald of Georgia",
+    "scope": "საქართველო",
+    "scope_en": "Georgia",
+    "summary": "საქართველოს კანონი: მონაცემთა დამუშავების წესები, უფლებები და ორგანიზაციების ვალდებულებები.",
+    "summary_en": "Georgia’s law on data processing, individual rights and organisational duties.",
+    "title": "პერსონალურ მონაცემთა დაცვა საქართველოში",
+    "title_en": "Personal data protection in Georgia",
+    "topic": "ai-data",
+    "url": "https://matsne.gov.ge/ka/document/view/5827307"
+  },
+  {
+    "mark": "AI",
+    "publisher": "EUR-Lex",
+    "publisher_en": "EUR-Lex",
+    "scope": "ევროკავშირი",
+    "scope_en": "European Union",
+    "summary": "AI Act-ის ოფიციალური ტექსტი EUR-Lex-ზე.",
+    "summary_en": "The official text of the AI Act on EUR-Lex.",
+    "title": "ევროკავშირის აქტი ხელოვნური ინტელექტის შესახებ",
+    "title_en": "EU Artificial Intelligence Act",
+    "topic": "ai-data",
+    "url": "https://eur-lex.europa.eu/eli/reg/2024/1689/oj/eng"
+  },
+  {
+    "mark": "IS",
+    "publisher": "საქართველოს საკანონმდებლო მაცნე",
+    "publisher_en": "Legislative Herald of Georgia",
+    "scope": "საქართველო",
+    "scope_en": "Georgia",
+    "summary": "ინფორმაციული უსაფრთხოების შესახებ საქართველოს კანონის ოფიციალური ტექსტი.",
+    "summary_en": "The official text of Georgia’s Law on Information Security.",
+    "title": "ინფორმაციული უსაფრთხოება საქართველოში",
+    "title_en": "Information security in Georgia",
+    "topic": "security",
+    "url": "https://matsne.gov.ge/ka/document/view/1679424"
+  },
+  {
+    "mark": "VA",
+    "publisher": "საქართველოს ეროვნული ბანკი",
+    "publisher_en": "National Bank of Georgia",
+    "scope": "საქართველო",
+    "scope_en": "Georgia",
+    "summary": "საქართველოს ეროვნული ბანკის ინფორმაცია VASP-ის რეგისტრაციისა და ზედამხედველობის შესახებ.",
+    "summary_en": "National Bank of Georgia information on VASP registration and supervision.",
+    "title": "ვირტუალური აქტივის მომსახურების პროვაიდერები",
+    "title_en": "Virtual asset service providers",
+    "topic": "fintech",
+    "url": "https://nbg.gov.ge/en/page/virtual-asset-service-providers-vasps"
+  },
+  {
+    "mark": "EU",
+    "publisher": "EUR-Lex",
+    "publisher_en": "EUR-Lex",
+    "scope": "ევროკავშირი",
+    "scope_en": "European Union",
+    "summary": "GDPR-ის ოფიციალური ტექსტი EUR-Lex-ზე.",
+    "summary_en": "The official text of the GDPR on EUR-Lex.",
+    "title": "პერსონალურ მონაცემთა დაცვა ევროკავშირში",
+    "title_en": "EU General Data Protection Regulation",
+    "topic": "ai-data",
+    "url": "https://eur-lex.europa.eu/eli/reg/2016/679/oj/eng"
+  },
+  {
+    "mark": "IF",
+    "publisher": "საქართველოს ეროვნული ბანკი",
+    "publisher_en": "National Bank of Georgia",
+    "scope": "საქართველო",
+    "scope_en": "Georgia",
+    "summary": "საქართველოს ეროვნული ბანკის ინფორმაცია საინვესტიციო ფონდებისა და მათი რეგულირების შესახებ.",
+    "summary_en": "National Bank of Georgia information on investment funds and their regulation.",
+    "title": "საინვესტიციო ფონდები",
+    "title_en": "Investment funds",
+    "topic": "fintech",
+    "url": "https://nbg.gov.ge/en/page/investment-funds"
+  }
+]

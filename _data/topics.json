@@ -1,0 +1,22 @@
+{
+  "ai-data": {
+    "en": "AI & data",
+    "ka": "ხელოვნური ინტელექტი და მონაცემები"
+  },
+  "business": {
+    "en": "Business & international matters",
+    "ka": "ბიზნესი და საერთაშორისო საქმიანობა"
+  },
+  "contracts": {
+    "en": "Contracts & LegalTech",
+    "ka": "ხელშეკრულებები და LegalTech"
+  },
+  "fintech": {
+    "en": "Finance & cryptoassets",
+    "ka": "ფინანსები და კრიპტოაქტივები"
+  },
+  "security": {
+    "en": "Information security",
+    "ka": "ინფორმაციული უსაფრთხოება"
+  }
+}

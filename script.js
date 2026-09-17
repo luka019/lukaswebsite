@@ -18,8 +18,8 @@
   const mobileQuery = window.matchMedia("(max-width: 850px)");
   const form = document.getElementById("enquiry-form");
   const statusElement = document.getElementById("form-status");
-  const submitButton = form.querySelector('[type="submit"]');
-  const submitLabel = form.querySelector("[data-submit-label]");
+  const submitButton = form?.querySelector('[type="submit"]');
+  const submitLabel = form?.querySelector("[data-submit-label]");
   const fieldIds = { name: "enquiry-name", email: "enquiry-email", message: "enquiry-message", consent: "enquiry-consent" };
   let currentLanguage = "ka";
   let formState = "idle";
@@ -50,6 +50,7 @@
   };
 
   function renderForm() {
+    if (!form) return;
     const copy = formCopy[currentLanguage];
     const sending = formState === "sending";
     submitButton.disabled = sending;
@@ -86,11 +87,21 @@
     textNodes.forEach(({ element, ka, en }) => { element.textContent = currentLanguage === "en" ? en : ka; });
     translatedAttributes.forEach(({ element, attribute, ka, en }) => element.setAttribute(attribute, currentLanguage === "en" ? en : ka));
     languageButtons.forEach(button => button.setAttribute("aria-pressed", String(button.dataset.language === currentLanguage)));
-    document.title = titles[currentLanguage];
-    document.querySelector('meta[name="description"]').setAttribute("content", descriptions[currentLanguage]);
-    document.querySelector('meta[property="og:description"]').setAttribute("content", descriptions[currentLanguage]);
+    const pageTitle = document.body.dataset[currentLanguage === "en" ? "titleEn" : "titleKa"];
+    const pageDescription = document.body.dataset[currentLanguage === "en" ? "descriptionEn" : "descriptionKa"];
+    document.title = pageTitle || titles[currentLanguage];
+    document.querySelector('meta[name="description"]').setAttribute("content", pageDescription || descriptions[currentLanguage]);
+    document.querySelector('meta[property="og:description"]').setAttribute("content", pageDescription || descriptions[currentLanguage]);
     updateMenuLabel();
     renderForm();
+    document.querySelectorAll("[data-site-link]").forEach(link => {
+      const url = new URL(link.getAttribute("href"), window.location.href);
+      if (url.origin === window.location.origin) {
+        url.searchParams.set("lang", currentLanguage);
+        link.href = url.pathname + url.search + url.hash;
+      }
+    });
+    document.dispatchEvent(new CustomEvent("site:language", { detail: { language: currentLanguage } }));
     if (persist) {
       try { localStorage.setItem(storageKey, currentLanguage); } catch { /* The site works without storage. */ }
       const url = new URL(window.location.href);
@@ -98,8 +109,8 @@
       try { window.history.replaceState(null, "", url); } catch { /* Allows local file previews. */ }
     }
   }
-  let preferredLanguage = "ka";
-  try { preferredLanguage = localStorage.getItem(storageKey) || "ka"; } catch { /* Use the default. */ }
+  let preferredLanguage = document.body.dataset.defaultLanguage || "ka";
+  try { preferredLanguage = localStorage.getItem(storageKey) || preferredLanguage; } catch { /* Use the default. */ }
   const queryLanguage = new URLSearchParams(window.location.search).get("lang");
   if (queryLanguage === "ka" || queryLanguage === "en") preferredLanguage = queryLanguage;
   setLanguage(preferredLanguage);
@@ -113,16 +124,24 @@
   document.addEventListener("click", event => {
     if (!event.target.closest(".site-header")) setMenu(false);
     const serviceLink = event.target.closest("[data-enquiry]");
-    if (serviceLink) {
+    if (serviceLink && form) {
       const value = serviceLink.dataset.enquiry;
       if ([...form.elements.service.options].some(option => option.value === value)) form.elements.service.value = value;
       if (formState !== "sending") setFormState("idle");
     }
-    if (event.target.closest("[data-open-privacy]")) document.getElementById("privacy").open = true;
+    if (event.target.closest("[data-open-privacy]") && document.getElementById("privacy")) document.getElementById("privacy").open = true;
   });
   document.addEventListener("focusin", event => { if (mobileQuery.matches && !event.target.closest(".site-header")) setMenu(false); });
   mobileQuery.addEventListener("change", () => setMenu(false));
   document.getElementById("year").textContent = String(new Date().getFullYear());
+
+  function openLinkedPrivacy() {
+    const notice = document.getElementById("privacy");
+    if (notice && window.location.hash === "#privacy") notice.open = true;
+  }
+  openLinkedPrivacy();
+  window.addEventListener("hashchange", openLinkedPrivacy);
+  if (!form) return;
 
   // Native HTML validation remains available when JavaScript is disabled.
   form.noValidate = true;

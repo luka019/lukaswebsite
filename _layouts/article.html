@@ -1,0 +1,12 @@
+---
+layout: resource-shell
+---
+<main id="main">
+  <article class="article-page container">
+    <a class="resource-back" href="{{ '/resources/' | relative_url }}" data-site-link data-en="← All resources">← ყველა რესურსი</a>
+    {% assign topic = site.data.topics[page.topic] %}
+    <header class="article-header"><p class="eyebrow" data-en="{{ topic.en | default: 'BUSINESS LAW' | escape }}">{{ topic.ka | default: 'ბიზნესის სამართალი' }}</p><h1{% if page.title_en %} data-en="{{ page.title_en | escape }}"{% endif %}>{{ page.title }}</h1><p class="article-summary"{% if page.summary_en %} data-en="{{ page.summary_en | escape }}"{% endif %}>{{ page.summary }}</p><div class="article-meta"><span>{{ page.author | default: 'ლუკა შახყულაშვილი' }}</span><time datetime="{{ page.date | date: '%Y-%m-%d' }}">{{ page.date | date: '%d.%m.%Y' }}</time><span data-en="{% if page.lang == 'en' %}Article in English{% else %}Article in Georgian{% endif %}">{% if page.lang == 'en' %}სტატია ინგლისურ ენაზეა{% else %}სტატია ქართულ ენაზეა{% endif %}</span></div></header>
+    <div class="article-content" lang="{{ page.lang | default: 'ka' }}">{{ content }}</div>
+    <div class="article-contact"><h2 data-en="Discuss your matter with us">განვიხილოთ თქვენი საკითხი</h2><p data-en="For advice on your circumstances, send a short enquiry.">კონკრეტულ საკითხზე კონსულტაციისთვის მოკლედ მოგვწერეთ თქვენი საჭიროების შესახებ.</p><a class="button button-primary" href="{{ '/' | relative_url }}#contact" data-site-link data-en="Send an enquiry">მოგვწერეთ</a></div>
+  </article>
+</main>
