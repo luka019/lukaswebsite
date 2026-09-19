@@ -29,11 +29,13 @@ WhatsApp: https://wa.me/995598451132 (+995 598 45 11 32). Contact links send no 
 
 The default interface is English; `?lang=ka` opens Georgian. Resources contain both full-language versions. Language preference is the only item stored in the visitor's browser.
 
-## Contact enquiry composer
+## Direct contact form
 
-The form validates the enquiry and prepares an email locally, with Gmail, mailto and copy-text options. The visitor must review and send the message from their email account. No automatic delivery or success is claimed. Nothing is sent to a submission provider, and input is not persisted in browser storage. Edits invalidate the prepared draft. Without JavaScript, visitors can use the direct email and WhatsApp links.
+Enquiries submit directly through `https://formsubmit.co/ajax/legaladvocating@gmail.com` without opening an email app. The user confirmed recipient activation on 19 September 2026. The native HTML fallback uses `https://formsubmit.co/legaladvocating@gmail.com`.
 
-FormSubmit was removed because recipient activation was outstanding. Automatic server-side delivery requires a verified mail provider and credentials; the current interface intentionally describes the email handoff.
+Validation runs before submission. The send button is disabled while waiting; duplicate submissions are prevented. Success is shown only when FormSubmit returns an explicit successful result. Provider errors, activation errors and timeouts preserve the visitor's text. If the visitor edits fields during submission, those edits are preserved even after success. Provider acceptance does not independently verify inbox delivery.
+
+No private credentials are embedded. The privacy notice identifies FormSubmit and Gmail as the delivery services.
 
 ## Positioning and scope
 
