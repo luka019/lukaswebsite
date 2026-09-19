@@ -26,10 +26,10 @@
   let errors = {};
   const formCopy = {
     ka: {
-      submit: "გაგზავნა", sending: "იგზავნება…",
-      success: "შეტყობინება გაიგზავნა. პასუხს მითითებულ ელფოსტაზე მიიღებთ.",
-      inactive: "ამჟამად ფორმით გაგზავნა მიუწვდომელია. მოგვწერეთ მისამართზე: legaladvocating@gmail.com. თქვენი ტექსტი ფორმაში შენახულია.",
-      error: "გაგზავნა ვერ დადასტურდა. თქვენი ტექსტი ფორმაში შენახულია. სცადეთ ხელახლა ან მოგვწერეთ მისამართზე: legaladvocating@gmail.com.",
+      submit: "წერილის მომზადება",
+      ready: "წერილი მზადაა. გაგზავნის დასასრულებლად გახსენით ელფოსტა ქვემოთ მოცემული ღილაკით. შეტყობინება ჯერ არ გაგზავნილა.",
+      copied: "ტექსტი დაკოპირებულია. ჩასვით წერილში და გაუგზავნეთ legaladvocating@gmail.com-ს.",
+      copyError: "მონიშნეთ და დააკოპირეთ ქვემოთ მოცემული ტექსტი.",
       invalid: "გთხოვთ, შეამოწმოთ მონიშნული ველები.",
       name: "მიუთითეთ სახელი და გვარი — მინიმუმ 2 სიმბოლო.",
       email: "მიუთითეთ მოქმედი ელფოსტის მისამართი.",
@@ -37,10 +37,10 @@
       consent: "გაგზავნისთვის საჭიროა მონაცემების დამუშავებაზე თანხმობა."
     },
     en: {
-      submit: "Send enquiry", sending: "Sending…",
-      success: "Your message has been sent. We will reply to the email address you provided.",
-      inactive: "The form is temporarily unavailable. Please email legaladvocating@gmail.com. Your message remains in the form.",
-      error: "We could not confirm that your message was sent. Your text is still in the form. Try again or email legaladvocating@gmail.com.",
+      submit: "Prepare email",
+      ready: "Your draft is ready. Open your email below to review and send it. Nothing has been sent yet.",
+      copied: "Message copied. Paste it into an email to legaladvocating@gmail.com.",
+      copyError: "Select and copy the prepared text below.",
       invalid: "Please check the highlighted fields.",
       name: "Enter your full name using at least 2 characters.",
       email: "Enter a valid email address.",
@@ -52,11 +52,10 @@
   function renderForm() {
     if (!form) return;
     const copy = formCopy[currentLanguage];
-    const sending = formState === "sending";
-    submitButton.disabled = sending;
-    form.setAttribute("aria-busy", String(sending));
-    submitLabel.textContent = sending ? copy.sending : copy.submit;
-    statusElement.hidden = formState === "idle" || sending;
+    submitButton.disabled = false;
+    submitLabel.textContent = copy.submit;
+    statusElement.hidden = formState === "idle";
+    document.getElementById("email-options").hidden = formState !== "ready";
     statusElement.dataset.state = formState;
     statusElement.textContent = statusElement.hidden ? "" : copy[formState];
     form.elements.language.value = currentLanguage;
@@ -156,7 +155,7 @@
   });
   form.addEventListener("submit", async event => {
     event.preventDefault();
-    if (formState === "sending") return;
+
     errors = {};
     const name = form.elements.name.value.trim();
     const email = form.elements.email.value.trim();
@@ -170,45 +169,35 @@
       document.getElementById(fieldIds[Object.keys(errors)[0]]).focus();
       return;
     }
-    if (form.elements._honey.value.trim()) { setFormState("error", true); return; }
+    if (form.elements._honey.value.trim()) return;
     const serviceOption = form.elements.service.selectedOptions[0];
-    const payload = {
-      name, email, company: form.elements.company.value.trim(), message,
-      service: serviceOption ? serviceOption.textContent : "",
-      service_code: form.elements.service.value,
-      language: currentLanguage,
-      consent: form.elements.consent.closest("label").textContent.trim(),
-      privacy_notice_version: "2026-09-17",
-      _subject: "Digital Law & Advisory — website enquiry",
-      _template: "table",
-      _honey: ""
-    };
-    const controller = new AbortController();
-    const timeout = setTimeout(() => controller.abort(), 20000);
-    setFormState("sending");
+    const en = currentLanguage === "en";
+    const subject = "Digital Law & Advisory — " + (serviceOption?.textContent || "Enquiry");
+    const body = [
+      `${en ? "Name" : "სახელი და გვარი"}: ${name}`,
+      `${en ? "Reply email" : "საპასუხო ელფოსტა"}: ${email}`,
+      `${en ? "Company / project" : "კომპანია / პროექტი"}: ${form.elements.company.value.trim() || "—"}`,
+      `${en ? "Service" : "მომსახურება"}: ${serviceOption?.textContent || ""}`,
+      "", message, "", form.elements.consent.closest("label").textContent.trim()
+    ].join("\n");
+    document.getElementById("email-preview").value = body;
+    document.getElementById("open-email").href = `mailto:legaladvocating@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    const gmail = new URL("https://mail.google.com/mail/");
+    gmail.search = new URLSearchParams({view:"cm",fs:"1",to:"legaladvocating@gmail.com",su:subject,body}).toString();
+    document.getElementById("open-gmail").href = gmail.href;
+    document.getElementById("copy-status").textContent = "";
+    setFormState("ready", true);
+  });
+  form.addEventListener("input", () => { if(formState === "ready") setFormState("idle"); });
+  form.addEventListener("change", () => { if(formState === "ready") setFormState("idle"); });
+  document.getElementById("copy-enquiry").addEventListener("click", async () => {
+    const preview = document.getElementById("email-preview");
     try {
-      const response = await fetch("https://formsubmit.co/ajax/legaladvocating@gmail.com", {
-        method: "POST",
-        headers: { "Content-Type": "application/json", Accept: "application/json" },
-        body: JSON.stringify(payload),
-        signal: controller.signal
-      });
-      if (!response.ok) throw new Error("Submission service returned an error");
-      const result = await response.json();
-      if (result.success === true || result.success === "true") {
-        form.reset();
-        errors = {};
-        setFormState("success", true);
-      } else if (/activat/i.test(String(result.message || ""))) {
-        setFormState("inactive", true);
-      } else {
-        setFormState("error", true);
-      }
+      await navigator.clipboard.writeText(preview.value);
+      document.getElementById("copy-status").textContent = formCopy[currentLanguage].copied;
     } catch {
-      setFormState("error", true);
-    } finally {
-      clearTimeout(timeout);
-      renderForm();
+      preview.focus(); preview.select();
+      document.getElementById("copy-status").textContent = formCopy[currentLanguage].copyError;
     }
   });
 })();

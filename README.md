@@ -29,32 +29,11 @@ WhatsApp: https://wa.me/995598451132 (+995 598 45 11 32). Contact links send no 
 
 The default interface is English; `?lang=ka` opens Georgian. Resources contain both full-language versions. Language preference is the only item stored in the visitor's browser.
 
-## Contact form: one-time activation required
+## Contact enquiry composer
 
-The form uses FormSubmit to deliver enquiries to **legaladvocating@gmail.com**. No secret credentials are included in the public website.
+The form validates the enquiry and prepares an email locally, with Gmail, mailto and copy-text options. The visitor must review and send the message from their email account. No automatic delivery or success is claimed. Nothing is sent to a submission provider, and input is not persisted in browser storage. Edits invalidate the prepared draft. Without JavaScript, visitors can use the direct email and WhatsApp links.
 
-An authorised setup submission returned the following provider response on 17 September 2026: **This form needs Activation**. FormSubmit reported sending an email with an **Activate Form** link.
-
-The mailbox owner must:
-
-1. Open the FormSubmit email in legaladvocating@gmail.com; check Spam if necessary.
-2. Click **Activate Form**.
-3. Send a short test from the published website and confirm it arrives in the inbox.
-
-Until activation is complete, the AJAX form displays an unavailable message and preserves the visitor's text. The direct email link remains available. Do not describe inbox delivery as verified until an actual message has been received.
-
-JavaScript submits to `https://formsubmit.co/ajax/legaladvocating@gmail.com`. The standard HTML fallback submits to `https://formsubmit.co/legaladvocating@gmail.com`.
-
-Features include required-field validation, an anti-spam honeypot, explicit enquiry-processing consent, a sending state, a timeout, retained input on errors, and a confirmation only after a positive provider response. Service links preselect the enquiry topic.
-
-The visible privacy notice identifies Luka as the enquiry contact, describes FormSubmit and Gmail, FormSubmit's stated 30-day submission storage, purpose-based correspondence retention, possible overseas processing and data-rights requests. No advertising or analytics are installed. Do not request confidential documents through the initial enquiry form.
-
-If the recipient changes, update both endpoints, the visible email links, the privacy notice and the script messages, then activate the new recipient.
-
-Documentation:
-- https://formsubmit.co/documentation
-- https://formsubmit.co/ajax-documentation
-- https://formsubmit.co/privacy.pdf
+FormSubmit was removed because recipient activation was outstanding. Automatic server-side delivery requires a verified mail provider and credentials; the current interface intentionally describes the email handoff.
 
 ## Positioning and scope
 
@@ -68,7 +47,7 @@ Supporting services cover corporate and banking documentation, employment, inves
 
 The resource hub contains practical guides, cover images, internal pages, search, topic/format filters, print-to-PDF and related resources. The old raw official-source catalogue has been removed. Reference links appear only within relevant resources. Publishing and archival happen through the separate admin panel.
 
-The founder's profile highlights London education, Chevening, BDO Legal, public-sector experience and the two years of LegalStepy involvement and CLO responsibilities described by the founder. Team support is described by expertise; Luka is the only individually featured professional.
+The founder's profile highlights London education, Chevening, BDO Legal, public-sector experience and the two years of LegalStepy involvement and CEO role described by the founder. Team support is described by expertise; Luka is the only individually featured professional.
 
 **Digital Law & Advisory** is the website's working brand. This website update does not establish a registered company or confirm trade-name, trademark or domain availability. The footer identifies Luka Shakhkulashvili as the person with whom services are agreed.
 
