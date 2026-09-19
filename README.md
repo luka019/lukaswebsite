@@ -17,7 +17,7 @@ Vercel runs `node scripts/build.mjs` and publishes `dist/`. No npm dependencies 
 - `scripts/build.mjs`: dependency-free static publishing.
 - `resources/resource-model.mjs`: shared validation and escaped content rendering.
 - `resources/resources.js`: filtering, bilingual content, print and link copying.
-- `admin/`: separate GitHub-backed resource editor. A repository-scoped token with Contents write permission is required; credentials stay in memory for the current session.
+- `admin/`: resource editor with email/password login, HttpOnly sessions and server-side GitHub writes. Requires deployment secrets; see `server/SETUP.md`.
 - `assets/resources/`: locally hosted cover images generated for this project.
 - `PUBLISHING.md`: Georgian authoring and access instructions.
 
@@ -31,11 +31,11 @@ The default interface is English; `?lang=ka` opens Georgian. Resources contain b
 
 ## Direct contact form
 
-Enquiries submit directly through `https://formsubmit.co/ajax/legaladvocating@gmail.com` without opening an email app. The user confirmed recipient activation on 19 September 2026. The native HTML fallback uses `https://formsubmit.co/legaladvocating@gmail.com`.
+This branch prepares `/api/contact` to send enquiries directly to `legaladvocating@gmail.com` using Resend. It requires a sending API key and a verified sender configured privately in Vercel. It is not ready for production until the deployment checklist in `server/SETUP.md` is complete.
 
-Validation runs before submission. The send button is disabled while waiting; duplicate submissions are prevented. Success is shown only when FormSubmit returns an explicit successful result. Provider errors, activation errors and timeouts preserve the visitor's text. If the visitor edits fields during submission, those edits are preserved even after success. Provider acceptance does not independently verify inbox delivery.
+The visitor's email is used as Reply-To; the destination is fixed server-side. Validation and consent checks run on the server and client. Errors retain the form text. Success requires explicit provider acceptance, which does not prove inbox delivery. The privacy notice switches to Resend together with the form endpoint. JavaScript is required for the interactive submission flow.
 
-No private credentials are embedded. The privacy notice identifies FormSubmit and Gmail as the delivery services.
+The previous FormSubmit integration still reports activation required on the current Vercel site; the owner's receipt from the old GitHub Pages form is not proof that the new site is activated.
 
 ## Positioning and scope
 
@@ -97,4 +97,4 @@ Check the current rules and individual circumstances for each engagement.
 
 Browser checks cover Georgian and English, widths from 320 to 1440 pixels, menu and keyboard interactions, local asset loading, disclosures, topic selection, form validation and success/error states. Automated accessibility checks cover both languages at desktop and mobile widths.
 
-Form-state tests use intercepted provider responses and do not prove inbox delivery. The real activation request is documented above.
+Form-state tests use intercepted provider responses and do not prove inbox delivery. Deployment and delivery checks are documented in `server/SETUP.md`.

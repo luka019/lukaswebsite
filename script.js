@@ -177,7 +177,8 @@
       service: serviceOption ? serviceOption.textContent : "",
       service_code: form.elements.service.value,
       language: currentLanguage,
-      consent: form.elements.consent.closest("label").textContent.trim(),
+      consent: true,
+      request_id: crypto.randomUUID(),
       privacy_notice_version: "2026-09-19",
       _subject: "Digital Law & Advisory — website enquiry",
       _template: "table",
@@ -188,7 +189,7 @@
     const timeout = setTimeout(() => controller.abort(), 20000);
     setFormState("sending");
     try {
-      const response = await fetch("https://formsubmit.co/ajax/legaladvocating@gmail.com", {
+      const response = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json", Accept: "application/json" },
         body: JSON.stringify(payload),
