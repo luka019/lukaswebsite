@@ -8,28 +8,26 @@ Bilingual technology and digital law practice website founded by Luka Shakhkulas
 
 ## Publishing and files
 
-GitHub Pages publishes `main` from the repository root. Its built-in Jekyll build renders the resource hub and Markdown posts; the home page remains plain HTML. No custom workflow or client-side package dependency is required.
+Primary website: https://lukaswebsite.vercel.app/
 
-- `index.html`: native Georgian content, English text in `data-en` attributes, service disclosures and the enquiry form.
-- `styles.css`: responsive layout and locally hosted fonts.
-- `script.js`: language selection, accessible mobile navigation, topic selection, form validation and submission states.
-- `assets/`: the founder's supplied portrait, architecture photograph, fonts and font licence.
-- `_config.yml`, `_layouts/`, `_includes/`: GitHub Pages/Jekyll resource and article layouts.
-- `_data/`: official-source catalogue and topic labels.
-- `resources/`: resource hub, search and filters.
-- `services/ai/index.html`: bilingual AI legal services, delivered through the shared Jekyll layout.
-- `_drafts/article-template.md`: unpublished authoring template.
-- `PUBLISHING.md`: Georgian publishing instructions.
+Vercel runs `node scripts/build.mjs` and publishes `dist/`. No npm dependencies are required. The build generates the resource library, bilingual detail pages, homepage previews and the existing AI service page. It validates the resource schema, excludes drafts/archived/future-dated content and creates a sitemap. Only the explicit output files are deployed; repository content and draft data are not copied into the deployed site.
 
-Keep asset paths relative so the GitHub Pages project path works. Update CSS and script version markers when publishing changes.
+- `index.html`, `styles.css`, `script.js`: the practice website.
+- `_data/resources.json`: the authored resource catalogue.
+- `scripts/build.mjs`: dependency-free static publishing.
+- `resources/resource-model.mjs`: shared validation and escaped content rendering.
+- `resources/resources.js`: filtering, bilingual content, print and link copying.
+- `admin/`: separate GitHub-backed resource editor. A repository-scoped token with Contents write permission is required; credentials stay in memory for the current session.
+- `assets/resources/`: locally hosted cover images generated for this project.
+- `PUBLISHING.md`: Georgian authoring and access instructions.
 
-The home page can be previewed with `python3 -m http.server 4173 --bind 127.0.0.1`. Render the resource hub with a GitHub Pages-compatible Jekyll build; serving its Liquid source directly does not render posts. Do not re-add `.nojekyll`.
+Preview with `node scripts/build.mjs`, then `python3 -m http.server 4173 --directory dist`. The primary deployment is Vercel; the historical GitHub Pages/Jekyll source is no longer the publishing workflow.
 
-The header now highlights product launch, business growth and international activity. Education and employer credentials remain in the founder's biography.
+The GitHub repository is public. Drafts are excluded from the deployed site but remain public in source control. The admin panel makes this visible before login and saving. Do not store confidential drafts. A private editorial workflow requires private storage or an authenticated CMS backend.
 
-WhatsApp contact: https://wa.me/995598451132 (+995 598 45 11 32). These are plain outbound links, not an embedded tracking widget; no message is sent without the visitor's action.
+WhatsApp: https://wa.me/995598451132 (+995 598 45 11 32). Contact links send no message without the visitor's action.
 
-Georgian is the default. Share English with `?lang=en`, or Georgian with `?lang=ka`. Language preference is the only item stored in the visitor's browser. Content, native service disclosures and the standard form action remain available without JavaScript.
+The default interface is English; `?lang=ka` opens Georgian. Resources contain both full-language versions. Language preference is the only item stored in the visitor's browser.
 
 ## Contact form: one-time activation required
 
@@ -68,7 +66,7 @@ The expanded scope includes day-to-day legal support for group companies and dig
 
 Supporting services cover corporate and banking documentation, employment, investment funds and asset management, disputes, international business, residence, citizenship and foreign employment. Tax services have been removed.
 
-The resource hub includes bilingual search, topic and format filters, honest empty states, shareable filter URLs and six official-source links. No authored articles have been fabricated. Markdown posts added to `_posts/` are rendered with their own article pages and added to the hub automatically. Full instructions: [PUBLISHING.md](PUBLISHING.md). Article body language is explicitly identified; it is not machine-translated when the interface language changes.
+The resource hub contains practical guides, cover images, internal pages, search, topic/format filters, print-to-PDF and related resources. The old raw official-source catalogue has been removed. Reference links appear only within relevant resources. Publishing and archival happen through the separate admin panel.
 
 The founder's profile highlights London education, Chevening, BDO Legal, public-sector experience and the two years of LegalStepy involvement and CLO responsibilities described by the founder. Team support is described by expertise; Luka is the only individually featured professional.
 

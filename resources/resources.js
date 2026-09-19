@@ -1,5 +1,14 @@
 (() => {
   "use strict";
+  const syncContent = () => document.querySelectorAll('[data-content-language]').forEach(el => { el.hidden = el.dataset.contentLanguage !== document.documentElement.lang; });
+  syncContent();
+  document.addEventListener('site:language', syncContent);
+  document.querySelector('[data-print-resource]')?.addEventListener('click', () => window.print());
+  document.querySelector('[data-copy-resource]')?.addEventListener('click', async () => {
+    const status = document.querySelector('[data-copy-status]');
+    try { await navigator.clipboard.writeText(location.href); status.textContent = document.documentElement.lang === 'en' ? 'Link copied.' : 'ბმული დაკოპირებულია.'; }
+    catch { status.textContent = document.documentElement.lang === 'en' ? 'Copy the address from your browser.' : 'დააკოპირეთ მისამართი ბრაუზერიდან.'; }
+  });
   const controls = document.getElementById("resource-controls");
   if (!controls) return;
   const search = document.getElementById("resource-search");
@@ -33,13 +42,8 @@
     search.placeholder = en ? search.dataset.enPlaceholder : searchPlaceholderKa;
     count.textContent = en ? visible + (visible === 1 ? " resource" : " resources") : visible + " მასალა";
     empty.hidden = visible !== 0;
-    const unpublished = !words.length && topic.value === "all" && (kind === "blog" || kind === "guide") && !cards.some(card => card.dataset.kind === kind);
-    emptyTitle.textContent = unpublished
-      ? (en ? (kind === "blog" ? "No articles published yet." : "No guides published yet.") : (kind === "blog" ? "ბლოგის სტატიები ჯერ არ გამოქვეყნებულა." : "გზამკვლევები ჯერ არ გამოქვეყნებულა."))
-      : (en ? "No matching resources." : "შესაბამისი მასალა ვერ მოიძებნა.");
-    emptyDescription.textContent = unpublished
-      ? (en ? "You can explore the official sources in the meantime." : "შეგიძლიათ გაეცნოთ განყოფილებაში თავმოყრილ ოფიციალურ წყაროებს.")
-      : (en ? "Try another keyword or show all resources." : "სცადეთ სხვა საკვანძო სიტყვა ან ნახეთ ყველა რესურსი.");
+    emptyTitle.textContent = en ? "No matching resources." : "შესაბამისი მასალა ვერ მოიძებნა.";
+    emptyDescription.textContent = en ? "Try another topic or show all resources." : "სცადეთ სხვა თემა ან ნახეთ ყველა რესურსი.";
     if (writeURL) {
       const url = new URL(location.href);
       [["q", search.value.trim()], ["type", kind === "all" ? "" : kind], ["topic", topic.value === "all" ? "" : topic.value]].forEach(([key, value]) => value ? url.searchParams.set(key, value) : url.searchParams.delete(key));
