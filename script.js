@@ -188,7 +188,7 @@
     const timeout = setTimeout(() => controller.abort(), 20000);
     setFormState("sending");
     try {
-      const response = await fetch("https://formsubmit.co/ajax/legaladvocating@gmail.com", {
+      const response = await fetch("https://formsubmit.co/ajax/1bf00992fdfcfe73a3077151344fcca6", {
         method: "POST",
         headers: { "Content-Type": "application/json", Accept: "application/json" },
         body: JSON.stringify(payload),
