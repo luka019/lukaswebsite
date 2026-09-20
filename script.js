@@ -171,45 +171,10 @@
       return;
     }
     if (form.elements._honey.value.trim()) { setFormState("error", true); return; }
-    const serviceOption = form.elements.service.selectedOptions[0];
-    const payload = {
-      name, email, company: form.elements.company.value.trim(), message,
-      service: serviceOption ? serviceOption.textContent : "",
-      service_code: form.elements.service.value,
-      language: currentLanguage,
-      consent: form.elements.consent.closest("label").textContent.trim(),
-      privacy_notice_version: "2026-09-19",
-      _subject: "Digital Law & Advisory — website enquiry",
-      _template: "table",
-      _honey: ""
-    };
-    const submittedValues = new URLSearchParams(new FormData(form)).toString();
-    const controller = new AbortController();
-    const timeout = setTimeout(() => controller.abort(), 20000);
     setFormState("sending");
-    try {
-      const response = await fetch("https://formsubmit.co/ajax/1bf00992fdfcfe73a3077151344fcca6", {
-        method: "POST",
-        headers: { "Content-Type": "application/json", Accept: "application/json" },
-        body: JSON.stringify(payload),
-        signal: controller.signal
-      });
-      if (!response.ok) throw new Error("Submission service returned an error");
-      const result = await response.json();
-      if (result.success === true || result.success === "true") {
-        if (new URLSearchParams(new FormData(form)).toString() === submittedValues) form.reset();
-        errors = {};
-        setFormState("success", true);
-      } else if (/activat/i.test(String(result.message || ""))) {
-        setFormState("inactive", true);
-      } else {
-        setFormState("error", true);
-      }
-    } catch {
-      setFormState("error", true);
-    } finally {
-      clearTimeout(timeout);
-      renderForm();
-    }
+    form.submit();
+  });
+  window.addEventListener("pageshow", () => {
+    if (formState === "sending") setFormState("idle");
   });
 })();
