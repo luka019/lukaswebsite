@@ -4,7 +4,7 @@ Bilingual technology and digital law practice website founded by Luka Shakhkulas
 
 - Website: https://luka019.github.io/lukaswebsite/
 - Repository: https://github.com/luka019/lukaswebsite
-- Enquiries: legaladvocating@gmail.com
+- Enquiries: digitallawgeorgia@gmail.com
 
 ## Publishing and files
 
@@ -31,7 +31,7 @@ The default interface is English; `?lang=ka` opens Georgian. Resources contain b
 
 ## Direct contact form
 
-Enquiries submit directly through `https://formsubmit.co/ajax/legaladvocating@gmail.com` without opening an email app. The user confirmed recipient activation on 19 September 2026. The native HTML fallback uses `https://formsubmit.co/legaladvocating@gmail.com`.
+Enquiries are sent to `digitallawgeorgia@gmail.com` through FormSubmit. The native HTML form uses `https://formsubmit.co/digitallawgeorgia@gmail.com`; FormSubmit may require one-time recipient activation for this new address before live submissions are delivered.
 
 Validation runs before submission. The send button is disabled while waiting; duplicate submissions are prevented. Success is shown only when FormSubmit returns an explicit successful result. Provider errors, activation errors and timeouts preserve the visitor's text. If the visitor edits fields during submission, those edits are preserved even after success. Provider acceptance does not independently verify inbox delivery.
 
