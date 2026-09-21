@@ -28,8 +28,8 @@
     ka: {
       submit: "გაგზავნა", sending: "იგზავნება…",
       success: "შეტყობინება გაიგზავნა. პასუხს მითითებულ ელფოსტაზე მიიღებთ.",
-      inactive: "ამჟამად ფორმით გაგზავნა მიუწვდომელია. მოგვწერეთ მისამართზე: legaladvocating@gmail.com. თქვენი ტექსტი ფორმაში შენახულია.",
-      error: "გაგზავნა ვერ დადასტურდა. თქვენი ტექსტი ფორმაში შენახულია. სცადეთ ხელახლა ან მოგვწერეთ მისამართზე: legaladvocating@gmail.com.",
+      inactive: "ამჟამად ფორმით გაგზავნა მიუწვდომელია. მოგვწერეთ მისამართზე: digitallawgeorgia@gmail.com. თქვენი ტექსტი ფორმაში შენახულია.",
+      error: "გაგზავნა ვერ დადასტურდა. თქვენი ტექსტი ფორმაში შენახულია. სცადეთ ხელახლა ან მოგვწერეთ მისამართზე: digitallawgeorgia@gmail.com.",
       invalid: "გთხოვთ, შეამოწმოთ მონიშნული ველები.",
       name: "მიუთითეთ სახელი და გვარი — მინიმუმ 2 სიმბოლო.",
       email: "მიუთითეთ მოქმედი ელფოსტის მისამართი.",
@@ -39,8 +39,8 @@
     en: {
       submit: "Send enquiry", sending: "Sending…",
       success: "Your message has been sent. We will reply to the email address you provided.",
-      inactive: "The form is temporarily unavailable. Please email legaladvocating@gmail.com. Your message remains in the form.",
-      error: "We could not confirm that your message was sent. Your text is still in the form. Try again or email legaladvocating@gmail.com.",
+      inactive: "The form is temporarily unavailable. Please email digitallawgeorgia@gmail.com. Your message remains in the form.",
+      error: "We could not confirm that your message was sent. Your text is still in the form. Try again or email digitallawgeorgia@gmail.com.",
       invalid: "Please check the highlighted fields.",
       name: "Enter your full name using at least 2 characters.",
       email: "Enter a valid email address.",
