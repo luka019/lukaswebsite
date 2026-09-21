@@ -8,7 +8,7 @@
     ...Array.from(document.querySelectorAll("[data-en-aria]")).map(element => ({ element, attribute: "aria-label", ka: element.getAttribute("aria-label"), en: element.dataset.enAria })),
     ...Array.from(document.querySelectorAll("[data-en-alt]")).map(element => ({ element, attribute: "alt", ka: element.getAttribute("alt"), en: element.dataset.enAlt }))
   ];
-  const titles = { ka: "DLG — Digital Law Georgia | ტექნოლოგიები, AI და ციფრული სამართალი", en: "DLG — Digital Law Georgia | Technology, AI & Digital Law" };
+  const titles = { ka: "Digital Law Georgia | ტექნოლოგიები, AI და კომერციული სამართალი", en: "Digital Law Georgia | Technology, AI & Commercial Law" };
   const descriptions = {
     ka: "ტექნოლოგიური და ციფრული სამართალი, მონაცემთა დაცვა, ფინანსური რეგულირება და ბიზნესის იურიდიული მომსახურება. დამფუძნებელი — ლუკა შახყულაშვილი.",
     en: "Technology and digital law, data protection, financial regulation and business legal support in Georgia. Founded by Luka Shakhkulashvili."
