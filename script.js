@@ -8,7 +8,7 @@
     ...Array.from(document.querySelectorAll("[data-en-aria]")).map(element => ({ element, attribute: "aria-label", ka: element.getAttribute("aria-label"), en: element.dataset.enAria })),
     ...Array.from(document.querySelectorAll("[data-en-alt]")).map(element => ({ element, attribute: "alt", ka: element.getAttribute("alt"), en: element.dataset.enAlt }))
   ];
-  const titles = { ka: "Digital Law & Advisory — ტექნოლოგიური და ციფრული სამართალი", en: "Digital Law & Advisory — Technology & Digital Law" };
+  const titles = { ka: "DLG — Digital Law Georgia | ტექნოლოგიები, AI და ციფრული სამართალი", en: "DLG — Digital Law Georgia | Technology, AI & Digital Law" };
   const descriptions = {
     ka: "ტექნოლოგიური და ციფრული სამართალი, მონაცემთა დაცვა, ფინანსური რეგულირება და ბიზნესის იურიდიული მომსახურება. დამფუძნებელი — ლუკა შახყულაშვილი.",
     en: "Technology and digital law, data protection, financial regulation and business legal support in Georgia. Founded by Luka Shakhkulashvili."
@@ -172,7 +172,25 @@
     }
     if (form.elements._honey.value.trim()) { setFormState("error", true); return; }
     setFormState("sending");
-    form.submit();
+    const data = new FormData(form);
+    const ajaxEndpoint = form.action.replace("https://formsubmit.co/", "https://formsubmit.co/ajax/");
+    try {
+      const response = await fetch(ajaxEndpoint, {
+        method: "POST",
+        headers: { "Accept": "application/json" },
+        body: data
+      });
+      let payload = null;
+      try { payload = await response.json(); } catch { /* Status is still authoritative. */ }
+      const success = response.ok && (payload?.success === true || payload?.success === "true" || payload?.success === undefined);
+      if (!success) throw new Error(payload?.message || "FormSubmit rejected the submission");
+      form.reset();
+      form.elements.language.value = currentLanguage;
+      errors = {};
+      setFormState("success", true);
+    } catch {
+      setFormState("error", true);
+    }
   });
   window.addEventListener("pageshow", () => {
     if (formState === "sending") setFormState("idle");
