@@ -768,3 +768,67 @@ details[open] > summary .plus { transform: rotate(45deg); }
 @media(max-width:600px){.resource-search-row{grid-template-columns:1fr;}.resource-card-copy{padding:20px;}.article-header h1{font-size:27px;line-height:1.5;}}
 @media print{.site-header,.site-footer,.article-tools,.article-contact,.related-resources,.skip-link{display:none!important;}.article-page{width:100%;max-width:none;padding:0;}.article-cover{max-height:190px;}body{font-size:11pt;color:black;}.article-content{font-size:11pt;line-height:1.5;}h2,h3{break-after:avoid;}li,p{orphans:3;widows:3;}}
 @media(prefers-reduced-motion:reduce){.resource-cover img{transition:none;}.visual-resource:hover .resource-cover img{transform:none;}}
+
+
+/* DLG audience and concrete service offers */
+.audience-section { background: #f7f9f7; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.audience-heading { margin-bottom: 26px; }
+.audience-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 20px; }
+.audience-card { position: relative; background: white; border: 1px solid var(--line); border-radius: 4px; padding: 28px; display: flex; flex-direction: column; min-height: 100%; }
+.audience-card-international { background: #f2f6f3; border-color: #c9d7ce; }
+.audience-number, .offer-number { color: var(--accent); font-size: 11px; font-weight: 600; margin-bottom: 18px; }
+.audience-card .eyebrow { margin-bottom: 10px; }
+.audience-card h3 { font-size: 21px; line-height: 1.55; max-width: 620px; }
+.audience-card > p:not(.eyebrow) { margin-top: 13px; font-size: 14px; line-height: 1.9; }
+.audience-card ul { margin: 18px 0 23px; padding-left: 18px; color: #465551; font-size: 13px; line-height: 1.9; }
+.audience-card li + li { margin-top: 6px; }
+.audience-card li::marker { color: var(--accent); }
+.audience-card .text-link { margin-top: auto; }
+
+.offers-section { border-top: 1px solid var(--line); background: #fafbfa; }
+.offer-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 18px; }
+.offer-card { background: white; border: 1px solid var(--line); border-radius: 4px; padding: 24px; display: flex; flex-direction: column; min-height: 100%; transition: border-color .16s ease, transform .16s ease; }
+.offer-card:hover { border-color: #8fa69b; transform: translateY(-1px); }
+.offer-card h3 { font-size: 17px; line-height: 1.65; font-weight: 600; }
+.offer-card > p { font-size: 13px; line-height: 1.88; margin-top: 11px; }
+.offer-outcome { margin: 18px 0 20px; padding-top: 15px; border-top: 1px solid var(--line); font-size: 12px; line-height: 1.8; }
+.offer-outcome strong { display: block; color: var(--accent); font-weight: 600; margin-bottom: 5px; }
+.offer-outcome span { display: block; color: #4e5f57; }
+.offer-card .text-link { margin-top: auto; font-size: 12px; justify-content: space-between; }
+
+.service-landing-grid { display: grid; grid-template-columns: minmax(0,1.45fr) minmax(280px,.75fr); gap: 48px; align-items: start; }
+.service-landing-copy h2 { font-size: 25px; line-height: 1.5; margin-bottom: 14px; }
+.service-landing-copy > p { font-size: 15px; line-height: 1.95; max-width: 760px; }
+.service-landing-list { margin-top: 22px; padding-left: 20px; font-size: 14px; line-height: 1.9; color: #405149; }
+.service-landing-list li + li { margin-top: 10px; }
+.service-landing-list li::marker { color: var(--accent); }
+.service-outcome-box { border: 1px solid var(--line); border-radius: 4px; padding: 24px; background: var(--wash); }
+.service-outcome-box .eyebrow { margin-bottom: 10px; }
+.service-outcome-box h2 { font-size: 20px; line-height: 1.55; }
+.service-outcome-box ul { margin: 16px 0 20px; padding-left: 18px; font-size: 13px; line-height: 1.85; }
+.service-outcome-box li + li { margin-top: 8px; }
+.service-process { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 16px; margin-top: 24px; }
+.service-process article { border-top: 1px solid var(--line); padding-top: 18px; }
+.service-process span { color: var(--accent); font-size: 11px; font-weight: 600; }
+.service-process h3 { font-size: 16px; margin-top: 8px; }
+.service-process p { font-size: 13px; line-height: 1.8; margin-top: 8px; }
+.service-landing-cta { margin-top: 28px; padding: 25px; border: 1px solid var(--line); background: #f7f9f7; display: flex; justify-content: space-between; align-items: center; gap: 24px; }
+.service-landing-cta h2 { font-size: 21px; }
+.service-landing-cta p { font-size: 13px; line-height: 1.8; margin-top: 7px; max-width: 690px; }
+.service-landing-cta .button { flex-shrink: 0; }
+
+@media (max-width: 850px) {
+  .offer-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  .service-landing-grid { grid-template-columns: 1fr; gap: 28px; }
+  .service-process { grid-template-columns: 1fr 1fr 1fr; }
+}
+@media (max-width: 620px) {
+  .audience-grid, .offer-grid, .service-process { grid-template-columns: 1fr; }
+  .audience-card, .offer-card { padding: 21px; }
+  .audience-card h3 { font-size: 19px; }
+  .audience-card > p:not(.eyebrow), .audience-card ul, .offer-card > p { font-size: 14px; }
+  .offer-card h3 { font-size: 17px; }
+  .offer-outcome { font-size: 13px; }
+  .service-outcome-box { padding: 21px; }
+  .service-landing-cta { align-items: flex-start; flex-direction: column; padding: 21px; }
+}
