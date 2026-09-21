@@ -31,7 +31,7 @@ The default interface is English; `?lang=ka` opens Georgian. Resources contain b
 
 ## Direct contact form
 
-Enquiries are sent to `digitallawgeorgia@gmail.com` through FormSubmit. The native HTML form uses `https://formsubmit.co/digitallawgeorgia@gmail.com`; FormSubmit may require one-time recipient activation for this new address before live submissions are delivered.
+Public enquiries use `digitallawgeorgia@gmail.com`. Until the new recipient is directly activated with FormSubmit, the form uses the previously activated FormSubmit recipient as a transport relay and CCs `digitallawgeorgia@gmail.com`. JavaScript submits to FormSubmit's AJAX endpoint so visitors remain on the DLG website; the native POST remains as a no-JavaScript fallback.
 
 Validation runs before submission. The send button is disabled while waiting; duplicate submissions are prevented. Success is shown only when FormSubmit returns an explicit successful result. Provider errors, activation errors and timeouts preserve the visitor's text. If the visitor edits fields during submission, those edits are preserved even after success. Provider acceptance does not independently verify inbox delivery.
 
