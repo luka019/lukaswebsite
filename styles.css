@@ -1299,3 +1299,65 @@ body { background: var(--paper); }
   .dl-mark { width: 37px; height: 32px; font-size: 11px; }
   .dl-mark-footer { width: 34px; height: 30px; font-size: 10px; }
 }
+
+
+/* Final Digital Law Georgia brand lock-up: DL is a visual monogram, not the public brand name. */
+.site-header .brand,
+.site-footer .brand,
+.resource-footer .brand { gap: 12px; }
+
+.dl-mark {
+  width: auto;
+  min-width: 0;
+  height: 31px;
+  padding: 0 13px 0 0;
+  border: 0;
+  border-right: 1px solid rgba(255,255,255,.34);
+  border-radius: 0;
+  background: transparent;
+  color: #fff;
+  font-size: 18px;
+  line-height: 31px;
+  font-weight: 800;
+  letter-spacing: .055em;
+}
+.brand:hover .dl-mark {
+  background: transparent;
+  border-color: rgba(255,255,255,.58);
+}
+.site-header .brand-wordmark { gap: 3px; }
+.site-header .brand-wordmark > span:first-child {
+  font-size: 12px;
+  letter-spacing: .09em;
+}
+.site-header .brand-wordmark > span:last-child {
+  font-size: 9px;
+  letter-spacing: .29em;
+}
+.site-footer .dl-mark,
+.resource-footer .dl-mark {
+  width: auto;
+  height: 29px;
+  padding-right: 12px;
+  border: 0;
+  border-right: 1px solid #b9c7c0;
+  border-radius: 0;
+  background: transparent;
+  color: var(--accent-dark);
+  font-size: 16px;
+  line-height: 29px;
+}
+.site-footer .brand:hover .dl-mark,
+.resource-footer .brand:hover .dl-mark {
+  background: transparent;
+  border-color: #7f9a8d;
+}
+.dl-mark-footer { width: auto; height: 27px; font-size: 14px; line-height: 27px; }
+
+@media (max-width: 620px) {
+  .site-header .brand, .site-footer .brand, .resource-footer .brand { gap: 9px; }
+  .dl-mark { width: auto; height: 28px; padding-right: 9px; font-size: 15px; line-height: 28px; }
+  .site-header .brand-wordmark > span:first-child { font-size: 9.5px; letter-spacing: .055em; }
+  .site-header .brand-wordmark > span:last-child { font-size: 8.5px; letter-spacing: .22em; }
+  .dl-mark-footer { width: auto; height: 26px; padding-right: 9px; font-size: 13px; line-height: 26px; }
+}
