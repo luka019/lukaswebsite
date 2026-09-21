@@ -1,6 +1,6 @@
-# Digital Law Georgia (DLG)
+# Digital Law Georgia
 
-Bilingual website for Digital Law Georgia (DLG), an expert-led technology, commercial and digital law practice founded by Luka Shakhkulashvili.
+Bilingual website for Digital Law Georgia, an expert-led technology, commercial and digital law practice founded by Luka Shakhkulashvili.
 
 - Website: https://luka019.github.io/lukaswebsite/
 - Repository: https://github.com/luka019/lukaswebsite
@@ -31,7 +31,7 @@ The default interface is English; `?lang=ka` opens Georgian. Resources contain b
 
 ## Direct contact form
 
-Public enquiries use `digitallawgeorgia@gmail.com`, which has been activated with FormSubmit. JavaScript submits to FormSubmit's AJAX endpoint so visitors remain on the DLG website; the native POST remains as a no-JavaScript fallback.
+Public enquiries use `digitallawgeorgia@gmail.com`, which has been activated with FormSubmit. JavaScript submits to FormSubmit's AJAX endpoint so visitors remain on the Digital Law Georgia website; the native POST remains as a no-JavaScript fallback.
 
 Validation runs before submission. The send button is disabled while waiting; duplicate submissions are prevented. Success is shown only when FormSubmit returns an explicit successful result. Provider errors, activation errors and timeouts preserve the visitor's text. If the visitor edits fields during submission, those edits are preserved even after success. Provider acceptance does not independently verify inbox delivery.
 
@@ -51,7 +51,7 @@ The resource hub contains practical guides, cover images, internal pages, search
 
 The founder's profile highlights London education, Chevening, BDO Legal, public-sector experience and the two years of LegalStepy involvement and CEO role described by the founder. Team support is described by expertise; Luka is the only individually featured professional.
 
-**Digital Law Georgia (DLG)** is the website's working brand. This website update does not establish a registered company or confirm trade-name, trademark or domain availability. The footer identifies Luka Shakhkulashvili as the person with whom services are agreed.
+**Digital Law Georgia** is the website's working brand. This website update does not establish a registered company or confirm trade-name, trademark or domain availability. The footer identifies Luka Shakhkulashvili as the person with whom services are agreed.
 
 University and employer references describe experience, not endorsements. The LLM is described as a programme/studies without an unconfirmed award date. There are no invented client logos, testimonials, headcounts, addresses, fees or response-time guarantees. Banking and regulatory outcomes are not guaranteed. Foreign-law and technical work are scoped with appropriately qualified specialists.
 
