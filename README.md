@@ -1,6 +1,6 @@
-# Digital Law & Advisory
+# Digital Law Georgia (DLG)
 
-Bilingual technology and digital law practice website founded by Luka Shakhkulashvili.
+Bilingual website for Digital Law Georgia (DLG), an expert-led technology, commercial and digital law practice founded by Luka Shakhkulashvili.
 
 - Website: https://luka019.github.io/lukaswebsite/
 - Repository: https://github.com/luka019/lukaswebsite
@@ -10,7 +10,7 @@ Bilingual technology and digital law practice website founded by Luka Shakhkulas
 
 Primary website: https://lukaswebsite.vercel.app/
 
-Vercel runs `node scripts/build.mjs` and publishes `dist/`. No npm dependencies are required. The build generates the resource library, bilingual detail pages, homepage previews and the existing AI service page. It validates the resource schema, excludes drafts/archived/future-dated content and creates a sitemap. Only the explicit output files are deployed; repository content and draft data are not copied into the deployed site.
+Vercel runs `node scripts/build.mjs` and publishes `dist/`. No npm dependencies are required. The build generates the resource library, bilingual detail pages, homepage previews and dedicated service landing pages. It validates the resource schema, excludes drafts/archived/future-dated content and creates a sitemap. Only the explicit output files are deployed; repository content and draft data are not copied into the deployed site.
 
 - `index.html`, `styles.css`, `script.js`: the practice website.
 - `_data/resources.json`: the authored resource catalogue.
@@ -31,7 +31,7 @@ The default interface is English; `?lang=ka` opens Georgian. Resources contain b
 
 ## Direct contact form
 
-Public enquiries use `digitallawgeorgia@gmail.com`. Until the new recipient is directly activated with FormSubmit, the form uses the previously activated FormSubmit recipient as a transport relay and CCs `digitallawgeorgia@gmail.com`. JavaScript submits to FormSubmit's AJAX endpoint so visitors remain on the DLG website; the native POST remains as a no-JavaScript fallback.
+Public enquiries use `digitallawgeorgia@gmail.com`, which has been activated with FormSubmit. JavaScript submits to FormSubmit's AJAX endpoint so visitors remain on the DLG website; the native POST remains as a no-JavaScript fallback.
 
 Validation runs before submission. The send button is disabled while waiting; duplicate submissions are prevented. Success is shown only when FormSubmit returns an explicit successful result. Provider errors, activation errors and timeouts preserve the visitor's text. If the visitor edits fields during submission, those edits are preserved even after success. Provider acceptance does not independently verify inbox delivery.
 
@@ -51,7 +51,7 @@ The resource hub contains practical guides, cover images, internal pages, search
 
 The founder's profile highlights London education, Chevening, BDO Legal, public-sector experience and the two years of LegalStepy involvement and CEO role described by the founder. Team support is described by expertise; Luka is the only individually featured professional.
 
-**Digital Law & Advisory** is the website's working brand. This website update does not establish a registered company or confirm trade-name, trademark or domain availability. The footer identifies Luka Shakhkulashvili as the person with whom services are agreed.
+**Digital Law Georgia (DLG)** is the website's working brand. This website update does not establish a registered company or confirm trade-name, trademark or domain availability. The footer identifies Luka Shakhkulashvili as the person with whom services are agreed.
 
 University and employer references describe experience, not endorsements. The LLM is described as a programme/studies without an unconfirmed award date. There are no invented client logos, testimonials, headcounts, addresses, fees or response-time guarantees. Banking and regulatory outcomes are not guaranteed. Foreign-law and technical work are scoped with appropriately qualified specialists.
 
