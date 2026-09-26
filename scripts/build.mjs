@@ -9,7 +9,7 @@ const today=new Date().toISOString().slice(0,10);
 const rows=all.filter(r=>r.status==='published'&&r.date<=today).sort((a,b)=>b.date.localeCompare(a.date));
 fs.rmSync(out,{recursive:true,force:true}); fs.mkdirSync(out,{recursive:true});
 for(const file of ['styles.css','script.js','favicon.svg'])fs.copyFileSync(file,path.join(out,file));
-fs.cpSync('assets',path.join(out,'assets'),{recursive:true}); fs.cpSync('admin',path.join(out,'admin'),{recursive:true});
+fs.cpSync('assets',path.join(out,'assets'),{recursive:true}); fs.cpSync('admin',path.join(out,'admin'),{recursive:true}); fs.cpSync('client',path.join(out,'client'),{recursive:true});
 fs.mkdirSync(path.join(out,'resources'),{recursive:true});
 for(const file of ['resources.js','resource-model.mjs'])fs.copyFileSync('resources/'+file,out+'/resources/'+file);
 const tr=(ka,en)=>`data-en="${esc(en||ka)}"`;
