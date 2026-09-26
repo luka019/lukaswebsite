@@ -91,7 +91,7 @@
   }
   $('[data-admin-google]').onclick=async()=>{
     if(!sb){setError('Authentication is still loading. Refresh the page and try again.');return}
-    const r=await sb.auth.signInWithOAuth({provider:'google',options:{redirectTo:location.origin+'/admin/'}});
+    const r=await sb.auth.signInWithOAuth({provider:'google',options:{redirectTo:location.origin+'/admin/inbox/'}});
     if(r.error)setError(r.error.message);
   };
   document.querySelectorAll('[data-admin-logout]').forEach((b)=>b.onclick=async()=>{await sb.auth.signOut();session=null;setView('login')});
