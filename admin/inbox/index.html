@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101820">
+  <meta name="robots" content="noindex,nofollow">
+  <title>Request inbox | Digital Law Georgia</title>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/client/client.css?v=20260927-flow">
+  <link rel="stylesheet" href="/admin/inbox.css?v=20260927-inbox">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" defer></script>
+  <script src="/admin/app.js?v=20260927-inbox" defer></script>
+</head>
+<body class="client-body admin-body">
+  <header class="client-header">
+    <a class="client-brand" href="/"><span>DL<span>G</span></span><b>DIGITAL LAW <i>GEORGIA</i></b></a>
+    <div class="client-header-actions"><a href="/client/" class="back-link">Client space</a></div>
+  </header>
+  <main class="admin-main">
+    <section class="admin-login" data-admin-login>
+      <p class="overline">DIGITAL LAW GEORGIA / ADMIN</p>
+      <h1>Keep every request moving.</h1>
+      <p>Review new matters, update their status and keep a clear record of client communication.</p>
+      <button class="button button-dark admin-login-button" type="button" data-admin-google>Continue with Google <span>→</span></button>
+      <p class="auth-error" role="alert" data-admin-error hidden></p>
+    </section>
+    <section class="admin-denied" data-admin-denied hidden>
+      <p class="overline">ACCESS RESTRICTED</p>
+      <h1>This account is not an administrator.</h1>
+      <p data-admin-denied-email></p>
+      <button class="button button-dark" type="button" data-admin-logout>Sign out</button>
+    </section>
+    <section class="admin-dashboard" data-admin-dashboard hidden>
+      <div class="admin-heading">
+        <div><p class="overline">REQUEST INBOX / OVERVIEW</p><h1>Client matters, clearly organised.</h1></div>
+        <div class="user-chip"><span data-admin-email></span><button type="button" data-admin-logout aria-label="Sign out">↗</button></div>
+      </div>
+      <div class="admin-stats">
+        <div><span>All requests</span><b data-admin-stat-all>0</b></div>
+        <div><span>Needs review</span><b data-admin-stat-review>0</b></div>
+        <div><span>In progress</span><b data-admin-stat-progress>0</b></div>
+        <div><span>Completed</span><b data-admin-stat-completed>0</b></div>
+      </div>
+      <div class="admin-toolbar">
+        <input type="search" placeholder="Search requests…" data-admin-search>
+        <select data-admin-filter>
+          <option value="all">All statuses</option>
+          <option value="submitted">Submitted</option>
+          <option value="reviewing">In review</option>
+          <option value="in_progress">In progress</option>
+          <option value="waiting_for_client">Your input</option>
+          <option value="completed">Completed</option>
+          <option value="closed">Closed</option>
+        </select>
+      </div>
+      <div class="admin-grid">
+        <section class="admin-list-panel">
+          <div class="panel-heading"><div><p class="overline">INBOX</p><h2>Requests</h2></div><span class="panel-count" data-admin-count>0</span></div>
+          <div class="admin-list" data-admin-list><div class="loading-state">Loading requests…</div></div>
+        </section>
+        <section class="admin-detail-panel" data-admin-detail>
+          <div class="empty-detail"><span>✳</span><h2>Select a request.</h2><p>The brief, contact details and working history will appear here.</p></div>
+        </section>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
