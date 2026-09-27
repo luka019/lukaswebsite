@@ -5,3 +5,27 @@
 @media(max-width:820px){.digital-hero-grid,.service-layout,.scope-layout{grid-template-columns:1fr}.digital-hero{padding-top:35px}.digital-hero-grid{gap:35px}.digital-section{padding:48px 0}.signal-strip{margin-top:35px}.industry-links{grid-template-columns:repeat(2,1fr)}.demo-row{gap:13px;font-size:12px}.digital-site h1{font-size:35px}.product-console{max-width:630px}.hero-subtitle{font-size:19px}.digital-page-hero{padding:30px 0}.site-header .header-inner{gap:10px}}
 @media(max-width:550px){.practice-grid,.solution-grid,.process-cards,.industry-links{grid-template-columns:1fr}.digital-site h1{font-size:31px}.product-console,.scope-form,.deliverable-card{padding:22px}.digital-actions{align-items:stretch}.digital-actions .button{flex:1 1 170px}.demo-row{grid-template-columns:1fr 1fr;gap:18px}.demo-labels{display:none}.delivery-steps>span{min-width:33%}.practice-card h3,.solution-question{min-height:0}.signal-strip{font-size:11px;gap:14px}.founder-intro small{font-size:11px}.digital-page-hero h1{font-size:29px}.digital-lead{font-size:15px}}
 @media(prefers-reduced-motion:reduce){.product-map path{animation:none}.practice-card,.solution-card{transition:none}}
+
+
+/* DLG 2026 — indigo / graphite digital layer */
+.digital-site{--signal:#8b5cf6;--deep:#171827;--grid:#e6e8f0;--tech:#5b50d6;--tech-soft:#efedff;color:#1d1f2b}
+.digital-site .eyebrow,.digital-site .mono{color:#655cc9}
+.digital-hero{background:radial-gradient(ellipse at 82% 18%,#e9edff,transparent 56%),radial-gradient(ellipse at 12% 12%,#f4efff,transparent 45%),#fbfbfd}
+.hero-emphasis{color:#5b50d6}.digital-lead{color:#5f6475}
+.product-console{border-color:#d8dbea;box-shadow:0 22px 64px rgba(74,67,150,.09)}
+.console-top{color:#666e9a}.live-dot{background:#6f5cf7;box-shadow:0 0 0 5px #f0edff}
+.product-tabs button{border-color:#e1e3ec;background:#f8f8fb;color:#3b3e4e}
+.product-tabs button[aria-pressed=true]{background:#25263a;color:#fff;border-color:#25263a}
+.product-map{background-image:linear-gradient(#eceef4 1px,transparent 1px),linear-gradient(90deg,#eceef4 1px,transparent 1px)}
+.product-map path{stroke:#7784e8}.product-map circle{fill:#8b5cf6}.product-map rect{fill:#202234}.product-map text{fill:#f4f2ff}
+.scope-preview span{border-color:#dddaf7;background:#faf9ff;color:#4a4d60}
+.console-next{border-color:#e3e4eb}.console-note,.signal-strip,.digital-heading p:last-child{color:#6c7180}.signal-strip{border-color:#e0e2e9}.signal-strip span:first-child{color:#5b50d6}
+.digital-wash{background:#f7f7fb;border-color:#e6e7ed}
+.practice-card{border-color:#e2e4ec}.practice-card p{color:#666b79}.practice-card:hover,.solution-card:hover{border-color:#aaa5e8;box-shadow:0 14px 32px rgba(79,70,150,.08)}
+.card-arrow{color:#655cc9}.solution-card{border-color:#e2e4ec;background:#fbfbfe}.solution-card h3{color:#393a62}.solution-question{color:#5f6474}
+.delivery-demo{border-color:#e0e2ea;box-shadow:0 12px 38px rgba(34,36,55,.06)}.demo-caption{background:#f0effa;color:#625e83}.demo-labels{border-color:#e4e5eb}.delivery-steps{background:#fafafe;border-color:#e4e5eb}.delivery-steps>span{border-color:#e8e9ef}.delivery-steps b{color:#7772be}
+.industry-links a{border-color:#dfe1e8}.digital-cta{background:linear-gradient(135deg,#f2efff,#eef2ff)}
+.digital-page-hero{background:linear-gradient(120deg,#f5f3ff,#fff 58%,#edf1ff);border-color:#e1e3ec}
+.deliverable-card{background:#f7f6ff;border-color:#dedcf5}.scope-form{border-color:#dfe1e9}.scope-form select{border-color:#d8dae5;color:#2b2d3d}
+.scope-form input[type=checkbox]{accent-color:#5b50d6}.scope-result-card{border-color:#e2e4ea}.scope-result-card p{color:#686d7a}.scope-disclaimer{border-left-color:#8b84df}
+.digital-site button:focus-visible,.digital-site a:focus-visible{outline-color:#6f5cf7}
