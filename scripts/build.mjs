@@ -40,10 +40,11 @@ const resourceService=r=>r.slug==='technology-contract-review'?{href:'/services/
 function shell({title,title_en,summary,summary_en,url,content,image='',article=false,noindex=false,author='',author_en='',date=''}) {
  const canonical=siteUrl+url;
  const imageUrl=image?(image.startsWith('/')?siteUrl+image:image):siteUrl+'/assets/london-architecture.jpg';
+ const articleImages=article&&image&&image.endsWith('.png')?[imageUrl,imageUrl.replace(/\.png$/, '-4x3.png'),imageUrl.replace(/\.png$/, '-1x1.png')]:[imageUrl];
  const keywords=termsFor(url);
  const robots=noindex?'noindex,nofollow':'index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1';
  const schema=article?{
-  '@context':'https://schema.org','@type':'BlogPosting',headline:title,alternativeHeadline:title_en||title,description:summary,url:canonical,mainEntityOfPage:canonical,image:[imageUrl],datePublished:date||undefined,dateModified:date||undefined,inLanguage:['ka','en'],
+  '@context':'https://schema.org','@type':'BlogPosting',headline:title,alternativeHeadline:title_en||title,description:summary,url:canonical,mainEntityOfPage:canonical,image:articleImages,datePublished:date||undefined,dateModified:date||undefined,inLanguage:['ka','en'],
   author:{'@type':'Person',name:author||'ლუკა შახყულაშვილი',alternateName:author_en||'Luka Shakhkulashvili',url:siteUrl+'/#about'},
   publisher:{'@type':'Organization',name:'Digital Law Georgia',url:siteUrl+'/'},keywords:keywords.join(', ')
  }:{
