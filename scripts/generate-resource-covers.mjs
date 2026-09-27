@@ -63,14 +63,18 @@ function pixelAI(x,y){
 const crcTable=(()=>{const t=[];for(let n=0;n<256;n++){let c=n;for(let k=0;k<8;k++)c=(c&1)?0xedb88320^(c>>>1):c>>>1;t[n]=c>>>0;}return t})();
 const crc32=buf=>{let c=0xffffffff;for(const b of buf)c=crcTable[(c^b)&255]^(c>>>8);return (c^0xffffffff)>>>0};
 const chunk=(type,data)=>{const t=Buffer.from(type);const out=Buffer.alloc(12+data.length);out.writeUInt32BE(data.length,0);t.copy(out,4);data.copy(out,8);out.writeUInt32BE(crc32(Buffer.concat([t,data])),8+data.length);return out};
-function png(pixel){
- const raw=Buffer.alloc((W*3+1)*H);let p=0;
- for(let y=0;y<H;y++){raw[p++]=0;for(let x=0;x<W;x++){const c=pixel(x,y);raw[p++]=clamp(c[0]);raw[p++]=clamp(c[1]);raw[p++]=clamp(c[2]);}}
- const ihdr=Buffer.alloc(13);ihdr.writeUInt32BE(W,0);ihdr.writeUInt32BE(H,4);ihdr[8]=8;ihdr[9]=2;
+function png(pixel,outW=W,outH=H,offsetX=0){
+ const raw=Buffer.alloc((outW*3+1)*outH);let p=0;
+ for(let y=0;y<outH;y++){raw[p++]=0;for(let x=0;x<outW;x++){const c=pixel(x+offsetX,y);raw[p++]=clamp(c[0]);raw[p++]=clamp(c[1]);raw[p++]=clamp(c[2]);}}
+ const ihdr=Buffer.alloc(13);ihdr.writeUInt32BE(outW,0);ihdr.writeUInt32BE(outH,4);ihdr[8]=8;ihdr[9]=2;
  return Buffer.concat([Buffer.from([137,80,78,71,13,10,26,10]),chunk('IHDR',ihdr),chunk('IDAT',zlib.deflateSync(raw,{level:9})),chunk('IEND',Buffer.alloc(0))]);
 }
 export function generateResourceCovers(outDir){
  const dir=path.join(outDir,'assets','resources');fs.mkdirSync(dir,{recursive:true});
- const files=[['technology-contract-review.png',pixelContracts],['vendor-data-review.png',pixelVendor],['ai-governance-pilot.png',pixelAI]];
- for(const [name,pixel] of files)fs.writeFileSync(path.join(dir,name),png(pixel));
+ const files=[['technology-contract-review',pixelContracts],['vendor-data-review',pixelVendor],['ai-governance-pilot',pixelAI]];
+ for(const [base,pixel] of files){
+  fs.writeFileSync(path.join(dir,base+'.png'),png(pixel,1200,675,0));
+  fs.writeFileSync(path.join(dir,base+'-4x3.png'),png(pixel,900,675,150));
+  fs.writeFileSync(path.join(dir,base+'-1x1.png'),png(pixel,675,675,262));
+ }
 }
