@@ -16,3 +16,13 @@ body{background:var(--w-bg);color:var(--w-ink)}
 .w-badge{background:#efedff}.w-notice{background:#f0eeff;border-color:#d6d2f4;color:#403a84}
 .w-form input,.w-form select,.w-form textarea{border-color:#d9dbe6}.w-form input:focus,.w-form select:focus,.w-form textarea:focus{outline:2px solid #b8b3f0;border-color:#8c84df}
 .w-stat strong,.w-detail a{color:var(--w-accent)}
+
+
+/* remove residual green states */
+body a{color:#5148c5}.w-brand{color:#1d1f2b}.w-header-right{color:#5f6474}
+button:focus-visible,a:focus-visible{outline-color:#6f5cf7}
+.w-button{border-color:#d9dbe6;color:#343746}.w-orbit{color:#6f5cf7}
+.w-stats>div{border-color:#e1e3eb}.w-matter{border-color:#e1e3eb;color:#343746}
+.w-stage>span{border-color:#e3e5ed;color:#74798a}.w-stage .current{border-color:#6f5cf7;color:#5148c5}
+.w-tabs{border-color:#e1e3eb}.w-tabs button{color:#666b79}.w-tabs button[aria-pressed=true]{border-color:#5b50d6;color:#4c43bd}
+.w-badge{background:#efedff;color:#5148c5}.w-notice:not(.error){background:#f0eeff;border-color:#d3cff5;color:#403a84}
