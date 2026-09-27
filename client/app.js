@@ -1,8 +1,8 @@
 (() => {
   const URL = 'https://luygurjqpfgqnejtoihh.supabase.co';
   const KEY = 'sb_publishable_vAjSddEW_E6gDxQE2E5saQ_opTxJzdD';
-  let sb, session, requests = [], selectedRequest, language = localStorage.getItem('dlg-language') || 'en';
-  const labels = {contracts:{en:'Contracts / negotiation',ka:'ხელშეკრულება / მოლაპარაკება'},ai:{en:'AI, data and compliance',ka:'AI, მონაცემები და შესაბამისობა'},product:{en:'Digital product',ka:'ციფრული პროდუქტი'},georgia:{en:'Georgia market entry',ka:'საქართველოში საქმიანობა'},ongoing:{en:'Ongoing legal support',ka:'მიმდინარე იურიდიული მხარდაჭერა'}};
+  let sb, session, requests = [], selectedRequest, language = localStorage.getItem('dlg-language') || 'ka';
+  const labels = {contracts:{en:'Contracts and negotiation',ka:'ხელშეკრულებები და მოლაპარაკება'},ai:{en:'AI, data and compliance',ka:'AI, მონაცემები და შესაბამისობა'},product:{en:'Digital product and LegalTech',ka:'ციფრული პროდუქტი და LegalTech'},georgia:{en:'Georgia market entry',ka:'საქართველოში საქმიანობის დაწყება'},ongoing:{en:'Ongoing legal support',ka:'მიმდინარე იურიდიული მხარდაჭერა'},'data-protection':{en:'Personal data protection',ka:'პერსონალურ მონაცემთა დაცვა'},corporate:{en:'Corporate and banking matters',ka:'კორპორაციული და საბანკო საკითხები'},employment:{en:'Employment and workplace',ka:'შრომითი ურთიერთობები'},'investment-funds':{en:'Investment and regulated business',ka:'ინვესტიციები და რეგულირებადი საქმიანობა'},disputes:{en:'Disputes and difficult decisions',ka:'დავები და რთული გადაწყვეტილებები'}};
   const statuses = {submitted:{en:'SUBMITTED',ka:'გაგზავნილია'},reviewing:{en:'IN REVIEW',ka:'მიმდინარეობს შემოწმება'},in_progress:{en:'IN PROGRESS',ka:'მიმდინარეობს მუშაობა'},waiting_for_client:{en:'YOUR INPUT',ka:'თქვენი პასუხია საჭირო'},completed:{en:'COMPLETED',ka:'დასრულებულია'},closed:{en:'CLOSED',ka:'დახურულია'}};
   const $ = (s) => document.querySelector(s), $$ = (s) => [...document.querySelectorAll(s)];
   const say = (en,ka) => language === 'en' ? en : ka;
