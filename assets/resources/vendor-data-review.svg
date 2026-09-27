@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675" role="img" aria-labelledby="t d">
+<title id="t">Vendor data protection review</title><desc id="d">Abstract editorial illustration of business data moving through a controlled supplier boundary.</desc>
+<defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#f4f7f5"/><stop offset="1" stop-color="#dfe9ff"/></linearGradient><filter id="s"><feDropShadow dx="0" dy="18" stdDeviation="20" flood-color="#173b35" flood-opacity=".12"/></filter></defs>
+<rect width="1200" height="675" fill="url(#bg)"/><g opacity=".3" stroke="#91a7d9"><path d="M0 110H1200M0 220H1200M0 330H1200M0 440H1200M0 550H1200"/><path d="M150 0V675M300 0V675M450 0V675M600 0V675M750 0V675M900 0V675M1050 0V675"/></g>
+<rect x="410" y="95" width="380" height="485" rx="40" fill="#fff" stroke="#c4d2cc" stroke-width="2" filter="url(#s)"/><rect x="475" y="160" width="250" height="355" rx="28" fill="#173f38"/>
+<path d="M540 300c0-67 120-67 120 0v35h22v105H518V335h22z" fill="#e9f3ee"/><path d="M565 300c0-36 70-36 70 0v35h-70z" fill="#4169d8"/><circle cx="600" cy="385" r="14" fill="#4169d8"/><rect x="594" y="398" width="12" height="22" rx="6" fill="#4169d8"/>
+<g fill="#4169d8"><circle cx="125" cy="205" r="16"/><circle cx="190" cy="325" r="12"/><circle cx="120" cy="470" r="10"/></g><g fill="#6f9485"><circle cx="1080" cy="205" r="16"/><circle cx="1010" cy="330" r="12"/><circle cx="1085" cy="470" r="10"/></g>
+<g fill="none" stroke="#4169d8" stroke-width="4"><path d="M141 205C250 205 278 260 410 260"/><path d="M202 325C300 325 330 350 410 350"/><path d="M130 470C270 470 315 445 410 445"/></g>
+<g fill="none" stroke="#5e897a" stroke-width="4"><path d="M790 260c120 0 165-55 274-55"/><path d="M790 350c100 0 125-20 208-20"/><path d="M790 445c120 0 164 25 285 25"/></g>
+<g font-family="Arial,sans-serif" fill="#173f38"><text x="70" y="78" font-size="16" font-weight="700" letter-spacing="3">DIGITAL LAW GEORGIA</text><text x="70" y="612" font-size="15" letter-spacing="2" opacity=".72">DATA · VENDORS · SECURITY · GOVERNANCE</text></g></svg>
