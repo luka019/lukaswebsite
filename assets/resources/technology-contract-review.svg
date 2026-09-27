@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675" role="img" aria-labelledby="t d">
+<title id="t">Technology contract review</title><desc id="d">Abstract editorial illustration of digital contract documents, approval paths and technology nodes.</desc>
+<defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#132b33"/><stop offset="1" stop-color="#214c45"/></linearGradient><linearGradient id="paper" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#ffffff"/><stop offset="1" stop-color="#eaf4ef"/></linearGradient></defs>
+<rect width="1200" height="675" fill="url(#bg)"/><circle cx="1020" cy="90" r="240" fill="none" stroke="#4169d8" stroke-width="2" opacity=".35"/><circle cx="1020" cy="90" r="160" fill="none" stroke="#c7f179" stroke-width="2" opacity=".35"/>
+<g opacity=".28" stroke="#b9d9cc"><path d="M0 560H1200M0 500H1200M0 440H1200"/><path d="M130 0V675M250 0V675M370 0V675M490 0V675M610 0V675M730 0V675M850 0V675M970 0V675"/></g>
+<g transform="translate(185 115)"><rect x="60" y="50" width="480" height="370" rx="28" fill="#0d2026" opacity=".45"/><rect x="20" y="18" width="480" height="370" rx="28" fill="url(#paper)"/>
+<rect x="62" y="62" width="170" height="14" rx="7" fill="#214c45"/><rect x="62" y="104" width="360" height="8" rx="4" fill="#b8cbc4"/><rect x="62" y="132" width="306" height="8" rx="4" fill="#d1ddd8"/>
+<rect x="62" y="186" width="110" height="38" rx="19" fill="#eaf0ff"/><circle cx="82" cy="205" r="8" fill="#4169d8"/><rect x="104" y="201" width="48" height="8" rx="4" fill="#4169d8" opacity=".75"/>
+<rect x="62" y="260" width="360" height="8" rx="4" fill="#b8cbc4"/><rect x="62" y="288" width="288" height="8" rx="4" fill="#d1ddd8"/><rect x="62" y="332" width="150" height="12" rx="6" fill="#214c45"/>
+<path d="M345 334c25-30 45-36 72-11 23 22 37 14 61-17" fill="none" stroke="#4169d8" stroke-width="6" stroke-linecap="round"/></g>
+<g fill="#c7f179"><circle cx="825" cy="405" r="10"/><circle cx="928" cy="336" r="10"/><circle cx="1028" cy="414" r="10"/></g>
+<g stroke="#9fc4b6" stroke-width="3" fill="none"><path d="M825 405L928 336 1028 414"/><path d="M928 336V238"/></g><rect x="892" y="198" width="72" height="72" rx="20" fill="#4169d8"/><path d="M915 235l10 10 22-26" fill="none" stroke="#fff" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+<g font-family="Arial,sans-serif" fill="#edf5f2"><text x="72" y="80" font-size="16" font-weight="700" letter-spacing="3">DIGITAL LAW GEORGIA</text><text x="72" y="610" font-size="15" letter-spacing="2" opacity=".75">TECH CONTRACTS · RISK · NEGOTIATION</text></g></svg>
