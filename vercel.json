@@ -3,5 +3,5 @@
   "buildCommand": "node scripts/build.mjs",
   "outputDirectory": "dist",
   "cleanUrls": true,
-  "headers": [{"source":"/admin/(.*)","headers":[{"key":"X-Robots-Tag","value":"noindex, nofollow"},{"key":"Cache-Control","value":"no-store"},{"key":"Referrer-Policy","value":"no-referrer"},{"key":"Content-Security-Policy","value":"default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' https: data: blob:; connect-src 'self'; font-src 'self'; object-src 'none'; base-uri 'none'; frame-ancestors 'none'; form-action 'self'"}]}]
+  "headers": [{"source":"/admin/(.*)","headers":[{"key":"X-Robots-Tag","value":"noindex, nofollow"},{"key":"Cache-Control","value":"no-store"},{"key":"Referrer-Policy","value":"no-referrer"},{"key":"Content-Security-Policy","value":"default-src 'self'; script-src 'self' https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2; style-src 'self'; img-src 'self' https: data: blob:; connect-src 'self' https://luygurjqpfgqnejtoihh.supabase.co; font-src 'self'; object-src 'none'; base-uri 'none'; frame-ancestors 'none'; form-action 'self'"}]}]
 }

@@ -12,13 +12,13 @@
   };
   const $ = (s) => document.querySelector(s);
   const esc = (v) => String(v || '').replace(/[&<>"']/g,(c)=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[c]));
-  const date = (v) => new Intl.DateTimeFormat('en-GB',{day:'2-digit',month:'short',year:'numeric',hour:'2-digit',minute:'2-digit'}).format(new Date(v));
+  const date = (v) => new Intl.DateTimeFormat('ka-GE',{day:'2-digit',month:'short',year:'numeric',hour:'2-digit',minute:'2-digit'}).format(new Date(v));
   let sb, session, requests = [], selected;
 
   function show(selector, visible){$(selector).hidden=!visible}
   function setError(message){const e=$('[data-admin-error]');e.textContent=message;e.hidden=!message}
   function isAdmin(user){return Boolean(user?.email && ADMIN_EMAILS.has(user.email.toLowerCase()))}
-  function statusLabel(status){return (statuses[status]||statuses.submitted).en}
+  function statusLabel(status){return (statuses[status]||statuses.submitted).ka}
   function setView(view){
     show('[data-admin-login]',view==='login');
     show('[data-admin-denied]',view==='denied');
@@ -39,24 +39,27 @@
       return (!q||hay.includes(q))&&(filter==='all'||x.status===filter);
     });
     $('[data-admin-count]').textContent=list.length;
-    if(!list.length){$('[data-admin-list]').innerHTML='<div class="empty-state">No matching requests.</div>';return}
+    if(!list.length){$('[data-admin-list]').innerHTML='<div class="empty-state">მიმართვა ვერ მოიძებნა.</div>';return}
     $('[data-admin-list]').innerHTML=list.map((x)=>{
       const st=statuses[x.status]||statuses.submitted;
-      return '<button class="admin-row '+(selected?.id===x.id?'active':'')+'" type="button" data-admin-id="'+esc(x.id)+'"><div class="admin-row-top"><span class="request-status '+esc(x.status)+'">'+esc(st.en)+'</span><span class="request-service">'+esc(x.service_label)+'</span></div><strong>'+esc(x.title)+'</strong><div class="admin-row-bottom"><span>'+esc(x.client_email||'No email recorded')+'</span><span>'+date(x.created_at)+'</span></div></button>';
+      return '<button class="admin-row '+(selected?.id===x.id?'active':'')+'" type="button" data-admin-id="'+esc(x.id)+'"><div class="admin-row-top"><span class="request-status '+esc(x.status)+'">'+esc(st.ka)+'</span><span class="request-service">'+esc(x.service_label)+'</span></div><strong>'+esc(x.title)+'</strong><div class="admin-row-bottom"><span>'+esc(x.client_email||'ელფოსტა მითითებული არ არის')+'</span><span>'+date(x.created_at)+'</span></div></button>';
     }).join('');
     document.querySelectorAll('[data-admin-id]').forEach((b)=>b.onclick=()=>{selected=requests.find((x)=>x.id===b.dataset.adminId);renderList();renderDetail()});
   }
   async function loadEvents(id){
     const r=await sb.from('dlg_client_request_events').select('*').eq('request_id',id).order('created_at',{ascending:true});
+    if(r.error)throw r.error;
     return r.data||[];
   }
   async function renderDetail(){
     const item=selected;
-    if(!item){$('[data-admin-detail]').innerHTML='<div class="empty-detail"><span>✳</span><h2>Select a request.</h2><p>The brief, contact details and working history will appear here.</p></div>';return}
-    $('[data-admin-detail]').innerHTML='<div class="loading-state">Loading request…</div>';
-    const events=await loadEvents(item.id);
-    const eventMarkup=events.length?events.map((e)=>'<div class="admin-event"><small>'+esc(e.event_type.replaceAll('_',' ').toUpperCase())+' · '+date(e.created_at)+'</small><p>'+esc(e.message)+'</p></div>').join(''):'<p class="empty-state">No activity yet.</p>';
-    $('[data-admin-detail]').innerHTML='<div class="admin-detail-header"><span class="request-status '+esc(item.status)+'">'+esc(statusLabel(item.status))+'</span><h2>'+esc(item.title)+'</h2><div class="detail-meta"><span>'+esc(item.service_label)+'</span><span>'+date(item.created_at)+'</span></div></div><div class="admin-contact"><div><span>Client</span><br>'+esc(item.client_name||'Not provided')+'</div><div><span>Email</span><br>'+(item.client_email?'<a href="mailto:'+esc(item.client_email)+'">'+esc(item.client_email)+'</a>':'Not recorded')+'</div><div><span>Company / project</span><br>'+esc(item.company_name||'Not provided')+'</div></div><p class="admin-request-description">'+esc(item.description)+'</p><div class="admin-controls"><select data-detail-status>'+Object.entries(statuses).map(([key,v])=>'<option value="'+key+'" '+(key===item.status?'selected':'')+'>'+v.en+'</option>').join('')+'</select><button class="button button-dark" type="button" data-save-status>Save status</button></div><div class="admin-status-message" data-admin-status-message></div><div class="admin-note"><label><span>Add an internal/client update</span><textarea data-admin-note placeholder="Write the next update or question…"></textarea></label><button class="button button-dark" type="button" data-add-note>Add update</button></div><div class="admin-timeline">'+eventMarkup+'</div>';
+    if(!item){$('[data-admin-detail]').innerHTML='<div class="empty-detail"><span>✳</span><h2>აირჩიეთ მიმართვა.</h2><p>აქ ნახავთ საკითხის აღწერას, საკონტაქტო ინფორმაციასა და მიმოწერის ისტორიას.</p></div>';return}
+    $('[data-admin-detail]').innerHTML='<div class="loading-state">მიმართვა იტვირთება…</div>';
+    let events;
+    try { events=await loadEvents(item.id); } catch { if(selected?.id===item.id) $('[data-admin-detail]').innerHTML='<p role="alert">მიმართვის ისტორია ვერ ჩაიტვირთა. ხელახლა აირჩიეთ მიმართვა.</p>'; return; }
+    if(selected?.id!==item.id)return;
+    const eventMarkup=events.length?events.map((e)=>'<div class="admin-event"><small>'+esc(({submitted:'მიმართვა გაგზავნილია',status_changed:'სტატუსის ცვლილება',admin_update:'იურისტის განახლება'})[e.event_type]||'განახლება')+' · '+date(e.created_at)+'</small><p>'+esc(e.message)+'</p></div>').join(''):'<p class="empty-state">განახლებები ჯერ არ არის.</p>';
+    $('[data-admin-detail]').innerHTML='<div class="admin-detail-header"><span class="request-status '+esc(item.status)+'">'+esc(statusLabel(item.status))+'</span><h2>'+esc(item.title)+'</h2><div class="detail-meta"><span>'+esc(item.service_label)+'</span><span>'+date(item.created_at)+'</span></div></div><div class="admin-contact"><div><span>კლიენტი</span><br>'+esc(item.client_name||'მითითებული არ არის')+'</div><div><span>ელფოსტა</span><br>'+(item.client_email?'<a href="mailto:'+esc(item.client_email)+'">'+esc(item.client_email)+'</a>':'მითითებული არ არის')+'</div><div><span>კომპანია / პროექტი</span><br>'+esc(item.company_name||'მითითებული არ არის')+'</div></div><p class="admin-request-description">'+esc(item.description)+'</p><div class="admin-controls"><select data-detail-status>'+Object.entries(statuses).map(([key,v])=>'<option value="'+key+'" '+(key===item.status?'selected':'')+'>'+v.ka+'</option>').join('')+'</select><button class="button button-dark" type="button" data-save-status>სტატუსის შენახვა</button></div><div class="admin-status-message" data-admin-status-message></div><div class="admin-note"><label><span>კლიენტისთვის განახლების დამატება</span><textarea data-admin-note placeholder="ჩაწერეთ განახლება ან შეკითხვა — ამ ტექსტს კლიენტიც ნახავს."></textarea></label><button class="button button-dark" type="button" data-add-note>განახლების დამატება</button></div><div class="admin-timeline">'+eventMarkup+'</div>';
     $('[data-save-status]').onclick=saveStatus;
     $('[data-add-note]').onclick=addNote;
   }
@@ -66,31 +69,31 @@
     const item=selected;
     const r=await sb.from('dlg_client_requests').update({status,updated_at:new Date().toISOString()}).eq('id',item.id);
     if(r.error){feedback(r.error.message,true);return}
-    if(item.status!==status){await sb.from('dlg_client_request_events').insert({request_id:item.id,user_id:session.user.id,event_type:'status_changed',message:'Status changed to '+statusLabel(status)});}
+    if(item.status!==status){await sb.from('dlg_client_request_events').insert({request_id:item.id,user_id:session.user.id,event_type:'status_changed',message:'ახალი სტატუსი: '+statusLabel(status)});}
     selected={...item,status};
     requests=requests.map((x)=>x.id===item.id?selected:x);
-    renderStats();renderList();await renderDetail();feedback('Status saved.');
+    renderStats();renderList();await renderDetail();feedback('სტატუსი შენახულია.');
   }
   async function addNote(){
     const field=$('[data-admin-note]'),message=field.value.trim();
-    if(!message){feedback('Write an update first.',true);return}
+    if(!message){feedback('ჯერ ჩაწერეთ განახლების ტექსტი.',true);return}
     const r=await sb.from('dlg_client_request_events').insert({request_id:selected.id,user_id:session.user.id,event_type:'admin_update',message});
     if(r.error){feedback(r.error.message,true);return}
-    field.value='';await renderDetail();feedback('Update added.');
+    field.value='';await renderDetail();feedback('განახლება დამატებულია.');
   }
   async function loadRequests(){
     const r=await sb.from('dlg_client_requests').select('*').order('created_at',{ascending:false});
-    if(r.error){setError(r.error.message);return}
+    if(r.error){$('[data-admin-list]').textContent='მიმართვები ვერ ჩაიტვირთა. განაახლეთ გვერდი.';return}
     requests=r.data||[];renderStats();renderList();if(requests.length){selected=requests[0];renderList();renderDetail()}
   }
   async function applySession(){
     setError('');
     if(!session){setView('login');return}
-    if(!isAdmin(session.user)){$('[data-admin-denied-email]').textContent='Signed in as '+(session.user.email||'an unknown account')+'.';setView('denied');return}
+    if(!isAdmin(session.user)){$('[data-admin-denied-email]').textContent='შესული ხართ ანგარიშით: '+(session.user.email||'უცნობი ანგარიში')+'.';setView('denied');return}
     $('[data-admin-email]').textContent=session.user.email||'';setView('dashboard');await loadRequests();
   }
   $('[data-admin-google]').onclick=async()=>{
-    if(!sb){setError('Authentication is still loading. Refresh the page and try again.');return}
+    if(!sb){setError('შესვლის სერვისი ჯერ იტვირთება. განაახლეთ გვერდი და სცადეთ ხელახლა.');return}
     const r=await sb.auth.signInWithOAuth({provider:'google',options:{redirectTo:location.origin+'/admin/inbox/'}});
     if(r.error)setError(r.error.message);
   };
@@ -98,10 +101,10 @@
   $('[data-admin-search]').oninput=renderList;
   $('[data-admin-filter]').onchange=renderList;
   async function boot(){
-    if(!window.supabase){setError('The authentication service is still loading. Refresh the page.');return}
+    if(!window.supabase){setError('შესვლის სერვისი ვერ ჩაიტვირთა. განაახლეთ გვერდი.');return}
     sb=window.supabase.createClient(URL,KEY);
     const r=await sb.auth.getSession();session=r.data.session;await applySession();
-    sb.auth.onAuthStateChange(async(_,next)=>{session=next;await applySession()});
+    sb.auth.onAuthStateChange((_,next)=>{session=next;setTimeout(()=>{applySession().catch(()=>setError('სესიის განახლება ვერ მოხერხდა. განაახლეთ გვერდი.'))},0)});
   }
   boot();
 })();
