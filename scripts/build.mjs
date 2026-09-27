@@ -1,6 +1,7 @@
 import fs from 'node:fs';
 import {privacyContent} from './privacy-page.mjs';
 import {buildDigitalPages} from './digital-pages.mjs';
+import {generateResourceCovers} from './generate-resource-covers.mjs';
 import path from 'node:path';
 import {validateResources,renderBody,esc,topics,formats} from '../resources/resource-model.mjs';
 const out=process.env.SITE_OUTPUT||'dist';
@@ -12,6 +13,7 @@ const rows=all.filter(r=>r.status==='published'&&r.date<=today).sort((a,b)=>b.da
 fs.rmSync(out,{recursive:true,force:true}); fs.mkdirSync(out,{recursive:true});
 for(const file of ['styles.css','script.js','favicon.svg','catalogue.mjs','digital.css','digital.mjs','workspace.css','workspace.mjs','delivery-templates.mjs'])fs.copyFileSync(file,path.join(out,file));
 fs.cpSync('assets',path.join(out,'assets'),{recursive:true}); fs.cpSync('admin',path.join(out,'admin'),{recursive:true}); fs.cpSync('client',path.join(out,'client'),{recursive:true});
+generateResourceCovers(out);
 fs.mkdirSync(path.join(out,'resources'),{recursive:true});
 for(const file of ['resources.js','resource-model.mjs'])fs.copyFileSync('resources/'+file,out+'/resources/'+file);
 const tr=(ka,en)=>`data-en="${esc(en||ka)}"`;
