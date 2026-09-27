@@ -65,3 +65,47 @@ html{scroll-padding-top:105px}body{line-height:1.8}h1,h2,h3,h4{letter-spacing:0!
 @media(max-width:700px){html{scroll-padding-top:90px}.container,.service-extension{width:calc(100% - 36px)}.header-inner{min-height:72px}.header-actions{gap:8px}.hero{padding-top:36px}.hero h1{font-size:32px}.hero-grid{padding-bottom:30px}.hero-lead{font-size:16px}.hero-ticker{font-size:12px;gap:10px 20px}.hero-ticker span:first-child{width:100%}.intake-card h2{font-size:24px}.choice strong{font-size:14px}.choice small{font-size:12px}.section{padding:52px 0}.section-intro-row h2,.profile-copy h2,.faq-grid h2,.workspace-copy h2,.resources-row h2{font-size:27px}.service-tile,.service-tile-wide{min-height:0;padding:24px;gap:12px}.tile-content h3{font-size:21px}.service-extension{padding-top:20px;margin-top:28px}.service-extension-heading{display:block}.service-extension-heading p:last-child{margin-top:14px}.service-extended-grid,.ai-service-grid,.service-process{grid-template-columns:1fr}.service-extended-card{min-height:0}.process-grid{gap:25px 20px}.process-item h3{font-size:17px}.portrait-note{max-width:none;font-size:13px}.profile-portrait img{box-shadow:none}.profile-facts span{font-size:12px}.scenario-layout{grid-template-columns:1fr}.scenario-tab{white-space:normal;min-width:170px;max-width:230px;padding:12px;font-size:13px}.scenario-panel{padding:25px}.scenario-panel h3{font-size:23px;margin-top:24px}.preview-stats b{font-size:25px}.preview-date{font-size:12px}.final-cta{padding:50px 0}.final-cta h2{font-size:29px}.resource-hero{padding:32px 0}.resource-hero h1{font-size:30px}.resource-hero-description{font-size:16px}.resource-grid,.resource-preview-grid,.resource-search-row{grid-template-columns:1fr}.resource-filter-row{flex-direction:column;align-items:start}.resource-controls{padding:18px}.article-content{font-size:16px}.footer-top,.resource-footer-bottom{flex-direction:column;align-items:start}.footer-main,.footer-bottom{display:block}.footer-links{gap:30px}.resources-row .button{margin-top:20px}.service-outcome-box,.ai-card,.ai-start{padding:23px}}
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important}}
 @media print{.site-header,.site-footer,.article-tools,.related-resources,.article-contact{display:none}.article-page{max-width:none;padding:0}.article-cover{max-height:250px}}
+
+
+/* DLG 2026 — LegalStepy-inspired technology palette */
+:root{
+  --ink:#15161f;--ink-soft:#242634;--accent:#5b50d6;--accent-dark:#4037a8;
+  --paper:#ffffff;--paper-2:#f7f7fb;--lime:#efedff;--cyan:#f3f2ff;
+  --muted:#646979;--line:#e3e5ed;--line-light:rgba(255,255,255,.16)
+}
+body{background:#fff;color:var(--ink)}
+.site-header{background:rgba(255,255,255,.96);border-color:var(--line);color:var(--ink)}
+.brand-mark,.dl-mark{background:linear-gradient(135deg,#4f7cff 0%,#6f5cf7 52%,#8b5cf6 100%);color:#fff;box-shadow:0 8px 24px rgba(91,80,214,.18)}
+.brand-mark span{color:#fff}.brand-name small,.brand-wordmark span:last-child{color:#74798b}
+.site-nav a:hover,.header-login:hover,.language-control button[aria-pressed=true],.header-login span{color:var(--accent)}
+.header-login{border-color:#dedfea;background:#fff}
+.hero{background:radial-gradient(circle at 82% 18%,#eceeff 0,transparent 34%),radial-gradient(circle at 18% 8%,#f5f0ff 0,transparent 31%),#fafafd;color:var(--ink)}
+.hero-lead,.hero-note,.section-intro-row>p,.tile-content p,.service-tile-wide p,.profile-copy>p,.faq-intro p{color:var(--muted)}
+.kicker,.eyebrow,.tile-number,.arrow-link,.profile-copy .profile-role,.profile-facts strong,.text-link,.footer-label,.resource-back,.small-number,.ai-deliverable strong{color:var(--accent)}
+.pulse-dot,.note-line{background:var(--accent)}
+.button-lime,.button-dark,.button-primary{background:#5b50d6;color:#fff;border-color:#5b50d6;box-shadow:0 8px 20px rgba(91,80,214,.12)}
+.button-lime:hover,.button-dark:hover,.button-primary:hover{background:#4c43bd;border-color:#4c43bd}
+.button-ghost-light,.button-outline,.button-secondary{background:#fff;border-color:#d8d9e6;color:#2e3140}
+.button-ghost-light:hover,.button-outline:hover,.button-secondary:hover{background:#f2f0ff;border-color:#aaa4eb;color:#5148c5}
+.intake-card,.resource-card,.scenario-panel,.workspace-preview{border-color:#e0e2ec;box-shadow:0 18px 55px rgba(31,34,52,.07)}
+.choice:hover,.choice.active{background:#f0eeff;color:var(--ink);border-color:#b6b0ef}
+.result-link,.resource-card-top,.resource-card-bottom{color:var(--accent)}
+.service-tile-wide{background:#f0eeff}.service-tile-accent,.service-outcome-box,.ai-start,.ai-scope-note{background:#f7f6ff}
+.service-tile:hover,.service-extended-card:hover{background:#fbfbff;border-color:#c8c5ee;box-shadow:0 12px 32px rgba(55,52,90,.08)}
+.method-section,.scenario-section,.faq-section,.resources-strip,.related-resources{background:#f7f7fb;color:var(--ink);border-color:var(--line)}
+.process-item>span{border-color:#c8c5ee;color:var(--accent)}
+.scenario-tabs{background:#f0f1f6}.scenario-tab.active{background:#fff;color:var(--accent)}
+.scenario-panel li:before{color:#6f5cf7}
+.workspace-section{background:linear-gradient(135deg,#f5f4ff,#eef2ff)}
+.preview-stats div{background:#f7f7fb}.preview-stats b,.request-tag,.lime-text{color:var(--accent)}
+.profile-section{background:#fff}.profile-portrait,.profile-portrait img,.portrait-note{background:#efedff}.portrait-note{color:#202230}
+.credentials li{border-left-color:#b8b3f0}
+.final-cta{background:linear-gradient(135deg,#171827,#22243a);color:#f7f7fb}
+.final-cta p{color:#b8bbca}
+.site-footer{background:#111219;color:#f4f4f8;border-color:#2a2c38}.site-footer p,.footer-links>div,.footer-bottom{color:#9da1b2}.site-footer .brand-wordmark span:last-child{color:#9da1b2}.footer-links a:hover{color:#9d8cff}
+.resource-hero,.digital-page-hero{background:linear-gradient(120deg,#f6f5ff,#ffffff 55%,#eef2ff);border-color:var(--line)}
+.resource-controls,.resource-sources,.article-contact,.service-landing-cta,.resource-help>.container{background:#f7f7fb}
+.resource-tabs button[aria-pressed=true]{background:var(--accent);color:#fff}
+input,select,textarea{border-color:#d9dbe6;color:var(--ink)}input:focus,select:focus,textarea:focus{outline:2px solid #b8b3f0;outline-offset:1px;border-color:#8c84df}
+.resource-cover{background:#f1f2f8}
+a:focus-visible,button:focus-visible,summary:focus-visible{outline-color:#6f5cf7}
