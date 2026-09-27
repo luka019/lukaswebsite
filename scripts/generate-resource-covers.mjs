@@ -14,50 +14,50 @@ const line=(x,y,x1,y1,x2,y2,width)=>{
  return dx*dx+dy*dy<=width*width;
 };
 function pixelContracts(x,y){
- let c=mix([16,30,53],[25,63,57],(x/W*.55+y/H*.45));
+ let c=mix([17,18,31],[46,40,86],(x/W*.55+y/H*.45));
  if(x%120<1||y%90<1)c=blend(c,[190,220,210],.12);
  if(insideCircle(x,y,1020,100,235)&&!insideCircle(x,y,1020,100,231))c=blend(c,[65,105,216],.55);
- if(insideCircle(x,y,1020,100,155)&&!insideCircle(x,y,1020,100,151))c=blend(c,[199,241,121],.45);
+ if(insideCircle(x,y,1020,100,155)&&!insideCircle(x,y,1020,100,151))c=blend(c,[139,92,246],.45);
  if(insideRect(x,y,465,330,480,365))c=[244,249,247];
  if(insideRect(x,y,495,350,480,365))c=blend(c,[10,25,32],.08);
  for(const [yy,ww] of [[210,165],[245,340],[272,290],[395,340],[425,275]])if(insideRect(x,y,390+ww/2,yy,ww,8))c=[180,201,193];
  if(insideRect(x,y,350,335,115,38))c=[235,240,255];
  if(insideCircle(x,y,315,335,9))c=[65,105,216];
  const nodes=[[825,405],[930,337],[1030,415]];
- for(const [cx,cy] of nodes)if(insideCircle(x,y,cx,cy,11))c=[199,241,121];
- if(line(x,y,825,405,930,337,3)||line(x,y,930,337,1030,415,3)||line(x,y,930,337,930,240,3))c=[133,178,163];
+ for(const [cx,cy] of nodes)if(insideCircle(x,y,cx,cy,11))c=[139,92,246];
+ if(line(x,y,825,405,930,337,3)||line(x,y,930,337,1030,415,3)||line(x,y,930,337,930,240,3))c=[116,124,205];
  if(insideRect(x,y,930,220,72,72))c=[65,105,216];
  if(line(x,y,913,220,925,232,5)||line(x,y,925,232,949,204,5))c=[255,255,255];
  return c;
 }
 function pixelVendor(x,y){
- let c=mix([246,249,247],[224,233,255],x/W*.65+y/H*.2);
+ let c=mix([249,249,252],[231,233,255],x/W*.65+y/H*.2);
  if(x%150<1||y%110<1)c=blend(c,[120,145,205],.18);
  if(insideRect(x,y,600,337,380,485))c=[255,255,255];
- if(insideRect(x,y,600,337,250,355))c=[23,63,56];
- if(insideCircle(x,y,600,385,78))c=[235,244,239];
- if(insideRect(x,y,600,410,164,105))c=[235,244,239];
+ if(insideRect(x,y,600,337,250,355))c=[25,26,44];
+ if(insideCircle(x,y,600,385,78))c=[242,241,255];
+ if(insideRect(x,y,600,410,164,105))c=[242,241,255];
  if(insideRect(x,y,600,315,70,60))c=[65,105,216];
  if(insideCircle(x,y,600,385,14)||insideRect(x,y,600,410,12,26))c=[65,105,216];
  const left=[[125,205,16],[190,325,12],[120,470,10]],right=[[1080,205,16],[1010,330,12],[1085,470,10]];
  for(const [cx,cy,r] of left)if(insideCircle(x,y,cx,cy,r))c=[65,105,216];
- for(const [cx,cy,r] of right)if(insideCircle(x,y,cx,cy,r))c=[94,137,122];
+ for(const [cx,cy,r] of right)if(insideCircle(x,y,cx,cy,r))c=[101,106,132];
  if(line(x,y,141,205,410,260,3)||line(x,y,202,325,410,350,3)||line(x,y,130,470,410,445,3))c=[65,105,216];
- if(line(x,y,790,260,1064,205,3)||line(x,y,790,350,998,330,3)||line(x,y,790,445,1075,470,3))c=[94,137,122];
+ if(line(x,y,790,260,1064,205,3)||line(x,y,790,350,998,330,3)||line(x,y,790,445,1075,470,3))c=[101,106,132];
  return c;
 }
 function pixelAI(x,y){
- let c=mix([15,29,54],[24,64,57],x/W*.45+y/H*.45);
+ let c=mix([17,18,33],[44,38,82],x/W*.45+y/H*.45);
  const dg=Math.hypot(x-735,y-335); if(dg<330)c=blend(c,[65,105,216],.20*(1-dg/330));
- if(x%200<1||y%135<1)c=blend(c,[215,235,228],.12);
+ if(x%200<1||y%135<1)c=blend(c,[221,223,240],.12);
  const boxes=[[220,338,140,140],[450,338,120,140],[715,338,130,140],[990,338,140,140]];
  for(const [cx,cy,w,h] of boxes)if(insideRect(x,y,cx,cy,w,h))c=[239,244,255];
  if(line(x,y,290,338,390,338,4)||line(x,y,510,338,650,338,4)||line(x,y,780,338,920,338,4))c=[143,167,237];
  if(insideCircle(x,y,220,338,25)||insideRect(x,y,450,338,52,16)||insideCircle(x,y,715,318,22)||insideCircle(x,y,715,360,22))c=[65,105,216];
- if(insideCircle(x,y,585,338,52))c=[199,241,121];
- if(insideCircle(x,y,585,338,20))c=[23,63,56];
- if(line(x,y,585,285,585,225,6)||line(x,y,585,390,585,450,6)||line(x,y,533,338,465,338,6)||line(x,y,637,338,705,338,6))c=[199,241,121];
- if(line(x,y,955,337,982,365,9)||line(x,y,982,365,1030,305,9))c=[23,63,56];
+ if(insideCircle(x,y,585,338,52))c=[139,92,246];
+ if(insideCircle(x,y,585,338,20))c=[25,26,44];
+ if(line(x,y,585,285,585,225,6)||line(x,y,585,390,585,450,6)||line(x,y,533,338,465,338,6)||line(x,y,637,338,705,338,6))c=[139,92,246];
+ if(line(x,y,955,337,982,365,9)||line(x,y,982,365,1030,305,9))c=[25,26,44];
  return c;
 }
 const crcTable=(()=>{const t=[];for(let n=0;n<256;n++){let c=n;for(let k=0;k<8;k++)c=(c&1)?0xedb88320^(c>>>1):c>>>1;t[n]=c>>>0;}return t})();
