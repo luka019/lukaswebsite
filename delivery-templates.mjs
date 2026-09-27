@@ -16,3 +16,7 @@ export function createDeliveryPack(request){
  ];return {items,documents};
 }
 export {stages};
+export function documentHTML(doc){
+ const esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+ return `<!doctype html><html lang="ka"><meta charset="utf-8"><title>${esc(doc.title)} | DLG</title><style>body{max-width:800px;margin:60px auto;padding:0 30px;color:#243c2e;font:15px/1.9 Arial,sans-serif}header{border-bottom:2px solid #315b42;padding-bottom:20px;margin-bottom:40px}header b{font-size:28px}header span{float:right;font-size:11px;letter-spacing:1px}h1{font-size:27px;line-height:1.5}.body{white-space:pre-wrap;overflow-wrap:anywhere}footer{border-top:1px solid #cbd8c4;margin-top:50px;padding-top:20px;font-size:11px;color:#67765d}@media print{body{margin:10mm;max-width:none;padding:0}@page{size:A4;margin:20mm}}</style><header><b>DLG</b><span>DIGITAL LAW GEORGIA</span></header><h1>${esc(doc.title)}</h1><p>v${Number(doc.version)||1} · ${doc.published?'გამოქვეყნებული ვერსია':'სამუშაო პროექტი'}</p><div class="body">${esc(doc.body)}</div><footer>Digital Law Georgia · digitallawgeorgia@gmail.com</footer></html>`;
+}

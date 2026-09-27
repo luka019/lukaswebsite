@@ -1,7 +1,7 @@
 import {test} from 'node:test';
 import assert from 'node:assert/strict';
 import {scopeAreas,practices,solutions} from '../catalogue.mjs';
-import {createDeliveryPack,feeEstimate} from '../delivery-templates.mjs';
+import {createDeliveryPack,feeEstimate,documentHTML} from '../delivery-templates.mjs';
 test('scope explorer combines product, features and markets without losing specialist areas',()=>{
  const ids=scopeAreas({product:'crypto',features:['data','payments','ai','critical','consumer'],market:'eu-uk'}).map(x=>x.id);
  assert.deepEqual(new Set(ids),new Set(practices.map(x=>x.id)));
@@ -14,4 +14,8 @@ test('each offered solution has delivery artefacts and uncompleted documents sta
 test('pricing handles contingency and costs without presets or silent invalid inputs',()=>{
  assert.equal(feeEstimate({hours:10,rate:100,external:50,contingency:10}),1150);
  assert.throws(()=>feeEstimate({hours:-1}));assert.throws(()=>feeEstimate({rate:'no'}));assert.throws(()=>feeEstimate({contingency:101}));
+});
+test('exported documents escape client and administrator text',()=>{
+ const html=documentHTML({title:'<script>alert(1)</script>',body:'<img src=x onerror=alert(1)>',version:2,published:true});
+ assert.ok(!html.includes('<script>'));assert.ok(!html.includes('<img'));assert.ok(html.includes('&lt;img'));assert.ok(html.includes('v2'));
 });

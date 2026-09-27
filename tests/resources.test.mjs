@@ -19,7 +19,7 @@ test('production output contains authored resources, not raw templates or source
  assert.ok(!fs.existsSync('dist/_data'));assert.ok(!fs.existsSync('dist/PUBLISHING.md'));
 });
 test('unpublished resource content never enters deployment output',()=>{
- const original=fs.readFileSync('_data/resources.json','utf8');
- try{fs.writeFileSync('_data/resources.json',JSON.stringify([...rows,{...rows[0],slug:'private-draft-test',title:'PRIVATE_DRAFT_SENTINEL',status:'draft'},{...rows[0],slug:'archived-test',title:'ARCHIVED_SENTINEL',status:'archived'},{...rows[0],slug:'future-test',title:'FUTURE_SENTINEL',date:'2099-01-01'}]));execFileSync(process.execPath,['scripts/build.mjs'],{env:{...process.env,SITE_OUTPUT:'test-dist'}});for(const p of ['private-draft-test','archived-test','future-test'])assert.ok(!fs.existsSync(`test-dist/resources/${p}`));const hub=fs.readFileSync('test-dist/resources/index.html','utf8');assert.ok(!/PRIVATE_DRAFT_SENTINEL|ARCHIVED_SENTINEL|FUTURE_SENTINEL/.test(hub));}
- finally{fs.writeFileSync('_data/resources.json',original);fs.rmSync('test-dist',{recursive:true,force:true});}
+ const fixture=`test-resources-${process.pid}.json`;
+ try{fs.writeFileSync(fixture,JSON.stringify([...rows,{...rows[0],slug:'private-draft-test',title:'PRIVATE_DRAFT_SENTINEL',status:'draft'},{...rows[0],slug:'archived-test',title:'ARCHIVED_SENTINEL',status:'archived'},{...rows[0],slug:'future-test',title:'FUTURE_SENTINEL',date:'2099-01-01'}]));execFileSync(process.execPath,['scripts/build.mjs'],{env:{...process.env,SITE_OUTPUT:'test-dist',SITE_RESOURCES:fixture}});for(const p of ['private-draft-test','archived-test','future-test'])assert.ok(!fs.existsSync(`test-dist/resources/${p}`));const hub=fs.readFileSync('test-dist/resources/index.html','utf8');assert.ok(!/PRIVATE_DRAFT_SENTINEL|ARCHIVED_SENTINEL|FUTURE_SENTINEL/.test(hub));}
+ finally{fs.rmSync(fixture,{force:true});fs.rmSync('test-dist',{recursive:true,force:true});}
 });

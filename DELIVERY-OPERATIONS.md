@@ -28,7 +28,7 @@ Suggested individual approach: introduce a concrete product observation; ask whe
 
 - Implemented: rule-based scope explorer, structured intake, client workspace, document templates/versioning/approval, file exchange, work/risk tracking, in-app due-work list, consultation requests and structured export.
 - Consultation requests are not confirmed calendar bookings. Confirm a time in the matter conversation.
-- LegalStepy: JSON matter export and CSV matter list are available. A live synchronisation needs the supported API, field mapping, credentials and the client's instruction to transfer data. No undocumented endpoint is assumed.
+- DLG is independent. Do not connect or synchronise this workspace with LegalStepy. JSON and CSV exports are standalone downloads controlled by the administrator, not an integration.
 - Regulatory monitoring: scheduled human review is available. Automated collection and recurring alerts about legal changes need an authorised source feed, scope and review process. No automated legal-change feed is claimed.
 - AI-assisted legal assessment: deliberately not activated without a configured provider, data-processing decisions, reviewed source retrieval and an evaluation set. Do not route client files to a model merely because an Azure credit balance exists.
 - Email/push alerts and external e-signatures are not connected. Matter messages and approvals are recorded inside the workspace.

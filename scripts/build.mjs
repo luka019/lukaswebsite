@@ -6,7 +6,7 @@ import {validateResources,renderBody,esc,topics,formats} from '../resources/reso
 const out=process.env.SITE_OUTPUT||'dist';
 const siteUrl=(process.env.SITE_URL||'https://lukaswebsite.vercel.app').replace(/\/+$/,'');
 if(!['dist','test-dist'].includes(out))throw new Error('Unsupported output directory');
-const all=validateResources(JSON.parse(fs.readFileSync('_data/resources.json','utf8')));
+const all=validateResources(JSON.parse(fs.readFileSync(process.env.SITE_RESOURCES||'_data/resources.json','utf8')));
 const today=new Date().toISOString().slice(0,10);
 const rows=all.filter(r=>r.status==='published'&&r.date<=today).sort((a,b)=>b.date.localeCompare(a.date));
 fs.rmSync(out,{recursive:true,force:true}); fs.mkdirSync(out,{recursive:true});
