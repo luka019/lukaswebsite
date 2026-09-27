@@ -51,7 +51,12 @@
     contracts: { en: 'Send a short request', ka: 'მოკლე მოთხოვნის გაგზავნა', href: '/client/?service=contracts' },
     ai: { en: 'Start an AI / data brief', ka: 'AI / მონაცემების აღწერის დაწყება', href: '/client/?service=ai' },
     product: { en: 'Plan the product route', ka: 'პროდუქტის მიმართულების დაგეგმვა', href: '/client/?service=product' },
-    georgia: { en: 'Open a local counsel request', ka: 'ადგილობრივი მხარდაჭერის მოთხოვნა', href: '/client/?service=georgia' }
+    georgia: { en: 'Open a local counsel request', ka: 'ადგილობრივი მხარდაჭერის მოთხოვნა', href: '/client/?service=georgia' },
+    'data-protection': { en: 'Start a data protection brief', ka: 'მონაცემთა დაცვის მოთხოვნის დაწყება', href: '/client/?service=data-protection' },
+    corporate: { en: 'Discuss a corporate matter', ka: 'კორპორაციული საკითხის განხილვა', href: '/client/?service=corporate' },
+    employment: { en: 'Ask about a workplace matter', ka: 'შრომითი საკითხის განხილვა', href: '/client/?service=employment' },
+    'investment-funds': { en: 'Discuss a regulated business matter', ka: 'რეგულირებადი საქმიანობის საკითხის განხილვა', href: '/client/?service=investment-funds' },
+    disputes: { en: 'Discuss a dispute or decision', ka: 'დავის ან რთული გადაწყვეტილების განხილვა', href: '/client/?service=disputes' }
   };
   function selectService(key) {
     const item = serviceRoutes[key] || serviceRoutes.contracts;
