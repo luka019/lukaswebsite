@@ -11,7 +11,35 @@ const solutionCard=s=>`<a class="solution-card" href="/solutions/${s.id}/">${tex
 const cta=`<section class="digital-cta" id="contact"><div class="container">${heading('LET’S BUILD RESPONSIBLY','მოგვიყევით თქვენი პროდუქტის შესახებ.','Tell us about your product.','მოკლედ აღწერეთ იდეა, არსებული საკითხი ან სასურველი შედეგი. სამუშაოს მოცულობას, ვადასა და საფასურს წინასწარ შევათანხმებთ.','Describe your idea, issue or intended outcome. We agree scope, timing and fees before work begins.')}<div class="digital-actions">${btn('/client/?new=1','მიმართვის გაგზავნა','Send an enquiry')}${btn('/client/?consultation=1','კონსულტაციის მოთხოვნა','Request a consultation',true)}<a href="mailto:digitallawgeorgia@gmail.com">digitallawgeorgia@gmail.com</a></div></div></section>`;
 export function buildDigitalPages({out,shell,card,rows}){
  const paths=[];
- const write=(url,title,en,content)=>{paths.push(url);fs.mkdirSync(out+url,{recursive:true});fs.writeFileSync(out+url+'index.html',shell({title,title_en:en,summary:title+' — Digital Law Georgia',summary_en:en+' — Digital Law Georgia',url,content:`<main id="main" class="digital-site">${content}</main>`}).replace('</head>','<link rel="stylesheet" href="/digital.css?v=20260927-delivery"><script type="module" src="/digital.mjs?v=20260927-delivery"></script></head>'));};
+ const seoTitles={
+  '/':'ტექნოლოგიური სამართალი ციფრული ბიზნესისთვის',
+  '/services/ai/':'AI სამართალი და AI Governance საქართველოში',
+  '/services/contracts/':'ტექნოლოგიური და SaaS ხელშეკრულებები საქართველოში',
+  '/services/data-protection/':'პერსონალურ მონაცემთა დაცვა ბიზნესისთვის',
+  '/services/intellectual-property/':'ინტელექტუალური საკუთრება ტექნოლოგიური ბიზნესისთვის',
+  '/services/fintech/':'ფინტექ სამართალი და გადახდების რეგულირება',
+  '/services/cyber-digital-risk/':'კიბერუსაფრთხოების სამართალი და ციფრული რისკები',
+  '/services/georgia-market-entry/':'ტექნოლოგიური ბიზნესის სამართლებრივი მხარდაჭერა საქართველოში'
+ };
+ const seoTitlesEn={
+  '/':'Technology Law in Georgia for Digital Business',
+  '/services/ai/':'AI Lawyer in Georgia | AI Governance and Regulation',
+  '/services/contracts/':'Technology and SaaS Contracts in Georgia',
+  '/services/data-protection/':'Data Protection Legal Support in Georgia',
+  '/services/intellectual-property/':'Technology IP and Intellectual Property in Georgia',
+  '/services/fintech/':'FinTech Legal Counsel and Payments Regulation in Georgia',
+  '/services/cyber-digital-risk/':'Cybersecurity Legal and Governance Support in Georgia',
+  '/services/georgia-market-entry/':'Technology Legal Counsel for Doing Business in Georgia'
+ };
+ const pageSummary=(url,title,en)=>{
+  if(url==='/')return {ka:'ტექნოლოგიური და ციფრული ბიზნესის სამართლებრივი მხარდაჭერა საქართველოში — AI, მონაცემთა დაცვა, ფინტექი, ტექნოლოგიური ხელშეკრულებები და ინტელექტუალური საკუთრება.',en:'Technology legal support in Georgia for AI, data protection, FinTech, technology contracts, intellectual property and digital products.'};
+  const p=practices.find(x=>'/services/'+x.slug+'/'===url);if(p)return {ka:p.summary.ka+' '+p.audience.ka,en:p.summary.en+' '+p.audience.en};
+  const s=solutions.find(x=>'/solutions/'+x.id+'/'===url);if(s)return {ka:s.name.ka+' — '+s.question.ka,en:s.name.en+' — '+s.question.en};
+  if(url==='/services/')return {ka:'სპეციალიზებული სამართლებრივი მომსახურება ტექნოლოგიური და ციფრული ბიზნესისთვის — პროდუქტი, AI, მონაცემები, ფინტექი, კიბერუსაფრთხოება, IP და ხელშეკრულებები.',en:'Specialist technology law services for digital business: product, AI, data, FinTech, cybersecurity, IP and contracts.'};
+  if(url==='/solutions/')return {ka:'კონკრეტული სამართლებრივი შეთავაზებები ტექნოლოგიური ბიზნესისთვის — შეფასება, ხელშეკრულებები, AI governance, მონაცემთა დაცვა და ბაზარზე შესვლა.',en:'Focused legal solutions for technology businesses: reviews, contracts, AI governance, data protection and market entry.'};
+  return {ka:title+' — Digital Law Georgia',en:en+' — Digital Law Georgia'};
+ };
+ const write=(url,title,en,content)=>{const summary=pageSummary(url,title,en),metaTitle=seoTitles[url]||title,metaTitleEn=seoTitlesEn[url]||en;paths.push(url);fs.mkdirSync(out+url,{recursive:true});fs.writeFileSync(out+url+'index.html',shell({title:metaTitle,title_en:metaTitleEn,summary:summary.ka,summary_en:summary.en,url,content:`<main id="main" class="digital-site">${content}</main>`}).replace('</head>','<link rel="stylesheet" href="/digital.css?v=20260927-seo"><script type="module" src="/digital.mjs?v=20260927-seo"></script></head>'));};
  const hero=(label,name,summary)=>`<section class="digital-page-hero"><div class="container"><a class="resource-back" href="/">← DLG</a><p class="eyebrow">${label}</p>${text(name,'h1')}${text(summary,'p','digital-lead')}</div></section>`;
  const existing=fs.readFileSync('index.html','utf8');
  const about=(existing.match(/<section[^>]*id="about"[\s\S]*?<\/section>/)?.[0]||'').replace('<span>03</span>','<span>04</span>');
