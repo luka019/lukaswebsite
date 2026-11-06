@@ -63,6 +63,7 @@ try{
      verify(box.nav&&box.cta&&box.nav.right<box.cta.x+2,'Navigation overlaps CTA at '+width);
    }
    verify((await page.locator('.law-services .law-service').count())===6,'Wrong services count at '+width);
+   verify((await page.locator('footer a[href="/#approach"]').count())===1,'Duplicate footer navigation at '+width);
    verify((await page.locator('[data-hero-topic]').count())===4,'Wrong carousel selector count');
    const mainCTA=page.locator('.dlg-editorial-hero .law-button-primary');
    verify((await mainCTA.getAttribute('href'))?.startsWith('mailto:'),'Hero CTA not linked to email');
@@ -72,11 +73,16 @@ try{
    verify((await page.locator('h1').innerText()).includes('Legal support for technology businesses'),'English language switch failed at '+width);
    await page.locator('[data-language="ka"]').click();
    verify((await page.locator('h1').innerText()).includes('იურიდიული მხარდაჭერა'),'Georgian language switch failed at '+width);
+   const portrait=page.locator('.law-about-image img');
+   await portrait.scrollIntoViewIfNeeded();
+   await page.waitForFunction(()=>{const img=document.querySelector('.law-about-image img');return img&&img.complete&&img.naturalWidth>0;},null,{timeout:8000});
+   await page.evaluate(()=>window.scrollTo({top:0,behavior:'instant'}));
+   await page.waitForTimeout(80);
    if([320,390,768,1440,1920].includes(width)){
      await page.screenshot({path:path.join(shots,'homepage-'+width+'.png'),fullPage:true,animations:'disabled'});
    }
-   await page.evaluate(()=>window.scrollTo(0,450));
-   await page.waitForTimeout(85);
+   await page.evaluate(()=>window.scrollTo({top:700,behavior:'instant'}));
+   await page.waitForFunction(()=>document.querySelector('.site-header')?.classList.contains('dlg-scrolled'),null,{timeout:3000});
    verify(await page.locator('.site-header').evaluate(x=>x.classList.contains('dlg-scrolled')),'Sticky header does not transition at '+width);
    verify(errors.length===0,'JavaScript errors at '+width+': '+errors.join('; '));
    await page.close();

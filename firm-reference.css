@@ -217,6 +217,11 @@ body.law-home{background:#FFFFFF;color:#142846}
  .dlg-benefits .law-values-grid>div:last-child{border:0}
  .law-expertise{padding:67px 0}
  .law-services{grid-template-columns:1fr}
+ .dlg-why .law-audience-grid.dlg-why-grid{grid-template-columns:1fr;gap:13px}
+ .dlg-why .law-audience-grid article,.dlg-why .law-audience-grid article:not(:first-child){min-height:0;padding:23px}
+ .dlg-why .law-audience-grid h3{font-size:16px;line-height:1.4!important}
+ .dlg-why .law-audience-grid p{font-size:13.2px;line-height:1.67}
+ .law-about-copy h2{font-size:clamp(26px,6.5vw,32px)}
  .law-services .law-service,.law-services .law-service.law-service-featured{min-height:0;padding:22px 20px}
  .dlg-why .law-audience-grid.dlg-why-grid{grid-template-columns:1fr}
  .dlg-why .law-audience-grid article,.dlg-why .law-audience-grid article:not(:first-child){min-height:0}
@@ -429,6 +434,8 @@ html{scroll-padding-top:86px}
 }
 .dlg-photo-subtitle{line-height:1.65;font-size:13.5px}
 .dlg-photo-link{min-height:42px}
+.dlg-photo-arrow-prev{left:12px}
+.dlg-photo-arrow-next{right:12px}
 .dlg-benefits .dlg-benefit,
 .dlg-benefits .law-values-grid>div,
 .dlg-benefits .law-values-grid>div+div{
@@ -540,12 +547,17 @@ html{scroll-padding-top:86px}
  .dlg-photo-tabs{grid-template-columns:repeat(2,minmax(0,1fr));min-height:0;padding:0 7px}
  .dlg-photo-tab,.dlg-photo-tab+.dlg-photo-tab{min-height:49px;justify-content:flex-start;font-size:10px;padding:10px 8px;gap:7px}
  .dlg-photo-tab svg{width:18px;height:18px;flex-basis:18px}
+ .law-hero.law-hero-technology.dlg-editorial-hero{
+  background-image:linear-gradient(90deg,rgba(245,249,255,.995) 0%,rgba(245,249,255,.965) 47%,rgba(241,247,255,.88) 100%),url('/assets/london-architecture.jpg');
+  background-position:center,right center;
+ }
  .dlg-photo-stage{height:375px}
  .dlg-photo-caption{width:100%;padding:26px 25px 29px}
  .dlg-photo-caption strong{font-size:clamp(22px,5.7vw,29px);line-height:1.23!important}
  .dlg-photo-subtitle{font-size:12px;line-height:1.6}
- .dlg-photo-arrow{width:37px;height:37px}
- .dlg-photo-arrow-prev{left:6px}.dlg-photo-arrow-next{right:6px}
+ .dlg-photo-arrow{width:37px;height:37px;top:13px;bottom:auto;transform:none}
+ .dlg-photo-arrow:hover{transform:none}
+ .dlg-photo-arrow-prev{left:12px}.dlg-photo-arrow-next{right:12px}
  .dlg-benefits .law-values-grid{grid-template-columns:1fr}
  .dlg-benefits .law-values-grid>div,.dlg-benefits .law-values-grid>div+div{padding:15px 5px;border-right:0!important;border-bottom:1px solid #E6EDF5}
  .dlg-benefits .law-values-grid>div:last-child{border-bottom:0}
