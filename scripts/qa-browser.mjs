@@ -64,6 +64,16 @@ try{
      verify(box.nav&&box.cta&&box.nav.right<box.cta.x+2,'Navigation overlaps CTA at '+width);
    }
    verify((await page.locator('.law-services .law-service').count())===6,'Wrong services count at '+width);
+   if(width<=700){
+     const reasons=await page.locator('.dlg-why-grid').evaluate(el=>getComputedStyle(el).gridTemplateColumns.trim().split(/\\s+/).length);
+     verify(reasons===1,'Four reasons must be one column at '+width+'px, got '+reasons);
+     const arrows=await page.evaluate(()=>{
+       const a=document.querySelector('.dlg-photo-arrow-prev')?.getBoundingClientRect();
+       const title=document.querySelector('.dlg-photo-slide.is-current .dlg-photo-caption strong')?.getBoundingClientRect();
+       return {arrowBottom:a?.bottom,titleTop:title?.top};
+     });
+     verify(arrows.arrowBottom<=arrows.titleTop,'Carousel controls overlap slide title at '+width+'px');
+   }
    verify((await page.locator('footer a[href="/#approach"]').count())===1,'Duplicate footer navigation at '+width);
    verify((await page.locator('[data-hero-topic]').count())===4,'Wrong carousel selector count');
    const mainCTA=page.locator('.dlg-editorial-hero .law-button-primary');

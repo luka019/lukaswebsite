@@ -583,3 +583,11 @@ html{scroll-padding-top:86px}
 @media(prefers-reduced-motion:reduce){
  .law-services .law-service:hover{transform:none}
 }
+
+/* Final small-screen specificity: keep four reasons readable in one column. */
+@media(max-width:700px){
+ body.law-home .law-audience.dlg-why .law-audience-grid.dlg-why-grid{grid-template-columns:minmax(0,1fr);gap:13px}
+ body.law-home .law-audience.dlg-why .law-audience-grid.dlg-why-grid article{min-height:0;padding:23px 22px}
+ body.law-home .law-audience.dlg-why .law-audience-grid.dlg-why-grid article h3{font-size:16px;line-height:1.39!important}
+ body.law-home .law-audience.dlg-why .law-audience-grid.dlg-why-grid article p{font-size:13.2px;line-height:1.67}
+}
