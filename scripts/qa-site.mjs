@@ -13,24 +13,22 @@ const css=file('firm-premium.css');
 const script=file('firm-interactions.js');
 
 assert(home.includes('class="law-home"'),'New homepage not active');
-assert(home.includes('class="law-hero law-hero-editorial"'),'Editorial legal hero missing');
-assert(home.includes('class="law-hero-photo"'),'Authentic architectural photograph missing');
-assert(!home.includes('law-tech-canvas'),'Artificial radar artwork must not return');
+assert(home.includes('class="law-hero-media law-tech-canvas"'),'Legal-tech hero missing');
 assert(home.includes('firm-premium.css'),'Premium stylesheet not linked');
 assert(home.includes('firm-interactions.js'),'Interactions script not linked');
 assert((home.match(/<h1\b/g)||[]).length===1,'Home must have one h1');
 assert((home.match(/data-showcase-slide/g)||[]).length===3,'Three spotlight slides required');
 assert((home.match(/data-showcase-tab="/g)||[]).length===3,'Three working slide selectors required');
-assert((home.match(/class="law-service"/g)||[]).length===6,'Six practice areas required');
-assert((home.match(/law-note-list/g)||[]).length===3,'Three meaningful practice notes required');
-assert(!home.includes('law-ai-ring'),'Artificial AI diagram must not return');
+assert((home.match(/law-service-glyph/g)||[]).length===6,'Six differentiated service cards required');
 assert(home.includes('data-back-to-top'),'Back-to-top control missing');
 assert(home.includes('law-client-shortcut'),'Client shortcut missing');
 assert(home.includes('href="/client/?consultation=1"'),'Consultation action missing');
 for(const id of ['services','approach','about','contact']){
   assert(home.includes('id="'+id+'"'),'Missing homepage anchor: '+id);
 }
-assert(css.includes('@media(max-width:420px)'),'Small mobile breakpoint missing');
+assert(css.includes('@media(max-width:390px)'),'Small mobile breakpoint missing');
+assert(css.includes('background:#F8FAFD;color:#142744'),'Light hero contrast required');
+assert(css.includes('.law-tech-canvas{'),'Specialist visual must be retained');
 assert(css.includes('prefers-reduced-motion'),'Reduced motion fallback missing');
 assert((css.match(/\{/g)||[]).length===(css.match(/\}/g)||[]).length,'Unbalanced premium CSS');
 new vm.Script(script,{filename:'firm-interactions.js'});total++;
