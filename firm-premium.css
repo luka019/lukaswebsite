@@ -433,3 +433,10 @@ html[lang=en] .law-hero-technology h1{font-family:NotoGeo,Arial,sans-serif;font-
 .law-service-featured .law-service-arrow{background:transparent;color:#9BD9FF}
 .law-service:hover .law-service-glyph{background:#E4F3FF;border-color:#B8DFFA}
 .law-service-featured:hover .law-service-glyph{background:rgba(140,205,249,.17);border-color:rgba(158,216,255,.34)}
+
+
+/* WCAG-conscious accent use: bright blue for illustration, deeper blue for text/buttons. */
+.law-hero-technology .law-button-primary{background:#006BC5;border-color:#006BC5}
+.law-hero-technology .law-button-primary:hover{background:#0059AD;border-color:#0059AD}
+.law-home .law-expertise .law-eyebrow,.law-home .law-showcase .law-eyebrow,.law-home .law-audience .law-eyebrow,.law-home .law-about .law-eyebrow,.law-home .law-insights .law-eyebrow{color:#0065B8}
+.law-contact:before{background:linear-gradient(115deg,#0056A7 0%,#006BC5 50%,#0062B4 100%)}
