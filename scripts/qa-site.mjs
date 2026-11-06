@@ -46,7 +46,7 @@ assert(home.includes('ფინტექი და მარეგულირ�
 assert(home.includes('law-more-services'),'Additional services directory missing');
 assert((home.match(/class="law-service(?: law-service-featured)?"/g)||[]).length===6,'Six core service cards required');
 assert(uiCss.includes('prefers-reduced-motion'),'New animations must honour reduced motion');
-assert((uiCss.match(/\\{/g)||[]).length===(uiCss.match(/\\}/g)||[]).length,'Unbalanced UI refinement CSS');
+assert(uiCss.includes('.dlg-hero-topic'),'Hero choices must be styled');
 new vm.Script(heroScript,{filename:'firm-hero.js'});total++;
 
 for(const p of [
