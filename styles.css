@@ -206,3 +206,68 @@ input:focus,select:focus,textarea:focus{outline:2px solid #83C8FF;outline-offset
 .service-tile-accent{background:#EAF4FF}
 @media(max-width:980px){.hero-grid{grid-template-columns:1fr}.contact-card{max-width:760px}.hero:before{opacity:.05;width:100%}}
 @media(max-width:700px){.container{width:calc(100% - 36px)}.contact-card{padding:23px}.contact-card-status{display:none}.contact-option{padding:13px}.privacy-footer{display:block}.final-cta-address{gap:9px}.section{padding:54px 0}.hero{padding-top:34px}.hero-grid{padding-bottom:35px}}
+
+/* Boutique Blue refinement, 2026-11-07.
+   Preserve the original layout, sections and branding. */
+:root { --max:1200px; }
+.container,.contact-card,.hero-copy,.profile-copy,.service-tile,.service-extended-card { min-width:0; }
+.site-nav a,.header-login,.contact-option,.arrow-link,.text-link { transition:color .18s ease,border-color .18s ease,background-color .18s ease; }
+.site-nav a:focus-visible,.contact-option:focus-visible,.header-login:focus-visible,
+.service-extended-card:focus-visible,.button:focus-visible { outline:3px solid #0278DC;outline-offset:3px; }
+.header-inner { gap:clamp(12px,2vw,28px); }
+.site-nav { gap:clamp(12px,1.8vw,25px); }
+.brand-name,.brand-mark { flex-shrink:0; }
+.hero-copy { max-width:670px; }
+.hero h1 { max-width:680px; line-height:1.17!important; text-wrap:balance; }
+.hero-lead { max-width:600px; line-height:1.72; }
+.hero-note { margin-top:28px; }
+.contact-card { max-width:560px; margin-left:auto; }
+.contact-card h2 { line-height:1.27!important; }
+.contact-option { min-height:76px; }
+.contact-option small { overflow-wrap:anywhere; }
+.section-intro-row h2,.profile-copy h2,.faq-intro h2 { line-height:1.24!important; }
+.service-grid { align-items:stretch; }
+.service-tile,.service-extended-card { height:100%; }
+.service-extended-card { overflow-wrap:break-word; }
+.service-extended-card strong { line-height:1.4; }
+.service-extended-card p { line-height:1.65; }
+.profile-copy { min-width:0; }
+.profile-facts { align-items:start; }
+.faq-list summary { min-height:58px; align-items:center; }
+.footer-links a,.final-cta-address a,.privacy-footnote { overflow-wrap:anywhere; }
+@media(min-width:981px){
+  .hero h1 { font-size:clamp(39px,4.8vw,65px); }
+  .hero-grid { gap:clamp(35px,5vw,76px); padding-bottom:78px; }
+  .hero-copy { padding:16px 0; }
+  .service-extended-card { min-height:220px; }
+}
+@media(min-width:701px) and (max-width:980px){
+  .hero h1 { line-height:1.2!important; }
+  .contact-card { margin-left:0; max-width:760px; }
+  .service-extended-card { min-height:204px; }
+}
+@media(max-width:900px){
+  .site-nav { display:none; position:absolute; top:100%; left:0;right:0; padding:20px 24px; z-index:40;
+    flex-direction:column; gap:12px; background:#FFFFFF; color:#101E43;
+    border-bottom:1px solid #DCE5F0; box-shadow:0 15px 28px rgba(16,30,67,.08); }
+  .site-nav.open { display:flex; }
+  .menu-toggle { display:block; }
+  .header-actions { margin-left:auto; }
+}
+@media(max-width:700px){
+  .hero h1 { font-size:clamp(31px,8.5vw,38px); line-height:1.22!important; }
+  .hero-lead { line-height:1.7; }
+  .hero-grid { gap:25px; }
+  .contact-card { max-width:100%;margin:0; }
+  .contact-option { min-height:70px; }
+  .section-intro-row h2,.profile-copy h2,.faq-intro h2 { line-height:1.3!important; }
+  .service-tile,.service-extended-card { height:auto; }
+  .service-extended-card { min-height:0; }
+  .footer-links { min-width:0; }
+}
+@media(max-width:380px){
+  .brand-name { font-size:10px; }
+  .brand-name small { font-size:9px; }
+  .header-actions { gap:6px; }
+  .contact-card { padding:19px; }
+}
