@@ -60,4 +60,11 @@ for(const p of ['services/index.html','services/contracts/index.html','resources
   assert(h.includes('firm-premium.css'),'Premium branding not applied to '+p);
   assert(h.includes('law-client-shortcut'),'Client-space navigation absent on '+p);
 }
+const directory=fs.readFileSync(path.join(root,'services/index.html'),'utf8');
+assert(directory.includes('law-directory-feature'),'Ongoing legal counsel needs a featured directory entry');
+assert(directory.indexOf('/services/contracts/')<directory.indexOf('/services/fintech/'),'Contract advice should precede FinTech in the directory');
+assert(directory.includes('/services/ongoing-legal-support/'),'Ongoing legal support route must be linked');
+assert(home.includes('ბიზნესისთვის.'),'Homepage should remain directly business-focused');
+assert(home.includes('ტექნოლოგიური სპეციალიზაციით.'),'Technology-law positioning missing');
+assert(home.includes('სოფო ბახბახაშვილი'),'Named partner profile missing');
 console.log('DLG public site smoke checks passed: '+total+' checks.');
