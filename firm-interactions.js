@@ -132,7 +132,7 @@
   updateScrollState();
   backToTop?.addEventListener('click', () => {
     const reduce = window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
-    window.scrollTo({top:0,behavior:reduce?'instant':'smooth'});
+    window.scrollTo({top:0,behavior:reduce?'auto':'smooth'});
   });
   // Close mobile menu on outside interaction without trapping focus.
   const menuToggle = document.querySelector('[data-menu-toggle]');
