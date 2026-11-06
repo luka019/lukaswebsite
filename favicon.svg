@@ -1,6 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title">
-  <title id="title">Digital Law Georgia</title>
-  <rect width="64" height="64" rx="11" fill="#101E43"/>
-  <path d="M12 48h40" stroke="#0278DC" stroke-width="3"/>
-  <text x="32" y="40" text-anchor="middle" font-family="Georgia,serif" font-size="25" font-weight="700" letter-spacing="-1" fill="#FFFFFF">DL</text>
+<title id="title">Digital Law Georgia</title><rect width="64" height="64" rx="5" fill="#101E43"/>
+<path d="M11 12v40" stroke="#0278DC" stroke-width="5"/>
+<text x="37" y="39" text-anchor="middle" fill="#FFFFFF" font-family="Georgia,serif" font-size="19" font-weight="700" letter-spacing="-2">DLG</text>
 </svg>
