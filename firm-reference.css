@@ -381,8 +381,8 @@ html{scroll-padding-top:86px}
   margin-bottom:17px;
 }
 .dlg-editorial-hero h1{
-  max-width:660px;
-  font-size:clamp(35px,4vw,53px);
+  max-width:790px;
+  font-size:clamp(35px,3.5vw,51px);
   font-weight:750;
   line-height:1.18!important;
   letter-spacing:-.026em!important;

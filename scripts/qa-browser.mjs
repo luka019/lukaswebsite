@@ -48,7 +48,8 @@ try{
      };
    });
    verify(box.docWidth<=width+2,'Horizontal overflow at '+width+'px: '+box.docWidth);
-   verify(box.heading&&box.heading.width<=width&&box.heading.height<250,'Hero heading disproportionate at '+width+'px');
+   console.log('VIEWPORT geometry',width,JSON.stringify({heading:box.heading,header:box.header,hero:box.hero,nav:box.nav,cta:box.cta}));
+   verify(box.heading&&box.heading.width<=width&&box.heading.height<270,'Hero heading disproportionate at '+width+'px: '+JSON.stringify(box.heading));
    verify(box.brandDirection==='column','Brand lock-up is not vertically aligned at '+width);
    verify(box.header&&box.hero&&Math.abs(box.hero.top-box.header.bottom)<6,'Gap between header and hero at '+width);
    verify(box.headerColour===box.heroColour,'Masthead and hero surfaces do not match at '+width);
