@@ -42,6 +42,7 @@
         !nav.contains(event.target) && !toggle?.contains(event.target)) {
       nav.classList.remove("open");
       toggle?.setAttribute("aria-expanded", "false");
+      toggle?.setAttribute("aria-label", document.documentElement.lang === "en" ? "Open menu" : "მენიუს გახსნა");
     }
   });
 })();

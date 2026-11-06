@@ -12,7 +12,9 @@ const today=new Date().toISOString().slice(0,10);
 const rows=all.filter(r=>r.status==='published'&&r.date<=today).sort((a,b)=>b.date.localeCompare(a.date));
 fs.rmSync(out,{recursive:true,force:true}); fs.mkdirSync(out,{recursive:true});
 for(const file of ['styles.css','firm.css','firm-premium.css','firm-upgrade.css','firm-reference.css','script.js','firm-interactions.js','firm-hero.js','favicon.svg','catalogue.mjs','digital.css','digital.mjs','workspace.css','workspace.mjs','delivery-templates.mjs'])fs.copyFileSync(file,path.join(out,file));
-fs.cpSync('assets',path.join(out,'assets'),{recursive:true}); fs.cpSync('admin',path.join(out,'admin'),{recursive:true}); // Retired client workspace is excluded from public deployment.
+fs.cpSync('assets',path.join(out,'assets'),{recursive:true}); fs.cpSync('admin',path.join(out,'admin'),{recursive:true});
+// The old enquiry inbox is retired; the resource admin remains available.
+fs.rmSync(path.join(out,'admin','inbox'),{recursive:true,force:true}); // Retired client workspace is excluded from public deployment.
 generateResourceCovers(out);
 fs.mkdirSync(path.join(out,'resources'),{recursive:true});
 for(const file of ['resources.js','resource-model.mjs'])fs.copyFileSync('resources/'+file,out+'/resources/'+file);

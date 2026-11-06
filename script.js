@@ -43,14 +43,16 @@
   const menuToggle = document.querySelector('[data-menu-toggle]');
   const nav = document.getElementById('site-nav');
   if (menuToggle && nav) {
-    menuToggle.addEventListener('click', () => {
-      const open = nav.classList.toggle('open');
+    const setMenuState = (open) => {
+      nav.classList.toggle('open', open);
       menuToggle.setAttribute('aria-expanded', String(open));
-    });
-    nav.querySelectorAll('a').forEach((link) => link.addEventListener('click', () => {
-      nav.classList.remove('open');
-      menuToggle.setAttribute('aria-expanded', 'false');
-    }));
+      menuToggle.setAttribute('aria-label', document.documentElement.lang === 'en'
+        ? (open ? 'Close menu' : 'Open menu')
+        : (open ? 'მენიუს დახურვა' : 'მენიუს გახსნა'));
+    };
+    menuToggle.addEventListener('click', () => setMenuState(!nav.classList.contains('open')));
+    nav.querySelectorAll('a').forEach((link) => link.addEventListener('click', () => setMenuState(false)));
+    document.addEventListener('site:language', () => setMenuState(nav.classList.contains('open')));
   }
 
   const choices = [...document.querySelectorAll('[data-service-choice]')];
@@ -132,7 +134,7 @@
     if (event.key === 'End') next = scenarioTabs.length - 1;
     if (next !== undefined) { event.preventDefault(); selectScenario(scenarioTabs[next].dataset.scenario); scenarioTabs[next].focus(); }
   }));
-  document.addEventListener('keydown', event => { if (event.key === 'Escape' && nav?.classList.contains('open')) { nav.classList.remove('open'); menuToggle.setAttribute('aria-expanded','false'); menuToggle.focus(); } });
+  document.addEventListener('keydown', event => { if (event.key === 'Escape' && nav?.classList.contains('open')) { nav.classList.remove('open'); menuToggle.setAttribute('aria-expanded','false'); menuToggle.setAttribute('aria-label', document.documentElement.lang === 'en' ? 'Open menu' : 'მენიუს გახსნა'); menuToggle.focus(); } });
 
   const revealItems = [...document.querySelectorAll('.reveal')];
   if ('IntersectionObserver' in window) {
