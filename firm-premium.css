@@ -423,3 +423,13 @@ html[lang=en] .law-hero-technology h1{font-family:NotoGeo,Arial,sans-serif;font-
   .law-nav-mobile-client{display:block!important;color:#0064B8!important;font-weight:700;padding:13px 8px;border-bottom:1px solid #EDF2F8}
   .law-nav-mobile-cta{display:block!important;color:#0064B8!important}
 }
+
+
+/* Visual practice taxonomy. Icons add recognition without becoming decoration. */
+.law-service-glyph{display:grid;place-items:center;margin-left:auto;width:38px;height:38px;background:#EFF7FF;border:1px solid #DCECF9;border-radius:8px;color:#0278DC;flex:0 0 38px}
+.law-service-glyph svg{width:23px;height:23px}
+.law-service-featured .law-service-glyph{background:rgba(113,187,248,.13);border-color:rgba(158,216,255,.26);color:#9AD7FF}
+.law-service-top .law-service-arrow{width:30px;height:30px;flex:0 0 30px;background:transparent;border:0;color:#629AC7;font-size:18px}
+.law-service-featured .law-service-arrow{background:transparent;color:#9BD9FF}
+.law-service:hover .law-service-glyph{background:#E4F3FF;border-color:#B8DFFA}
+.law-service-featured:hover .law-service-glyph{background:rgba(140,205,249,.17);border-color:rgba(158,216,255,.34)}
