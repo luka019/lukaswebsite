@@ -12,25 +12,27 @@
   <meta property="og:image" content="https://lukaswebsite.vercel.app/assets/london-architecture.jpg">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="canonical" href="https://lukaswebsite.vercel.app/">
-  <title>Digital Law Georgia | Technology Law & Legal Advisory</title>
+  <title>Digital Law Georgia | Business & Technology Law</title>
   <link rel="icon" href="/favicon.svg?v=20261106-editorial" type="image/svg+xml">
   <link rel="preload" as="font" href="/assets/noto-georgian.woff2" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="/styles.css?v=20261106-editorial">
   <link rel="stylesheet" href="/firm.css?v=20261106-premium">
   <link rel="stylesheet" href="/firm-premium.css?v=20261106-service-team">
+  <link rel="stylesheet" href="/firm-upgrade.css?v=20261106-team-v1">
   <script src="/script.js?v=20261106-editorial" defer></script>
   <script src="/firm-interactions.js?v=20261106-service-team" defer></script>
+  <script src="/firm-hero.js?v=20261106-team-v1" defer></script>
 </head>
-<body class="law-home" data-default-language="ka" data-title-ka="Digital Law Georgia | ტექნოლოგიური და კომერციული სამართალი" data-title-en="Digital Law Georgia | Technology & Commercial Law">
+<body class="law-home" data-default-language="ka" data-title-ka="Digital Law Georgia | იურიდიული მომსახურება ბიზნესისთვის" data-title-en="Digital Law Georgia | Business & Technology Law">
   <div class="law-scroll-progress" aria-hidden="true" data-scroll-progress></div>
   <a class="skip-link" href="#main" data-en="Skip to content">შინაარსზე გადასვლა</a>
   <header class="site-header law-header" id="top">
   <div class="container header-inner law-header-inner">
     <a class="brand law-brand" href="/" data-site-link aria-label="Digital Law Georgia — მთავარი" data-en-aria="Digital Law Georgia — home"><span class="law-brand-monogram" aria-hidden="true">DLG</span><span class="law-brand-rule" aria-hidden="true"></span><span class="law-brand-text"><strong>DIGITAL LAW</strong><small>GEORGIA</small></span></a>
     <nav class="site-nav law-nav" id="site-nav" aria-label="მთავარი ნავიგაცია" data-en-aria="Main navigation">
-      <a href="/#services" data-en="Expertise">მომსახურება</a>
-      <a href="/#approach" data-en="Our approach">მიდგომა</a>
-      <a href="/#about" data-en="About">ჩვენ შესახებ</a>
+      <a href="/#services" data-en="Services">მომსახურება</a>
+      <a href="/#approach" data-en="How we work">როგორ ვმუშაობთ</a>
+      <a href="/#about" data-en="Our team">გუნდი</a>
       <a href="/resources/" data-site-link data-en="Insights">რესურსები</a>
       <a class="law-nav-mobile-client" href="/client/" data-site-link data-en="Client space">კლიენტის სივრცე</a>
       <a class="law-nav-mobile-cta" href="/client/?consultation=1" data-site-link data-en="Discuss your matter">საკითხის განხილვა</a>
@@ -62,12 +64,12 @@
         <div class="dlg-hero-topline"><span data-en="CHOOSE A PRACTICE AREA">აირჩიეთ მიმართულება</span><span>DLG / LEGAL ADVISORY</span></div>
         <div class="dlg-hero-emblem" aria-hidden="true"><span>DLG</span><i></i><small>LAW · TECHNOLOGY</small></div>
         <div class="dlg-hero-topics" role="group" aria-label="სამართლებრივი მიმართულებების გადართვა" data-en-aria="Choose a legal practice area">
-          <button type="button" class="dlg-hero-topic is-selected" data-hero-topic="contracts" aria-pressed="true"><span>01</span><span data-en="Contracts">ხელშეკრულებები</span><span aria-hidden="true">↗</span></button>
-          <button type="button" class="dlg-hero-topic" data-hero-topic="privacy" aria-pressed="false"><span>02</span><span data-en="Data protection">მონაცემთა დაცვა</span><span aria-hidden="true">↗</span></button>
-          <button type="button" class="dlg-hero-topic" data-hero-topic="fintech" aria-pressed="false"><span>03</span><span data-en="FinTech">ფინტექი</span><span aria-hidden="true">↗</span></button>
-          <button type="button" class="dlg-hero-topic" data-hero-topic="ai" aria-pressed="false"><span>04</span><span data-en="AI & technology">AI და ტექნოლოგიები</span><span aria-hidden="true">↗</span></button>
+          <button type="button" class="dlg-hero-topic is-selected" data-hero-topic="contracts" aria-controls="dlg-hero-detail" aria-pressed="true"><span>01</span><span data-en="Contracts">ხელშეკრულებები</span><span aria-hidden="true">↗</span></button>
+          <button type="button" class="dlg-hero-topic" data-hero-topic="privacy" aria-controls="dlg-hero-detail" aria-pressed="false"><span>02</span><span data-en="Data protection">მონაცემთა დაცვა</span><span aria-hidden="true">↗</span></button>
+          <button type="button" class="dlg-hero-topic" data-hero-topic="fintech" aria-controls="dlg-hero-detail" aria-pressed="false"><span>03</span><span data-en="FinTech">ფინტექი</span><span aria-hidden="true">↗</span></button>
+          <button type="button" class="dlg-hero-topic" data-hero-topic="ai" aria-controls="dlg-hero-detail" aria-pressed="false"><span>04</span><span data-en="AI & technology">AI და ტექნოლოგიები</span><span aria-hidden="true">↗</span></button>
         </div>
-        <div class="dlg-hero-detail" data-hero-detail aria-live="polite" aria-atomic="true">
+        <div class="dlg-hero-detail" id="dlg-hero-detail" data-hero-detail aria-live="polite" aria-atomic="true">
           <p class="dlg-hero-detail-label" data-en="PRACTICE IN FOCUS">მიმართულების შესახებ</p>
           <h2 data-hero-title>ხელშეკრულებები და კომერციული ურთიერთობები</h2>
           <p data-hero-description>ბიზნესისა და ტექნოლოგიური მომსახურების ხელშეკრულებების მომზადება, შემოწმება და მოლაპარაკებებში დახმარება.</p>
@@ -221,7 +223,7 @@
     <div class="dlg-team-copy">
       <span class="dlg-team-label" data-en="TECHNOLOGY & COMMERCIAL LAW">ტექნოლოგიური და კომერციული სამართალი</span>
       <h3 data-en="Luka Shakhkulashvili">ლუკა შახყულაშვილი</h3>
-      <p class="dlg-team-position" data-en="Lawyer · Technology, AI and commercial law">იურისტი · ტექნოლოგიების, ხელოვნური ინტელექტისა და კომერციული სამართალი</p>
+      <p class="dlg-team-position" data-en="Lawyer · Technology, AI and commercial law">იურისტი · ტექნოლოგიების სამართალი, AI-ის რეგულირება და კომერციული სამართალი</p>
       <p data-en="Over six years of experience in commercial and corporate law, with a focus on technology agreements, data protection, AI regulation and digital business. Holds an LLM from Queen Mary University of London and is a Chevening Scholar.">ექვს წელზე მეტი გამოცდილება აქვს კორპორაციულ და კომერციულ სამართალში. მუშაობს ტექნოლოგიურ ხელშეკრულებებზე, მონაცემთა დაცვაზე, ხელოვნური ინტელექტის რეგულირებასა და ციფრული ბიზნესის სამართლებრივ საკითხებზე. მიღებული აქვს სამართლის მაგისტრის ხარისხი (LLM) ლონდონის დედოფალ მარიამის უნივერსიტეტში (Queen Mary University of London) და არის Chevening-ის სტიპენდიატი.</p>
       <div class="dlg-team-areas"><span data-en="Contracts">ხელშეკრულებები</span><span data-en="AI regulation">AI-ის რეგულირება</span><span data-en="Data protection">მონაცემთა დაცვა</span></div>
       <a class="law-inline-link" href="https://www.linkedin.com/in/luka-shakhkulashvili/" target="_blank" rel="noopener noreferrer"><span data-en="Professional profile">პროფესიული პროფილი</span><span aria-hidden="true">↗</span></a>
