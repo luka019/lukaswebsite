@@ -57,15 +57,15 @@
   const result = document.querySelector('[data-service-result]');
   const cta = document.querySelector('[data-service-cta]');
   const serviceRoutes = {
-    contracts: { en: 'Send a short request', ka: 'ხელშეკრულების საკითხი', href: '/client/?service=contracts' },
-    ai: { en: 'Start an AI / data brief', ka: 'ხელოვნური ინტელექტი და მონაცემები', href: '/client/?service=ai' },
-    product: { en: 'Plan the product route', ka: 'ციფრული პროდუქტის საკითხი', href: '/client/?service=product' },
-    georgia: { en: 'Open a local counsel request', ka: 'საქართველოში საქმიანობის დაწყება', href: '/client/?service=georgia' },
-    'data-protection': { en: 'Start a data protection brief', ka: 'მონაცემთა დაცვის მოთხოვნის დაწყება', href: '/client/?service=data-protection' },
-    corporate: { en: 'Discuss a corporate matter', ka: 'კორპორაციული საკითხის განხილვა', href: '/client/?service=corporate' },
-    employment: { en: 'Ask about a workplace matter', ka: 'შრომითი საკითხის განხილვა', href: '/client/?service=employment' },
-    'investment-funds': { en: 'Discuss a regulated business matter', ka: 'რეგულირებადი საქმიანობის საკითხის განხილვა', href: '/client/?service=investment-funds' },
-    disputes: { en: 'Discuss a dispute or decision', ka: 'დავის ან რთული გადაწყვეტილების განხილვა', href: '/client/?service=disputes' }
+    contracts: { en: 'Contact by email', ka: 'ხელშეკრულების საკითხი', href: 'mailto:digitallawgeorgia@gmail.com' },
+    ai: { en: 'Contact by email', ka: 'ხელოვნური ინტელექტი და მონაცემები', href: 'mailto:digitallawgeorgia@gmail.com' },
+    product: { en: 'Contact by email', ka: 'ციფრული პროდუქტის საკითხი', href: 'mailto:digitallawgeorgia@gmail.com' },
+    georgia: { en: 'Contact by email', ka: 'საქართველოში საქმიანობის დაწყება', href: 'mailto:digitallawgeorgia@gmail.com' },
+    'data-protection': { en: 'Contact by email', ka: 'მონაცემთა დაცვის მოთხოვნის დაწყება', href: 'mailto:digitallawgeorgia@gmail.com' },
+    corporate: { en: 'Discuss a corporate matter', ka: 'კორპორაციული საკითხის განხილვა', href: 'mailto:digitallawgeorgia@gmail.com' },
+    employment: { en: 'Ask about a workplace matter', ka: 'შრომითი საკითხის განხილვა', href: 'mailto:digitallawgeorgia@gmail.com' },
+    'investment-funds': { en: 'Discuss a regulated business matter', ka: 'რეგულირებადი საქმიანობის საკითხის განხილვა', href: 'mailto:digitallawgeorgia@gmail.com' },
+    disputes: { en: 'Discuss a dispute or decision', ka: 'დავის ან რთული გადაწყვეტილების განხილვა', href: 'mailto:digitallawgeorgia@gmail.com' }
   };
   function selectService(key) {
     activeService = serviceRoutes[key] ? key : 'contracts';
@@ -83,21 +83,21 @@
       title: { en: 'Make the first version legally usable.', ka: 'მოამზადეთ ბიზნესი საქმიანობის დასაწყებად.' },
       copy: { en: 'A focused setup for a new product: core terms, privacy, ownership, contracts and the decisions you should make before launch.', ka: 'ახალი პროდუქტის შექმნისას წინასწარ განსაზღვრეთ მომხმარებლის პირობები, მონაცემთა დამუშავების წესები და პარტნიორთა უფლებები. საჭირო დოკუმენტებს თქვენი პროდუქტის მიხედვით მოვამზადებთ.' },
       list: { en: ['Product and customer terms', 'Privacy and data-use baseline', 'Founder, partner and supplier documentation'], ka: ['პროდუქტით სარგებლობის პირობები', 'მონაცემთა დამუშავების წესები', 'დამფუძნებლებისა და პარტნიორების შეთანხმებები'] },
-      href: '/client/?service=product'
+      href: 'mailto:digitallawgeorgia@gmail.com'
     },
     growing: {
       label: { en: 'SCALE / 02', ka: 'ზრდა / 02' },
       title: { en: 'Remove the legal friction slowing the team down.', ka: 'მოაწესრიგეთ მზარდი ბიზნესის სამართლებრივი საკითხები.' },
       copy: { en: 'A practical route for growing teams: contract flow, supplier terms, data processes, AI use and ongoing legal questions.', ka: 'გუნდის ზრდასთან ერთად იმატებს ხელშეკრულებები, თანამშრომლები და სამართლებრივი კითხვები. დაგეხმარებით პროცესების მოწესრიგებასა და მიმდინარე საკითხების გადაწყვეტაში.' },
       list: { en: ['Contract review and negotiation support', 'Reusable policies and approval logic', 'Ongoing external legal counsel'], ka: ['ხელშეკრულებების შემოწმება და მოლაპარაკება', 'შიდა წესები და დოკუმენტების შეთანხმების პროცესი', 'ყოველთვიური იურიდიული მომსახურება'] },
-      href: '/client/?service=contracts'
+      href: 'mailto:digitallawgeorgia@gmail.com'
     },
     international: {
       label: { en: 'GEORGIA / 03', ka: 'საქართველო / 03' },
       title: { en: 'A clear local legal point of contact in Georgia.', ka: 'თქვენი იურიდიული მრჩეველი საქართველოში.' },
       copy: { en: 'Support for foreign companies, founders and law firms that need English-language coordination of local legal work in Georgia.', ka: 'ვეხმარებით უცხოურ კომპანიებს საქართველოში დაფუძნებაში, ხელშეკრულებების მომზადებასა და ადგილობრივი სამართლებრივი საკითხების მოგვარებაში. კომუნიკაცია შესაძლებელია ინგლისურად.' },
       list: { en: ['Local corporate and commercial documentation', 'Technology, data and regulatory support', 'Coordination with local specialists where needed'], ka: ['ადგილობრივი კორპორაციული და კომერციული დოკუმენტები', 'ტექნოლოგიებისა და მონაცემთა დაცვის საკითხები', 'საჭიროების შემთხვევაში ადგილობრივ სპეციალისტებთან კოორდინაცია'] },
-      href: '/client/?service=georgia'
+      href: 'mailto:digitallawgeorgia@gmail.com'
     }
   };
   const scenarioTabs = [...document.querySelectorAll('[data-scenario]')];
