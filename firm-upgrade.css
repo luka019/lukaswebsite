@@ -176,3 +176,25 @@
  .law-tech-canvas:before,.dlg-hero-detail.is-animating{animation:none!important}
  .dlg-hero-topic,.law-more-links a{transition:none!important}
 }
+
+
+/* The complete services directory gives ongoing counsel clear visibility. */
+.law-directory-feature{
+ display:flex;align-items:center;justify-content:space-between;gap:35px;
+ background:#F0F6FD;border:1px solid #D5E4F3;border-left:3px solid #006BC5;
+ padding:29px 32px;margin-bottom:28px;border-radius:3px;
+}
+.law-directory-feature>div{max-width:750px}
+.law-directory-feature>div>span{color:#0062B1;font:700 10px/1.5 "NotoGeo",Arial,sans-serif;letter-spacing:0}
+.law-directory-feature h2{font-size:27px;line-height:1.4;margin:9px 0;color:#142744}
+.law-directory-feature p{color:#556B83;margin:0;font-size:13px;line-height:1.8}
+.law-directory-feature>a{
+ display:inline-flex;align-items:center;gap:13px;flex:0 0 auto;
+ background:#142744;border:1px solid #142744;border-radius:3px;
+ padding:12px 17px;color:#FFFFFF;font-size:12px;font-weight:650;
+}
+.law-directory-feature>a:hover{background:#006BC5;border-color:#006BC5}
+@media(max-width:720px){
+ .law-directory-feature{padding:23px;flex-direction:column;align-items:flex-start;gap:18px}
+ .law-directory-feature h2{font-size:23px}
+}
