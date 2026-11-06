@@ -15,6 +15,7 @@
   const pauseButton = root.querySelector("[data-hero-pause]");
   const pauseIcon = root.querySelector("[data-hero-pause-icon]");
   const counter = root.querySelector("[data-hero-count]");
+  const dots = [...root.querySelectorAll("[data-hero-dot]")];
   const announcement = root.querySelector("[data-hero-announcement]");
   if (!stage || slides.length !== 4 || tabs.length !== slides.length || !pauseButton) return;
 
@@ -28,7 +29,7 @@
   let manualHold = false;
   let intervalId = null;
   let holdId = null;
-  const intervalMs = 7500;
+  const intervalMs = 8000;
   const language = () => document.documentElement.lang === "en" ? "en" : "ka";
 
   function render(index, announce = false) {
@@ -44,7 +45,11 @@
       tab.classList.toggle("is-current", selected);
       tab.setAttribute("aria-pressed", String(selected));
     });
+    dots.forEach((dot, i) => dot.classList.toggle("is-current", i === active));
     if (counter) counter.textContent = String(active + 1).padStart(2, "0") + " / " + String(slides.length).padStart(2, "0");
+    // Warm the next image so auto-rotation does not expose a blank slide.
+    const following = slides[(active + 1) % slides.length]?.querySelector("img");
+    if (following && following.loading === "lazy") following.loading = "eager";
     if (announce && announcement) {
       const text = slides[active].querySelector("figcaption strong");
       announcement.textContent = text?.textContent || "";
