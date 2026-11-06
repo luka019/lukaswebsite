@@ -42,7 +42,7 @@ assert(home.includes('სოფო ბახბახაშვილი'),'Sopho
 assert(home.includes('ლუკა შახყულაშვილი'),'Luka team profile missing');
 assert((home.match(/class="dlg-team-member"/g)||[]).length===2,'Two biographies required');
 assert(home.includes('კომპანიის მუდმივი იურიდიული მხარდაჭერა'),'Ongoing legal support should be prominent');
-assert(home.includes('ფინტექი და მარეგულირებელი შესაბამისობა'),'FinTech practice missing');
+assert(home.includes('ფინტექი და რეგულაციებთან შესაბამისობა'),'FinTech practice missing');
 assert(home.includes('law-more-services'),'Additional services directory missing');
 assert((home.match(/class="law-service(?: law-service-featured)?"/g)||[]).length===6,'Six core service cards required');
 assert(uiCss.includes('prefers-reduced-motion'),'New animations must honour reduced motion');
