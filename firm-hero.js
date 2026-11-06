@@ -1,72 +1,189 @@
-/* DLG — Interactive first-screen legal practice selector.
-   User-controlled, bilingual, accessible and respectful of reduced motion. */
+/* Digital Law Georgia — accessible photographic carousel.
+   Autoplay runs only while visible and unattended. Pointer hover, keyboard
+   focus, document hiding, manual pause and reduced-motion settings stop it.
+   Photo sources: existing DLG asset and three freely licensed Unsplash photos.
+*/
 (() => {
   "use strict";
-  const tabs = [...document.querySelectorAll("[data-hero-topic]")];
-  const title = document.querySelector("[data-hero-title]");
-  const description = document.querySelector("[data-hero-description]");
-  const link = document.querySelector("[data-hero-link]");
-  const panel = document.querySelector("[data-hero-detail]");
-  const count = document.querySelector("[data-hero-count]");
-  if (tabs.length !== 4 || !title || !description || !link || !panel) return;
-  const items = {
-    contracts: {
-      ka: ["ხელშეკრულებები და კომერციული ურთიერთობები", "ბიზნესისა და ტექნოლოგიური მომსახურების ხელშეკრულებების მომზადება, შემოწმება და მოლაპარაკებებში დახმარება."],
-      en: ["Contracts and commercial relationships", "Drafting, reviewing and negotiating agreements for businesses and technology services."],
-      href: "/services/contracts/"
-    },
-    privacy: {
-      ka: ["პერსონალურ მონაცემთა დაცვა", "მონაცემთა დამუშავების კანონიერების შეფასება, შიდა წესების მომზადება და კონტრაქტებში შესაბამისი პირობების განსაზღვრა."],
-      en: ["Data protection and privacy", "Reviewing lawful data processing, preparing internal policies and addressing privacy obligations in contracts."],
-      href: "/services/data-protection/"
-    },
-    fintech: {
-      ka: ["ფინტექი და ფინანსური რეგულირება", "ციფრული ფინანსური პროდუქტების სამართლებრივი შეფასება, მარეგულირებელი მოთხოვნების განსაზღვრა და დოკუმენტაციის მომზადება."],
-      en: ["FinTech and financial regulation", "Assessing digital financial products, identifying regulatory requirements and preparing legal documentation."],
-      href: "/services/fintech/"
-    },
-    ai: {
-      ka: ["AI-ის გამოყენება და ციფრული პროდუქტები", "ხელოვნური ინტელექტის გამოყენების წესები, ტექნოლოგიური მომწოდებლების ხელშეკრულებები და ციფრული პროდუქტების სამართლებრივი რისკები."],
-      en: ["AI governance and digital products", "AI use policies, technology supplier agreements and legal risk assessment for digital products."],
-      href: "/services/ai/"
-    }
-  };
-  let selected = "contracts";
-  const reducedMotion = window.matchMedia?.("(prefers-reduced-motion: reduce)").matches ?? false;
-  function render(id, animate) {
-    if (!Object.hasOwn(items,id)) return;
-    selected=id;
-    const item=items[id];
-    const lang=document.documentElement.lang === "en" ? "en" : "ka";
-    title.textContent=item[lang][0];
-    description.textContent=item[lang][1];
-    link.setAttribute("href",item.href);
-    const pos=tabs.findIndex(tab => tab.dataset.heroTopic === id);
-    if (count) count.textContent=String(pos+1).padStart(2,"0")+" / "+String(tabs.length).padStart(2,"0");
-    tabs.forEach(tab => {
-      const active=tab.dataset.heroTopic===id;
-      tab.setAttribute("aria-pressed",String(active));
-      tab.classList.toggle("is-selected",active);
+  const root = document.querySelector("[data-hero-rotator]");
+  if (!root) return;
+  const stage = root.querySelector(".dlg-photo-stage");
+  const slides = [...root.querySelectorAll("[data-hero-slide]")];
+  const tabs = [...root.querySelectorAll("[data-hero-topic]")];
+  const previous = root.querySelector("[data-hero-prev]");
+  const next = root.querySelector("[data-hero-next]");
+  const pauseButton = root.querySelector("[data-hero-pause]");
+  const pauseIcon = root.querySelector("[data-hero-pause-icon]");
+  const counter = root.querySelector("[data-hero-count]");
+  const announcement = root.querySelector("[data-hero-announcement]");
+  if (!stage || slides.length !== 4 || tabs.length !== slides.length || !pauseButton) return;
+
+  const media = window.matchMedia?.("(prefers-reduced-motion: reduce)");
+  let paused = Boolean(media?.matches);
+  let userInitiatedPlayback = false;
+  let active = 0;
+  let visible = true;
+  let hovered = false;
+  let focused = false;
+  let manualHold = false;
+  let intervalId = null;
+  let holdId = null;
+  const intervalMs = 7500;
+  const language = () => document.documentElement.lang === "en" ? "en" : "ka";
+
+  function render(index, announce = false) {
+    active = (index + slides.length) % slides.length;
+    slides.forEach((slide, i) => {
+      const selected = i === active;
+      slide.hidden = !selected;
+      slide.setAttribute("aria-hidden", String(!selected));
+      slide.classList.toggle("is-current", selected);
     });
-    if (animate && !reducedMotion) {
-      panel.classList.remove("is-animating");
-      void panel.offsetWidth;
-      panel.classList.add("is-animating");
+    tabs.forEach((tab, i) => {
+      const selected = i === active;
+      tab.classList.toggle("is-current", selected);
+      tab.setAttribute("aria-pressed", String(selected));
+    });
+    if (counter) counter.textContent = String(active + 1).padStart(2, "0") + " / " + String(slides.length).padStart(2, "0");
+    if (announce && announcement) {
+      const text = slides[active].querySelector("figcaption strong");
+      announcement.textContent = text?.textContent || "";
     }
   }
-  tabs.forEach((tab,i)=>{
-    tab.addEventListener("click",()=>render(tab.dataset.heroTopic,true));
-    tab.addEventListener("keydown",event=>{
-      const next=event.key==="ArrowRight"||event.key==="ArrowDown" ? i+1 :
-        event.key==="ArrowLeft"||event.key==="ArrowUp" ? i-1 :
-        event.key==="Home" ? 0 : event.key==="End" ? tabs.length-1 : null;
-      if (next === null) return;
+
+  function updatePause() {
+    pauseButton.setAttribute("aria-pressed", String(paused));
+    if (pauseIcon) pauseIcon.textContent = paused ? "▶" : "Ⅱ";
+    pauseButton.setAttribute("aria-label", language() === "en"
+      ? paused ? "Resume automatic slides" : "Pause automatic slides"
+      : paused ? "ავტომატური გადართვის გაგრძელება" : "ავტომატური გადართვის შეჩერება");
+  }
+
+  function allowed() {
+    return !paused && (!media?.matches || userInitiatedPlayback) &&
+      !hovered && !focused && !manualHold && visible && !document.hidden;
+  }
+  function syncAutoplay() {
+    if (intervalId !== null) {
+      window.clearInterval(intervalId);
+      intervalId = null;
+    }
+    if (allowed()) {
+      intervalId = window.setInterval(() => {
+        if (allowed()) render(active + 1, false);
+        else syncAutoplay();
+      }, intervalMs);
+    }
+  }
+  function holdForReading() {
+    manualHold = true;
+    if (holdId !== null) window.clearTimeout(holdId);
+    holdId = window.setTimeout(() => {
+      manualHold = false;
+      holdId = null;
+      syncAutoplay();
+    }, 11000);
+    syncAutoplay();
+  }
+  function select(index) {
+    render(index, true);
+    holdForReading();
+  }
+
+  tabs.forEach((tab, i) => {
+    tab.addEventListener("click", () => select(i));
+    tab.addEventListener("keydown", event => {
+      const to = event.key === "ArrowRight" || event.key === "ArrowDown" ? i + 1
+        : event.key === "ArrowLeft" || event.key === "ArrowUp" ? i - 1
+        : event.key === "Home" ? 0
+        : event.key === "End" ? tabs.length - 1 : null;
+      if (to === null) return;
       event.preventDefault();
-      const target=tabs[(next+tabs.length)%tabs.length];
-      render(target.dataset.heroTopic,true);
-      target.focus();
+      const target = (to + tabs.length) % tabs.length;
+      select(target);
+      tabs[target].focus();
     });
   });
-  document.addEventListener("site:language",()=>render(selected,false));
-  render(selected,false);
+  previous?.addEventListener("click", () => select(active - 1));
+  next?.addEventListener("click", () => select(active + 1));
+  pauseButton.addEventListener("click", () => {
+    paused = !paused;
+    if (!paused) {
+      userInitiatedPlayback = true;
+      manualHold = false;
+      if (holdId !== null) window.clearTimeout(holdId);
+      holdId = null;
+    }
+    updatePause();
+    syncAutoplay();
+  });
+
+  root.addEventListener("pointerenter", event => {
+    if (event.pointerType === "mouse" || event.pointerType === "pen") {
+      hovered = true;
+      syncAutoplay();
+    }
+  });
+  root.addEventListener("pointerleave", () => {
+    hovered = false;
+    syncAutoplay();
+  });
+  root.addEventListener("focusin", () => {
+    focused = true;
+    syncAutoplay();
+  });
+  root.addEventListener("focusout", event => {
+    if (!event.relatedTarget || !root.contains(event.relatedTarget)) {
+      focused = false;
+      syncAutoplay();
+    }
+  });
+  document.addEventListener("visibilitychange", syncAutoplay);
+  document.addEventListener("site:language", updatePause);
+
+  if ("IntersectionObserver" in window) {
+    const observer = new IntersectionObserver(entries => {
+      for (const entry of entries) {
+        visible = entry.isIntersecting;
+        syncAutoplay();
+      }
+    }, { threshold: 0.12 });
+    observer.observe(root);
+  }
+  media?.addEventListener?.("change", event => {
+    if (event.matches) {
+      paused = true;
+      userInitiatedPlayback = false;
+      updatePause();
+    }
+    syncAutoplay();
+  });
+
+  let startTouch = null;
+  stage.addEventListener("pointerdown", event => {
+    if (event.pointerType === "touch") startTouch = { x: event.clientX, y: event.clientY };
+  }, { passive: true });
+  stage.addEventListener("pointerup", event => {
+    if (!startTouch || event.pointerType !== "touch") return;
+    const dx = event.clientX - startTouch.x;
+    const dy = event.clientY - startTouch.y;
+    startTouch = null;
+    if (Math.abs(dx) > 54 && Math.abs(dx) > 1.3 * Math.abs(dy)) {
+      select(active + (dx < 0 ? 1 : -1));
+    }
+  }, { passive: true });
+  stage.addEventListener("pointercancel", () => { startTouch = null; }, { passive: true });
+
+  for (const image of root.querySelectorAll(".dlg-photo-slide img")) {
+    if (!image.src.startsWith("https://images.unsplash.com/")) continue;
+    image.addEventListener("error", () => {
+      if (image.dataset.usedFallback) return;
+      image.dataset.usedFallback = "true";
+      image.src = "/assets/london-architecture.jpg";
+    }, { once: true });
+  }
+
+  render(0, false);
+  updatePause();
+  syncAutoplay();
 })();
