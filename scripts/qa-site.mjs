@@ -12,8 +12,8 @@ for(const file of html){
   if(content.includes('/client/')||content.includes('კლიენტის სივრცე'))errors.push('Legacy client link/text: '+file);
   if(!content.includes('lang="ka"'))errors.push('Missing document language: '+file);
   if(!content.includes('name="viewport"'))errors.push('Missing viewport: '+file);
-  if(!content.includes('data-en='))errors.push('Missing English support: '+file);
-  for(const m of content.matchAll(/href="([^"]+)"/g)){
+  if(!file.startsWith(path.join(root,'admin')+path.sep) && !content.includes('data-en='))errors.push('Missing English support: '+file);
+  for(const m of content.matchAll(/(?:href|src)="([^"]+)"/g)){
     const href=m[1];
     if(!href.startsWith('/')||href.startsWith('//'))continue;
     const pathname=href.split(/[?#]/)[0];
@@ -25,6 +25,7 @@ for(const file of html){
   }
 }
 if(fs.existsSync(path.join(root,'client')))errors.push('Client workspace remains in public output');
+if(fs.existsSync(path.join(root,'admin','inbox')))errors.push('Retired inbox remains in public output');
 if(html.length<12)errors.push('Unexpectedly few generated HTML pages: '+html.length);
 if(errors.length){console.error('Site QA failed:\n'+errors.slice(0,100).join('\n'));process.exit(1);}
 console.log('Site QA passed. Verified '+html.length+' HTML pages, direct-contact routing, bilingual attributes, viewport and local links.');

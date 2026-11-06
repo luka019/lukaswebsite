@@ -13,6 +13,8 @@ const rows=all.filter(r=>r.status==='published'&&r.date<=today).sort((a,b)=>b.da
 fs.rmSync(out,{recursive:true,force:true}); fs.mkdirSync(out,{recursive:true});
 for(const file of ['styles.css','script.js','favicon.svg','catalogue.mjs','digital.css','digital.mjs'])fs.copyFileSync(file,path.join(out,file));
 fs.cpSync('assets',path.join(out,'assets'),{recursive:true}); fs.cpSync('admin',path.join(out,'admin'),{recursive:true}); 
+// Enquiries now use email/WhatsApp/LinkedIn; do not publish the retired inbox.
+fs.rmSync(path.join(out,'admin','inbox'),{recursive:true,force:true});
 generateResourceCovers(out);
 fs.mkdirSync(path.join(out,'resources'),{recursive:true});
 for(const file of ['resources.js','resource-model.mjs'])fs.copyFileSync('resources/'+file,out+'/resources/'+file);
