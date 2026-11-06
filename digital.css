@@ -79,3 +79,20 @@
 @media(max-width:1050px){.digital-hero-grid{gap:25px}.site-header .site-nav{gap:10px}}
 @media(max-width:820px){.digital-hero:before{width:100%;opacity:.045}.digital-hero-grid{grid-template-columns:1fr}.digital-hero{padding-top:42px}.digital-site h1{font-size:clamp(34px,7vw,50px)}}
 @media(max-width:550px){.digital-site h1{font-size:33px}.digital-section{padding:50px 0}.practice-grid,.solution-grid{grid-template-columns:1fr}.practice-card h3,.solution-question{min-height:0}.digital-cta{padding:52px 0}}
+
+
+/* Founder-led premium contact: replaces the former product console */
+.boutique-contact{background:#FFFFFF;border:1px solid #DCE5F0;border-radius:14px;box-shadow:0 24px 60px rgba(9,28,65,.18);padding:clamp(24px,3vw,38px);color:#101E43}
+.boutique-contact-eyebrow{font:700 10px/1.4 Arial,sans-serif;letter-spacing:.13em;color:#0278DC!important;border-bottom:1px solid #DCE5F0;padding-bottom:16px}
+.boutique-contact h2{font-size:clamp(25px,2.3vw,33px)!important;line-height:1.23;margin:22px 0 13px;letter-spacing:-.025em;color:#101E43}
+.boutique-contact>p:not(.boutique-contact-eyebrow){font-size:14px;color:#566984;line-height:1.7}
+.boutique-contact-links{margin:25px 0 0;display:grid;gap:10px}
+.boutique-contact-links a{background:#FFFFFF;border:1px solid #DCE5F0;border-radius:9px;display:grid;grid-template-columns:24px minmax(0,1fr) 15px;gap:7px 13px;padding:15px 14px;color:#101E43;align-items:center;transition:background .2s,border-color .2s}
+.boutique-contact-links a:hover{background:#F3F9FF;border-color:#9CC9EE}
+.boutique-contact-links a>span{grid-row:span 2;font:700 11px Arial;color:#0278DC}
+.boutique-contact-links a strong{font-size:14px;font-weight:600}
+.boutique-contact-links a small{grid-column:2;grid-row:2;color:#66758D;font-size:11px;overflow-wrap:anywhere}
+.boutique-contact-links a b{grid-column:3;grid-row:1/span 2;font-size:16px;color:#0278DC}
+.boutique-contact .boutique-contact-foot{border-top:1px solid #DCE5F0;padding-top:15px;margin:21px 0 0;font-size:11px;color:#66758D}
+.digital-hero-grid>.boutique-contact{min-width:0}
+@media(max-width:820px){.boutique-contact{max-width:760px}.boutique-contact-links a{padding:13px}}
