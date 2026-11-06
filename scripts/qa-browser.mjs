@@ -65,7 +65,7 @@ try{
    }
    verify((await page.locator('.law-services .law-service').count())===6,'Wrong services count at '+width);
    if(width<=700){
-     const reasons=await page.locator('.dlg-why-grid').evaluate(el=>getComputedStyle(el).gridTemplateColumns.trim().split(/\\s+/).length);
+     const reasons=await page.locator('.dlg-why-grid').evaluate(el=>getComputedStyle(el).gridTemplateColumns.trim().split(/\s+/).length);
      verify(reasons===1,'Four reasons must be one column at '+width+'px, got '+reasons);
      const arrows=await page.evaluate(()=>{
        const a=document.querySelector('.dlg-photo-arrow-prev')?.getBoundingClientRect();
