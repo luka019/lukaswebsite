@@ -76,27 +76,8 @@
 
   selectSlide(0, false);
 
-  // Reveal only visible editorial cards; all content remains visible if JS or
-  // IntersectionObserver is unavailable, or the visitor requests reduced motion.
-  const reduceMotion = window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
-  if (!reduceMotion && 'IntersectionObserver' in window) {
-    const targets = [...document.querySelectorAll('.law-services .law-service, .law-audience-grid article')];
-    if (targets.length) {
-      document.documentElement.classList.add('law-motion-enabled');
-      const observer = new IntersectionObserver(entries => {
-        for (const entry of entries) {
-          if (!entry.isIntersecting) continue;
-          entry.target.classList.add('law-in-view');
-          observer.unobserve(entry.target);
-        }
-      }, { rootMargin: '0px 0px -25px 0px', threshold: 0.07 });
-      targets.forEach(item => observer.observe(item));
-    }
-  }
-
   // Navigation utility: progress indicator, section highlighting and back to top.
   // requestAnimationFrame keeps scroll listeners responsive on mobile.
-  const progress = document.querySelector('[data-scroll-progress]');
   const backToTop = document.querySelector('[data-back-to-top]');
   const nav = document.querySelector('.law-nav');
   const navSections = [...document.querySelectorAll('main section[id]')]
@@ -104,9 +85,6 @@
   const sectionLinks = [...(nav?.querySelectorAll('a[href^="/#"]') || [])];
   let scrollPending = false;
   function updateScrollState() {
-    const maxScroll = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
-    const ratio = Math.min(1, Math.max(0, window.scrollY / maxScroll));
-    if (progress) progress.style.width = Math.round(ratio * 1000) / 10 + '%';
     if (backToTop) backToTop.classList.toggle('is-visible', window.scrollY > 620);
     if (sectionLinks.length && navSections.length) {
       const probe = window.scrollY + window.innerHeight * .38;
