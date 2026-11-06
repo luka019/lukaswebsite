@@ -182,3 +182,13 @@
  .dlg-photo-slide.is-current{animation:none!important}
  .dlg-photo-tab,.dlg-photo-pause,.dlg-photo-arrow{transition:none!important}
 }
+
+/* Disclose illustrative photography rather than implying it depicts our office. */
+.dlg-photo-note{
+ position:absolute;top:17px;right:17px;z-index:3;
+ color:#F5FAFE;background:rgba(12,32,61,.66);
+ border:1px solid rgba(226,240,251,.16);
+ border-radius:2px;padding:6px 9px;
+ font-size:9px;line-height:1.45;font-weight:600;
+}
+@media(max-width:420px){.dlg-photo-note{top:11px;right:11px;font-size:8px}}
