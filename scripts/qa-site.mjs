@@ -89,6 +89,6 @@ assert(directory.includes('law-directory-feature'),'Ongoing legal counsel needs 
 assert(directory.indexOf('/services/contracts/')<directory.indexOf('/services/fintech/'),'Contract advice should precede FinTech in the directory');
 assert(directory.includes('/services/ongoing-legal-support/'),'Ongoing legal support route must be linked');
 assert(home.includes('ბიზნესისთვის.'),'Homepage should remain directly business-focused');
-assert(home.includes('ტექნოლოგიური სპეციალიზაციით.'),'Technology-law positioning missing');
+assert(home.includes('ტექნოლოგიებზე სპეციალიზაციით'),'Technology-law positioning missing');
 assert((home.match(/data-hero-slide=/g)||[]).length===4,'Four photographic slides required');
 console.log('DLG public site smoke checks passed: '+total+' checks.');
