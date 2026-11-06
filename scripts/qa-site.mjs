@@ -21,8 +21,8 @@ assert(!home.includes('data-showcase-slide'),'Duplicated secondary showcase must
 assert(home.includes('dlg-feature-section'),'Prominent wide hero feature required');
 assert((home.match(/law-service-glyph/g)||[]).length===6,'Six differentiated service cards required');
 assert(home.includes('data-back-to-top'),'Back-to-top control missing');
-assert(home.includes('law-client-shortcut'),'Client shortcut missing');
-assert(home.includes('href="/client/?consultation=1"'),'Consultation action missing');
+assert(home.includes('law-client-shortcut'),'Header direct contact shortcut missing');
+assert(home.includes('href="mailto:digitallawgeorgia@gmail.com"'),'Direct consultation contact missing');
 for(const id of ['services','approach','about','contact']){
   assert(home.includes('id="'+id+'"'),'Missing homepage anchor: '+id);
 }
@@ -77,12 +77,12 @@ for(const p of [
   'styles.css','firm.css','script.js','favicon.svg','services/index.html',
   'services/contracts/index.html','services/data-protection/index.html',
   'services/ai/index.html','services/fintech/index.html','services/ongoing-legal-support/index.html','services/georgia-market-entry/index.html','services/intellectual-property/index.html',
-  'resources/index.html','client/index.html','privacy/index.html'
+  'resources/index.html','privacy/index.html'
 ])file(p);
 for(const p of ['services/index.html','services/contracts/index.html','resources/index.html']){
   const h=fs.readFileSync(path.join(root,p),'utf8');
   assert(h.includes('firm-premium.css'),'Premium branding not applied to '+p);
-  assert(h.includes('law-client-shortcut'),'Client-space navigation absent on '+p);
+  assert(h.includes('law-client-shortcut'),'Direct contact navigation absent on '+p);
 }
 const directory=fs.readFileSync(path.join(root,'services/index.html'),'utf8');
 assert(directory.includes('law-directory-feature'),'Ongoing legal counsel needs a featured directory entry');
@@ -91,4 +91,9 @@ assert(directory.includes('/services/ongoing-legal-support/'),'Ongoing legal sup
 assert(home.includes('ბიზნესისთვის.'),'Homepage should remain directly business-focused');
 assert(home.includes('ტექნოლოგიებზე სპეციალიზაციით'),'Technology-law positioning missing');
 assert((home.match(/data-hero-slide=/g)||[]).length===4,'Four photographic slides required');
-console.log('DLG public site smoke checks passed: '+total+' checks.');
+assert(!fs.existsSync(path.join(root,'client')),'Retired client portal must not be deployed');
+const publicHtml=[];
+function visit(dir){for(const x of fs.readdirSync(dir,{withFileTypes:true})){if(x.name==='admin')continue;const location=path.join(dir,x.name);if(x.isDirectory())visit(location);else if(location.endsWith('.html'))publicHtml.push(location)}}
+visit(root);
+for(const name of publicHtml){const content=fs.readFileSync(name,'utf8');assert(!content.includes('/client/'),'Legacy client route in '+name);assert(!content.includes('კლიენტის სივრცე'),'Legacy client copy in '+name)}
+console.log('DLG public site smoke checks passed: '+total+' checks across '+publicHtml.length+' public HTML pages.');
