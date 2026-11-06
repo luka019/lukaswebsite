@@ -2,8 +2,7 @@ name: DLG browser and viewport QA
 on:
   pull_request:
     branches: [main]
-  push:
-    branches: [fix/dlg-live-style-direct-contact-20261107]
+  workflow_dispatch:
 permissions:
   contents: read
 jobs:
