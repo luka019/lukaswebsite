@@ -413,3 +413,13 @@ html[lang=en] .law-hero-technology h1{font-family:NotoGeo,Arial,sans-serif;font-
   *,*:before,*:after{scroll-behavior:auto!important}
   .law-to-top,.law-service,.law-service:before,.law-hero-specialities a,.law-art-callout{transition:none!important}
 }
+
+/* Utility links: existing client workspace remains one click away */
+.law-client-shortcut{display:inline-flex;align-items:center;white-space:nowrap;color:#4E6580;font-size:12px;font-weight:600;text-decoration:none;transition:color .18s ease}
+.law-client-shortcut:hover{color:#0278DC}
+.law-nav-mobile-client{display:none!important}
+@media(max-width:1220px){.law-client-shortcut{display:none}}
+@media(max-width:985px){
+  .law-nav-mobile-client{display:block!important;color:#0064B8!important;font-weight:700;padding:13px 8px;border-bottom:1px solid #EDF2F8}
+  .law-nav-mobile-cta{display:block!important;color:#0064B8!important}
+}
