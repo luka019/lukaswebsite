@@ -13,7 +13,7 @@ const css=file('firm-premium.css');
 const script=file('firm-interactions.js');
 
 assert(home.includes('class="law-home"'),'New homepage not active');
-assert(home.includes('class="law-hero-media law-tech-canvas"'),'Legal-tech hero missing');
+assert(home.includes('class="dlg-photo-feature"'),'Editorial photo carousel missing');
 assert(home.includes('firm-premium.css'),'Premium stylesheet not linked');
 assert(home.includes('firm-interactions.js'),'Interactions script not linked');
 assert((home.match(/<h1\b/g)||[]).length===1,'Home must have one h1');
@@ -34,19 +34,29 @@ assert((css.match(/\{/g)||[]).length===(css.match(/\}/g)||[]).length,'Unbalanced
 new vm.Script(script,{filename:'firm-interactions.js'});total++;
 const heroScript=file('firm-hero.js');
 const uiCss=file('firm-upgrade.css');
-assert(home.includes('id="dlg-hero-detail"'),'Interactive hero details must be accessible');
+assert(home.includes('data-hero-rotator'),'Accessible hero carousel missing');
 assert((home.match(/data-hero-topic="/g)||[]).length===4,'Four clickable hero choices required');
 assert(home.includes('firm-hero.js'),'Hero interaction script must load');
 assert(home.includes('firm-upgrade.css'),'Refinement stylesheet must load');
-assert(home.includes('სოფო ბახბახაშვილი'),'Sopho team profile missing');
+assert(home.includes('law-about-image'),'Founder profile and portrait missing');
 assert(home.includes('ლუკა შახყულაშვილი'),'Luka team profile missing');
-assert((home.match(/class="dlg-team-member"/g)||[]).length===2,'Two biographies required');
+assert(!home.includes('dlg-team-member') && !home.includes('dlg-team-monogram'),'Retired team card markup must be absent');
 assert(home.includes('კომპანიის მუდმივი იურიდიული მხარდაჭერა'),'Ongoing legal support should be prominent');
 assert(home.includes('ფინტექი და რეგულაციებთან შესაბამისობა'),'FinTech practice missing');
 assert(home.includes('law-more-services'),'Additional services directory missing');
 assert((home.match(/class="law-service(?: law-service-featured)?"/g)||[]).length===6,'Six core service cards required');
 assert(uiCss.includes('prefers-reduced-motion'),'New animations must honour reduced motion');
-assert(uiCss.includes('.dlg-hero-topic'),'Hero choices must be styled');
+assert(uiCss.includes('.dlg-photo-stage') && uiCss.includes('aspect-ratio:16 / 10'),'Landscape photo slide geometry missing');
+assert((home.match(/data-hero-topic="/g)||[]).length===4,'Four accessible manual selectors required');
+assert((home.match(/class="dlg-photo-note"/g)||[]).length===4,'All photos labelled as illustrative');
+assert(home.includes('data-hero-pause'),'Carousel pause control missing');
+assert(home.includes('data-hero-prev') && home.includes('data-hero-next'),'Carousel arrow controls missing');
+assert(heroScript.includes('setInterval'),'Automatic rotation must be implemented');
+assert(heroScript.includes('visibilitychange') && heroScript.includes('focusin'),'Automatic rotation must pause on inattention/accessibility');
+assert(heroScript.includes('prefers-reduced-motion'),'Reduced motion support required');
+assert(heroScript.includes('/assets/london-architecture.jpg'),'Image fallback required');
+assert(!home.includes('Bakhbakhashvili') && !home.includes('Sopho'),'Additional biography must be absent');
+assert(!home.includes('dlg-hero-detail'),'Old oversized blue selector must be removed');
 new vm.Script(heroScript,{filename:'firm-hero.js'});total++;
 
 for(const p of [
@@ -66,5 +76,5 @@ assert(directory.indexOf('/services/contracts/')<directory.indexOf('/services/fi
 assert(directory.includes('/services/ongoing-legal-support/'),'Ongoing legal support route must be linked');
 assert(home.includes('ბიზნესისთვის.'),'Homepage should remain directly business-focused');
 assert(home.includes('ტექნოლოგიური სპეციალიზაციით.'),'Technology-law positioning missing');
-assert(home.includes('სოფო ბახბახაშვილი'),'Named partner profile missing');
+assert((home.match(/data-hero-slide=/g)||[]).length===4,'Four photographic slides required');
 console.log('DLG public site smoke checks passed: '+total+' checks.');
