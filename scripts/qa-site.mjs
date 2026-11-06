@@ -62,7 +62,7 @@ assert(!home.includes('data-hero-slide="architecture"'),'Generic architecture se
 assert(visualCss.includes('grid-template-columns:repeat(3,minmax(0,1fr))'),'Services must use three-column desktop layout');
 assert(visualCss.includes('.dlg-editorial-hero h1'),'Editorial headline typography must be styled');
 assert(visualCss.includes('.dlg-photo-tab.is-current'),'Active tab styling missing');
-assert((visualCss.match(/\\{/g)||[]).length===(visualCss.match(/\\}/g)||[]).length,'Unbalanced final design CSS');
+assert((visualCss.match(/\{/g)||[]).length===(visualCss.match(/\}/g)||[]).length,'Unbalanced final design CSS');
 assert(heroScript.includes('dots.forEach'),'Progress indicators must respond to slide selection');
 assert(heroScript.includes('intervalMs = 8000'),'Autoplay pacing must be readable');
 assert(heroScript.includes('setInterval'),'Automatic rotation must be implemented');
