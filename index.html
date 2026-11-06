@@ -4,23 +4,25 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="theme-color" content="#101E43">
-  <meta name="description" content="Digital Law Georgia — ტექნოლოგიური და კომერციული სამართალი, პერსონალურ მონაცემთა დაცვა, AI Governance და საერთაშორისო ბიზნესის სამართლებრივი მხარდაჭერა.">
+  <meta name="description" content="Digital Law Georgia — ტექნოლოგიური სამართლის სპეციალიზებული პრაქტიკა. AI Governance, მონაცემთა დაცვა, SaaS და კომერციული ხელშეკრულებები საქართველოში და საერთაშორისო პროექტებზე.">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Digital Law Georgia | ტექნოლოგიური და კომერციული სამართალი">
+  <meta property="og:title" content="Digital Law Georgia | ტექნოლოგიური სამართლის იურიდიული პრაქტიკა">
   <meta property="og:description" content="სამართლებრივი მხარდაჭერა ტექნოლოგიური და ციფრული ბიზნესისთვის საქართველოში და საერთაშორისო პროექტებში.">
   <meta property="og:url" content="https://lukaswebsite.vercel.app/">
   <meta property="og:image" content="https://lukaswebsite.vercel.app/assets/london-architecture.jpg">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="canonical" href="https://lukaswebsite.vercel.app/">
-  <title>Digital Law Georgia | Technology & Commercial Law</title>
+  <title>Digital Law Georgia | Technology Law & Legal Advisory</title>
   <link rel="icon" href="/favicon.svg?v=20261106-editorial" type="image/svg+xml">
   <link rel="preload" as="font" href="/assets/noto-georgian.woff2" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="/styles.css?v=20261106-editorial">
-  <link rel="stylesheet" href="/firm.css?v=20261106-editorial">
+  <link rel="stylesheet" href="/firm.css?v=20261106-premium">
+  <link rel="stylesheet" href="/firm-premium.css?v=20261106-v2">
   <script src="/script.js?v=20261106-editorial" defer></script>
-  <script src="/firm-interactions.js?v=20261106-showcase" defer></script>
+  <script src="/firm-interactions.js?v=20261106-premium" defer></script>
 </head>
 <body class="law-home" data-default-language="ka" data-title-ka="Digital Law Georgia | ტექნოლოგიური და კომერციული სამართალი" data-title-en="Digital Law Georgia | Technology & Commercial Law">
+  <div class="law-scroll-progress" aria-hidden="true" data-scroll-progress></div>
   <a class="skip-link" href="#main" data-en="Skip to content">შინაარსზე გადასვლა</a>
   <header class="site-header law-header" id="top">
   <div class="container header-inner law-header-inner">
@@ -30,9 +32,10 @@
       <a href="/#approach" data-en="Our approach">მიდგომა</a>
       <a href="/#about" data-en="About">ჩვენ შესახებ</a>
       <a href="/resources/" data-site-link data-en="Insights">რესურსები</a>
+      <a class="law-nav-mobile-client" href="/client/" data-site-link data-en="Client space">კლიენტის სივრცე</a>
       <a class="law-nav-mobile-cta" href="/client/?consultation=1" data-site-link data-en="Discuss your matter">საკითხის განხილვა</a>
     </nav>
-    <div class="law-header-tools">
+    <div class="law-header-tools"><a class="law-client-shortcut" href="/client/" data-site-link data-en="Client space">კლიენტის სივრცე</a>
       <div class="language-control law-languages" role="group" aria-label="ენის არჩევა" data-en-aria="Choose language">
         <button type="button" data-language="ka" aria-pressed="true" aria-label="ქართული">KA</button><span aria-hidden="true">/</span><button type="button" data-language="en" aria-pressed="false" aria-label="English">EN</button>
       </div>
@@ -42,18 +45,53 @@
   </div>
 </header>
   <main id="main">
-    <section class="law-hero" aria-labelledby="hero-title">
+    <section class="law-hero law-hero-technology" aria-labelledby="hero-title">
+      <div class="law-hero-light" aria-hidden="true"></div>
       <div class="container law-hero-grid">
         <div class="law-hero-copy">
-          <p class="law-eyebrow"><span class="law-eyebrow-line" aria-hidden="true"></span><span data-en="TECHNOLOGY · BUSINESS · LAW">ტექნოლოგიები · ბიზნესი · სამართალი</span></p>
-          <h1 id="hero-title"><span data-en="Legal clarity.">სამართლებრივი სიცხადე.</span><span class="law-hero-line-two" data-en="For modern business.">თანამედროვე ბიზნესისთვის.</span></h1>
-          <p class="law-hero-lead" data-en="Practical, specialist legal advice on commercial contracts, data protection, AI and technology. For businesses in Georgia and those working across borders.">ტექნოლოგიური და კომერციული ხელშეკრულებები, პერსონალურ მონაცემთა დაცვა, ხელოვნური ინტელექტი და ციფრული ბიზნესი — მკაფიო რჩევა და პრაქტიკული სამართლებრივი მხარდაჭერა.</p>
-          <div class="law-actions"><a href="/client/?consultation=1" class="law-button law-button-primary" data-site-link><span data-en="Discuss your matter">განვიხილოთ თქვენი საკითხი</span><span aria-hidden="true">↗</span></a><a href="#services" class="law-button law-button-text"><span data-en="Explore our expertise">მომსახურების ნახვა</span><span aria-hidden="true">→</span></a></div>
-          <div class="law-hero-foot"><span class="law-foot-mark" aria-hidden="true"></span><span data-en="Independent, founder-led legal advisory · Georgian & international matters">დამფუძნებელთან უშუალო თანამშრომლობა · ქართული და საერთაშორისო საკითხები</span></div>
+          <p class="law-eyebrow law-hero-eyebrow"><span class="law-eyebrow-line" aria-hidden="true"></span><span data-en="SPECIALIST TECHNOLOGY LAW PRACTICE">ტექნოლოგიების სამართლის სპეციალიზებული პრაქტიკა</span></p>
+          <h1 id="hero-title"><span data-en="Legal counsel for">სამართლებრივი მხარდაჭერა</span><span class="law-hero-line-two" data-en="technology-led business.">ტექნოლოგიური ბიზნესისთვის.</span></h1>
+          <p class="law-hero-lead" data-en="Clear, commercially focused advice on technology contracts, data protection, AI governance and the legal questions behind digital products — in Georgia and across borders.">ტექნოლოგიური ხელშეკრულებები, მონაცემთა დაცვა, AI-ის მმართველობა და ციფრული პროდუქტები — მკაფიო, პრაქტიკული იურიდიული მომსახურება საქართველოში და საერთაშორისო პროექტებზე.</p>
+          <div class="law-actions">
+            <a href="/client/?consultation=1" class="law-button law-button-primary" data-site-link><span data-en="Discuss a legal matter">საკითხის განხილვა</span><span aria-hidden="true">↗</span></a>
+            <a href="#services" class="law-button law-button-text"><span data-en="Explore our expertise">მომსახურების ნახვა</span><span aria-hidden="true">→</span></a>
+          </div>
+          <div class="law-hero-specialities" aria-label="სპეციალიზაციის მიმართულებები" data-en-aria="Specialist areas">
+            <a href="/services/contracts/" data-site-link>TECH CONTRACTS <span aria-hidden="true">↗</span></a>
+            <a href="/services/data-protection/" data-site-link>PRIVACY <span aria-hidden="true">↗</span></a>
+            <a href="/services/ai/" data-site-link>AI GOVERNANCE <span aria-hidden="true">↗</span></a>
+          </div>
+          <p class="law-hero-foot"><span class="law-foot-mark" aria-hidden="true"></span><span data-en="Independent, founder-led legal advisory · Georgia & international matters">დამფუძნებლის უშუალო მონაწილეობა · ქართული და საერთაშორისო საკითხები</span></p>
         </div>
-        <div class="law-hero-media">
-          <img src="/assets/london-architecture.jpg" alt="თანამედროვე ბიზნესცენტრების არქიტექტურა" data-en-alt="Contemporary business architecture" width="1062" height="710" fetchpriority="high">
-          <div class="law-hero-photo-overlay"><span class="law-photo-accent" aria-hidden="true"></span><p>DIGITAL LAW GEORGIA</p><span data-en="Specialist advice. Commercial understanding.">სპეციალიზებული სამართალი. ბიზნესის საჭიროებებზე მორგებული მიდგომა.</span></div>
+        <div class="law-hero-media law-tech-canvas" aria-label="ტექნოლოგიებისა და სამართლის კონცეპტუალური ილუსტრაცია" data-en-aria="Illustration of technology and legal advisory disciplines" role="img">
+          <div class="law-canvas-grid" aria-hidden="true"></div>
+          <div class="law-canvas-sheen" aria-hidden="true"></div>
+          <div class="law-canvas-top">
+            <span class="law-canvas-brand"><i aria-hidden="true"></i> DLG / LEGAL SYSTEMS</span>
+            <span>GEORGIA — INTERNATIONAL</span>
+          </div>
+          <div class="law-canvas-radar" aria-hidden="true">
+            <div class="law-orbit law-orbit-one"></div>
+            <div class="law-orbit law-orbit-two"></div>
+            <div class="law-orbit law-orbit-three"></div>
+            <div class="law-radar-ray law-ray-one"></div>
+            <div class="law-radar-ray law-ray-two"></div>
+            <div class="law-radar-ray law-ray-three"></div>
+            <div class="law-radar-ray law-ray-four"></div>
+            <div class="law-radar-core">
+              <span>LAW × TECHNOLOGY</span>
+              <strong>DLG</strong>
+              <small>LEGAL ADVISORY</small>
+            </div>
+            <div class="law-radar-label law-radar-contracts"><span class="law-label-num">01</span>CONTRACTS</div>
+            <div class="law-radar-label law-radar-data"><span class="law-label-num">02</span>DATA & PRIVACY</div>
+            <div class="law-radar-label law-radar-ai"><span class="law-label-num">03</span>AI GOVERNANCE</div>
+            <div class="law-radar-label law-radar-digital"><span class="law-label-num">04</span>DIGITAL BUSINESS</div>
+          </div>
+          <div class="law-canvas-bottom">
+            <span>LEGAL CLARITY / COMMERCIAL THINKING</span>
+            <span class="law-canvas-bottom-mark"><span></span><span></span><span></span></span>
+          </div>
         </div>
       </div>
     </section>
@@ -66,13 +104,13 @@
 
     <section class="law-section law-expertise" id="services" aria-labelledby="services-heading">
       <div class="container">
-        <div class="law-section-head"><div><p class="law-eyebrow"><span class="law-eyebrow-line" aria-hidden="true"></span><span data-en="OUR EXPERTISE">მომსახურება</span></p><h2 id="services-heading" data-en="Legal expertise for a changing business environment.">სამართლებრივი მხარდაჭერა თქვენი ბიზნესისთვის.</h2></div><p class="law-section-intro" data-en="Focused advice for the decisions, agreements and regulations that shape how technology-led businesses operate.">ვმუშაობთ იმ სამართლებრივ საკითხებზე, რომლებიც გავლენას ახდენს პროდუქტის განვითარებაზე, ბიზნესურთიერთობებსა და რეგულაციურ შესაბამისობაზე.</p></div>
-        <div class="law-services"><article class="law-service law-service-featured"><div class="law-service-top"><span class="law-service-num">01 / 06</span><span class="law-service-arrow" aria-hidden="true">↗</span></div><h3 data-en="Technology & commercial contracts">ტექნოლოგიური და კომერციული ხელშეკრულებები</h3><p data-en="SaaS, software, licensing, service agreements and commercial negotiations.">SaaS, პროგრამული უზრუნველყოფა, ლიცენზირება, მომსახურების შეთანხმებები და მოლაპარაკებები.</p><a class="law-service-link" href="/services/contracts/" data-site-link><span data-en="Explore this service">მომსახურების ნახვა</span><span aria-hidden="true">→</span></a></article>
-<article class="law-service"><div class="law-service-top"><span class="law-service-num">02 / 06</span><span class="law-service-arrow" aria-hidden="true">↗</span></div><h3 data-en="Data protection & privacy">პერსონალურ მონაცემთა დაცვა</h3><p data-en="Data protection assessments, compliance documentation, GDPR and workable internal processes.">მონაცემთა დამუშავების შეფასება, შესაბამისობის დოკუმენტები, GDPR და პრაქტიკული პროცედურები.</p><a class="law-service-link" href="/services/data-protection/" data-site-link><span data-en="Explore this service">მომსახურების ნახვა</span><span aria-hidden="true">→</span></a></article>
-<article class="law-service"><div class="law-service-top"><span class="law-service-num">03 / 06</span><span class="law-service-arrow" aria-hidden="true">↗</span></div><h3 data-en="AI governance & regulation">AI Governance და რეგულირება</h3><p data-en="Legal assessment of AI use, risk governance, internal policies and supplier arrangements.">AI-ის დანერგვის სამართლებრივი შეფასება, რისკების მართვა, შიდა პოლიტიკა და მომწოდებლები.</p><a class="law-service-link" href="/services/ai/" data-site-link><span data-en="Explore this service">მომსახურების ნახვა</span><span aria-hidden="true">→</span></a></article>
-<article class="law-service"><div class="law-service-top"><span class="law-service-num">04 / 06</span><span class="law-service-arrow" aria-hidden="true">↗</span></div><h3 data-en="Digital products & e-commerce">ციფრული პროდუქტები და ელექტრონული კომერცია</h3><p data-en="Platform and app terms, online services, consumer rights and product launch advice.">პლატფორმების, აპლიკაციებისა და ონლაინმომსახურებების პირობები, მომხმარებლის უფლებები და გაშვება.</p><a class="law-service-link" href="/services/digital-products/" data-site-link><span data-en="Explore this service">მომსახურების ნახვა</span><span aria-hidden="true">→</span></a></article>
-<article class="law-service"><div class="law-service-top"><span class="law-service-num">05 / 06</span><span class="law-service-arrow" aria-hidden="true">↗</span></div><h3 data-en="Intellectual property & technology">ინტელექტუალური საკუთრება და ტექნოლოგიები</h3><p data-en="Software rights, licensing, IP assignments and commercial exploitation.">პროგრამული უზრუნველყოფის უფლებები, ლიცენზიები, IP-ს გადაცემა და კომერციული გამოყენება.</p><a class="law-service-link" href="/services/intellectual-property/" data-site-link><span data-en="Explore this service">მომსახურების ნახვა</span><span aria-hidden="true">→</span></a></article>
-<article class="law-service"><div class="law-service-top"><span class="law-service-num">06 / 06</span><span class="law-service-arrow" aria-hidden="true">↗</span></div><h3 data-en="Georgia market entry & cross-border work">საქართველოში საქმიანობა და საერთაშორისო პროექტები</h3><p data-en="Local counsel for international businesses, corporate documentation and commercial matters.">უცხოური კომპანიების ადგილობრივი სამართლებრივი მხარდაჭერა, კორპორაციული და კომერციული საკითხები.</p><a class="law-service-link" href="/services/georgia-market-entry/" data-site-link><span data-en="Explore this service">მომსახურების ნახვა</span><span aria-hidden="true">→</span></a></article></div>
+        <div class="law-section-head"><div><p class="law-eyebrow"><span class="law-eyebrow-line" aria-hidden="true"></span><span data-en="OUR EXPERTISE">მომსახურება</span></p><h2 id="services-heading" data-en="Where technology meets the law.">სპეციალიზებული მომსახურება ტექნოლოგიური ბიზნესისთვის.</h2></div><p class="law-section-intro" data-en="From the first product agreement to AI governance, we help businesses manage legal obligations without losing sight of commercial priorities.">პროდუქტის პირველი ხელშეკრულებიდან AI-ის მმართველობამდე — ვეხმარებით კომპანიებს სამართლებრივი ვალდებულებების მართვაში, ბიზნესის საჭიროებების გათვალისწინებით.</p></div>
+        <div class="law-services"><article class="law-service law-service-featured"><div class="law-service-top"><span class="law-service-num">01 / 06</span><span class="law-service-glyph" aria-hidden="true"><svg viewBox="0 0 32 32" width="25" height="25" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3h12l5 5v19H7z"/><path d="M19 3v6h5M11 14h9M11 19h9M11 24h5"/></svg></span><span class="law-service-arrow" aria-hidden="true">↗</span></div><h3 data-en="Technology & commercial contracts">ტექნოლოგიური და კომერციული ხელშეკრულებები</h3><p data-en="SaaS, software, licensing, service agreements and commercial negotiations.">SaaS, პროგრამული უზრუნველყოფა, ლიცენზირება, მომსახურების შეთანხმებები და მოლაპარაკებები.</p><a class="law-service-link" href="/services/contracts/" data-site-link><span data-en="Explore this service">მომსახურების ნახვა</span><span aria-hidden="true">→</span></a></article>
+<article class="law-service"><div class="law-service-top"><span class="law-service-num">02 / 06</span><span class="law-service-glyph" aria-hidden="true"><svg viewBox="0 0 32 32" width="25" height="25" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"><path d="M16 2 28 7v10c0 9-5 14-12 17C9 31 4 26 4 17V7z"/><path d="M12 16v-3a4 4 0 0 1 8 0v3M11 16h10v9H11z"/></svg></span><span class="law-service-arrow" aria-hidden="true">↗</span></div><h3 data-en="Data protection & privacy">პერსონალურ მონაცემთა დაცვა</h3><p data-en="Data protection assessments, compliance documentation, GDPR and workable internal processes.">მონაცემთა დამუშავების შეფასება, შესაბამისობის დოკუმენტები, GDPR და პრაქტიკული პროცედურები.</p><a class="law-service-link" href="/services/data-protection/" data-site-link><span data-en="Explore this service">მომსახურების ნახვა</span><span aria-hidden="true">→</span></a></article>
+<article class="law-service"><div class="law-service-top"><span class="law-service-num">03 / 06</span><span class="law-service-glyph" aria-hidden="true"><svg viewBox="0 0 32 32" width="25" height="25" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"><circle cx="16" cy="15" r="6"/><path d="M16 2v7M16 21v8M3 15h7M22 15h7M7 6l5 5M20 19l5 5M25 6l-5 5M12 19l-5 5"/></svg></span><span class="law-service-arrow" aria-hidden="true">↗</span></div><h3 data-en="AI governance & regulation">AI Governance და რეგულირება</h3><p data-en="Legal assessment of AI use, risk governance, internal policies and supplier arrangements.">AI-ის დანერგვის სამართლებრივი შეფასება, რისკების მართვა, შიდა პოლიტიკა და მომწოდებლები.</p><a class="law-service-link" href="/services/ai/" data-site-link><span data-en="Explore this service">მომსახურების ნახვა</span><span aria-hidden="true">→</span></a></article>
+<article class="law-service"><div class="law-service-top"><span class="law-service-num">04 / 06</span><span class="law-service-glyph" aria-hidden="true"><svg viewBox="0 0 32 32" width="25" height="25" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="26" height="20" rx="2"/><path d="M3 11h26M11 11v14M16 18h8"/></svg></span><span class="law-service-arrow" aria-hidden="true">↗</span></div><h3 data-en="Digital products & e-commerce">ციფრული პროდუქტები და ელექტრონული კომერცია</h3><p data-en="Platform and app terms, online services, consumer rights and product launch advice.">პლატფორმების, აპლიკაციებისა და ონლაინმომსახურებების პირობები, მომხმარებლის უფლებები და გაშვება.</p><a class="law-service-link" href="/services/digital-products/" data-site-link><span data-en="Explore this service">მომსახურების ნახვა</span><span aria-hidden="true">→</span></a></article>
+<article class="law-service"><div class="law-service-top"><span class="law-service-num">05 / 06</span><span class="law-service-glyph" aria-hidden="true"><svg viewBox="0 0 32 32" width="25" height="25" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"><path d="M6 7 16 3l10 4v16l-10 5-10-5z"/><path d="m6 7 10 5 10-5M16 12v16M10 16l3 2"/></svg></span><span class="law-service-arrow" aria-hidden="true">↗</span></div><h3 data-en="Intellectual property & technology">ინტელექტუალური საკუთრება და ტექნოლოგიები</h3><p data-en="Software rights, licensing, IP assignments and commercial exploitation.">პროგრამული უზრუნველყოფის უფლებები, ლიცენზიები, IP-ს გადაცემა და კომერციული გამოყენება.</p><a class="law-service-link" href="/services/intellectual-property/" data-site-link><span data-en="Explore this service">მომსახურების ნახვა</span><span aria-hidden="true">→</span></a></article>
+<article class="law-service"><div class="law-service-top"><span class="law-service-num">06 / 06</span><span class="law-service-glyph" aria-hidden="true"><svg viewBox="0 0 32 32" width="25" height="25" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"><circle cx="16" cy="16" r="13"/><path d="M3 16h26M16 3c-4 4-6 8-6 13s2 9 6 13M16 3c4 4 6 8 6 13s-2 9-6 13"/></svg></span><span class="law-service-arrow" aria-hidden="true">↗</span></div><h3 data-en="Georgia market entry & cross-border work">საქართველოში საქმიანობა და საერთაშორისო პროექტები</h3><p data-en="Local counsel for international businesses, corporate documentation and commercial matters.">უცხოური კომპანიების ადგილობრივი სამართლებრივი მხარდაჭერა, კორპორაციული და კომერციული საკითხები.</p><a class="law-service-link" href="/services/georgia-market-entry/" data-site-link><span data-en="Explore this service">მომსახურების ნახვა</span><span aria-hidden="true">→</span></a></article></div>
         <div class="law-section-end"><p data-en="Need help with another commercial or regulatory matter?">სხვა კომერციული ან მარეგულირებელი საკითხი გაქვთ?</p><a href="/services/" data-site-link><span data-en="View all services">ყველა მომსახურების ნახვა</span><span aria-hidden="true">↗</span></a></div>
       </div>
     </section>
@@ -82,8 +120,8 @@
         <div class="law-showcase-heading">
           <div>
             <p class="law-eyebrow"><span class="law-eyebrow-line" aria-hidden="true"></span><span data-en="INSIDE OUR PRACTICE">ჩვენი საქმიანობა</span></p>
-            <h2 id="law-showcase-heading" data-en="Explore the work behind the advice.">ნახეთ, როგორ ვმუშაობთ კონკრეტულ საკითხებზე.</h2>
-            <p class="law-showcase-intro" data-en="Choose a practice area to see the questions we address and the practical support we provide.">აირჩიეთ მიმართულება და გაეცანით, რა საკითხებს ვაფასებთ და რა შედეგის მიღებაში გეხმარებით.</p>
+            <h2 id="law-showcase-heading" data-en="A closer look at our specialist work.">როგორ ვმუშაობთ ტექნოლოგიური სამართლის მიმართულებით.</h2>
+            <p class="law-showcase-intro" data-en="Explore three core areas and the practical legal issues we help clients address.">გაეცანით სამ ძირითად მიმართულებას და იმ პრაქტიკულ საკითხებს, რომლებზეც კლიენტებს ვუწევთ იურიდიულ მხარდაჭერას.</p>
           </div>
           <div class="law-showcase-arrows" aria-label="სლაიდების მართვა" data-en-aria="Slide controls">
             <button type="button" class="law-showcase-arrow" data-showcase-prev aria-label="წინა სლაიდი" data-en-aria="Previous slide"><span aria-hidden="true">←</span></button>
@@ -93,10 +131,20 @@
         </div>
         <div class="law-showcase-frame" data-showcase-track aria-label="მომსახურების მიმართულებები" data-en-aria="Featured practice areas" aria-roledescription="carousel">
           <article class="law-showcase-slide is-current" data-showcase-slide>
-            <div class="law-showcase-visual">
-              <img src="/assets/resources/technology-contract-review.png" width="1200" height="675" alt="ტექნოლოგიური ხელშეკრულების ილუსტრაცია" data-en-alt="Illustration of a technology contract review" loading="lazy">
-              <div class="law-showcase-visual-label"><span class="law-showcase-visual-rule" aria-hidden="true"></span><span>TECHNOLOGY / CONTRACTS</span></div>
-            </div>
+            <div class="law-showcase-visual law-visual-contracts" aria-hidden="true">
+  <div class="law-art-mesh"></div>
+  <div class="law-art-overline"><span>01 — LEGAL ARCHITECTURE</span><span>DLG / CONTRACTS</span></div>
+  <div class="law-contract-sheet">
+    <div class="law-contract-top"><span>DLG / LEGAL REVIEW</span><span>01</span></div>
+    <div class="law-contract-symbol"><svg viewBox="0 0 64 64" aria-hidden="true"><path d="M16 10h23l9 9v35H16z" fill="none" stroke="currentColor" stroke-width="2"/><path d="M39 10v9h9M23 29h18M23 36h18M23 43h12" fill="none" stroke="currentColor" stroke-width="2"/></svg></div>
+    <div class="law-contract-title">TECHNOLOGY<br/>AGREEMENT</div>
+    <div class="law-contract-lines"><i></i><i></i><i></i></div>
+    <div class="law-contract-bottom"><span>STRUCTURE</span><span>·</span><span>RISKS</span><span>·</span><span>TERMS</span></div>
+  </div>
+  <div class="law-art-callout law-contract-callout-one"><span>01</span> SCOPE &amp; TERMS</div>
+  <div class="law-art-callout law-contract-callout-two"><span>02</span> RISK ALLOCATION</div>
+  <div class="law-showcase-visual-label"><span class="law-showcase-visual-rule"></span><span>TECHNOLOGY / CONTRACTS</span></div>
+</div>
             <div class="law-showcase-content">
               <span class="law-showcase-index">01 / 03</span>
               <p class="law-showcase-category" data-en="TECHNOLOGY & COMMERCIAL LAW">ტექნოლოგიური და კომერციული სამართალი</p>
@@ -107,10 +155,22 @@
             </div>
           </article>
           <article class="law-showcase-slide" data-showcase-slide hidden>
-            <div class="law-showcase-visual">
-              <img src="/assets/resources/vendor-data-review.png" width="1200" height="675" alt="მონაცემთა დაცვისა და წვდომის კონტროლის ილუსტრაცია" data-en-alt="Illustration of privacy and data access controls" loading="lazy">
-              <div class="law-showcase-visual-label"><span class="law-showcase-visual-rule" aria-hidden="true"></span><span>PRIVACY / DATA</span></div>
-            </div>
+            <div class="law-showcase-visual law-visual-data" aria-hidden="true">
+  <div class="law-art-mesh"></div>
+  <div class="law-art-overline"><span>02 — DATA GOVERNANCE</span><span>DLG / PRIVACY</span></div>
+  <div class="law-privacy-circle law-privacy-circle-one"></div>
+  <div class="law-privacy-circle law-privacy-circle-two"></div>
+  <div class="law-privacy-link law-privacy-link-one"></div>
+  <div class="law-privacy-link law-privacy-link-two"></div>
+  <div class="law-privacy-core">
+    <svg viewBox="0 0 64 64" aria-hidden="true"><path d="M32 7L50 14v15c0 13-8 22-18 28-10-6-18-15-18-28V14z" fill="none" stroke="currentColor" stroke-width="2"/><rect x="24" y="30" width="16" height="13" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><path d="M27 30v-5a5 5 0 0 1 10 0v5" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+    <span>DATA PROTECTION</span>
+  </div>
+  <div class="law-privacy-node law-privacy-node-one"><span>01 / CONTROLLER</span><strong>LEGAL BASIS</strong></div>
+  <div class="law-privacy-node law-privacy-node-two"><span>02 / PROCESSOR</span><strong>DPA</strong></div>
+  <div class="law-privacy-node law-privacy-node-three"><span>03 / TRANSFER</span><strong>SAFEGUARDS</strong></div>
+  <div class="law-showcase-visual-label"><span class="law-showcase-visual-rule"></span><span>PRIVACY / DATA</span></div>
+</div>
             <div class="law-showcase-content">
               <span class="law-showcase-index">02 / 03</span>
               <p class="law-showcase-category" data-en="DATA PROTECTION & PRIVACY">პერსონალურ მონაცემთა დაცვა</p>
@@ -121,10 +181,19 @@
             </div>
           </article>
           <article class="law-showcase-slide" data-showcase-slide hidden>
-            <div class="law-showcase-visual">
-              <img src="/assets/resources/ai-governance-pilot.png" width="1200" height="675" alt="ხელოვნური ინტელექტის მმართველობის პროცესის ილუსტრაცია" data-en-alt="Illustration of an AI governance process" loading="lazy">
-              <div class="law-showcase-visual-label"><span class="law-showcase-visual-rule" aria-hidden="true"></span><span>AI / GOVERNANCE</span></div>
-            </div>
+            <div class="law-showcase-visual law-visual-ai" aria-hidden="true">
+  <div class="law-art-mesh"></div>
+  <div class="law-art-overline"><span>03 — RESPONSIBLE SYSTEMS</span><span>DLG / AI</span></div>
+  <div class="law-ai-ring law-ai-ring-one"></div><div class="law-ai-ring law-ai-ring-two"></div>
+  <div class="law-ai-cross law-ai-cross-1"></div><div class="law-ai-cross law-ai-cross-2"></div>
+  <div class="law-ai-center">
+    <span>GOVERNANCE</span><strong>AI</strong><small>LAW · RISK · OVERSIGHT</small>
+  </div>
+  <div class="law-ai-node law-ai-node-one"><i></i><span>POLICY</span></div>
+  <div class="law-ai-node law-ai-node-two"><i></i><span>VENDOR REVIEW</span></div>
+  <div class="law-ai-node law-ai-node-three"><i></i><span>ACCOUNTABILITY</span></div>
+  <div class="law-showcase-visual-label"><span class="law-showcase-visual-rule"></span><span>AI / GOVERNANCE</span></div>
+</div>
             <div class="law-showcase-content">
               <span class="law-showcase-index">03 / 03</span>
               <p class="law-showcase-category" data-en="AI GOVERNANCE & REGULATION">AI-ის მმართველობა და რეგულირება</p>
@@ -178,6 +247,7 @@
       <div class="law-contact-actions"><a class="law-button law-button-primary" href="/client/?consultation=1" data-site-link><span data-en="Send an enquiry">მიმართვის გაგზავნა</span><span aria-hidden="true">↗</span></a><a class="law-contact-email" href="mailto:digitallawgeorgia@gmail.com">digitallawgeorgia@gmail.com <span aria-hidden="true">↗</span></a><span data-en="Please do not send confidential documents before we agree a secure channel.">უსაფრთხო არხის შეთანხმებამდე ნუ გამოგვიგზავნით კონფიდენციალურ დოკუმენტებს.</span></div>
     </div></section>
   </main>
+  <button type="button" class="law-to-top" data-back-to-top aria-label="გვერდის დასაწყისში დაბრუნება" data-en-aria="Back to top"><span aria-hidden="true">↑</span></button>
   <footer class="site-footer law-footer">
   <div class="container law-footer-main">
     <div class="law-footer-about"><a class="brand law-brand law-brand-footer" href="/" data-site-link aria-label="Digital Law Georgia — მთავარი"><span class="law-brand-monogram" aria-hidden="true">DLG</span><span class="law-brand-rule" aria-hidden="true"></span><span class="law-brand-text"><strong>DIGITAL LAW</strong><small>GEORGIA</small></span></a>

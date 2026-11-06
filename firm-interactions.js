@@ -63,6 +63,17 @@
   }, { passive: true });
   stage.addEventListener('pointercancel', () => { touchStart = null; }, { passive: true });
 
+  // Each visible panel is a named group in an explicitly controlled carousel.
+  slides.forEach((slide, i) => {
+    slide.setAttribute('role', 'group');
+    slide.setAttribute('aria-roledescription', 'slide');
+    slide.setAttribute('aria-label', (i + 1) + ' / ' + slides.length);
+  });
+  document.addEventListener('site:language', () => {
+    const title = slides[current]?.querySelector('h3');
+    if (announcement && title) announcement.textContent = title.textContent;
+  });
+
   selectSlide(0, false);
 
   // Reveal only visible editorial cards; all content remains visible if JS or
@@ -82,4 +93,54 @@
       targets.forEach(item => observer.observe(item));
     }
   }
+
+  // Navigation utility: progress indicator, section highlighting and back to top.
+  // requestAnimationFrame keeps scroll listeners responsive on mobile.
+  const progress = document.querySelector('[data-scroll-progress]');
+  const backToTop = document.querySelector('[data-back-to-top]');
+  const nav = document.querySelector('.law-nav');
+  const navSections = [...document.querySelectorAll('main section[id]')]
+    .filter(section => ['services','approach','about'].includes(section.id));
+  const sectionLinks = [...(nav?.querySelectorAll('a[href^="/#"]') || [])];
+  let scrollPending = false;
+  function updateScrollState() {
+    const maxScroll = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
+    const ratio = Math.min(1, Math.max(0, window.scrollY / maxScroll));
+    if (progress) progress.style.width = Math.round(ratio * 1000) / 10 + '%';
+    if (backToTop) backToTop.classList.toggle('is-visible', window.scrollY > 620);
+    if (sectionLinks.length && navSections.length) {
+      const probe = window.scrollY + window.innerHeight * .38;
+      let currentSection = '';
+      for (const section of navSections) if (probe >= section.offsetTop) currentSection = section.id;
+      for (const link of sectionLinks) {
+        const active = currentSection && link.getAttribute('href') === '/#' + currentSection;
+        link.classList.toggle('is-active', Boolean(active));
+        if (active) link.setAttribute('aria-current', 'location');
+        else link.removeAttribute('aria-current');
+      }
+    }
+    scrollPending = false;
+  }
+  function onScroll() {
+    if (!scrollPending) {
+      scrollPending = true;
+      window.requestAnimationFrame(updateScrollState);
+    }
+  }
+  window.addEventListener('scroll', onScroll, {passive:true});
+  window.addEventListener('resize', onScroll, {passive:true});
+  updateScrollState();
+  backToTop?.addEventListener('click', () => {
+    const reduce = window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
+    window.scrollTo({top:0,behavior:reduce?'auto':'smooth'});
+  });
+  // Close mobile menu on outside interaction without trapping focus.
+  const menuToggle = document.querySelector('[data-menu-toggle]');
+  document.addEventListener('pointerdown', event => {
+    if (nav?.classList.contains('open') && !nav.contains(event.target) && !menuToggle?.contains(event.target)) {
+      nav.classList.remove('open');
+      menuToggle?.setAttribute('aria-expanded','false');
+    }
+  });
+
 })();
