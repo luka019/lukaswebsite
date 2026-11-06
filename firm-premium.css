@@ -440,3 +440,19 @@ html[lang="en"] .law-contact h2{
   .law-header-cta,.law-service,.law-showcase-arrow,.law-to-top,.law-nav>a:after{transition:none!important}
   html{scroll-behavior:auto!important}
 }
+
+
+/* Published guides are presented as editorial reading, without decorative cover graphics. */
+.resource-library .resource-grid .resource-cover{display:none}
+.resource-library .resource-grid .resource-card{
+  background:#FFFFFF;border:1px solid #E0E6ED;border-radius:0;box-shadow:none;
+}
+.resource-library .resource-grid .resource-card:hover{
+  box-shadow:none;transform:none;border-color:#AFC9E1;
+}
+.resource-library .resource-grid .resource-card-copy{padding:27px}
+.resource-library .resource-grid .resource-card:before{
+  content:"DIGITAL LAW GEORGIA / INSIGHTS";display:block;
+  padding:24px 27px 0;color:#005FAE;
+  font:700 9px/1.5 Arial,sans-serif;letter-spacing:.11em;
+}
