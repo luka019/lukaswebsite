@@ -55,7 +55,7 @@ html[lang=en] .resource-page h1,html[lang=en] .resource-page h2{
 .law-hero-lead{font-size:17px;line-height:1.83;color:#536781;max-width:600px;margin:27px 0 28px}
 .law-actions{display:flex;align-items:center;gap:19px;flex-wrap:wrap;margin:3px 0 39px}
 .law-button{display:inline-flex;align-items:center;justify-content:center;gap:26px;min-height:53px;padding:13px 22px;border:1px solid transparent;border-radius:3px;font-size:13px;font-weight:650;line-height:1.5;transition:background .2s,border-color .2s,color .2s}
-.law-button-primary{background:#0278DC;color:#FFFFFF!important;border-color:#0278DC}
+.law-button-primary{background:#006BC5;color:#FFFFFF!important;border-color:#006BC5}
 .law-button-primary:hover{background:#005EB5;border-color:#005EB5}
 .law-button-text{background:transparent;border-color:transparent;color:#101E43!important;padding-inline:4px;gap:13px}
 .law-button-text:hover{color:#0278DC!important}
@@ -194,7 +194,7 @@ body:not(.law-home) .site-header .law-nav-mobile-cta{display:none}
 .digital-site .digital-wash{background:#F7F9FC;border-color:#DCE5F0}
 .digital-site .digital-page-hero{background:linear-gradient(120deg,#FFFFFF,#F7FAFF 70%,#EAF4FF)}
 .digital-site .digital-cta{background:#EAF4FF}
-.digital-site .button-primary{background:#0278DC;color:#FFFFFF;border-color:#0278DC;box-shadow:none}
+.digital-site .button-primary{background:#006BC5;color:#FFFFFF;border-color:#006BC5;box-shadow:none}
 .digital-site .button-primary:hover{background:#005EB5;border-color:#005EB5}
 .digital-site .button-secondary{background:#FFFFFF;color:#101E43;border-color:#DCE5F0}
 .digital-site .practice-card,.digital-site .solution-card{background:#FFFFFF;border-color:#DCE5F0}
