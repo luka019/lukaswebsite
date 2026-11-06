@@ -4,6 +4,7 @@
   "use strict";
   const progress = document.querySelector("[data-scroll-progress]");
   const backTop = document.querySelector("[data-back-to-top]");
+  const header = document.querySelector(".site-header");
   const nav = document.querySelector(".law-nav");
   const toggle = document.querySelector("[data-menu-toggle]");
   const sections = ["services", "approach", "about", "contact"]
@@ -14,6 +15,7 @@
     const distance = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
     if (progress) progress.style.width = Math.min(100, Math.max(0, Math.round(window.scrollY / distance * 100))) + "%";
     backTop?.classList.toggle("is-visible", window.scrollY > 560);
+    header?.classList.toggle("dlg-scrolled", window.scrollY > 12);
     let current = "";
     const line = window.scrollY + window.innerHeight * .34;
     for (const section of sections) if (line >= section.offsetTop) current = section.id;

@@ -53,6 +53,10 @@
     menuToggle.addEventListener('click', () => setMenuState(!nav.classList.contains('open')));
     nav.querySelectorAll('a').forEach((link) => link.addEventListener('click', () => setMenuState(false)));
     document.addEventListener('site:language', () => setMenuState(nav.classList.contains('open')));
+    const desktopMenu = window.matchMedia('(min-width: 1121px)');
+    const resetOnDesktop = () => { if (desktopMenu.matches) setMenuState(false); };
+    if (desktopMenu.addEventListener) desktopMenu.addEventListener('change', resetOnDesktop);
+    else desktopMenu.addListener?.(resetOnDesktop);
   }
 
   const choices = [...document.querySelectorAll('[data-service-choice]')];
