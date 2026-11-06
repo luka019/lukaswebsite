@@ -32,10 +32,27 @@ assert(css.includes('.law-tech-canvas{'),'Specialist visual must be retained');
 assert(css.includes('prefers-reduced-motion'),'Reduced motion fallback missing');
 assert((css.match(/\{/g)||[]).length===(css.match(/\}/g)||[]).length,'Unbalanced premium CSS');
 new vm.Script(script,{filename:'firm-interactions.js'});total++;
+const heroScript=file('firm-hero.js');
+const uiCss=file('firm-upgrade.css');
+assert(home.includes('id="dlg-hero-detail"'),'Interactive hero details must be accessible');
+assert((home.match(/data-hero-topic="/g)||[]).length===4,'Four clickable hero choices required');
+assert(home.includes('firm-hero.js'),'Hero interaction script must load');
+assert(home.includes('firm-upgrade.css'),'Refinement stylesheet must load');
+assert(home.includes('სოფო ბახბახაშვილი'),'Sopho team profile missing');
+assert(home.includes('ლუკა შახყულაშვილი'),'Luka team profile missing');
+assert((home.match(/class="dlg-team-member"/g)||[]).length===2,'Two biographies required');
+assert(home.includes('კომპანიის მუდმივი იურიდიული მხარდაჭერა'),'Ongoing legal support should be prominent');
+assert(home.includes('ფინტექი და მარეგულირებელი შესაბამისობა'),'FinTech practice missing');
+assert(home.includes('law-more-services'),'Additional services directory missing');
+assert((home.match(/class="law-service(?: law-service-featured)?"/g)||[]).length===6,'Six core service cards required');
+assert(uiCss.includes('prefers-reduced-motion'),'New animations must honour reduced motion');
+assert((uiCss.match(/\\{/g)||[]).length===(uiCss.match(/\\}/g)||[]).length,'Unbalanced UI refinement CSS');
+new vm.Script(heroScript,{filename:'firm-hero.js'});total++;
+
 for(const p of [
   'styles.css','firm.css','script.js','favicon.svg','services/index.html',
   'services/contracts/index.html','services/data-protection/index.html',
-  'services/ai/index.html','services/intellectual-property/index.html',
+  'services/ai/index.html','services/fintech/index.html','services/ongoing-legal-support/index.html','services/georgia-market-entry/index.html','services/intellectual-property/index.html',
   'resources/index.html','client/index.html','privacy/index.html'
 ])file(p);
 for(const p of ['services/index.html','services/contracts/index.html','resources/index.html']){
