@@ -44,7 +44,7 @@ assert(home.includes('class="site-header law-header dlg-integrated-header"'),'Un
 assert(home.includes('data-en="Legal clarity for"'),'Bilingual homepage headline missing');
 assert(!home.includes('data-en="Home">მთავარი'),'Redundant homepage navigation');
 const finalCss=css;
-assert(finalCss.includes('--dlg-intro-surface:#F5F3EE'),'Integrated ivory intro palette missing');
+assert(finalCss.includes('--dlg-intro-surface:#F3F6FB'),'Integrated blue intro palette missing');
 assert(finalCss.includes('.law-home .site-header.dlg-integrated-header.dlg-scrolled'),'Scrolled header treatment missing');
 const interactions=file('firm-interactions.js');
 assert(interactions.includes('dlg-scrolled'),'Header must react to scrolling');

@@ -1,6 +1,6 @@
 # DLG visual system — 7 November 2026
 
-The public interface uses an ivory editorial surface, navy architecture and small bronze accents. The original generated hero artwork is shipped locally as a 65 KB WebP; it does not add an external image service or runtime dependency. The founder photograph is unchanged.
+The public interface uses the original cool blue palette, navy architecture and blue accents. The original generated hero artwork is shipped locally as a 65 KB WebP; it does not add an external image service or runtime dependency. The founder photograph is unchanged. Following user feedback, the unified pale blue masthead, stronger headline and framed navy hero were restored while retaining the new artwork and interactions.
 
 `scripts/visual-system.mjs` owns the decorative SVG motifs and the homepage legal lens. `firm.css` remains the shared design stylesheet. `visual-experience.js` progressively enables the lens, one-time entrance transitions and subtle fine-pointer artwork tilt. The existing hero pause control also stops these decorative effects. Reduced motion suppresses them automatically.
 
