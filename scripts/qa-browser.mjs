@@ -109,6 +109,10 @@ try{
    verify(await page.locator('[data-lens-panel="contracts"]').isVisible(),'Keyboard selection did not switch lens content at '+width);
    if((await page.locator('[data-hero-rotator]').getAttribute('data-motion-paused'))!=='true')await page.locator('[data-hero-pause]').click();
    verify((await page.locator('html').getAttribute('data-motion-paused'))==='true','Global motion preference missing at '+width);
+   await page.locator('.practice-toggle').last().click();
+   verify(await page.locator('.practice-folio').last().getAttribute('open')!==null,'Service folio did not open at '+width);
+   verify(await page.locator('.practice-folio').last().locator('a').isVisible(),'Service folio link is not accessible at '+width);
+   await page.locator('.practice-toggle').first().click();
    const portrait=page.locator('.law-about-image img');
    await portrait.scrollIntoViewIfNeeded();
    await page.waitForFunction(()=>{const img=document.querySelector('.law-about-image img');return img&&img.complete&&img.naturalWidth>0;},null,{timeout:8000});

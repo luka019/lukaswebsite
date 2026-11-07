@@ -74,7 +74,7 @@ assert(home.includes('law-service-featured'),'Featured service card should remai
 assert(home.includes('data-en="Email us"'),'Clear consultation CTA must be bilingual');
 assert(home.includes('ლუკა შახყულაშვილი'),'Real founder profile required');
 assert(!home.includes('data-hero-slide="architecture"'),'Generic architecture service slide must not return');
-assert(visualCss.includes('grid-template-columns:repeat(3,minmax(0,1fr))'),'Services must use three-column desktop layout');
+assert(visualCss.includes('.practice-toggle'),'Services need the custom folio navigation');
 assert(visualCss.includes('.dlg-editorial-hero h1'),'Editorial headline typography must be styled');
 assert(visualCss.includes('.dlg-photo-tab.is-current'),'Active tab styling missing');
 assert((visualCss.match(/\{/g)||[]).length===(visualCss.match(/\}/g)||[]).length,'Unbalanced final design CSS');
