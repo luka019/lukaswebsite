@@ -3,7 +3,9 @@ import path from 'node:path';
 import {practices} from '../catalogue.mjs';
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const decode=s=>String(s??'').replace(/&(?:amp|lt|gt|quot|apos|#39|#x[\da-f]+|#\d+);/gi,m=>({'&amp;':'&','&lt;':'<','&gt;':'>','&quot;':'"','&apos;':"'",'&#39;':"'"}[m]??String.fromCodePoint(m[2].toLowerCase()==='x'?parseInt(m.slice(3,-1),16):parseInt(m.slice(2,-1),10))));
-const attrs=s=>Object.fromEntries([...s.matchAll(/([\w:-]+)="([^"]*)"/g)].map(m=>[m[1],decode(m[2])]));
+// Preserve bare attributes as well as quoted/unquoted values. Empty data hooks
+// are meaningful to the interaction scripts, just like boolean HTML attributes.
+const attrs=s=>Object.fromEntries([...s.matchAll(/\s+([^\s"'<>\/=]+)(?:\s*=\s*(?:"([^"]*)"|'([^']*)'|([^\s"'<>`=]+)))?/g)].map(m=>[m[1],decode(m[2]??m[3]??m[4]??'')]));
 const voids=new Set(['area','base','br','col','embed','hr','img','input','link','meta','param','source','track','wbr']);
 const plain=nodes=>nodes.map(n=>n.children?plain(n.children):n.raw?.startsWith('<')?'':decode(n.raw)).join('');
 
@@ -34,9 +36,6 @@ function englishHtml(source,knownPaths){
    const route=a.href.split(/[?#]/)[0];
    if(knownPaths.has(route))a.href='/en'+a.href;
   }
-  // Keep boolean attributes from the authored element, including hidden slides.
-  const booleans=[...node.raw.matchAll(/\s(hidden|defer|async|disabled|required|checked|selected|multiple|novalidate|crossorigin)(?=\s|\/?>)/g)].map(m=>m[1]);
-  for(const b of booleans)if(!(b in a)&&!(b==='hidden'&&a['data-content-language']==='en'))a[b]='';
   const start='<'+node.displayTag+Object.entries(a).map(([key,value])=>' '+key+'="'+esc(value)+'"').join('')+(node.raw.endsWith('/>')?'/>':'>');
   return start+(node.void?'':inner+'</'+node.displayTag+'>');
  }
