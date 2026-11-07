@@ -72,7 +72,7 @@
     ai: { en: 'Start an AI / data brief', ka: 'ხელოვნური ინტელექტი და მონაცემები', href: 'mailto:digitallawgeorgia@gmail.com' },
     product: { en: 'Plan the product route', ka: 'ციფრული პროდუქტის საკითხი', href: 'mailto:digitallawgeorgia@gmail.com' },
     georgia: { en: 'Open a local counsel request', ka: 'საქართველოში საქმიანობის დაწყება', href: 'mailto:digitallawgeorgia@gmail.com' },
-    'data-protection': { en: 'Start a data protection brief', ka: 'მონაცემთა დაცვის მოთხოვნის დაწყება', href: 'mailto:digitallawgeorgia@gmail.com' },
+    'data-protection': { en: 'Start a data protection brief', ka: 'მონაცემთა დაცვის საკითხის განხილვა', href: 'mailto:digitallawgeorgia@gmail.com' },
     corporate: { en: 'Discuss a corporate matter', ka: 'კორპორაციული საკითხის განხილვა', href: 'mailto:digitallawgeorgia@gmail.com' },
     employment: { en: 'Ask about a workplace matter', ka: 'შრომითი საკითხის განხილვა', href: 'mailto:digitallawgeorgia@gmail.com' },
     'investment-funds': { en: 'Discuss a regulated business matter', ka: 'რეგულირებადი საქმიანობის საკითხის განხილვა', href: 'mailto:digitallawgeorgia@gmail.com' },
@@ -92,7 +92,7 @@
     startup: {
       label: { en: 'START / 01', ka: 'დაწყება / 01' },
       title: { en: 'Make the first version legally usable.', ka: 'მოამზადეთ ბიზნესი საქმიანობის დასაწყებად.' },
-      copy: { en: 'A focused setup for a new product: core terms, privacy, ownership, contracts and the decisions you should make before launch.', ka: 'ახალი პროდუქტის შექმნისას წინასწარ განსაზღვრეთ მომხმარებლის პირობები, მონაცემთა დამუშავების წესები და პარტნიორთა უფლებები. საჭირო დოკუმენტებს თქვენი პროდუქტის მიხედვით მოვამზადებთ.' },
+      copy: { en: 'A focused setup for a new product: core terms, privacy, ownership, contracts and the decisions you should make before launch.', ka: 'ახალი პროდუქტის შექმნისას წინასწარ განსაზღვრეთ მომხმარებელთან ურთიერთობის პირობები, მონაცემთა დამუშავების წესები და პარტნიორთა უფლებები. საჭირო დოკუმენტებს თქვენი პროდუქტის მიხედვით მოვამზადებთ.' },
       list: { en: ['Product and customer terms', 'Privacy and data-use baseline', 'Founder, partner and supplier documentation'], ka: ['პროდუქტით სარგებლობის პირობები', 'მონაცემთა დამუშავების წესები', 'დამფუძნებლებისა და პარტნიორების შეთანხმებები'] },
       href: 'mailto:digitallawgeorgia@gmail.com'
     },

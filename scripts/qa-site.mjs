@@ -54,7 +54,7 @@ assert(home.includes('law-about-image'),'Founder profile and portrait missing');
 assert(home.includes('ლუკა შახყულაშვილი'),'Luka team profile missing');
 assert(!home.includes('dlg-team-member') && !home.includes('dlg-team-monogram'),'Retired team card markup must be absent');
 assert(home.includes('ბიზნესის მიმდინარე იურიდიული მომსახურება'),'Ongoing legal support should remain available');
-assert(home.includes('ფინტექი და გადახდები'),'FinTech practice missing');
+assert(home.includes('ფინტექი და საგადახდო მომსახურება'),'FinTech practice missing');
 assert(home.includes('law-more-services'),'Additional services directory missing');
 assert((home.match(/class="law-service(?: law-service-featured)?"/g)||[]).length===6,'Six core service cards required');
 assert(uiCss.includes('prefers-reduced-motion'),'New animations must honour reduced motion');

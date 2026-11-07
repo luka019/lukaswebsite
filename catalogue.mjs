@@ -449,7 +449,7 @@ export const practices = [
     "slug": "fintech",
     "code": "02 / FINANCE",
     "name": {
-      "ka": "ფინტექი და გადახდები",
+      "ka": "ფინტექი და საგადახდო მომსახურება",
       "en": "FinTech & payments"
     },
     "summary": {
@@ -833,7 +833,7 @@ export const solutions = [
     "id": "fintech-assessment",
     "practice": "fintech",
     "name": {
-      "ka": "ფინტექპროდუქტის რეგულირების შეფასება",
+      "ka": "ფინტექპროდუქტის სამართლებრივი შეფასება",
       "en": "FinTech Regulatory Assessment"
     },
     "question": {
