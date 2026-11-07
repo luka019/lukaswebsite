@@ -10,7 +10,7 @@ Bilingual website for Digital Law Georgia, an expert-led technology, commercial 
 
 Primary website: https://lukaswebsite.vercel.app/
 
-Vercel runs `node scripts/build.mjs` and publishes `dist/`. No npm dependencies are required. The build generates the resource library, bilingual detail pages, homepage previews and dedicated service landing pages. It validates the resource schema, excludes drafts/archived/future-dated content and creates a sitemap. Only the explicit output files are deployed; repository content and draft data are not copied into the deployed site.
+Vercel runs `node scripts/build.mjs` and publishes `dist/`. No npm dependencies are required. The build generates the resource library, bilingual detail pages, homepage previews, business pathways, founder profile and dedicated service landing pages. It validates the resource schema, excludes drafts/archived/future-dated content and creates a sitemap. Only the explicit output files are deployed; repository content and draft data are not copied into the deployed site.
 
 - `index.html`, `styles.css`, `script.js`: the practice website.
 - `_data/resources.json`: the authored resource catalogue.
@@ -39,21 +39,17 @@ No private credentials are embedded. The privacy notice identifies FormSubmit an
 
 ## Positioning and scope
 
-Technology and digital law is the primary practice: technology contracts, AI and data protection, information security law, digital products and intellectual property, fintech and cryptoassets, and LegalTech/contract management.
+The public catalogue in `catalogue.mjs` is the source of truth for six primary offers: technology and commercial contracts; data protection; AI governance and legal advisory; digital products and e-commerce; legal operations and contract management; and ongoing counsel. Existing IP, cybersecurity, FinTech, virtual assets and Georgia-entry services remain accessible as related areas.
 
-The AI page covers systems and legal roles, governance and AI-agent permissions, data and intellectual property, vendor contracts, product launches, training and ongoing support. Its enquiry link carries the AI service selection to the home-page form.
+Three business pathways make the offers easier to navigate: doing business in Georgia, international client readiness and growing-business support. The AI service covers inventory, policies, supplier review, product governance, practical training and ongoing reviews, together with legal analysis. Technical assurance and implementation are scoped with appropriate specialists.
 
-The expanded scope includes day-to-day legal support for group companies and digital platforms, as well as legal documentation, governance, supervisory engagement and ongoing support for asset managers and investment funds. The supplied TNET and legal-counsel job descriptions inform service coverage only; neither is presented as an employer or credential of the founder.
+The founder biography uses confirmed qualifications: Queen Mary University of London LLM with Distinction in Technology, Media and Telecommunications Law, Chevening, IAPP AIGP and a contribution to Cloud Legal Project research on AI regulation. Public and private sector experience is described without invented job titles, dates, client outcomes, headcounts or numerical claims. University and certification references describe credentials, not endorsements.
 
-Supporting services cover corporate and banking documentation, employment, investment funds and asset management, disputes, international business, residence, citizenship and foreign employment. Tax services have been removed.
+Services are agreed with Luka Shakhkulashvili. The working brand does not establish a registered company or confirm trademark or domain availability. Foreign-law, tax, accounting, immigration and technical questions are allocated to qualified specialists as the engagement requires.
 
-The resource hub contains practical guides, cover images, internal pages, search, topic/format filters, print-to-PDF and related resources. The old raw official-source catalogue has been removed. Reference links appear only within relevant resources. Publishing and archival happen through the separate admin panel.
+## Bilingual search visibility
 
-The founder’s profile highlights London education, Chevening, BDO Georgia and public-sector experience. Luka is the only individually featured professional. Public copy excludes unverified numerical experience claims.
-
-**Digital Law Georgia** is the website's working brand. This website update does not establish a registered company or confirm trade-name, trademark or domain availability. The footer identifies Luka Shakhkulashvili as the person with whom services are agreed.
-
-University and employer references describe experience, not endorsements. The LLM is described as a programme/studies without an unconfirmed award date. There are no invented client logos, testimonials, headcounts, addresses, fees or response-time guarantees. Banking and regulatory outcomes are not guaranteed. Foreign-law and technical work are scoped with appropriately qualified specialists.
+The build creates full English documents under `/en/`, including resource articles. Language controls navigate to the equivalent route. English is readable without JavaScript. Each public route has a self-referencing canonical, reciprocal Georgian/English hreflang links, social metadata and structured data. The sitemap includes both languages. Admin routes remain excluded. No SEO ranking or regulatory outcomes are promised.
 
 ## Visual system and domain preparation
 

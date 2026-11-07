@@ -75,10 +75,10 @@ try{
      });
      verify(arrows.arrowBottom<=arrows.titleTop,'Carousel controls overlap slide title at '+width+'px');
    }
-   verify((await page.locator('footer a[href="/#approach"]').count())===1,'Duplicate footer navigation at '+width);
+   verify((await page.locator('footer a[href="/how-we-work/"]').count())===1,'Duplicate footer navigation at '+width);
    verify((await page.locator('[data-hero-topic]').count())===4,'Wrong carousel selector count');
    const mainCTA=page.locator('.dlg-editorial-hero .law-button-primary');
-   verify((await mainCTA.getAttribute('href'))?.startsWith('mailto:'),'Hero CTA not linked to email');
+   verify((await mainCTA.getAttribute('href'))==='#contact','Hero CTA must lead to contact options');
    await page.locator('[data-hero-pause]').click();
    verify((await page.locator('[data-hero-rotator]').getAttribute('data-motion-paused'))==='true','Pause does not stop decorative motion at '+width);
    await page.locator('[data-hero-topic="privacy"]').click();
@@ -102,7 +102,7 @@ try{
    await page.close();
    console.log('PASS responsive masthead, carousel, services and language:',width+'px');
  }
- for(const route of ['/services/','/services/contracts/','/services/ai/','/services/digital-products/','/resources/','/scope/','/privacy/']){
+ for(const route of ['/services/','/services/contracts/','/services/ai/','/services/digital-products/','/resources/','/scope/','/privacy/','/business/','/business/georgia/','/business/international/','/business/growing-business/','/about/','/services/legal-operations/','/en/business/international/','/en/about/']){
    const page=await browser.newPage({viewport:{width:390,height:844}});
    const response=await page.goto(url+route,{waitUntil:'domcontentloaded'});
    verify(response.status()===200,'HTTP failure on '+route);
@@ -112,7 +112,13 @@ try{
    verify((await page.locator('.site-header').count())===1,'Missing shared header on '+route);
    await page.close();
  }
- console.log('DLG browser QA passed:',checks,'checks across nine viewports and seven internal pages.');
+ const staticEnglish=await browser.newPage({javaScriptEnabled:false,viewport:{width:390,height:844}});
+ await staticEnglish.goto(url+'/en/business/international/');
+ verify((await staticEnglish.locator('h1').innerText()).includes('International Expansion'),'English content requires JavaScript');
+ verify((await staticEnglish.locator('html').getAttribute('lang'))==='en','Wrong static document language');
+ verify((await staticEnglish.locator('a[href="/en/services/contracts/"]').count())>0,'English internal links lose language');
+ await staticEnglish.close();
+ console.log('DLG browser QA passed:' ,checks,'checks across nine viewports and fifteen internal pages and static English.');
 }finally{
  if(browser)await browser.close();
  await new Promise(resolve=>server.close(resolve));

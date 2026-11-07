@@ -53,8 +53,8 @@ assert(!home.includes('firm-upgrade.css')&&!home.includes('firm-reference.css')&
 assert(home.includes('law-about-image'),'Founder profile and portrait missing');
 assert(home.includes('ლუკა შახყულაშვილი'),'Luka team profile missing');
 assert(!home.includes('dlg-team-member') && !home.includes('dlg-team-monogram'),'Retired team card markup must be absent');
-assert(home.includes('ბიზნესის იურიდიული მხარდაჭერა'),'Ongoing legal support should remain available');
-assert(home.includes('ფინტექი და ფინანსური რეგულირება'),'FinTech practice missing');
+assert(home.includes('კომპანიის მიმდინარე იურიდიული მხარდაჭერა'),'Ongoing legal support should remain available');
+assert(home.includes('ფინტექი და გადახდები'),'FinTech practice missing');
 assert(home.includes('law-more-services'),'Additional services directory missing');
 assert((home.match(/class="law-service(?: law-service-featured)?"/g)||[]).length===6,'Six core service cards required');
 assert(uiCss.includes('prefers-reduced-motion'),'New animations must honour reduced motion');
@@ -100,7 +100,7 @@ const directory=fs.readFileSync(path.join(root,'services/index.html'),'utf8');
 assert(directory.includes('law-directory-feature'),'Ongoing legal counsel needs a featured directory entry');
 assert(directory.indexOf('/services/contracts/')<directory.indexOf('/services/fintech/'),'Contract advice should precede FinTech in the directory');
 assert(directory.includes('/services/ongoing-legal-support/'),'Ongoing legal support route must be linked');
-assert(home.includes('ბიზნესისთვის.'),'Homepage should remain directly business-focused');
+assert(home.includes('ქართული და საერთაშორისო ბიზნესისთვის.'),'Homepage should remain directly business-focused');
 assert(home.includes('ციფრული ბიზნესისთვის.'),'Technology-law positioning missing');
 assert((home.match(/data-hero-slide=/g)||[]).length===4,'Four illustrated service slides required');
 assert(!fs.existsSync(path.join(root,'client')),'Retired client portal must not be deployed');
@@ -111,8 +111,8 @@ const publicHtml=[];
 function visit(dir){for(const x of fs.readdirSync(dir,{withFileTypes:true})){if(x.name==='admin')continue;const location=path.join(dir,x.name);if(x.isDirectory())visit(location);else if(location.endsWith('.html'))publicHtml.push(location)}}
 visit(root);
 for(const name of publicHtml){const content=fs.readFileSync(name,'utf8');assert(!content.includes('/client/'),'Legacy client route in '+name);assert(!content.includes('კლიენტის სივრცე'),'Legacy client copy in '+name)}
-assert(home.includes('AI-ის სამართლებრივი საკითხები'),'AI service not prominent');
-assert(home.includes('ციფრული პროდუქტები და პლატფორმები'),'Digital product service link missing');
+assert(home.includes('AI-ის მმართველობა და სამართლებრივი მხარდაჭერა'),'AI service not prominent');
+assert(home.includes('ციფრული პროდუქტები და ელექტრონული კომერცია'),'Digital product service link missing');
 assert(home.includes('https://wa.me/995598451132'),'WhatsApp channel missing');
 assert(home.includes('mailto:digitallawgeorgia@gmail.com'),'Email channel missing');
 assert(home.includes('data-en="Email us"'),'Header contact CTA must be bilingual');
@@ -126,4 +126,19 @@ for(const name of publicHtml){const content=fs.readFileSync(name,'utf8');for(con
  if(!fs.existsSync(destination))broken.push(name+' -> '+pathname);
 }}
 assert(broken.length===0,'Broken local links: '+broken.slice(0,12).join('; '));
+for(const name of publicHtml){
+ if(name.endsWith('404.html'))continue;
+ const content=fs.readFileSync(name,'utf8');
+ assert((content.match(/<h1\b/g)||[]).length===1,'One h1 required: '+name);
+ assert((content.match(/rel="canonical"/g)||[]).length===1,'One canonical required: '+name);
+ assert(content.includes('hreflang="ka"')&&content.includes('hreflang="en"'),'Language alternates missing: '+name);
+ const ids=[...content.matchAll(/\bid="([^"]+)"/g)].map(m=>m[1]);
+ assert(new Set(ids).size===ids.length,'Duplicate element IDs: '+name);
+ for(const m of content.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g))JSON.parse(m[1]);
+ if(name.includes(path.sep+'en'+path.sep))assert(content.includes('<html lang="en"'),'English document language missing: '+name);
+}
+for(const p of ['business/','business/georgia/','business/international/','business/growing-business/','about/','services/legal-operations/'])file(p+'index.html');
+assert(home.includes('LLM, Distinction')&&home.includes('IAPP · AIGP'),'Confirmed founder credentials missing');
+assert(!home.includes('LegalStepy')&&!home.includes('6+'),'Unsupported profile copy');
+assert(file('en/business/international/index.html').includes('International Expansion &amp; Client Readiness'),'English must be pre-rendered');
 console.log('DLG public site smoke checks passed: '+total+' checks across '+publicHtml.length+' public HTML pages.');

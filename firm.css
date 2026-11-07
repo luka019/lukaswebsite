@@ -2065,3 +2065,55 @@ html[lang=en] .resource-page h1 {
     transform:none
   }
 }
+
+/* Business pathways and expert profile: part of the shared public system. */
+.portfolio-heading {max-width:780px;margin-bottom:34px}
+.portfolio-heading h2 {font-size:clamp(27px,3vw,39px);font-weight:550;line-height:1.45;letter-spacing:-.035em;margin:0;color:var(--ink);text-wrap:balance}
+.portfolio-paths {background:#f7f9fc;border-bottom:1px solid var(--line)}
+.portfolio-path-grid {display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.portfolio-path {display:flex;flex-direction:column;align-items:flex-start;background:#fff;border:1px solid #dae3ef;border-radius:7px;padding:29px 26px;color:var(--ink);transition:border-color .2s,box-shadow .2s,transform .2s;min-width:0}
+.portfolio-path:hover {transform:translateY(-3px);border-color:#8caed7;box-shadow:0 12px 30px #173a690b}
+.portfolio-path-number {font:11px/1.4 Arial,sans-serif;color:#6d85a3;margin-bottom:27px;display:block}
+.portfolio-path h3 {font-size:19px;font-weight:600;line-height:1.55;letter-spacing:-.025em;margin:0 0 14px;text-wrap:balance}
+.portfolio-path p {font-size:12px;line-height:1.9;color:var(--muted);margin:0 0 27px}
+.portfolio-path-end {display:flex;align-items:center;justify-content:space-between;width:100%;gap:12px;font-size:10px;font-weight:650;color:var(--accent);margin-top:auto;padding-top:18px;border-top:1px solid var(--line)}
+.portfolio-international {background:#102f55;color:#fff;padding:82px 0}
+.portfolio-international-grid {display:grid;grid-template-columns:1.12fr .88fr;align-items:center;gap:90px}
+.portfolio-international .law-eyebrow {color:#a8c7ed;font-size:9px}
+.portfolio-international h2 {font-size:clamp(27px,3vw,39px);font-weight:500;line-height:1.5;letter-spacing:-.035em;margin:18px 0;text-wrap:balance;color:#fff}
+.portfolio-international p:not(.portfolio-map-note) {font-size:13px;line-height:1.95;color:#c1d0e3;margin:0 0 28px;max-width:590px}
+.portfolio-international .law-button {background:#fff;color:#183e6e;border-color:#fff;font-size:11px;gap:18px;text-wrap:balance}
+.portfolio-deal-map {border:1px solid #ffffff29;border-radius:9px;background:linear-gradient(145deg,#25466c,#153658);padding:27px 30px;box-shadow:0 22px 50px #00152c35}
+.portfolio-map-top {display:flex;justify-content:space-between;align-items:center;gap:20px;padding-bottom:18px;color:#b7d0ee;font:9px/1.4 Arial,sans-serif;letter-spacing:.12em}
+.portfolio-map-row {display:flex;gap:15px;align-items:center;padding:18px 0;border-top:1px solid #ffffff20}
+.portfolio-map-row>span:first-child {font:9px/1.4 Arial,sans-serif;color:#9fbcde}
+.portfolio-map-row strong {font-size:12px;font-weight:500;line-height:1.6}
+.portfolio-map-row svg {margin-left:auto;opacity:.65}
+.portfolio-map-note {font-size:10px;line-height:1.8;color:#adc5e2;margin:12px 0 0}
+.portfolio-profile-actions {display:flex;flex-wrap:wrap;gap:17px 27px}
+.portfolio-module-grid,.portfolio-credential-grid {display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.portfolio-module-grid article,.portfolio-credential-grid article {padding:27px;border:1px solid var(--line);border-radius:7px;background:#fff}
+.portfolio-module-grid .mono,.portfolio-credential-grid .mono {font-size:10px;color:#6881a1}
+.portfolio-module-grid h2,.portfolio-credential-grid h2 {font-size:19px!important;line-height:1.55!important;margin:20px 0 12px!important;font-family:inherit!important;font-weight:550!important;letter-spacing:-.02em}
+.portfolio-module-grid p,.portfolio-credential-grid p {font-size:13px;line-height:1.85;color:var(--muted);margin:0}
+.portfolio-question {border-left:3px solid #6e94c7;margin-top:35px;padding-block:6px}
+.portfolio-question p {font-size:17px;line-height:1.7;color:#315276;margin:0;max-width:900px}
+.portfolio-related {margin-top:65px;border-top:1px solid var(--line);padding-top:38px}
+.portfolio-related>h2 {font-size:24px;margin-bottom:25px}
+.portfolio-profile-detail {max-width:840px}
+.portfolio-profile-detail>p {font-size:16px;line-height:1.95;color:var(--muted)}
+html[lang=en] .portfolio-international h2,html[lang=en] .portfolio-heading h2 {font-family:Georgia,serif;line-height:1.2;font-weight:400;font-size:clamp(34px,3.6vw,48px)}
+@media(max-width:1050px){.portfolio-international-grid{gap:40px}.portfolio-path{padding:25px 20px}.portfolio-path h3{font-size:17px}.portfolio-path-grid{gap:15px}.portfolio-path-end{font-size:9px}.portfolio-credential-grid{gap:15px}}
+@media(max-width:700px){.portfolio-path-grid,.portfolio-international-grid,.portfolio-credential-grid{grid-template-columns:1fr}.portfolio-path{padding:25px}.portfolio-path-number{margin-bottom:15px}.portfolio-path h3{font-size:19px}.portfolio-path-end{font-size:11px}.portfolio-path p{margin-bottom:20px}.portfolio-international{padding:58px 0}.portfolio-international-grid{gap:35px}.portfolio-international h2{font-size:28px}.portfolio-deal-map{padding:23px}.portfolio-module-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.portfolio-module-grid article{padding:20px}.portfolio-module-grid h2{font-size:16px!important}.portfolio-module-grid p{font-size:12px}.portfolio-question p{font-size:15px}.portfolio-profile-actions{gap:20px}.portfolio-heading{margin-bottom:25px}}
+@media(max-width:390px){.portfolio-module-grid{grid-template-columns:1fr}.portfolio-path{padding:23px}.portfolio-path-end{font-size:10px}.portfolio-international .law-button{font-size:10px;padding-inline:15px}}
+.portfolio-faq {background:#f7f9fc;border-top:1px solid var(--line)}
+.portfolio-faq-grid {display:grid;grid-template-columns:.8fr 1.2fr;gap:75px}
+.portfolio-faq h2 {font-size:32px;line-height:1.4;font-weight:550;letter-spacing:-.03em;margin:0}
+.portfolio-faq details {border-bottom:1px solid #d6e0ed;padding:21px 0}
+.portfolio-faq details:first-child {border-top:1px solid #d6e0ed}
+.portfolio-faq summary {display:flex;justify-content:space-between;align-items:center;gap:20px;list-style:none;cursor:pointer;font-size:14px;font-weight:600;line-height:1.65;color:var(--ink)}
+.portfolio-faq summary::-webkit-details-marker {display:none}
+.portfolio-faq-plus {font:24px/1 Arial,sans-serif;color:var(--accent);transition:transform .2s}
+.portfolio-faq details[open] .portfolio-faq-plus {transform:rotate(45deg)}
+.portfolio-faq details p {font-size:13px;line-height:1.9;color:var(--muted);padding-right:24px;margin:17px 0 0}
+@media(max-width:700px){.portfolio-faq-grid{grid-template-columns:1fr;gap:28px}.portfolio-faq h2{font-size:28px}.portfolio-faq summary{font-size:13px}}

@@ -5,7 +5,7 @@
   try { storedLanguage = localStorage.getItem('dlg-language'); } catch {}
   let activeService = 'contracts', activeScenario = 'startup';
   const requestedLanguage = new URLSearchParams(location.search).get('lang');
-  let language = ['ka','en'].includes(requestedLanguage) ? requestedLanguage : ['ka','en'].includes(storedLanguage) ? storedLanguage : body.dataset.defaultLanguage || 'ka';
+  let language = ['ka','en'].includes(requestedLanguage) ? requestedLanguage : location.pathname.startsWith('/en/') ? 'en' : body.dataset.defaultLanguage || 'ka';
 
   function translate() {
     body.lang = language;
@@ -37,7 +37,11 @@
   languageButtons.forEach((button) => button.addEventListener('click', () => {
     language = button.dataset.language;
     try { localStorage.setItem('dlg-language', language); } catch {}
-    translate();
+    const url = new URL(location.href);
+    const basePath = url.pathname.replace(/^\/en(?=\/)/, '');
+    url.pathname = language === 'en' ? '/en' + basePath : basePath;
+    url.searchParams.delete('lang');
+    location.assign(url.href);
   }));
   translate();
 
