@@ -9,7 +9,7 @@ import {chromium} from 'playwright';
 const root=path.resolve('dist');
 const shots=path.resolve('qa-screenshots');
 fs.mkdirSync(shots,{recursive:true});
-const types={'.html':'text/html; charset=utf-8','.css':'text/css; charset=utf-8','.js':'text/javascript; charset=utf-8','.mjs':'text/javascript; charset=utf-8','.svg':'image/svg+xml','.png':'image/png','.jpg':'image/jpeg','.jpeg':'image/jpeg','.woff2':'font/woff2','.json':'application/json'};
+const types={'.html':'text/html; charset=utf-8','.css':'text/css; charset=utf-8','.js':'text/javascript; charset=utf-8','.mjs':'text/javascript; charset=utf-8','.svg':'image/svg+xml','.png':'image/png','.webp':'image/webp','.jpg':'image/jpeg','.jpeg':'image/jpeg','.woff2':'font/woff2','.json':'application/json'};
 const server=http.createServer((req,res)=>{
   try {
     const requested=decodeURIComponent(new URL(req.url,'http://localhost').pathname);
@@ -87,6 +87,18 @@ try{
    verify((await page.locator('h1').innerText()).includes('Legal clarity for'),'English language switch failed at '+width);
    await page.locator('[data-language="ka"]').click();
    verify((await page.locator('h1').innerText()).includes('იურიდიული მომსახურება'),'Georgian language switch failed at '+width);
+   await page.waitForFunction(()=>{const img=document.querySelector('.dlg-art-image');return img?.complete&&img.naturalWidth>0;});
+   verify(await page.locator('.dlg-art-image').evaluate(img=>img.naturalWidth===1536),'Original sculpture did not load at '+width);
+   verify(await page.locator('[data-lens-controls]').isVisible(),'Legal lens controls missing at '+width);
+   await page.locator('[data-lens-choice="ai"]').click();
+   verify(await page.locator('[data-lens-panel="ai"]').isVisible(),'AI lens panel did not open at '+width);
+   verify((await page.locator('[data-lens-panel]:visible').count())===1,'Lens must show one panel at '+width);
+   verify((await page.locator('[data-lens-panel="ai"] a').getAttribute('href'))==='/services/ai/','AI lens links to wrong service at '+width);
+   await page.locator('[data-lens-choice="ai"]').press('Home');
+   verify((await page.locator('[data-lens-choice="contracts"]').getAttribute('aria-pressed'))==='true','Lens Home keyboard navigation failed at '+width);
+   verify(await page.locator('[data-lens-panel="contracts"]').isVisible(),'Keyboard selection did not switch lens content at '+width);
+   if((await page.locator('[data-hero-rotator]').getAttribute('data-motion-paused'))!=='true')await page.locator('[data-hero-pause]').click();
+   verify((await page.locator('html').getAttribute('data-motion-paused'))==='true','Global motion preference missing at '+width);
    const portrait=page.locator('.law-about-image img');
    await portrait.scrollIntoViewIfNeeded();
    await page.waitForFunction(()=>{const img=document.querySelector('.law-about-image img');return img&&img.complete&&img.naturalWidth>0;},null,{timeout:8000});
@@ -118,7 +130,20 @@ try{
  verify((await staticEnglish.locator('html').getAttribute('lang'))==='en','Wrong static document language');
  verify((await staticEnglish.locator('a[href="/en/services/contracts/"]').count())>0,'English internal links lose language');
  await staticEnglish.close();
- console.log('DLG browser QA passed:' ,checks,'checks across nine viewports and fifteen internal pages and static English.');
+ const staticHome=await browser.newPage({javaScriptEnabled:false,viewport:{width:390,height:844}});
+ await staticHome.goto(url+'/en/');
+ verify((await staticHome.locator('[data-lens-panel]:visible').count())===4,'All lens content must remain readable without JavaScript');
+ verify(!(await staticHome.locator('[data-lens-controls]').isVisible()),'Inactive no-JavaScript controls should be hidden');
+ verify((await staticHome.locator('[data-lens-panel="product"] a').getAttribute('href'))==='/en/services/digital-products/','Static lens link loses language');
+ await staticHome.close();
+ const reduced=await browser.newPage({reducedMotion:'reduce',viewport:{width:390,height:844}});
+ await reduced.goto(url+'/');
+ verify((await reduced.locator('html').getAttribute('data-motion-paused'))==='true','Reduced motion must pause the hero');
+ verify(await reduced.locator('.lens-map>svg').evaluate(svg=>svg.animationsPaused()),'Reduced motion must pause SVG animation');
+ verify((await reduced.locator('.lens-panel:visible').evaluate(el=>getComputedStyle(el).animationName))==='none','Reduced motion must stop panel transition');
+ verify((await reduced.locator('[data-reveal]').first().evaluate(el=>getComputedStyle(el).opacity))==='1','Reduced motion must keep content visible');
+ await reduced.close();
+ console.log('DLG browser QA passed:' ,checks,'checks across nine viewports, fifteen internal pages, static English and reduced motion.');
 }finally{
  if(browser)await browser.close();
  await new Promise(resolve=>server.close(resolve));

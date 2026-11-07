@@ -40,7 +40,7 @@ assert(home.includes('class="site-header law-header dlg-integrated-header"'),'Un
 assert(home.includes('data-en="Legal clarity for"'),'Bilingual homepage headline missing');
 assert(!home.includes('data-en="Home">მთავარი'),'Redundant homepage navigation');
 const finalCss=css;
-assert(finalCss.includes('--dlg-intro-surface:#F3F6FB'),'Integrated intro palette missing');
+assert(finalCss.includes('--dlg-intro-surface:#F5F3EE'),'Integrated ivory intro palette missing');
 assert(finalCss.includes('.law-home .site-header.dlg-integrated-header.dlg-scrolled'),'Scrolled header treatment missing');
 const interactions=file('firm-interactions.js');
 assert(interactions.includes('dlg-scrolled'),'Header must react to scrolling');
@@ -58,7 +58,7 @@ assert(home.includes('ფინტექი და საგადახდო �
 assert(home.includes('law-more-services'),'Additional services directory missing');
 assert((home.match(/class="law-service(?: law-service-featured)?"/g)||[]).length===6,'Six core service cards required');
 assert(uiCss.includes('prefers-reduced-motion'),'New animations must honour reduced motion');
-assert(home.includes('dlg-photo-tabs'),'Dark blue topical tabs are required');
+assert(home.includes('dlg-photo-tabs'),'Accessible topical selectors are required');
 assert((home.match(/data-hero-topic="/g)||[]).length===4,'Four accessible manual selectors required');
 assert((home.match(/class="dlg-benefit"/g)||[]).length===4,'Four concise benefit items required');
 assert(home.includes('data-hero-pause'),'Carousel pause control missing');

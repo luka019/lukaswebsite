@@ -59,6 +59,7 @@
   function updatePause() {
     pauseButton.setAttribute("aria-pressed", String(paused));
     root.dataset.motionPaused = String(paused);
+    document.documentElement.dataset.motionPaused = String(paused);
     if (pauseIcon) pauseIcon.innerHTML = paused
       ? '<svg viewBox="0 0 16 16" width="12" height="12" fill="currentColor" aria-hidden="true"><path d="m5 3 8 5-8 5z"/></svg>'
       : '<svg viewBox="0 0 16 16" width="12" height="12" fill="currentColor" aria-hidden="true"><path d="M4 3h3v10H4zM10 3h3v10h-3z"/></svg>';
