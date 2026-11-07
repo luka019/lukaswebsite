@@ -757,6 +757,7 @@ html[lang=en] .law-section h2,html[lang=en] .law-approach h2,html[lang=en] .law-
   box-shadow:none
 }
 .law-service-top {
+  min-height:40px;
   display:flex;
   align-items:center;
   width:100%;
