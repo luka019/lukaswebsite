@@ -98,8 +98,7 @@ try{
    }
    await page.locator('[data-language="ka"]').click();
    verify((await page.locator('h1').innerText()).includes('იურიდიული მომსახურება'),'Georgian language switch failed at '+width);
-   await page.waitForFunction(()=>{const img=document.querySelector('.dlg-art-image');return img?.complete&&img.naturalWidth>0;});
-   verify(await page.locator('.dlg-art-image').evaluate(img=>img.naturalWidth===1536),'Original sculpture did not load at '+width);
+   verify((await page.locator('.dlg-illustration svg').count())===4,'Original topic illustrations missing at '+width);
    verify(await page.locator('[data-lens-controls]').isVisible(),'Legal lens controls missing at '+width);
    await page.locator('[data-lens-choice="ai"]').click();
    verify(await page.locator('[data-lens-panel="ai"]').isVisible(),'AI lens panel did not open at '+width);
