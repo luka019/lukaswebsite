@@ -4,7 +4,8 @@
   let storedLanguage;
   try { storedLanguage = localStorage.getItem('dlg-language'); } catch {}
   let activeService = 'contracts', activeScenario = 'startup';
-  let language = ['ka','en'].includes(storedLanguage) ? storedLanguage : body.dataset.defaultLanguage || 'ka';
+  const requestedLanguage = new URLSearchParams(location.search).get('lang');
+  let language = ['ka','en'].includes(requestedLanguage) ? requestedLanguage : location.pathname.startsWith('/en/') ? 'en' : body.dataset.defaultLanguage || 'ka';
 
   function translate() {
     body.lang = language;
@@ -36,36 +37,46 @@
   languageButtons.forEach((button) => button.addEventListener('click', () => {
     language = button.dataset.language;
     try { localStorage.setItem('dlg-language', language); } catch {}
-    translate();
+    const url = new URL(location.href);
+    const basePath = url.pathname.replace(/^\/en(?=\/)/, '');
+    url.pathname = language === 'en' ? '/en' + basePath : basePath;
+    url.searchParams.delete('lang');
+    location.assign(url.href);
   }));
   translate();
 
   const menuToggle = document.querySelector('[data-menu-toggle]');
   const nav = document.getElementById('site-nav');
   if (menuToggle && nav) {
-    menuToggle.addEventListener('click', () => {
-      const open = nav.classList.toggle('open');
+    const setMenuState = (open) => {
+      nav.classList.toggle('open', open);
       menuToggle.setAttribute('aria-expanded', String(open));
-    });
-    nav.querySelectorAll('a').forEach((link) => link.addEventListener('click', () => {
-      nav.classList.remove('open');
-      menuToggle.setAttribute('aria-expanded', 'false');
-    }));
+      menuToggle.setAttribute('aria-label', document.documentElement.lang === 'en'
+        ? (open ? 'Close menu' : 'Open menu')
+        : (open ? 'მენიუს დახურვა' : 'მენიუს გახსნა'));
+    };
+    menuToggle.addEventListener('click', () => setMenuState(!nav.classList.contains('open')));
+    nav.querySelectorAll('a').forEach((link) => link.addEventListener('click', () => setMenuState(false)));
+    document.addEventListener('site:language', () => setMenuState(nav.classList.contains('open')));
+    const desktopMenu = window.matchMedia('(min-width: 701px)');
+    const resetOnDesktop = () => { if (desktopMenu.matches) setMenuState(false); };
+    if (desktopMenu.addEventListener) desktopMenu.addEventListener('change', resetOnDesktop);
+    else desktopMenu.addListener?.(resetOnDesktop);
   }
 
   const choices = [...document.querySelectorAll('[data-service-choice]')];
   const result = document.querySelector('[data-service-result]');
   const cta = document.querySelector('[data-service-cta]');
   const serviceRoutes = {
-    contracts: { en: 'Send a short request', ka: 'ხელშეკრულების საკითხი', href: '/client/?service=contracts' },
-    ai: { en: 'Start an AI / data brief', ka: 'ხელოვნური ინტელექტი და მონაცემები', href: '/client/?service=ai' },
-    product: { en: 'Plan the product route', ka: 'ციფრული პროდუქტის საკითხი', href: '/client/?service=product' },
-    georgia: { en: 'Open a local counsel request', ka: 'საქართველოში საქმიანობის დაწყება', href: '/client/?service=georgia' },
-    'data-protection': { en: 'Start a data protection brief', ka: 'მონაცემთა დაცვის მოთხოვნის დაწყება', href: '/client/?service=data-protection' },
-    corporate: { en: 'Discuss a corporate matter', ka: 'კორპორაციული საკითხის განხილვა', href: '/client/?service=corporate' },
-    employment: { en: 'Ask about a workplace matter', ka: 'შრომითი საკითხის განხილვა', href: '/client/?service=employment' },
-    'investment-funds': { en: 'Discuss a regulated business matter', ka: 'რეგულირებადი საქმიანობის საკითხის განხილვა', href: '/client/?service=investment-funds' },
-    disputes: { en: 'Discuss a dispute or decision', ka: 'დავის ან რთული გადაწყვეტილების განხილვა', href: '/client/?service=disputes' }
+    contracts: { en: 'Send a short request', ka: 'ხელშეკრულების საკითხი', href: 'mailto:digitallawgeorgia@gmail.com' },
+    ai: { en: 'Start an AI / data brief', ka: 'ხელოვნური ინტელექტი და მონაცემები', href: 'mailto:digitallawgeorgia@gmail.com' },
+    product: { en: 'Plan the product route', ka: 'ციფრული პროდუქტის საკითხი', href: 'mailto:digitallawgeorgia@gmail.com' },
+    georgia: { en: 'Open a local counsel request', ka: 'საქართველოში საქმიანობის დაწყება', href: 'mailto:digitallawgeorgia@gmail.com' },
+    'data-protection': { en: 'Start a data protection brief', ka: 'მონაცემთა დაცვის მოთხოვნის დაწყება', href: 'mailto:digitallawgeorgia@gmail.com' },
+    corporate: { en: 'Discuss a corporate matter', ka: 'კორპორაციული საკითხის განხილვა', href: 'mailto:digitallawgeorgia@gmail.com' },
+    employment: { en: 'Ask about a workplace matter', ka: 'შრომითი საკითხის განხილვა', href: 'mailto:digitallawgeorgia@gmail.com' },
+    'investment-funds': { en: 'Discuss a regulated business matter', ka: 'რეგულირებადი საქმიანობის საკითხის განხილვა', href: 'mailto:digitallawgeorgia@gmail.com' },
+    disputes: { en: 'Discuss a dispute or decision', ka: 'დავის ან რთული გადაწყვეტილების განხილვა', href: 'mailto:digitallawgeorgia@gmail.com' }
   };
   function selectService(key) {
     activeService = serviceRoutes[key] ? key : 'contracts';
@@ -83,21 +94,21 @@
       title: { en: 'Make the first version legally usable.', ka: 'მოამზადეთ ბიზნესი საქმიანობის დასაწყებად.' },
       copy: { en: 'A focused setup for a new product: core terms, privacy, ownership, contracts and the decisions you should make before launch.', ka: 'ახალი პროდუქტის შექმნისას წინასწარ განსაზღვრეთ მომხმარებლის პირობები, მონაცემთა დამუშავების წესები და პარტნიორთა უფლებები. საჭირო დოკუმენტებს თქვენი პროდუქტის მიხედვით მოვამზადებთ.' },
       list: { en: ['Product and customer terms', 'Privacy and data-use baseline', 'Founder, partner and supplier documentation'], ka: ['პროდუქტით სარგებლობის პირობები', 'მონაცემთა დამუშავების წესები', 'დამფუძნებლებისა და პარტნიორების შეთანხმებები'] },
-      href: '/client/?service=product'
+      href: 'mailto:digitallawgeorgia@gmail.com'
     },
     growing: {
       label: { en: 'SCALE / 02', ka: 'ზრდა / 02' },
       title: { en: 'Remove the legal friction slowing the team down.', ka: 'მოაწესრიგეთ მზარდი ბიზნესის სამართლებრივი საკითხები.' },
       copy: { en: 'A practical route for growing teams: contract flow, supplier terms, data processes, AI use and ongoing legal questions.', ka: 'გუნდის ზრდასთან ერთად იმატებს ხელშეკრულებები, თანამშრომლები და სამართლებრივი კითხვები. დაგეხმარებით პროცესების მოწესრიგებასა და მიმდინარე საკითხების გადაწყვეტაში.' },
       list: { en: ['Contract review and negotiation support', 'Reusable policies and approval logic', 'Ongoing external legal counsel'], ka: ['ხელშეკრულებების შემოწმება და მოლაპარაკება', 'შიდა წესები და დოკუმენტების შეთანხმების პროცესი', 'ყოველთვიური იურიდიული მომსახურება'] },
-      href: '/client/?service=contracts'
+      href: 'mailto:digitallawgeorgia@gmail.com'
     },
     international: {
       label: { en: 'GEORGIA / 03', ka: 'საქართველო / 03' },
       title: { en: 'A clear local legal point of contact in Georgia.', ka: 'თქვენი იურიდიული მრჩეველი საქართველოში.' },
       copy: { en: 'Support for foreign companies, founders and law firms that need English-language coordination of local legal work in Georgia.', ka: 'ვეხმარებით უცხოურ კომპანიებს საქართველოში დაფუძნებაში, ხელშეკრულებების მომზადებასა და ადგილობრივი სამართლებრივი საკითხების მოგვარებაში. კომუნიკაცია შესაძლებელია ინგლისურად.' },
       list: { en: ['Local corporate and commercial documentation', 'Technology, data and regulatory support', 'Coordination with local specialists where needed'], ka: ['ადგილობრივი კორპორაციული და კომერციული დოკუმენტები', 'ტექნოლოგიებისა და მონაცემთა დაცვის საკითხები', 'საჭიროების შემთხვევაში ადგილობრივ სპეციალისტებთან კოორდინაცია'] },
-      href: '/client/?service=georgia'
+      href: 'mailto:digitallawgeorgia@gmail.com'
     }
   };
   const scenarioTabs = [...document.querySelectorAll('[data-scenario]')];
@@ -132,7 +143,7 @@
     if (event.key === 'End') next = scenarioTabs.length - 1;
     if (next !== undefined) { event.preventDefault(); selectScenario(scenarioTabs[next].dataset.scenario); scenarioTabs[next].focus(); }
   }));
-  document.addEventListener('keydown', event => { if (event.key === 'Escape' && nav?.classList.contains('open')) { nav.classList.remove('open'); menuToggle.setAttribute('aria-expanded','false'); menuToggle.focus(); } });
+  document.addEventListener('keydown', event => { if (event.key === 'Escape' && nav?.classList.contains('open')) { nav.classList.remove('open'); menuToggle.setAttribute('aria-expanded','false'); menuToggle.setAttribute('aria-label', document.documentElement.lang === 'en' ? 'Open menu' : 'მენიუს გახსნა'); menuToggle.focus(); } });
 
   const revealItems = [...document.querySelectorAll('.reveal')];
   if ('IntersectionObserver' in window) {

@@ -1,7 +1,7 @@
-/* Digital Law Georgia — accessible photographic carousel.
+/* Digital Law Georgia — accessible, original illustrated service carousel.
    Autoplay runs only while visible and unattended. Pointer hover, keyboard
    focus, document hiding, manual pause and reduced-motion settings stop it.
-   Photo sources: existing DLG asset and three freely licensed Unsplash photos.
+   Decorative SVG artwork is part of the source; no third-party photo requests.
 */
 (() => {
   "use strict";
@@ -58,10 +58,13 @@
 
   function updatePause() {
     pauseButton.setAttribute("aria-pressed", String(paused));
-    if (pauseIcon) pauseIcon.textContent = paused ? "▶" : "Ⅱ";
+    root.dataset.motionPaused = String(paused);
+    if (pauseIcon) pauseIcon.innerHTML = paused
+      ? '<svg viewBox="0 0 16 16" width="12" height="12" fill="currentColor" aria-hidden="true"><path d="m5 3 8 5-8 5z"/></svg>'
+      : '<svg viewBox="0 0 16 16" width="12" height="12" fill="currentColor" aria-hidden="true"><path d="M4 3h3v10H4zM10 3h3v10h-3z"/></svg>';
     pauseButton.setAttribute("aria-label", language() === "en"
-      ? paused ? "Resume automatic slides" : "Pause automatic slides"
-      : paused ? "ავტომატური გადართვის გაგრძელება" : "ავტომატური გადართვის შეჩერება");
+      ? paused ? "Resume animations and automatic slides" : "Pause animations and automatic slides"
+      : paused ? "ანიმაციისა და ავტომატური გადართვის გაგრძელება" : "ანიმაციისა და ავტომატური გადართვის შეჩერება");
   }
 
   function allowed() {
@@ -178,15 +181,6 @@
     }
   }, { passive: true });
   stage.addEventListener("pointercancel", () => { startTouch = null; }, { passive: true });
-
-  for (const image of root.querySelectorAll(".dlg-photo-slide img")) {
-    if (!image.src.startsWith("https://images.unsplash.com/")) continue;
-    image.addEventListener("error", () => {
-      if (image.dataset.usedFallback) return;
-      image.dataset.usedFallback = "true";
-      image.src = "/assets/london-architecture.jpg";
-    }, { once: true });
-  }
 
   render(0, false);
   updatePause();

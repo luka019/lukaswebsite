@@ -1,46 +1,1221 @@
-// Shared public catalogue and delivery blueprints. No client information belongs here.
-const pair=(ka,en)=>({ka,en});
-export const practices=[
- {id:'product',slug:'digital-products',code:'01 / PRODUCT',name:pair('ციფრული პროდუქტები','Digital products'),summary:pair('აპლიკაციისა და სერვისის სამართლებრივი შეფასება — იდეიდან გაშვებამდე.','Legal review of apps and services, from concept to launch.'),audience:pair('პროდუქტის გუნდები, სტარტაპები, SaaS და მობილური აპლიკაციები.','Product teams, startups, SaaS businesses and mobile apps.'),scope:pair(['ბიზნესმოდელისა და პროდუქტის ფუნქციების შეფასება','მომხმარებლის რეგისტრაციის, თანხმობისა და გადახდის პროცესები','სარგებლობის პირობები, მონაცემები და ინტეგრაციები','გაშვებამდე მოსაგვარებელი საკითხების პრიორიტეტები'],['Business model and feature review','Onboarding, consent and payment journeys','Terms, data and integrations','Priorities before launch']),outputs:pair(['პროდუქტის სამართლებრივი შეფასება','რისკებისა და ცვლილებების ცხრილი','პირობებისა და პროცესების შესწორებები'],['Product legal assessment','Risk and change register','Revised terms and processes']),questions:pair(['ვინ იყენებს პროდუქტს და რა პრობლემას აგვარებს ის?','როგორ იღებთ შემოსავალს და რა ეტაპზეა პროდუქტი?','რა მონაცემებსა და გარე სერვისებს იყენებთ?'],['Who uses the product and what does it solve?','How do you earn revenue and what stage is the product at?','What data and third-party services do you use?']),exclude:pair('პროგრამული კოდის შემოწმება და ტექნიკური ტესტირება ცალკე სპეციალისტის სამუშაოა.','Code review and technical testing require a separate specialist.')},
- {id:'fintech',slug:'fintech',code:'02 / FINANCE',name:pair('ფინტექი და გადახდები','FinTech & payments'),summary:pair('ბიზნესმოდელის შეფასება და ფინანსური რეგულირების მოთხოვნების განსაზღვრა.','Business model assessment and financial regulatory scoping.'),audience:pair('ფინტექკომპანიები, გადახდის აპლიკაციები, ბანკების ციფრული გუნდები და ღია ბანკინგის სერვისები.','FinTech companies, payment apps, bank digital teams and open banking services.'),scope:pair(['პროდუქტის სამართლებრივი კლასიფიკაცია','რეგისტრაციისა და ავტორიზაციის საჭიროების შეფასება','გადახდები, ციფრული საფულეები და ღია ბანკინგი','კლიენტის იდენტიფიკაცია, ინფორმირება და მომწოდებლებთან ურთიერთობა','ეროვნულ ბანკთან წარსადგენი დოკუმენტების მომზადების მხარდაჭერა'],['Product regulatory classification','Assessment of registration and authorisation requirements','Payments, wallets and open banking','Customer identification, disclosures and outsourcing','Support with National Bank submissions']),outputs:pair(['რეგულირების სფეროს შეფასება','მოთხოვნებისა და ხარვეზების შეფასება','მოსამზადებელი დოკუმენტების სია და სამოქმედო გეგმა'],['Regulatory perimeter assessment','Requirements and gap assessment','Documentation list and action plan']),questions:pair(['ვინ იღებს, ინახავს ან გადარიცხავს მომხმარებლის თანხას?','ვის სახელით სრულდება ოპერაცია და ვინ არიან პარტნიორები?','რომელ ქვეყნებში ემსახურებით მომხმარებლებს?'],['Who receives, holds or transfers customer funds?','On whose behalf are transactions made and who are the partners?','In which countries are your customers?']),exclude:pair('პრუდენციული გამოთვლები, AML-აუდიტი და ფინანსური აუდიტი ცალკე თანხმდება შესაბამის სპეციალისტთან. რეგისტრაციის შედეგს მარეგულირებელი წყვეტს.','Prudential calculations, AML audits and financial audits require specialist scoping. The regulator determines registration outcomes.')},
- {id:'crypto',slug:'virtual-assets',code:'03 / DIGITAL ASSETS',name:pair('ვირტუალური აქტივები','Virtual assets & blockchain'),summary:pair('ვირტუალური აქტივის სერვისის შეფასება და საქმიანობის დასაწყებად მომზადება.','Assessment and readiness support for virtual asset services.'),audience:pair('ვირტუალური აქტივის გაცვლის, შენახვისა და გადაცემის სერვისები და ბლოკჩეინპროექტები.','Virtual asset exchange, custody and transfer services, and blockchain projects.'),scope:pair(['ბიზნესმოდელისა და აქტივის სამართლებრივი შეფასება','ვირტუალური აქტივის მომსახურების პროვაიდერის (VASP) მოთხოვნების ანალიზი','რეგისტრაციისთვის საჭირო დოკუმენტების მომზადების მხარდაჭერა','მმართველობა, მომხმარებლის პირობები და რისკების გამჟღავნება','AML/CFT-ის საკითხები და გარე მომწოდებლები'],['Business model and asset classification','Virtual asset service provider (VASP) requirements','Registration documentation support','Governance, user terms and risk disclosures','AML/CFT issues and outsourcing']),outputs:pair(['საქმიანობის შეფასება','მზადყოფნის შემოწმების სია','დოკუმენტებისა და გამოსასწორებელი საკითხების გეგმა'],['Activity assessment','Readiness checklist','Documentation and remediation plan']),questions:pair(['ცვლით, ინახავთ თუ გადასცემთ აქტივებს მომხმარებლის სახელით?','ვინ აკონტროლებს გასაღებებსა და მომხმარებლის აქტივებს?','სად არიან მომხმარებლები და რა პარტნიორები გყავთ?'],['Do you exchange, hold or transfer assets for customers?','Who controls keys and customer assets?','Where are your customers and which partners do you use?']),exclude:pair('სმარტკონტრაქტის ტექნიკური აუდიტი, ტოკენის შეფასება და საინვესტიციო რჩევა მომსახურებაში არ შედის.','Technical smart-contract audits, token valuation and investment advice are excluded.')},
- {id:'ai',slug:'ai',code:'04 / AI',name:pair('ხელოვნური ინტელექტი','AI & emerging technologies'),summary:pair('ხელოვნური ინტელექტის პროდუქტების შეფასება და კომპანიაში მისი გამოყენების წესები.','Legal review of AI products and practical governance for workplace AI.'),audience:pair('ხელოვნური ინტელექტის პროდუქტების შემქმნელები და კომპანიები, რომლებიც ასეთ ხელსაწყოებს იყენებენ.','AI product builders and businesses using AI tools.'),scope:pair(['მონაცემების, მოთხოვნებისა და გენერირებული შედეგების გამოყენება','ადამიანის ზედამხედველობა და ავტომატიზებული გადაწყვეტილებები','დაშვებული ხელსაწყოები და კონფიდენციალური ინფორმაციის დაცვა','მომწოდებლების პირობები და ინტელექტუალური საკუთრება','ევროკავშირის ხელოვნური ინტელექტის აქტის შესაძლო გავრცელების შეფასება'],['Data, prompts and output use','Human oversight and automated decisions','Approved tools and confidentiality','Provider terms and intellectual property','Assessment of potential EU AI Act applicability']),outputs:pair(['პროდუქტის ან გამოყენების შემთხვევის შეფასება','ხელოვნური ინტელექტის გამოყენების შიდა წესები','მომწოდებლის შეფასება და დანერგვის გეგმა'],['Product or use-case assessment','Internal AI use policy','Provider review and implementation plan']),questions:pair(['რას აკეთებს სისტემა და ვისზე ახდენს გავლენას მისი შედეგი?','რომელ მოდელებსა და მონაცემებს იყენებთ?','ვინ ამოწმებს შედეგს და როგორ წყდება შეცდომები?'],['What does the system do and who is affected?','Which models and data do you use?','Who checks outputs and handles errors?']),exclude:pair('მოდელის ტექნიკური უსაფრთხოების ტესტირება და შედეგების სიზუსტის სერტიფიცირება ცალკე სპეციალისტს მოითხოვს.','Technical model safety testing and output accuracy certification require separate specialists.')},
- {id:'data-protection',slug:'data-protection',code:'05 / PRIVACY',name:pair('მონაცემთა დაცვა','Data protection & privacy'),summary:pair('მონაცემთა დამუშავების პროცესების, დოკუმენტებისა და პასუხისმგებლობების მოწესრიგება.','Align data processes, documentation and responsibilities.'),audience:pair('კომპანიები, რომლებიც ამუშავებენ მომხმარებლების, თანამშრომლების ან პარტნიორების მონაცემებს.','Businesses processing customer, employee or partner data.'),scope:pair(['მონაცემთა ნაკადები, მიზნები და სამართლებრივი საფუძვლები','კონფიდენციალურობის შეტყობინებები და თანხმობის მართვა','მონაცემთა დამუშავების შეთანხმებები და საერთაშორისო გადაცემა','ზეგავლენის შეფასება, შენახვის ვადები და წვდომები','მონაცემთა სუბიექტის მოთხოვნები და ინციდენტებზე რეაგირება'],['Data flows, purposes and legal bases','Privacy notices and consent management','Processing agreements and international transfers','Impact assessments, retention and access','Data subject requests and incident response']),outputs:pair(['მონაცემთა დამუშავების პროცესების აღწერა','ხარვეზების შეფასება და დოკუმენტების პაკეტი','დანერგვისა და პერიოდული გადამოწმების გეგმა'],['Data-processing overview','Gap assessment and document pack','Implementation and review plan']),questions:pair(['ვის მონაცემებს, რა მიზნით და საიდან იღებთ?','სად ინახება ინფორმაცია და ვის აქვს წვდომა?','როგორ პასუხობთ მოთხოვნებსა და ინციდენტებს?'],['Whose data do you collect, why and from where?','Where is it stored and who has access?','How do you handle requests and incidents?']),exclude:pair('უცხოური სამართლის შესახებ ფორმალური დასკვნის საჭიროებისას შესაბამის იურისდიქციაში მოქმედ იურისტს ვრთავთ.','Formal foreign-law opinions are coordinated with counsel in the relevant jurisdiction.')},
- {id:'contracts',slug:'contracts',code:'06 / CONTRACTS',name:pair('ტექნოლოგიური ხელშეკრულებები','Technology contracts'),summary:pair('კომერციული პირობები, რომლებიც ასახავს პროდუქტის, მონაცემებისა და მომსახურების რეალურ რისკებს.','Commercial terms grounded in the actual product, data and service risks.'),audience:pair('ტექნოლოგიების მყიდველი და მიმწოდებელი კომპანიები, SaaS და პროგრამული უზრუნველყოფის გუნდები.','Technology buyers and vendors, SaaS and software teams.'),scope:pair(['SaaS, ღრუბლოვანი სერვისები და ლიცენზირება','პროგრამული უზრუნველყოფის შექმნა, დანერგვა და API','მომსახურების დონე, მიღება-ჩაბარება და შეწყვეტა','მონაცემთა და ინტელექტუალური საკუთრების უფლებები','პასუხისმგებლობა, უსაფრთხოება და მოლაპარაკება'],['SaaS, cloud and licensing','Development, implementation and APIs','Service levels, acceptance and exit','Data and intellectual property rights','Liability, security and negotiation']),outputs:pair(['რისკების მოკლე შეფასება','შესწორებული ან მომზადებული ხელშეკრულება','მოლაპარაკების პრიორიტეტები'],['Concise risk assessment','Redlined or drafted agreement','Negotiation priorities']),questions:pair(['მყიდველი ხართ თუ მიმწოდებელი და რას ეხება შეთანხმება?','რა ღირებულება, ვადა და ძირითადი რისკებია?','რომელი პირობებია უკვე შეთანხმებული?'],['Are you the buyer or supplier and what is the agreement for?','What are the value, timeline and principal risks?','Which terms have already been agreed?']),exclude:pair('სასამართლო წარმოება, საგადასახადო დასკვნა და ტექნიკური სპეციფიკაციის აუდიტი ცალკე თანხმდება.','Litigation, tax opinions and technical specification audits are scoped separately.')},
- {id:'commerce',slug:'ecommerce',code:'07 / PLATFORMS',name:pair('ელექტრონული კომერცია და პლატფორმები','Digital commerce & platforms'),summary:pair('მომხმარებლისთვის გასაგები და ბიზნესმოდელზე მორგებული ციფრული მომსახურება.','Clear customer journeys and terms tailored to your business model.'),audience:pair('ონლაინმაღაზიები, მარკეტპლეისები, გამოწერის სერვისები და ციფრული პლატფორმები.','Online shops, marketplaces, subscription services and digital platforms.'),scope:pair(['სარგებლობისა და გამყიდველის პირობები','ფასის, გადახდისა და გამოწერის შესახებ ინფორმაცია','გაუქმების, დაბრუნებისა და საჩივრის პროცესები','რეკლამა, აქციები და პარტნიორული მარკეტინგი','მომხმარებლის კონტენტი და პლატფორმის პასუხისმგებლობა'],['User and seller terms','Pricing, payment and subscription disclosures','Cancellation, refund and complaint processes','Advertising, promotions and affiliate marketing','User content and platform responsibilities']),outputs:pair(['მომხმარებლის გზის შეფასება','პირობებისა და შეტყობინებების შესწორებები','პროდუქტის გუნდის სამოქმედო სია'],['Customer journey review','Revised terms and disclosures','Product team action list']),questions:pair(['რას ყიდით, ვის და რომელ ქვეყანაში?','როგორ მუშაობს გადახდა, გამოწერა და თანხის დაბრუნება?','ვის ეკუთვნის შეთავაზება და მომხმარებლის კონტენტი?'],['What do you sell, to whom and where?','How do payment, renewal and refunds work?','Who provides the offer and user content?']),exclude:pair('მარკეტინგული კამპანიის შესრულება და ტექნიკური დანერგვა მომსახურებაში არ შედის.','Campaign execution and technical implementation are excluded.')},
- {id:'cyber',slug:'cyber-digital-risk',code:'08 / DIGITAL RISK',name:pair('კიბერუსაფრთხოების სამართლებრივი საკითხები','Cybersecurity legal & governance'),summary:pair('ინციდენტებზე რეაგირება, მომწოდებლების ვალდებულებები და ციფრული რისკების მართვა.','Incident response, supplier obligations and digital risk governance.'),audience:pair('კომპანიების იურიდიული, უსაფრთხოების, შესაბამისობისა და შესყიდვების გუნდები.','Legal, security, compliance and procurement teams.'),scope:pair(['უსაფრთხოების სამართლებრივი და სახელშეკრულებო მოთხოვნები','ინციდენტზე რეაგირების სამართლებრივი გეგმა','შეტყობინების ვალდებულებების შეფასება','მომწოდებლების პასუხისმგებლობა და მმართველობა','მტკიცებულებებისა და გადაწყვეტილებების დოკუმენტირება'],['Legal and contractual security requirements','Legal incident response playbook','Notification obligation assessment','Supplier responsibility and governance','Evidence and decision records']),outputs:pair(['სამართლებრივი ვალდებულებების შეჯამება','რეაგირების გეგმა და პასუხისმგებელი პირები','სახელშეკრულებო დებულებები'],['Legal obligations summary','Response plan and owners','Contract clauses']),questions:pair(['რა სისტემებსა და მონაცემებს ეხება საკითხი?','ინციდენტი უკვე მოხდა თუ პრევენციულად მუშაობთ?','რა ხელშეკრულებები და შიდა პროცედურები გაქვთ?'],['Which systems and data are involved?','Has an incident occurred or is this preventive work?','What contracts and procedures are in place?']),exclude:pair('შეღწევადობის ტესტირება, უსაფრთხოების მონიტორინგი და ტექნიკური ექსპერტიზა ჩვენი მომსახურება არ არის; საჭიროებისას პარტნიორს ვრთავთ.','Penetration testing, security monitoring and technical forensics require a specialist partner.')},
- {id:'georgia',slug:'georgia-market-entry',code:'09 / CROSS-BORDER',name:pair('ბაზარზე შესვლა','Market entry & regulatory strategy'),summary:pair('ციფრული ბიზნესის საქართველოში დაწყება და საერთაშორისო გაფართოების დაგეგმვა.','Launch digital business in Georgia and plan international expansion.'),audience:pair('საქართველოში შემომსვლელი საერთაშორისო კომპანიები და უცხო ბაზარზე გამსვლელი ქართული ტექნოლოგიური ბიზნესი.','International businesses entering Georgia and Georgian technology businesses expanding abroad.'),scope:pair(['ბიზნესმოდელი, ადგილობრივი კომპანია და საქმიანობის მოთხოვნები','რეგისტრაციისა და ავტორიზაციის საკითხები','პროდუქტის, პირობებისა და მონაცემთა პროცესების მორგება','ადგილობრივი პარტნიორები და ხელშეკრულებები','უცხოურ იურისტებთან კოორდინაცია'],['Business model, local entity and operating requirements','Registration and authorisation issues','Product, terms and data-process adaptation','Local partners and contracts','Coordination with foreign counsel']),outputs:pair(['ბაზარზე შესვლის სამართლებრივი გეგმა','საქმიანობისთვის საჭირო მოთხოვნებისა და წინაპირობების ჩამონათვალი','გაშვებამდე შესასრულებელი სამუშაოების სია'],['Legal market-entry plan','Requirements and prerequisites summary','Pre-launch work plan']),questions:pair(['რომელი ქვეყნიდან და რომელ ბაზარზე გადიხართ?','რა პროდუქტი, კლიენტები და ადგილობრივი პარტნიორები გყავთ?','რა ვადაში გეგმავთ საქმიანობის დაწყებას?'],['From which country and into which market are you expanding?','What product, customers and local partners do you have?','When do you plan to launch?']),exclude:pair('საგადასახადო, საიმიგრაციო და უცხოური სამართლის სპეციალიზებული საკითხები ცალკე სპეციალისტებთან თანხმდება.','Specialist tax, immigration and foreign-law matters are agreed with relevant advisers.')},
- {id:'ip',slug:'intellectual-property',code:'10 / IP + TECH ASSETS',name:pair('ინტელექტუალური საკუთრება და ტექნოლოგიური აქტივები','Intellectual property & technology assets'),summary:pair('პროგრამული უზრუნველყოფის, ბრენდის, კონტენტის და სხვა ციფრული აქტივების საკუთრებისა და ლიცენზირების მოწესრიგება.','Ownership and licensing of software, brands, content and other digital assets.'),audience:pair('ტექნოლოგიური კომპანიები, სტარტაპები, პროდუქტის გუნდები და ინვესტორები, რომლებსაც ციფრულ აქტივებზე საკუთრებისა და გამოყენების უფლებების მკაფიოდ განსაზღვრა სჭირდებათ.','Technology companies, startups, product teams and investors that need clear ownership and usage rights in digital assets.'),scope:pair(['პროგრამულ კოდზე, დიზაინზე, მონაცემთა ბაზაზე, კონტენტსა და სხვა ციფრულ აქტივებზე უფლებები','დამფუძნებლების, თანამშრომლებისა და კონტრაქტორების მიერ შექმნილი ინტელექტუალური საკუთრება','ლიცენზირება, SaaS, API, ღია კოდი და მესამე მხარის კომპონენტები','ბრენდი, სავაჭრო ნიშნები, დომენები და ციფრული იდენტობა','ინვესტიციის, პარტნიორობის ან ტრანზაქციის წინ ინტელექტუალური საკუთრების უფლებების შემოწმება'],['Rights in software code, design, databases, content and other digital assets','IP created by founders, employees and contractors','Licensing, SaaS, APIs, open source and third-party components','Brands, trade marks, domains and digital identity','IP review before investment, partnerships or transactions']),outputs:pair(['უფლებებისა და საკუთრების მდგომარეობის შეფასება','საჭირო ხელშეკრულებები, უფლებების გადაცემის ან სალიცენზიო დოკუმენტები','პრიორიტეტული ნაბიჯები ბრენდისა და ტექნოლოგიური აქტივების დასაცავად'],['Ownership and rights assessment','Required assignment, licensing or contractual documents','Priority actions to protect brand and technology assets']),questions:pair(['ვინ შექმნა კოდი, დიზაინი, კონტენტი და ბრენდის ძირითადი ელემენტები?','რა ხელშეკრულებებით არის უფლებები გადაცემული ან ლიცენზირებული?','იყენებთ ღია კოდის, მესამე მხარის ან ხელოვნური ინტელექტით გენერირებულ მასალებს?'],['Who created the code, design, content and core brand assets?','Which agreements assign or license those rights?','Do you use open-source, third-party or AI-generated materials?']),exclude:pair('პატენტის ტექნიკური მომზადება, სპეციალიზებული რეგისტრაციის პროცედურები და ინტელექტუალური საკუთრების სასამართლო დავები საჭიროების შემთხვევაში შესაბამის სპეციალისტებთან კოორდინირდება.','Patent drafting, specialist filing work and IP litigation are coordinated with relevant specialists where required.')}
+// Shared public service catalogue. Contains no client data.
+export const practices = [
+  {
+    "id": "contracts",
+    "slug": "contracts",
+    "code": "01 / CONTRACTS",
+    "name": {
+      "ka": "ტექნოლოგიური და კომერციული ხელშეკრულებები",
+      "en": "Technology & Commercial Contracts"
+    },
+    "summary": {
+      "ka": "მკაფიო პირობები თქვენი შემდეგი გარიგებისთვის — სამუშაოს მოცულობა, ანაზღაურება, უფლებები და პასუხისმგებლობა.",
+      "en": "Clear terms for your next deal: scope, payment, ownership and liability."
+    },
+    "audience": {
+      "ka": "IT და SaaS კომპანიები, სააგენტოები და ბიზნესი, რომელიც ტექნოლოგიას ყიდულობს ან საერთაშორისო კლიენტთან თანამშრომლობს.",
+      "en": "IT and SaaS businesses, agencies and companies buying technology or working with international clients."
+    },
+    "scope": {
+      "ka": [
+        "პროგრამული უზრუნველყოფის შექმნის, SaaS-ის, ლიცენზირებისა და ღრუბლოვანი მომსახურების პირობები",
+        "მომსახურების, პარტნიორობისა და კონფიდენციალურობის შეთანხმებები",
+        "სამუშაოს მოცულობა, შედეგის მიღება, გადახდა და ცვლილებები",
+        "კოდზე, კონტენტსა და სხვა შედეგზე უფლებები; თანამშრომლები და კონტრაქტორები",
+        "მონაცემთა დამუშავება, AI-მომწოდებლები, პასუხისმგებლობა და მომსახურების დასრულება"
+      ],
+      "en": [
+        "Software development, SaaS, licensing and cloud service terms",
+        "Service, partnership and confidentiality agreements",
+        "Scope of work, acceptance, payment and change control",
+        "Rights in code, content and deliverables, including employee and contractor contributions",
+        "Data processing, AI suppliers, liability and exit arrangements"
+      ]
+    },
+    "outputs": {
+      "ka": [
+        "მომზადებული ან შესწორებული ხელშეკრულება",
+        "მთავარი რისკებისა და მოლაპარაკების პოზიციების მოკლე მიმოხილვა",
+        "კონტრაჰენტთან დასაზუსტებელი კითხვები",
+        "შეთანხმებული მოცულობის მოლაპარაკების მხარდაჭერა"
+      ],
+      "en": [
+        "A drafted or marked-up agreement",
+        "A concise risk and negotiation summary",
+        "Questions to resolve with the counterparty",
+        "Negotiation support within the agreed scope"
+      ]
+    },
+    "questions": {
+      "ka": [
+        "რას ყიდით ან ყიდულობთ და ვისთან?",
+        "რომელი დოკუმენტებია უკვე მომზადებული?",
+        "რა ვადაში უნდა შეთანხმდეთ?"
+      ],
+      "en": [
+        "What are you selling or buying, and from whom?",
+        "Which documents already exist?",
+        "When do the terms need to be agreed?"
+      ]
+    },
+    "exclude": {
+      "ka": "მოცულობა განისაზღვრება დოკუმენტების, მოლაპარაკების რაუნდებისა და შესაბამისი ქვეყნების მიხედვით. უცხოური ადგილობრივი სამართლის საკითხებზე საჭიროებისამებრ ერთვება შესაბამისი სპეციალისტი.",
+      "en": "Scope depends on the documents, negotiation rounds and jurisdictions. Local foreign-law questions involve appropriately qualified counsel where needed."
+    },
+    "scenario": {
+      "ka": "უცხოელი კლიენტი გიგზავნით ხელშეკრულებას. რა უნდა შეცვალოთ ხელმოწერამდე?",
+      "en": "An international client sends its contract. What needs to change before you sign?"
+    }
+  },
+  {
+    "id": "data-protection",
+    "slug": "data-protection",
+    "code": "02 / PRIVACY",
+    "name": {
+      "ka": "პერსონალურ მონაცემთა დაცვა",
+      "en": "Privacy & Data Protection"
+    },
+    "summary": {
+      "ka": "მონაცემთა დაცვის წესები, რომლებიც კომპანიის რეალურ პროცესებს შეესაბამება — თანამშრომლებიდან და მომხმარებლებიდან მომწოდებლებამდე.",
+      "en": "Privacy arrangements that reflect how your business actually works, across employees, customers and suppliers."
+    },
+    "audience": {
+      "ka": "ორგანიზაციები, რომლებიც ამუშავებენ თანამშრომლებისა და მომხმარებლების მონაცემებს, იყენებენ CRM-ს, ღრუბლოვან სერვისებს ან საერთაშორისო მომწოდებლებს.",
+      "en": "Organisations handling employee and customer data, using CRM or cloud services, or working with international suppliers."
+    },
+    "scope": {
+      "ka": [
+        "დამუშავების პროცესები, მიზნები, როლები და სამართლებრივი საფუძვლები",
+        "ინფორმირების ტექსტები, შენახვისა და წაშლის წესები",
+        "მონაცემთა დამუშავების შეთანხმებები და მომწოდებლების შეფასება",
+        "მონაცემთა სუბიექტის მოთხოვნები და ინციდენტის სამართლებრივი რეაგირება",
+        "საჭიროების მიხედვით ზეგავლენისა და საერთაშორისო გადაცემის შეფასების მხარდაჭერა",
+        "გარე მონაცემთა დაცვის ოფიცრის ფუნქცია — ცალკე შეთანხმებით"
+      ],
+      "en": [
+        "Processing activities, purposes, roles and legal bases",
+        "Privacy notices, retention and deletion rules",
+        "Data processing agreements and supplier reviews",
+        "Data subject requests and legal incident response",
+        "Support with impact assessments and international transfers where relevant",
+        "External data protection officer services by separate agreement"
+      ]
+    },
+    "outputs": {
+      "ka": [
+        "პროცესებისა და ძირითადი მონაცემთა ნაკადების აღწერა",
+        "ხარვეზების პრიორიტეტული სამოქმედო გეგმა",
+        "საჭირო წესები, დოკუმენტები და შეთანხმებები",
+        "მოთხოვნებისა და ინციდენტების მართვის ინსტრუქცია"
+      ],
+      "en": [
+        "An overview of processes and key data flows",
+        "A prioritised action plan",
+        "Relevant policies, documents and agreements",
+        "Instructions for handling requests and incidents"
+      ]
+    },
+    "questions": {
+      "ka": [
+        "რა მონაცემებს ამუშავებთ და რისთვის?",
+        "რომელი გუნდები და მომწოდებლები მონაწილეობენ?",
+        "რომელ ქვეყნებში ინახება ან გადაეცემა მონაცემები?"
+      ],
+      "en": [
+        "What data do you process and why?",
+        "Which teams and suppliers are involved?",
+        "Where is data stored or transferred?"
+      ]
+    },
+    "exclude": {
+      "ka": "საქართველოსა და ევროკავშირის მოთხოვნების გავრცელება კონკრეტული საქმიანობის მიხედვით ფასდება. ოფიცრის მომსახურება მოითხოვს დამოუკიდებლობის, ამოცანებისა და რესურსის ცალკე შეფასებას. ტექნიკურ უსაფრთხოებას შესაბამისი სპეციალისტი ამოწმებს.",
+      "en": "Georgian and EU requirements are assessed against the specific activities. DPO work requires separate assessment of independence, duties and capacity. Technical security is validated by the relevant specialists."
+    },
+    "scenario": {
+      "ka": "ახალ CRM-ს ირჩევთ. იცით, სად მიდის მონაცემები და რა პირობებს თანხმდებით?",
+      "en": "Choosing a new CRM? Know where the data goes and which terms you are accepting."
+    }
+  },
+  {
+    "id": "ai",
+    "slug": "ai",
+    "code": "03 / AI",
+    "name": {
+      "ka": "AI-ის მმართველობა და სამართლებრივი მხარდაჭერა",
+      "en": "AI Governance & Legal Advisory"
+    },
+    "summary": {
+      "ka": "AI-ის გამოყენებიდან პროდუქტში დანერგვამდე — გასაგები წესები, პასუხისმგებელი პირები და დასაბუთებული სამართლებრივი გადაწყვეტილებები.",
+      "en": "From workplace AI to product features: clear rules, accountable owners and informed legal decisions."
+    },
+    "audience": {
+      "ka": "კომპანიები, რომლებიც AI-ს შიდა საქმიანობაში იყენებენ, პროდუქტს AI-ფუნქციას ამატებენ ან საკუთარ AI-სერვისს ქმნიან.",
+      "en": "Companies using AI internally, adding an AI feature to a product or developing an AI service."
+    },
+    "scope": {
+      "ka": [
+        "AI-ინსტრუმენტებისა და გამოყენების შემთხვევების აღწერა",
+        "სამართლებრივი ფარგლები, კომპანიის როლი და გამოყენების რისკები",
+        "გენერაციული AI-ის პოლიტიკა, დაშვება და გამონაკლისის წესი",
+        "მომწოდებლის დოკუმენტებისა და ხელშეკრულების შეფასება",
+        "პროდუქტის ინფორმირება, ადამიანის ჩართვა და გაშვების წინ შემოწმება",
+        "როლებზე მორგებული სწავლება, ინციდენტები და პერიოდული გადახედვა"
+      ],
+      "en": [
+        "AI tools and use-case inventory",
+        "Legal scope, company roles and use-case risks",
+        "Generative AI policy, approvals and exceptions",
+        "Supplier documentation and contract review",
+        "Product disclosures, human review and launch checkpoints",
+        "Role-based training, incidents and periodic reviews"
+      ]
+    },
+    "outputs": {
+      "ka": [
+        "გამოყენების რეესტრი და პრიორიტეტული სამოქმედო გეგმა",
+        "AI-ის პოლიტიკა და გადაწყვეტილების მიღების წესი",
+        "მომწოდებლის შეფასება და სახელშეკრულებო შენიშვნები",
+        "გაშვების სია, პრაქტიკული სწავლება და გადახედვის გეგმა"
+      ],
+      "en": [
+        "A use-case register and prioritised action plan",
+        "AI policy and a decision-making process",
+        "Supplier review and contract comments",
+        "Launch checklist, practical training and a review plan"
+      ]
+    },
+    "questions": {
+      "ka": [
+        "AI-ს შიდა პროცესში იყენებთ თუ მომხმარებელს აწვდით?",
+        "რა მონაცემები, ადამიანები და გადაწყვეტილებები უკავშირდება გამოყენებას?",
+        "რომელი პროდუქტი, მომწოდებელი და ბაზარია შესაფასებელი?"
+      ],
+      "en": [
+        "Is AI used internally or supplied to customers?",
+        "Which data, people and decisions are involved?",
+        "Which product, supplier and market need review?"
+      ]
+    },
+    "exclude": {
+      "ka": "სამუშაო მოიცავს სამართლებრივ და ორგანიზაციულ ნაწილს. მოდელის ტექნიკური გამოცდა, უსაფრთხოების ტესტირება, პროგრამული დანერგვა და სერტიფიცირება შესაბამისი სპეციალისტების საქმეა. AI Act-ის გავრცელება კომპანიის როლისა და საქმიანობის მიხედვით ფასდება.",
+      "en": "The engagement covers legal and organisational work. Model testing, security testing, software implementation and certification require the relevant specialists. AI Act applicability is assessed against the company’s roles and activities."
+    },
+    "scenario": {
+      "ka": "გუნდი უკვე იყენებს AI-ს. შეთანხმებული გაქვთ რა არის დასაშვები და ვინ იღებს გადაწყვეტილებას?",
+      "en": "Your team already uses AI. Have you agreed what is allowed and who makes the decision?"
+    },
+    "modules": [
+      [
+        "შეაფასეთ გამოყენება",
+        "Assess the use",
+        "ინსტრუმენტები, მიზნები, მონაცემები, პასუხისმგებელი პირები და სამართლებრივი საკითხები.",
+        "Tools, purposes, data, accountable owners and legal issues."
+      ],
+      [
+        "ჩამოაყალიბეთ წესები",
+        "Set the rules",
+        "დასაშვები გამოყენება, დამტკიცება, გამონაკლისები და ესკალაცია.",
+        "Acceptable use, approvals, exceptions and escalation."
+      ],
+      [
+        "შეამოწმეთ მომწოდებელი",
+        "Review the supplier",
+        "სწავლებისთვის მონაცემების გამოყენება, კონფიდენციალურობა, IP და მომსახურებიდან გამოსვლა.",
+        "Training-data use, confidentiality, IP and exit arrangements."
+      ],
+      [
+        "მოამზადეთ პროდუქტი",
+        "Prepare the product",
+        "მომხმარებლის ინფორმირება, ადამიანის ჩართვა, საჩივარი და გაშვების გადაწყვეტილება.",
+        "Disclosures, human review, complaints and the launch decision."
+      ],
+      [
+        "მოამზადეთ გუნდი",
+        "Equip the team",
+        "ხელმძღვანელობის, HR-ის, შესყიდვებისა და პროდუქტის გუნდების პრაქტიკული შემთხვევები.",
+        "Practical cases for leadership, HR, procurement and product teams."
+      ],
+      [
+        "მართეთ ცვლილებები",
+        "Maintain the process",
+        "ახალი გამოყენების, გადაწყვეტილებების, ინციდენტებისა და გადახედვების აღრიცხვა.",
+        "Record new uses, decisions, incidents and reviews."
+      ]
+    ]
+  },
+  {
+    "id": "product",
+    "slug": "digital-products",
+    "code": "04 / PRODUCT",
+    "name": {
+      "ka": "ციფრული პროდუქტები და ელექტრონული კომერცია",
+      "en": "Digital Products & E-commerce"
+    },
+    "summary": {
+      "ka": "პროდუქტის სამართლებრივი საფუძველი და მომხმარებლის გასაგები გზა — რეგისტრაციიდან გადახდამდე, გაუქმებასა და დაბრუნებამდე.",
+      "en": "Legal foundations and a clear customer journey, from sign-up and payment to cancellation and refunds."
+    },
+    "audience": {
+      "ka": "აპლიკაციები, SaaS-სერვისები, პლატფორმები და ონლაინმაღაზიები, რომლებიც პროდუქტს უშვებენ ან ახალ ბაზარზე გადიან.",
+      "en": "Apps, SaaS services, platforms and online stores launching a product or entering a new market."
+    },
+    "scope": {
+      "ka": [
+        "ბიზნესმოდელი, მონაწილეთა როლები და პასუხისმგებლობა",
+        "გამოყენებისა და მომსახურების პირობები",
+        "ფასი, გამოწერა, გაუქმება, დაბრუნება და საჩივარი",
+        "მონაცემთა დამუშავება, თანხმობა და მომხმარებლის ინფორმირება",
+        "კონტენტზე უფლებები, AI-ფუნქციები და გაშვების წინ სამართლებრივი შემოწმება"
+      ],
+      "en": [
+        "Business model, participant roles and responsibilities",
+        "Terms of use and service",
+        "Pricing, subscriptions, cancellation, refunds and complaints",
+        "Data processing, consent and customer information",
+        "Content rights, AI features and pre-launch legal review"
+      ]
+    },
+    "outputs": {
+      "ka": [
+        "პროდუქტზე მორგებული სამართლებრივი დოკუმენტები",
+        "ეკრანებისა და მომხმარებლის გზის სამართლებრივი შენიშვნები",
+        "გუნდზე გასანაწილებელი ცვლილებების სია",
+        "შეთანხმებული ცვლილებების შემდგომი გადამოწმება"
+      ],
+      "en": [
+        "Product-specific legal documents",
+        "Legal comments on screens and customer journeys",
+        "An action list for the delivery team",
+        "Follow-up review of agreed changes"
+      ]
+    },
+    "questions": {
+      "ka": [
+        "ვინ იყენებს პროდუქტს — კომპანია თუ მომხმარებელი?",
+        "როგორ ხდება რეგისტრაცია, გადახდა და გაუქმება?",
+        "რომელი ქვეყნის მომხმარებლებისთვის არის პროდუქტი?"
+      ],
+      "en": [
+        "Who uses the product: businesses or consumers?",
+        "How do sign-up, payment and cancellation work?",
+        "Which markets and users are you targeting?"
+      ]
+    },
+    "exclude": {
+      "ka": "სამუშაო იწყება პროდუქტის, მომხმარებლის ტიპისა და ბაზრის განსაზღვრით. ეკრანებსა და კოდში ცვლილებებს კლიენტის გუნდი ახორციელებს; სამართლებრივი გადამოწმების მოცულობა წინასწარ თანხმდება.",
+      "en": "We begin by defining the product, customer type and market. The client’s team implements screen and code changes; the scope of legal follow-up is agreed in advance."
+    },
+    "scenario": {
+      "ka": "პროდუქტი მზად არის გასაშვებად. ემთხვევა პირობები იმას, რასაც მომხმარებელი რეალურად ხედავს?",
+      "en": "Ready to launch? Do your terms match what customers actually see?"
+    }
+  },
+  {
+    "id": "legal-operations",
+    "slug": "legal-operations",
+    "code": "05 / OPERATIONS",
+    "name": {
+      "ka": "იურიდიული პროცესები და ხელშეკრულებების მართვა",
+      "en": "Legal Operations & Contract Management"
+    },
+    "summary": {
+      "ka": "გამართული გზა მოთხოვნიდან ხელმოწერამდე — შაბლონები, დამტკიცების წესი, პასუხისმგებლობები და ვადების კონტროლი.",
+      "en": "A clear route from request to signature, with templates, approvals, ownership and deadline tracking."
+    },
+    "audience": {
+      "ka": "მზარდი გუნდები და იურიდიული დეპარტამენტები, სადაც ხელშეკრულებები მიმოწერაში იკარგება, შეთანხმება ფერხდება ან ვადები უკონტროლოა.",
+      "en": "Growing teams and legal departments dealing with scattered contracts, slow approvals or missed deadlines."
+    },
+    "scope": {
+      "ka": [
+        "არსებული პროცესისა და შეფერხებების აღწერა",
+        "მოთხოვნის მიღება, დამტკიცება და ხელმოწერის უფლებამოსილება",
+        "შაბლონები და მოლაპარაკების ძირითადი პოზიციები",
+        "ხელშეკრულებების რეესტრი, ვალდებულებები და ვადების კალენდარი",
+        "არსებული ხელსაწყოს გამოყენების წესის ორგანიზება და გუნდის მომზადება"
+      ],
+      "en": [
+        "Map the current process and bottlenecks",
+        "Intake, approvals and signature authority",
+        "Templates and negotiation playbooks",
+        "Contract register, obligations and renewal calendar",
+        "Organise use of existing tools and equip the team"
+      ]
+    },
+    "outputs": {
+      "ka": [
+        "სამუშაო პროცესის რუკა და პასუხისმგებელი პირები",
+        "მოთხოვნისა და დამტკიცების ფორმები",
+        "შაბლონები და შეთანხმების ინსტრუქცია",
+        "რეესტრი, კალენდარი და გუნდის პრაქტიკული სესია"
+      ],
+      "en": [
+        "A workflow map and accountable owners",
+        "Intake and approval forms",
+        "Templates and negotiation guidance",
+        "A register, calendar and practical team session"
+      ]
+    },
+    "questions": {
+      "ka": [
+        "სად ინახება ხელშეკრულებები და ვინ აკონტროლებს ვადებს?",
+        "რომელ ეტაპზე ფერხდება შეთანხმება?",
+        "რა ხელსაწყოებს იყენებს გუნდი?"
+      ],
+      "en": [
+        "Where are contracts stored and who tracks deadlines?",
+        "Where do approvals get stuck?",
+        "Which tools does your team already use?"
+      ]
+    },
+    "exclude": {
+      "ka": "მომსახურება მოიცავს სამართლებრივ პროცესსა და ორგანიზაციულ დანერგვას. პროგრამული სისტემის შექმნა ან ინტეგრაცია ცალკე ტექნიკური სამუშაოა.",
+      "en": "The service covers legal workflow and organisational implementation. Software development and integrations are separate technical work."
+    },
+    "scenario": {
+      "ka": "ვინ ამტკიცებს ხელშეკრულებას და როდის იწურება მისი ვადა? პასუხი ერთ ადგილას უნდა იძებნებოდეს.",
+      "en": "Who approves the contract, and when does it renew? The answer should be easy to find."
+    }
+  },
+  {
+    "id": "ongoing",
+    "slug": "ongoing-legal-support",
+    "code": "06 / COUNSEL",
+    "name": {
+      "ka": "კომპანიის მიმდინარე იურიდიული მხარდაჭერა",
+      "en": "Ongoing Legal Counsel"
+    },
+    "summary": {
+      "ka": "ერთი იურიდიული საკონტაქტო პირი თქვენი გუნდისთვის — მიმდინარე ხელშეკრულებები, მონაცემები, AI და კომერციული საკითხები შეთანხმებული მოცულობით.",
+      "en": "A dedicated legal point of contact for contracts, data, AI and commercial matters, within an agreed scope."
+    },
+    "audience": {
+      "ka": "ბიზნესი, რომელსაც რეგულარული იურიდიული დახმარება სჭირდება, და შიდა იურიდიული გუნდი, რომელსაც ტექნოლოგიურ საკითხებზე სპეციალიზებული მხარდაჭერა უნდა.",
+      "en": "Businesses needing regular legal input and in-house teams seeking specialist technology law support."
+    },
+    "scope": {
+      "ka": [
+        "მიმდინარე ხელშეკრულებები, პარტნიორები და მომწოდებლები",
+        "თანამშრომლებისა და კონტრაქტორების დოკუმენტები, კონფიდენციალურობა და IP",
+        "მონაცემთა დაცვის, AI-ისა და ციფრული პროდუქტის ცვლილებები",
+        "შერჩეული კორპორაციული საკითხები და უფლებამოსილება",
+        "პერიოდული შეხვედრა, პრიორიტეტები და ღია საკითხების მართვა"
+      ],
+      "en": [
+        "Ongoing contracts, partners and suppliers",
+        "Employee and contractor documents, confidentiality and IP",
+        "Changes affecting data protection, AI and digital products",
+        "Selected corporate matters and authority",
+        "Periodic check-ins, priorities and open-matter tracking"
+      ]
+    },
+    "outputs": {
+      "ka": [
+        "შეთანხმებული სამუშაო გეგმა და საკონტაქტო პირი",
+        "მომზადებული დოკუმენტები და მიმდინარე კონსულტაციები",
+        "საკითხების სია, ვადები და პერიოდული მიმოხილვა",
+        "საჭიროების მიხედვით სპეციალისტებთან კოორდინაცია"
+      ],
+      "en": [
+        "An agreed work plan and point of contact",
+        "Documents and ongoing advice",
+        "A matter list, deadlines and periodic reviews",
+        "Specialist coordination where needed"
+      ]
+    },
+    "questions": {
+      "ka": [
+        "რა ტიპის საკითხები მეორდება თქვენს საქმიანობაში?",
+        "გყავთ შიდა იურისტი ან სხვა კონსულტანტები?",
+        "რა მოცულობისა და სიხშირის მხარდაჭერა გჭირდებათ?"
+      ],
+      "en": [
+        "Which legal matters recur in your business?",
+        "Do you have in-house counsel or other advisers?",
+        "What volume and frequency of support do you need?"
+      ]
+    },
+    "exclude": {
+      "ka": "წინასწარ თანხმდება ამოცანები ან საათები, პასუხის დრო, დამატებითი პროექტები და გარე ხარჯები. საგადასახადო, ტექნიკური და სხვა სპეციალიზებული სამუშაო შესაბამის პროფესიონალებთან ნაწილდება.",
+      "en": "Tasks or hours, response arrangements, additional projects and external costs are agreed in advance. Tax, technical and other specialist work is allocated to the appropriate professionals."
+    },
+    "scenario": {
+      "ka": "თქვენს გუნდს რეგულარული იურიდიული მხარდაჭერა სჭირდება, საკუთარი დეპარტამენტის შექმნის გარეშე?",
+      "en": "Does your team need regular legal support without building an entire department?"
+    }
+  },
+  {
+    "id": "fintech",
+    "slug": "fintech",
+    "code": "02 / FINANCE",
+    "name": {
+      "ka": "ფინტექი და გადახდები",
+      "en": "FinTech & payments"
+    },
+    "summary": {
+      "ka": "გადახდისა და ციფრული ფინანსური სერვისების მარეგულირებელი მოთხოვნების შეფასება.",
+      "en": "Business model assessment and financial regulatory scoping."
+    },
+    "audience": {
+      "ka": "ფინტექკომპანიები, გადახდის სერვისების მიმწოდებლები, ბანკები და ღია ბანკინგის პროექტები.",
+      "en": "FinTech companies, payment apps, bank digital teams and open banking services."
+    },
+    "scope": {
+      "ka": [
+        "პროდუქტის სამართლებრივი კლასიფიკაცია",
+        "რეგისტრაციისა და ავტორიზაციის საჭიროების შეფასება",
+        "გადახდები, ციფრული საფულეები და ღია ბანკინგი",
+        "მომხმარებლის იდენტიფიკაცია, ინფორმირება და მომწოდებლებთან ურთიერთობა",
+        "ეროვნულ ბანკთან წარსადგენი დოკუმენტების მომზადების მხარდაჭერა"
+      ],
+      "en": [
+        "Product regulatory classification",
+        "Assessment of registration and authorisation requirements",
+        "Payments, wallets and open banking",
+        "Customer identification, disclosures and outsourcing",
+        "Support with National Bank submissions"
+      ]
+    },
+    "outputs": {
+      "ka": [
+        "მოქმედი მარეგულირებელი მოთხოვნების შეფასება",
+        "მოთხოვნებთან შესაბამისობისა და ხარვეზების შეფასება",
+        "მოსამზადებელი დოკუმენტების სია და სამოქმედო გეგმა"
+      ],
+      "en": [
+        "Regulatory perimeter assessment",
+        "Requirements and gap assessment",
+        "Documentation list and action plan"
+      ]
+    },
+    "questions": {
+      "ka": [
+        "ვინ იღებს, ინახავს ან გადარიცხავს მომხმარებლის თანხას?",
+        "ვის სახელით სრულდება ოპერაცია და ვინ არიან პარტნიორები?",
+        "რომელ ქვეყნებში ემსახურებით მომხმარებლებს?"
+      ],
+      "en": [
+        "Who receives, holds or transfers customer funds?",
+        "On whose behalf are transactions made and who are the partners?",
+        "In which countries are your customers?"
+      ]
+    },
+    "exclude": {
+      "ka": "პრუდენციული გამოთვლები, AML-აუდიტი და ფინანსური აუდიტი ცალკე თანხმდება შესაბამის სპეციალისტთან. რეგისტრაციის შედეგს მარეგულირებელი წყვეტს.",
+      "en": "Prudential calculations, AML audits and financial audits require specialist scoping. The regulator determines registration outcomes."
+    }
+  },
+  {
+    "id": "crypto",
+    "slug": "virtual-assets",
+    "code": "03 / DIGITAL ASSETS",
+    "name": {
+      "ka": "ვირტუალური აქტივები",
+      "en": "Virtual assets & blockchain"
+    },
+    "summary": {
+      "ka": "ვირტუალური აქტივის სერვისის შეფასება და საქმიანობის დასაწყებად მომზადება.",
+      "en": "Assessment and readiness support for virtual asset services."
+    },
+    "audience": {
+      "ka": "ვირტუალური აქტივის გაცვლის, შენახვისა და გადაცემის სერვისები და ბლოკჩეინპროექტები.",
+      "en": "Virtual asset exchange, custody and transfer services, and blockchain projects."
+    },
+    "scope": {
+      "ka": [
+        "ბიზნესმოდელისა და აქტივის სამართლებრივი შეფასება",
+        "ვირტუალური აქტივის მომსახურების პროვაიდერის (VASP) მოთხოვნების ანალიზი",
+        "რეგისტრაციისთვის საჭირო დოკუმენტების მომზადების მხარდაჭერა",
+        "მმართველობა, მომხმარებლის პირობები და რისკების გამჟღავნება",
+        "AML/CFT-ის საკითხები და გარე მომწოდებლები"
+      ],
+      "en": [
+        "Business model and asset classification",
+        "Virtual asset service provider (VASP) requirements",
+        "Registration documentation support",
+        "Governance, user terms and risk disclosures",
+        "AML/CFT issues and outsourcing"
+      ]
+    },
+    "outputs": {
+      "ka": [
+        "საქმიანობის შეფასება",
+        "მზადყოფნის შემოწმების სია",
+        "დოკუმენტებისა და გამოსასწორებელი საკითხების გეგმა"
+      ],
+      "en": [
+        "Activity assessment",
+        "Readiness checklist",
+        "Documentation and remediation plan"
+      ]
+    },
+    "questions": {
+      "ka": [
+        "ცვლით, ინახავთ თუ გადასცემთ აქტივებს მომხმარებლის სახელით?",
+        "ვინ აკონტროლებს გასაღებებსა და მომხმარებლის აქტივებს?",
+        "სად არიან მომხმარებლები და რა პარტნიორები გყავთ?"
+      ],
+      "en": [
+        "Do you exchange, hold or transfer assets for customers?",
+        "Who controls keys and customer assets?",
+        "Where are your customers and which partners do you use?"
+      ]
+    },
+    "exclude": {
+      "ka": "სმარტკონტრაქტის ტექნიკური აუდიტი, ტოკენის შეფასება და საინვესტიციო რჩევა მომსახურებაში არ შედის.",
+      "en": "Technical smart-contract audits, token valuation and investment advice are excluded."
+    }
+  },
+  {
+    "id": "commerce",
+    "slug": "ecommerce",
+    "code": "07 / PLATFORMS",
+    "name": {
+      "ka": "ელექტრონული კომერცია და პლატფორმები",
+      "en": "Digital commerce & platforms"
+    },
+    "summary": {
+      "ka": "ონლაინგაყიდვის, გამოწერისა და პლატფორმის მუშაობის სამართლებრივი პირობების მოწესრიგება.",
+      "en": "Clear customer journeys and terms tailored to your business model."
+    },
+    "audience": {
+      "ka": "ონლაინმაღაზიები, სავაჭრო პლატფორმები, გამოწერაზე დაფუძნებული სერვისები და სხვა ციფრული ბიზნესი.",
+      "en": "Online shops, marketplaces, subscription services and digital platforms."
+    },
+    "scope": {
+      "ka": [
+        "სარგებლობისა და გამყიდველის პირობები",
+        "ფასის, გადახდისა და გამოწერის შესახებ ინფორმაცია",
+        "გაუქმების, დაბრუნებისა და საჩივრის პროცესები",
+        "რეკლამა, აქციები და პარტნიორული მარკეტინგი",
+        "მომხმარებლის მიერ განთავსებული მასალა და პლატფორმის პასუხისმგებლობა"
+      ],
+      "en": [
+        "User and seller terms",
+        "Pricing, payment and subscription disclosures",
+        "Cancellation, refund and complaint processes",
+        "Advertising, promotions and affiliate marketing",
+        "User content and platform responsibilities"
+      ]
+    },
+    "outputs": {
+      "ka": [
+        "მომხმარებლისთვის განკუთვნილი პროცესების შეფასება",
+        "პირობებისა და შეტყობინებების შესწორებები",
+        "პროდუქტის გუნდის სამოქმედო სია"
+      ],
+      "en": [
+        "Customer journey review",
+        "Revised terms and disclosures",
+        "Product team action list"
+      ]
+    },
+    "questions": {
+      "ka": [
+        "რას ყიდით, ვის და რომელ ქვეყანაში?",
+        "როგორ მუშაობს გადახდა, გამოწერა და თანხის დაბრუნება?",
+        "ვის ეკუთვნის შეთავაზება და მომხმარებლის კონტენტი?"
+      ],
+      "en": [
+        "What do you sell, to whom and where?",
+        "How do payment, renewal and refunds work?",
+        "Who provides the offer and user content?"
+      ]
+    },
+    "exclude": {
+      "ka": "მარკეტინგული კამპანიის შესრულება და ტექნიკური დანერგვა მომსახურებაში არ შედის.",
+      "en": "Campaign execution and technical implementation are excluded."
+    }
+  },
+  {
+    "id": "cyber",
+    "slug": "cyber-digital-risk",
+    "code": "08 / DIGITAL RISK",
+    "name": {
+      "ka": "კიბერუსაფრთხოების სამართლებრივი საკითხები",
+      "en": "Cybersecurity legal & governance"
+    },
+    "summary": {
+      "ka": "კიბერინციდენტების სამართლებრივი შეფასება, შეტყობინების ვალდებულებები და მომწოდებლებთან ხელშეკრულებები.",
+      "en": "Incident response, supplier obligations and digital risk governance."
+    },
+    "audience": {
+      "ka": "კომპანიების იურიდიული, უსაფრთხოების, შესაბამისობისა და შესყიდვების გუნდები.",
+      "en": "Legal, security, compliance and procurement teams."
+    },
+    "scope": {
+      "ka": [
+        "უსაფრთხოების სამართლებრივი და სახელშეკრულებო მოთხოვნები",
+        "ინციდენტზე რეაგირების სამართლებრივი გეგმა",
+        "შეტყობინების ვალდებულებების შეფასება",
+        "მომწოდებლების სახელშეკრულებო პასუხისმგებლობა",
+        "მტკიცებულებებისა და გადაწყვეტილებების დოკუმენტირება"
+      ],
+      "en": [
+        "Legal and contractual security requirements",
+        "Legal incident response playbook",
+        "Notification obligation assessment",
+        "Supplier responsibility and governance",
+        "Evidence and decision records"
+      ]
+    },
+    "outputs": {
+      "ka": [
+        "სამართლებრივი ვალდებულებების შეჯამება",
+        "რეაგირების გეგმა და პასუხისმგებელი პირები",
+        "სახელშეკრულებო დებულებები"
+      ],
+      "en": [
+        "Legal obligations summary",
+        "Response plan and owners",
+        "Contract clauses"
+      ]
+    },
+    "questions": {
+      "ka": [
+        "რა სისტემებსა და მონაცემებს ეხება საკითხი?",
+        "ინციდენტი უკვე მოხდა თუ პრევენციულად მუშაობთ?",
+        "რა ხელშეკრულებები და შიდა პროცედურები გაქვთ?"
+      ],
+      "en": [
+        "Which systems and data are involved?",
+        "Has an incident occurred or is this preventive work?",
+        "What contracts and procedures are in place?"
+      ]
+    },
+    "exclude": {
+      "ka": "შეღწევადობის ტესტირება, უსაფრთხოების მონიტორინგი და ტექნიკური ექსპერტიზა ჩვენი მომსახურება არ არის; საჭიროებისას პარტნიორს ვრთავთ.",
+      "en": "Penetration testing, security monitoring and technical forensics require a specialist partner."
+    }
+  },
+  {
+    "id": "georgia",
+    "slug": "georgia-market-entry",
+    "code": "09 / CROSS-BORDER",
+    "name": {
+      "ka": "საქართველოში საქმიანობის დაწყება და განვითარება",
+      "en": "Doing Business in Georgia"
+    },
+    "summary": {
+      "ka": "ადგილობრივი სამართლებრივი მხარდაჭერა უცხოური ტექნოლოგიური და პროფესიული მომსახურების ბიზნესისთვის — დაფუძნებიდან მიმდინარე საქმიანობამდე.",
+      "en": "Local legal support for international technology and professional-services businesses, from setup to day-to-day operations."
+    },
+    "audience": {
+      "ka": "უცხოური კომპანია ან დამფუძნებელი, რომელიც საქართველოში გუნდს ქმნის, საქმიანობას იწყებს ან ადგილობრივ ოპერაციებს აფართოებს.",
+      "en": "International companies and founders establishing a team, starting operations or expanding their presence in Georgia."
+    },
+    "scope": {
+      "ka": [
+        "საქმიანობის ფორმა, კორპორაციული დოკუმენტები და რეგისტრაციის მხარდაჭერა",
+        "დირექტორისა და წარმომადგენლის უფლებამოსილება",
+        "თანამშრომლებისა და კონტრაქტორების შეთანხმებები, კონფიდენციალურობა და IP",
+        "ადგილობრივი კომერციული ხელშეკრულებები და ჯგუფის სისტემებში მონაცემთა გამოყენება",
+        "საქმიანობისა და მფლობელობის საბუთების ორგანიზება საბანკო შემოწმებისთვის",
+        "საჭიროების მიხედვით საგადასახადო, საბუღალტრო და მიგრაციის სპეციალისტებთან კოორდინაცია"
+      ],
+      "en": [
+        "Business structure, corporate documents and registration support",
+        "Director and representative authority",
+        "Employee and contractor terms, confidentiality and IP",
+        "Local commercial contracts and data use within group systems",
+        "Organising business and ownership documents for bank review",
+        "Coordination with tax, accounting and immigration specialists where needed"
+      ]
+    },
+    "outputs": {
+      "ka": [
+        "საქმიანობის სამართლებრივი გეგმა",
+        "შეთანხმებული კორპორაციული და კომერციული დოკუმენტები",
+        "გუნდისა და მონაცემების საკითხების მოწესრიგება",
+        "მიმდინარე დახმარების ან პარტნიორებთან კოორდინაციის გეგმა"
+      ],
+      "en": [
+        "A legal setup plan",
+        "Agreed corporate and commercial documents",
+        "Employment and data arrangements",
+        "A plan for ongoing support or specialist coordination"
+      ]
+    },
+    "questions": {
+      "ka": [
+        "რა საქმიანობას გეგმავთ საქართველოში?",
+        "გყავთ ადგილობრივი გუნდი და პარტნიორები?",
+        "რა ვადაში გსურთ მუშაობის დაწყება?"
+      ],
+      "en": [
+        "What will the business do in Georgia?",
+        "Do you have a local team or partners?",
+        "When do you intend to start operating?"
+      ]
+    },
+    "exclude": {
+      "ka": "ბანკი და შესაბამისი ორგანოები გადაწყვეტილებებს დამოუკიდებლად იღებენ. საგადასახადო, საბუღალტრო და სპეციალიზებულ მიგრაციულ საკითხებზე შესაბამისი პროფესიონალები მუშაობენ.",
+      "en": "Banks and public authorities make their own decisions. Tax, accounting and specialist immigration work is handled by the appropriate professionals."
+    }
+  },
+  {
+    "id": "ip",
+    "slug": "intellectual-property",
+    "code": "10 / IP + TECH ASSETS",
+    "name": {
+      "ka": "ინტელექტუალური საკუთრება და ტექნოლოგიური აქტივები",
+      "en": "Intellectual property & technology assets"
+    },
+    "summary": {
+      "ka": "პროგრამულ უზრუნველყოფაზე, ბრენდზე, კონტენტსა და სხვა ციფრულ აქტივებზე უფლებების განსაზღვრა და ლიცენზირება.",
+      "en": "Ownership and licensing of software, brands, content and other digital assets."
+    },
+    "audience": {
+      "ka": "ტექნოლოგიური კომპანიები, სტარტაპები, პროდუქტის გუნდები და ინვესტორები, რომლებსაც ციფრულ აქტივებზე საკუთრებისა და გამოყენების უფლებების მკაფიოდ განსაზღვრა სჭირდებათ.",
+      "en": "Technology companies, startups, product teams and investors that need clear ownership and usage rights in digital assets."
+    },
+    "scope": {
+      "ka": [
+        "პროგრამულ კოდზე, დიზაინზე, მონაცემთა ბაზაზე, კონტენტსა და სხვა ციფრულ აქტივებზე უფლებები",
+        "დამფუძნებლების, თანამშრომლებისა და კონტრაქტორების მიერ შექმნილი ინტელექტუალური საკუთრება",
+        "ლიცენზირება, SaaS, API, ღია კოდი და მესამე მხარის კომპონენტები",
+        "ბრენდი, სავაჭრო ნიშნები, დომენები და ციფრული იდენტობა",
+        "ინვესტიციის, პარტნიორობის ან ტრანზაქციის წინ ინტელექტუალური საკუთრების უფლებების შემოწმება"
+      ],
+      "en": [
+        "Rights in software code, design, databases, content and other digital assets",
+        "IP created by founders, employees and contractors",
+        "Licensing, SaaS, APIs, open source and third-party components",
+        "Brands, trade marks, domains and digital identity",
+        "IP review before investment, partnerships or transactions"
+      ]
+    },
+    "outputs": {
+      "ka": [
+        "უფლებებისა და საკუთრების მდგომარეობის შეფასება",
+        "საჭირო ხელშეკრულებები, უფლებების გადაცემის ან სალიცენზიო დოკუმენტები",
+        "პრიორიტეტული ნაბიჯები ბრენდისა და ტექნოლოგიური აქტივების დასაცავად"
+      ],
+      "en": [
+        "Ownership and rights assessment",
+        "Required assignment, licensing or contractual documents",
+        "Priority actions to protect brand and technology assets"
+      ]
+    },
+    "questions": {
+      "ka": [
+        "ვინ შექმნა კოდი, დიზაინი, კონტენტი და ბრენდის ძირითადი ელემენტები?",
+        "რა ხელშეკრულებებით არის უფლებები გადაცემული ან ლიცენზირებული?",
+        "იყენებთ ღია კოდის, მესამე მხარის ან ხელოვნური ინტელექტით გენერირებულ მასალებს?"
+      ],
+      "en": [
+        "Who created the code, design, content and core brand assets?",
+        "Which agreements assign or license those rights?",
+        "Do you use open-source, third-party or AI-generated materials?"
+      ]
+    },
+    "exclude": {
+      "ka": "პატენტის ტექნიკური მომზადება, სპეციალიზებული რეგისტრაციის პროცედურები და ინტელექტუალური საკუთრების სასამართლო დავები საჭიროების შემთხვევაში შესაბამის სპეციალისტებთან კოორდინირდება.",
+      "en": "Patent drafting, specialist filing work and IP litigation are coordinated with relevant specialists where required."
+    }
+  }
 ];
-export const solutions=[
- ['product-launch','product','ციფრული პროდუქტის გაშვებამდე შეფასება','Digital Product Launch Review','რა უნდა მოვაწესრიგოთ პროდუქტის გაშვებამდე?','What should we resolve before launch?'],
- ['fintech-assessment','fintech','ფინტექპროდუქტის რეგულირების შეფასება','FinTech Regulatory Assessment','რა მოთხოვნები ვრცელდება ჩვენს ბიზნესმოდელზე?','Which requirements apply to our business model?'],
- ['vasp-readiness','crypto','VASP-ის საქმიანობისთვის მომზადება','VASP Readiness','რა გვჭირდება ვირტუალური აქტივის სერვისის დასაწყებად?','What do we need to start a virtual asset service?'],
- ['ai-governance','ai','ხელოვნური ინტელექტის გამოყენების წესები','AI Governance Starter','როგორ გამოიყენოს გუნდმა ხელოვნური ინტელექტი პასუხისმგებლობით?','How should our team use AI responsibly?'],
- ['ai-product','ai','ხელოვნური ინტელექტის პროდუქტის შეფასება','AI Product Legal Review','რა სამართლებრივი საკითხები აქვს ჩვენს სისტემას?','Which legal issues does our AI system raise?'],
- ['privacy-review','data-protection','მონაცემთა დაცვის მდგომარეობის შეფასება','Privacy Compliance Review','რამდენად გამართულია ჩვენი მონაცემთა დამუშავების პროცესი?','How well are our data processes organised?'],
- ['contract-review','contracts','ტექნოლოგიური ხელშეკრულების შემოწმება','Technology Contract Review','რას ვაწერთ ხელს და რა უნდა შეიცვალოს?','What are we signing and what should change?'],
- ['enter-georgia','georgia','ციფრული ბიზნესის დაწყება საქართველოში','Enter Georgia','როგორ მოვარგოთ ჩვენი ბიზნესი ქართულ ბაზარს?','How do we adapt our business for Georgia?'],
- ['ip-ownership','ip','ტექნოლოგიური აქტივების უფლებების შემოწმება','Technology IP Ownership Review','ვინ ფლობს ჩვენს კოდს, ბრენდს და კონტენტს?','Who owns our code, brand and content?'],
- ['external-counsel','ongoing','თქვენი გუნდის გარე იურისტი','External Digital Counsel','გვჭირდება იურისტი მიმდინარე ციფრული და ტექნოლოგიური საკითხებისთვის.','We need ongoing digital and technology legal support.']
-].map(([id,practice,ka,en,qka,qen])=>({id,practice,name:pair(ka,en),question:pair(qka,qen)}));
-export const stages=pair(['გაცნობა','საკითხის განსაზღვრა','სამართლებრივი შეფასება','გამოსავლის დაგეგმვა','დანერგვა','გაშვებამდე შემოწმება','მიმდინარე მხარდაჭერა'],['Understand','Scope','Assess','Plan','Implement','Launch review','Maintain']);
-const ongoing={id:'ongoing',name:pair('გარე იურიდიული მხარდაჭერა','External Digital Counsel'),scope:pair(['სამუშაოს ყოველთვიური მოცულობა და პრიორიტეტები','ხელშეკრულებებისა და ტექნოლოგიური საკითხების განხილვა','პროდუქტი, მონაცემები, ხელოვნური ინტელექტი და მომწოდებლები','რეგულირების ცვლილებების შეთანხმებული პერიოდული შეფასება'],['Monthly capacity and priorities','Contract and technology matters','Product, data, AI and vendors','Agreed periodic regulatory change review']),questions:pair(['რა სახის საკითხები და რა სიხშირით გიგროვდებათ?','ვინ არის საკონტაქტო პირი და როგორ თანხმდება პრიორიტეტები?','რა სამუშაო შედის ყოველთვიურ მოცულობაში და რა საჭიროებს ცალკე შეთანხმებას?'],['Which matters arise and how often?','Who is the contact and how are priorities agreed?','What is included monthly and what needs separate scoping?']),outputs:pair(['მიმდინარე საკითხების შეთანხმებული სია','დოკუმენტები და პრაქტიკული რჩევები','ყოველთვიური მიმოხილვა და შემდეგი პერიოდის გეგმა'],['Agreed live matter list','Documents and practical advice','Monthly review and next-period plan']),exclude:pair('სასამართლო წარმოება, ტექნიკური აუდიტი, უცხოური სამართლის ფორმალური დასკვნა და შეთანხმებულ მოცულობაზე მეტი სამუშაო ცალკე თანხმდება.','Litigation, technical audits, formal foreign-law opinions and work beyond the agreed capacity are scoped separately.')};
-export const getPractice=id=>id==='ongoing'?ongoing:practices.find(p=>p.id===id)||practices[0];
+
+export const solutions = [
+  {
+    "id": "product-launch",
+    "practice": "product",
+    "name": {
+      "ka": "ციფრული პროდუქტის გაშვებამდე შეფასება",
+      "en": "Digital Product Launch Review"
+    },
+    "question": {
+      "ka": "რა უნდა მოვაწესრიგოთ პროდუქტის გაშვებამდე?",
+      "en": "What should we resolve before launch?"
+    }
+  },
+  {
+    "id": "fintech-assessment",
+    "practice": "fintech",
+    "name": {
+      "ka": "ფინტექპროდუქტის რეგულირების შეფასება",
+      "en": "FinTech Regulatory Assessment"
+    },
+    "question": {
+      "ka": "რა მოთხოვნები ვრცელდება ჩვენს ბიზნესმოდელზე?",
+      "en": "Which requirements apply to our business model?"
+    }
+  },
+  {
+    "id": "vasp-readiness",
+    "practice": "crypto",
+    "name": {
+      "ka": "VASP-ის საქმიანობისთვის მომზადება",
+      "en": "VASP Readiness"
+    },
+    "question": {
+      "ka": "რა გვჭირდება ვირტუალური აქტივის სერვისის დასაწყებად?",
+      "en": "What do we need to start a virtual asset service?"
+    }
+  },
+  {
+    "id": "ai-governance",
+    "practice": "ai",
+    "name": {
+      "ka": "ხელოვნური ინტელექტის გამოყენების წესები",
+      "en": "AI Governance Starter"
+    },
+    "question": {
+      "ka": "როგორ გამოიყენოს გუნდმა ხელოვნური ინტელექტი პასუხისმგებლობით?",
+      "en": "How should our team use AI responsibly?"
+    }
+  },
+  {
+    "id": "ai-product",
+    "practice": "ai",
+    "name": {
+      "ka": "ხელოვნური ინტელექტის პროდუქტის შეფასება",
+      "en": "AI Product Legal Review"
+    },
+    "question": {
+      "ka": "რა სამართლებრივი საკითხები აქვს ჩვენს სისტემას?",
+      "en": "Which legal issues does our AI system raise?"
+    }
+  },
+  {
+    "id": "privacy-review",
+    "practice": "data-protection",
+    "name": {
+      "ka": "პერსონალურ მონაცემთა დაცვის შესაბამისობის შეფასება",
+      "en": "Privacy Compliance Review"
+    },
+    "question": {
+      "ka": "რამდენად გამართულია ჩვენი მონაცემთა დამუშავების პროცესი?",
+      "en": "How well are our data processes organised?"
+    }
+  },
+  {
+    "id": "contract-review",
+    "practice": "contracts",
+    "name": {
+      "ka": "ტექნოლოგიური ხელშეკრულების შემოწმება",
+      "en": "Technology Contract Review"
+    },
+    "question": {
+      "ka": "რას ვაწერთ ხელს და რა უნდა შეიცვალოს?",
+      "en": "What are we signing and what should change?"
+    }
+  },
+  {
+    "id": "enter-georgia",
+    "practice": "georgia",
+    "name": {
+      "ka": "ციფრული ბიზნესის დაწყება საქართველოში",
+      "en": "Enter Georgia"
+    },
+    "question": {
+      "ka": "როგორ მოვარგოთ ჩვენი ბიზნესი ქართულ ბაზარს?",
+      "en": "How do we adapt our business for Georgia?"
+    }
+  },
+  {
+    "id": "ip-ownership",
+    "practice": "ip",
+    "name": {
+      "ka": "ტექნოლოგიური აქტივების უფლებების შემოწმება",
+      "en": "Technology IP Ownership Review"
+    },
+    "question": {
+      "ka": "ვინ ფლობს ჩვენს კოდს, ბრენდს და კონტენტს?",
+      "en": "Who owns our code, brand and content?"
+    }
+  },
+  {
+    "id": "international-client",
+    "practice": "contracts",
+    "name": {
+      "ka": "საერთაშორისო კლიენტთან თანამშრომლობა",
+      "en": "International Client Readiness"
+    },
+    "question": {
+      "ka": "რა უნდა მოვამზადოთ უცხოელი კლიენტის მოთხოვნებისთვის?",
+      "en": "What do we need for an international client’s requirements?"
+    }
+  },
+  {
+    "id": "ai-vendor",
+    "practice": "ai",
+    "name": {
+      "ka": "AI-მომწოდებლის შეფასება",
+      "en": "AI Supplier Review"
+    },
+    "question": {
+      "ka": "რა უნდა შევამოწმოთ AI-სერვისის შეძენამდე?",
+      "en": "What should we review before buying an AI service?"
+    }
+  },
+  {
+    "id": "contract-workflow",
+    "practice": "legal-operations",
+    "name": {
+      "ka": "ხელშეკრულების პროცესის გამართვა",
+      "en": "Contract Workflow Review"
+    },
+    "question": {
+      "ka": "სად ფერხდება გზა მოთხოვნიდან ხელმოწერამდე?",
+      "en": "Where does the route from request to signature get stuck?"
+    }
+  },
+  {
+    "id": "external-counsel",
+    "practice": "ongoing",
+    "name": {
+      "ka": "თქვენი გუნდის გარე იურისტი",
+      "en": "External Digital Counsel"
+    },
+    "question": {
+      "ka": "გვჭირდება იურისტი მიმდინარე ციფრული და ტექნოლოგიური საკითხებისთვის.",
+      "en": "We need ongoing digital and technology legal support."
+    }
+  }
+];
+
+export const stages = {
+  "ka": [
+    "გაცნობა",
+    "საკითხის განსაზღვრა",
+    "სამართლებრივი შეფასება",
+    "გამოსავლის დაგეგმვა",
+    "დანერგვა",
+    "გაშვებამდე შემოწმება",
+    "მიმდინარე მხარდაჭერა"
+  ],
+  "en": [
+    "Understand",
+    "Scope",
+    "Assess",
+    "Plan",
+    "Implement",
+    "Launch review",
+    "Maintain"
+  ]
+};
+
+export const primaryIds = [
+  "contracts",
+  "data-protection",
+  "ai",
+  "product",
+  "legal-operations",
+  "ongoing"
+];
+
+export const businessPaths = [
+  {
+    "id": "georgia",
+    "slug": "georgia",
+    "label": {
+      "ka": "საქართველოში საქმიანობა",
+      "en": "Doing business in Georgia"
+    },
+    "name": {
+      "ka": "საქართველოში საქმიანობის დაწყება და განვითარება",
+      "en": "Doing Business in Georgia"
+    },
+    "summary": {
+      "ka": "ადგილობრივი სამართლებრივი მხარდაჭერა უცხოური ტექნოლოგიური და პროფესიული მომსახურების ბიზნესისთვის — დაფუძნებიდან მიმდინარე საქმიანობამდე.",
+      "en": "Local legal support for international technology and professional-services businesses, from setup to day-to-day operations."
+    },
+    "question": {
+      "ka": "საქართველოში გუნდს ან ბიზნესს ქმნით?",
+      "en": "Establishing a team or business in Georgia?"
+    },
+    "intro": {
+      "ka": "უცხოური კომპანია ან დამფუძნებელი, რომელიც საქართველოში გუნდს ქმნის, საქმიანობას იწყებს ან ადგილობრივ ოპერაციებს აფართოებს.",
+      "en": "International companies and founders establishing a team, starting operations or expanding their presence in Georgia."
+    },
+    "scope": {
+      "ka": [
+        "საქმიანობის ფორმა, კორპორაციული დოკუმენტები და რეგისტრაციის მხარდაჭერა",
+        "დირექტორისა და წარმომადგენლის უფლებამოსილება",
+        "თანამშრომლებისა და კონტრაქტორების შეთანხმებები, კონფიდენციალურობა და IP",
+        "ადგილობრივი კომერციული ხელშეკრულებები და ჯგუფის სისტემებში მონაცემთა გამოყენება",
+        "საქმიანობისა და მფლობელობის საბუთების ორგანიზება საბანკო შემოწმებისთვის",
+        "საჭიროების მიხედვით საგადასახადო, საბუღალტრო და მიგრაციის სპეციალისტებთან კოორდინაცია"
+      ],
+      "en": [
+        "Business structure, corporate documents and registration support",
+        "Director and representative authority",
+        "Employee and contractor terms, confidentiality and IP",
+        "Local commercial contracts and data use within group systems",
+        "Organising business and ownership documents for bank review",
+        "Coordination with tax, accounting and immigration specialists where needed"
+      ]
+    },
+    "outputs": {
+      "ka": [
+        "საქმიანობის სამართლებრივი გეგმა",
+        "შეთანხმებული კორპორაციული და კომერციული დოკუმენტები",
+        "გუნდისა და მონაცემების საკითხების მოწესრიგება",
+        "მიმდინარე დახმარების ან პარტნიორებთან კოორდინაციის გეგმა"
+      ],
+      "en": [
+        "A legal setup plan",
+        "Agreed corporate and commercial documents",
+        "Employment and data arrangements",
+        "A plan for ongoing support or specialist coordination"
+      ]
+    },
+    "services": [
+      "georgia",
+      "contracts",
+      "data-protection",
+      "ongoing"
+    ],
+    "note": {
+      "ka": "ბანკი და შესაბამისი ორგანოები გადაწყვეტილებებს დამოუკიდებლად იღებენ. საგადასახადო, საბუღალტრო და სპეციალიზებულ მიგრაციულ საკითხებზე შესაბამისი პროფესიონალები მუშაობენ.",
+      "en": "Banks and public authorities make their own decisions. Tax, accounting and specialist immigration work is handled by the appropriate professionals."
+    }
+  },
+  {
+    "id": "international",
+    "slug": "international",
+    "label": {
+      "ka": "საერთაშორისო თანამშრომლობა",
+      "en": "Working internationally"
+    },
+    "name": {
+      "ka": "საერთაშორისო კლიენტთან თანამშრომლობისთვის მომზადება",
+      "en": "International Expansion & Client Readiness"
+    },
+    "question": {
+      "ka": "უცხოელ კლიენტთან თანამშრომლობას იწყებთ?",
+      "en": "Preparing to work with an international client?"
+    },
+    "summary": {
+      "ka": "ხელშეკრულებები, მონაცემები, IP და შესყიდვის მოთხოვნები — ერთიანი სამართლებრივი მხარდაჭერა საერთაშორისო გარიგებისთვის.",
+      "en": "Contracts, data, IP and procurement requirements brought together for your cross-border deal."
+    },
+    "intro": {
+      "ka": "ქართული IT, SaaS და AI კომპანიებისთვის, სააგენტოებისა და მომსახურების მიმწოდებლებისთვის, რომლებიც უცხოელ კლიენტთან ხელშეკრულებას აფორმებენ ან ახალ ბაზარზე გადიან.",
+      "en": "For Georgian IT, SaaS and AI companies, agencies and service providers signing with an international client or entering a new market."
+    },
+    "scope": {
+      "ka": [
+        "კონკრეტული კლიენტის, ქვეყნის, პროდუქტისა და B2B/B2C მოდელის განსაზღვრა",
+        "მომსახურების ხელშეკრულება, სამუშაოს მოცულობა, მიღება, გადახდა და პასუხისმგებლობა",
+        "მონაცემთა დამუშავებისა და საერთაშორისო გადაცემის პირობები",
+        "კოდზე, კონტენტსა და სხვა აქტივებზე უფლებების ჯაჭვი",
+        "კლიენტის სამართლებრივი კითხვარები, მომწოდებლის დოკუმენტები და ხარვეზების გეგმა",
+        "პარტნიორის, დისტრიბუტორისა და თანამშრომლობის დასრულების პირობები"
+      ],
+      "en": [
+        "Define the client, market, product and B2B or B2C model",
+        "Service agreement, scope, acceptance, payment and liability",
+        "Data processing and international transfer arrangements",
+        "Chain of rights in code, content and other assets",
+        "Legal procurement questionnaires, supplier evidence and a gap plan",
+        "Partner, distribution and exit arrangements"
+      ]
+    },
+    "outputs": {
+      "ka": [
+        "შესწორებული ხელშეკრულებები და მოლაპარაკების პოზიციები",
+        "მონაცემებისა და IP-ის საკითხების შეფასება",
+        "კლიენტის მოთხოვნებისთვის დოკუმენტების მომზადება",
+        "გუნდზე გასანაწილებელი მოქმედებების გეგმა"
+      ],
+      "en": [
+        "Reviewed agreements and negotiation positions",
+        "Data protection and IP assessment",
+        "Documentation for the client’s requirements",
+        "An actionable plan for the team"
+      ]
+    },
+    "services": [
+      "contracts",
+      "data-protection",
+      "ai",
+      "product"
+    ],
+    "note": {
+      "ka": "ვიწყებთ კონკრეტული ბაზრითა და გარიგებით. უცხოური ადგილობრივი სამართლისა და გადასახადების საკითხებზე შესაბამისი სპეციალისტები ერთვებიან; ტექნიკურ მტკიცებულებებს კლიენტის IT/უსაფრთხოების გუნდი ადასტურებს.",
+      "en": "We start with a specific market and deal. Local foreign-law and tax questions involve the appropriate specialists; the client’s IT and security team validates technical evidence."
+    }
+  },
+  {
+    "id": "growing",
+    "slug": "growing-business",
+    "label": {
+      "ka": "მზარდი ბიზნესის მხარდაჭერა",
+      "en": "Support for growing businesses"
+    },
+    "name": {
+      "ka": "იურიდიული მხარდაჭერა თქვენი ბიზნესის ზრდასთან ერთად",
+      "en": "Legal Support as Your Business Grows"
+    },
+    "question": {
+      "ka": "ბიზნესი იზრდება და საკითხებიც ემატება?",
+      "en": "Growing business, growing legal workload?"
+    },
+    "summary": {
+      "ka": "პარტნიორები, თანამშრომლები, ტექნოლოგია და ახალი პროდუქტები — შეთანხმებული დახმარება თქვენი ბიზნესის ყოველდღიურ გადაწყვეტილებებში.",
+      "en": "Partners, people, technology and new products: agreed support for everyday business decisions."
+    },
+    "intro": {
+      "ka": "მზარდი ქართული და საერთაშორისო კომპანიებისთვის, რომლებსაც იურიდიული დახმარება რეგულარულად სჭირდებათ ან შიდა გუნდის გაძლიერება უნდათ.",
+      "en": "For growing Georgian and international businesses needing regular legal input or additional capacity alongside an in-house team."
+    },
+    "scope": {
+      "ka": [
+        "მიმდინარე კომერციული ხელშეკრულებები და მომწოდებლები",
+        "თანამშრომლებისა და კონტრაქტორების პირობები, კონფიდენციალურობა და IP",
+        "CRM-ის, HR-სისტემის, ღრუბლოვანი სერვისისა და AI-ის შეძენა",
+        "მონაცემები, ონლაინგაყიდვა და ციფრული პროდუქტების ცვლილებები",
+        "ხელშეკრულებების შეთანხმების, შენახვისა და ვადების კონტროლი"
+      ],
+      "en": [
+        "Commercial agreements and suppliers",
+        "Employee and contractor terms, confidentiality and IP",
+        "CRM, HR systems, cloud services and AI procurement",
+        "Data, online sales and digital product changes",
+        "Contract approvals, storage and deadline tracking"
+      ]
+    },
+    "outputs": {
+      "ka": [
+        "შეთანხმებული მოცულობის მიმდინარე დახმარება",
+        "პრიორიტეტული საკითხებისა და ვადების სია",
+        "საჭირო დოკუმენტები და პრაქტიკული რეკომენდაციები",
+        "პერიოდული მიმოხილვა და მომდევნო ნაბიჯები"
+      ],
+      "en": [
+        "Ongoing support within an agreed scope",
+        "Prioritised matters and deadlines",
+        "Documents and practical recommendations",
+        "Periodic reviews and next steps"
+      ]
+    },
+    "services": [
+      "ongoing",
+      "contracts",
+      "legal-operations",
+      "data-protection"
+    ],
+    "note": {
+      "ka": "შეგვიძლია დავიწყოთ ერთი ხელშეკრულებით ან პროცესით და რეგულარული საჭიროების შემთხვევაში შევათანხმოთ მიმდინარე მხარდაჭერა.",
+      "en": "Start with one agreement or process, then agree ongoing support when there is a recurring need."
+    }
+  }
+];
+export const getPractice=id=>practices.find(p=>p.id===id)||practices[0];
 export function scopeAreas({product='product',features=[],market='georgia'}={}){
  const ids=new Set(['product','contracts','ip']);
  if(['fintech','crypto','ai','commerce'].includes(product))ids.add(product);
- if(product==='saas')ids.add('data-protection');
- if(features.includes('data'))ids.add('data-protection');
+ if(product==='saas'||features.includes('data'))ids.add('data-protection');
  if(features.includes('payments'))ids.add('fintech');
  if(features.includes('ai'))ids.add('ai');
  if(features.includes('consumer'))ids.add('commerce');
  if(features.includes('critical'))ids.add('cyber');
- if(market!=='georgia')ids.add('georgia');
+ if(market==='enter-georgia')ids.add('georgia');
  return practices.filter(p=>ids.has(p.id));
 }
 export function deliveryBlueprint(id,lang='ka'){
  const solution=solutions.find(s=>s.id===id);const p=getPractice(solution?.practice||id);
- if(id==='ai-governance')return {practice:p,solution,questions:pair(['რომელ ხელსაწყოებს იყენებს გუნდი და რა სამუშაოსთვის?','ხვდება თუ არა ხელსაწყოებში კონფიდენციალური ან პერსონალური ინფორმაცია?','ვინ ამტკიცებს ახალ ხელსაწყოს და ვინ ამოწმებს შედეგს?'],['Which tools are used and for which tasks?','Is confidential or personal information entered?','Who approves tools and reviews outputs?'])[lang],checks:pair(['დაშვებული ხელსაწყოების სია და აკრძალული გამოყენება','მონაცემთა დაცვისა და კონფიდენციალურობის წესები','მომწოდებლის პირობები და შესყიდვის პროცესი','ადამიანის ზედამხედველობა და ინციდენტის შეტყობინება','პასუხისმგებელი პირები და თანამშრომელთა ინსტრუქტაჟი'],['Approved tools and prohibited uses','Data and confidentiality rules','Provider terms and procurement process','Human oversight and incident escalation','Governance owners and staff briefing'])[lang],outputs:pair(['ხელოვნური ინტელექტის გამოყენების პოლიტიკა','ხელსაწყოს დამტკიცების კითხვარი','დანერგვისა და გადამოწმების გეგმა'],['AI use policy','Tool approval questionnaire','Implementation and review plan'])[lang],exclusion:p.exclude[lang]};
  return {practice:p,solution,questions:p.questions[lang],checks:p.scope[lang],outputs:p.outputs[lang],exclusion:p.exclude[lang]};
 }
