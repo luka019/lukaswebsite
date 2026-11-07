@@ -52,7 +52,7 @@ try{
    verify(box.heading&&box.heading.width<=width&&box.heading.height<270,'Hero heading disproportionate at '+width+'px: '+JSON.stringify(box.heading));
    verify(box.brandDirection==='column','Brand lock-up is not vertically aligned at '+width);
    verify(box.header&&box.hero&&Math.abs(box.hero.top-box.header.bottom)<6,'Gap between header and hero at '+width);
-   verify(box.headerColour===box.heroColour,'Masthead and hero surfaces do not match at '+width);
+   verify(box.headerColour!==box.heroColour,'White masthead must contrast with navy hero at '+width);
    if(width<=700){
      verify(!box.navVisible&&box.menuVisible,'Responsive menu visibility incorrect at '+width);
      await page.locator('[data-menu-toggle]').click();
@@ -98,7 +98,7 @@ try{
    }
    await page.locator('[data-language="ka"]').click();
    verify((await page.locator('h1').innerText()).includes('იურიდიული მომსახურება'),'Georgian language switch failed at '+width);
-   verify((await page.locator('.dlg-illustration svg').count())===4,'Original topic illustrations missing at '+width);
+   verify(await page.locator('.firm-photo img').evaluate(img=>img.complete&&img.naturalWidth>0),'Architectural photograph missing at '+width);
    verify(await page.locator('[data-lens-controls]').isVisible(),'Legal lens controls missing at '+width);
    await page.locator('[data-lens-choice="ai"]').click();
    verify(await page.locator('[data-lens-panel="ai"]').isVisible(),'AI lens panel did not open at '+width);
@@ -109,10 +109,6 @@ try{
    verify(await page.locator('[data-lens-panel="contracts"]').isVisible(),'Keyboard selection did not switch lens content at '+width);
    if((await page.locator('[data-hero-rotator]').getAttribute('data-motion-paused'))!=='true')await page.locator('[data-hero-pause]').click();
    verify((await page.locator('html').getAttribute('data-motion-paused'))==='true','Global motion preference missing at '+width);
-   await page.locator('.practice-toggle').last().click();
-   verify(await page.locator('.practice-folio').last().getAttribute('open')!==null,'Service folio did not open at '+width);
-   verify(await page.locator('.practice-folio').last().locator('a').isVisible(),'Service folio link is not accessible at '+width);
-   await page.locator('.practice-toggle').first().click();
    const portrait=page.locator('.law-about-image img');
    await portrait.scrollIntoViewIfNeeded();
    await page.waitForFunction(()=>{const img=document.querySelector('.law-about-image img');return img&&img.complete&&img.naturalWidth>0;},null,{timeout:8000});
