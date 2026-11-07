@@ -39,7 +39,7 @@ try{
      return {
        docWidth:document.documentElement.scrollWidth,screenWidth:innerWidth,
        header:rect('.site-header'),hero:rect('.dlg-editorial-hero'),
-       brand:rect('.law-brand'),nav:rect('.law-nav'),cta:rect('.law-header-cta'),
+       brand:rect('.law-brand'),nav:rect('.law-nav'),cta:rect('.law-header-cta'),visual:rect('.dlg-photo-feature'),
        heading:rect('.dlg-editorial-hero h1'),brandDirection:getComputedStyle(document.querySelector('.site-header .law-brand-text')).flexDirection,
        navVisible:getComputedStyle(document.querySelector('.law-nav')).display!=='none',
        menuVisible:getComputedStyle(document.querySelector('[data-menu-toggle]')).display!=='none',
@@ -53,7 +53,7 @@ try{
    verify(box.brandDirection==='column','Brand lock-up is not vertically aligned at '+width);
    verify(box.header&&box.hero&&Math.abs(box.hero.top-box.header.bottom)<6,'Gap between header and hero at '+width);
    verify(box.headerColour===box.heroColour,'Masthead and hero surfaces do not match at '+width);
-   if(width<=1120){
+   if(width<=700){
      verify(!box.navVisible&&box.menuVisible,'Responsive menu visibility incorrect at '+width);
      await page.locator('[data-menu-toggle]').click();
      verify(await page.locator('#site-nav').evaluate(x=>x.classList.contains('open')),'Menu did not open at '+width);
@@ -61,7 +61,8 @@ try{
      verify((await page.locator('[data-menu-toggle]').getAttribute('aria-expanded'))==='false','Escape did not close menu at '+width);
    }else{
      verify(box.navVisible&&!box.menuVisible,'Desktop navigation visibility incorrect at '+width);
-     verify(box.nav&&box.cta&&box.nav.right<box.cta.x+2,'Navigation overlaps CTA at '+width);
+     verify(box.nav&&box.cta&&(box.nav.right<=box.cta.x+2||box.nav.top>=box.cta.bottom-2),'Navigation overlaps CTA at '+width);
+     verify(box.visual&&box.heading&&(box.heading.right<=box.visual.x+2),'Hero text overlaps artwork at '+width);
    }
    verify((await page.locator('.law-services .law-service').count())===6,'Wrong services count at '+width);
    if(width<=700){
@@ -78,10 +79,12 @@ try{
    verify((await page.locator('[data-hero-topic]').count())===4,'Wrong carousel selector count');
    const mainCTA=page.locator('.dlg-editorial-hero .law-button-primary');
    verify((await mainCTA.getAttribute('href'))?.startsWith('mailto:'),'Hero CTA not linked to email');
+   await page.locator('[data-hero-pause]').click();
+   verify((await page.locator('[data-hero-rotator]').getAttribute('data-motion-paused'))==='true','Pause does not stop decorative motion at '+width);
    await page.locator('[data-hero-topic="privacy"]').click();
    verify(await page.locator('[data-hero-slide="privacy"]').evaluate(x=>x.classList.contains('is-current')),'Carousel privacy tab failed at '+width);
    await page.locator('[data-language="en"]').click();
-   verify((await page.locator('h1').innerText()).includes('Legal support for technology businesses'),'English language switch failed at '+width);
+   verify((await page.locator('h1').innerText()).includes('Legal clarity for'),'English language switch failed at '+width);
    await page.locator('[data-language="ka"]').click();
    verify((await page.locator('h1').innerText()).includes('იურიდიული მხარდაჭერა'),'Georgian language switch failed at '+width);
    const portrait=page.locator('.law-about-image img');

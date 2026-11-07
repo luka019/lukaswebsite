@@ -27,7 +27,7 @@ The GitHub repository is public. Drafts are excluded from the deployed site but 
 
 WhatsApp: https://wa.me/995598451132 (+995 598 45 11 32). Contact links send no message without the visitor's action.
 
-The default interface is English; `?lang=ka` opens Georgian. Resources contain both full-language versions. Language preference is the only item stored in the visitor's browser.
+The default interface is Georgian; `?lang=en` opens English and `?lang=ka` opens Georgian. An explicit query overrides the saved preference. Resources contain both full-language versions. Language preference is the only item stored in the visitor's browser.
 
 ## Direct contact form
 
@@ -49,11 +49,21 @@ Supporting services cover corporate and banking documentation, employment, inves
 
 The resource hub contains practical guides, cover images, internal pages, search, topic/format filters, print-to-PDF and related resources. The old raw official-source catalogue has been removed. Reference links appear only within relevant resources. Publishing and archival happen through the separate admin panel.
 
-The founder's profile highlights London education, Chevening, BDO Legal, public-sector experience and the two years of LegalStepy involvement and CEO role described by the founder. Team support is described by expertise; Luka is the only individually featured professional.
+The founder’s profile highlights London education, Chevening, BDO Georgia and public-sector experience. Luka is the only individually featured professional. Public copy excludes unverified numerical experience claims.
 
 **Digital Law Georgia** is the website's working brand. This website update does not establish a registered company or confirm trade-name, trademark or domain availability. The footer identifies Luka Shakhkulashvili as the person with whom services are agreed.
 
 University and employer references describe experience, not endorsements. The LLM is described as a programme/studies without an unconfirmed award date. There are no invented client logos, testimonials, headcounts, addresses, fees or response-time guarantees. Banking and regulatory outcomes are not guaranteed. Foreign-law and technical work are scoped with appropriately qualified specialists.
+
+## Visual system and domain preparation
+
+The 7 November 2026 design integrates the header, concise bilingual introduction and four illustrated service scenes. `firm.css` owns public typography, layout, components and responsive rules. The former premium/upgrade/reference patch stylesheets are retired. `styles.css` retains resource/base layouts; `digital.css` contains service-page layouts and loads before the shared public design.
+
+Four original inline SVG scenes illustrate contracts, personal data, FinTech and AI. The illustrations make no client or compliance-status claims. The same control pauses the decorative animation and eight-second service rotation; reduced-motion preference, focus, hover, document visibility and manual interaction are respected.
+
+The intended future domain is `digitallaw.ge`. It has not been purchased, attached or represented as live. After domain ownership and hosting verification, set the existing build variable `SITE_URL=https://digitallaw.ge`; the build uses it for canonical URLs, social metadata, structured data, robots and the sitemap. Keep the existing contact email until a new mailbox is configured and tested.
+
+LTA (`https://www.lta.ge/ge`) was reviewed as a benchmark for visual coherence, navigation, proportion, motion and service discovery. Its branding, artwork, content, client claims and site structure are not reused.
 
 ## Design references and assets
 

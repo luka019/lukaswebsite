@@ -1,5 +1,5 @@
 /* DLG public navigation and accessible scroll utilities.
-   The main photo carousel is managed by firm-hero.js. */
+   The illustrated service carousel is managed by firm-hero.js. */
 (() => {
   "use strict";
   const progress = document.querySelector("[data-scroll-progress]");

@@ -4,7 +4,8 @@
   let storedLanguage;
   try { storedLanguage = localStorage.getItem('dlg-language'); } catch {}
   let activeService = 'contracts', activeScenario = 'startup';
-  let language = ['ka','en'].includes(storedLanguage) ? storedLanguage : body.dataset.defaultLanguage || 'ka';
+  const requestedLanguage = new URLSearchParams(location.search).get('lang');
+  let language = ['ka','en'].includes(requestedLanguage) ? requestedLanguage : ['ka','en'].includes(storedLanguage) ? storedLanguage : body.dataset.defaultLanguage || 'ka';
 
   function translate() {
     body.lang = language;
@@ -53,7 +54,7 @@
     menuToggle.addEventListener('click', () => setMenuState(!nav.classList.contains('open')));
     nav.querySelectorAll('a').forEach((link) => link.addEventListener('click', () => setMenuState(false)));
     document.addEventListener('site:language', () => setMenuState(nav.classList.contains('open')));
-    const desktopMenu = window.matchMedia('(min-width: 1121px)');
+    const desktopMenu = window.matchMedia('(min-width: 701px)');
     const resetOnDesktop = () => { if (desktopMenu.matches) setMenuState(false); };
     if (desktopMenu.addEventListener) desktopMenu.addEventListener('change', resetOnDesktop);
     else desktopMenu.addListener?.(resetOnDesktop);
