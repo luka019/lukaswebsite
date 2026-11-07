@@ -53,7 +53,7 @@ assert(!home.includes('firm-upgrade.css')&&!home.includes('firm-reference.css')&
 assert(home.includes('law-about-image'),'Founder profile and portrait missing');
 assert(home.includes('ლუკა შახყულაშვილი'),'Luka team profile missing');
 assert(!home.includes('dlg-team-member') && !home.includes('dlg-team-monogram'),'Retired team card markup must be absent');
-assert(home.includes('კომპანიის მიმდინარე იურიდიული მხარდაჭერა'),'Ongoing legal support should remain available');
+assert(home.includes('ბიზნესის მიმდინარე იურიდიული მომსახურება'),'Ongoing legal support should remain available');
 assert(home.includes('ფინტექი და გადახდები'),'FinTech practice missing');
 assert(home.includes('law-more-services'),'Additional services directory missing');
 assert((home.match(/class="law-service(?: law-service-featured)?"/g)||[]).length===6,'Six core service cards required');
@@ -111,7 +111,7 @@ const publicHtml=[];
 function visit(dir){for(const x of fs.readdirSync(dir,{withFileTypes:true})){if(x.name==='admin')continue;const location=path.join(dir,x.name);if(x.isDirectory())visit(location);else if(location.endsWith('.html'))publicHtml.push(location)}}
 visit(root);
 for(const name of publicHtml){const content=fs.readFileSync(name,'utf8');assert(!content.includes('/client/'),'Legacy client route in '+name);assert(!content.includes('კლიენტის სივრცე'),'Legacy client copy in '+name)}
-assert(home.includes('AI-ის მმართველობა და სამართლებრივი მხარდაჭერა'),'AI service not prominent');
+assert(home.includes('AI-ის მმართველობა და სამართლებრივი კონსულტაცია'),'AI service not prominent');
 assert(home.includes('ციფრული პროდუქტები და ელექტრონული კომერცია'),'Digital product service link missing');
 assert(home.includes('https://wa.me/995598451132'),'WhatsApp channel missing');
 assert(home.includes('mailto:digitallawgeorgia@gmail.com'),'Email channel missing');

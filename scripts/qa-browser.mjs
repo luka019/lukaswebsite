@@ -86,7 +86,7 @@ try{
    await page.locator('[data-language="en"]').click();
    verify((await page.locator('h1').innerText()).includes('Legal clarity for'),'English language switch failed at '+width);
    await page.locator('[data-language="ka"]').click();
-   verify((await page.locator('h1').innerText()).includes('იურიდიული მხარდაჭერა'),'Georgian language switch failed at '+width);
+   verify((await page.locator('h1').innerText()).includes('იურიდიული მომსახურება'),'Georgian language switch failed at '+width);
    const portrait=page.locator('.law-about-image img');
    await portrait.scrollIntoViewIfNeeded();
    await page.waitForFunction(()=>{const img=document.querySelector('.law-about-image img');return img&&img.complete&&img.naturalWidth>0;},null,{timeout:8000});
