@@ -85,6 +85,17 @@ try{
    verify(await page.locator('[data-hero-slide="privacy"]').evaluate(x=>x.classList.contains('is-current')),'Carousel privacy tab failed at '+width);
    await page.locator('[data-language="en"]').click();
    verify((await page.locator('h1').innerText()).includes('Legal clarity for'),'English language switch failed at '+width);
+   await page.locator('[data-lens-controls]').waitFor({state:'visible'});
+   await page.locator('[data-lens-choice="data-protection"]').click();
+   verify(await page.locator('[data-lens-panel="data-protection"]').isVisible(),'English legal explorer did not activate at '+width);
+   verify((await page.locator('[data-lens-panel]:visible').count())===1,'English explorer must show one panel at '+width);
+   verify((await page.locator('[data-lens-panel="data-protection"] a').getAttribute('href'))==='/en/services/data-protection/','English explorer loses localized link at '+width);
+   verify((await page.locator('[data-hero-pause]').getAttribute('aria-label')).includes('animations'),'English hero script did not initialize at '+width);
+   if(width<=700){
+     await page.locator('[data-menu-toggle]').click();
+     verify((await page.locator('[data-menu-toggle]').getAttribute('aria-expanded'))==='true','English mobile menu does not open at '+width);
+     await page.keyboard.press('Escape');
+   }
    await page.locator('[data-language="ka"]').click();
    verify((await page.locator('h1').innerText()).includes('იურიდიული მომსახურება'),'Georgian language switch failed at '+width);
    await page.waitForFunction(()=>{const img=document.querySelector('.dlg-art-image');return img?.complete&&img.naturalWidth>0;});
