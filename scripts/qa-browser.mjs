@@ -102,6 +102,9 @@ try{
    const portrait=page.locator('.law-about-image img');
    await portrait.scrollIntoViewIfNeeded();
    await page.waitForFunction(()=>{const img=document.querySelector('.law-about-image img');return img&&img.complete&&img.naturalWidth>0;},null,{timeout:8000});
+   for(const img of await page.locator('.resource-cover img').all())await img.scrollIntoViewIfNeeded();
+   await page.waitForFunction(()=>[...document.querySelectorAll('.resource-cover img')].every(img=>img.complete&&img.naturalWidth>0));
+   verify(await page.locator('.resource-cover img').count()===3,'Resource illustrations missing at '+width);
    await page.evaluate(()=>window.scrollTo({top:0,behavior:'instant'}));
    await page.waitForTimeout(80);
    if([320,390,768,1440,1920].includes(width)){
