@@ -2097,3 +2097,15 @@ html[data-motion-paused="true"] [data-reveal] {transition:none;opacity:1;transfo
 @media(max-width:1120px){.dlg-photo-caption{padding:16px 48px 16px 0}.dlg-photo-stage{height:185px}}
 @media(max-width:700px){.dlg-editorial-hero{padding-top:10px}.dlg-intro-grid{grid-template-columns:1fr}.firm-photo{height:240px}.dlg-photo-stage{height:205px}.dlg-photo-caption{padding:20px 44px 15px 0}.dlg-photo-arrow{top:0}.dlg-photo-tab{min-height:66px}.dlg-intro-foot{border-color:#ffffff24}.law-home .law-about-image-caption{color:var(--muted)}}
 @media(prefers-reduced-motion:reduce){.firm-photo img,.law-service-link,.law-service .service-art{transition:none;transform:none}}
+
+
+/* DLG: five client segments, consistent with the boutique practice design. */
+.dlg-audience-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.dlg-audience-card{display:flex;flex-direction:column;gap:14px;min-height:255px;padding:28px;background:#f7f6f2;border:1px solid #dce3ea;border-radius:6px;color:#10243d;transition:transform .2s,border-color .2s}
+.dlg-audience-card:hover{transform:translateY(-3px);border-color:#3868a8}
+.dlg-audience-index{font-size:11px;letter-spacing:.13em;color:#3868a8}
+.dlg-audience-card h3{font-size:clamp(17px,1.6vw,22px);line-height:1.45;margin:0}
+.dlg-audience-card p{font-size:14px;line-height:1.7;color:#344e6c;margin:0}
+.dlg-audience-action{display:inline-flex;align-items:center;gap:8px;margin-top:auto;color:#244b78;font-size:12px;font-weight:700}
+@media(max-width:900px){.dlg-audience-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:600px){.dlg-audience-grid{grid-template-columns:1fr}.dlg-audience-card{min-height:0;padding:23px}}
