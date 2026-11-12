@@ -29,14 +29,14 @@ assert(home.indexOf('id="about"')<home.indexOf('id="services"') &&
        home.indexOf('id="services"')<home.indexOf('id="business"') &&
        home.indexOf('id="business"')<home.indexOf('id="approach"'),
        'Founder, services, business needs and delivery must follow the right order');
-assert((home.match(/class="sig-practice-tab/g)||[]).length===4,'Four focusable practice selectors required');
+assert((home.match(/role="tab"/g)||[]).length===4,'Four focusable practice selectors required');
 assert((home.match(/data-sig-panel=/g)||[]).length===4,'Four distinct practice descriptions required');
 assert((home.match(/role="tabpanel"/g)||[]).length===4,'Accessible tab panels required');
 assert(home.includes('role="tablist"') && home.includes('aria-selected="true"'),'Accessible practice navigation missing');
 assert(home.includes('src="/assets/luka-shakhkulashvili.png"'),'Genuine founder photograph must lead the page');
 assert((home.match(/src="\/assets\/luka-shakhkulashvili.png"/g)||[]).length===1,'Do not duplicate the founder portrait');
 assert(home.includes('ლუკა შახყულაშვილი'),'Founder must be identifiable');
-assert((home.match(/class="sig-proofbar"/g)||[]).length===1,'Substantiated credentials strip required');
+assert((home.match(/class="container sig-proofbar"/g)||[]).length===1,'Substantiated credentials strip required');
 assert(home.includes('href="/services/"') && home.includes('href="/business/"'),'Detailed service and business directory links required');
 assert(home.includes('href="/services/digital-products/"'),'Digital product offer must remain accessible');
 assert(home.includes('href="/services/contracts/"'),'Contract practice link required');
@@ -59,7 +59,7 @@ for(const hook of ['data-sig-practices','data-sig-tab','data-sig-panel','data-me
  assert(englishHome.includes(hook),'English version lost interaction hook '+hook);
 }
 assert(englishHome.includes('Legal expertise shaped by your business.'),'English heading must be pre-rendered');
-assert(englishHome.includes('Commercial & Cross-border Business'),'English practice title missing');
+assert(englishHome.includes('Corporate &amp; Cross-border Business'),'English practice title missing');
 assert(signatureCss.includes('prefers-reduced-motion'),'Respect reduced-motion preferences');
 assert(signatureCss.includes('@media(max-width:700px)') && signatureCss.includes('@media(max-width:480px)'),'Responsive mobile breakpoints missing');
 assert(signatureCss.includes('#F6F2EC') && signatureCss.includes('#1B2B37'),'Signature visual palette missing');
