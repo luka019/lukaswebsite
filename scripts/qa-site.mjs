@@ -19,6 +19,9 @@ for(const hook of ['data-hero-rotator','data-hero-pause','data-lens-controls','d
 assert(home.includes('class="law-home"'),'New homepage not active');
 assert(home.includes('class="dlg-photo-feature"'),'Editorial photo carousel missing');
 assert(home.includes('firm.css'),'Shared public stylesheet not linked');
+assert(home.includes('law-brand-tagline') && home.includes('იურიდიული მომსახურება ციფრული ბიზნესისთვის'),'Georgian header tagline must be present');
+assert(home.includes('data-en="Legal Support for Digital Business"'),'English header tagline must be available');
+assert(home.includes('data-en="TECHNOLOGY & COMMERCIAL LAW"'),'Practice positioning must remain distinct from the brand tagline');
 assert(home.includes('firm-interactions.js'),'Interactions script not linked');
 assert((home.match(/<h1\b/g)||[]).length===1,'Home must have one h1');
 assert(!home.includes('data-showcase-slide'),'Duplicated secondary showcase must be absent');
