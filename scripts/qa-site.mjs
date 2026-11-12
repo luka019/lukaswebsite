@@ -26,7 +26,7 @@ assert(home.includes('firm-interactions.js'),'Interactions script not linked');
 assert((home.match(/<h1\b/g)||[]).length===1,'Home must have one h1');
 assert(!home.includes('data-showcase-slide'),'Duplicated secondary showcase must be absent');
 assert(home.includes('dlg-feature-section'),'Prominent wide hero feature required');
-assert((home.match(/<section\\b/g)||[]).length===7,'Homepage must contain seven distinct purposeful sections');
+assert((home.match(/<section\b/g)||[]).length===7,'Homepage must contain seven distinct purposeful sections');
 assert(home.indexOf('id="about"')<home.indexOf('id="services"') && home.indexOf('id="services"')<home.indexOf('id="business"') && home.indexOf('id="business"')<home.indexOf('id="approach"'),'Editorial section order must introduce the lawyer before catalogues');
 assert((home.match(/class="dlg-editorial-practice"/g)||[]).length===4,'Four concise editorial practice links required');
 assert(home.includes('data-back-to-top'),'Back-to-top control missing');
