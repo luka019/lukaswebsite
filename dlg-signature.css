@@ -114,11 +114,12 @@ html[lang=en] .dlg-signature-home .sig-hero h1{
 .dlg-signature-home .sig-hero-media:before{
  content:"";position:absolute;inset:24px auto 46px 0;width:1px;background:#C9BEAD;
 }
-.dlg-signature-home .sig-photo{position:relative;margin:0;background:#DDDCD7;overflow:hidden}
+.dlg-signature-home .sig-photo{position:relative;margin:0;background:#EBE5DC;overflow:hidden}
 .dlg-signature-home .sig-photo img{
  display:block;width:100%;height:auto;aspect-ratio:4/4.7;
  object-fit:cover;object-position:center 21%;
- filter:saturate(.86) contrast(1.025);
+ filter:saturate(.89) contrast(1.015);
+ mix-blend-mode:multiply;
  transition:transform 1s cubic-bezier(.17,.67,.25,1);
 }
 .dlg-signature-home .sig-photo:hover img{transform:scale(1.016)}
