@@ -87,8 +87,8 @@ export function editorialAudiences(){
   return '<section class="law-section dlg-editorial-audiences" id="business" aria-labelledby="business-heading">'+
     '<div class="container">'+
       '<div class="dlg-editorial-section-head"><div>'+
-        '<p class="law-eyebrow">'+tr('როდის დაგეხმარებით','WHEN TO CONTACT US')+'</p>'+
-        '<h2 id="business-heading" data-en="Legal advice at the decisions that matter">როცა საქმეს სამართლებრივი გადაწყვეტა სჭირდება</h2>'+
+        '<p class="law-eyebrow">'+tr('თქვენი საჭიროებები','YOUR BUSINESS NEEDS')+'</p>'+
+        '<h2 id="business-heading" data-en="Legal support when your business needs it">როცა ბიზნესს იურიდიული მხარდაჭერა სჭირდება</h2>'+
       '</div></div>'+
       '<div class="dlg-editorial-situations">'+items+'</div>'+
     '</div></section>';
