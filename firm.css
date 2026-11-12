@@ -2459,7 +2459,7 @@ html[lang=en] .law-home .dlg-editorial-hero h1 {
 .law-home .dlg-quiet-secondary:hover {color:#1c3542;border-color:#1c3542}
 .law-home .dlg-quiet-hero-foot {
   margin:42px 0 0;
-  color:#7a8487;
+  color:#5c696d;
   font-size:11px;
   line-height:1.65;
   letter-spacing:.015em;
@@ -2489,7 +2489,7 @@ html[lang=en] .law-home .dlg-editorial-hero h1 {
   background:#f9f8f5;
 }
 .law-home .dlg-quiet-portrait-mark {
-  color:#85847c;
+  color:#606b6d;
   font-size:10px;
   font-weight:600;
   letter-spacing:.06em;
@@ -2623,7 +2623,7 @@ html[lang=en] .law-home .dlg-editorial-section-head h2 {
 }
 .law-home .dlg-quiet-selector .dlg-quiet-service-tab.is-current .dlg-quiet-tab-name {text-decoration:underline;text-decoration-color:#879ca4;text-underline-offset:7px}
 .law-home .dlg-quiet-selector .dlg-quiet-service-tab:hover {color:#263a44;background:#eeece7}
-.law-home .dlg-quiet-tab-num {color:#929a99;font:500 11px/1.5 Arial,sans-serif}
+.law-home .dlg-quiet-tab-num {color:#68767a;font:500 11px/1.5 Arial,sans-serif}
 .law-home .dlg-quiet-service-main {
   display:flex;
   flex-direction:column;
@@ -2655,7 +2655,7 @@ html[lang=en] .law-home .dlg-editorial-section-head h2 {
   gap:14px;
 }
 .law-home .dlg-quiet-slide-index {
-  color:#8d989c;
+  color:#647176;
   letter-spacing:.04em;
   font-size:10px;
 }
@@ -2731,7 +2731,7 @@ html[lang=en] .law-home .dlg-editorial-section-head h2 {
   background:transparent;
 }
 .law-home .dlg-editorial-situation:first-child {padding-left:0}
-.law-home .dlg-editorial-situation .dlg-editorial-index {color:#899494}
+.law-home .dlg-editorial-situation .dlg-editorial-index {color:#606f72}
 .law-home .dlg-editorial-situation h3 {font-size:21px;line-height:1.5;color:#2c3b43;font-weight:570}
 .law-home .dlg-editorial-situation p {color:#68757a;font-size:14px;line-height:1.86}
 .law-home .dlg-editorial-action {color:#385764;font-size:12px}
