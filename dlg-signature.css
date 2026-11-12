@@ -1,0 +1,401 @@
+/* Digital Law Georgia — Signature Firm Design
+   A legal practice first: editorial typography, warm architectural surfaces,
+   a genuine founder portrait, and unobtrusive purposeful interactions. */
+:root{
+ --ink:#1B2934;
+ --ink-soft:#475762;
+ --accent:#9C7952;
+ --accent-dark:#775733;
+ --paper:#FFFEFB;
+ --paper-2:#F6F2EC;
+ --muted:#64727A;
+ --line:#E2DED6;
+ --firm-navy:#1B2934;
+ --firm-blue:#9C7952;
+ --visual-surface:#F6F2EC;
+ --visual-accent:#9C7952;
+ --max:1240px;
+}
+html{scroll-padding-top:90px}
+body{background:#FFFEFB;color:#1B2934;-webkit-font-smoothing:antialiased}
+a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid #947149;outline-offset:4px}
+.site-header.law-header,
+.law-home .site-header.dlg-integrated-header,
+.law-home .site-header.dlg-integrated-header.dlg-scrolled{
+ background:#FFFEFBF7;
+ border-bottom:1px solid #E4DED5;
+ color:#22313B;
+ box-shadow:none;
+ backdrop-filter:blur(18px);
+}
+.site-header .header-inner{min-height:83px;gap:clamp(15px,2vw,30px);padding-block:12px}
+.law-brand{gap:11px}
+.law-brand-monogram{
+ width:42px;height:43px;
+ background:#1F3240;border-radius:2px 2px 12px 2px;
+ color:#fff;font:500 17px/1 Georgia,serif;
+}
+.law-brand-text strong{color:#1B2934;font-size:18px}
+.law-brand-text small{color:#717A7B;letter-spacing:.22em}
+.site-header .law-brand-tagline{color:#596771;border-left:1px solid #D4D1CB;padding-left:13px;font-size:10px;max-width:190px}
+.site-nav.law-nav{gap:clamp(12px,1.5vw,22px)}
+.law-nav>a{font-size:12px;font-weight:530;color:#3C4E58}
+.law-nav>a:hover,.law-nav>a.is-active{color:#8A623C}
+.law-nav>a:after{background:#A9855D}
+.law-header-tools{gap:15px;margin-left:0}
+.law-languages button{color:#626C71}
+.law-languages button[aria-pressed=true]{color:#263842}
+.law-header-cta{
+ background:transparent;border:1px solid #C4C6C4;color:#1C2F3B;
+ border-radius:2px;padding:11px 14px;font-weight:560;gap:12px;min-height:41px;
+ transition:background .2s,border-color .2s;
+}
+.law-header-cta:hover{background:#F2EEE8;border-color:#9E9A92;transform:none}
+.law-scroll-progress{background:#A9855D}
+.law-to-top{background:#273C49;color:#fff}
+.site-footer.law-footer{background:#172532;color:#DADBD8}
+.site-footer .law-brand-monogram{background:#E3DACD;color:#182633}
+.site-footer .law-brand-text strong{color:#F8F6F2}
+.site-footer .law-brand-text small{color:#C7C6C0}
+.site-footer .law-footer-about p,
+.site-footer .law-footer-group,
+.site-footer .law-footer-bottom{color:#BFC6C7}
+.site-footer a:hover{color:#F5DFC2}
+.site-footer .law-footer-title{color:#F5F3EE}
+
+/* Only the homepage takes the signature editorial layout. */
+.dlg-signature-home main{overflow:clip}
+.dlg-signature-home section{isolation:isolate}
+.dlg-signature-home .sig-kicker,
+.dlg-signature-home .sig-eyebrow{
+ display:flex;align-items:center;gap:13px;margin:0 0 24px;
+ font:600 10px/1.5 NotoGeo,Arial,sans-serif;
+ letter-spacing:.13em;text-transform:none;color:#956F49;
+}
+.dlg-signature-home .sig-eyebrow-line{height:1px;width:27px;flex:0 0 27px;background:#AB8D65}
+.dlg-signature-home .sig-hero{background:#F6F2EC;color:#1B2934;overflow:hidden}
+.dlg-signature-home .sig-hero-grid{
+ display:grid;grid-template-columns:minmax(0,1.12fr) minmax(0,.88fr);
+ gap:clamp(44px,5vw,84px);align-items:center;
+ padding-top:clamp(62px,7.5vw,119px);padding-bottom:clamp(52px,6.2vw,100px);
+}
+.dlg-signature-home .sig-hero-copy{min-width:0;padding-bottom:12px}
+.dlg-signature-home .sig-hero h1{
+ margin:0;max-width:760px;font-family:NotoGeo,Arial,sans-serif;
+ color:#1A2C38;font-size:clamp(36px,3.65vw,57px);font-weight:560;
+ line-height:1.42;letter-spacing:-.036em;text-wrap:balance;
+}
+html[lang=en] .dlg-signature-home .sig-hero h1{
+ font-family:Georgia,"Times New Roman",serif;
+ font-size:clamp(48px,5vw,78px);font-weight:400;
+ line-height:1.15;letter-spacing:-.046em;
+}
+.dlg-signature-home .sig-hero-intro{
+ margin:26px 0 0;max-width:590px;color:#53626B;
+ font-size:15px;line-height:1.96;font-weight:400;
+}
+.dlg-signature-home .sig-actions{display:flex;flex-wrap:wrap;gap:13px 23px;margin-top:33px;align-items:center}
+.dlg-signature-home .sig-button{
+ display:inline-flex;justify-content:space-between;align-items:center;gap:23px;
+ min-height:49px;padding:13px 20px;border:1px solid transparent;border-radius:2px;
+ font-size:12px;font-weight:590;line-height:1.5;
+ transition:background .22s,border-color .22s,color .22s,transform .22s;
+}
+.dlg-signature-home .sig-button-primary{background:#1D3543;color:#fff;border-color:#1D3543}
+.dlg-signature-home .sig-button-primary:hover{background:#2B4655;border-color:#2B4655;transform:translateY(-1px)}
+.dlg-signature-home .sig-button-text{padding-inline:0;border-bottom:1px solid #9BA6A5;color:#253F4C}
+.dlg-signature-home .sig-button-text:hover{color:#8D6540;border-bottom-color:#8D6540}
+.dlg-signature-home .sig-hero-footnote{
+ display:flex;gap:13px;align-items:center;
+ margin:38px 0 0;color:#78817E;font-size:11px;line-height:1.7;
+}
+.dlg-signature-home .sig-footline{display:block;flex:0 0 28px;width:28px;height:1px;background:#BBAB95}
+.dlg-signature-home .sig-hero-media{position:relative;min-width:0;padding-left:25px}
+.dlg-signature-home .sig-hero-media:before{
+ content:"";position:absolute;inset:24px auto 46px 0;width:1px;background:#C9BEAD;
+}
+.dlg-signature-home .sig-photo{position:relative;margin:0;background:#DDDCD7;overflow:hidden}
+.dlg-signature-home .sig-photo img{
+ display:block;width:100%;height:auto;aspect-ratio:4/4.7;
+ object-fit:cover;object-position:center 21%;
+ filter:saturate(.86) contrast(1.025);
+ transition:transform 1s cubic-bezier(.17,.67,.25,1);
+}
+.dlg-signature-home .sig-photo:hover img{transform:scale(1.016)}
+.dlg-signature-home .sig-photo-caption{
+ position:absolute;left:0;right:0;bottom:0;
+ padding:52px 24px 20px;color:#fff;
+ display:flex;flex-direction:column;gap:5px;
+ background:linear-gradient(to top,rgba(14,26,34,.85),transparent);
+}
+.dlg-signature-home .sig-photo-caption>span{font-size:10px;letter-spacing:.04em;color:#F0EEE8}
+.dlg-signature-home .sig-photo-caption strong{font-size:15px;font-weight:570;line-height:1.5;color:#fff}
+.dlg-signature-home .sig-photo-rail{
+ position:absolute;top:0;left:7px;writing-mode:vertical-rl;
+ transform:rotate(180deg);font:600 10px/1.4 Arial,sans-serif;
+ letter-spacing:.24em;color:#9B927F;
+}
+.dlg-signature-home .sig-photo-rail span{color:#C3B69E}
+.dlg-signature-home .sig-proofbar{
+ border-top:1px solid #DAD5CA;
+ display:grid;grid-template-columns:repeat(4,minmax(0,1fr));
+ padding-top:23px;padding-bottom:28px;
+}
+.dlg-signature-home .sig-proofbar>div{
+ display:flex;flex-direction:column;gap:5px;
+ border-left:1px solid #DDD9D0;padding:2px 24px 0;
+}
+.dlg-signature-home .sig-proofbar>div:first-child{border-left:0;padding-left:0}
+.dlg-signature-home .sig-proofbar strong{font-size:15px;font-weight:630;color:#22333B;line-height:1.45}
+.dlg-signature-home .sig-proofbar span{font-size:10px;color:#647075;line-height:1.6}
+.dlg-signature-home .sig-about{
+ padding:clamp(82px,8vw,128px) 0;background:#FFFEFB;
+}
+.dlg-signature-home .sig-about-grid{
+ display:grid;grid-template-columns:minmax(0,.88fr) minmax(0,1.12fr);
+ gap:clamp(40px,8vw,126px);align-items:start;
+}
+.dlg-signature-home .sig-about h2,
+.dlg-signature-home .sig-section-heading h2{
+ margin:0;color:#20313C;font-size:clamp(29px,3vw,43px);
+ line-height:1.47;font-weight:550;letter-spacing:-.028em;text-wrap:balance;
+}
+html[lang=en] .dlg-signature-home .sig-about h2,
+html[lang=en] .dlg-signature-home .sig-section-heading h2{
+ font:400 clamp(38px,3.7vw,53px)/1.22 Georgia,serif;letter-spacing:-.025em;
+}
+.dlg-signature-home .sig-about-content>p{
+ font-size:14px;line-height:2.03;color:#52616B;margin:0 0 20px;
+ max-width:680px;
+}
+.dlg-signature-home .sig-about-content>p.sig-about-extra{color:#5D6A71}
+.dlg-signature-home .sig-underlink{
+ display:inline-flex;gap:25px;align-items:center;width:max-content;max-width:100%;
+ border-bottom:1px solid #AEB5AF;padding:5px 0 8px;
+ color:#304856;font-size:12px;font-weight:600;line-height:1.45;
+ transition:color .2s,border-color .2s,gap .2s;
+}
+.dlg-signature-home .sig-underlink:hover{color:#98714F;border-color:#98714F;gap:30px}
+.dlg-signature-home .sig-services{
+ background:#1B2B37;color:#F9F6F0;
+ padding:clamp(87px,8vw,131px) 0;
+}
+.dlg-signature-home .sig-services .sig-kicker{color:#CBB590}
+.dlg-signature-home .sig-services .sig-section-heading h2{color:#F9F6F0}
+.dlg-signature-home .sig-section-heading{max-width:930px;margin-bottom:46px}
+.dlg-signature-home .sig-section-heading-split{
+ display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);
+ align-items:end;gap:clamp(33px,6vw,95px);max-width:none;
+}
+.dlg-signature-home .sig-section-heading>p,
+.dlg-signature-home .sig-section-heading-split>p{
+ margin:0;color:#5C6970;font-size:14px;line-height:1.87;max-width:455px;
+}
+.dlg-signature-home .sig-services .sig-section-heading>p{color:#BCC5C8}
+.dlg-signature-home .sig-practices{
+ display:grid;grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr);
+ border:1px solid #46535A;
+ background:#223542;min-height:456px;
+}
+.dlg-signature-home .sig-practice-tabs{
+ display:flex;flex-direction:column;border-right:1px solid #4A565D;
+}
+.dlg-signature-home .sig-practice-tab{
+ display:grid;grid-template-columns:36px minmax(0,1fr) 20px;
+ align-items:center;text-align:left;gap:12px;
+ flex:1;min-height:99px;padding:22px 24px 22px 28px;
+ background:transparent;border:0;border-bottom:1px solid #46535A;
+ color:#C9D1D2;position:relative;font-size:14px;
+ line-height:1.6;font-weight:520;
+ transition:background .2s,color .2s;
+}
+.dlg-signature-home .sig-practice-tab:last-child{border-bottom:0}
+.dlg-signature-home .sig-practice-tab:before{
+ content:"";position:absolute;left:0;top:0;bottom:0;width:3px;
+ background:#B8986D;transform:scaleY(0);transition:transform .25s;transform-origin:top;
+}
+.dlg-signature-home .sig-practice-tab:hover{background:#2A404E;color:#fff}
+.dlg-signature-home .sig-practice-tab.is-active{
+ background:#2A3F4D;color:#fff;
+}
+.dlg-signature-home .sig-practice-tab.is-active:before{transform:scaleY(1)}
+.dlg-signature-home .sig-practice-num{font:500 11px/1.2 Arial,sans-serif;color:#C4AD89}
+.dlg-signature-home .sig-practice-arrow{color:#C4AD89;justify-self:end;font-size:16px;transition:transform .2s}
+.dlg-signature-home .sig-practice-tab:hover .sig-practice-arrow{transform:translate(2px,-2px)}
+.dlg-signature-home .sig-practice-panels{
+ padding:clamp(34px,4vw,58px);
+ background:#F4F0E8;color:#243540;min-width:0;min-height:455px;
+}
+.dlg-signature-home .sig-practice-panel{animation:sig-panel-in .28s ease both}
+.dlg-signature-home .sig-practice-panel[hidden]{display:none!important}
+.dlg-signature-home .sig-panel-index{display:block;font:600 10px/1.4 Arial,sans-serif;letter-spacing:.17em;color:#95744E;margin-bottom:29px}
+.dlg-signature-home .sig-practice-panel h3{
+ margin:0;font-size:clamp(21px,2.1vw,30px);font-weight:560;
+ line-height:1.55;letter-spacing:-.022em;color:#23333D;
+}
+.dlg-signature-home .sig-panel-lead{
+ margin:19px 0 27px;color:#617078;
+ font-size:14px;line-height:1.9;
+}
+.dlg-signature-home .sig-panel-list{border-top:1px solid #DCD6C9;padding-top:21px;margin-bottom:28px}
+.dlg-signature-home .sig-panel-list>p{font:600 10px/1.4 Arial,sans-serif;letter-spacing:.12em;color:#9A7B56;margin:0 0 15px}
+.dlg-signature-home .sig-panel-list ul{margin:0;padding-left:18px;display:grid;gap:9px;color:#455860}
+.dlg-signature-home .sig-panel-list li{font-size:13px;line-height:1.8}
+.dlg-signature-home .sig-panel-list li::marker{color:#B09471}
+.dlg-signature-home .sig-services-footer{
+ margin-top:26px;display:flex;align-items:center;
+ justify-content:space-between;gap:28px;
+}
+.dlg-signature-home .sig-services-footer .sig-underlink{color:#E9E7E0;border-color:#A2A6A3;flex-shrink:0}
+.dlg-signature-home .sig-services-footer>span{max-width:470px;font-size:11px;line-height:1.8;color:#BDC6C8}
+.dlg-signature-home .sig-audience{
+ background:#F8F5EF;padding:clamp(88px,8.5vw,126px) 0;
+}
+.dlg-signature-home .sig-audience .sig-section-heading{max-width:840px}
+.dlg-signature-home .sig-audience-list{border-top:1px solid #DBD4CA;margin-bottom:30px}
+.dlg-signature-home .sig-audience-item{
+ display:grid;grid-template-columns:42px minmax(0,1fr) 36px;
+ align-items:center;gap:21px;padding:31px 7px;
+ border-bottom:1px solid #DBD4CA;text-decoration:none;
+ transition:padding .24s,background .24s;
+}
+.dlg-signature-home .sig-audience-item:hover{padding-left:17px;background:#F1EBE1}
+.dlg-signature-home .sig-audience-num{font:500 11px/1.4 Arial,sans-serif;color:#9C7D56}
+.dlg-signature-home .sig-audience-copy h3{
+ margin:0 0 9px;font-size:20px;line-height:1.5;
+ color:#243743;font-weight:570;
+}
+.dlg-signature-home .sig-audience-copy p{margin:0;color:#5B6971;font-size:13px;line-height:1.8}
+.dlg-signature-home .sig-audience-arrow{justify-self:end;color:#856744;font-size:19px;transition:transform .24s}
+.dlg-signature-home .sig-audience-item:hover .sig-audience-arrow{transform:translate(4px,-3px)}
+.dlg-signature-home .sig-process{background:#FFFEFB;padding:clamp(88px,8.2vw,123px) 0}
+.dlg-signature-home .sig-process-grid{
+ display:grid;grid-template-columns:repeat(3,minmax(0,1fr));
+ gap:clamp(26px,4vw,60px);margin:45px 0 35px;
+}
+.dlg-signature-home .sig-process-step{
+ border-top:1px solid #CFCAC0;padding-top:23px;
+}
+.dlg-signature-home .sig-process-step>span{display:block;color:#967449;font:500 12px/1.5 Arial,sans-serif;margin-bottom:33px}
+.dlg-signature-home .sig-process-step h3{
+ margin:0 0 10px;font-size:18px;font-weight:570;color:#223540;line-height:1.55;
+}
+.dlg-signature-home .sig-process-step p{margin:0;font-size:13px;line-height:1.9;color:#5F6C72}
+.dlg-signature-home .sig-insights{padding:clamp(80px,7.5vw,112px) 0;background:#F5F2EC}
+.dlg-signature-home .sig-insights-heading{
+ display:flex;align-items:flex-end;justify-content:space-between;gap:30px;
+ max-width:none;margin-bottom:36px;
+}
+.dlg-signature-home .sig-resource-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}
+.dlg-signature-home .sig-resource-grid .resource-card{
+ border:1px solid #DED7CB;border-radius:2px;background:#FFFEFB;
+ box-shadow:none;overflow:hidden;transition:border-color .24s,transform .24s;
+}
+.dlg-signature-home .sig-resource-grid .resource-card:hover{border-color:#B5A38A;transform:translateY(-3px)}
+.dlg-signature-home .sig-resource-grid .resource-cover{display:block;aspect-ratio:2.1;overflow:hidden;background:#D9D4C9}
+.dlg-signature-home .sig-resource-grid .resource-cover img{
+ display:block;width:100%;height:100%;object-fit:cover;
+ filter:saturate(.63);transition:transform .6s,filter .4s;
+}
+.dlg-signature-home .sig-resource-grid .resource-card:hover img{filter:saturate(.8);transform:scale(1.025)}
+.dlg-signature-home .sig-resource-grid .resource-card-copy{padding:26px 27px 29px}
+.dlg-signature-home .sig-resource-grid .resource-card h3{font-size:18px;line-height:1.58;font-weight:570;color:#223540}
+.dlg-signature-home .sig-resource-grid .resource-card p{font-size:12px;line-height:1.8;color:#61717A}
+.dlg-signature-home .sig-resource-grid .resource-card-top,
+.dlg-signature-home .sig-resource-grid .resource-card-bottom{color:#6B7679;font-size:10px}
+.dlg-signature-home .sig-contact{
+ background:#192B37;color:#F9F7F1;padding:clamp(80px,8vw,123px) 0;
+}
+.dlg-signature-home .sig-contact-grid{
+ display:grid;grid-template-columns:minmax(0,1.18fr) minmax(0,.82fr);
+ gap:clamp(45px,9vw,130px);align-items:center;
+}
+.dlg-signature-home .sig-contact .sig-kicker{color:#D1B78F}
+.dlg-signature-home .sig-contact h2{
+ max-width:730px;margin:0;color:#fff;font-size:clamp(29px,3.2vw,45px);
+ font-weight:540;line-height:1.43;letter-spacing:-.025em;
+}
+html[lang=en] .dlg-signature-home .sig-contact h2{font:400 clamp(39px,4vw,55px)/1.22 Georgia,serif}
+.dlg-signature-home .sig-contact-grid>div>p:last-child{font-size:14px;line-height:1.93;color:#C9D0D1;margin:24px 0 0}
+.dlg-signature-home .sig-contact-actions{
+ display:flex;flex-direction:column;align-items:stretch;gap:17px;min-width:0;
+}
+.dlg-signature-home .sig-contact-main{
+ display:flex;justify-content:space-between;align-items:center;
+ gap:20px;background:#F7F3EB;color:#1A2B35;
+ padding:20px 23px;min-height:67px;font-size:14px;font-weight:630;border-radius:2px;
+ transition:background .2s;
+}
+.dlg-signature-home .sig-contact-main:hover{background:#FFFFFF}
+.dlg-signature-home .sig-contact-secondary{color:#F0E9DD;font-size:13px;line-height:1.75;padding:8px 0;border-bottom:1px solid #697682}
+.dlg-signature-home .sig-contact-actions small{font-size:10px;line-height:1.8;color:#B6C0C2}
+@keyframes sig-panel-in{from{opacity:.4;transform:translateY(7px)}to{opacity:1;transform:none}}
+@media(max-width:1170px){
+ .site-header .law-brand-tagline{display:none}
+ .dlg-signature-home .sig-hero-grid{gap:38px}
+ .dlg-signature-home .sig-hero h1{font-size:clamp(35px,3.9vw,50px)}
+ .dlg-signature-home .sig-practice-tab{padding-inline:18px}
+ .dlg-signature-home .sig-practice-panels{padding:34px}
+}
+@media(max-width:950px){
+ .site-header .header-inner{gap:12px}
+ .dlg-signature-home .sig-hero-grid{gap:34px}
+ .dlg-signature-home .sig-hero h1{font-size:clamp(32px,4.4vw,46px)}
+ .dlg-signature-home .sig-hero-intro{font-size:13px}
+ .dlg-signature-home .sig-photo-rail{display:none}
+ .dlg-signature-home .sig-hero-media{padding-left:0}
+ .dlg-signature-home .sig-hero-media:before{display:none}
+ .dlg-signature-home .sig-about-grid{gap:34px}
+ .dlg-signature-home .sig-practice-tabs{min-width:0}
+ .dlg-signature-home .sig-practice-tab{grid-template-columns:25px minmax(0,1fr) 15px;font-size:12px;gap:9px;min-height:108px}
+ .dlg-signature-home .sig-practice-panels{padding:28px}
+ .dlg-signature-home .sig-proofbar>div{padding-left:16px}
+}
+@media(max-width:700px){
+ .site-header .header-inner{min-height:72px;padding-block:10px}
+ .dlg-signature-home .sig-hero-grid{grid-template-columns:1fr;gap:38px;padding-top:46px;padding-bottom:44px}
+ .dlg-signature-home .sig-hero h1{font-size:clamp(33px,7.7vw,45px);line-height:1.47}
+ html[lang=en] .dlg-signature-home .sig-hero h1{font-size:clamp(43px,9.7vw,65px);line-height:1.14}
+ .dlg-signature-home .sig-hero-intro{font-size:14px;margin-top:20px}
+ .dlg-signature-home .sig-actions{margin-top:26px}
+ .dlg-signature-home .sig-hero-footnote{margin-top:24px}
+ .dlg-signature-home .sig-hero-media{max-width:520px}
+ .dlg-signature-home .sig-photo img{aspect-ratio:4/3.8}
+ .dlg-signature-home .sig-proofbar{grid-template-columns:repeat(2,minmax(0,1fr));gap:0;padding-top:15px}
+ .dlg-signature-home .sig-proofbar>div{padding:13px 14px 13px 0;border-left:0;border-bottom:1px solid #E0DBD2}
+ .dlg-signature-home .sig-proofbar>div:nth-child(even){padding-left:15px;border-left:1px solid #DED9CD}
+ .dlg-signature-home .sig-about,.dlg-signature-home .sig-services,.dlg-signature-home .sig-audience,.dlg-signature-home .sig-process,.dlg-signature-home .sig-insights,.dlg-signature-home .sig-contact{padding-block:68px}
+ .dlg-signature-home .sig-about-grid,.dlg-signature-home .sig-section-heading-split{grid-template-columns:1fr;gap:22px}
+ .dlg-signature-home .sig-about h2,.dlg-signature-home .sig-section-heading h2{font-size:30px}
+ html[lang=en] .dlg-signature-home .sig-about h2,html[lang=en] .dlg-signature-home .sig-section-heading h2{font-size:37px}
+ .dlg-signature-home .sig-section-heading{margin-bottom:32px}
+ .dlg-signature-home .sig-practices{grid-template-columns:1fr}
+ .dlg-signature-home .sig-practice-tabs{border-right:0;border-bottom:1px solid #53646B}
+ .dlg-signature-home .sig-practice-tab{min-height:65px;padding:14px 18px;font-size:13px}
+ .dlg-signature-home .sig-practice-panels{padding:30px 24px;min-height:360px}
+ .dlg-signature-home .sig-services-footer{flex-direction:column;align-items:flex-start;gap:14px}
+ .dlg-signature-home .sig-audience-item{grid-template-columns:27px minmax(0,1fr) 18px;gap:12px;padding-block:23px}
+ .dlg-signature-home .sig-audience-copy h3{font-size:17px}
+ .dlg-signature-home .sig-process-grid{grid-template-columns:1fr;gap:24px;margin-top:35px}
+ .dlg-signature-home .sig-process-step>span{margin-bottom:16px}
+ .dlg-signature-home .sig-insights-heading{align-items:flex-start;flex-direction:column}
+ .dlg-signature-home .sig-resource-grid{grid-template-columns:1fr}
+ .dlg-signature-home .sig-contact-grid{grid-template-columns:1fr;gap:32px}
+}
+@media(max-width:480px){
+ .site-header .header-inner{gap:9px}
+ .dlg-signature-home .sig-button{width:100%;justify-content:center}
+ .dlg-signature-home .sig-button-text{width:auto}
+ .dlg-signature-home .sig-proofbar strong{font-size:13px}
+ .dlg-signature-home .sig-proofbar span{font-size:9px}
+ .dlg-signature-home .sig-practice-panel h3{font-size:21px}
+ .dlg-signature-home .sig-photo-caption{padding-inline:16px}
+}
+@media(prefers-reduced-motion:reduce){
+ html{scroll-behavior:auto}
+ .dlg-signature-home .sig-practice-panel{animation:none}
+ .dlg-signature-home .sig-photo img,
+ .dlg-signature-home .sig-button,
+ .dlg-signature-home .sig-audience-item,
+ .dlg-signature-home .sig-resource-grid img{transition:none;transform:none}
+}
