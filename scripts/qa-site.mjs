@@ -66,7 +66,7 @@ assert(home.includes('href="/services/digital-products/"'),'Digital products mus
 assert((home.match(/data-hero-topic="/g)||[]).length===4,'Four clickable hero choices required');
 assert(home.includes('firm-hero.js'),'Hero interaction script must load');
 assert(!home.includes('firm-upgrade.css')&&!home.includes('firm-reference.css')&&!home.includes('firm-premium.css'),'Retired visual patch layers must not load');
-assert(home.includes('class="dlg-quiet-about"') && home.includes('ლუკა შახყულაშვილი'),'Founder narrative must remain with real professional identity');
+assert(home.includes('class="law-section dlg-quiet-about"') && home.includes('ლუკა შახყულაშვილი'),'Founder narrative must remain with real professional identity');
 assert(home.includes('src="/assets/luka-shakhkulashvili.png"') && home.includes('class="dlg-quiet-portrait"'),'Genuine founder portrait must lead the first screen');
 assert(css.includes('background:#f9f8f5'),'Neutral editorial hero surface missing');
 assert(!home.includes('<h1 id="hero-title"><span data-en="Legal support"'),'Old generic digital-business hero headline must not return');
@@ -90,7 +90,7 @@ assert(home.includes('ლუკა შახყულაშვილი'),'Real 
 assert(!home.includes('data-hero-slide="architecture"'),'Generic architecture service slide must not return');
 assert(!home.includes('class="dlg-illustration"'),'Synthetic technology illustrations should not dominate the homepage');
 assert(!home.includes('class="firm-photo"'),'One static photograph must not replace the service visuals');
-assert(home.includes('class="dlg-quiet-service-slide'),'Topic-dependent service descriptions must replace abstract animated artwork');
+assert(home.includes('dlg-quiet-service-slide'),'Topic-dependent service descriptions must replace abstract animated artwork');
 assert(visualCss.includes('.dlg-editorial-hero h1'),'Editorial headline typography must be styled');
 assert(visualCss.includes('.dlg-photo-tab.is-current'),'Active tab styling missing');
 assert((visualCss.match(/\{/g)||[]).length===(visualCss.match(/\}/g)||[]).length,'Unbalanced final design CSS');
