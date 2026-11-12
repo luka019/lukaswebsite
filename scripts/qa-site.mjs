@@ -112,7 +112,7 @@ assert(directory.includes('law-directory-feature'),'Ongoing legal counsel needs 
 assert(directory.indexOf('/services/contracts/')<directory.indexOf('/services/fintech/'),'Contract advice should precede FinTech in the directory');
 assert(directory.includes('/services/ongoing-legal-support/'),'Ongoing legal support route must be linked');
 assert(home.includes('იურიდიული მომსახურება ტექნოლოგიური კომპანიებისთვის'),'Homepage should remain directly business-focused');
-assert(home.includes('კომერციული სამართალი.'),'Technology-law positioning missing');
+assert(home.includes('ტექნოლოგიური და კომერციული სამართალი'),'Technology-law positioning missing');
 assert((home.match(/data-hero-slide=/g)||[]).length===4,'Four illustrated service slides required');
 assert(!fs.existsSync(path.join(root,'client')),'Retired client portal must not be deployed');
 assert(!fs.existsSync(path.join(root,'admin','inbox')),'Retired inbox must not be deployed');
