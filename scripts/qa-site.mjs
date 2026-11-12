@@ -165,7 +165,7 @@ for(const name of publicHtml){
  if(name.includes(path.sep+'en'+path.sep))assert(content.includes('<html lang="en"'),'English document language missing: '+name);
 }
 for(const p of ['business/','business/georgia/','business/international/','business/growing-business/','about/','services/legal-operations/'])file(p+'index.html');
-assert(home.includes('LLM, Distinction')&&home.includes('IAPP · AIGP'),'Confirmed founder credentials missing');
+assert(home.includes('Distinction') && home.includes('IAPP-ის AIGP'),'Founder education and AIGP credential must remain accurately described');
 assert(!home.includes('LegalStepy')&&!home.includes('6+'),'Unsupported profile copy');
 assert(file('en/business/international/index.html').includes('International Expansion &amp; Client Readiness'),'English must be pre-rendered');
 console.log('DLG public site smoke checks passed: '+total+' checks across '+publicHtml.length+' public HTML pages.');
