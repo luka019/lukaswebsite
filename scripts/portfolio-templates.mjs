@@ -30,3 +30,14 @@ export function homeFaq(){
  ];
  return `<section class="law-section portfolio-faq" aria-labelledby="faq-heading"><div class="container portfolio-faq-grid"><div><p class="law-eyebrow">${tr('თანამშრომლობამდე','WORKING TOGETHER')}</p><h2 id="faq-heading" data-en="A clear starting point.">გასაგები დასაწყისი.</h2></div><div>${questions.map(([ka,en,copy,copyEn])=>`<details><summary>${tr(ka,en)}<span class="portfolio-faq-plus" aria-hidden="true">+</span></summary>${tr(copy,copyEn,'p')}</details>`).join('')}</div></div></section>`;
 }
+
+export function homeAudiences(){
+ const audiences=[
+  ['ტექნოლოგიური კომპანიები და ციფრული პროდუქტების შემქმნელები','Technology companies & digital product teams','SaaS, პროგრამული უზრუნველყოფა, აპლიკაციები და AI პროდუქტები.','SaaS, software, apps and AI products.','/services/contracts/'],
+  ['სტარტაპები და დამფუძნებლები','Startups & founders','დაფუძნება, დამფუძნებელთა შეთანხმებები, უფლებები და ინვესტიციისთვის მომზადება.','Incorporation, founder agreements, ownership and investment readiness.','/business/growing-business/'],
+  ['მოქმედი კომპანიები და ონლაინ ბიზნესი','Established businesses & online commerce','ხელშეკრულებები, მონაცემთა დაცვა, ონლაინ გაყიდვები და მიმდინარე სამართლებრივი მხარდაჭერა.','Contracts, privacy, online sales and ongoing legal support.','/services/digital-products/'],
+  ['უცხოური კომპანიები საქართველოში','International businesses in Georgia','საქართველოში საქმიანობის დაწყება, ადგილობრივი ხელშეკრულებები და კორპორაციული საკითხები.','Market entry, local contracts and corporate matters in Georgia.','/business/georgia/'],
+  ['საერთაშორისო ბაზარზე მომუშავე ქართული კომპანიები','Georgian businesses working internationally','საერთაშორისო IT ხელშეკრულებები, მონაცემთა დაცვა და უცხოელ პარტნიორებთან გარიგებები.','Cross-border IT contracts, data protection and international partnerships.','/business/international/']
+ ];
+ return `<section class="law-section dlg-audiences" id="audiences" aria-labelledby="audiences-heading"><div class="container"><div class="law-section-head"><div><p class="law-eyebrow">${tr('ვის ვემსახურებით','WHO WE HELP')}</p><h2 id="audiences-heading" data-en="Legal support shaped around your business">იურიდიული მომსახურება თქვენი ბიზნესის საჭიროებებისთვის</h2></div></div><div class="dlg-audience-grid">${audiences.map(([ka,en,desc,descEn,href],i)=>`<a class="dlg-audience-card" href="${href}" data-site-link><span class="dlg-audience-index">0${i+1}</span>${tr(ka,en,'h3')}${tr(desc,descEn,'p')}<span class="dlg-audience-action">${tr('გაიგეთ მეტი','Learn more')}${arrow}</span></a>`).join('')}</div></div></section>`;
+}
