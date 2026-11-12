@@ -29,7 +29,8 @@
   let manualHold = false;
   let intervalId = null;
   let holdId = null;
-  const intervalMs = 8000;
+  // Long, unhurried transitions; the selector remains fully usable by click or keyboard.
+  const intervalMs = 14000;
   const language = () => document.documentElement.lang === "en" ? "en" : "ka";
 
   function render(index, announce = false) {
