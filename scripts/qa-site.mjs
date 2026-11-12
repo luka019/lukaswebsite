@@ -91,7 +91,7 @@ assert(solutionsDirectory.includes('class="solution-card"'),'Dedicated legal sol
 assert(home.includes('href="/services/"'),'Homepage must link to the full services directory');
 assert(!home.includes('class="dlg-audience-card"') && !home.includes('class="dlg-offer-card"'),'Full audience and offer catalogues must not clutter the homepage');
 assert(directory.includes('ფინტექი') || directory.includes('FinTech'),'Specialist financial technology work must remain discoverable in the full directory');
-assert(home.includes('ქართულ და საერთაშორისო კომპანიებთან'),'Homepage must address Georgian and international business clients');
+assert(home.includes('ქართულ და საერთაშორისო კომპანიებს'),'Homepage must address Georgian and international business clients');
 assert(home.includes('ტექნოლოგიური და კომერციული სამართალი'),'Technology-law positioning missing');
 assert((home.match(/data-sig-panel=/g)||[]).length===4,'Four distinct interactive service panels required');
 assert(!fs.existsSync(path.join(root,'client')),'Retired client portal must not be deployed');
