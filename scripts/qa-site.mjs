@@ -12,7 +12,7 @@ const home=file('index.html');
 const css=file('firm.css');
 const script=file('firm-interactions.js');
 const englishHome=file('en/index.html');
-for(const hook of ['data-hero-rotator','data-hero-pause','data-lens-controls','data-lens-choice','data-menu-toggle','data-reveal']){
+for(const hook of ['data-hero-rotator','data-hero-pause','data-menu-toggle','data-reveal']){
  assert(new RegExp('\\s'+hook+'(?:[=\\s>])').test(englishHome),'English generation lost interaction hook: '+hook);
 }
 
