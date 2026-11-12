@@ -399,3 +399,84 @@ html[lang=en] .dlg-signature-home .sig-contact h2{font:400 clamp(39px,4vw,55px)/
  .dlg-signature-home .sig-audience-item,
  .dlg-signature-home .sig-resource-grid img{transition:none;transform:none}
 }
+
+
+/* Shared public pages: unify the practice experience rather than leaving
+   bright product-style cards and indigo/green surfaces behind the new homepage. */
+.digital-site{
+ --signal:#BDA783;--deep:#1B2B37;--grid:#E0D9CD;--tech:#98734E;
+ --tech-soft:#F5EEE4;color:#243540;
+}
+.digital-site .digital-page-hero{
+ background:#F6F2EC;border-bottom:1px solid #E0D9CE;
+ padding-block:clamp(47px,5vw,74px);
+}
+.digital-site .digital-page-hero h1{
+ color:#20303A;font-weight:550;letter-spacing:-.025em;
+ line-height:1.47!important;max-width:1030px;
+}
+html[lang=en] .digital-site .digital-page-hero h1{
+ font-family:Georgia,serif;font-weight:400;line-height:1.21!important;
+}
+.digital-site .eyebrow,
+.digital-site .mono,
+.digital-site .digital-page-hero .eyebrow{
+ color:#8C6844;
+}
+.digital-site .digital-lead{color:#51616B;line-height:1.9}
+.digital-site .digital-wash{
+ background:#F7F4EE;border-color:#E3DCD2;
+}
+.digital-site .digital-section{background:#FFFEFB}
+.digital-site .practice-grid,
+.digital-site .solution-grid{gap:18px}
+.digital-site .practice-card,
+.digital-site .solution-card{
+ background:#FFFEFB;border:1px solid #DFD9CF;
+ border-radius:3px;box-shadow:none;
+ transition:border-color .22s,transform .22s;
+}
+.digital-site .practice-card:hover,
+.digital-site .solution-card:hover{
+ border-color:#AF9578;box-shadow:none;transform:translateY(-2px);
+}
+.digital-site .practice-card h3,
+.digital-site .solution-card h3{color:#263843;font-weight:560}
+.digital-site .practice-card p,
+.digital-site .solution-question{color:#5C6A72}
+.digital-site .card-arrow{color:#8D6D49}
+.digital-site .digital-cta{
+ background:#203542;color:#F7F4EE;
+}
+.digital-site .digital-cta h2{color:#fff}
+.digital-site .digital-cta p{color:#D2DADB}
+.digital-site .digital-cta a.button-primary,
+.digital-site .digital-cta .button-primary{
+ background:#F5F0E8;border-color:#F5F0E8;color:#243743;border-radius:2px;
+}
+.digital-site .button-primary{
+ background:#233A49;border-color:#233A49;border-radius:2px;
+}
+.digital-site .button-primary:hover{
+ background:#314F5E;border-color:#314F5E;
+}
+.digital-site .button-secondary{border-radius:2px}
+.digital-site .service-layout aside,
+.digital-site .deliverable-card{
+ border-radius:3px;border-color:#DAD6CF;
+ box-shadow:none;
+}
+.digital-site .portfolio-credential-grid article,
+.digital-site .portfolio-module-grid article{
+ border-radius:3px;
+}
+.resource-page .resource-card{
+ border-color:#E2DDD4;border-radius:3px;
+}
+.resource-page .resource-card:hover{
+ border-color:#BCA58B;
+}
+@media(max-width:700px){
+ .digital-site .digital-page-hero h1{line-height:1.43!important}
+ .digital-site .practice-grid,.digital-site .solution-grid{gap:14px}
+}
