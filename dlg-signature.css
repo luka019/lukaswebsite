@@ -70,7 +70,7 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid #94
 .dlg-signature-home .sig-eyebrow{
  display:flex;align-items:center;gap:13px;margin:0 0 24px;
  font:600 10px/1.5 NotoGeo,Arial,sans-serif;
- letter-spacing:.13em;text-transform:none;color:#956F49;
+ letter-spacing:.13em;text-transform:none;color:#86603C;
 }
 .dlg-signature-home .sig-eyebrow-line{height:1px;width:27px;flex:0 0 27px;background:#AB8D65}
 .dlg-signature-home .sig-hero{background:#F6F2EC;color:#1B2934;overflow:hidden}
@@ -107,7 +107,7 @@ html[lang=en] .dlg-signature-home .sig-hero h1{
 .dlg-signature-home .sig-button-text:hover{color:#8D6540;border-bottom-color:#8D6540}
 .dlg-signature-home .sig-hero-footnote{
  display:flex;gap:13px;align-items:center;
- margin:38px 0 0;color:#78817E;font-size:11px;line-height:1.7;
+ margin:38px 0 0;color:#66716C;font-size:11px;line-height:1.7;
 }
 .dlg-signature-home .sig-footline{display:block;flex:0 0 28px;width:28px;height:1px;background:#BBAB95}
 .dlg-signature-home .sig-hero-media{position:relative;min-width:0;padding-left:25px}
@@ -228,7 +228,7 @@ html[lang=en] .dlg-signature-home .sig-section-heading h2{
 }
 .dlg-signature-home .sig-practice-panel{animation:sig-panel-in .28s ease both}
 .dlg-signature-home .sig-practice-panel[hidden]{display:none!important}
-.dlg-signature-home .sig-panel-index{display:block;font:600 10px/1.4 Arial,sans-serif;letter-spacing:.17em;color:#95744E;margin-bottom:29px}
+.dlg-signature-home .sig-panel-index{display:block;font:600 10px/1.4 Arial,sans-serif;letter-spacing:.17em;color:#805D38;margin-bottom:29px}
 .dlg-signature-home .sig-practice-panel h3{
  margin:0;font-size:clamp(21px,2.1vw,30px);font-weight:560;
  line-height:1.55;letter-spacing:-.022em;color:#23333D;
@@ -276,7 +276,7 @@ html[lang=en] .dlg-signature-home .sig-section-heading h2{
 .dlg-signature-home .sig-process-step{
  border-top:1px solid #CFCAC0;padding-top:23px;
 }
-.dlg-signature-home .sig-process-step>span{display:block;color:#967449;font:500 12px/1.5 Arial,sans-serif;margin-bottom:33px}
+.dlg-signature-home .sig-process-step>span{display:block;color:#7F5C37;font:500 12px/1.5 Arial,sans-serif;margin-bottom:33px}
 .dlg-signature-home .sig-process-step h3{
  margin:0 0 10px;font-size:18px;font-weight:570;color:#223540;line-height:1.55;
 }
