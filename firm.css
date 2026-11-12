@@ -2109,3 +2109,17 @@ html[data-motion-paused="true"] [data-reveal] {transition:none;opacity:1;transfo
 .dlg-audience-action{display:inline-flex;align-items:center;gap:8px;margin-top:auto;color:#244b78;font-size:12px;font-weight:700}
 @media(max-width:900px){.dlg-audience-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:600px){.dlg-audience-grid{grid-template-columns:1fr}.dlg-audience-card{min-height:0;padding:23px}}
+
+
+/* Six clear legal offers: understated commercial presentation. */
+.dlg-offers{background:#fff}
+.dlg-offer-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.dlg-offer-card{display:flex;flex-direction:column;gap:15px;padding:28px;min-height:270px;border:1px solid #dce3ea;background:#fff;border-radius:6px}
+.dlg-offer-index{font-size:11px;letter-spacing:.14em;color:#3868a8}
+.dlg-offer-card h3{margin:0;font-size:clamp(17px,1.6vw,21px);line-height:1.45;color:#10243d}
+.dlg-offer-card p{margin:0;font-size:14px;line-height:1.7;color:#344e6c}
+.dlg-offer-card a{display:inline-flex;align-items:center;gap:8px;margin-top:auto;font-size:12px;font-weight:700;color:#244b78}
+.dlg-offer-card a:hover{text-decoration:underline;text-underline-offset:4px}
+.dlg-offers-note{margin:24px 0 0;font-size:13px;color:#586d84}
+@media(max-width:900px){.dlg-offer-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:600px){.dlg-offer-grid{grid-template-columns:1fr}.dlg-offer-card{min-height:0;padding:23px}}
