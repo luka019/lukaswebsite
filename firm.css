@@ -2214,3 +2214,130 @@ html[data-motion-paused="true"] [data-reveal] {transition:none;opacity:1;transfo
   .law-home .dlg-illustration{flex-basis:205px}
   .law-home .dlg-photo-tab{font-size:8px;min-height:88px}
 }
+
+
+/* DLG editorial practice identity: human legal counsel alongside the animated
+   technology-law selector. Warm, restrained, and intentionally not SaaS-like. */
+.law-home .dlg-editorial-hero {
+  background:linear-gradient(125deg,#f8f7f3 0%,#f4f5f4 57%,#eff2f5 100%);
+  border-bottom:1px solid #e0e5ea;
+}
+.law-home .dlg-intro-grid {
+  grid-template-columns:minmax(0,1.06fr) minmax(0,1fr);
+  gap:clamp(28px,4.4vw,70px);
+  align-items:center;
+  padding-block:54px 60px;
+}
+.law-home .dlg-intro-copy {
+  padding:0;
+}
+.law-home .dlg-editorial-hero .law-eyebrow {
+  color:#355f91;
+  font-weight:650;
+  letter-spacing:.02em;
+}
+.law-home .dlg-editorial-hero h1 {
+  max-width:590px;
+  color:#10243d;
+  font-size:clamp(32px,3.15vw,48px);
+  font-weight:620;
+  line-height:1.35;
+  letter-spacing:-.038em;
+}
+html[lang=en] .law-home .dlg-editorial-hero h1 {
+  color:#10243d;
+  font:500 clamp(40px,4.1vw,61px)/1.12 Georgia,serif;
+  letter-spacing:-.035em;
+}
+.law-home .dlg-editorial-hero .law-hero-lead {
+  color:#475b70;
+  max-width:555px;
+  font-size:clamp(13px,1.1vw,15px);
+  line-height:1.85;
+  margin:23px 0 28px;
+}
+.law-home .dlg-editorial-hero .dlg-hero-secondary {
+  color:#244b78;
+  border-color:#a5b9cf;
+}
+.law-home .dlg-editorial-hero .dlg-hero-secondary:hover {
+  color:#1559cb;
+  border-color:#1559cb;
+}
+.law-home .dlg-founder-signature {
+  display:flex;
+  align-items:center;
+  gap:16px;
+  margin-top:43px;
+  padding:20px 0 0;
+  max-width:525px;
+  border-top:1px solid #d9e0e6;
+  text-decoration:none;
+  color:#10243d;
+}
+.law-home .dlg-founder-signature img {
+  width:66px;
+  height:72px;
+  flex:0 0 66px;
+  display:block;
+  object-fit:cover;
+  object-position:center 17%;
+  border-radius:4px;
+  background:#dce3ea;
+  filter:saturate(.83);
+}
+.law-home .dlg-founder-signature-copy {
+  display:flex;
+  flex-direction:column;
+  min-width:0;
+  gap:6px;
+}
+.law-home .dlg-founder-signature strong {
+  font-weight:650;
+  font-size:12px;
+  line-height:1.5;
+}
+.law-home .dlg-founder-signature-copy>span {
+  color:#5e7184;
+  font-size:10px;
+  line-height:1.6;
+}
+.law-home .dlg-founder-signature>.dlg-arrow-icon {
+  flex-shrink:0;
+  margin-left:auto;
+  color:#355f91;
+  transition:transform .2s;
+}
+.law-home .dlg-founder-signature:hover>.dlg-arrow-icon {
+  transform:translate(2px,-2px);
+}
+.law-home .dlg-founder-signature:focus-visible {
+  outline:3px solid #3868a8;
+  outline-offset:5px;
+}
+/* The warm surfaces are a legal editorial counterweight to the navy animated hero. */
+.law-home .law-about {background:#f7f6f2;}
+.law-home .law-contact {background:#e9edf0;}
+@media(max-width:1150px){
+  .law-home .dlg-intro-grid {gap:30px;padding-block:40px 45px}
+  .law-home .dlg-editorial-hero h1 {font-size:clamp(30px,3vw,40px)}
+  .law-home .dlg-founder-signature {margin-top:27px}
+}
+@media(max-width:950px){
+  .law-home .dlg-intro-grid {grid-template-columns:1fr 1fr;gap:24px}
+}
+@media(max-width:700px){
+  .law-home .dlg-intro-grid {grid-template-columns:1fr;gap:34px;padding-block:26px 38px}
+  .law-home .dlg-editorial-hero h1 {font-size:clamp(29px,7.2vw,42px)}
+  html[lang=en] .law-home .dlg-editorial-hero h1 {font-size:clamp(38px,9vw,52px)}
+  .law-home .dlg-founder-signature {margin-top:28px;max-width:none}
+}
+@media(max-width:390px){
+  .law-home .dlg-founder-signature {gap:11px}
+  .law-home .dlg-founder-signature img {width:54px;height:62px;flex-basis:54px}
+  .law-home .dlg-founder-signature strong {font-size:11px}
+  .law-home .dlg-founder-signature-copy>span {font-size:9px}
+}
+@media(prefers-reduced-motion:reduce){
+  .law-home .dlg-founder-signature>.dlg-arrow-icon {transition:none}
+}
