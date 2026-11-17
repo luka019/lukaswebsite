@@ -1,0 +1,444 @@
+/* Digital Law Georgia — Boutique editorial identity, November 2026.
+   Original implementation informed by references to luxury legal editorial
+   design and restrained technology-law branding. No reference artwork copied. */
+:root{
+  --boutique-ivory:#F1EEE6;
+  --boutique-white:#FFFEFB;
+  --boutique-green:#173B39;
+  --boutique-green-dark:#122F2E;
+  --boutique-ink:#202428;
+  --boutique-muted:#56605E;
+  --boutique-bronze:#946637;
+  --boutique-border:#DDD8CD;
+  --ink:#202428;
+  --ink-soft:#4B5855;
+  --paper:#FFFEFB;
+  --paper-2:#F1EEE6;
+  --accent:#946637;
+  --accent-dark:#77522E;
+  --line:#DDD8CD;
+  --firm-navy:#173B39;
+  --firm-blue:#946637;
+  --max:1260px;
+}
+body{background:var(--boutique-white);color:var(--boutique-ink)}
+a:focus-visible,button:focus-visible,summary:focus-visible{
+  outline:2px solid var(--boutique-bronze);outline-offset:4px;
+}
+
+/* FIRM IDENTITY: clean masthead, unmistakable wordmark, controlled accent. */
+.site-header.law-header,
+.law-home .site-header.dlg-integrated-header,
+.law-home .site-header.dlg-integrated-header.dlg-scrolled{
+  background:#FFFEFB;
+  color:var(--boutique-ink);
+  border-bottom:1px solid var(--boutique-border);
+  box-shadow:none;
+  backdrop-filter:none;
+}
+.site-header .header-inner{min-height:88px;padding-block:13px}
+.law-brand{gap:12px}
+.law-brand-monogram{
+  width:45px;height:47px;
+  background:var(--boutique-green);
+  color:var(--boutique-white);
+  border:1px solid var(--boutique-green);
+  border-radius:0;
+  font:400 18px/1 Georgia,"Times New Roman",serif;
+  letter-spacing:-.055em;
+}
+.law-brand-text strong{
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:20px;letter-spacing:-.035em;font-weight:500;color:var(--boutique-ink);
+}
+.law-brand-text small{color:#747571;letter-spacing:.22em;font-size:9px}
+.site-header .law-brand-tagline{
+  max-width:204px;padding-left:16px;border-left:1px solid #D7D0C6;
+  color:#625F59;font-size:10px;line-height:1.55;
+}
+.site-nav.law-nav{gap:clamp(12px,1.45vw,23px)}
+.law-nav>a{color:#353D3C;font-size:12px;font-weight:580}
+.law-nav>a:hover,.law-nav>a.is-active{color:var(--boutique-bronze)}
+.law-nav>a:after{background:var(--boutique-bronze)}
+.law-header-tools{gap:19px}
+.law-languages button[aria-pressed=true]{color:var(--boutique-green)}
+.site-header .law-header-cta{
+  border-radius:0;
+  background:var(--boutique-green);
+  border:1px solid var(--boutique-green);
+  color:#fff;
+  min-height:43px;padding:11px 17px;font-weight:580;
+  transition:background-color .2s,border-color .2s;
+}
+.site-header .law-header-cta:hover{
+  background:var(--boutique-green-dark);
+  border-color:var(--boutique-green-dark);
+  color:#fff;transform:none;
+}
+.law-scroll-progress{background:var(--boutique-bronze)}
+.law-to-top{background:var(--boutique-green);border-radius:0}
+.site-footer.law-footer{background:#152F2E;color:#EDEAE4}
+.site-footer .law-brand-monogram{background:#F1EEE6;border-color:#F1EEE6;color:#173B39}
+.site-footer .law-brand-text strong{color:#F9F6F0}
+.site-footer .law-brand-text small{color:#D6CEC1}
+.site-footer .law-footer-title{color:#F9F6F0}
+.site-footer .law-footer-about p,.site-footer .law-footer-group,
+.site-footer .law-footer-bottom{color:#D0D2CB}
+.site-footer a:hover{color:#E2BC8A}
+
+/* FIRST IMPRESSION: editorial proportion rather than an application hero. */
+.dlg-signature-home .sig-hero{
+  background:var(--boutique-ivory);
+  color:var(--boutique-ink);
+}
+.dlg-signature-home .sig-hero-grid{
+  grid-template-columns:minmax(0,1.12fr) minmax(0,.88fr);
+  gap:clamp(36px,5.5vw,88px);
+  align-items:center;
+  padding-top:clamp(58px,6.5vw,96px);
+  padding-bottom:clamp(46px,5vw,76px);
+}
+.dlg-signature-home .sig-hero-copy{padding-bottom:0}
+.dlg-signature-home .sig-kicker,
+.dlg-signature-home .sig-eyebrow{
+  color:#836340;font-size:11px;font-weight:620;
+  letter-spacing:.06em;line-height:1.65;
+}
+.dlg-signature-home .sig-eyebrow{margin-bottom:28px}
+.dlg-signature-home .sig-eyebrow-line,
+.dlg-signature-home .sig-footline{background:#9B7955}
+.dlg-signature-home .sig-hero h1{
+  max-width:695px;color:var(--boutique-ink);
+  font-family:NotoGeo,Arial,sans-serif;
+  font-size:clamp(41px,4.15vw,67px);
+  line-height:1.35;font-weight:580;letter-spacing:-.042em;
+  text-wrap:balance;
+}
+html[lang=en] .dlg-signature-home .sig-hero h1{
+  max-width:650px;
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:clamp(52px,5.15vw,82px);
+  line-height:1.105;font-weight:400;letter-spacing:-.052em;
+}
+.dlg-signature-home .sig-hero-intro{
+  max-width:575px;margin-top:28px;
+  color:#4D5755;font-size:15px;line-height:1.95;font-weight:400;
+}
+.dlg-signature-home .sig-actions{margin-top:35px;gap:15px 27px}
+.dlg-signature-home .sig-button{
+  border-radius:0;min-height:53px;
+  font-size:12px;font-weight:630;
+  padding:15px 22px;
+  transition:background-color .2s,border-color .2s,color .2s;
+}
+.dlg-signature-home .sig-button-primary{
+  background:var(--boutique-green);
+  border-color:var(--boutique-green);color:#fff;
+}
+.dlg-signature-home .sig-button-primary:hover{
+  background:var(--boutique-green-dark);border-color:var(--boutique-green-dark);
+  transform:none;
+}
+.dlg-signature-home .sig-button-text{
+  color:#243D3B;border-bottom:1px solid #9B9C93;
+}
+.dlg-signature-home .sig-button-text:hover{
+  color:#815D38;border-color:#815D38;
+}
+.dlg-signature-home .sig-hero-footnote{
+  color:#716E67;font-size:11px;line-height:1.65;margin-top:36px;
+}
+.dlg-signature-home .sig-hero-media{padding-left:0}
+.dlg-signature-home .sig-hero-media:before,
+.dlg-signature-home .sig-photo-rail{display:none}
+.dlg-signature-home .sig-photo{
+  margin:0;background:#DDD5C9;border:1px solid #D5CCBE;
+}
+.dlg-signature-home .sig-photo img{
+  display:block;width:100%;height:auto;
+  aspect-ratio:4/4.75;object-fit:cover;object-position:center 24%;
+  filter:none;mix-blend-mode:normal;
+  transform:none;
+  transition:none;
+}
+.dlg-signature-home .sig-photo:hover img{transform:none}
+.dlg-signature-home .sig-photo-caption{
+  position:static;display:flex;flex-direction:column;gap:5px;
+  background:var(--boutique-green);
+  color:#fff;padding:18px 24px 20px;
+}
+.dlg-signature-home .sig-photo-caption span{
+  color:#D7DFD9;font-size:10px;letter-spacing:.04em;
+}
+.dlg-signature-home .sig-photo-caption strong{
+  color:#fff;font-size:15px;font-weight:570;
+}
+.dlg-signature-home .sig-proofbar{
+  background:var(--boutique-ivory);
+  border-top:1px solid #D9D3C8;
+  padding-top:26px;padding-bottom:29px;
+}
+.dlg-signature-home .sig-proofbar>div{
+  border-left:1px solid #D8D2C5;padding:3px 25px;
+}
+.dlg-signature-home .sig-proofbar>div:first-child{padding-left:0}
+.dlg-signature-home .sig-proofbar strong{
+  color:#1D3A38;font-size:15px;line-height:1.5;font-weight:600;
+}
+.dlg-signature-home .sig-proofbar span{
+  color:#686B65;font-size:11px;line-height:1.7;
+}
+
+/* THE FIRM: white space and visible human expertise. */
+.dlg-signature-home .sig-about{
+  background:var(--boutique-white);
+  padding:clamp(88px,8vw,134px) 0;
+}
+.dlg-signature-home .sig-about-grid{
+  grid-template-columns:minmax(0,.88fr) minmax(0,1.12fr);
+  gap:clamp(42px,8vw,125px);
+}
+.dlg-signature-home .sig-about h2,
+.dlg-signature-home .sig-section-heading h2{
+  color:var(--boutique-ink);
+  font-size:clamp(29px,3vw,44px);
+  font-weight:570;line-height:1.52;letter-spacing:-.03em;
+}
+html[lang=en] .dlg-signature-home .sig-about h2,
+html[lang=en] .dlg-signature-home .sig-section-heading h2{
+  color:var(--boutique-ink);
+  font:400 clamp(39px,3.7vw,55px)/1.18 Georgia,"Times New Roman",serif;
+  letter-spacing:-.032em;
+}
+.dlg-signature-home .sig-about-content>p{
+  max-width:700px;margin-bottom:23px;color:#4F5B59;
+  font-size:14px;line-height:2;
+}
+.dlg-signature-home .sig-about-content>p.sig-about-extra{color:#505C59}
+.dlg-signature-home .sig-focus{
+  border-top:1px solid var(--boutique-border);
+  padding-top:27px;margin-top:31px;
+}
+.dlg-signature-home .sig-focus-title{
+  color:#7D5B39;font-size:11px;letter-spacing:.04em;
+}
+.dlg-signature-home .sig-focus-list li{
+  color:#364B49;font-size:12px;line-height:1.8;
+}
+.dlg-signature-home .sig-underlink{
+  border-bottom:1px solid #A0A49C;
+  color:var(--boutique-green);
+  font-weight:600;font-size:12px;
+}
+.dlg-signature-home .sig-underlink:hover{
+  color:var(--boutique-bronze);border-color:var(--boutique-bronze);
+  gap:25px;
+}
+
+/* DEEP GREEN PRACTICE SECTION: structured legal services, no tabs. */
+.dlg-signature-home .sig-services{
+  background:var(--boutique-green);
+  color:#F7F5EF;padding:clamp(92px,8vw,132px) 0;
+}
+.dlg-signature-home .sig-services .sig-kicker{color:#D7BC96}
+.dlg-signature-home .sig-services .sig-section-heading h2{color:#F9F8F3}
+.dlg-signature-home .sig-services .sig-section-heading>p{color:#D7DFD9}
+.dlg-signature-home .sig-service-list{border-top:1px solid #57726C}
+.dlg-signature-home .sig-service-row{border-bottom:1px solid #57726C}
+.dlg-signature-home .sig-service-number{color:#D9B48A}
+.dlg-signature-home .sig-service-copy h3{color:#F7F6F1}
+.dlg-signature-home .sig-service-copy p{color:#D9E0DA}
+.dlg-signature-home .sig-service-points li{color:#E4E9E3}
+.dlg-signature-home .sig-service-points li:before{background:#D9B48A}
+.dlg-signature-home .sig-service-detail .sig-underlink{
+  color:#F4F4EE;border-bottom-color:#A9B9B1;
+}
+.dlg-signature-home .sig-service-detail .sig-underlink:hover{
+  color:#F2D4A7;border-color:#F2D4A7;
+}
+.dlg-signature-home .sig-services-footer>span{color:#D5DDD6}
+.dlg-signature-home .sig-services-footer .sig-underlink{color:#F4F4EE}
+
+/* BUSINESS QUESTIONS: sophisticated editorial index rather than product tiles. */
+.dlg-signature-home .sig-audience{
+  background:#FBFAF7;padding:clamp(91px,8vw,129px) 0;
+}
+.dlg-signature-home .sig-audience-list{border-color:var(--boutique-border)}
+.dlg-signature-home .sig-audience-item{border-color:var(--boutique-border)}
+.dlg-signature-home .sig-audience-item:hover{background:#F4F0E9;padding-left:7px}
+.dlg-signature-home .sig-audience-num{color:#986E43}
+.dlg-signature-home .sig-audience-copy h3{color:var(--boutique-ink);font-weight:610}
+.dlg-signature-home .sig-audience-copy p{color:#56615F}
+.dlg-signature-home .sig-audience-arrow{color:#946637}
+
+/* PROCESS: generous rhythm, restrained hairlines. */
+.dlg-signature-home .sig-process{
+  background:var(--boutique-ivory);padding:clamp(87px,8vw,131px) 0;
+}
+.dlg-signature-home .sig-process-step{
+  border-top:1px solid #CFC8BC;padding-top:26px;
+}
+.dlg-signature-home .sig-process-step>span{color:#946637}
+.dlg-signature-home .sig-process-step h3{color:var(--boutique-ink)}
+.dlg-signature-home .sig-process-step p{color:#515D5A}
+.dlg-signature-home .sig-section-heading>p,
+.dlg-signature-home .sig-section-heading-split>p{color:#56615E}
+
+/* INSIGHTS: textual editorial cards, not fabricated decorative thumbnails. */
+.dlg-signature-home .sig-insights{
+  background:#FFFEFB;padding:clamp(90px,8vw,125px) 0;
+}
+.dlg-signature-home .sig-resource-grid{gap:clamp(20px,3vw,46px)}
+.dlg-signature-home .sig-resource-grid .resource-card{
+  border:0;border-top:1px solid #CBC5BB;border-radius:0;
+  background:transparent;box-shadow:none;
+  transition:none;transform:none;
+}
+.dlg-signature-home .sig-resource-grid .resource-card:hover{
+  border-top-color:#946637;transform:none;
+}
+.dlg-signature-home .sig-resource-grid .resource-cover{display:none}
+.dlg-signature-home .sig-resource-grid .resource-card-copy{
+  padding:25px 0 16px;
+}
+.dlg-signature-home .sig-resource-grid .resource-card h3{
+  font-size:clamp(19px,2vw,26px);line-height:1.55;
+  font-weight:560;color:var(--boutique-ink);
+}
+.dlg-signature-home .sig-resource-grid .resource-card p{color:#596460;font-size:13px}
+.dlg-signature-home .sig-resource-grid .resource-card-top,
+.dlg-signature-home .sig-resource-grid .resource-card-bottom{font-size:11px;color:#7C6C59}
+
+/* CONTACT: quiet confidence rather than a marketing funnel. */
+.dlg-signature-home .sig-contact{
+  background:var(--boutique-green-dark);
+  padding:clamp(89px,8vw,132px) 0;
+}
+.dlg-signature-home .sig-contact .sig-kicker{color:#E2C69B}
+.dlg-signature-home .sig-contact h2{color:#FFFEFB}
+.dlg-signature-home .sig-contact-grid>div>p:last-child{color:#D4DDD6}
+.dlg-signature-home .sig-contact-main{
+  border-radius:0;background:var(--boutique-ivory);
+  color:#173B39;transition:background-color .2s;
+}
+.dlg-signature-home .sig-contact-main:hover{background:#fff}
+.dlg-signature-home .sig-contact-secondary{color:#F6F4EC;border-bottom:1px solid #73908A}
+.dlg-signature-home .sig-contact-actions small{color:#C1D0C9}
+
+/* INTERIOR PAGES: the brand must remain consistent after the homepage. */
+.digital-site{
+  --deep:var(--boutique-green);
+  --signal:#B89A72;
+  --grid:#DDD8CD;
+  --tech:#946637;
+  --tech-soft:#F1EEE6;
+  color:var(--boutique-ink);
+}
+.digital-site .digital-page-hero{
+  background:var(--boutique-ivory);
+  border-bottom:1px solid var(--boutique-border);
+  padding-block:clamp(54px,5.5vw,86px);
+}
+.digital-site .digital-page-hero h1{
+  color:var(--boutique-ink);font-weight:570;
+  letter-spacing:-.032em;line-height:1.47!important;
+}
+html[lang=en] .digital-site .digital-page-hero h1{
+  font-family:Georgia,"Times New Roman",serif;
+  font-weight:400;line-height:1.16!important;
+}
+.digital-site .eyebrow,.digital-site .mono,
+.digital-site .digital-page-hero .eyebrow{color:#83603E}
+.digital-site .digital-lead{color:#4E5C57}
+.digital-site .digital-section{background:var(--boutique-white)}
+.digital-site .digital-wash{background:#F6F3ED}
+.digital-site .practice-card,.digital-site .solution-card{
+  background:#FFFEFB;border:1px solid #DDD8CE;border-radius:0;
+  box-shadow:none;transition:border-color .2s;
+}
+.digital-site .practice-card:hover,.digital-site .solution-card:hover{
+  border-color:#946637;box-shadow:none;transform:none;
+}
+.digital-site .practice-card h3,.digital-site .solution-card h3{color:#202428}
+.digital-site .practice-card p,.digital-site .solution-question{color:#56615F}
+.digital-site .card-arrow{color:#946637}
+.digital-site .digital-cta{background:var(--boutique-green-dark)}
+.digital-site .digital-cta h2{color:#FFFEFB}
+.digital-site .digital-cta p{color:#DCE2DC}
+.digital-site .button-primary{
+  background:var(--boutique-green);border-color:var(--boutique-green);
+  border-radius:0;color:#fff;
+}
+.digital-site .button-primary:hover{
+  background:var(--boutique-green-dark);border-color:var(--boutique-green-dark);
+}
+.digital-site .digital-cta .button-primary{
+  background:var(--boutique-ivory);color:var(--boutique-green-dark);
+  border-color:var(--boutique-ivory);
+}
+.digital-site .button-secondary{border-radius:0}
+.digital-site .service-layout aside,.digital-site .deliverable-card,
+.digital-site .portfolio-credential-grid article,
+.digital-site .portfolio-module-grid article{border-radius:0;box-shadow:none}
+.resource-page .resource-card{border-radius:0;box-shadow:none;border-color:var(--boutique-border)}
+.resource-page .resource-card:hover{border-color:#946637}
+.resource-page{background:var(--boutique-white)}
+
+/* FLUID TYPOGRAPHY AND ACCESSIBILITY */
+@media(max-width:1100px){
+  .site-header .law-brand-tagline{display:none}
+  .dlg-signature-home .sig-hero-grid{gap:38px}
+  .dlg-signature-home .sig-hero h1{font-size:clamp(37px,4.4vw,55px)}
+}
+@media(max-width:900px){
+  .dlg-signature-home .sig-hero-grid{grid-template-columns:minmax(0,1.08fr) minmax(0,.92fr);gap:28px}
+  .dlg-signature-home .sig-hero h1{font-size:clamp(34px,4.7vw,45px)}
+  html[lang=en] .dlg-signature-home .sig-hero h1{font-size:clamp(43px,5.2vw,59px)}
+  .dlg-signature-home .sig-hero-intro{font-size:13px;line-height:1.8}
+}
+@media(max-width:700px){
+  .site-header .header-inner{min-height:73px;padding-block:10px}
+  .law-brand-monogram{width:39px;height:40px;font-size:16px}
+  .law-brand-text strong{font-size:18px}
+  .dlg-signature-home .sig-hero-grid{grid-template-columns:1fr;gap:35px;padding-top:45px;padding-bottom:42px}
+  .dlg-signature-home .sig-hero h1{font-size:clamp(34px,8vw,46px);line-height:1.39}
+  html[lang=en] .dlg-signature-home .sig-hero h1{font-size:clamp(46px,10vw,62px);line-height:1.12}
+  .dlg-signature-home .sig-hero-intro{margin-top:22px;font-size:14px}
+  .dlg-signature-home .sig-actions{margin-top:27px}
+  .dlg-signature-home .sig-hero-footnote{margin-top:23px}
+  .dlg-signature-home .sig-hero-media{max-width:550px}
+  .dlg-signature-home .sig-photo img{aspect-ratio:4/3.55}
+  .dlg-signature-home .sig-photo-caption{padding:15px 18px}
+  .dlg-signature-home .sig-proofbar{padding-block:14px}
+  .dlg-signature-home .sig-proofbar>div{padding:15px 12px 15px 0}
+  .dlg-signature-home .sig-proofbar>div:nth-child(even){padding-left:16px}
+  .dlg-signature-home .sig-about,
+  .dlg-signature-home .sig-services,
+  .dlg-signature-home .sig-audience,
+  .dlg-signature-home .sig-process,
+  .dlg-signature-home .sig-insights,
+  .dlg-signature-home .sig-contact{padding-block:70px}
+  .dlg-signature-home .sig-about-grid,
+  .dlg-signature-home .sig-section-heading-split{grid-template-columns:1fr;gap:26px}
+  .dlg-signature-home .sig-about h2,
+  .dlg-signature-home .sig-section-heading h2{font-size:29px}
+  html[lang=en] .dlg-signature-home .sig-about h2,
+  html[lang=en] .dlg-signature-home .sig-section-heading h2{font-size:38px}
+  .dlg-signature-home .sig-resource-grid{grid-template-columns:1fr;gap:25px}
+  .dlg-signature-home .sig-contact-grid{grid-template-columns:1fr;gap:34px}
+}
+@media(max-width:480px){
+  .dlg-signature-home .sig-hero h1{font-size:clamp(31px,9vw,40px)}
+  .dlg-signature-home .sig-button{min-height:50px}
+  .dlg-signature-home .sig-proofbar strong{font-size:13px}
+  .dlg-signature-home .sig-proofbar span{font-size:10px}
+  .dlg-signature-home .sig-resource-grid .resource-card h3{font-size:20px}
+}
+@media(prefers-reduced-motion:reduce){
+  .dlg-signature-home .sig-button,
+  .dlg-signature-home .sig-service-row,
+  .dlg-signature-home .sig-audience-item,
+  .dlg-signature-home .sig-resource-grid .resource-card{
+    transition:none;transform:none;
+  }
+}
