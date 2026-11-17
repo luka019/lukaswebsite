@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 660 520" role="img" aria-labelledby="title">
+<title id="title">The lines of legal trust</title>
+<defs><linearGradient id="l" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#FFF"/><stop offset="1" stop-color="#D6E0E2"/></linearGradient></defs>
+<g fill="none" stroke="#CCD9DC">
+ <circle cx="330" cy="249" r="219" stroke-width="1"/>
+ <circle cx="330" cy="249" r="178" stroke-width="1"/>
+ <circle cx="330" cy="249" r="132" stroke-width="1"/>
+ <path d="M74 251H586M332 0V500" stroke-opacity=".55"/>
+ <path d="M165 88 503 411M503 88 165 411" stroke-opacity=".35"/>
+</g>
+<path d="M216 380V207C216 141 269 89 334 89S452 141 452 207V380" fill="none" stroke="url(#l)" stroke-width="13"/>
+<path d="M264 383V208C264 170 295 138 334 138S404 170 404 208V383" fill="none" stroke="#96B9C4" stroke-width="2"/>
+<g stroke="#9BBAC6" stroke-width="1.2"><path d="M146 251H214M454 251H516M332 74V124M332 381V436"/></g>
+<g fill="#DFC7A4"><circle cx="146" cy="251" r="6"/><circle cx="516" cy="251" r="6"/><circle cx="332" cy="74" r="6"/><circle cx="332" cy="436" r="6"/></g>
+<text x="331" y="270" text-anchor="middle" fill="#F2F5F4" font-size="57" font-family="Georgia,serif">DLG</text>
+<text x="332" y="297" text-anchor="middle" fill="#C5D5D8" font-size="11" font-family="Arial,sans-serif" letter-spacing="4">INDEPENDENT COUNSEL</text>
+</svg>
