@@ -20,19 +20,18 @@ assert(home.includes('data-en="Legal Support for Digital Business"'),'English he
 assert(home.includes('href="/dlg-signature.css?v=20261112-signature1"'),'Signature design system not loaded');
 assert(home.includes('dlg-signature.js'),'Signature interactions not loaded');
 assert(!home.includes('firm-hero.js'),'Retired illustrated hero must not be loaded');
-assert(home.includes('id="hero-title" data-en="Legal expertise shaped by your business."'),'Client-focused bilingual heading missing');
-assert(home.includes('იურიდიული გამოცდილება თქვენი ბიზნესის საჭიროებებისთვის.'),'Georgian lead heading missing');
-assert(home.includes('data-en="TECHNOLOGY & COMMERCIAL LAW"'),'Technology and commercial law positioning missing');
+assert(home.includes('id="hero-title" data-en="Specialist legal counsel for technology and AI."'),'Specialist bilingual heading missing');
+assert(home.includes('იურიდიული მხარდაჭერა ტექნოლოგიებისა და AI-ის სფეროში.'),'Georgian specialist heading missing');
+assert(home.includes('data-en="SPECIALIST TECHNOLOGY & AI LAW"'),'Specialist technology and AI law positioning missing');
 assert((home.match(/<h1\b/g)||[]).length===1,'Homepage must contain one H1');
 assert((home.match(/<section\b/g)||[]).length===7,'Keep exactly seven purposeful homepage sections');
 assert(home.indexOf('id="about"')<home.indexOf('id="services"') &&
        home.indexOf('id="services"')<home.indexOf('id="business"') &&
        home.indexOf('id="business"')<home.indexOf('id="approach"'),
        'Founder, services, business needs and delivery must follow the right order');
-assert((home.match(/role="tab"/g)||[]).length===4,'Four focusable practice selectors required');
-assert((home.match(/data-sig-panel=/g)||[]).length===4,'Four distinct practice descriptions required');
-assert((home.match(/role="tabpanel"/g)||[]).length===4,'Accessible tab panels required');
-assert(home.includes('role="tablist"') && home.includes('aria-selected="true"'),'Accessible practice navigation missing');
+assert((home.match(/class="sig-service-row"/g)||[]).length===4,'Four always-visible legal practice rows required');
+assert(!home.includes('role="tablist"') && !home.includes('data-sig-tab'),'App-like tabs must not return');
+assert(home.includes('class="sig-focus-list"'),'Boutique focus list missing');
 assert(home.includes('src="/assets/luka-shakhkulashvili.png"'),'Genuine founder photograph must lead the page');
 assert((home.match(/src="\/assets\/luka-shakhkulashvili.png"/g)||[]).length===1,'Do not duplicate the founder portrait');
 assert(home.includes('ლუკა შახყულაშვილი'),'Founder must be identifiable');
@@ -55,10 +54,10 @@ assert(!home.includes('law-tech-canvas'),'Retired technology canvas must not ret
 for(const id of ['services','approach','about','contact']){
  assert(home.includes('id="'+id+'"'),'Homepage anchor missing: '+id);
 }
-for(const hook of ['data-sig-practices','data-sig-tab','data-sig-panel','data-menu-toggle']){
+for(const hook of ['sig-service-row','data-menu-toggle']){
  assert(englishHome.includes(hook),'English version lost interaction hook '+hook);
 }
-assert(englishHome.includes('Legal expertise shaped by your business.'),'English heading must be pre-rendered');
+assert(englishHome.includes('Specialist legal counsel for technology and AI.'),'English heading must be pre-rendered');
 assert(englishHome.includes('Corporate &amp; Cross-border Business'),'English practice title missing');
 assert(signatureCss.includes('prefers-reduced-motion'),'Respect reduced-motion preferences');
 assert(signatureCss.includes('@media(max-width:700px)') && signatureCss.includes('@media(max-width:480px)'),'Responsive mobile breakpoints missing');
@@ -92,8 +91,8 @@ assert(home.includes('href="/services/"'),'Homepage must link to the full servic
 assert(!home.includes('class="dlg-audience-card"') && !home.includes('class="dlg-offer-card"'),'Full audience and offer catalogues must not clutter the homepage');
 assert(directory.includes('ფინტექი') || directory.includes('FinTech'),'Specialist financial technology work must remain discoverable in the full directory');
 assert(home.includes('ქართულ და საერთაშორისო კომპანიებს'),'Homepage must address Georgian and international business clients');
-assert(home.includes('ტექნოლოგიური და კომერციული სამართალი'),'Technology-law positioning missing');
-assert((home.match(/data-sig-panel=/g)||[]).length===4,'Four distinct interactive service panels required');
+assert(home.includes('ტექნოლოგიებისა და AI-ის სამართალი'),'Technology and AI law positioning missing');
+assert((home.match(/class="sig-service-row"/g)||[]).length===4,'Four distinct editorial service rows required');
 assert(!fs.existsSync(path.join(root,'client')),'Retired client portal must not be deployed');
 assert(!fs.existsSync(path.join(root,'admin','inbox')),'Retired inbox must not be deployed');
 new vm.Script(file('script.js'),{filename:'script.js'});total++;

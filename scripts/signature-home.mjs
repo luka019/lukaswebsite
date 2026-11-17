@@ -64,53 +64,50 @@ const scenarios = [
   }
 ];
 
-export function signatureAbout() {
-  return '<section class="sig-about" id="about" aria-labelledby="about-heading"><div class="container sig-about-grid">'+
-    '<div class="sig-about-heading"><p class="sig-kicker">'+tr('ფირმის შესახებ','ABOUT THE PRACTICE')+'</p>'+
-    '<h2 id="about-heading" data-en="Legal advice is personal. So is our approach.">იურიდიული მომსახურება ადამიანური ურთიერთობით იწყება.</h2>'+
-    '</div>'+
-    '<div class="sig-about-content">'+
-      tr('Digital Law Georgia დამოუკიდებელი იურიდიული პრაქტიკაა, რომლის დამფუძნებელია ლუკა შახყულაშვილი. კერძო და საჯარო სექტორში მიღებული 7-წლიანი გამოცდილებით ის კომპანიებს ეხმარება კომერციულ, კორპორაციულ და ტექნოლოგიებთან დაკავშირებულ სამართლებრივ საკითხებში.',
-        'Digital Law Georgia is an independent legal practice founded by Luka Shakhkulashvili. With seven years of experience in the private and public sectors, he advises businesses on commercial, corporate and technology-related legal matters.','p')+
-      tr('მისი პროფესიული განათლება მოიცავს Queen Mary University of London-ის მაგისტრის ხარისხს წარჩინებით (Distinction). ის Chevening-ის სტიპენდიატი და IAPP-ის AI Governance Professional (AIGP) სერტიფიკატის მფლობელია.',
-        'His academic background includes an LLM with Distinction from Queen Mary University of London. He is a Chevening Scholar and holds the IAPP Artificial Intelligence Governance Professional (AIGP) certification.','p','sig-about-extra')+
-      '<a class="sig-underlink" href="/about/" data-site-link>'+tr('გაიცანით დამფუძნებელი','Meet the founder')+'<span aria-hidden="true">↗</span></a>'+
-    '</div></div></section>';
+export function signatureAbout(){
+ const focus=[
+ ['AI-ის სამართლებრივი რეგულირება და მმართველობა','AI regulation and governance'],
+ ['პერსონალურ მონაცემთა დაცვა','Data protection and privacy'],
+ ['ტექნოლოგიური და კომერციული ხელშეკრულებები','Technology and commercial contracts'],
+ ['ციფრული პროდუქტები და საერთაშორისო ბიზნესი','Digital products and cross-border business']];
+ return '<section class="sig-about" id="about" aria-labelledby="about-heading"><div class="container sig-about-grid">'+
+ '<div class="sig-about-heading"><p class="sig-kicker">'+tr('ჩვენ შესახებ','ABOUT THE PRACTICE')+'</p>'+
+ '<h2 id="about-heading" data-en="Specialist focus. Direct, personal legal advice.">სპეციალიზებული პრაქტიკა. უშუალო ურთიერთობა კლიენტთან.</h2></div>'+
+ '<div class="sig-about-content">'+
+ tr('Digital Law Georgia ლუკა შახყულაშვილის მიერ დაფუძნებული დამოუკიდებელი ბუტიკური იურიდიული პრაქტიკაა. ჩვენი საქმიანობა მთლიანად კონცენტრირებულია ტექნოლოგიებთან, ხელოვნურ ინტელექტთან და ციფრულ ბიზნესთან დაკავშირებულ სამართლებრივ საკითხებზე, მათ შორის შესაბამის კომერციულ ურთიერთობებზე.',
+ 'Founded by Luka Shakhkulashvili, Digital Law Georgia is an independent boutique legal practice dedicated exclusively to legal matters arising from technology, artificial intelligence and digital business, including the commercial relationships that support them.','p')+
+ tr('ჩვენი მიზანია, კომპანიებმა მიიღონ ზუსტი, გასაგები და მათ საქმიანობაზე მორგებული იურიდიული დახმარება. ჯერ ვეცნობით კონკრეტულ საკითხს, შემდეგ ვათანხმებთ სამუშაოს ფარგლებსა და პირობებს. კლიენტი უშუალოდ ურთიერთობს იმ იურისტთან, რომელიც მის საქმეზე მუშაობს.',
+ 'Our purpose is to make specialist legal advice clear, practical and closely aligned with each client’s business. We understand the matter first, agree the scope and terms, and provide direct access to the lawyer responsible for the work.','p')+
+ tr('პრაქტიკას ხელმძღვანელობს ლუკა შახყულაშვილი, ტექნოლოგიური და კომერციული სამართლის იურისტი 7-წლიანი გამოცდილებით. მან Queen Mary University of London-ში მიიღო სამართლის მაგისტრის ხარისხი წარჩინებით (Distinction) და არის Chevening-ის სტიპენდიატი.',
+ 'The practice is led by Luka Shakhkulashvili, a technology and commercial lawyer with seven years of experience. He holds an LLM with Distinction from Queen Mary University of London and is a Chevening Scholar.','p','sig-about-extra')+
+ '<div class="sig-focus"><p class="sig-focus-title" data-en="OUR SPECIALISATION">ჩვენი სპეციალიზაცია</p><ul class="sig-focus-list">'+
+ focus.map(([ka,en])=>'<li>'+tr(ka,en)+'</li>').join('')+
+ '</ul></div><a class="sig-underlink" href="/about/" data-site-link>'+
+ tr('გაიცანით დამფუძნებელი','Meet the founder')+'<span aria-hidden="true">↗</span></a>'+
+ '</div></div></section>';
 }
-
-export function signatureServices() {
- const buttons=practices.map((p,i)=>
-  '<button class="sig-practice-tab'+(i===0?' is-active':'')+'" type="button" id="sig-tab-'+p.key+'" data-sig-tab="'+p.key+'" role="tab" aria-controls="sig-panel-'+p.key+'" aria-selected="'+(i===0?'true':'false')+'" tabindex="'+(i===0?'0':'-1')+'">'+
-    '<span class="sig-practice-num">'+p.num+'</span>'+tr(p.ka,p.en,'span','sig-practice-name')+'<span class="sig-practice-arrow" aria-hidden="true">↗</span></button>'
- ).join('');
- const panels=practices.map((p,i)=>
-  '<div class="sig-practice-panel'+(i===0?' is-active':'')+'" id="sig-panel-'+p.key+'" data-sig-panel="'+p.key+'" role="tabpanel" aria-labelledby="sig-tab-'+p.key+'" tabindex="0"'+(i===0?'':' hidden')+'>'+
-   '<span class="sig-panel-index">DLG / '+p.num+'</span>'+
-   tr(p.ka,p.en,'h3')+
-   tr(p.leadKa,p.leadEn,'p','sig-panel-lead')+
-   '<div class="sig-panel-list"><p data-en="HOW WE HELP">როგორ გეხმარებით</p><ul>'+
-      p.pointsKa.map((x,j)=>'<li>'+tr(x,p.pointsEn[j])+'</li>').join('')+
-   '</ul></div>'+
-   '<a href="'+p.link+'" class="sig-underlink" data-site-link>'+tr('მომსახურების დეტალები','Explore this service')+'<span aria-hidden="true">↗</span></a>'+
-  '</div>'
- ).join('');
- return '<section class="sig-services" id="services" aria-labelledby="services-heading">'+
-  '<div class="container">'+
-   '<div class="sig-section-heading sig-section-heading-split">'+
-     '<div><p class="sig-kicker">'+tr('სპეციალიზაცია','OUR PRACTICE')+'</p>'+
-        '<h2 id="services-heading" data-en="Specialist expertise, grounded in business.">სამართლებრივი ცოდნა ბიზნესის რეალური საჭიროებებისთვის.</h2></div>'+
-     tr('შეარჩიეთ მიმართულება და გაეცანით, რაში შეგვიძლია დაგეხმაროთ.','Select an area to see how we can help your business.','p')+
-   '</div>'+
-   '<div class="sig-practices" data-sig-practices>'+
-      '<div class="sig-practice-tabs" role="tablist" aria-orientation="vertical" aria-label="სამართლებრივი მომსახურებები" data-en-aria="Legal practice areas">'+buttons+'</div>'+
-      '<div class="sig-practice-panels">'+panels+'</div>'+
-   '</div>'+
-   '<div class="sig-services-footer"><a href="/services/" class="sig-underlink" data-site-link>'+tr('ყველა მომსახურების ნახვა','View all services')+'<span aria-hidden="true">↗</span></a>'+
-    '<span data-en="More expertise: software IP, FinTech, cybersecurity and ongoing legal counsel.">სხვა მიმართულებები: პროგრამული უზრუნველყოფის IP, ფინტექი, კიბერუსაფრთხოება და მიმდინარე იურიდიული მომსახურება.</span>'+
-   '</div>'+
-  '</div></section>';
+export function signatureServices(){
+ const rows=practices.map(p=>
+ '<article class="sig-service-row" id="practice-'+p.key+'">'+
+ '<span class="sig-service-number">'+p.num+'</span>'+
+ '<div class="sig-service-copy">'+tr(p.ka,p.en,'h3')+tr(p.leadKa,p.leadEn,'p')+'</div>'+
+ '<div class="sig-service-detail"><ul class="sig-service-points">'+
+ p.pointsKa.map((point,i)=>'<li>'+tr(point,p.pointsEn[i])+'</li>').join('')+
+ '</ul><a class="sig-underlink" href="'+p.link+'" data-site-link>'+
+ tr('მომსახურების შესახებ','Read about this practice')+'<span aria-hidden="true">↗</span></a></div>'+
+ '</article>').join('');
+ return '<section class="sig-services" id="services" aria-labelledby="services-heading"><div class="container">'+
+ '<div class="sig-section-heading sig-section-heading-split">'+
+ '<div><p class="sig-kicker">'+tr('ჩვენი საქმიანობა','OUR PRACTICE')+'</p>'+
+ '<h2 id="services-heading" data-en="Legal expertise for technology-led businesses.">იურიდიული მომსახურება ტექნოლოგიურ ბიზნესთან დაკავშირებულ საკითხებზე.</h2></div>'+
+ tr('ვმუშაობთ იმ სამართლებრივ საკითხებზე, რომლებიც გავლენას ახდენს ტექნოლოგიური პროდუქტების განვითარებაზე, კომერციულ შეთანხმებებსა და პასუხისმგებლობის მართვაზე.',
+ 'We advise on the legal questions behind technology products, commercial arrangements and responsible business operations.','p')+
+ '</div><div class="sig-service-list">'+rows+'</div>'+
+ '<div class="sig-services-footer"><a href="/services/" class="sig-underlink" data-site-link>'+
+ tr('ყველა მომსახურების ნახვა','View all practice areas')+'<span aria-hidden="true">↗</span></a>'+
+ '<span data-en="Related expertise includes software IP, FinTech, cybersecurity and ongoing legal counsel.">დაკავშირებული მიმართულებებია პროგრამული უზრუნველყოფის ინტელექტუალური საკუთრება, ფინტექი, კიბერუსაფრთხოების სამართალი და მიმდინარე იურიდიული მხარდაჭერა.</span>'+
+ '</div></div></section>';
 }
-
 export function signatureAudience() {
  const links=scenarios.map(p=>
   '<a class="sig-audience-item" href="'+p.href+'" data-site-link><span class="sig-audience-num">'+p.n+'</span>'+

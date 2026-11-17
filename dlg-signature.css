@@ -481,3 +481,22 @@ html[lang=en] .digital-site .digital-page-hero h1{
  .digital-site .digital-page-hero h1{line-height:1.43!important}
  .digital-site .practice-grid,.digital-site .solution-grid{gap:14px}
 }
+
+/* Editorial practice presentation: no app-like service tabs */
+.dlg-signature-home .sig-focus{margin:30px 0 24px;padding-top:23px;border-top:1px solid #DCD7CD}
+.dlg-signature-home .sig-focus-title{margin:0 0 15px;color:#815F42;font-size:11px;font-weight:650;letter-spacing:.035em}
+.dlg-signature-home .sig-focus-list{list-style:none;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px 22px;margin:0;padding:0}
+.dlg-signature-home .sig-focus-list li{position:relative;padding-left:17px;color:#3E515C;font-size:12px;line-height:1.7}
+.dlg-signature-home .sig-focus-list li:before{content:"";position:absolute;top:.83em;left:0;width:8px;height:1px;background:#9D7A50}
+.dlg-signature-home .sig-service-list{border-top:1px solid #58636A}
+.dlg-signature-home .sig-service-row{display:grid;grid-template-columns:36px minmax(0,1.14fr) minmax(0,.86fr);gap:clamp(20px,3.5vw,56px);padding:clamp(28px,3.6vw,48px) 4px;border-bottom:1px solid #58636A;align-items:start}
+.dlg-signature-home .sig-service-number{font:500 11px/1.6 Arial,sans-serif;color:#CBB18A;padding-top:7px}
+.dlg-signature-home .sig-service-copy h3{margin:0 0 14px;color:#FFFEFB;font-size:clamp(21px,2.2vw,29px);font-weight:550;line-height:1.55;letter-spacing:-.02em}
+.dlg-signature-home .sig-service-copy p{margin:0;max-width:530px;color:#C8D0D0;font-size:13px;line-height:1.9}
+.dlg-signature-home .sig-service-points{margin:2px 0 19px;padding:0;list-style:none;display:grid;gap:8px}
+.dlg-signature-home .sig-service-points li{position:relative;padding-left:18px;color:#E0E6E5;font-size:12px;line-height:1.72}
+.dlg-signature-home .sig-service-points li:before{content:"";position:absolute;top:.84em;left:0;width:8px;height:1px;background:#CBB18A}
+.dlg-signature-home .sig-service-detail .sig-underlink{color:#F4F3ED;border-bottom-color:#A8AAA6;font-size:12px}
+.dlg-signature-home .sig-service-detail .sig-underlink:hover{color:#E7CDA7;border-bottom-color:#E7CDA7}
+@media(max-width:900px){.dlg-signature-home .sig-service-row{grid-template-columns:32px minmax(0,1fr);gap:12px 22px}.dlg-signature-home .sig-service-detail{grid-column:2}}
+@media(max-width:700px){.dlg-signature-home .sig-focus-list{grid-template-columns:1fr}.dlg-signature-home .sig-service-row{padding:30px 0}.dlg-signature-home .sig-service-copy h3{font-size:21px}}
