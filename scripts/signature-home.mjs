@@ -19,7 +19,7 @@ const practices = [
   pointsEn:['Terms of Service, subscriptions and refunds','Consumer protection and platform rules','E-contracts and digital advertising'],link:'/services/digital-products/'},
  {key:'ip',num:'05',ka:'პროგრამული უზრუნველყოფა და ინტელექტუალური საკუთრება',en:'Software & Intellectual Property',
   leadKa:'პროგრამულ კოდზე, ციფრულ აქტივებსა და ბრენდზე უფლებების დაცვა.',leadEn:'Clear ownership and licensing of code, software and digital assets.',
-  pointsKa:['IP assignment და ლიცენზირებისა დოკუმენტები','პროგრამულ კოდზე უფლებები და Open Source','ბრენდი, სასაქონლო ნიშნები და ტექნოლოგიური აქტივები'],
+  pointsKa:['IP-ის გადაცემისა და ლიცენზირების დოკუმენტები','პროგრამულ კოდზე უფლებები და Open Source','ბრენდი, სასაქონლო ნიშნები და ტექნოლოგიური აქტივები'],
   pointsEn:['IP assignments and licensing documents','Software ownership and open-source compliance','Brand protection and technology assets'],link:'/services/intellectual-property/'},
  {key:'cyber',num:'06',ka:'კიბერუსაფრთხოების სამართლებრივი საკითხები',en:'Cybersecurity & Digital Risk',
   leadKa:'ციფრული ინციდენტების, ინფორმაციული უსაფრთხოებისა და მიმწოდებლების პასუხისმგებლობის სამართლებრივი მართვა.',leadEn:'Legal responsibilities around cyber incidents, information security and suppliers.',

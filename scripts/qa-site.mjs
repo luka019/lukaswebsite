@@ -19,10 +19,10 @@ assert(home.includes('class="site-header law-header dlg-integrated-header"'),'Sh
 assert(home.includes('law-brand-tagline') && home.includes('იურიდიული მომსახურება ციფრული ბიზნესისთვის'),'Agreed header tagline missing');
 assert(home.includes('data-en="Legal Support for Digital Business"'),'English header tagline missing');
 assert(home.includes('href="/dlg-signature.css?v=20261112-signature1"'),'Signature design system not loaded');
-assert(home.includes('href="/dlg-premium.css?v=20261118-boutique"'),'Premium editorial stylesheet missing');
-assert(premiumCss.includes('--boutique-green:#173B39') && premiumCss.includes('--boutique-ivory:#F1EEE6'),'Boutique palette missing');
+assert(home.includes('href="/dlg-premium.css?v=20261118-modern3"'),'Modern boutique stylesheet missing');
+assert(premiumCss.includes('--white:#FFFFFF') && premiumCss.includes('--blue:#225BBA') && premiumCss.includes('--navy:#0F223C'),'Modern white-and-blue palette missing');
 assert(!premiumCss.includes('linear-gradient('),'Avoid decorative visual gradients');
-assert(home.includes('dlg-signature.js'),'Signature interactions not loaded');
+assert(!home.includes('dlg-signature.js'),'Retired app-style service interactions must not load');
 assert(!home.includes('firm-hero.js'),'Retired illustrated hero must not be loaded');
 assert(home.includes('id="hero-title" data-en="Technology law. Clear advice. Direct counsel."'),'Specialist bilingual heading missing');
 assert(home.includes('ტექნოლოგიებისა და AI-ის სამართალი ბიზნესისთვის.'),'Georgian specialist heading missing');
@@ -69,7 +69,7 @@ assert(signatureCss.includes('#F6F2EC') && signatureCss.includes('#1B2B37'),'Sig
 assert((signatureCss.match(/\{/g)||[]).length===(signatureCss.match(/\}/g)||[]).length,'Unbalanced signature CSS');
 assert((css.match(/\{/g)||[]).length===(css.match(/\}/g)||[]).length,'Unbalanced shared CSS');
 new vm.Script(interaction,{filename:'dlg-signature.js'});total++;
-assert(interaction.includes('ArrowDown') && interaction.includes('ArrowUp') && interaction.includes('aria-selected'),'Keyboard-accessible practice switching missing');
+assert(!home.includes('data-sig-practices'),'No interactive practice-tab dependency');
 assert(!interaction.includes('setInterval'),'Unwanted automatic content switching must not return');
 new vm.Script(script,{filename:'firm-interactions.js'});total++;
 for(const p of [

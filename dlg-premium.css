@@ -1,444 +1,597 @@
-/* Digital Law Georgia — Boutique editorial identity, November 2026.
-   Original implementation informed by references to luxury legal editorial
-   design and restrained technology-law branding. No reference artwork copied. */
-:root{
-  --boutique-ivory:#F1EEE6;
-  --boutique-white:#FFFEFB;
-  --boutique-green:#173B39;
-  --boutique-green-dark:#122F2E;
-  --boutique-ink:#202428;
-  --boutique-muted:#56605E;
-  --boutique-bronze:#946637;
-  --boutique-border:#DDD8CD;
-  --ink:#202428;
-  --ink-soft:#4B5855;
-  --paper:#FFFEFB;
-  --paper-2:#F1EEE6;
-  --accent:#946637;
-  --accent-dark:#77522E;
-  --line:#DDD8CD;
-  --firm-navy:#173B39;
-  --firm-blue:#946637;
-  --max:1260px;
+/* Digital Law Georgia | Edition 03: Modern Boutique Technology Law.
+   A white-first editorial design system: no decorative gradients, synthetic
+   graphics, app-style panels, fake awards or distracting motion. 2026-11-18 */
+:root {
+ --white:#FFFFFF;
+ --canvas:#F7F9FC;
+ --canvas-cool:#F2F6FC;
+ --ink:#14243A;
+ --ink-strong:#0D2038;
+ --muted:#5B6C80;
+ --muted-strong:#46586D;
+ --blue:#225BBA;
+ --blue-dark:#174895;
+ --blue-pale:#E9F1FF;
+ --rule:#DBE3ED;
+ --rule-soft:#E9EEF5;
+ --navy:#0F223C;
+ --boutique-green:#173B39; /* legacy token only, not used by this edition */
+ --boutique-ivory:#F1EEE6; /* legacy token only, not used by this edition */
+ --boutique-white:#FFFFFF;
+ --boutique-ink:#14243A;
+ --boutique-bronze:#225BBA;
+ --ink-soft:#46586D;
+ --paper:#FFFFFF;
+ --paper-2:#F7F9FC;
+ --accent:#225BBA;
+ --accent-dark:#174895;
+ --line:#DBE3ED;
+ --firm-navy:#0F223C;
+ --firm-blue:#225BBA;
+ --max:1260px;
 }
-body{background:var(--boutique-white);color:var(--boutique-ink)}
+*{scroll-margin-top:90px}
+html{scroll-padding-top:88px}
+body{background:var(--white);color:var(--ink);font-family:NotoGeo,Arial,sans-serif}
+a,button{ -webkit-tap-highlight-color:transparent }
 a:focus-visible,button:focus-visible,summary:focus-visible{
-  outline:2px solid var(--boutique-bronze);outline-offset:4px;
+ outline:2px solid var(--blue);outline-offset:4px
 }
-
-/* FIRM IDENTITY: clean masthead, unmistakable wordmark, controlled accent. */
+.container{width:min(1260px,calc(100% - 92px))}
 .site-header.law-header,
 .law-home .site-header.dlg-integrated-header,
 .law-home .site-header.dlg-integrated-header.dlg-scrolled{
-  background:#FFFEFB;
-  color:var(--boutique-ink);
-  border-bottom:1px solid var(--boutique-border);
-  box-shadow:none;
-  backdrop-filter:none;
+ background:#FFF;color:var(--ink);border-bottom:1px solid var(--rule);
+ box-shadow:none;backdrop-filter:none
 }
-.site-header .header-inner{min-height:88px;padding-block:13px}
-.law-brand{gap:12px}
-.law-brand-monogram{
-  width:45px;height:47px;
-  background:var(--boutique-green);
-  color:var(--boutique-white);
-  border:1px solid var(--boutique-green);
-  border-radius:0;
-  font:400 18px/1 Georgia,"Times New Roman",serif;
-  letter-spacing:-.055em;
-}
+.site-header .header-inner{min-height:89px;padding-block:12px;gap:25px}
+.law-brand{gap:13px}
+.law-brand .law-brand-monogram,.law-brand .law-brand-rule{display:none}
+.law-brand-text{display:flex;flex-direction:column;gap:1px}
 .law-brand-text strong{
-  font-family:Georgia,"Times New Roman",serif;
-  font-size:20px;letter-spacing:-.035em;font-weight:500;color:var(--boutique-ink);
+ font:500 24px/1.1 Georgia,"Times New Roman",serif;
+ letter-spacing:-.05em;color:var(--ink-strong)
 }
-.law-brand-text small{color:#747571;letter-spacing:.22em;font-size:9px}
+.law-brand-text small{
+ font:600 10px/1.3 Arial,sans-serif;letter-spacing:.27em;color:var(--blue)
+}
 .site-header .law-brand-tagline{
-  max-width:204px;padding-left:16px;border-left:1px solid #D7D0C6;
-  color:#625F59;font-size:10px;line-height:1.55;
+ padding-left:19px;margin-left:10px;border-left:1px solid var(--rule);
+ color:var(--muted-strong);max-width:180px;
+ font-size:10px;line-height:1.6
 }
-.site-nav.law-nav{gap:clamp(12px,1.45vw,23px)}
-.law-nav>a{color:#353D3C;font-size:12px;font-weight:580}
-.law-nav>a:hover,.law-nav>a.is-active{color:var(--boutique-bronze)}
-.law-nav>a:after{background:var(--boutique-bronze)}
-.law-header-tools{gap:19px}
-.law-languages button[aria-pressed=true]{color:var(--boutique-green)}
+.site-nav.law-nav{gap:clamp(14px,1.8vw,28px)}
+.law-nav>a{font-size:12px;font-weight:590;color:#314257;letter-spacing:0}
+.law-nav>a:hover,.law-nav>a.is-active{color:var(--blue)}
+.law-nav>a:after{background:var(--blue)}
+.law-header-tools{margin-left:auto;gap:17px}
+.law-languages button{color:#6A7786}
+.law-languages button[aria-pressed=true]{color:var(--blue)}
 .site-header .law-header-cta{
-  border-radius:0;
-  background:var(--boutique-green);
-  border:1px solid var(--boutique-green);
-  color:#fff;
-  min-height:43px;padding:11px 17px;font-weight:580;
-  transition:background-color .2s,border-color .2s;
+ background:var(--blue);border:1px solid var(--blue);color:#fff;
+ min-height:44px;padding:12px 19px;border-radius:3px;
+ font-size:12px;font-weight:620;box-shadow:none
 }
 .site-header .law-header-cta:hover{
-  background:var(--boutique-green-dark);
-  border-color:var(--boutique-green-dark);
-  color:#fff;transform:none;
+ background:var(--blue-dark);border-color:var(--blue-dark);
+ color:#fff;transform:none
 }
-.law-scroll-progress{background:var(--boutique-bronze)}
-.law-to-top{background:var(--boutique-green);border-radius:0}
-.site-footer.law-footer{background:#152F2E;color:#EDEAE4}
-.site-footer .law-brand-monogram{background:#F1EEE6;border-color:#F1EEE6;color:#173B39}
-.site-footer .law-brand-text strong{color:#F9F6F0}
-.site-footer .law-brand-text small{color:#D6CEC1}
-.site-footer .law-footer-title{color:#F9F6F0}
+.law-scroll-progress{background:var(--blue)}
+.law-to-top{background:var(--navy);border-radius:2px}
+.site-footer.law-footer{background:#0D1E34;color:#E1E7F0}
+.site-footer .law-brand-text strong{color:#fff}
+.site-footer .law-brand-text small{color:#8EB9FD}
+.site-footer .law-footer-title{color:#fff}
 .site-footer .law-footer-about p,.site-footer .law-footer-group,
-.site-footer .law-footer-bottom{color:#D0D2CB}
-.site-footer a:hover{color:#E2BC8A}
+.site-footer .law-footer-bottom{color:#C0C9D6}
+.site-footer a:hover{color:#AFCBFF}
 
-/* FIRST IMPRESSION: editorial proportion rather than an application hero. */
-.dlg-signature-home .sig-hero{
-  background:var(--boutique-ivory);
-  color:var(--boutique-ink);
-}
+/* Hero — direct access to a named professional, no glossy feature graphics. */
+.dlg-signature-home .sig-hero{background:#fff;color:var(--ink);overflow:visible}
 .dlg-signature-home .sig-hero-grid{
-  grid-template-columns:minmax(0,1.12fr) minmax(0,.88fr);
-  gap:clamp(36px,5.5vw,88px);
-  align-items:center;
-  padding-top:clamp(58px,6.5vw,96px);
-  padding-bottom:clamp(46px,5vw,76px);
+ display:grid;grid-template-columns:minmax(0,1.17fr) minmax(0,.83fr);
+ align-items:center;gap:clamp(38px,5.2vw,83px);
+ padding-top:clamp(65px,7vw,112px);
+ padding-bottom:clamp(60px,6.2vw,92px)
 }
-.dlg-signature-home .sig-hero-copy{padding-bottom:0}
-.dlg-signature-home .sig-kicker,
-.dlg-signature-home .sig-eyebrow{
-  color:#836340;font-size:11px;font-weight:620;
-  letter-spacing:.06em;line-height:1.65;
+.dlg-signature-home .sig-hero-copy{min-width:0;padding-bottom:0}
+.dlg-signature-home .sig-eyebrow,.dlg-signature-home .sig-kicker{
+ color:var(--blue);font-size:11px;font-weight:680;
+ letter-spacing:.045em;line-height:1.6;text-transform:none
 }
-.dlg-signature-home .sig-eyebrow{margin-bottom:28px}
-.dlg-signature-home .sig-eyebrow-line,
-.dlg-signature-home .sig-footline{background:#9B7955}
+.dlg-signature-home .sig-eyebrow{margin:0 0 27px}
+.dlg-signature-home .sig-eyebrow-line,.dlg-signature-home .sig-footline{
+ flex:0 0 29px;width:29px;height:2px;background:var(--blue)
+}
 .dlg-signature-home .sig-hero h1{
-  max-width:695px;color:var(--boutique-ink);
-  font-family:NotoGeo,Arial,sans-serif;
-  font-size:clamp(41px,4.15vw,67px);
-  line-height:1.35;font-weight:580;letter-spacing:-.042em;
-  text-wrap:balance;
+ max-width:710px;color:var(--ink-strong);
+ font-family:NotoGeo,Arial,sans-serif;
+ font-size:clamp(40px,4.15vw,68px);
+ line-height:1.35;letter-spacing:-.043em;font-weight:650;
+ text-wrap:balance
 }
 html[lang=en] .dlg-signature-home .sig-hero h1{
-  max-width:650px;
-  font-family:Georgia,"Times New Roman",serif;
-  font-size:clamp(52px,5.15vw,82px);
-  line-height:1.105;font-weight:400;letter-spacing:-.052em;
+ max-width:710px;font:400 clamp(52px,5.2vw,80px)/1.09 Georgia,"Times New Roman",serif;
+ letter-spacing:-.052em
 }
 .dlg-signature-home .sig-hero-intro{
-  max-width:575px;margin-top:28px;
-  color:#4D5755;font-size:15px;line-height:1.95;font-weight:400;
+ color:#506176;font-size:15px;line-height:1.91;
+ max-width:600px;margin-top:27px
 }
-.dlg-signature-home .sig-actions{margin-top:35px;gap:15px 27px}
+.dlg-signature-home .sig-actions{gap:15px 23px;margin-top:36px}
 .dlg-signature-home .sig-button{
-  border-radius:0;min-height:53px;
-  font-size:12px;font-weight:630;
-  padding:15px 22px;
-  transition:background-color .2s,border-color .2s,color .2s;
+ min-height:51px;padding:15px 20px;font-size:12px;
+ font-weight:620;border-radius:3px;box-shadow:none;
+ transition:background-color .2s,border-color .2s,color .2s
 }
 .dlg-signature-home .sig-button-primary{
-  background:var(--boutique-green);
-  border-color:var(--boutique-green);color:#fff;
+ background:var(--blue);border:1px solid var(--blue);color:#fff
 }
 .dlg-signature-home .sig-button-primary:hover{
-  background:var(--boutique-green-dark);border-color:var(--boutique-green-dark);
-  transform:none;
+ background:var(--blue-dark);border-color:var(--blue-dark);
+ transform:none
 }
 .dlg-signature-home .sig-button-text{
-  color:#243D3B;border-bottom:1px solid #9B9C93;
+ color:var(--ink);border-bottom:1px solid #8392A6;
+ border-radius:0
 }
 .dlg-signature-home .sig-button-text:hover{
-  color:#815D38;border-color:#815D38;
+ color:var(--blue);border-bottom-color:var(--blue);transform:none
 }
 .dlg-signature-home .sig-hero-footnote{
-  color:#716E67;font-size:11px;line-height:1.65;margin-top:36px;
+ margin-top:34px;gap:11px;color:#66768A;font-size:11px;line-height:1.75
 }
-.dlg-signature-home .sig-hero-media{padding-left:0}
+.dlg-signature-home .sig-hero-media{
+ padding-left:0;max-width:485px;min-width:0;justify-self:end;width:100%
+}
 .dlg-signature-home .sig-hero-media:before,
 .dlg-signature-home .sig-photo-rail{display:none}
 .dlg-signature-home .sig-photo{
-  margin:0;background:#DDD5C9;border:1px solid #D5CCBE;
+ border:0;background:#E9EEF5;box-shadow:none;margin:0
 }
 .dlg-signature-home .sig-photo img{
-  display:block;width:100%;height:auto;
-  aspect-ratio:4/4.75;object-fit:cover;object-position:center 24%;
-  filter:none;mix-blend-mode:normal;
-  transform:none;
-  transition:none;
+ display:block;width:100%;height:auto;
+ aspect-ratio:4/4.75;object-fit:cover;object-position:center 24%;
+ filter:none;mix-blend-mode:normal;transform:none;transition:none
 }
 .dlg-signature-home .sig-photo:hover img{transform:none}
 .dlg-signature-home .sig-photo-caption{
-  position:static;display:flex;flex-direction:column;gap:5px;
-  background:var(--boutique-green);
-  color:#fff;padding:18px 24px 20px;
+ position:static;display:flex;flex-direction:column;gap:5px;
+ padding:19px 22px 17px;background:var(--canvas-cool);
+ border-bottom:2px solid var(--blue);color:var(--ink);
+ box-shadow:none
 }
 .dlg-signature-home .sig-photo-caption span{
-  color:#D7DFD9;font-size:10px;letter-spacing:.04em;
+ color:var(--blue);font-size:10px;letter-spacing:.035em;font-weight:640
 }
 .dlg-signature-home .sig-photo-caption strong{
-  color:#fff;font-size:15px;font-weight:570;
+ color:var(--ink-strong);font-size:15px;font-weight:650;line-height:1.5
 }
 .dlg-signature-home .sig-proofbar{
-  background:var(--boutique-ivory);
-  border-top:1px solid #D9D3C8;
-  padding-top:26px;padding-bottom:29px;
+ background:var(--canvas);border-top:1px solid var(--rule);
+ border-bottom:1px solid var(--rule);
+ padding-top:23px;padding-bottom:25px
 }
 .dlg-signature-home .sig-proofbar>div{
-  border-left:1px solid #D8D2C5;padding:3px 25px;
+ border-left:1px solid var(--rule);padding:4px 25px;
 }
-.dlg-signature-home .sig-proofbar>div:first-child{padding-left:0}
+.dlg-signature-home .sig-proofbar>div:first-child{padding-left:0;border-left:0}
 .dlg-signature-home .sig-proofbar strong{
-  color:#1D3A38;font-size:15px;line-height:1.5;font-weight:600;
+ font-size:15px;font-weight:680;color:#173454;line-height:1.5
 }
 .dlg-signature-home .sig-proofbar span{
-  color:#686B65;font-size:11px;line-height:1.7;
+ font-size:11px;color:#66758A;line-height:1.6
 }
 
-/* THE FIRM: white space and visible human expertise. */
+/* Practice positioning / founder story. */
 .dlg-signature-home .sig-about{
-  background:var(--boutique-white);
-  padding:clamp(88px,8vw,134px) 0;
+ background:var(--canvas);padding:clamp(92px,8vw,132px) 0
 }
 .dlg-signature-home .sig-about-grid{
-  grid-template-columns:minmax(0,.88fr) minmax(0,1.12fr);
-  gap:clamp(42px,8vw,125px);
+ grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);
+ gap:clamp(45px,7.5vw,124px)
 }
 .dlg-signature-home .sig-about h2,
 .dlg-signature-home .sig-section-heading h2{
-  color:var(--boutique-ink);
-  font-size:clamp(29px,3vw,44px);
-  font-weight:570;line-height:1.52;letter-spacing:-.03em;
+ color:var(--ink-strong);
+ font-size:clamp(28px,2.95vw,44px);
+ line-height:1.48;letter-spacing:-.03em;font-weight:640
 }
 html[lang=en] .dlg-signature-home .sig-about h2,
 html[lang=en] .dlg-signature-home .sig-section-heading h2{
-  color:var(--boutique-ink);
-  font:400 clamp(39px,3.7vw,55px)/1.18 Georgia,"Times New Roman",serif;
-  letter-spacing:-.032em;
+ color:var(--ink-strong);
+ font:400 clamp(39px,3.65vw,55px)/1.2 Georgia,"Times New Roman",serif;
+ letter-spacing:-.032em
 }
 .dlg-signature-home .sig-about-content>p{
-  max-width:700px;margin-bottom:23px;color:#4F5B59;
-  font-size:14px;line-height:2;
+ max-width:690px;color:#4F6175;
+ font-size:14px;line-height:1.99;margin-bottom:20px
 }
-.dlg-signature-home .sig-about-content>p.sig-about-extra{color:#505C59}
+.dlg-signature-home .sig-about-content>p.sig-about-extra{color:#53657B}
 .dlg-signature-home .sig-focus{
-  border-top:1px solid var(--boutique-border);
-  padding-top:27px;margin-top:31px;
+ border-top:1px solid #D2DCEA;padding-top:24px;
+ margin:29px 0 28px
 }
 .dlg-signature-home .sig-focus-title{
-  color:#7D5B39;font-size:11px;letter-spacing:.04em;
+ color:var(--blue);font-size:11px;font-weight:660;letter-spacing:.02em
+}
+.dlg-signature-home .sig-focus-list{
+ display:grid;grid-template-columns:repeat(2,minmax(0,1fr));
+ gap:12px 25px
 }
 .dlg-signature-home .sig-focus-list li{
-  color:#364B49;font-size:12px;line-height:1.8;
+ color:#344E6A;font-size:12px;line-height:1.75;padding-left:18px
+}
+.dlg-signature-home .sig-focus-list li:before{
+ width:9px;height:2px;background:#527CC6
 }
 .dlg-signature-home .sig-underlink{
-  border-bottom:1px solid #A0A49C;
-  color:var(--boutique-green);
-  font-weight:600;font-size:12px;
+ display:inline-flex;color:var(--blue);font-size:12px;font-weight:660;
+ border-bottom:1px solid #7C9CD3;gap:19px;transition:color .2s
 }
 .dlg-signature-home .sig-underlink:hover{
-  color:var(--boutique-bronze);border-color:var(--boutique-bronze);
-  gap:25px;
+ color:var(--blue-dark);border-color:var(--blue-dark);gap:19px
 }
 
-/* DEEP GREEN PRACTICE SECTION: structured legal services, no tabs. */
+/* Eight services — typographic index, not sales/product cards. */
 .dlg-signature-home .sig-services{
-  background:var(--boutique-green);
-  color:#F7F5EF;padding:clamp(92px,8vw,132px) 0;
+ background:#fff;color:var(--ink);padding:clamp(94px,8.5vw,140px) 0
 }
-.dlg-signature-home .sig-services .sig-kicker{color:#D7BC96}
-.dlg-signature-home .sig-services .sig-section-heading h2{color:#F9F8F3}
-.dlg-signature-home .sig-services .sig-section-heading>p{color:#D7DFD9}
-.dlg-signature-home .sig-service-list{border-top:1px solid #57726C}
-.dlg-signature-home .sig-service-row{border-bottom:1px solid #57726C}
-.dlg-signature-home .sig-service-number{color:#D9B48A}
-.dlg-signature-home .sig-service-copy h3{color:#F7F6F1}
-.dlg-signature-home .sig-service-copy p{color:#D9E0DA}
-.dlg-signature-home .sig-service-points li{color:#E4E9E3}
-.dlg-signature-home .sig-service-points li:before{background:#D9B48A}
+.dlg-signature-home .sig-services .sig-kicker{color:var(--blue)}
+.dlg-signature-home .sig-services .sig-section-heading h2{color:var(--ink-strong)}
+.dlg-signature-home .sig-section-heading-split{
+ grid-template-columns:minmax(0,1.19fr) minmax(0,.81fr);
+ gap:clamp(30px,6vw,93px)
+}
+.dlg-signature-home .sig-section-heading{margin-bottom:49px}
+.dlg-signature-home .sig-section-heading>p,
+.dlg-signature-home .sig-section-heading-split>p{
+ color:#5B6D82;font-size:14px;line-height:1.87
+}
+.dlg-signature-home .sig-service-list{
+ display:grid;grid-template-columns:repeat(2,minmax(0,1fr));
+ border-top:1px solid var(--rule);gap:0 38px
+}
+.dlg-signature-home .sig-service-row{
+ display:grid;grid-template-columns:30px minmax(0,1fr);
+ gap:0 17px;padding:30px 10px 30px 0;
+ border-bottom:1px solid var(--rule);border-top:0;
+ align-items:start;min-height:255px
+}
+.dlg-signature-home .sig-service-row:nth-child(even){
+ padding-left:27px;border-left:1px solid var(--rule)
+}
+.dlg-signature-home .sig-service-number{
+ grid-row:1 / span 2;color:#4D75B9;
+ font:600 11px/1.6 Arial,sans-serif;padding-top:7px
+}
+.dlg-signature-home .sig-service-copy{grid-column:2}
+.dlg-signature-home .sig-service-copy h3{
+ margin:0 0 10px;color:var(--ink-strong);
+ font-size:clamp(18px,1.65vw,24px);line-height:1.52;
+ letter-spacing:-.025em;font-weight:660
+}
+.dlg-signature-home .sig-service-copy p{
+ color:#5D6D7E;font-size:12px;line-height:1.83;
+ max-width:540px;margin:0
+}
+.dlg-signature-home .sig-service-detail{
+ grid-column:2;margin-top:16px
+}
+.dlg-signature-home .sig-service-points{
+ display:grid;gap:5px;list-style:none;padding:0;margin:0 0 18px
+}
+.dlg-signature-home .sig-service-points li{
+ position:relative;padding-left:16px;color:#4B5D71;
+ font-size:12px;line-height:1.75
+}
+.dlg-signature-home .sig-service-points li:before{
+ content:"";position:absolute;left:0;top:.83em;
+ width:7px;height:2px;background:#7BA0DA
+}
 .dlg-signature-home .sig-service-detail .sig-underlink{
-  color:#F4F4EE;border-bottom-color:#A9B9B1;
+ color:var(--blue);border-color:#7CA0D5;font-size:12px
 }
 .dlg-signature-home .sig-service-detail .sig-underlink:hover{
-  color:#F2D4A7;border-color:#F2D4A7;
+ color:var(--blue-dark);border-color:var(--blue-dark)
 }
-.dlg-signature-home .sig-services-footer>span{color:#D5DDD6}
-.dlg-signature-home .sig-services-footer .sig-underlink{color:#F4F4EE}
+.dlg-signature-home .sig-services-footer{
+ margin-top:30px;display:flex;align-items:center;
+ justify-content:space-between;gap:25px
+}
+.dlg-signature-home .sig-services-footer .sig-underlink{
+ color:var(--blue);border-color:#7CA0D5
+}
+.dlg-signature-home .sig-services-footer>span{
+ font-size:11px;color:#647388;max-width:495px;line-height:1.75
+}
 
-/* BUSINESS QUESTIONS: sophisticated editorial index rather than product tiles. */
+/* For business: clean three-column editorial questions. */
 .dlg-signature-home .sig-audience{
-  background:#FBFAF7;padding:clamp(91px,8vw,129px) 0;
+ background:var(--canvas-cool);
+ padding:clamp(89px,8vw,126px) 0
 }
-.dlg-signature-home .sig-audience-list{border-color:var(--boutique-border)}
-.dlg-signature-home .sig-audience-item{border-color:var(--boutique-border)}
-.dlg-signature-home .sig-audience-item:hover{background:#F4F0E9;padding-left:7px}
-.dlg-signature-home .sig-audience-num{color:#986E43}
-.dlg-signature-home .sig-audience-copy h3{color:var(--boutique-ink);font-weight:610}
-.dlg-signature-home .sig-audience-copy p{color:#56615F}
-.dlg-signature-home .sig-audience-arrow{color:#946637}
+.dlg-signature-home .sig-audience-list{
+ display:grid;grid-template-columns:repeat(3,minmax(0,1fr));
+ border-top:1px solid #D3DCE8;border-bottom:1px solid #D3DCE8;
+ margin-bottom:29px
+}
+.dlg-signature-home .sig-audience-item{
+ display:flex;flex-direction:column;align-items:flex-start;
+ gap:17px;min-height:235px;padding:30px 26px 30px 3px;
+ border-bottom:0;border-right:1px solid #D3DCE8;
+ transition:none
+}
+.dlg-signature-home .sig-audience-item:not(:first-child){padding-left:27px}
+.dlg-signature-home .sig-audience-item:last-child{border-right:0}
+.dlg-signature-home .sig-audience-item:hover{
+ background:transparent;padding-left:3px
+}
+.dlg-signature-home .sig-audience-item:not(:first-child):hover{padding-left:27px}
+.dlg-signature-home .sig-audience-num{font-size:11px;color:var(--blue)}
+.dlg-signature-home .sig-audience-copy h3{
+ font-size:19px;line-height:1.48;font-weight:660;color:var(--ink-strong)
+}
+.dlg-signature-home .sig-audience-copy p{
+ margin:0;color:#586B80;font-size:13px;line-height:1.83
+}
+.dlg-signature-home .sig-audience-arrow{
+ margin-top:auto;color:var(--blue);font-size:18px;transition:none
+}
+.dlg-signature-home .sig-audience-item:hover .sig-audience-arrow{transform:none}
 
-/* PROCESS: generous rhythm, restrained hairlines. */
+/* The client relationship, with no superficial promises. */
 .dlg-signature-home .sig-process{
-  background:var(--boutique-ivory);padding:clamp(87px,8vw,131px) 0;
+ background:#fff;padding:clamp(89px,8vw,129px) 0
 }
-.dlg-signature-home .sig-process-step{
-  border-top:1px solid #CFC8BC;padding-top:26px;
+.dlg-signature-home .sig-process-grid{
+ grid-template-columns:repeat(3,minmax(0,1fr));
+ gap:clamp(26px,4vw,60px);margin-top:45px
 }
-.dlg-signature-home .sig-process-step>span{color:#946637}
-.dlg-signature-home .sig-process-step h3{color:var(--boutique-ink)}
-.dlg-signature-home .sig-process-step p{color:#515D5A}
-.dlg-signature-home .sig-section-heading>p,
-.dlg-signature-home .sig-section-heading-split>p{color:#56615E}
+.dlg-signature-home .sig-process-step{border-color:var(--rule);padding-top:24px}
+.dlg-signature-home .sig-process-step>span{
+ color:var(--blue);font-weight:650;font-size:11px
+}
+.dlg-signature-home .sig-process-step h3{
+ color:var(--ink-strong);font-size:18px;font-weight:640
+}
+.dlg-signature-home .sig-process-step p{
+ color:#5A6C80;font-size:13px;line-height:1.84
+}
 
-/* INSIGHTS: textual editorial cards, not fabricated decorative thumbnails. */
+/* Knowledge / insights, no stock image pretence. */
 .dlg-signature-home .sig-insights{
-  background:#FFFEFB;padding:clamp(90px,8vw,125px) 0;
+ background:var(--canvas);padding:clamp(85px,7.5vw,122px) 0
 }
-.dlg-signature-home .sig-resource-grid{gap:clamp(20px,3vw,46px)}
+.dlg-signature-home .sig-resource-grid{
+ grid-template-columns:repeat(2,minmax(0,1fr));
+ gap:clamp(22px,4vw,54px)
+}
 .dlg-signature-home .sig-resource-grid .resource-card{
-  border:0;border-top:1px solid #CBC5BB;border-radius:0;
-  background:transparent;box-shadow:none;
-  transition:none;transform:none;
+ background:transparent;border:0;border-top:1px solid #CDD8E6;
+ border-radius:0;box-shadow:none;transform:none;
+ transition:border-color .2s
 }
 .dlg-signature-home .sig-resource-grid .resource-card:hover{
-  border-top-color:#946637;transform:none;
+ border-color:var(--blue);transform:none
 }
 .dlg-signature-home .sig-resource-grid .resource-cover{display:none}
-.dlg-signature-home .sig-resource-grid .resource-card-copy{
-  padding:25px 0 16px;
-}
+.dlg-signature-home .sig-resource-grid .resource-card-copy{padding:24px 0 14px}
 .dlg-signature-home .sig-resource-grid .resource-card h3{
-  font-size:clamp(19px,2vw,26px);line-height:1.55;
-  font-weight:560;color:var(--boutique-ink);
+ color:var(--ink-strong);font-size:clamp(19px,2vw,25px);
+ font-weight:620;line-height:1.56
 }
-.dlg-signature-home .sig-resource-grid .resource-card p{color:#596460;font-size:13px}
+.dlg-signature-home .sig-resource-grid .resource-card p{
+ color:#596C81;font-size:12px;line-height:1.85
+}
 .dlg-signature-home .sig-resource-grid .resource-card-top,
-.dlg-signature-home .sig-resource-grid .resource-card-bottom{font-size:11px;color:#7C6C59}
+.dlg-signature-home .sig-resource-grid .resource-card-bottom{
+ color:#5D728A;font-size:11px
+}
 
-/* CONTACT: quiet confidence rather than a marketing funnel. */
+/* Closing invitation: dark navy appears only where purposeful. */
 .dlg-signature-home .sig-contact{
-  background:var(--boutique-green-dark);
-  padding:clamp(89px,8vw,132px) 0;
+ background:var(--navy);color:#fff;
+ padding:clamp(92px,8.5vw,134px) 0
 }
-.dlg-signature-home .sig-contact .sig-kicker{color:#E2C69B}
-.dlg-signature-home .sig-contact h2{color:#FFFEFB}
-.dlg-signature-home .sig-contact-grid>div>p:last-child{color:#D4DDD6}
+.dlg-signature-home .sig-contact .sig-kicker{color:#AFCBFA}
+.dlg-signature-home .sig-contact h2{color:#fff}
+.dlg-signature-home .sig-contact-grid>div>p:last-child{
+ color:#C8D5E6;line-height:1.9
+}
 .dlg-signature-home .sig-contact-main{
-  border-radius:0;background:var(--boutique-ivory);
-  color:#173B39;transition:background-color .2s;
+ background:#fff;color:var(--ink-strong);border-radius:3px;
+ border:1px solid #fff;transition:background-color .2s
 }
-.dlg-signature-home .sig-contact-main:hover{background:#fff}
-.dlg-signature-home .sig-contact-secondary{color:#F6F4EC;border-bottom:1px solid #73908A}
-.dlg-signature-home .sig-contact-actions small{color:#C1D0C9}
+.dlg-signature-home .sig-contact-main:hover{background:#E9F1FF}
+.dlg-signature-home .sig-contact-secondary{
+ color:#E9F2FF;border-bottom-color:#55749C
+}
+.dlg-signature-home .sig-contact-actions small{color:#B6C8DC}
 
-/* INTERIOR PAGES: the brand must remain consistent after the homepage. */
+/* Service, sector, insight and about pages share the same visual system. */
 .digital-site{
-  --deep:var(--boutique-green);
-  --signal:#B89A72;
-  --grid:#DDD8CD;
-  --tech:#946637;
-  --tech-soft:#F1EEE6;
-  color:var(--boutique-ink);
+ --deep:var(--navy);--signal:var(--blue);--grid:var(--rule);
+ --tech:var(--blue);--tech-soft:var(--canvas-cool);
+ color:var(--ink)
 }
 .digital-site .digital-page-hero{
-  background:var(--boutique-ivory);
-  border-bottom:1px solid var(--boutique-border);
-  padding-block:clamp(54px,5.5vw,86px);
+ background:#fff;border-bottom:1px solid var(--rule);
+ padding-block:clamp(59px,6vw,97px)
 }
 .digital-site .digital-page-hero h1{
-  color:var(--boutique-ink);font-weight:570;
-  letter-spacing:-.032em;line-height:1.47!important;
+ max-width:1020px;color:var(--ink-strong);
+ font-size:clamp(34px,3.7vw,55px);font-weight:640;
+ letter-spacing:-.037em;line-height:1.4!important
 }
 html[lang=en] .digital-site .digital-page-hero h1{
-  font-family:Georgia,"Times New Roman",serif;
-  font-weight:400;line-height:1.16!important;
+ font:400 clamp(43px,4.35vw,65px)/1.17 Georgia,"Times New Roman",serif;
+ letter-spacing:-.038em
 }
-.digital-site .eyebrow,.digital-site .mono,
-.digital-site .digital-page-hero .eyebrow{color:#83603E}
-.digital-site .digital-lead{color:#4E5C57}
-.digital-site .digital-section{background:var(--boutique-white)}
-.digital-site .digital-wash{background:#F6F3ED}
-.digital-site .practice-card,.digital-site .solution-card{
-  background:#FFFEFB;border:1px solid #DDD8CE;border-radius:0;
-  box-shadow:none;transition:border-color .2s;
+.digital-site .digital-page-hero .eyebrow,
+.digital-site .eyebrow,.digital-site .mono{
+ color:var(--blue);font-weight:660
 }
-.digital-site .practice-card:hover,.digital-site .solution-card:hover{
-  border-color:#946637;box-shadow:none;transform:none;
+.digital-site .digital-lead{
+ max-width:870px;color:#586C80;font-size:15px;line-height:1.95
 }
-.digital-site .practice-card h3,.digital-site .solution-card h3{color:#202428}
-.digital-site .practice-card p,.digital-site .solution-question{color:#56615F}
-.digital-site .card-arrow{color:#946637}
-.digital-site .digital-cta{background:var(--boutique-green-dark)}
-.digital-site .digital-cta h2{color:#FFFEFB}
-.digital-site .digital-cta p{color:#DCE2DC}
+.digital-site .digital-section{background:#fff}
+.digital-site .digital-wash{background:var(--canvas)}
+.digital-site .practice-grid{
+ display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0 27px
+}
+.digital-site .practice-card{
+ border:0;border-top:1px solid var(--rule);border-radius:0;
+ box-shadow:none;background:transparent;
+ padding:29px 14px 28px 0;min-height:226px;
+ transition:border-color .2s,background-color .2s;transform:none
+}
+.digital-site .practice-card:hover{
+ border-top-color:var(--blue);box-shadow:none;
+ background:transparent;transform:none
+}
+.digital-site .practice-card h3{color:var(--ink-strong);font-weight:660;font-size:20px}
+.digital-site .practice-card p{
+ color:#5A6D81;font-size:13px;line-height:1.8
+}
+.digital-site .card-arrow{color:var(--blue)}
+.digital-site .solution-grid{
+ display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:17px
+}
+.digital-site .solution-card{
+ border:1px solid var(--rule);border-radius:2px;background:#fff;
+ box-shadow:none;min-height:175px;
+ transition:border-color .2s;transform:none
+}
+.digital-site .solution-card:hover{
+ border-color:var(--blue);box-shadow:none;transform:none
+}
+.digital-site .solution-card h3{color:var(--ink-strong);font-weight:630}
+.digital-site .solution-question{color:#586B80}
+.digital-site .digital-cta{background:var(--navy)}
+.digital-site .digital-cta h2{color:#fff}
+.digital-site .digital-cta p{color:#C9D7E7}
 .digital-site .button-primary{
-  background:var(--boutique-green);border-color:var(--boutique-green);
-  border-radius:0;color:#fff;
+ background:var(--blue);border:1px solid var(--blue);
+ color:#fff;border-radius:3px
 }
 .digital-site .button-primary:hover{
-  background:var(--boutique-green-dark);border-color:var(--boutique-green-dark);
+ background:var(--blue-dark);border-color:var(--blue-dark)
 }
 .digital-site .digital-cta .button-primary{
-  background:var(--boutique-ivory);color:var(--boutique-green-dark);
-  border-color:var(--boutique-ivory);
+ background:#fff;border-color:#fff;color:var(--navy)
 }
-.digital-site .button-secondary{border-radius:0}
-.digital-site .service-layout aside,.digital-site .deliverable-card,
+.digital-site .button-secondary{border-radius:3px}
+.digital-site .service-layout aside,
+.digital-site .deliverable-card,
 .digital-site .portfolio-credential-grid article,
-.digital-site .portfolio-module-grid article{border-radius:0;box-shadow:none}
-.resource-page .resource-card{border-radius:0;box-shadow:none;border-color:var(--boutique-border)}
-.resource-page .resource-card:hover{border-color:#946637}
-.resource-page{background:var(--boutique-white)}
-
-/* FLUID TYPOGRAPHY AND ACCESSIBILITY */
-@media(max-width:1100px){
-  .site-header .law-brand-tagline{display:none}
-  .dlg-signature-home .sig-hero-grid{gap:38px}
-  .dlg-signature-home .sig-hero h1{font-size:clamp(37px,4.4vw,55px)}
+.digital-site .portfolio-module-grid article{
+ border-radius:2px;box-shadow:none;border-color:var(--rule)
 }
-@media(max-width:900px){
-  .dlg-signature-home .sig-hero-grid{grid-template-columns:minmax(0,1.08fr) minmax(0,.92fr);gap:28px}
-  .dlg-signature-home .sig-hero h1{font-size:clamp(34px,4.7vw,45px)}
-  html[lang=en] .dlg-signature-home .sig-hero h1{font-size:clamp(43px,5.2vw,59px)}
-  .dlg-signature-home .sig-hero-intro{font-size:13px;line-height:1.8}
+.resource-page{background:#fff}
+.resource-page .resource-card{
+ border-radius:2px;border-color:var(--rule);box-shadow:none
+}
+.resource-page .resource-card:hover{border-color:var(--blue)}
+
+/* Responsive: avoid tiny service text, clipping or forced multi-columns. */
+@media(max-width:1170px){
+ .site-header .law-brand-tagline{display:none}
+ .site-header .header-inner{gap:16px}
+ .dlg-signature-home .sig-hero-grid{gap:35px}
+ .dlg-signature-home .sig-hero h1{font-size:clamp(38px,4.4vw,54px)}
+ html[lang=en] .dlg-signature-home .sig-hero h1{font-size:clamp(50px,5.3vw,65px)}
+}
+@media(max-width:950px){
+ .dlg-signature-home .sig-hero-grid{grid-template-columns:minmax(0,1.03fr) minmax(0,.97fr);gap:25px}
+ .dlg-signature-home .sig-hero h1{font-size:clamp(34px,4.6vw,46px)}
+ .dlg-signature-home .sig-hero-intro{font-size:13px}
+ .dlg-signature-home .sig-service-list{gap:0 24px}
+ .dlg-signature-home .sig-service-row:nth-child(even){padding-left:14px}
+ .digital-site .practice-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
 }
 @media(max-width:700px){
-  .site-header .header-inner{min-height:73px;padding-block:10px}
-  .law-brand-monogram{width:39px;height:40px;font-size:16px}
-  .law-brand-text strong{font-size:18px}
-  .dlg-signature-home .sig-hero-grid{grid-template-columns:1fr;gap:35px;padding-top:45px;padding-bottom:42px}
-  .dlg-signature-home .sig-hero h1{font-size:clamp(34px,8vw,46px);line-height:1.39}
-  html[lang=en] .dlg-signature-home .sig-hero h1{font-size:clamp(46px,10vw,62px);line-height:1.12}
-  .dlg-signature-home .sig-hero-intro{margin-top:22px;font-size:14px}
-  .dlg-signature-home .sig-actions{margin-top:27px}
-  .dlg-signature-home .sig-hero-footnote{margin-top:23px}
-  .dlg-signature-home .sig-hero-media{max-width:550px}
-  .dlg-signature-home .sig-photo img{aspect-ratio:4/3.55}
-  .dlg-signature-home .sig-photo-caption{padding:15px 18px}
-  .dlg-signature-home .sig-proofbar{padding-block:14px}
-  .dlg-signature-home .sig-proofbar>div{padding:15px 12px 15px 0}
-  .dlg-signature-home .sig-proofbar>div:nth-child(even){padding-left:16px}
-  .dlg-signature-home .sig-about,
-  .dlg-signature-home .sig-services,
-  .dlg-signature-home .sig-audience,
-  .dlg-signature-home .sig-process,
-  .dlg-signature-home .sig-insights,
-  .dlg-signature-home .sig-contact{padding-block:70px}
-  .dlg-signature-home .sig-about-grid,
-  .dlg-signature-home .sig-section-heading-split{grid-template-columns:1fr;gap:26px}
-  .dlg-signature-home .sig-about h2,
-  .dlg-signature-home .sig-section-heading h2{font-size:29px}
-  html[lang=en] .dlg-signature-home .sig-about h2,
-  html[lang=en] .dlg-signature-home .sig-section-heading h2{font-size:38px}
-  .dlg-signature-home .sig-resource-grid{grid-template-columns:1fr;gap:25px}
-  .dlg-signature-home .sig-contact-grid{grid-template-columns:1fr;gap:34px}
+ .container{width:calc(100% - 36px)}
+ .site-header .header-inner{min-height:72px;padding-block:10px}
+ .law-brand-text strong{font-size:21px}
+ .law-brand-text small{font-size:9px}
+ .dlg-signature-home .sig-hero-grid{
+   grid-template-columns:1fr;gap:35px;padding-top:48px;padding-bottom:35px
+ }
+ .dlg-signature-home .sig-hero h1{
+   font-size:clamp(33px,8.2vw,45px);line-height:1.36
+ }
+ html[lang=en] .dlg-signature-home .sig-hero h1{
+   font-size:clamp(45px,9.6vw,61px);line-height:1.12
+ }
+ .dlg-signature-home .sig-hero-intro{font-size:14px;line-height:1.88;margin-top:22px}
+ .dlg-signature-home .sig-actions{margin-top:27px;gap:14px}
+ .dlg-signature-home .sig-hero-footnote{margin-top:22px}
+ .dlg-signature-home .sig-hero-media{max-width:480px;justify-self:start}
+ .dlg-signature-home .sig-photo img{aspect-ratio:4/3.8}
+ .dlg-signature-home .sig-proofbar{grid-template-columns:repeat(2,minmax(0,1fr));gap:0}
+ .dlg-signature-home .sig-proofbar>div{
+   padding:13px 11px 13px 0;border-left:0;border-bottom:1px solid var(--rule)
+ }
+ .dlg-signature-home .sig-proofbar>div:nth-child(even){
+   border-left:1px solid var(--rule);padding-left:13px
+ }
+ .dlg-signature-home .sig-about,.dlg-signature-home .sig-services,
+ .dlg-signature-home .sig-audience,.dlg-signature-home .sig-process,
+ .dlg-signature-home .sig-insights,.dlg-signature-home .sig-contact{
+   padding-block:69px
+ }
+ .dlg-signature-home .sig-about-grid,
+ .dlg-signature-home .sig-section-heading-split{
+   grid-template-columns:1fr;gap:23px
+ }
+ .dlg-signature-home .sig-about h2,
+ .dlg-signature-home .sig-section-heading h2{font-size:29px;line-height:1.46}
+ html[lang=en] .dlg-signature-home .sig-about h2,
+ html[lang=en] .dlg-signature-home .sig-section-heading h2{font-size:38px}
+ .dlg-signature-home .sig-focus-list{grid-template-columns:1fr}
+ .dlg-signature-home .sig-section-heading{margin-bottom:30px}
+ .dlg-signature-home .sig-service-list{grid-template-columns:1fr;gap:0}
+ .dlg-signature-home .sig-service-row{
+   padding:28px 0;border-left:0!important;min-height:0;
+   grid-template-columns:27px minmax(0,1fr);gap:0 12px
+ }
+ .dlg-signature-home .sig-service-row:nth-child(even){padding-left:0}
+ .dlg-signature-home .sig-service-copy h3{font-size:21px}
+ .dlg-signature-home .sig-service-copy p{font-size:13px}
+ .dlg-signature-home .sig-service-points li{font-size:12px}
+ .dlg-signature-home .sig-services-footer{
+   flex-direction:column;align-items:flex-start;gap:15px
+ }
+ .dlg-signature-home .sig-audience-list{grid-template-columns:1fr}
+ .dlg-signature-home .sig-audience-item,
+ .dlg-signature-home .sig-audience-item:not(:first-child){
+   border-right:0;border-bottom:1px solid #D3DCE8;
+   min-height:0;padding:26px 0;gap:13px
+ }
+ .dlg-signature-home .sig-audience-item:last-child{border-bottom:0}
+ .dlg-signature-home .sig-audience-item:hover,
+ .dlg-signature-home .sig-audience-item:not(:first-child):hover{padding-left:0}
+ .dlg-signature-home .sig-audience-copy h3{font-size:18px}
+ .dlg-signature-home .sig-process-grid{grid-template-columns:1fr;gap:25px}
+ .dlg-signature-home .sig-resource-grid{grid-template-columns:1fr;gap:25px}
+ .dlg-signature-home .sig-contact-grid{grid-template-columns:1fr;gap:33px}
+ .digital-site .practice-grid,.digital-site .solution-grid{grid-template-columns:1fr;gap:0}
+ .digital-site .practice-card{min-height:0;padding-block:25px}
+ .digital-site .solution-card{margin-bottom:14px}
 }
 @media(max-width:480px){
-  .dlg-signature-home .sig-hero h1{font-size:clamp(31px,9vw,40px)}
-  .dlg-signature-home .sig-button{min-height:50px}
-  .dlg-signature-home .sig-proofbar strong{font-size:13px}
-  .dlg-signature-home .sig-proofbar span{font-size:10px}
-  .dlg-signature-home .sig-resource-grid .resource-card h3{font-size:20px}
+ .site-header .law-header-cta{display:none}
+ .dlg-signature-home .sig-hero h1{font-size:clamp(31px,9vw,39px)}
+ .dlg-signature-home .sig-button{width:100%;justify-content:space-between}
+ .dlg-signature-home .sig-button-text{width:auto}
+ .dlg-signature-home .sig-proofbar strong{font-size:13px}
+ .dlg-signature-home .sig-proofbar span{font-size:10px}
 }
 @media(prefers-reduced-motion:reduce){
-  .dlg-signature-home .sig-button,
-  .dlg-signature-home .sig-service-row,
-  .dlg-signature-home .sig-audience-item,
-  .dlg-signature-home .sig-resource-grid .resource-card{
-    transition:none;transform:none;
-  }
+ html{scroll-behavior:auto}
+ .dlg-signature-home .sig-button,
+ .dlg-signature-home .sig-audience-item,
+ .dlg-signature-home .sig-service-row,
+ .digital-site .practice-card{transition:none;transform:none}
 }
