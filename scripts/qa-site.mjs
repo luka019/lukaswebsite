@@ -11,22 +11,22 @@ const home=file('index.html');
 const englishHome=file('en/index.html');
 const css=file('firm.css');
 const signatureCss=file('dlg-signature.css');
-const premiumCss=file('dlg-premium.css');
+const atelierCss=file('dlg-atelier.css');
 const interaction=file('dlg-signature.js');
 const script=file('firm-interactions.js');
-assert(home.includes('class="law-home dlg-signature-home"'),'Signature legal practice homepage missing');
+assert(home.includes('class="law-home dlg-signature-home dlg-atelier"'),'Atelier legal practice homepage missing');
 assert(home.includes('class="site-header law-header dlg-integrated-header"'),'Shared professional masthead missing');
 assert(home.includes('law-brand-tagline') && home.includes('იურიდიული მომსახურება ციფრული ბიზნესისთვის'),'Agreed header tagline missing');
 assert(home.includes('data-en="Legal Support for Digital Business"'),'English header tagline missing');
 assert(home.includes('href="/dlg-signature.css?v=20261112-signature1"'),'Signature design system not loaded');
-assert(home.includes('href="/dlg-premium.css?v=20261118-modern3"'),'Modern boutique stylesheet missing');
-assert(premiumCss.includes('--white:#FFFFFF') && premiumCss.includes('--blue:#225BBA') && premiumCss.includes('--navy:#0F223C'),'Modern white-and-blue palette missing');
-assert(!premiumCss.includes('linear-gradient('),'Avoid decorative visual gradients');
+assert(home.includes('href="/dlg-atelier.css?v=20261118-atelier1"'),'Editorial atelier stylesheet missing');
+assert(atelierCss.includes('--atelier-ink:#142E41') && atelierCss.includes('--atelier-paper:#FCFCFA'),'Editorial palette missing');
+assert(atelierCss.includes('.atelier-art-panel') && atelierCss.includes('.atelier-service-symbol'),'Illustrated editorial layout missing');
 assert(!home.includes('dlg-signature.js'),'Retired app-style service interactions must not load');
 assert(!home.includes('firm-hero.js'),'Retired illustrated hero must not be loaded');
-assert(home.includes('id="hero-title" data-en="Technology law. Clear advice. Direct counsel."'),'Specialist bilingual heading missing');
-assert(home.includes('ტექნოლოგიებისა და AI-ის სამართალი ბიზნესისთვის.'),'Georgian specialist heading missing');
-assert(home.includes('data-en="BOUTIQUE TECHNOLOGY LAW PRACTICE"'),'Boutique technology law positioning missing');
+assert(home.includes('id="hero-title" data-en="Specialist law for a changing digital world."'),'Specialist bilingual heading missing');
+assert(home.includes('ტექნოლოგიებისა და AI-ის სამართალი თანამედროვე ბიზნესისთვის.'),'Georgian specialist heading missing');
+assert(home.includes('data-en="INDEPENDENT BOUTIQUE LEGAL PRACTICE"'),'Boutique positioning missing');
 assert((home.match(/<h1\b/g)||[]).length===1,'Homepage must contain one H1');
 assert((home.match(/<section\b/g)||[]).length===7,'Keep exactly seven purposeful homepage sections');
 assert(home.indexOf('id="about"')<home.indexOf('id="services"') &&
@@ -36,7 +36,10 @@ assert(home.indexOf('id="about"')<home.indexOf('id="services"') &&
 assert((home.match(/class="sig-service-row"/g)||[]).length===8,'Eight specialist practice rows required');
 assert(!home.includes('role="tablist"') && !home.includes('data-sig-tab'),'App-like tabs must not return');
 assert(home.includes('class="sig-focus-list"'),'Boutique focus list missing');
-assert(home.includes('src="/assets/luka-shakhkulashvili.png"'),'Genuine founder photograph must lead the page');
+assert(home.includes('src="/assets/luka-shakhkulashvili.png"'),'Founder portrait required');
+assert(home.includes('src="/assets/dlg-editorial-hero.svg"'),'Original architectural illustration missing');
+assert(home.includes('src="/assets/dlg-editorial-emblem.svg"'),'Original editorial emblem missing');
+assert((home.match(/class="atelier-service-symbol"/g)||[]).length===8,'Original service drawings missing');
 assert((home.match(/src="\/assets\/luka-shakhkulashvili.png"/g)||[]).length===1,'Do not duplicate the founder portrait');
 assert(home.includes('ლუკა შახყულაშვილი'),'Founder must be identifiable');
 assert((home.match(/class="container sig-proofbar"/g)||[]).length===1,'Substantiated credentials strip required');
@@ -61,19 +64,20 @@ for(const id of ['services','approach','about','contact']){
 for(const hook of ['sig-service-row','data-menu-toggle']){
  assert(englishHome.includes(hook),'English version lost interaction hook '+hook);
 }
-assert(englishHome.includes('Technology law. Clear advice. Direct counsel.'),'English heading must be pre-rendered');
+assert(englishHome.includes('Specialist law for a changing digital world.'),'English heading must be pre-rendered');
 assert(englishHome.includes('FinTech &amp; Digital Assets') && englishHome.includes('Software &amp; Intellectual Property'),'English practice areas missing');
 assert(signatureCss.includes('prefers-reduced-motion'),'Respect reduced-motion preferences');
 assert(signatureCss.includes('@media(max-width:700px)') && signatureCss.includes('@media(max-width:480px)'),'Responsive mobile breakpoints missing');
 assert(signatureCss.includes('#F6F2EC') && signatureCss.includes('#1B2B37'),'Signature visual palette missing');
 assert((signatureCss.match(/\{/g)||[]).length===(signatureCss.match(/\}/g)||[]).length,'Unbalanced signature CSS');
+assert((atelierCss.match(/\{/g)||[]).length===(atelierCss.match(/\}/g)||[]).length,'Unbalanced atelier CSS');
 assert((css.match(/\{/g)||[]).length===(css.match(/\}/g)||[]).length,'Unbalanced shared CSS');
 new vm.Script(interaction,{filename:'dlg-signature.js'});total++;
 assert(!home.includes('data-sig-practices'),'No interactive practice-tab dependency');
 assert(!interaction.includes('setInterval'),'Unwanted automatic content switching must not return');
 new vm.Script(script,{filename:'firm-interactions.js'});total++;
 for(const p of [
-  'styles.css','firm.css','dlg-signature.css','dlg-premium.css','dlg-signature.js','script.js','favicon.svg','services/index.html',
+  'styles.css','firm.css','dlg-signature.css','dlg-atelier.css','dlg-signature.js','script.js','favicon.svg','services/index.html',
   'services/contracts/index.html','services/data-protection/index.html',
   'services/ai/index.html','services/fintech/index.html','services/ongoing-legal-support/index.html','services/georgia-market-entry/index.html','services/intellectual-property/index.html',
   'resources/index.html','privacy/index.html'
@@ -94,8 +98,8 @@ assert(solutionsDirectory.includes('class="solution-card"'),'Dedicated legal sol
 assert(home.includes('href="/services/"'),'Homepage must link to the full services directory');
 assert(!home.includes('class="dlg-audience-card"') && !home.includes('class="dlg-offer-card"'),'Full audience and offer catalogues must not clutter the homepage');
 assert(directory.includes('ფინტექი') && directory.includes('სტარტაპები'),'FinTech and startups must be discoverable in the full directory');
-assert(home.includes('კომპანიებსა და დამფუძნებლებს'),'Homepage must address business clients and founders');
-assert(home.includes('ტექნოლოგიებისა და AI-ის სამართალი ბიზნესისთვის.'),'Technology and AI law positioning missing');
+assert(home.includes('ქართულ და საერთაშორისო კომპანიებს'),'Homepage must address Georgian and international businesses');
+assert(home.includes('ტექნოლოგიებისა და AI-ის სამართალი თანამედროვე ბიზნესისთვის.'),'Technology and AI law positioning missing');
 assert((home.match(/class="sig-service-row"/g)||[]).length===8,'Eight distinct editorial service rows required');
 assert(!fs.existsSync(path.join(root,'client')),'Retired client portal must not be deployed');
 assert(!fs.existsSync(path.join(root,'admin','inbox')),'Retired inbox must not be deployed');
@@ -132,7 +136,7 @@ for(const name of publicHtml){
  if(name.includes(path.sep+'en'+path.sep))assert(content.includes('<html lang="en"'),'English document language missing: '+name);
 }
 for(const p of ['business/','business/georgia/','business/international/','business/growing-business/','about/','services/legal-operations/'])file(p+'index.html');
-assert(home.includes('LLM · Distinction') && home.includes('Queen Mary') && home.includes('დამფუძნებლის მონაწილეობით') && !home.includes('<strong>IAPP · AIGP</strong>'),'Founder credentials must be present and accurate');
+assert(home.includes('LLM Distinction') && home.includes('Queen Mary') && home.includes('Chevening') && !home.includes('<strong>IAPP · AIGP</strong>'),'Founder credentials must be present and accurate');
 assert(!home.includes('LegalStepy')&&!home.includes('6+'),'Unsupported profile copy');
 assert(file('en/business/international/index.html').includes('International Expansion &amp; Client Readiness'),'English must be pre-rendered');
 console.log('DLG public site smoke checks passed: '+total+' checks across '+publicHtml.length+' public HTML pages.');
