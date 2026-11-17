@@ -6,7 +6,7 @@ const t=(ka,en,tag='span',cls='')=>`<${tag}${cls?` class="${cls}"`:''} data-en="
 const text=(p,tag='p',cls='')=>t(p.ka,p.en,tag,cls);
 const list=p=>`<ul class="digital-list">${p.ka.map((v,i)=>t(v,p.en[i],'li')).join('')}</ul>`;
 const btn=(url,ka,en,secondary=false)=>`<a href="${url}" class="button ${secondary?'button-secondary':'button-primary'}">${t(ka,en)} <svg class="dlg-arrow-icon" viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M5 19 19 5M5 5h14v14"/></svg></a>`;
-const publicLabels={"AI GOVERNANCE":"AI-ის მმართველობა","ABOUT THE PRACTICE":"ჩვენ შესახებ","CONTACT": "კონტაქტი", "YOUR OUTPUT": "შედეგი", "OUR EXPERTISE": "მომსახურება", "ONGOING SUPPORT": "მუდმივი მხარდაჭერა", "FOCUSED ENGAGEMENTS": "კონკრეტული ამოცანები", "DLG / SOLUTION": "DLG / მომსახურება", "PRODUCT SCOPE EXPLORER": "პროდუქტის სამართლებრივი საკითხები", "THE DLG DELIVERY SYSTEM": "სამუშაო პროცესი", "YOUR STARTING POINT": "საწყისი ნაბიჯი", "START HERE": "დაიწყეთ აქ", "BOUNDARIES": "მომსახურების ფარგლები", "BUSINESS CONTEXT": "ბიზნესის სპეციფიკა", "COMMUNICATION": "კომუნიკაცია", "DELIVERY": "შესრულება", "ENGAGEMENT": "თანამშრომლობა", "SCOPE": "სამუშაოს მოცულობა", "SOLUTIONS": "გადაწყვეტილებები", "EXPERTISE": "სპეციალიზაცია", "INDUSTRIES": "სექტორები", "INSIGHTS": "რესურსები", "PRODUCT": "პროდუქტი", "FINANCE": "ფინტექი", "DIGITAL ASSETS": "ვირტუალური აქტივები", "AI": "AI", "PRIVACY": "მონაცემთა დაცვა", "CONTRACTS": "ხელშეკრულებები", "PLATFORMS": "პლატფორმები", "DIGITAL RISK": "ციფრული რისკები", "CROSS-BORDER": "საერთაშორისო საქმიანობა", "IP + TECH ASSETS": "ინტელექტუალური საკუთრება"};
+const publicLabels={"AI GOVERNANCE":"AI-ის მმართველობა","ABOUT THE PRACTICE":"ჩვენ შესახებ","CONTACT": "კონტაქტი", "YOUR OUTPUT": "შედეგი", "OUR EXPERTISE": "მომსახურება", "ONGOING SUPPORT": "მუდმივი მხარდაჭერა", "FOCUSED ENGAGEMENTS": "კონკრეტული ამოცანები", "DLG / SOLUTION": "DLG / მომსახურება", "PRODUCT SCOPE EXPLORER": "პროდუქტის სამართლებრივი საკითხები", "THE DLG DELIVERY SYSTEM": "სამუშაო პროცესი", "YOUR STARTING POINT": "საწყისი ნაბიჯი", "START HERE": "დაიწყეთ აქ", "BOUNDARIES": "მომსახურების ფარგლები", "BUSINESS CONTEXT": "ბიზნესის სპეციფიკა", "COMMUNICATION": "კომუნიკაცია", "DELIVERY": "შესრულება", "ENGAGEMENT": "თანამშრომლობა", "SCOPE": "სამუშაოს მოცულობა", "SOLUTIONS": "გადაწყვეტილებები", "EXPERTISE": "სპეციალიზაცია", "INDUSTRIES": "სექტორები", "INSIGHTS": "რესურსები", "PRODUCT": "პროდუქტი", "FINANCE": "ფინტექი", "DIGITAL ASSETS": "ვირტუალური აქტივები", "AI": "AI", "PRIVACY": "მონაცემთა დაცვა", "CONTRACTS": "ხელშეკრულებები", "PLATFORMS": "პლატფორმები", "DIGITAL RISK": "ციფრული რისკები", "CROSS-BORDER": "საერთაშორისო საქმიანობა", "IP + TECH ASSETS": "ინტელექტუალური საკუთრება", "STARTUPS": "სტარტაპები"};
 const labelText=label=>{const parts=label.split(" / "); const key=parts.at(-1); return t([...parts.slice(0,-1),publicLabels[key]||key].join(" / "),label);};
 const heading=(label,ka,en,copy='',copyEn='')=>`<div class="digital-heading"><p class="eyebrow">${labelText(label)}</p>${t(ka,en,'h2')}${copy?t(copy,copyEn,'p'):''}</div>`;
 const serviceCard=(p,i=0)=>`<a class="practice-card" href="/services/${p.slug}/"><span class="mono">${labelText(String(i+1).padStart(2,'0')+' / '+p.code.split(' / ').at(-1))}</span>${text(p.name,'h3')}${text(p.summary)}<span class="card-arrow"><svg class="dlg-arrow-icon" viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M5 19 19 5M5 5h14v14"/></svg></span></a>`;
@@ -22,7 +22,8 @@ export function buildDigitalPages({out,shell,card,rows}){
   '/services/intellectual-property/':'ინტელექტუალური საკუთრება ტექნოლოგიური ბიზნესისთვის',
   '/services/fintech/':'ფინტექი და საგადახდო მომსახურების რეგულირება',
   '/services/cyber-digital-risk/':'კიბერუსაფრთხოების სამართალი და ციფრული რისკები',
-  '/services/georgia-market-entry/':'ტექნოლოგიური ბიზნესის სამართლებრივი მხარდაჭერა საქართველოში'
+  '/services/georgia-market-entry/':'ტექნოლოგიური ბიზნესის სამართლებრივი მხარდაჭერა საქართველოში',
+  '/services/startups-investment/':'ტექნოლოგიური სტარტაპებისა და ინვესტიციების იურიდიული მხარდაჭერა'
  };
  const seoTitlesEn={
   '/':'Technology Law in Georgia for Digital Business',
@@ -32,14 +33,15 @@ export function buildDigitalPages({out,shell,card,rows}){
   '/services/intellectual-property/':'Technology IP and Intellectual Property in Georgia',
   '/services/fintech/':'FinTech Legal Counsel and Payments Regulation in Georgia',
   '/services/cyber-digital-risk/':'Cybersecurity Legal and Governance Support in Georgia',
-  '/services/georgia-market-entry/':'Technology Legal Counsel for Doing Business in Georgia'
+  '/services/georgia-market-entry/':'Technology Legal Counsel for Doing Business in Georgia',
+  '/services/startups-investment/':'Startup and Investment Lawyer in Georgia | Technology Companies'
  };
  const pageSummary=(url,title,en)=>{
   if(url==='/')return {ka:'ტექნოლოგიური და ციფრული ბიზნესის სამართლებრივი მხარდაჭერა საქართველოში — AI, მონაცემთა დაცვა, ფინტექი, ტექნოლოგიური ხელშეკრულებები და ინტელექტუალური საკუთრება.',en:'Technology legal support in Georgia for AI, data protection, FinTech, technology contracts, intellectual property and digital products.'};
   const p=practices.find(x=>'/services/'+x.slug+'/'===url);if(p)return {ka:p.summary.ka+' '+p.audience.ka,en:p.summary.en+' '+p.audience.en};
   const s=solutions.find(x=>'/solutions/'+x.id+'/'===url);if(s)return {ka:s.name.ka+' — '+s.question.ka,en:s.name.en+' — '+s.question.en};
   if(url==='/services/')return {ka:'სპეციალიზებული სამართლებრივი მომსახურება ტექნოლოგიური და ციფრული ბიზნესისთვის — პროდუქტი, AI, მონაცემები, ფინტექი, კიბერუსაფრთხოება, IP და ხელშეკრულებები.',en:'Specialist technology law services for digital business: product, AI, data, FinTech, cybersecurity, IP and contracts.'};
-  if(url==='/solutions/')return {ka:'კონკრეტული სამართლებრივი შეთავაზებები ტექნოლოგიური ბიზნესისთვის — შეფასება, ხელშეკრულებები, AI-ის მმართველობა, მონაცემთა დაცვა და ბაზარზე შესვლა.',en:'Focused legal solutions for technology businesses: reviews, contracts, AI-ის მმართველობა, data protection and market entry.'};
+  if(url==='/solutions/')return {ka:'კონკრეტული სამართლებრივი შეთავაზებები ტექნოლოგიური ბიზნესისთვის — შეფასება, ხელშეკრულებები, AI-ის მმართველობა, მონაცემთა დაცვა და ბაზარზე შესვლა.',en:'Focused legal solutions for technology businesses: product reviews, contracts, AI governance, data protection and market entry.'};
   return {ka:title+' — Digital Law Georgia',en:en+' — Digital Law Georgia'};
  };
  const write=(url,title,en,content)=>{if(url==='/')return;const summary=pageSummary(url,title,en),metaTitle=seoTitles[url]||title,metaTitleEn=seoTitlesEn[url]||en;paths.push(url);fs.mkdirSync(out+url,{recursive:true});fs.writeFileSync(out+url+'index.html',shell({title:metaTitle,title_en:metaTitleEn,summary:summary.ka,summary_en:summary.en,url,content:`<main id="main" class="digital-site">${content}</main>`}).replace('<link rel="stylesheet" href="/firm.css?v=20261107-digital">','<link rel="stylesheet" href="/digital.css?v=20261106-editorial"><link rel="stylesheet" href="/firm.css?v=20261107-digital">').replace('</head>','<script type="module" src="/digital.mjs?v=20260927-seo"></script></head>'));};
