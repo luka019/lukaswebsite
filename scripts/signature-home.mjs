@@ -92,25 +92,39 @@ export function signatureAbout(){
   '</div></div></section>';
 }
 export function signatureServices(){
+ const group={ai:'ai',data:'ai',contracts:'digital',product:'digital',ip:'digital',cyber:'digital',fintech:'business',startup:'business'};
  const rows=practices.map(p=>
-  '<article class="sig-service-row" id="practice-'+p.key+'">'+
+  '<article class="sig-service-row" id="practice-'+p.key+'" data-dlg-practice-group="'+group[p.key]+'">'+
   '<span class="sig-service-number">'+p.num+' / 08</span>'+
   mark(p.key)+
   '<div class="sig-service-copy">'+tr(p.ka,p.en,'h3')+tr(p.leadKa,p.leadEn,'p')+'</div>'+
-  '<div class="sig-service-detail"><ul class="sig-service-points">'+
-  p.pointsKa.map((point,i)=>'<li>'+tr(point,p.pointsEn[i])+'</li>').join('')+
-  '</ul><a class="sig-underlink" href="'+p.link+'" data-site-link>'+tr('გაიგეთ მეტი','Explore this practice')+'<span aria-hidden="true">↗</span></a></div>'+
+  '<div class="sig-service-detail"><a class="sig-underlink" href="'+p.link+'" data-site-link>'+
+  tr('მომსახურების დეტალები','View practice details')+'<span aria-hidden="true">↗</span></a></div>'+
   '</article>').join('');
+ const filters=[
+  ['all','ყველა','All'],
+  ['ai','AI და მონაცემები','AI & Data'],
+  ['digital','ხელშეკრულებები და პროდუქტები','Contracts & Products'],
+  ['business','ფინტექი და სტარტაპები','FinTech & Startups']
+ ].map(([key,ka,en])=>
+  '<button type="button" data-dlg-practice-filter="'+key+'" aria-pressed="'+(key==='all'?'true':'false')+'" data-en="'+en+'">'+ka+'</button>').join('');
  return '<section class="sig-services" id="services" aria-labelledby="services-heading"><div class="container">'+
   '<div class="sig-section-heading sig-section-heading-split">'+
-  '<div><p class="sig-kicker">'+tr('მომსახურებები','PRACTICE AREAS')+'</p>'+
-  '<h2 id="services-heading" data-en="Legal advice built around the digital economy.">იურიდიული მხარდაჭერა ციფრული ეკონომიკისთვის.</h2></div>'+
-  tr('AI-ის სამართლებრივი რეგულირება, მონაცემთა დაცვა, ტექნოლოგიური ხელშეკრულებები, ციფრული პროდუქტები და ბიზნესის განვითარება. მომსახურების ფარგლებს თითოეული საკითხის მიხედვით ვადგენთ.',
-     'From AI regulation and privacy to technology transactions, digital products and business growth. Each engagement is shaped around the actual legal question.','p')+
-  '</div><div class="sig-service-list">'+rows+'</div>'+
+   '<div><p class="sig-kicker">'+tr('მომსახურებები','PRACTICE AREAS')+'</p>'+
+   '<h2 id="services-heading" data-en="Specialist advice for digital businesses.">ტექნოლოგიური ბიზნესის სამართლებრივი მხარდაჭერა.</h2></div>'+
+   tr('აირჩიეთ თქვენთვის საჭირო მიმართულება. დეტალურ გვერდებზე აღწერილია მომსახურების ფარგლები, მოსალოდნელი შედეგები და თანამშრომლობის პირობები.',
+      'Find the area you need. Each practice page explains the scope, typical deliverables and how we work.','p')+
+  '</div>'+
+  '<div class="dlg-practice-toolbar" data-dlg-practice-tools hidden>'+
+   '<div class="dlg-practice-filters" role="group" aria-label="მომსახურებების კატეგორიები" data-en-aria="Filter practice areas">'+filters+'</div>'+
+   '<label class="dlg-practice-search-wrap"><input type="search" data-dlg-practice-search autocomplete="off" placeholder="მოძებნეთ მომსახურება" data-en-placeholder="Find a service" aria-label="მომსახურების ძიება" data-en-aria="Search practice areas"></label>'+
+   '<span class="dlg-practice-count" role="status" aria-live="polite" data-dlg-practice-count data-en="8 areas">8 მიმართულება</span>'+
+  '</div>'+
+  '<div class="sig-service-list">'+rows+'</div>'+
+  '<p class="dlg-practice-empty" data-dlg-practice-empty hidden data-en="No matching practice area. Try another keyword or select All.">ასეთი მომსახურება ვერ მოიძებნა. სცადეთ სხვა სიტყვა ან აირჩიეთ „ყველა“.</p>'+
   '<div class="sig-services-footer"><a href="/services/" class="sig-underlink" data-site-link>'+
-  tr('ყველა მომსახურება','All practice areas')+'<span aria-hidden="true">↗</span></a>'+
-  '<span data-en="Further services: VASP regulatory assessments, legal operations and ongoing counsel.">ასევე: VASP-ის სამართლებრივი შეფასება, იურიდიული პროცესების მართვა და მუდმივი იურიდიული მომსახურება.</span>'+
+   tr('მომსახურებების სრული სია','Explore all services')+'<span aria-hidden="true">↗</span></a>'+
+   '<span data-en="Also available: VASP regulatory assessments, ongoing legal support and legal operations.">ასევე: VASP-ის რეგულირება, მუდმივი იურიდიული მხარდაჭერა და იურიდიული პროცესების მართვა.</span>'+
   '</div></div></section>';
 }
 export function signatureAudience() {

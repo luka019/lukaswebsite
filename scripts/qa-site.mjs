@@ -13,6 +13,8 @@ const css=file('firm.css');
 const signatureCss=file('dlg-signature.css');
 const photoCss=file('dlg-photographic.css');
 const refineCss=file('dlg-refinement.css');
+const boutiqueCss=file('dlg-boutique-ui.css');
+const finderJs=file('dlg-service-discovery.js');
 const carouselJs=file('dlg-hero-carousel.js');
 const interaction=file('dlg-signature.js');
 const script=file('firm-interactions.js');
@@ -23,6 +25,15 @@ assert(home.includes('data-en="Legal Support for Digital Business"'),'English br
 assert(home.includes('href="/dlg-signature.css?v=20261112-signature1"'),'Base responsive design system missing');
 assert(home.includes('href="/dlg-photographic.css?v=20261118-approved1"'),'Approved photographic stylesheet missing');
 assert(home.includes('href="/dlg-refinement.css?v=20261118-editorial2"'),'Editorial refinement stylesheet missing');
+assert(home.includes('href="/dlg-boutique-ui.css?v=20261118-compact3"'),'Compact boutique design not loaded');
+assert(home.includes('src="/dlg-service-discovery.js?v=20261118-compact3"'),'Practice search enhancement not loaded');
+assert(boutiqueCss.includes('grid-template-columns:repeat(3,minmax(0,1fr))') && boutiqueCss.includes('padding-top:clamp(57px'),'Compact professional rhythm missing');
+assert((boutiqueCss.match(/\{/g)||[]).length===(boutiqueCss.match(/\}/g)||[]).length,'Unbalanced boutique CSS');
+new vm.Script(finderJs,{filename:'dlg-service-discovery.js'});total++;
+assert(finderJs.includes('toolbar.hidden = false') && !finderJs.includes('fetch('),'Practice finder must be local and progressive');
+assert((home.match(/data-dlg-practice-group=/g)||[]).length===8,'Eight filterable practice areas required');
+assert((home.match(/data-dlg-practice-filter=/g)||[]).length===4,'Four clear practice filters required');
+assert(home.includes('data-dlg-practice-search') && home.includes('data-dlg-practice-empty'),'Practice search and empty state missing');
 assert(home.includes('src="/dlg-hero-carousel.js?v=20261118-editorial2"'),'Accessible hero carousel not loaded');
 assert(refineCss.includes('.dlg-carousel-slide') && refineCss.includes('padding-top:clamp(108px'),'Additional spacing and transitions missing');
 assert((refineCss.match(/\{/g)||[]).length===(refineCss.match(/\}/g)||[]).length,'Unbalanced refinement CSS');
@@ -83,7 +94,7 @@ assert(!home.includes('data-sig-practices'),'Retired app-style interaction must 
 assert(!interaction.includes('setInterval'),'Unwanted automatic carousel switching must not return');
 new vm.Script(script,{filename:'firm-interactions.js'});total++;
 for(const p of [
-  'styles.css','firm.css','dlg-signature.css','dlg-photographic.css','dlg-refinement.css','dlg-hero-carousel.js','dlg-signature.js','script.js','favicon.svg','services/index.html',
+  'styles.css','firm.css','dlg-signature.css','dlg-photographic.css','dlg-refinement.css','dlg-boutique-ui.css','dlg-hero-carousel.js','dlg-service-discovery.js','dlg-signature.js','script.js','favicon.svg','services/index.html',
   'services/contracts/index.html','services/data-protection/index.html',
   'services/ai/index.html','services/fintech/index.html','services/ongoing-legal-support/index.html','services/georgia-market-entry/index.html','services/intellectual-property/index.html',
   'resources/index.html','privacy/index.html'

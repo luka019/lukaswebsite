@@ -1,0 +1,432 @@
+/* Digital Law Georgia — refined boutique UI / compact proportions.
+ * This layer supersedes oversized editorial spacing while preserving the
+ * approved architectural photography and accessible four-slide carousel.
+ * Premium visual hierarchy; no libraries, remote images or heavy effects.
+ */
+:root{
+ --dlg-ui-navy:#102A48;
+ --dlg-ui-ink:#183047;
+ --dlg-ui-blue:#286BA8;
+ --dlg-ui-blue-soft:#DCE9F4;
+ --dlg-ui-white:#FFFFFF;
+ --dlg-ui-mist:#F7F9FC;
+ --dlg-ui-line:#E1E8F0;
+ --dlg-ui-muted:#5F7182;
+ --dlg-ui-brass:#BEA685;
+ --max:1220px;
+}
+html{scroll-padding-top:86px}
+body{background:#fff}
+.container{width:min(1220px,calc(100% - 74px))}
+.site-header .header-inner{min-height:76px;padding-block:10px;gap:19px}
+.law-brand-text strong{font-size:22px;letter-spacing:-.04em}
+.law-brand-text small{font-size:9px;letter-spacing:.25em}
+.site-header .law-brand-tagline{font-size:9px;max-width:174px;padding-left:13px}
+.site-nav.law-nav{gap:clamp(13px,1.45vw,22px)}
+.law-nav>a{font-size:12px;position:relative}
+.law-nav>a:focus-visible{border-radius:2px}
+.site-header .law-header-cta{
+ min-height:40px;padding:9px 16px;font-size:11px;
+ background:#173B5F;border-color:#173B5F;box-shadow:none;
+}
+.site-header .law-header-cta:hover{
+ background:#27669D;border-color:#27669D;
+ box-shadow:0 4px 15px rgba(15,48,77,.1);
+}
+.site-header.dlg-scrolled{box-shadow:0 5px 25px rgba(13,41,67,.06)}
+.dlg-signature-home.dlg-photographic .sig-hero{
+ background-color:#102A48;
+ background-image:radial-gradient(ellipse 72% 80% at 89% 41%,rgba(70,112,158,.16),transparent 72%);
+}
+.dlg-photo-hero-grid{
+ display:grid;grid-template-columns:minmax(0,1.03fr) minmax(0,.97fr);
+ gap:clamp(29px,4.2vw,55px);
+ padding-top:clamp(44px,4.3vw,70px);
+ padding-bottom:clamp(34px,3.5vw,54px);
+ align-items:center;
+}
+.dlg-photo-hero-copy h1{
+ font-size:clamp(36px,3.42vw,51px);
+ line-height:1.29;
+ letter-spacing:-.042em;
+ max-width:595px;
+}
+html[lang=en] .dlg-photo-hero-copy h1{
+ font-size:clamp(45px,4.15vw,59px);
+ line-height:1.10;
+ letter-spacing:-.047em;
+}
+.dlg-eyebrow{margin-bottom:20px;font-size:9px;letter-spacing:.07em}
+.dlg-hero-positioning{
+ font-size:13px;line-height:1.7;margin-top:22px;
+ max-width:540px;font-weight:540;color:#E7EFF8;
+}
+.dlg-hero-summary{
+ font-size:12px;line-height:1.75;
+ max-width:520px;margin-top:13px;color:#BDCFDF;
+}
+.dlg-hero-actions{margin-top:24px;gap:21px}
+.dlg-photo-hero-copy .dlg-hero-primary{
+ min-height:44px;padding:11px 18px;font-size:11px;
+ transition:background-color .2s,border-color .2s,box-shadow .2s,transform .2s;
+}
+.dlg-photo-hero-copy .dlg-hero-primary:hover{
+ transform:translateY(-1px);box-shadow:0 9px 25px rgba(11,31,50,.24);
+}
+.dlg-hero-explore{min-height:39px;font-size:11px;gap:13px}
+.dlg-founder-direct{max-width:440px;margin-top:24px;padding-top:17px;gap:12px}
+.dlg-founder-direct-mark{width:42px;height:42px;font-size:15px}
+.dlg-founder-direct-copy small{font-size:9px}
+.dlg-founder-direct-copy strong{font-size:12px}
+.dlg-founder-direct-copy em{font-size:10px}
+.dlg-photo-hero-media{max-width:560px}
+.dlg-architecture-frame.dlg-carousel{
+ box-shadow:0 17px 40px rgba(5,18,32,.17);
+ border-color:#4D6780;
+ position:relative;
+}
+.dlg-architecture-frame.dlg-carousel:after{
+ content:"";position:absolute;top:13px;right:-9px;bottom:-9px;left:13px;
+ border-right:1px solid rgba(203,222,239,.18);
+ border-bottom:1px solid rgba(203,222,239,.18);
+ pointer-events:none;
+}
+.dlg-architecture-top{padding:9px 15px;font-size:8px;letter-spacing:.11em}
+.dlg-carousel-stage{height:clamp(272px,26vw,350px)}
+.dlg-carousel-slide img,
+.dlg-carousel-slide .dlg-building-photo{
+ transition:transform .85s cubic-bezier(.2,.75,.28,1);
+}
+@media(hover:hover){
+ .dlg-architecture-frame:hover .dlg-carousel-slide.is-active img{transform:scale(1.018)}
+}
+.dlg-carousel-slide .dlg-visual-tag{
+ top:15px;left:15px;padding:7px 10px;
+ font-size:9px;border-color:rgba(223,231,241,.76);
+ box-shadow:0 3px 15px rgba(18,42,67,.07);
+}
+.dlg-carousel-footer{min-height:56px;padding:11px 15px 8px;gap:12px}
+.dlg-carousel-footer-copy{gap:3px}
+.dlg-carousel-footer-copy>span{font-size:8px}
+.dlg-carousel-footer-copy>strong{font-size:11px}
+.dlg-carousel-tools{gap:6px}
+.dlg-carousel-count{margin-right:7px;min-width:41px;font-size:10px}
+.dlg-carousel-arrow{width:30px;height:30px;font-size:15px}
+.dlg-carousel-pagination{padding:0 9px 7px;gap:0}
+.dlg-carousel-dot{width:26px;height:17px;padding:7px 4px}
+.dlg-carousel-dot span{height:2px;width:17px}
+.dlg-carousel-dot.is-active span{width:22px}
+.dlg-hero-practice-links{
+ display:grid;grid-template-columns:repeat(2,minmax(0,1fr));
+ gap:0 12px;margin-top:10px;
+ border-top:1px solid #48647F;
+}
+.dlg-hero-practice-links a{
+ padding:11px 0;font-size:10px;gap:8px;line-height:1.5;
+ border-color:#45617D;
+}
+.dlg-hero-practice-links small{font-size:9px}
+.dlg-hero-bottom{padding-top:13px;padding-bottom:15px;font-size:9px}
+.dlg-credentials .sig-proofbar{padding-block:15px;gap:0}
+.dlg-credentials .sig-proofbar>div{padding-inline:19px;gap:3px}
+.dlg-credentials .sig-proofbar strong{font-size:13px}
+.dlg-credentials .sig-proofbar span{font-size:10px}
+.dlg-signature-home.dlg-photographic .sig-about,
+.dlg-signature-home.dlg-photographic .sig-services,
+.dlg-signature-home.dlg-photographic .sig-audience,
+.dlg-signature-home.dlg-photographic .sig-process,
+.dlg-signature-home.dlg-photographic .sig-insights,
+.dlg-signature-home.dlg-photographic .sig-contact,
+.dlg-solutions{padding-top:clamp(57px,5.3vw,82px);padding-bottom:clamp(58px,5.3vw,86px)}
+.dlg-photographic .sig-about-grid{
+ grid-template-columns:minmax(0,.82fr) minmax(0,1.18fr);
+ gap:clamp(34px,5vw,75px);
+}
+.dlg-photographic .sig-about h2,
+.dlg-photographic .sig-section-heading h2{
+ font-size:clamp(28px,2.55vw,37px);line-height:1.42;
+ letter-spacing:-.035em;margin-top:10px;
+}
+html[lang=en] .dlg-photographic .sig-about h2,
+html[lang=en] .dlg-photographic .sig-section-heading h2{
+ font-size:clamp(35px,3vw,45px);line-height:1.17;
+}
+.dlg-photographic .sig-about-content>p{font-size:13px;line-height:1.83;margin-bottom:14px}
+.dlg-about-portrait{max-width:275px;margin-top:22px;padding:7px}
+.dlg-about-portrait img{aspect-ratio:1/1.05}
+.dlg-about-portrait figcaption{padding:10px 4px 3px}
+.dlg-photographic .atelier-founder-bio{padding:15px 0;margin:16px 0}
+.dlg-photographic .atelier-founder-bio p{font-size:12px;line-height:1.8}
+.dlg-photographic .sig-focus-list{margin-bottom:18px;gap:7px 17px}
+.dlg-photographic .sig-focus-list li{font-size:11px;line-height:1.6}
+.dlg-photographic .sig-section-heading{margin-bottom:25px}
+.dlg-photographic .sig-section-heading-split{gap:clamp(23px,4vw,52px)}
+.dlg-photographic .sig-section-heading>p,
+.dlg-photographic .sig-section-heading-split>p{
+ font-size:12px;line-height:1.75;
+}
+/* Services as a concise, searchable practice directory. */
+.dlg-practice-toolbar{
+ display:flex;align-items:center;justify-content:space-between;
+ flex-wrap:wrap;gap:12px 18px;
+ padding:0 0 19px;border-bottom:1px solid #DAE4EE;
+ margin-bottom:18px;
+}
+.dlg-practice-toolbar[hidden],.dlg-practice-empty[hidden]{display:none!important}
+.dlg-practice-filters{display:flex;flex-wrap:wrap;gap:6px}
+.dlg-practice-filters button{
+ background:#fff;color:#4E6479;border:1px solid #DCE5EF;
+ padding:9px 12px;min-height:37px;line-height:1.3;
+ font:550 11px/1.3 NotoGeo,Arial,sans-serif;
+ cursor:pointer;border-radius:3px;
+ transition:background-color .2s,color .2s,border-color .2s;
+}
+.dlg-practice-filters button:hover{border-color:#94B5D0;background:#F3F7FB;color:#1B4C78}
+.dlg-practice-filters button[aria-pressed=true]{
+ background:#173B5F;border-color:#173B5F;color:#fff;
+}
+.dlg-practice-search-wrap{display:block;position:relative;flex:0 1 215px;min-width:180px}
+.dlg-practice-search-wrap:before{
+ content:"⌕";position:absolute;left:12px;top:6px;color:#537A9F;font-size:21px;
+ pointer-events:none;
+}
+.dlg-practice-search-wrap input{
+ width:100%;min-height:37px;padding:9px 11px 9px 36px;
+ border:1px solid #D6E2EE;border-radius:3px;
+ background:#fff;color:#183C5A;
+ font:500 11px/1.35 NotoGeo,Arial,sans-serif;
+ transition:border-color .2s,box-shadow .2s;
+}
+.dlg-practice-search-wrap input:focus{
+ outline:0;border-color:#407FB8;box-shadow:0 0 0 3px rgba(63,129,187,.12);
+}
+.dlg-practice-search-wrap input::placeholder{color:#7D8E9C}
+.dlg-practice-count{color:#75869A;font-size:10px}
+.dlg-practice-empty{
+ border:1px dashed #B6C7D6;padding:22px 24px;
+ border-radius:3px;color:#527087;background:#F8FAFD;
+ font-size:12px;line-height:1.7;
+}
+.dlg-photographic .sig-service-list{
+ display:grid;grid-template-columns:repeat(3,minmax(0,1fr));
+ gap:13px;border:0;align-items:stretch;
+}
+.dlg-photographic .sig-service-row{
+ display:grid;grid-template-columns:minmax(0,1fr) 38px;
+ grid-template-rows:auto 1fr auto;
+ min-height:196px;padding:20px 20px 17px;
+ border:1px solid #DBE4ED;border-radius:3px;
+ background:#fff;gap:10px 8px;
+ box-shadow:none;transform:none;
+ transition:border-color .2s,box-shadow .25s,transform .25s;
+}
+.dlg-photographic .sig-service-row[hidden]{display:none!important}
+.dlg-photographic .sig-service-row:hover{
+ border-color:#96B5D0;
+ box-shadow:0 10px 25px rgba(24,63,101,.065);
+ transform:translateY(-2px);
+}
+.dlg-photographic .sig-service-number{
+ grid-column:1;grid-row:1;align-self:center;padding:0;
+ color:#7090AC;font:500 10px/1.3 Arial,sans-serif;
+}
+.dlg-photographic .atelier-service-symbol{
+ grid-column:2;grid-row:1;display:flex;
+ align-items:center;justify-content:flex-end;
+ width:38px;height:38px;margin:0;color:#437CA6;
+}
+.dlg-photographic .atelier-service-symbol svg{
+ width:34px;height:34px;stroke-width:1.6
+}
+.dlg-photographic .sig-service-copy{
+ grid-column:1/-1;grid-row:2;
+}
+.dlg-photographic .sig-service-copy h3{
+ font-size:16px;line-height:1.43;
+ margin:0 0 7px;font-weight:660;color:#163858;
+}
+.dlg-photographic .sig-service-copy p{
+ color:#62768A;font-size:11px;line-height:1.68;
+ margin:0;max-width:100%;
+}
+.dlg-photographic .sig-service-detail{
+ grid-column:1/-1;grid-row:3;align-self:end;
+ border-top:1px solid #E6EDF3;padding-top:11px;margin:0;
+}
+.dlg-photographic .sig-service-detail .sig-underlink{
+ font-size:11px;color:#27669C;
+}
+.dlg-photographic .sig-services-footer{margin-top:17px;gap:15px}
+.dlg-photographic .sig-services-footer>span{font-size:10px}
+.dlg-solutions .dlg-solutions-heading{gap:30px}
+.dlg-solutions-grid{column-gap:38px}
+.dlg-solution{padding:20px 0 23px}
+.dlg-solution-num{font-size:9px}
+.dlg-solution h3{margin:9px 0 7px;font-size:clamp(16px,1.55vw,21px);line-height:1.45}
+.dlg-solution p{font-size:11px;line-height:1.75;margin-bottom:12px}
+.dlg-solution-link{font-size:11px}
+.dlg-photographic .sig-audience-list{margin-bottom:20px}
+.dlg-photographic .sig-audience-item{
+ min-height:178px;padding:21px 22px 23px;
+ transition:background-color .2s,transform .2s;
+}
+.dlg-photographic .sig-audience-item:hover{background:#F8FBFE;transform:translateY(-1px)}
+.dlg-photographic .sig-audience-copy h3{font-size:15px}
+.dlg-photographic .sig-audience-copy p{font-size:11px;line-height:1.7}
+.dlg-photographic .sig-process-grid{margin-top:25px;gap:clamp(20px,3vw,42px)}
+.dlg-photographic .sig-process-step h3{font-size:16px}
+.dlg-photographic .sig-process-step p{font-size:12px;line-height:1.7}
+.dlg-photographic .sig-resource-grid{gap:20px}
+.dlg-photographic .sig-resource-grid .resource-card-copy{padding:21px 23px 24px}
+.dlg-photographic .sig-resource-grid .resource-card h3{font-size:17px}
+.dlg-photographic .sig-contact-grid{gap:clamp(35px,5vw,78px)}
+.dlg-photographic .sig-contact h2{font-size:clamp(28px,2.7vw,38px);line-height:1.45}
+.dlg-photographic .sig-contact-main{min-height:51px;padding:14px 18px}
+.dlg-photographic .sig-contact-grid>div>p:last-child{font-size:12px;line-height:1.8}
+/* Interior service and resources pages share the compact boutique hierarchy. */
+.digital-site .digital-page-hero{padding-block:clamp(46px,4.8vw,70px)}
+.digital-site .digital-page-hero h1{font-size:clamp(28px,3vw,43px);line-height:1.38!important}
+html[lang=en] .digital-site .digital-page-hero h1{
+ font-size:clamp(36px,3.8vw,52px);line-height:1.15!important;
+}
+.digital-site .digital-lead{font-size:13px;line-height:1.8}
+.digital-site .digital-section,.digital-site .digital-wash{
+ padding-block:clamp(49px,5vw,74px);
+}
+.digital-site .practice-grid,.digital-site .solution-grid{gap:12px}
+.digital-site .practice-card,.digital-site .solution-card{
+ padding:20px;min-height:0;
+ border-color:#E0E7EF;
+ transition:border-color .2s,box-shadow .2s,transform .2s;
+}
+.digital-site .practice-card:hover,.digital-site .solution-card:hover{
+ border-color:#9CBAD4;
+ box-shadow:0 8px 25px rgba(19,49,79,.06);
+ transform:translateY(-2px);
+}
+.digital-site .practice-card h3{font-size:16px}
+.digital-site .practice-card p{font-size:12px}
+.resource-page .resource-card{transition:border-color .2s,box-shadow .2s}
+.resource-page .resource-card:hover{box-shadow:0 6px 20px rgba(23,55,88,.055)}
+/* Small, purposeful effects rather than synthetic movement. */
+.sig-button,.sig-underlink,.dlg-hero-practice-links a,.dlg-solution-link{
+ transition:color .2s,border-color .2s,background-color .2s,transform .2s;
+}
+.dlg-hero-practice-links a:hover{color:#C8E1FA}
+.dlg-photographic .sig-underlink:hover{color:#1A4F7D}
+@media(max-width:1150px){
+ .container{width:calc(100% - 54px)}
+ .site-header .header-inner{min-height:74px;padding-block:9px}
+ .dlg-photo-hero-grid{padding-top:46px;padding-bottom:39px;gap:32px}
+ .dlg-photo-hero-copy h1{font-size:clamp(34px,3.45vw,44px)}
+ html[lang=en] .dlg-photo-hero-copy h1{font-size:clamp(43px,4.2vw,55px)}
+ .dlg-carousel-stage{height:clamp(255px,29vw,326px)}
+ .dlg-photographic .sig-service-list{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media(max-width:850px){
+ .container{width:calc(100% - 46px)}
+ .dlg-photo-hero-grid{
+  grid-template-columns:1fr;gap:24px;
+  padding-top:42px;padding-bottom:34px;
+ }
+ .dlg-photo-hero-copy h1{font-size:clamp(35px,5.5vw,44px)}
+ html[lang=en] .dlg-photo-hero-copy h1{font-size:clamp(43px,6vw,54px)}
+ .dlg-hero-positioning{font-size:13px;margin-top:18px}
+ .dlg-hero-summary{margin-top:9px}
+ .dlg-hero-actions{margin-top:19px}
+ .dlg-founder-direct{margin-top:18px;padding-top:14px}
+ .dlg-photo-hero-media{max-width:650px;justify-self:start;width:100%}
+ .dlg-carousel-stage{height:clamp(278px,48vw,350px)}
+ .dlg-photographic .sig-about-grid{gap:25px}
+ .dlg-practice-toolbar{align-items:flex-start}
+ .dlg-practice-search-wrap{flex:1 1 210px}
+}
+@media(max-width:700px){
+ .container{width:calc(100% - 36px)}
+ .site-header .header-inner{min-height:67px;padding-block:8px}
+ .law-brand-text strong{font-size:20px}
+ .dlg-photo-hero-grid{padding-top:32px;padding-bottom:30px;gap:22px}
+ .dlg-photo-hero-copy h1{
+  font-size:clamp(29px,7.9vw,35px);
+  line-height:1.31;
+ }
+ html[lang=en] .dlg-photo-hero-copy h1{
+  font-size:clamp(37px,9.3vw,45px);line-height:1.12;
+ }
+ .dlg-eyebrow{margin-bottom:13px}
+ .dlg-hero-positioning{font-size:12px;line-height:1.7;margin-top:16px}
+ .dlg-hero-summary{font-size:11px;line-height:1.72;margin-top:9px}
+ .dlg-hero-actions{gap:11px;margin-top:18px}
+ .dlg-photo-hero-copy .dlg-hero-primary{min-height:42px;padding:10px 15px}
+ .dlg-hero-explore{min-height:34px}
+ .dlg-founder-direct{margin-top:17px;padding-top:12px}
+ .dlg-founder-direct-mark{width:37px;height:37px;font-size:13px}
+ .dlg-founder-direct-copy small{font-size:8px}
+ .dlg-founder-direct-copy strong{font-size:11px}
+ .dlg-founder-direct-copy em{font-size:9px}
+ .dlg-carousel-stage{height:clamp(226px,58vw,290px)}
+ .dlg-carousel-footer{min-height:53px;padding:10px 11px 7px}
+ .dlg-carousel-footer-copy>strong{font-size:10px}
+ .dlg-carousel-slide .dlg-visual-tag{top:10px;left:10px;padding:6px 9px;font-size:8px}
+ .dlg-hero-practice-links a{font-size:10px;padding:10px 0}
+ .dlg-hero-bottom{font-size:9px;padding-block:12px}
+ .dlg-credentials .sig-proofbar{padding-block:9px}
+ .dlg-credentials .sig-proofbar>div{padding:10px 8px 10px 0}
+ .dlg-credentials .sig-proofbar strong{font-size:12px}
+ .dlg-credentials .sig-proofbar span{font-size:9px}
+ .dlg-signature-home.dlg-photographic .sig-about,
+ .dlg-signature-home.dlg-photographic .sig-services,
+ .dlg-signature-home.dlg-photographic .sig-audience,
+ .dlg-signature-home.dlg-photographic .sig-process,
+ .dlg-signature-home.dlg-photographic .sig-insights,
+ .dlg-signature-home.dlg-photographic .sig-contact,
+ .dlg-solutions{padding-top:49px;padding-bottom:51px}
+ .dlg-photographic .sig-about-grid,.dlg-photographic .sig-section-heading-split{
+  grid-template-columns:1fr;gap:19px;
+ }
+ .dlg-photographic .sig-about h2,.dlg-photographic .sig-section-heading h2{
+  font-size:26px;line-height:1.42;
+ }
+ html[lang=en] .dlg-photographic .sig-about h2,
+ html[lang=en] .dlg-photographic .sig-section-heading h2{font-size:34px}
+ .dlg-about-portrait{max-width:270px;margin-top:16px}
+ .dlg-photographic .sig-section-heading{margin-bottom:20px}
+ .dlg-practice-toolbar{gap:10px;padding-bottom:13px;margin-bottom:12px}
+ .dlg-practice-filters{gap:5px}
+ .dlg-practice-filters button{font-size:10px;min-height:34px;padding:8px 9px}
+ .dlg-practice-search-wrap{flex:1 1 100%;min-width:0}
+ .dlg-photographic .sig-service-list{grid-template-columns:1fr;gap:9px}
+ .dlg-photographic .sig-service-row{
+  padding:16px 17px 15px;min-height:0;
+  gap:7px 7px;
+ }
+ .dlg-photographic .atelier-service-symbol{width:34px;height:34px}
+ .dlg-photographic .atelier-service-symbol svg{width:30px;height:30px}
+ .dlg-photographic .sig-service-copy h3{font-size:16px}
+ .dlg-photographic .sig-service-copy p{font-size:11px;line-height:1.63}
+ .dlg-photographic .sig-service-detail{padding-top:8px}
+ .dlg-solutions-grid{grid-template-columns:1fr}
+ .dlg-solution{padding-block:18px}
+ .dlg-photographic .sig-audience-item{min-height:0;padding:18px 0}
+ .dlg-photographic .sig-process-grid{margin-top:20px;gap:20px}
+ .dlg-photographic .sig-resource-grid{gap:12px}
+ .dlg-photographic .sig-resource-grid .resource-card-copy{padding:19px 20px}
+ .dlg-photographic .sig-contact-grid{gap:23px}
+ .digital-site .digital-page-hero{padding-block:42px}
+ .digital-site .digital-section,.digital-site .digital-wash{padding-block:45px}
+}
+@media(max-width:420px){
+ .dlg-photo-hero-copy h1{font-size:30px}
+ html[lang=en] .dlg-photo-hero-copy h1{font-size:39px}
+ .dlg-carousel-stage{height:clamp(214px,58vw,248px)}
+ .dlg-carousel-footer{flex-wrap:nowrap;gap:6px}
+ .dlg-carousel-footer-copy>strong{font-size:9px}
+ .dlg-carousel-count{font-size:9px;margin-right:3px}
+ .dlg-carousel-arrow{width:29px;height:29px}
+ .dlg-photographic .sig-service-row{padding:15px 14px}
+}
+@media(prefers-reduced-motion:reduce){
+ .dlg-photographic .sig-service-row,.dlg-photo-hero-copy .dlg-hero-primary,
+ .dlg-carousel-slide img,.digital-site .practice-card,.digital-site .solution-card,
+ .sig-button,.sig-underlink{transition:none!important;transform:none!important}
+}

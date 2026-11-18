@@ -59,6 +59,9 @@ try{
     check(geometry.paper==='rgb(16, 42, 72)','Approved navy hero not applied at '+width+': '+geometry.paper);
     check(geometry.bodyColour==='rgb(255, 255, 255)','Hero headline contrast against navy failed at '+width+': '+geometry.bodyColour);
     check((await page.locator('.sig-service-row').count())===8,'Expected eight legal practice rows at '+width);
+    check(await page.locator('[data-dlg-practice-tools]').isVisible(),'Client practice finder missing at '+width);
+    if(width>=1280) check(geometry.hero.height<850,'Oversized desktop hero returned at '+width+': '+geometry.hero.height);
+    if(width===390) check(geometry.hero.height<1350,'Oversized mobile hero returned: '+geometry.hero.height);
     check((await page.locator('.sig-service-row a[href^="/services/"]').count())>=8,'Service destination links missing at '+width);
     check((await page.locator('.atelier-service-symbol svg').count())===8,'Subtle practice-area drawings missing at '+width);
     check((await page.locator('.dlg-solution').count())===4,'Four defined legal solutions missing at '+width);
@@ -74,6 +77,18 @@ try{
     check(await page.locator('.dlg-building-photo').evaluate(img=>img.complete&&img.naturalWidth>0),'Original architectural photograph did not load at '+width);
     check(await page.locator('[data-dlg-slide=""] img').count()===0 || (await page.locator('[data-dlg-slide] img').count())===4,'All four local slide images required at '+width);
     if(width===1440){
+      await page.locator('[data-dlg-practice-filter="ai"]').click();
+      check((await page.locator('.sig-service-row:visible').count())===2,'AI/Data filter must reveal two practices');
+      await page.locator('[data-dlg-practice-filter="digital"]').click();
+      check((await page.locator('.sig-service-row:visible').count())===4,'Digital category filter must reveal four practices');
+      await page.locator('[data-dlg-practice-filter="all"]').click();
+      await page.locator('[data-dlg-practice-search]').fill('SaaS');
+      check((await page.locator('.sig-service-row:visible').count())===1,'Search must find technology contracts');
+      await page.locator('[data-dlg-practice-search]').fill('zzzx-never-matches');
+      check((await page.locator('.sig-service-row:visible').count())===0,'Unknown query must hide practice cards');
+      check(await page.locator('[data-dlg-practice-empty]').isVisible(),'Search empty-state missing');
+      await page.locator('[data-dlg-practice-search]').fill('');
+      check((await page.locator('.sig-service-row:visible').count())===8,'Clearing search must restore all practice areas');
       await page.locator('[data-dlg-next]').click();
       check((await page.locator('[data-dlg-count]').innerText()).trim()==='02 / 04','Next slide control failed');
       check((await page.locator('[data-dlg-slide-to="1"]').getAttribute('aria-pressed'))==='true','Next slide indicator not selected');
