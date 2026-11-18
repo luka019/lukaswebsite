@@ -54,7 +54,7 @@ assert(!home.includes('role="tablist"') && !home.includes('data-sig-tab'),'App-s
 assert(home.includes('class="sig-focus-list"'),'Boutique practice focus missing');
 assert(home.includes('src="/assets/london-architecture.jpg"'),'Approved building photography must lead');
 assert(home.includes('src="/assets/luka-shakhkulashvili.png"'),'Real founder portrait missing');
-assert((home.match(/src="\/assets\/luka-shakhkulashvili.png"/g)||[]).length===1,'Avoid repeated founder portrait');
+assert((home.match(/src="\/assets\/luka-shakhkulashvili.png"/g)||[]).length===2,'Founder portrait should appear in carousel and About section only');
 assert(home.includes('ლუკა შახყულაშვილი'),'Founder must be identifiable');
 assert((home.match(/class="container sig-proofbar"/g)||[]).length===1,'Factual credentials strip required');
 assert((home.match(/class="atelier-service-symbol"/g)||[]).length===8,'Eight restrained line illustrations required');
