@@ -11,7 +11,7 @@ const practices = [
   pointsEn:['Compliance reviews, DPIA and DPO support','Privacy notices and processing agreements','Legal response to data incidents'],link:'/services/data-protection/'},
  {key:'contracts',num:'03',ka:'ტექნოლოგიური და კომერციული ხელშეკრულებები',en:'Technology & Commercial Contracts',
   leadKa:'კომერციულად გამართული პირობები პროგრამული უზრუნველყოფის, SaaS-ისა და IT მომსახურებისთვის.',leadEn:'Commercial terms for software, SaaS, outsourcing and technology procurement.',
-  pointsKa:['SaaS, SaaS Terms, SLA და Cloud agreements','ლიცენზირება, აუთსორსინგი და IP პირობები','ხელშეკრულების მოლაპარაკება და რისკების შეფასება'],
+  pointsKa:['SaaS, SLA და Cloud ხელშეკრულებები','ლიცენზირება, აუთსორსინგი და IP პირობები','ხელშეკრულების მოლაპარაკება და რისკების შეფასება'],
   pointsEn:['SaaS terms, SLAs and cloud agreements','Licensing, outsourcing and IP provisions','Negotiation and contractual risk review'],link:'/services/contracts/'},
  {key:'product',num:'04',ka:'ციფრული პროდუქტები და ელექტრონული კომერცია',en:'Digital Products & E-commerce',
   leadKa:'პროდუქტის გაშვების, ონლაინ მომსახურებისა და პლატფორმის მომხმარებლებთან ურთიერთობის სამართალი.',leadEn:'Launch, operate and grow online products with appropriate terms and compliance.',
@@ -77,11 +77,11 @@ export function signatureAbout(){
  return '<section class="sig-about" id="about" aria-labelledby="about-heading"><div class="container sig-about-grid">'+
   '<div class="sig-about-heading"><p class="sig-kicker">'+tr('ჩვენ შესახებ','ABOUT THE PRACTICE')+'</p>'+
   '<h2 id="about-heading" data-en="Specialist knowledge. Personal attention.">სპეციალიზებული ცოდნა. უშუალო ურთიერთობა.</h2>'+
-  '<figure class="atelier-about-emblem"><img src="/assets/dlg-editorial-emblem.svg" width="660" height="520" loading="lazy" alt="" aria-hidden="true"><figcaption data-en="LAW × TECHNOLOGY">LAW × TECHNOLOGY</figcaption></figure>'+
+  '<figure class="dlg-about-portrait"><img src="/assets/luka-shakhkulashvili.png" width="800" height="800" loading="lazy" decoding="async" alt="ლუკა შახყულაშვილი, Digital Law Georgia-ს დამფუძნებელი" data-en-alt="Luka Shakhkulashvili, founder of Digital Law Georgia"><figcaption><span data-en="FOUNDER & LEGAL COUNSEL">დამფუძნებელი · იურისტი</span><strong data-en="Luka Shakhkulashvili">ლუკა შახყულაშვილი</strong></figcaption></figure>'+
   '</div><div class="sig-about-content">'+
-  tr('Digital Law Georgia დამოუკიდებელი ბუტიკური იურიდიული პრაქტიკაა. ჩვენი საქმიანობა ტექნოლოგიებთან, ხელოვნურ ინტელექტთან და ციფრულ ბიზნესთან დაკავშირებულ სამართლებრივ საკითხებზეა კონცენტრირებული. ვმუშაობთ კომპანიებთან, დამფუძნებლებთან და საერთაშორისო ბიზნესთან.',
-    'Digital Law Georgia is an independent boutique legal practice dedicated to the legal issues arising from technology, artificial intelligence and digital business. We work with companies, founders and international clients.','p')+
-  tr('ვთავაზობთ მკაფიო სამართლებრივ შეფასებებს, საქმიანობაზე მორგებულ ხელშეკრულებებსა და პრაქტიკულ გადაწყვეტილებებს. კლიენტი უშუალოდ ურთიერთობს იურისტთან, რომელიც მის საქმეზე მუშაობს. სამუშაოს ფარგლებს, ვადებსა და საფასურს წინასწარ ვათანხმებთ.',
+  tr('Digital Law Georgia დამოუკიდებელი ბუტიკური იურიდიული პრაქტიკაა. სპეციალიზებული ვართ ტექნოლოგიებთან, ხელოვნურ ინტელექტთან და ციფრულ ბიზნესთან დაკავშირებულ სამართლებრივ საკითხებზე. ვმუშაობთ კომპანიებთან, სტარტაპების დამფუძნებლებთან და საერთაშორისო ბიზნესთან.',
+    'Digital Law Georgia is an independent boutique legal practice dedicated to legal matters arising from technology, artificial intelligence and digital business. Our clients include established businesses, startup founders and international companies.','p')+
+  tr('კლიენტებს ვთავაზობთ მკაფიო სამართლებრივ შეფასებას, საქმიანობაზე მორგებულ ხელშეკრულებებსა და პრაქტიკულ რეკომენდაციებს. მათ უშუალო ურთიერთობა აქვთ იმ იურისტთან, რომელიც საქმეზე მუშაობს. სამუშაოს ფარგლებს, ვადებსა და საფასურს წინასწარ ვათანხმებთ.',
     'We provide clear legal assessments, tailored contracts and practical solutions. Clients communicate directly with the lawyer responsible for the work. Scope, timing and fees are agreed in advance.','p')+
   '<div class="atelier-founder-bio"><span class="atelier-founder-bio-rule" aria-hidden="true"></span>'+
   tr('პრაქტიკას ხელმძღვანელობს ლუკა შახყულაშვილი, ტექნოლოგიური და კომერციული სამართლის იურისტი 7-წლიანი გამოცდილებით. იგი Queen Mary University of London-ის სამართლის მაგისტრია წარჩინებით (Distinction) და Chevening-ის სტიპენდიატი.',
