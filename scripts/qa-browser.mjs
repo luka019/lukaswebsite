@@ -80,6 +80,9 @@ try{
       check(geometry.nav&&geometry.cta&&(geometry.nav.right<=geometry.cta.x+3||geometry.nav.top>=geometry.cta.bottom-2),'Desktop navigation overlaps contact CTA at '+width);
       check(geometry.heading.right<=geometry.image.x+5,'Building photograph overlaps hero heading at '+width);
     }
+    if([320,390,768,1440,1920].includes(width)){
+      await page.screenshot({path:path.join(screenshots,'dlg-photographic-home-'+width+'.png'),fullPage:true,animations:'disabled'});
+    }
     await page.locator('[data-language="en"]').click();
     await page.waitForURL('**/en/');
     await page.locator('.sig-hero h1').waitFor();
@@ -89,11 +92,8 @@ try{
     await overflow(page,width,'/en/');
     await page.locator('[data-language="ka"]').click();
     await page.waitForURL(base+'/');
-    check((await page.locator('.sig-hero h1').innerText()).includes('ტექნოლოგიებისა და AI-ის სამართალი'),'Georgian language switch failed at '+width);
+    check((await page.locator('.sig-hero h1').innerText()).includes('იურიდიული მომსახურება'),'Georgian language switch failed at '+width);
     check(errors.length===0,'JavaScript error at '+width+': '+errors.join('; '));
-    if([320,390,768,1440,1920].includes(width)){
-      await page.screenshot({path:path.join(screenshots,'dlg-boutique-home-'+width+'.png'),fullPage:true,animations:'disabled'});
-    }
     await page.close();
     console.log('PASS boutique homepage and bilingual navigation: '+width+'px');
   }
