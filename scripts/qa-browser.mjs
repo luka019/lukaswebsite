@@ -57,6 +57,7 @@ try{
     check(geometry.heading&&geometry.heading.width<=width&&geometry.heading.height<380,'Heading overflow at '+width);
     check(geometry.image&&geometry.image.width>100,'Approved building photograph invisible at '+width);
     check(geometry.paper==='rgb(16, 42, 72)','Approved navy hero not applied at '+width+': '+geometry.paper);
+    check(geometry.bodyColour==='rgb(255, 255, 255)','Hero headline contrast against navy failed at '+width+': '+geometry.bodyColour);
     check((await page.locator('.sig-service-row').count())===8,'Expected eight legal practice rows at '+width);
     check((await page.locator('.sig-service-row a[href^="/services/"]').count())>=8,'Service destination links missing at '+width);
     check((await page.locator('.atelier-service-symbol svg').count())===8,'Subtle practice-area drawings missing at '+width);
