@@ -59,6 +59,8 @@ try{
     check(geometry.paper==='rgb(16, 42, 72)','Approved navy hero not applied at '+width+': '+geometry.paper);
     check(geometry.bodyColour==='rgb(255, 255, 255)','Hero headline contrast against navy failed at '+width+': '+geometry.bodyColour);
     check((await page.locator('.sig-service-row').count())===8,'Expected eight legal practice rows at '+width);
+    const serviceColor=await page.locator('.sig-services .sig-section-heading h2').evaluate(el=>getComputedStyle(el).color);
+    check(serviceColor==='rgb(23, 50, 79)','Services heading must have dark-on-light contrast at '+width+': '+serviceColor);
     check(await page.locator('[data-dlg-practice-tools]').isVisible(),'Client practice finder missing at '+width);
     if(width>=1280) check(geometry.hero.height<850,'Oversized desktop hero returned at '+width+': '+geometry.hero.height);
     if(width===390) check(geometry.hero.height<1350,'Oversized mobile hero returned: '+geometry.hero.height);
@@ -113,6 +115,7 @@ try{
       else check(geometry.heading.right<=geometry.image.x+5,'Building photograph overlaps hero heading at '+width);
     }
     if([320,390,768,1440,1920].includes(width)){
+      await page.evaluate(()=>{document.activeElement?.blur?.();window.scrollTo(0,0);});
       await page.screenshot({path:path.join(screenshots,'dlg-photographic-home-'+width+'.png'),fullPage:true,animations:'disabled'});
     }
     await page.locator('[data-language="en"]').click();

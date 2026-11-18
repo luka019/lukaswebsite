@@ -29,6 +29,8 @@ assert(home.includes('href="/dlg-boutique-ui.css?v=20261118-compact3"'),'Compact
 assert(home.includes('src="/dlg-service-discovery.js?v=20261118-compact3"'),'Practice search enhancement not loaded');
 assert(boutiqueCss.includes('grid-template-columns:repeat(3,minmax(0,1fr))') && boutiqueCss.includes('padding-top:clamp(57px'),'Compact professional rhythm missing');
 assert((boutiqueCss.match(/\{/g)||[]).length===(boutiqueCss.match(/\}/g)||[]).length,'Unbalanced boutique CSS');
+assert(boutiqueCss.includes('.dlg-signature-home.dlg-photographic .sig-services .sig-section-heading h2'),'Service heading contrast guard missing');
+assert(boutiqueCss.includes('@media(min-width:1500px)'),'Large-desktop layout cap missing');
 new vm.Script(finderJs,{filename:'dlg-service-discovery.js'});total++;
 assert(finderJs.includes('toolbar.hidden = false') && !finderJs.includes('fetch('),'Practice finder must be local and progressive');
 assert((home.match(/data-dlg-practice-group=/g)||[]).length===8,'Eight filterable practice areas required');

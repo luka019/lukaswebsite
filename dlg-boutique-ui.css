@@ -430,3 +430,36 @@ html[lang=en] .digital-site .digital-page-hero h1{
  .dlg-carousel-slide img,.digital-site .practice-card,.digital-site .solution-card,
  .sig-button,.sig-underlink{transition:none!important;transform:none!important}
 }
+
+
+/* Contrast assurance: legal-practice headings remain dark on pale surfaces. */
+.dlg-signature-home.dlg-photographic .sig-services .sig-section-heading h2{
+ color:#17324F;
+}
+.dlg-signature-home.dlg-photographic .sig-services .sig-section-heading-split>p{
+ color:#5B7082;
+}
+.dlg-signature-home.dlg-photographic .sig-services .sig-kicker{
+ color:#286B9F;
+}
+/* Large screens must not reinstate the old oversized hero. */
+@media(min-width:1500px){
+ .dlg-photo-hero-grid{
+  padding-top:33px;padding-bottom:29px;
+  gap:43px;
+ }
+ .dlg-photo-hero-copy h1{
+  font-size:46px;line-height:1.24;
+ }
+ html[lang=en] .dlg-photo-hero-copy h1{
+  font-size:55px;line-height:1.07;
+ }
+ .dlg-eyebrow{margin-bottom:15px}
+ .dlg-hero-positioning{margin-top:15px}
+ .dlg-hero-summary{margin-top:9px}
+ .dlg-hero-actions{margin-top:19px}
+ .dlg-founder-direct{margin-top:18px;padding-top:13px}
+ .dlg-carousel-stage{height:291px}
+ .dlg-hero-practice-links a{padding-block:8px}
+ .dlg-hero-bottom{padding-top:9px;padding-bottom:11px}
+}
