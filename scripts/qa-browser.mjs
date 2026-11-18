@@ -94,7 +94,8 @@ try{
     }else{
       check(geometry.navVisible&&!geometry.menuVisible,'Desktop navigation visibility failed at '+width);
       check(geometry.nav&&geometry.cta&&(geometry.nav.right<=geometry.cta.x+3||geometry.nav.top>=geometry.cta.bottom-2),'Desktop navigation overlaps contact CTA at '+width);
-      check(geometry.heading.right<=geometry.image.x+5,'Building photograph overlaps hero heading at '+width);
+      if(width<=850) check(geometry.heading.bottom<=geometry.image.top+5,'Stacked hero visual overlaps heading at '+width);
+      else check(geometry.heading.right<=geometry.image.x+5,'Building photograph overlaps hero heading at '+width);
     }
     if([320,390,768,1440,1920].includes(width)){
       await page.screenshot({path:path.join(screenshots,'dlg-photographic-home-'+width+'.png'),fullPage:true,animations:'disabled'});
