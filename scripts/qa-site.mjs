@@ -12,6 +12,8 @@ const englishHome=file('en/index.html');
 const css=file('firm.css');
 const signatureCss=file('dlg-signature.css');
 const photoCss=file('dlg-photographic.css');
+const refineCss=file('dlg-refinement.css');
+const carouselJs=file('dlg-hero-carousel.js');
 const interaction=file('dlg-signature.js');
 const script=file('firm-interactions.js');
 assert(home.includes('class="law-home dlg-signature-home dlg-photographic"'),'Approved photographic homepage missing');
@@ -20,6 +22,18 @@ assert(home.includes('law-brand-tagline') && home.includes('იურიდი�
 assert(home.includes('data-en="Legal Support for Digital Business"'),'English brand tagline missing');
 assert(home.includes('href="/dlg-signature.css?v=20261112-signature1"'),'Base responsive design system missing');
 assert(home.includes('href="/dlg-photographic.css?v=20261118-approved1"'),'Approved photographic stylesheet missing');
+assert(home.includes('href="/dlg-refinement.css?v=20261118-editorial2"'),'Editorial refinement stylesheet missing');
+assert(home.includes('src="/dlg-hero-carousel.js?v=20261118-editorial2"'),'Accessible hero carousel not loaded');
+assert(refineCss.includes('.dlg-carousel-slide') && refineCss.includes('padding-top:clamp(108px'),'Additional spacing and transitions missing');
+assert((refineCss.match(/\{/g)||[]).length===(refineCss.match(/\}/g)||[]).length,'Unbalanced refinement CSS');
+new vm.Script(carouselJs,{filename:'dlg-hero-carousel.js'});total++;
+assert(!carouselJs.includes('fetch('),'Carousel must not request external services');
+assert(carouselJs.includes('prefers-reduced-motion') && carouselJs.includes('visibilitychange') && carouselJs.includes('focusin'),'Accessible carousel pause logic missing');
+assert((home.match(/data-dlg-slide aria-hidden=/g)||[]).length===4,'Four editorial slides required');
+assert((home.match(/data-dlg-slide-to=/g)||[]).length===4,'Four slide indicators required');
+assert(home.includes('data-dlg-prev') && home.includes('data-dlg-next') && home.includes('data-dlg-count'),'Manual carousel controls missing');
+assert(home.includes('src="/assets/dlg-governance-visual.svg"') && home.includes('src="/assets/dlg-contracts-visual.svg"'),'Original illustrations missing');
+assert(home.includes('data-en-aria="Next visual"') && home.includes('data-en-aria="Previous visual"'),'Bilingual carousel accessibility missing');
 assert(photoCss.includes('--dlg-navy:#102A48') && photoCss.includes('--dlg-paper:#FFFFFF'),'Photographic navy palette missing');
 assert(photoCss.includes('.dlg-building-photo') && photoCss.includes('.dlg-hero-practice-links'),'Building photograph and specialist links missing');
 assert((photoCss.match(/\{/g)||[]).length===(photoCss.match(/\}/g)||[]).length,'Unbalanced photographic CSS');
@@ -69,7 +83,7 @@ assert(!home.includes('data-sig-practices'),'Retired app-style interaction must 
 assert(!interaction.includes('setInterval'),'Unwanted automatic carousel switching must not return');
 new vm.Script(script,{filename:'firm-interactions.js'});total++;
 for(const p of [
-  'styles.css','firm.css','dlg-signature.css','dlg-photographic.css','dlg-signature.js','script.js','favicon.svg','services/index.html',
+  'styles.css','firm.css','dlg-signature.css','dlg-photographic.css','dlg-refinement.css','dlg-hero-carousel.js','dlg-signature.js','script.js','favicon.svg','services/index.html',
   'services/contracts/index.html','services/data-protection/index.html',
   'services/ai/index.html','services/fintech/index.html','services/ongoing-legal-support/index.html','services/georgia-market-entry/index.html','services/intellectual-property/index.html',
   'resources/index.html','privacy/index.html'

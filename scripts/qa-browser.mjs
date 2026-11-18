@@ -63,11 +63,27 @@ try{
     check((await page.locator('.atelier-service-symbol svg').count())===8,'Subtle practice-area drawings missing at '+width);
     check((await page.locator('.dlg-solution').count())===4,'Four defined legal solutions missing at '+width);
     check((await page.locator('.dlg-hero-practice-links a').count())===4,'Hero specialist links missing at '+width);
+    check((await page.locator('[data-dlg-slide]').count())===4,'Four carousel visuals missing at '+width);
+    check((await page.locator('[data-dlg-slide-to]').count())===4,'Four manual slide controls missing at '+width);
+    check((await page.locator('[data-dlg-slide].is-active').count())===1,'Exactly one active visual expected at '+width);
+    check((await page.locator('[data-dlg-count]').innerText()).trim()==='01 / 04','Initial carousel slide indicator wrong at '+width);
     check((await page.locator('.sig-process-step').count())===3,'Client process missing at '+width);
     check((await page.locator('a[href="mailto:digitallawgeorgia@gmail.com"]').count())>=1,'Contact email missing at '+width);
     check((await page.locator('a[href^="https://wa.me/995598451132"]').count())>=1,'WhatsApp contact missing at '+width);
     check((await page.locator('.sig-hero .sig-button-primary').getAttribute('href'))==='#contact','Hero CTA does not lead to contact at '+width);
     check(await page.locator('.dlg-building-photo').evaluate(img=>img.complete&&img.naturalWidth>0),'Original architectural photograph did not load at '+width);
+    check(await page.locator('[data-dlg-slide=""] img').count()===0 || (await page.locator('[data-dlg-slide] img').count())===4,'All four local slide images required at '+width);
+    if(width===1440){
+      await page.locator('[data-dlg-next]').click();
+      check((await page.locator('[data-dlg-count]').innerText()).trim()==='02 / 04','Next slide control failed');
+      check((await page.locator('[data-dlg-slide-to="1"]').getAttribute('aria-pressed'))==='true','Next slide indicator not selected');
+      await page.locator('[data-dlg-slide-to="3"]').click();
+      check((await page.locator('[data-dlg-count]').innerText()).trim()==='04 / 04','Direct slide selection failed');
+      await page.locator('[data-dlg-prev]').click();
+      check((await page.locator('[data-dlg-count]').innerText()).trim()==='03 / 04','Previous slide control failed');
+      await page.locator('[data-dlg-slide-to="0"]').click();
+      check((await page.locator('[data-dlg-count]').innerText()).trim()==='01 / 04','Restoring architecture slide failed');
+    }
     check(await page.locator('.dlg-about-portrait img').evaluate(img=>img.complete&&img.naturalWidth>0),'Founder portrait did not load at '+width);
     if(width<=700){
       check(!geometry.navVisible&&geometry.menuVisible,'Mobile navigation visibility failed at '+width);
@@ -127,6 +143,9 @@ try{
   await reduced.goto(base+'/',{waitUntil:'networkidle'});
   check((await reduced.locator('.sig-hero h1').isVisible()),'Reduced motion hides the hero');
   check((await reduced.locator('.sig-service-row').count())===8,'Reduced motion hides services');
+  check((await reduced.locator('[data-dlg-count]').innerText()).trim()==='01 / 04','Reduced motion should retain initial slide');
+  await reduced.locator('[data-dlg-next]').click();
+  check((await reduced.locator('[data-dlg-count]').innerText()).trim()==='02 / 04','Reduced motion must permit manual slide changes');
   await reduced.close();
   console.log('DLG photographic boutique browser QA passed: '+checks+' checks across nine viewports and '+paths.length+' interior pages.');
 }finally{

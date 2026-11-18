@@ -18,13 +18,15 @@
  <title>Digital Law Georgia | ტექნოლოგიებისა და AI-ის სამართალი</title>
  <link rel="icon" href="/favicon.svg?v=20261112" type="image/svg+xml">
  <link rel="preload" as="font" href="/assets/noto-georgian.woff2" type="font/woff2" crossorigin>
- <link rel="preload" as="image" href="/assets/luka-shakhkulashvili.png" fetchpriority="high">
+ <link rel="preload" as="image" href="/assets/london-architecture.jpg" fetchpriority="high">
  <link rel="stylesheet" href="/styles.css?v=20261106-editorial">
  <link rel="stylesheet" href="/firm.css?v=20261112-editorial-home">
  <link rel="stylesheet" href="/dlg-signature.css?v=20261112-signature1">
  <link rel="stylesheet" href="/dlg-photographic.css?v=20261118-approved1">
+ <link rel="stylesheet" href="/dlg-refinement.css?v=20261118-editorial2">
  <script src="/script.js?v=20261107-accessibility" defer></script>
  <script src="/firm-interactions.js?v=20261107-integrated-v3" defer></script>
+ <script src="/dlg-hero-carousel.js?v=20261118-editorial2" defer></script>
  
 </head>
 <body class="law-home dlg-signature-home dlg-photographic" data-default-language="ka" data-title-ka="Digital Law Georgia | იურიდიული მომსახურება ციფრული ბიზნესისთვის" data-title-en="Digital Law Georgia | Boutique Technology & AI Law Practice" data-description-ka="დამოუკიდებელი ბუტიკური იურიდიული პრაქტიკა, სპეციალიზებული ტექნოლოგიების, AI-ის, მონაცემთა დაცვისა და ციფრული ბიზნესის სამართალზე." data-description-en="Independent boutique legal practice dedicated to technology, AI, data protection and digital business law.">
@@ -49,10 +51,40 @@
         </a>
       </div>
       <div class="dlg-photo-hero-media">
-        <figure class="dlg-architecture-frame">
+        <figure class="dlg-architecture-frame dlg-carousel" data-dlg-hero-carousel role="group" aria-roledescription="carousel" aria-label="სამართლისა და ტექნოლოგიების ვიზუალური გალერეა" data-en-aria="Law and technology visual gallery">
           <div class="dlg-architecture-top"><span data-en="LAW × TECHNOLOGY">სამართალი × ტექნოლოგია</span><span>DLG / GEORGIA</span></div>
-          <img class="dlg-building-photo" src="/assets/london-architecture.jpg" alt="თანამედროვე არქიტექტურული შენობის ფოტოგრაფიული დეტალი" data-en-alt="Contemporary architectural building detail, used as editorial imagery" width="1062" height="708" decoding="async" fetchpriority="high">
-          <figcaption class="dlg-architecture-caption"><span data-en="SPECIALIST LEGAL PRACTICE">სპეციალიზებული იურიდიული პრაქტიკა</span><strong data-en="Technology. AI. Business.">Technology · AI · Business</strong></figcaption>
+          <div class="dlg-carousel-stage" data-dlg-carousel-stage aria-live="off">
+            <div class="dlg-carousel-slide is-active" data-dlg-slide aria-hidden="false">
+              <img class="dlg-building-photo" src="/assets/london-architecture.jpg" alt="თანამედროვე შენობის არქიტექტურული დეტალი. სარედაქციო ფოტო." data-en-alt="Architectural detail of a contemporary building. Editorial imagery, not a depiction of the firm's offices." width="1062" height="708" fetchpriority="high" decoding="async">
+              <span class="dlg-visual-tag" data-en="ARCHITECTURAL PERSPECTIVES">არქიტექტურული ხედვა</span>
+            </div>
+            <div class="dlg-carousel-slide dlg-carousel-slide-art" data-dlg-slide aria-hidden="true">
+              <img src="/assets/dlg-governance-visual.svg" alt="AI-ის მმართველობისა და კონტროლის აბსტრაქტული ილუსტრაცია" data-en-alt="Original abstract illustration of AI governance, oversight and accountability" width="1200" height="820" decoding="async">
+              <span class="dlg-visual-tag" data-en="AI / GOVERNANCE">AI / მმართველობა</span>
+            </div>
+            <div class="dlg-carousel-slide dlg-carousel-slide-portrait" data-dlg-slide aria-hidden="true">
+              <img src="/assets/luka-shakhkulashvili.png" alt="ლუკა შახყულაშვილი, Digital Law Georgia-ს დამფუძნებელი" data-en-alt="Luka Shakhkulashvili, founder of Digital Law Georgia" width="800" height="800" decoding="async">
+              <span class="dlg-visual-tag" data-en="PERSONAL LEGAL COUNSEL">უშუალო იურიდიული მხარდაჭერა</span>
+            </div>
+            <div class="dlg-carousel-slide dlg-carousel-slide-art" data-dlg-slide aria-hidden="true">
+              <img src="/assets/dlg-contracts-visual.svg" alt="ტექნოლოგიური ხელშეკრულებებისა და სამართლებრივი სიზუსტის ილუსტრაცია" data-en-alt="Original editorial illustration of technology agreements and legal precision" width="1200" height="820" decoding="async">
+              <span class="dlg-visual-tag" data-en="TECHNOLOGY / CONTRACTS">ტექნოლოგიური ხელშეკრულებები</span>
+            </div>
+          </div>
+          <figcaption class="dlg-carousel-footer">
+            <div class="dlg-carousel-footer-copy"><span data-en="A VISUAL PERSPECTIVE">პროფესიული ხედვა</span><strong data-en="Law, technology and trust">სამართალი · ტექნოლოგიები · ნდობა</strong></div>
+            <div class="dlg-carousel-tools">
+              <span class="dlg-carousel-count" data-dlg-count aria-live="off">01 / 04</span>
+              <button class="dlg-carousel-arrow" type="button" data-dlg-prev aria-label="წინა სურათი" data-en-aria="Previous visual"><span aria-hidden="true">←</span></button>
+              <button class="dlg-carousel-arrow" type="button" data-dlg-next aria-label="შემდეგი სურათი" data-en-aria="Next visual"><span aria-hidden="true">→</span></button>
+            </div>
+          </figcaption>
+          <div class="dlg-carousel-pagination" role="group" aria-label="სურათების არჩევა" data-en-aria="Choose visual">
+            <button type="button" class="dlg-carousel-dot is-active" data-dlg-slide-to="0" aria-pressed="true" aria-label="პირველი სურათი: არქიტექტურა" data-en-aria="Slide 1: architecture"><span aria-hidden="true"></span></button>
+            <button type="button" class="dlg-carousel-dot" data-dlg-slide-to="1" aria-pressed="false" aria-label="მეორე სურათი: AI-ის მმართველობა" data-en-aria="Slide 2: AI governance"><span aria-hidden="true"></span></button>
+            <button type="button" class="dlg-carousel-dot" data-dlg-slide-to="2" aria-pressed="false" aria-label="მესამე სურათი: დამფუძნებელი" data-en-aria="Slide 3: founder"><span aria-hidden="true"></span></button>
+            <button type="button" class="dlg-carousel-dot" data-dlg-slide-to="3" aria-pressed="false" aria-label="მეოთხე სურათი: ტექნოლოგიური ხელშეკრულებები" data-en-aria="Slide 4: technology contracts"><span aria-hidden="true"></span></button>
+          </div>
         </figure>
         <div class="dlg-hero-practice-links" aria-label="ძირითადი მომსახურებები" data-en-aria="Featured legal practice areas">
           <a href="/services/ai/" data-site-link><small>01</small><span data-en="AI Law & Governance">AI-ის სამართალი</span><span aria-hidden="true">↗</span></a>
