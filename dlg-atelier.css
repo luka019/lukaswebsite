@@ -1,0 +1,703 @@
+/* DIGITAL LAW GEORGIA · EDITORIAL ATELIER 2026
+   A boutique legal practice, not an app. Original illustration and visual system.
+   Source palette: natural white, mineral paper, ink navy, muted steel-blue,
+   with only occasional understated warm-metal details. */
+:root{
+ --atelier-paper:#FCFCFA;
+ --atelier-white:#FFFFFF;
+ --atelier-mist:#F3F5F3;
+ --atelier-cloud:#EEF2F2;
+ --atelier-ink:#142E41;
+ --atelier-ink-dark:#10263A;
+ --atelier-blue:#315F75;
+ --atelier-steel:#648797;
+ --atelier-mute:#61727A;
+ --atelier-line:#DCE3E2;
+ --atelier-sand:#B79C76;
+ --atelier-dark:#112B3C;
+ --paper:#FCFCFA;
+ --paper-2:#F3F5F3;
+ --ink:#142E41;
+ --ink-soft:#4B616B;
+ --accent:#315F75;
+ --accent-dark:#254B60;
+ --firm-navy:#112B3C;
+ --firm-blue:#315F75;
+ --line:#DCE3E2;
+ --max:1240px;
+}
+html{scroll-padding-top:95px}
+body{background:var(--atelier-paper);color:var(--atelier-ink);font-family:NotoGeo,Arial,sans-serif}
+.container{width:min(1240px,calc(100% - 88px))}
+a:focus-visible,button:focus-visible,summary:focus-visible{
+ outline:2px solid #315F75;outline-offset:4px
+}
+.law-scroll-progress{background:var(--atelier-steel)}
+.law-to-top{background:var(--atelier-dark);border-radius:1px}
+.site-header.law-header,
+.law-home .site-header.dlg-integrated-header,
+.law-home .site-header.dlg-integrated-header.dlg-scrolled{
+ background:#FFFFFF;color:#142E41;
+ border-bottom:1px solid var(--atelier-line);box-shadow:none;backdrop-filter:none
+}
+.site-header .header-inner{min-height:86px;gap:19px;padding-block:13px}
+.law-brand{gap:12px}
+.law-brand .law-brand-monogram,.law-brand .law-brand-rule{display:none}
+.law-brand-text{display:flex;flex-direction:column;gap:1px}
+.law-brand-text strong{
+ font:500 24px/1.12 Georgia,"Times New Roman",serif;
+ color:#142E41;letter-spacing:-.045em
+}
+.law-brand-text small{
+ color:#55798C;font:700 9px/1.3 Arial,sans-serif;
+ letter-spacing:.29em
+}
+.site-header .law-brand-tagline{
+ border-left:1px solid #DCE3E2;padding-left:17px;
+ margin-left:7px;max-width:174px;color:#708087;
+ font-size:10px;line-height:1.56
+}
+.site-nav.law-nav{gap:clamp(14px,1.7vw,26px)}
+.law-nav>a{color:#314959;font-size:12px;font-weight:590}
+.law-nav>a:hover,.law-nav>a.is-active{color:#315F75}
+.law-nav>a:after{background:#315F75}
+.law-header-tools{gap:15px;margin-left:auto}
+.law-languages button{color:#70858E}
+.law-languages button[aria-pressed=true]{color:#315F75}
+.site-header .law-header-cta{
+ background:#15374B;border:1px solid #15374B;color:#fff;
+ border-radius:1px;min-height:42px;
+ padding:11px 17px;font-weight:620;font-size:12px;
+ box-shadow:none;transition:background-color .2s,border-color .2s
+}
+.site-header .law-header-cta:hover{background:#315F75;border-color:#315F75;transform:none}
+
+/* Opening: editorial two-column composition, original architectural artwork. */
+.dlg-atelier .sig-hero{
+ background:#fff;color:var(--atelier-ink);overflow:visible
+}
+.dlg-atelier .sig-hero-grid{
+ display:grid;grid-template-columns:minmax(0,1.08fr) minmax(0,.92fr);
+ align-items:center;gap:clamp(46px,5.5vw,86px);
+ padding-top:clamp(68px,6.4vw,108px);
+ padding-bottom:clamp(70px,7vw,109px)
+}
+.dlg-atelier .sig-hero-copy{padding:0;min-width:0}
+.dlg-atelier .sig-eyebrow,
+.dlg-atelier .sig-kicker{
+ font-family:NotoGeo,Arial,sans-serif;
+ font-size:10px;line-height:1.7;letter-spacing:.045em;
+ font-weight:670;color:#456C79
+}
+.dlg-atelier .sig-eyebrow{margin-bottom:30px}
+.dlg-atelier .sig-eyebrow-line{
+ background:var(--atelier-sand);height:1px;width:30px;flex:0 0 30px
+}
+.dlg-atelier .sig-hero h1{
+ max-width:700px;color:#142E41;
+ font-family:NotoGeo,Arial,sans-serif;
+ font-weight:580;font-size:clamp(40px,3.6vw,58px);
+ line-height:1.43;letter-spacing:-.045em;text-wrap:balance
+}
+html[lang=en] .dlg-atelier .sig-hero h1{
+ font-family:Georgia,"Times New Roman",serif;
+ font-weight:400;font-size:clamp(49px,4.45vw,70px);
+ line-height:1.16;letter-spacing:-.046em
+}
+.dlg-atelier .atelier-hero-accent{
+ display:block;margin:26px 0 0;padding:0 0 0 17px;
+ border-left:2px solid var(--atelier-sand);
+ color:#315F75;font-size:12px;font-weight:610;line-height:1.7
+}
+.dlg-atelier .sig-hero-intro{
+ max-width:586px;font-size:14px;line-height:2;
+ color:#566A76;margin-top:24px;letter-spacing:0
+}
+.dlg-atelier .sig-actions{margin-top:32px;gap:20px;flex-wrap:wrap}
+.dlg-atelier .sig-button{
+ border-radius:1px;min-height:52px;padding:15px 22px;
+ font-size:12px;font-weight:620;
+ transition:background-color .2s,border-color .2s,color .2s;
+ box-shadow:none
+}
+.dlg-atelier .sig-button-primary{
+ background:#15374B;color:#fff;border:1px solid #15374B
+}
+.dlg-atelier .sig-button-primary:hover{background:#315F75;border-color:#315F75;transform:none}
+.dlg-atelier .sig-button-text{
+ color:#193C50;border:0;border-bottom:1px solid #A9B9BE;
+ padding-inline:0;min-height:42px;border-radius:0
+}
+.dlg-atelier .sig-button-text:hover{border-color:#315F75;color:#315F75;transform:none}
+.dlg-atelier .atelier-hero-foot{
+ display:flex;gap:14px;align-items:flex-start;margin-top:43px;
+ max-width:460px
+}
+.dlg-atelier .atelier-hero-foot-line{
+ width:33px;height:1px;background:#B6A280;margin-top:11px;flex:none
+}
+.dlg-atelier .atelier-hero-foot p{
+ margin:0;font-size:11px;line-height:1.9;color:#7A8587
+}
+.dlg-atelier .atelier-hero-media{
+ position:relative;display:block;padding:0;
+ width:100%;max-width:515px;justify-self:end;min-width:0
+}
+.dlg-atelier .atelier-hero-media:before,
+.dlg-atelier .sig-photo-rail{display:none}
+.dlg-atelier .atelier-art-panel{
+ position:relative;margin:0;border:1px solid #DDE3E2;
+ padding:12px;background:#F7F8F6
+}
+.dlg-atelier .atelier-hero-illustration{
+ display:block;width:100%;height:auto;aspect-ratio:760/860;object-fit:cover;
+ filter:none;transform:none
+}
+.dlg-atelier .atelier-art-panel figcaption{
+ display:flex;justify-content:space-between;gap:15px;
+ color:#667983;text-transform:uppercase;letter-spacing:.1em;
+ padding:12px 3px 1px;font:600 9px/1.5 Arial,sans-serif
+}
+.dlg-atelier .atelier-founder-note{
+ position:relative;z-index:3;display:grid;
+ grid-template-columns:73px minmax(0,1fr) 18px;
+ align-items:center;gap:15px;
+ width:calc(100% - 26px);max-width:405px;
+ margin:-37px 0 0 -26px;padding:13px 16px;
+ color:#213848;background:#FFFFFF;
+ border:1px solid #D9E1E1;
+ box-shadow:0 15px 38px rgba(17,43,60,.09);
+ text-decoration:none
+}
+.dlg-atelier .atelier-founder-note:hover{border-color:#9DB8C0}
+.dlg-atelier .atelier-founder-thumb{
+ width:73px;height:77px;overflow:hidden;display:block;
+ background:#EDF0EF;position:relative;flex:none
+}
+.dlg-atelier .atelier-founder-thumb img{
+ position:absolute;display:block;left:-22%;top:-10%;
+ width:144%;height:144%;object-fit:cover;object-position:center 25%;
+ filter:none
+}
+.dlg-atelier .atelier-founder-copy{
+ min-width:0;display:flex;flex-direction:column;gap:3px
+}
+.dlg-atelier .atelier-founder-copy small{
+ color:#71878E;font-size:9px;letter-spacing:.03em;line-height:1.6;font-weight:600
+}
+.dlg-atelier .atelier-founder-copy strong{
+ color:#17354B;font-size:14px;font-weight:660;line-height:1.5
+}
+.dlg-atelier .atelier-founder-copy em{
+ color:#697B83;font-size:10px;line-height:1.6;
+ font-weight:400;font-style:normal
+}
+.dlg-atelier .atelier-founder-arrow{font-size:17px;align-self:center;color:#688A97}
+
+/* Proven background, never invented badges or result statistics. */
+.dlg-atelier .atelier-credentials{
+ border-top:1px solid var(--atelier-line);
+ border-bottom:1px solid var(--atelier-line);
+ background:#F8F9F7
+}
+.dlg-atelier .sig-proofbar{
+ display:grid;grid-template-columns:repeat(4,minmax(0,1fr));
+ background:none;border:0;
+ padding-top:25px;padding-bottom:25px;
+ gap:0
+}
+.dlg-atelier .sig-proofbar>div{
+ display:flex;flex-direction:column;gap:8px;
+ border-left:1px solid #D9E1E0;
+ padding:0 24px;min-width:0
+}
+.dlg-atelier .sig-proofbar>div:first-child{border-left:0;padding-left:0}
+.dlg-atelier .sig-proofbar span{
+ order:0;color:#899696;font:600 9px/1.5 NotoGeo,Arial,sans-serif
+}
+.dlg-atelier .sig-proofbar strong{
+ order:1;color:#254B60;font-size:13px;line-height:1.65;font-weight:620
+}
+
+/* Founder and firm: editorial text with one original illustrative seal. */
+.dlg-atelier .sig-about{
+ background:#F7F8F6;padding:clamp(90px,8vw,132px) 0
+}
+.dlg-atelier .sig-about-grid{
+ display:grid;grid-template-columns:minmax(0,.82fr) minmax(0,1.18fr);
+ gap:clamp(48px,7vw,110px);align-items:start
+}
+.dlg-atelier .sig-about h2,.dlg-atelier .sig-section-heading h2{
+ max-width:730px;color:#17374B;
+ font-size:clamp(31px,2.8vw,43px);font-weight:580;
+ line-height:1.54;letter-spacing:-.032em
+}
+html[lang=en] .dlg-atelier .sig-about h2,
+html[lang=en] .dlg-atelier .sig-section-heading h2{
+ color:#17374B;font:400 clamp(39px,3.25vw,52px)/1.2 Georgia,serif;
+ letter-spacing:-.035em
+}
+.dlg-atelier .atelier-about-emblem{
+ width:min(100%,310px);height:240px;margin:45px 0 0;
+ padding:8px 14px 15px;background:#183B50;
+ border:1px solid #355467
+}
+.dlg-atelier .atelier-about-emblem img{
+ width:100%;height:197px;display:block;object-fit:contain;opacity:.95
+}
+.dlg-atelier .atelier-about-emblem figcaption{
+ color:#D4DFDE;text-align:center;font:500 9px/1.3 Arial,sans-serif;
+ letter-spacing:.18em
+}
+.dlg-atelier .sig-about-content>p{
+ margin:0 0 22px;color:#526671;font-size:14px;line-height:2.05
+}
+.dlg-atelier .atelier-founder-bio{
+ border-top:1px solid #CAD6D6;
+ border-bottom:1px solid #CAD6D6;
+ padding:24px 0;margin:28px 0 27px;
+ display:flex;gap:15px
+}
+.dlg-atelier .atelier-founder-bio-rule{
+ display:block;width:3px;background:#B89C74;flex:none
+}
+.dlg-atelier .atelier-founder-bio p{
+ margin:0;color:#27475A;font-size:13px;line-height:1.95;font-weight:520
+}
+.dlg-atelier .sig-focus-title{
+ color:#315F75;font-size:10px;letter-spacing:.05em;font-weight:700;
+ margin:0 0 15px
+}
+.dlg-atelier .sig-focus-list{
+ display:grid;grid-template-columns:repeat(2,minmax(0,1fr));
+ gap:11px 23px;list-style:none;margin:0 0 30px;padding:0
+}
+.dlg-atelier .sig-focus-list li{
+ position:relative;color:#536C77;font-size:12px;line-height:1.8;
+ padding-left:16px
+}
+.dlg-atelier .sig-focus-list li:before{
+ content:"";position:absolute;left:0;top:.86em;width:7px;height:1px;
+ background:#B89C74
+}
+.dlg-atelier .sig-underlink{
+ display:inline-flex;align-items:center;gap:17px;
+ font-size:12px;font-weight:650;color:#244E64;
+ border:0;border-bottom:1px solid #96AFB5;padding-bottom:5px;
+ text-decoration:none;transition:color .2s
+}
+.dlg-atelier .sig-underlink:hover{color:#416E80;border-bottom-color:#416E80;gap:17px}
+
+/* Bespoke pictograms create a visual index of practice areas. */
+.dlg-atelier .sig-services{background:#FFFFFF;color:#143348;padding:clamp(92px,8vw,133px) 0}
+.dlg-atelier .sig-section-heading{margin-bottom:48px}
+.dlg-atelier .sig-section-heading-split{
+ display:grid;grid-template-columns:minmax(0,1.13fr) minmax(0,.87fr);
+ align-items:end;gap:clamp(30px,5vw,75px)
+}
+.dlg-atelier .sig-services .sig-section-heading h2{color:#17374B}
+.dlg-atelier .sig-services .sig-kicker{color:#416D7D}
+.dlg-atelier .sig-section-heading>p,
+.dlg-atelier .sig-section-heading-split>p{
+ color:#647884;font-size:14px;line-height:1.93;max-width:490px
+}
+.dlg-atelier .sig-service-list{
+ display:grid;grid-template-columns:repeat(2,minmax(0,1fr));
+ gap:18px;border:0
+}
+.dlg-atelier .sig-service-row{
+ display:grid;grid-template-columns:minmax(0,1fr) 74px;
+ grid-template-rows:auto auto 1fr;
+ border:1px solid #DCE4E2;min-height:378px;
+ padding:29px 29px 27px;gap:0 10px;
+ background:#FBFCFB;position:relative;align-items:start;
+ transition:border-color .22s,box-shadow .22s,transform .22s;
+ overflow:hidden
+}
+.dlg-atelier .sig-service-row:hover{
+ border-color:#A9BFC2;box-shadow:0 10px 30px rgba(18,54,75,.06);
+ transform:translateY(-2px)
+}
+.dlg-atelier .sig-service-row:before{
+ content:"";position:absolute;top:0;left:0;width:52px;height:2px;
+ background:#B9A17F;transform:scaleX(0);transform-origin:left;
+ transition:transform .23s
+}
+.dlg-atelier .sig-service-row:hover:before{transform:scaleX(1)}
+.dlg-atelier .sig-service-number{
+ grid-column:1;grid-row:1;display:block;
+ padding-top:5px;color:#8B9B9A;font:500 10px/1.5 Arial,sans-serif;
+ letter-spacing:.12em
+}
+.dlg-atelier .atelier-service-symbol{
+ grid-column:2;grid-row:1;display:flex;align-items:center;justify-content:center;
+ width:70px;height:70px;
+ color:#2F6376;background:#ECF1F0;border:1px solid #E0E8E6
+}
+.dlg-atelier .atelier-service-symbol svg{width:56px;height:56px}
+.dlg-atelier .sig-service-copy{
+ grid-column:1/-1;grid-row:2;margin-top:18px;min-width:0
+}
+.dlg-atelier .sig-service-copy h3{
+ color:#1B4052;font-size:clamp(18px,1.55vw,22px);
+ font-weight:630;line-height:1.54;letter-spacing:-.02em;
+ margin:0 0 10px
+}
+.dlg-atelier .sig-service-copy p{
+ margin:0;max-width:540px;
+ color:#687C83;font-size:12px;line-height:1.92
+}
+.dlg-atelier .sig-service-detail{
+ grid-column:1/-1;grid-row:3;align-self:end;
+ padding:13px 0 0;margin:16px 0 0;
+ border-top:1px solid #E1E7E6
+}
+.dlg-atelier .sig-service-points{
+ list-style:none;margin:0 0 18px;padding:0;display:grid;gap:6px
+}
+.dlg-atelier .sig-service-points li{
+ position:relative;padding-left:14px;color:#56717D;font-size:11px;line-height:1.74
+}
+.dlg-atelier .sig-service-points li:before{
+ content:"";position:absolute;left:0;top:.88em;width:6px;height:1px;background:#B5A181
+}
+.dlg-atelier .sig-service-detail .sig-underlink{
+ color:#2F5D71;font-size:11px;border-bottom:1px solid #A4BAC0
+}
+.dlg-atelier .sig-services-footer{
+ display:flex;justify-content:space-between;align-items:center;
+ margin-top:31px;gap:25px
+}
+.dlg-atelier .sig-services-footer .sig-underlink{color:#2F5D71}
+.dlg-atelier .sig-services-footer>span{
+ max-width:495px;color:#7A898D;font-size:11px;line-height:1.7
+}
+
+/* Business needs as a restrained editorial triptych. */
+.dlg-atelier .sig-audience{
+ background:#EFF3F2;padding:clamp(91px,8vw,126px) 0
+}
+.dlg-atelier .sig-audience-list{
+ display:grid;grid-template-columns:repeat(3,minmax(0,1fr));
+ gap:0;border:1px solid #D3DDDC;margin-bottom:31px
+}
+.dlg-atelier .sig-audience-item{
+ display:flex;flex-direction:column;align-items:flex-start;
+ gap:16px;min-height:305px;margin:0;
+ padding:34px 30px;position:relative;
+ border:0;border-right:1px solid #D3DDDC;
+ background:#F9FAF8;text-decoration:none;
+ transition:background-color .2s
+}
+.dlg-atelier .sig-audience-item:last-child{border-right:0}
+.dlg-atelier .sig-audience-item:before{
+ content:"";display:block;width:54px;height:54px;
+ border:1px solid #B5C5C4;border-radius:50%;
+ background:
+   radial-gradient(circle at 50% 50%,#B69F7F 0 3px,transparent 4px),
+   radial-gradient(circle at 50% 50%,transparent 16px,#B2C8C7 17px,transparent 18px);
+ margin-bottom:0
+}
+.dlg-atelier .sig-audience-item:nth-child(2):before{border-radius:4px;transform:rotate(4deg)}
+.dlg-atelier .sig-audience-item:nth-child(3):before{border-radius:50% 50% 4px 4px}
+.dlg-atelier .sig-audience-item:hover{background:#FFFFFF;padding-left:30px}
+.dlg-atelier .sig-audience-num{
+ position:absolute;top:46px;right:29px;color:#829695;
+ font:500 11px/1.5 Georgia,serif
+}
+.dlg-atelier .sig-audience-copy h3{
+ color:#214456;font-size:19px;font-weight:610;line-height:1.62;margin:0 0 11px
+}
+.dlg-atelier .sig-audience-copy p{
+ color:#647B81;font-size:12px;line-height:1.9;margin:0
+}
+.dlg-atelier .sig-audience-arrow{
+ margin-top:auto;align-self:flex-end;color:#416F7E;
+ font-size:20px;transform:none
+}
+.dlg-atelier .sig-audience-item:hover .sig-audience-arrow{transform:none}
+
+/* Method section: visible, unembellished accountability. */
+.dlg-atelier .sig-process{background:#FFFFFF;padding:clamp(90px,8vw,132px) 0}
+.dlg-atelier .sig-process-grid{
+ display:grid;grid-template-columns:repeat(3,minmax(0,1fr));
+ gap:clamp(28px,4vw,61px);margin:50px 0 33px
+}
+.dlg-atelier .sig-process-step{border-top:1px solid #CEDBDB;padding-top:22px}
+.dlg-atelier .sig-process-step>span{
+ color:#97A9A7;display:block;
+ font:400 32px/1 Georgia,serif;margin:0 0 24px
+}
+.dlg-atelier .sig-process-step h3{
+ color:#1D4052;font-size:18px;line-height:1.5;font-weight:620;margin-bottom:11px
+}
+.dlg-atelier .sig-process-step p{
+ color:#637B84;font-size:13px;line-height:1.87
+}
+
+/* The journal: professional insights without stock-cover masquerading. */
+.dlg-atelier .sig-insights{background:#F7F8F6;padding:clamp(85px,8vw,125px) 0}
+.dlg-atelier .sig-insights-heading{display:flex;align-items:end;justify-content:space-between;gap:35px}
+.dlg-atelier .sig-resource-grid{
+ display:grid;grid-template-columns:repeat(2,minmax(0,1fr));
+ gap:23px
+}
+.dlg-atelier .sig-resource-grid .resource-card{
+ border:1px solid #DDE4E2;background:#fff;
+ border-radius:0;box-shadow:none;overflow:hidden;
+ transition:border-color .2s,transform .2s
+}
+.dlg-atelier .sig-resource-grid .resource-card:hover{
+ border-color:#A4BAC0;transform:translateY(-2px)
+}
+.dlg-atelier .sig-resource-grid .resource-card:before{
+ content:"";display:block;height:66px;
+ background:
+   url('/assets/dlg-editorial-emblem.svg') no-repeat right 15px center / 92px auto,
+   #284B60
+}
+.dlg-atelier .sig-resource-grid .resource-cover{display:none}
+.dlg-atelier .sig-resource-grid .resource-card-copy{padding:26px 28px 30px}
+.dlg-atelier .sig-resource-grid .resource-card h3{
+ font-size:20px;line-height:1.62;font-weight:610;color:#1D4052
+}
+.dlg-atelier .sig-resource-grid .resource-card p{color:#657980;font-size:12px;line-height:1.85}
+.dlg-atelier .sig-resource-grid .resource-card-top,
+.dlg-atelier .sig-resource-grid .resource-card-bottom{color:#708992;font-size:10px}
+
+/* Closing contact section: a quiet signature illustration. */
+.dlg-atelier .sig-contact{
+ background:#112B3C;color:#FFFFFF;
+ padding:clamp(91px,8vw,132px) 0;
+ position:relative;isolation:isolate;overflow:hidden
+}
+.dlg-atelier .sig-contact:before{
+ content:"";position:absolute;z-index:-1;
+ top:-115px;right:-75px;width:min(50vw,590px);height:600px;
+ background:url('/assets/dlg-editorial-emblem.svg') no-repeat center / contain;
+ opacity:.22;pointer-events:none
+}
+.dlg-atelier .sig-contact-grid{
+ display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);
+ gap:clamp(46px,8vw,126px);align-items:center
+}
+.dlg-atelier .sig-contact .sig-kicker{color:#C9DAD8}
+.dlg-atelier .sig-contact h2{
+ color:#fff;font-size:clamp(31px,3vw,46px);
+ font-weight:550;line-height:1.5
+}
+html[lang=en] .dlg-atelier .sig-contact h2{
+ font:400 clamp(43px,4vw,58px)/1.16 Georgia,serif
+}
+.dlg-atelier .sig-contact-grid>div>p:last-child{
+ color:#BACBD0;font-size:14px;line-height:1.95;margin:23px 0 0
+}
+.dlg-atelier .sig-contact-main{
+ display:flex;justify-content:space-between;align-items:center;
+ min-height:65px;padding:19px 24px;
+ background:#F7F8F5;color:#16384C;border-radius:1px;
+ font-size:13px;font-weight:640;transition:background-color .2s
+}
+.dlg-atelier .sig-contact-main:hover{background:#FFFFFF}
+.dlg-atelier .sig-contact-secondary{color:#E3E9E9;border-bottom:1px solid #6C8B92}
+.dlg-atelier .sig-contact-actions small{color:#B5C8CD}
+
+/* The same editorial vocabulary across all published interior pages. */
+.digital-site{
+ --deep:#112B3C;--signal:#9BAFAF;--grid:#DAE2E0;
+ --tech:#315F75;--tech-soft:#EEF2F2;color:#142E41
+}
+.digital-site .digital-page-hero{
+ background:#F8F9F7;border-bottom:1px solid #DCE4E2;
+ padding-block:clamp(58px,6vw,92px)
+}
+.digital-site .digital-page-hero h1{
+ color:#17384B;font-weight:575;letter-spacing:-.035em;
+ line-height:1.5!important;max-width:1050px;
+ overflow-wrap:anywhere
+}
+html[lang=en] .digital-site .digital-page-hero h1{
+ font:400 clamp(42px,4vw,62px)/1.2 Georgia,serif!important;
+ letter-spacing:-.035em
+}
+.digital-site .eyebrow,.digital-site .mono,
+.digital-site .digital-page-hero .eyebrow{color:#446A79}
+.digital-site .digital-lead{color:#657980;line-height:1.94}
+.digital-site .digital-section{background:#FCFCFA}
+.digital-site .digital-wash{background:#F2F5F4}
+.digital-site .practice-grid{
+ display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:17px
+}
+.digital-site .practice-card{
+ background:#fff;border:1px solid #DCE4E2;
+ border-radius:0;min-height:233px;padding:27px 24px;
+ box-shadow:none;transform:none;transition:border-color .2s,background-color .2s;
+ overflow-wrap:break-word
+}
+.digital-site .practice-card:hover{border-color:#9AB4B8;box-shadow:none;transform:none;background:#fff}
+.digital-site .practice-card h3{color:#204558;font-size:19px;font-weight:615}
+.digital-site .practice-card p{color:#687E85;font-size:12px;line-height:1.8}
+.digital-site .card-arrow{color:#315F75}
+.digital-site .solution-grid{
+ display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px
+}
+.digital-site .solution-card{
+ background:#fff;border:1px solid #DCE4E2;
+ border-radius:0;box-shadow:none;transform:none;transition:border-color .2s;
+ min-width:0;overflow-wrap:break-word
+}
+.digital-site .solution-card:hover{border-color:#9AB4B8;box-shadow:none;transform:none}
+.digital-site .solution-card h3{color:#204558;font-weight:615}
+.digital-site .solution-question{color:#657980}
+.digital-site .digital-cta{background:#112B3C}
+.digital-site .digital-cta h2{color:#fff}
+.digital-site .digital-cta p{color:#C5D4D9}
+.digital-site .button-primary{
+ background:#183B50;color:#fff;border:1px solid #183B50;border-radius:0
+}
+.digital-site .button-primary:hover{background:#315F75;border-color:#315F75}
+.digital-site .digital-cta .button-primary{
+ background:#FFFFFF;color:#183B50;border-color:#fff
+}
+.digital-site .button-secondary{border-radius:0}
+.digital-site .service-layout,
+.digital-site .service-layout>*,
+.digital-site .service-layout aside,
+.digital-site .deliverable-card,
+.digital-site .digital-section,
+.digital-site .portfolio-credential-grid article,
+.digital-site .portfolio-module-grid article{
+ min-width:0;max-width:100%;overflow-wrap:break-word
+}
+.digital-site .service-layout aside,.digital-site .deliverable-card,
+.digital-site .portfolio-credential-grid article,.digital-site .portfolio-module-grid article{
+ border-radius:0;box-shadow:none;border-color:#DDE4E2
+}
+.resource-page{background:#FCFCFA}
+.resource-page .resource-card{border-radius:0;box-shadow:none;border-color:#DEE5E2}
+.resource-page .resource-card:hover{border-color:#9FB8BC}
+.site-footer.law-footer{background:#0C2535;color:#D4E0E3}
+.site-footer .law-brand-monogram{display:none}
+.site-footer .law-brand-text strong{color:#fff}
+.site-footer .law-brand-text small{color:#BDD3D6}
+.site-footer .law-footer-about p,.site-footer .law-footer-group,
+.site-footer .law-footer-bottom{color:#B8C9CE}
+.site-footer .law-footer-title{color:#fff}
+.site-footer a:hover{color:#E6DED0}
+
+/* Carefully considered responsive proportions. */
+@media(max-width:1190px){
+ .site-header .law-brand-tagline{display:none}
+ .dlg-atelier .sig-hero-grid{gap:35px}
+ .dlg-atelier .sig-hero h1{font-size:clamp(37px,3.8vw,49px)}
+ html[lang=en] .dlg-atelier .sig-hero h1{font-size:clamp(46px,4.7vw,61px)}
+ .dlg-atelier .sig-service-row{padding:26px 23px}
+ .dlg-atelier .sig-service-copy h3{font-size:19px}
+}
+@media(max-width:950px){
+ .site-header .header-inner{gap:11px}
+ .dlg-atelier .sig-hero-grid{
+  grid-template-columns:minmax(0,1.04fr) minmax(0,.96fr);gap:25px
+ }
+ .dlg-atelier .sig-hero h1{font-size:clamp(33px,4.1vw,41px)}
+ html[lang=en] .dlg-atelier .sig-hero h1{font-size:clamp(42px,4.9vw,55px)}
+ .dlg-atelier .sig-hero-intro{font-size:13px;line-height:1.85}
+ .dlg-atelier .sig-about-grid{gap:34px}
+ .dlg-atelier .sig-proofbar>div{padding-inline:13px}
+ .dlg-atelier .sig-service-row{min-height:403px}
+ .digital-site .practice-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media(max-width:700px){
+ .container{width:calc(100% - 38px)}
+ .site-header .header-inner{min-height:72px;padding-block:10px;gap:10px}
+ .law-brand-text strong{font-size:21px}
+ .law-brand-text small{font-size:9px}
+ .dlg-atelier .sig-hero-grid{
+  grid-template-columns:1fr;gap:40px;
+  padding-top:45px;padding-bottom:57px
+ }
+ .dlg-atelier .sig-hero h1{
+  font-size:clamp(33px,8vw,43px);line-height:1.43
+ }
+ html[lang=en] .dlg-atelier .sig-hero h1{
+  font-size:clamp(42px,9.5vw,58px);line-height:1.12
+ }
+ .dlg-atelier .sig-eyebrow{margin-bottom:22px}
+ .dlg-atelier .atelier-hero-accent{font-size:11px;margin-top:21px}
+ .dlg-atelier .sig-hero-intro{font-size:13px;line-height:1.95;margin-top:21px}
+ .dlg-atelier .sig-actions{gap:15px;margin-top:27px}
+ .dlg-atelier .sig-button-primary{width:100%;justify-content:space-between}
+ .dlg-atelier .sig-button-text{width:auto}
+ .dlg-atelier .atelier-hero-foot{margin-top:27px}
+ .dlg-atelier .atelier-hero-media{max-width:480px;justify-self:start}
+ .dlg-atelier .atelier-art-panel{padding:8px}
+ .dlg-atelier .atelier-founder-note{
+  margin:-25px 0 0 9px;width:calc(100% - 17px);
+  grid-template-columns:60px minmax(0,1fr) 13px;
+  gap:11px;padding:10px 11px
+ }
+ .dlg-atelier .atelier-founder-thumb{width:60px;height:65px}
+ .dlg-atelier .atelier-founder-copy strong{font-size:13px}
+ .dlg-atelier .atelier-founder-copy small{font-size:8px}
+ .dlg-atelier .atelier-founder-copy em{font-size:9px}
+ .dlg-atelier .sig-proofbar{grid-template-columns:repeat(2,minmax(0,1fr));padding-block:14px}
+ .dlg-atelier .sig-proofbar>div{
+  padding:14px 10px 14px 0;border:0;border-bottom:1px solid #D9E1E0
+ }
+ .dlg-atelier .sig-proofbar>div:nth-child(even){border-left:1px solid #D9E1E0;padding-left:13px}
+ .dlg-atelier .sig-proofbar strong{font-size:12px}
+ .dlg-atelier .sig-proofbar span{font-size:9px}
+ .dlg-atelier .sig-about,.dlg-atelier .sig-services,
+ .dlg-atelier .sig-audience,.dlg-atelier .sig-process,
+ .dlg-atelier .sig-insights,.dlg-atelier .sig-contact{padding-block:70px}
+ .dlg-atelier .sig-about-grid,.dlg-atelier .sig-section-heading-split,
+ .dlg-atelier .sig-contact-grid{grid-template-columns:1fr;gap:25px}
+ .dlg-atelier .sig-about h2,
+ .dlg-atelier .sig-section-heading h2{font-size:30px;line-height:1.48}
+ html[lang=en] .dlg-atelier .sig-about h2,
+ html[lang=en] .dlg-atelier .sig-section-heading h2{font-size:39px}
+ .dlg-atelier .atelier-about-emblem{height:200px;margin-top:28px;width:min(100%,300px)}
+ .dlg-atelier .atelier-about-emblem img{height:158px}
+ .dlg-atelier .sig-focus-list{grid-template-columns:1fr}
+ .dlg-atelier .sig-section-heading{margin-bottom:30px}
+ .dlg-atelier .sig-service-list{grid-template-columns:1fr;gap:13px}
+ .dlg-atelier .sig-service-row{min-height:0;padding:25px 23px}
+ .dlg-atelier .sig-service-copy h3{font-size:20px}
+ .dlg-atelier .sig-service-copy p{font-size:12px}
+ .dlg-atelier .sig-services-footer{flex-direction:column;align-items:flex-start;gap:15px}
+ .dlg-atelier .sig-audience-list{grid-template-columns:1fr}
+ .dlg-atelier .sig-audience-item{
+  border-right:0;border-bottom:1px solid #D3DDDC;
+  min-height:0;padding:28px 25px;gap:15px
+ }
+ .dlg-atelier .sig-audience-item:last-child{border-bottom:0}
+ .dlg-atelier .sig-audience-item:hover{padding-left:25px}
+ .dlg-atelier .sig-audience-copy h3{font-size:18px}
+ .dlg-atelier .sig-process-grid{grid-template-columns:1fr;gap:25px;margin-top:29px}
+ .dlg-atelier .sig-process-step>span{font-size:25px;margin-bottom:15px}
+ .dlg-atelier .sig-resource-grid{grid-template-columns:1fr;gap:15px}
+ .dlg-atelier .sig-insights-heading{flex-direction:column;align-items:flex-start;gap:18px}
+ .dlg-atelier .sig-contact:before{width:470px;height:430px;top:30px;right:-240px}
+ .digital-site .practice-grid,.digital-site .solution-grid{grid-template-columns:1fr;gap:13px}
+ .digital-site .practice-card{min-height:0}
+ .digital-site .digital-page-hero h1{font-size:32px;line-height:1.43!important}
+ .digital-site .service-layout{display:block}
+ .digital-site .service-layout>*{width:100%;max-width:100%;min-width:0}
+ .digital-site .service-layout aside{margin-top:25px}
+}
+@media(max-width:480px){
+ .site-header .law-header-cta{display:none}
+ .dlg-atelier .sig-hero h1{font-size:clamp(29px,8.3vw,36px)}
+ .dlg-atelier .atelier-hero-foot p{font-size:10px}
+ .dlg-atelier .atelier-art-panel figcaption{font-size:8px;letter-spacing:.05em}
+ .dlg-atelier .sig-service-row{padding-inline:20px}
+ .dlg-atelier .sig-service-copy h3{font-size:19px}
+ .dlg-atelier .sig-service-points li{font-size:11px}
+}
+@media(prefers-reduced-motion:reduce){
+ html{scroll-behavior:auto}
+ .dlg-atelier .sig-button,
+ .dlg-atelier .sig-service-row,
+ .dlg-atelier .sig-audience-item,
+ .dlg-atelier .sig-resource-grid .resource-card{transition:none;transform:none}
+}

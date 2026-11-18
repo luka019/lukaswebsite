@@ -22,14 +22,18 @@ export const practices = [
         "მომსახურების, პარტნიორობისა და კონფიდენციალურობის შეთანხმებები",
         "სამუშაოს მოცულობა, ჩაბარება-მიღება, ანაზღაურება და პირობების ცვლილება",
         "თანამშრომლებისა და კონტრაქტორების მიერ შექმნილ პროგრამულ კოდსა და სხვა მასალებზე უფლებები",
-        "მონაცემთა დამუშავება, AI-მომსახურების მიმწოდებლები, პასუხისმგებლობა და მომსახურების დასრულება"
+        "მონაცემთა დამუშავება, AI-მომსახურების მიმწოდებლები, პასუხისმგებლობა და მომსახურების დასრულება",
+        "ტექნოლოგიურ შესყიდვებზე მომსახურების დონის (SLA), უსაფრთხოების, სუბკონტრაქტორებისა და ხელშეკრულების შეწყვეტის პირობები",
+        "ელექტრონული ხელმოწერისა და დოკუმენტების სამართლებრივი ფორმის შეფასება"
       ],
       "en": [
         "Software development, SaaS, licensing and cloud service terms",
         "Service, partnership and confidentiality agreements",
         "Scope of work, acceptance, payment and change control",
         "Rights in code, content and deliverables, including employee and contractor contributions",
-        "Data processing, AI suppliers, liability and exit arrangements"
+        "Data processing, AI suppliers, liability and exit arrangements",
+        "SLA, security, subcontracting and exit provisions in technology procurement",
+        "Legal review of e-signatures and electronic contract formalities"
       ]
     },
     "outputs": {
@@ -72,8 +76,8 @@ export const practices = [
     "slug": "data-protection",
     "code": "02 / PRIVACY",
     "name": {
-      "ka": "პერსონალურ მონაცემთა დაცვა",
-      "en": "Privacy & Data Protection"
+      "ka": "პერსონალურ მონაცემთა დაცვა და Privacy",
+      "en": "Data Protection & Privacy"
     },
     "summary": {
       "ka": "თანამშრომლებისა და მომხმარებლების პერსონალური მონაცემების დაცვა და მიმწოდებლებთან მონაცემთა დამუშავების პირობების მოწესრიგება.",
@@ -90,7 +94,8 @@ export const practices = [
         "მონაცემთა დამუშავების ხელშეკრულებები და მიმწოდებლების შეფასება",
         "მონაცემთა სუბიექტის მოთხოვნების განხილვა და ინციდენტზე სამართლებრივი რეაგირება",
         "საჭიროების შემთხვევაში, მონაცემთა დაცვაზე ზეგავლენისა და საერთაშორისო გადაცემის პირობების შეფასებაში დახმარება",
-        "პერსონალურ მონაცემთა დაცვის ოფიცრის მომსახურება — ცალკე შეთანხმებით"
+        "პერსონალურ მონაცემთა დაცვის ოფიცრის მომსახურება — ცალკე შეთანხმებით",
+        "დამუშავების ოპერაციების ინვენტარიზაცია, მონაცემთა დაცვის ოფიცრის ფუნქციის საჭიროების შეფასება და ტრენინგი"
       ],
       "en": [
         "Processing activities, purposes, roles and legal bases",
@@ -98,7 +103,8 @@ export const practices = [
         "Data processing agreements and supplier reviews",
         "Data subject requests and legal incident response",
         "Support with impact assessments and international transfers where relevant",
-        "External data protection officer services by separate agreement"
+        "External data protection officer services by separate agreement",
+        "Processing inventory, assessment of DPO requirements and staff training"
       ]
     },
     "outputs": {
@@ -141,8 +147,8 @@ export const practices = [
     "slug": "ai",
     "code": "03 / AI",
     "name": {
-      "ka": "AI-ის მმართველობა და სამართლებრივი კონსულტაცია",
-      "en": "AI Governance & Legal Advisory"
+      "ka": "AI-ის სამართალი და მმართველობა",
+      "en": "AI Law & Governance"
     },
     "summary": {
       "ka": "AI-ის გამოყენების წესები, პასუხისმგებლობების განაწილება და სამართლებრივი კონსულტაცია — შიდა სამუშაო პროცესებიდან ციფრულ პროდუქტებამდე.",
@@ -159,7 +165,9 @@ export const practices = [
         "გენერაციული AI-ის გამოყენების შიდა წესები, დამტკიცების პროცედურა და გამონაკლისები",
         "მიმწოდებლის დოკუმენტებისა და ხელშეკრულების შეფასება",
         "პროდუქტის მომხმარებლის ინფორმირება, ადამიანის მიერ გადამოწმება და გაშვებამდე სამართლებრივი შეფასება",
-        "თანამშრომელთა ფუნქციებზე მორგებული სწავლება, ინციდენტებზე რეაგირება და პერიოდული შეფასება"
+        "თანამშრომელთა ფუნქციებზე მორგებული სწავლება, ინციდენტებზე რეაგირება და პერიოდული შეფასება",
+        "ალგორითმული გადაწყვეტილებების, ადამიანური ზედამხედველობისა და გამჭვირვალობის სამართლებრივი შეფასება",
+        "AI პროდუქტების ევროკავშირის ბაზარზე განთავსებისას EU AI Act-ის მოქმედების ფარგლებისა და შესაბამისი ვალდებულებების შეფასება"
       ],
       "en": [
         "AI tools and use-case inventory",
@@ -167,7 +175,9 @@ export const practices = [
         "Generative AI policy, approvals and exceptions",
         "Supplier documentation and contract review",
         "Product disclosures, human review and launch checkpoints",
-        "Role-based training, incidents and periodic reviews"
+        "Role-based training, incidents and periodic reviews",
+        "Legal review of algorithmic decision-making, human oversight and transparency",
+        "Assessment of EU AI Act scope and relevant obligations for AI products connected to the EU market"
       ]
     },
     "outputs": {
@@ -175,13 +185,15 @@ export const practices = [
         "AI-ის გამოყენების რეესტრი და პრიორიტეტების მიხედვით შედგენილი სამოქმედო გეგმა",
         "AI-ის პოლიტიკა და გადაწყვეტილების მიღების წესი",
         "მიმწოდებლის შეფასება და სახელშეკრულებო შენიშვნები",
-        "გაშვებამდე შესამოწმებელი საკითხების სია, პრაქტიკული სწავლება და შემდგომი შეფასების გეგმა"
+        "გაშვებამდე შესამოწმებელი საკითხების სია, პრაქტიკული სწავლება და შემდგომი შეფასების გეგმა",
+        "AI-ის გამოყენების წესებისა და ორგანიზაციული პასუხისმგებლობების გაწერის დოკუმენტაცია"
       ],
       "en": [
         "A use-case register and prioritised action plan",
         "AI policy and a decision-making process",
         "Supplier review and contract comments",
-        "Launch checklist, practical training and a review plan"
+        "Launch checklist, practical training and a review plan",
+        "Internal AI governance and accountability documentation"
       ]
     },
     "questions": {
@@ -248,8 +260,8 @@ export const practices = [
     "slug": "digital-products",
     "code": "04 / PRODUCT",
     "name": {
-      "ka": "ციფრული პროდუქტები და ელექტრონული კომერცია",
-      "en": "Digital Products & E-commerce"
+      "ka": "ციფრული პროდუქტები, პლატფორმები და E-commerce",
+      "en": "Digital Products, Platforms & E-commerce"
     },
     "summary": {
       "ka": "ციფრული პროდუქტის სამართლებრივი პირობები — რეგისტრაცია, გადახდა, გამოწერის გაუქმება და თანხის დაბრუნება.",
@@ -265,14 +277,18 @@ export const practices = [
         "გამოყენებისა და მომსახურების პირობები",
         "ფასი, გამოწერის პირობები, გაუქმება, თანხის დაბრუნება და საჩივრის განხილვა",
         "მონაცემთა დამუშავება, თანხმობა და მომხმარებლის ინფორმირება",
-        "კონტენტზე უფლებები, AI-ფუნქციები და გაშვების წინ სამართლებრივი შემოწმება"
+        "კონტენტზე უფლებები, AI-ფუნქციები და გაშვების წინ სამართლებრივი შემოწმება",
+        "ონლაინ პლატფორმის შუამავლისა და მომსახურების მიმღების როლებისა და პასუხისმგებლობის შეფასება",
+        "მომხმარებლის უფლებების დაცვისა და ელექტრონული კომერციის კანონმდებლობის მოთხოვნების შესწავლა"
       ],
       "en": [
         "Business model, participant roles and responsibilities",
         "Terms of use and service",
         "Pricing, subscriptions, cancellation, refunds and complaints",
         "Data processing, consent and customer information",
-        "Content rights, AI features and pre-launch legal review"
+        "Content rights, AI features and pre-launch legal review",
+        "Assessment of platform intermediary roles and liability",
+        "Review of consumer protection and electronic commerce obligations"
       ]
     },
     "outputs": {
@@ -449,8 +465,8 @@ export const practices = [
     "slug": "fintech",
     "code": "02 / FINANCE",
     "name": {
-      "ka": "ფინტექი და საგადახდო მომსახურება",
-      "en": "FinTech & payments"
+      "ka": "ფინტექი და საგადახდო მომსახურებები",
+      "en": "FinTech & Payment Services"
     },
     "summary": {
       "ka": "საგადახდო მომსახურებისა და ციფრული ფინანსური პროდუქტების მარეგულირებელი მოთხოვნების შეფასება.",
@@ -466,14 +482,16 @@ export const practices = [
         "რეგისტრაციისა და ავტორიზაციის საჭიროების შეფასება",
         "გადახდები, ციფრული საფულეები და ღია ბანკინგი",
         "მომხმარებლის იდენტიფიკაცია, ინფორმირება და მიმწოდებლებთან ურთიერთობა",
-        "საქართველოს ეროვნულ ბანკში წარსადგენი დოკუმენტების მომზადებაში დახმარება"
+        "საქართველოს ეროვნულ ბანკში წარსადგენი დოკუმენტების მომზადებაში დახმარება",
+        "საგადახდო მომსახურების პროვაიდერებთან, ბანკებსა და პარტნიორებთან სახელშეკრულებო ურთიერთობები"
       ],
       "en": [
         "Product regulatory classification",
         "Assessment of registration and authorisation requirements",
         "Payments, wallets and open banking",
         "Customer identification, disclosures and outsourcing",
-        "Support with National Bank submissions"
+        "Support with National Bank submissions",
+        "Commercial arrangements with payment service providers, banks and technology partners"
       ]
     },
     "outputs": {
@@ -510,8 +528,8 @@ export const practices = [
     "slug": "virtual-assets",
     "code": "03 / DIGITAL ASSETS",
     "name": {
-      "ka": "ვირტუალური აქტივები",
-      "en": "Virtual assets & blockchain"
+      "ka": "ვირტუალური აქტივები და VASP რეგულირება",
+      "en": "Virtual Assets & VASP Regulation"
     },
     "summary": {
       "ka": "ვირტუალურ აქტივებთან დაკავშირებული მომსახურების სამართლებრივი შეფასება და საქმიანობის დასაწყებად მომზადება.",
@@ -527,14 +545,16 @@ export const practices = [
         "ვირტუალური აქტივის მომსახურების პროვაიდერის (VASP) მოთხოვნების ანალიზი",
         "რეგისტრაციისთვის საჭირო დოკუმენტების მომზადებაში დახმარება",
         "მმართველობის წესები, მომხმარებელთან ურთიერთობის პირობები და რისკების შესახებ ინფორმირება",
-        "AML/CFT-ის საკითხები და გარე მიმწოდებლები"
+        "AML/CFT-ის საკითხები და გარე მიმწოდებლები",
+        "ქვეყნის მოქმედი მარეგულირებელი წესების მიხედვით რეგისტრაციის საჭიროების სამართლებრივი შეფასება"
       ],
       "en": [
         "Business model and asset classification",
         "Virtual asset service provider (VASP) requirements",
         "Registration documentation support",
         "Governance, user terms and risk disclosures",
-        "AML/CFT issues and outsourcing"
+        "AML/CFT issues and outsourcing",
+        "Assessment of the need for registration under the relevant Georgian regulatory framework"
       ]
     },
     "outputs": {
@@ -632,8 +652,8 @@ export const practices = [
     "slug": "cyber-digital-risk",
     "code": "08 / DIGITAL RISK",
     "name": {
-      "ka": "კიბერუსაფრთხოების სამართლებრივი საკითხები",
-      "en": "Cybersecurity legal & governance"
+      "ka": "კიბერუსაფრთხოებისა და ციფრული რისკების სამართალი",
+      "en": "Cybersecurity & Digital Risk"
     },
     "summary": {
       "ka": "კიბერინციდენტების სამართლებრივი შეფასება, შეტყობინების ვალდებულებები და მიმწოდებლებთან ხელშეკრულებები.",
@@ -649,14 +669,16 @@ export const practices = [
         "ინციდენტზე რეაგირების სამართლებრივი გეგმა",
         "შეტყობინების ვალდებულებების შეფასება",
         "მიმწოდებლების სახელშეკრულებო პასუხისმგებლობა",
-        "მტკიცებულებებისა და გადაწყვეტილებების დოკუმენტირება"
+        "მტკიცებულებებისა და გადაწყვეტილებების დოკუმენტირება",
+        "სექტორული ინფორმაციული უსაფრთხოების მოთხოვნებისა და აუთსორსინგის კონტრაქტების სამართლებრივი შეფასება"
       ],
       "en": [
         "Legal and contractual security requirements",
         "Legal incident response playbook",
         "Notification obligation assessment",
         "Supplier responsibility and governance",
-        "Evidence and decision records"
+        "Evidence and decision records",
+        "Sector-specific information security requirements and outsourcing contract review"
       ]
     },
     "outputs": {
@@ -812,6 +834,75 @@ export const practices = [
     "exclude": {
       "ka": "საპატენტო განაცხადის ტექნიკურ ნაწილზე, რეგისტრაციის სპეციალიზებულ პროცედურებსა და ინტელექტუალური საკუთრების დავებზე საჭიროების შემთხვევაში შესაბამის სპეციალისტებთან ვთანამშრომლობთ.",
       "en": "Patent drafting, specialist filing work and IP litigation are coordinated with relevant specialists where required."
+    }
+  },
+  {
+    "id": "startup",
+    "slug": "startups-investment",
+    "code": "09 / STARTUPS",
+    "name": {
+      "ka": "ტექნოლოგიური სტარტაპები და ინვესტიციები",
+      "en": "Technology Startups & Investment"
+    },
+    "summary": {
+      "ka": "ტექნოლოგიური კომპანიის დაფუძნებიდან ინვესტორის შესვლამდე: დამფუძნებლების შეთანხმებები, IP-ის კუთვნილება და საინვესტიციო დოკუმენტები.",
+      "en": "From incorporation to investment: founder agreements, ownership of intellectual property and investment documentation."
+    },
+    "audience": {
+      "ka": "ტექნოლოგიური სტარტაპები, SaaS და AI პროდუქტების დამფუძნებლები, ანგელოზი ინვესტორები და საქართველოში ოპერაციების დამწყები საერთაშორისო გუნდები.",
+      "en": "Technology startups, SaaS and AI founders, early-stage investors and international teams establishing operations in Georgia."
+    },
+    "scope": {
+      "ka": [
+        "საქართველოში ტექნოლოგიური კომპანიის დაფუძნება და კორპორაციული სტრუქტურის შერჩევა",
+        "დამფუძნებლების შეთანხმებები, წილების განაწილება, vesting და გადაწყვეტილებების მიღება",
+        "ინვესტიციის პირობები, შეთანხმებებისა და ძირითადი საინვესტიციო დოკუმენტების შემოწმება",
+        "პროდუქტის IP-ისა და პროგრამული კოდის უფლებების კომპანიისთვის გადაცემა",
+        "თანამშრომლებთან, კონტრაქტორებთან და პარტნიორებთან შეთანხმებები",
+        "ინვესტორის სამართლებრივი შემოწმებისთვის დოკუმენტაციის მომზადება"
+      ],
+      "en": [
+        "Georgian entity formation and suitable corporate structure",
+        "Founder agreements, equity arrangements, vesting and governance",
+        "Term sheet and investment-document review",
+        "IP assignment and software ownership arrangements",
+        "Employee, contractor and commercial agreements",
+        "Preparation for investor legal due diligence"
+      ]
+    },
+    "outputs": {
+      "ka": [
+        "დაფუძნებისა და კორპორაციული სტრუქტურის სამართლებრივი გეგმა",
+        "დამფუძნებლებისა და კონტრაქტორების ძირითადი დოკუმენტები",
+        "საინვესტიციო დოკუმენტების შეფასება და მოლაპარაკების საკითხები",
+        "IP-ის უფლებებისა და ინვესტიციისთვის საჭირო დოკუმენტების სია"
+      ],
+      "en": [
+        "Legal formation and structuring plan",
+        "Core founder and contractor agreements",
+        "Investment document review and negotiation issues",
+        "IP ownership and investment-readiness documentation checklist"
+      ]
+    },
+    "questions": {
+      "ka": [
+        "რომელ ქვეყანაშია კომპანია დაფუძნებული და სად აპირებთ საქმიანობას?",
+        "ვინ არიან დამფუძნებლები და როგორ ნაწილდება უფლებები?",
+        "არსებობს თუ არა პროდუქტის კოდის, ბრენდისა და სხვა აქტივების უფლების დამადასტურებელი დოკუმენტები?"
+      ],
+      "en": [
+        "Where is the company incorporated and where will it operate?",
+        "Who are the founders and how are rights allocated?",
+        "Which records establish ownership of the product, code, brand and other assets?"
+      ]
+    },
+    "exclude": {
+      "ka": "უცხოური კორპორაციული და ფასიანი ქაღალდების სამართლის, გადასახადებისა და ინვესტიციის ფინანსური შეფასების საკითხებზე შესაბამისი სპეციალისტი ერთვება. საინვესტიციო შედეგს ვერ ვიძლევით გარანტიით.",
+      "en": "Foreign corporate and securities law, tax and financial valuation require appropriately qualified specialists. No investment outcome is guaranteed."
+    },
+    "scenario": {
+      "ka": "ინვესტორი დაინტერესდა თქვენი სტარტაპით. კომპანია ფლობს თუ არა პროდუქტსა და მის კოდზე ყველა საჭირო უფლებას?",
+      "en": "An investor is interested in your startup. Does the company own the necessary rights in its product and code?"
     }
   }
 ];
@@ -997,12 +1088,15 @@ export const stages = {
 };
 
 export const primaryIds = [
-  "contracts",
-  "data-protection",
   "ai",
+  "data-protection",
+  "contracts",
   "product",
-  "legal-operations",
-  "ongoing"
+  "ip",
+  "cyber",
+  "fintech",
+  "startup",
+  "georgia"
 ];
 
 export const businessPaths = [

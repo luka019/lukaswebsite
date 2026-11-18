@@ -1,0 +1,612 @@
+/* Digital Law Georgia | Photographic Boutique, 18 November 2026
+   Built from the 7 November approved photographic navy direction.
+   Deliberately restrained: architectural photography, serif editorial
+   English headings, readable Georgian, subtle legal/technology elements. */
+:root{
+ --dlg-navy:#102A48;
+ --dlg-dark:#0C223C;
+ --dlg-deep:#142F4D;
+ --dlg-blue:#3472B9;
+ --dlg-sky:#A8CDF8;
+ --dlg-paper:#FFFFFF;
+ --dlg-cloud:#F6F8FB;
+ --dlg-powder:#EDF3F9;
+ --dlg-ink:#172E47;
+ --dlg-ash:#5D6F81;
+ --dlg-hairline:#DBE4EE;
+ --dlg-sand:#C9B69B;
+ --paper:#fff;
+ --paper-2:#F6F8FB;
+ --ink:#172E47;
+ --ink-soft:#5D6F81;
+ --accent:#3472B9;
+ --accent-dark:#235A9D;
+ --line:#DBE4EE;
+ --firm-navy:#102A48;
+ --firm-blue:#3472B9;
+ --max:1240px
+}
+body{background:var(--dlg-paper);color:var(--dlg-ink);font-family:NotoGeo,Arial,sans-serif}
+.container{width:min(1240px,calc(100% - 88px))}
+a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid #75B3FF;outline-offset:4px}
+.site-header.law-header,
+.law-home .site-header.dlg-integrated-header,
+.law-home .site-header.dlg-integrated-header.dlg-scrolled{
+ background:#fff;color:#172E47;
+ box-shadow:none;backdrop-filter:none;border-bottom:1px solid #DCE4ED
+}
+.site-header .header-inner{min-height:86px;padding-block:12px;gap:22px}
+.law-brand .law-brand-monogram{display:none}
+.law-brand .law-brand-rule{display:none}
+.law-brand-text{display:flex;flex-direction:column;gap:2px}
+.law-brand-text strong{color:#142C47;font:500 24px/1.08 Georgia,"Times New Roman",serif;letter-spacing:-.045em}
+.law-brand-text small{color:#3472B9;font:700 10px/1.25 Arial,sans-serif;letter-spacing:.27em}
+.site-header .law-brand-tagline{border-left:1px solid #DDE5ED;padding-left:17px;margin-left:7px;max-width:205px;font-size:10px;line-height:1.6;color:#667788}
+.site-nav.law-nav{gap:clamp(14px,1.5vw,26px)}
+.law-nav>a{color:#36485C;font-size:12px;font-weight:590}
+.law-nav>a:hover,.law-nav>a.is-active{color:#1D619F}
+.law-nav>a:after{background:#3472B9}
+.law-header-tools{margin-left:auto;gap:17px}
+.law-languages button[aria-pressed=true]{color:#1D619F}
+.site-header .law-header-cta{
+ min-height:45px;border-radius:2px;background:#153A60;border:1px solid #153A60;
+ color:#fff;padding:12px 18px;box-shadow:none;font-size:12px;font-weight:610
+}
+.site-header .law-header-cta:hover{background:#235C94;border-color:#235C94;transform:none}
+.law-scroll-progress{background:#4684C3}
+.law-to-top{background:#123657;border-radius:2px}
+
+/* Original approved navy hero, now with a clearer founder and legal offer. */
+.dlg-signature-home.dlg-photographic .sig-hero{
+ background:var(--dlg-navy);color:#fff;overflow:hidden;
+}
+.dlg-photo-hero-grid{
+ display:grid;grid-template-columns:minmax(0,1.08fr) minmax(0,.92fr);
+ gap:clamp(42px,5vw,80px);align-items:center;
+ padding-block:clamp(74px,7vw,116px) clamp(58px,6vw,92px)
+}
+.dlg-photo-hero-copy,.dlg-photo-hero-media{min-width:0}
+.dlg-photo-hero-copy{padding-top:5px}
+.dlg-eyebrow{
+ display:flex;align-items:center;gap:14px;margin:0 0 29px;
+ color:#C7DCEF;font-size:10px;letter-spacing:.065em;line-height:1.65;font-weight:630
+}
+.dlg-eyebrow-rule{display:block;width:29px;height:1px;flex:none;background:#A1BBD9}
+.dlg-signature-home.dlg-photographic .sig-hero .dlg-photo-hero-copy h1{
+ margin:0;max-width:685px;color:#FFF;
+ font:570 clamp(42px,4.05vw,65px)/1.37 NotoGeo,Arial,sans-serif;
+ letter-spacing:-.045em;text-wrap:balance
+}
+.dlg-hero-highlight{display:block;color:#B8D7FF}
+html[lang=en] .dlg-signature-home.dlg-photographic .sig-hero .dlg-photo-hero-copy h1{
+ font:400 clamp(53px,5vw,79px)/1.09 Georgia,"Times New Roman",serif;
+ letter-spacing:-.05em
+}
+.dlg-hero-positioning{
+ margin:28px 0 0;max-width:555px;color:#E4EBF4;
+ font-size:14px;font-weight:590;line-height:1.85
+}
+.dlg-hero-summary{
+ margin:17px 0 0;max-width:570px;color:#BBCBD9;
+ font-size:13px;font-weight:390;line-height:2
+}
+.dlg-hero-actions{display:flex;align-items:center;flex-wrap:wrap;gap:25px;margin-top:34px}
+.dlg-photo-hero-copy .dlg-hero-primary{
+ display:inline-flex;align-items:center;justify-content:space-between;gap:30px;
+ border-radius:2px;border:1px solid #4C88C9;background:#3472B9;color:#fff;
+ min-height:52px;padding:15px 21px;font-size:12px;font-weight:610;
+ transition:background-color .2s,border-color .2s
+}
+.dlg-photo-hero-copy .dlg-hero-primary:hover{
+ background:#4784C8;border-color:#4784C8;transform:none
+}
+.dlg-hero-explore{
+ display:inline-flex;align-items:center;gap:22px;border-bottom:1px solid #7B98B4;
+ color:#EDF4FA;min-height:44px;font-size:12px;font-weight:550
+}
+.dlg-hero-explore:hover{color:#BBD7F6;border-color:#BBD7F6}
+.dlg-founder-direct{
+ display:flex;align-items:center;max-width:430px;
+ gap:15px;margin-top:43px;padding-top:23px;
+ color:#fff;border-top:1px solid #47617B;text-decoration:none
+}
+.dlg-founder-direct-mark{
+ display:flex;justify-content:center;align-items:center;
+ flex:none;width:52px;height:52px;border:1px solid #6283A2;
+ color:#D1E3F4;font:400 18px/1 Georgia,serif;letter-spacing:-.035em
+}
+.dlg-founder-direct-copy{display:flex;flex-direction:column;gap:3px;min-width:0}
+.dlg-founder-direct-copy small{color:#9EBAD1;letter-spacing:.08em;font-size:9px;font-weight:600}
+.dlg-founder-direct-copy strong{color:#F8FBFF;font-size:13px;font-weight:610;line-height:1.5}
+.dlg-founder-direct-copy em{color:#B9CCDE;font-size:10px;font-style:normal;line-height:1.55}
+.dlg-founder-direct-arrow{margin-left:auto;color:#BED7EF;font-size:18px}
+.dlg-founder-direct:hover .dlg-founder-direct-arrow{color:#fff}
+.dlg-photo-hero-media{width:100%}
+.dlg-architecture-frame{
+ position:relative;display:block;padding:0;margin:0;
+ border:1px solid #56718E;background:#183953
+}
+.dlg-architecture-top{
+ display:flex;justify-content:space-between;gap:10px;
+ padding:13px 17px;color:#C6D7E7;
+ font:600 9px/1.5 Arial,sans-serif;letter-spacing:.15em;
+ background:#142F4C
+}
+.dlg-building-photo{
+ display:block;width:100%;height:clamp(250px,25vw,365px);object-fit:cover;
+ object-position:center 47%;filter:saturate(.70) contrast(1.03);
+ transform:none;transition:none
+}
+.dlg-architecture-caption{
+ display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;
+ gap:11px;padding:18px 19px;border-top:1px solid #3D5771;
+ background:#193854;color:#D4E0EA
+}
+.dlg-architecture-caption span{color:#AFC4D7;font-size:9px;letter-spacing:.06em}
+.dlg-architecture-caption strong{color:#F4F7FC;font-size:12px;font-weight:560;line-height:1.6}
+.dlg-hero-practice-links{
+ margin-top:19px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));
+ border-top:1px solid #4D6780
+}
+.dlg-hero-practice-links a{
+ display:flex;align-items:center;gap:10px;padding:19px 10px 18px 0;
+ border-bottom:1px solid #4D6780;
+ min-width:0;color:#E7F0F9;font-size:11px;line-height:1.6;
+ text-decoration:none;transition:color .2s
+}
+.dlg-hero-practice-links a:nth-child(2n){padding-left:14px}
+.dlg-hero-practice-links a:hover{color:#A9CEFF}
+.dlg-hero-practice-links small{color:#8BAFCF;font:500 10px/1.4 Georgia,serif}
+.dlg-hero-practice-links span:nth-child(2){flex:1;min-width:0}
+.dlg-hero-practice-links span:last-child{color:#96BAD9;font-size:14px}
+.dlg-hero-bottom{
+ display:flex;align-items:center;justify-content:space-between;
+ gap:18px;border-top:1px solid #486078;padding:18px 0 21px;
+ color:#9FB5C8;font-size:10px;line-height:1.7;letter-spacing:.025em
+}
+.dlg-hero-bottom a{display:inline-flex;align-items:center;gap:16px;color:#DDECFB;white-space:nowrap}
+.dlg-hero-bottom a:hover{color:#A8CDF8}
+
+/* Professional background is understated rather than badge-like. */
+.dlg-credentials{background:#EDF3F9;border-bottom:1px solid #DDE5EC}
+.dlg-credentials .sig-proofbar{
+ display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;
+ background:none;border:0;padding-block:25px
+}
+.dlg-credentials .sig-proofbar>div{
+ display:flex;flex-direction:column;gap:5px;
+ border-left:1px solid #CCD8E5;padding:0 23px;min-width:0
+}
+.dlg-credentials .sig-proofbar>div:first-child{padding-left:0;border-left:0}
+.dlg-credentials .sig-proofbar strong{
+ color:#204769;font-size:15px;font-weight:670;line-height:1.5
+}
+.dlg-credentials .sig-proofbar span{color:#66788B;font-size:11px;line-height:1.65}
+
+/* About: boutique counsel with one authentic portrait. */
+.dlg-signature-home.dlg-photographic .sig-about{
+ background:#fff;padding:clamp(83px,8vw,130px) 0
+}
+.dlg-photographic .sig-about-grid{
+ display:grid;grid-template-columns:minmax(0,.88fr) minmax(0,1.12fr);
+ gap:clamp(44px,8vw,128px);align-items:start
+}
+.dlg-photographic .sig-kicker{
+ font-size:10px;letter-spacing:.055em;line-height:1.6;
+ font-weight:670;color:#3570AB
+}
+.dlg-photographic .sig-about h2,.dlg-photographic .sig-section-heading h2{
+ margin:16px 0 0;color:#17324F;
+ font:580 clamp(31px,3vw,45px)/1.51 NotoGeo,Arial,sans-serif;
+ letter-spacing:-.034em
+}
+html[lang=en] .dlg-photographic .sig-about h2,
+html[lang=en] .dlg-photographic .sig-section-heading h2{
+ font:400 clamp(41px,3.65vw,55px)/1.19 Georgia,"Times New Roman",serif;
+ letter-spacing:-.038em
+}
+.dlg-about-portrait{
+ margin:33px 0 0;max-width:345px;position:relative;
+ border:1px solid #D9E3ED;background:#EDF3F9;padding:10px
+}
+.dlg-about-portrait img{
+ display:block;width:100%;height:auto;aspect-ratio:4/3.75;
+ object-fit:cover;object-position:center 24%;filter:none
+}
+.dlg-about-portrait figcaption{
+ display:flex;flex-direction:column;gap:4px;padding:14px 7px 6px
+}
+.dlg-about-portrait figcaption span{color:#5C7288;font-size:10px}
+.dlg-about-portrait figcaption strong{color:#1C3D5A;font-size:14px;font-weight:625}
+.dlg-photographic .sig-about-content>p{
+ color:#55697C;font-size:14px;line-height:2;margin:0 0 21px
+}
+.dlg-photographic .atelier-founder-bio{
+ display:block;margin:27px 0;padding:23px 0;border-top:1px solid #D8E3ED;
+ border-bottom:1px solid #D8E3ED
+}
+.dlg-photographic .atelier-founder-bio p{
+ color:#244660;font-size:13px;line-height:1.95;font-weight:520
+}
+.dlg-photographic .atelier-founder-bio-rule{display:none}
+.dlg-photographic .sig-focus-title{
+ color:#2E669D;font-size:10px;font-weight:700;letter-spacing:.05em;margin:0 0 17px
+}
+.dlg-photographic .sig-focus-list{
+ list-style:none;margin:0 0 29px;padding:0;
+ display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px 23px
+}
+.dlg-photographic .sig-focus-list li{
+ position:relative;padding-left:17px;color:#4F6981;font-size:12px;line-height:1.75
+}
+.dlg-photographic .sig-focus-list li:before{
+ content:"";position:absolute;left:0;top:.88em;width:8px;height:1px;background:#729CC0
+}
+.dlg-photographic .sig-underlink{
+ display:inline-flex;align-items:center;gap:15px;border:0;
+ border-bottom:1px solid #8EABC4;padding-bottom:5px;color:#225F98;
+ font-size:12px;font-weight:630;transition:color .2s
+}
+.dlg-photographic .sig-underlink:hover{
+ color:#1A4875;border-color:#1A4875;gap:15px
+}
+
+/* Practice areas: law firm editorial directory, not playful product tiles. */
+.dlg-signature-home.dlg-photographic .sig-services{
+ background:#F6F8FB;color:#172E47;padding:clamp(90px,8vw,133px) 0
+}
+.dlg-photographic .sig-section-heading{margin-bottom:45px}
+.dlg-photographic .sig-section-heading-split{
+ display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);
+ gap:clamp(30px,6vw,87px);align-items:end
+}
+.dlg-photographic .sig-section-heading>p,.dlg-photographic .sig-section-heading-split>p{
+ color:#657689;font-size:13px;line-height:1.92
+}
+.dlg-photographic .sig-service-list{
+ display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 34px;
+ border-top:1px solid #D6E1EC
+}
+.dlg-photographic .sig-service-row{
+ display:grid;grid-template-columns:65px minmax(0,1fr);
+ grid-template-rows:auto auto 1fr;
+ align-items:start;gap:0 15px;min-height:280px;
+ margin:0;padding:26px 7px 29px 0;
+ border:0;border-bottom:1px solid #D6E1EC;
+ background:none;box-shadow:none;transform:none
+}
+.dlg-photographic .sig-service-number{
+ grid-column:1;grid-row:1;color:#718AA0;
+ padding:0;font:500 10px/1.5 Georgia,serif;letter-spacing:.06em
+}
+.dlg-photographic .atelier-service-symbol{
+ grid-column:1;grid-row:2;display:flex;align-items:flex-start;
+ justify-content:flex-start;width:60px;height:65px;margin-top:12px;
+ color:#507DA5;background:none;border:0
+}
+.dlg-photographic .atelier-service-symbol svg{
+ display:block;width:50px;height:50px;stroke-width:1.25
+}
+.dlg-photographic .sig-service-copy{
+ grid-column:2;grid-row:1 / span 2;min-width:0
+}
+.dlg-photographic .sig-service-copy h3{
+ margin:0 0 11px;color:#183A5C;
+ font-size:clamp(18px,1.65vw,24px);font-weight:620;
+ line-height:1.53;letter-spacing:-.02em
+}
+.dlg-photographic .sig-service-copy p{
+ margin:0;color:#627589;max-width:480px;font-size:12px;line-height:1.86
+}
+.dlg-photographic .sig-service-detail{
+ grid-column:2;grid-row:3;align-self:end;
+ margin:15px 0 0;padding-top:14px;border-top:1px solid #DFE6EE
+}
+.dlg-photographic .sig-service-points{
+ display:grid;gap:5px;list-style:none;margin:0 0 17px;padding:0
+}
+.dlg-photographic .sig-service-points li{
+ position:relative;padding-left:14px;color:#597187;font-size:11px;line-height:1.72
+}
+.dlg-photographic .sig-service-points li:before{
+ content:"";position:absolute;left:0;top:.84em;width:7px;height:1px;background:#8BA6C0
+}
+.dlg-photographic .sig-service-detail .sig-underlink{color:#255E91;border-color:#97AEC5}
+.dlg-photographic .sig-services-footer{
+ display:flex;justify-content:space-between;align-items:center;
+ gap:20px;margin-top:30px
+}
+.dlg-photographic .sig-services-footer .sig-underlink{color:#235A89}
+.dlg-photographic .sig-services-footer>span{
+ max-width:510px;color:#738294;font-size:11px;line-height:1.7
+}
+
+/* Defined scope solutions: four opportunities to begin an engagement. */
+.dlg-solutions{
+ padding:clamp(84px,8vw,127px) 0;background:#fff;color:#172E47
+}
+.dlg-solutions .dlg-solutions-heading{
+ display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);
+ gap:38px;align-items:end
+}
+.dlg-solutions .dlg-solutions-heading>p{
+ color:#62758B;font-size:13px;line-height:1.9;margin:0
+}
+.dlg-solutions-grid{
+ display:grid;grid-template-columns:repeat(2,minmax(0,1fr));
+ gap:0 41px;border-top:1px solid #D6E0EA
+}
+.dlg-solution{
+ display:flex;flex-direction:column;align-items:flex-start;
+ padding:29px 0 32px;border-bottom:1px solid #D6E0EA;
+ color:var(--dlg-ink);text-decoration:none;min-width:0
+}
+.dlg-solution-num{color:#3572A6;font:600 10px/1.5 Arial,sans-serif;letter-spacing:.11em}
+.dlg-solution h3{
+ color:#1C3C5A;font-size:clamp(18px,1.8vw,24px);
+ line-height:1.53;font-weight:610;margin:14px 0 9px
+}
+.dlg-solution p{color:#65788A;font-size:12px;line-height:1.87;margin:0 0 19px}
+.dlg-solution-link{
+ display:inline-flex;align-items:center;gap:15px;
+ color:#225E94;border-bottom:1px solid #A1B8CF;padding-bottom:5px;
+ font-size:11px;font-weight:640;margin-top:auto
+}
+.dlg-solution-link:after{content:"↗";font-size:13px;line-height:1}
+.dlg-solution:hover .dlg-solution-link{border-color:#235A90;color:#153F67}
+.dlg-solutions-all{margin-top:29px}
+
+/* Client groups, process, legal insights. */
+.dlg-signature-home.dlg-photographic .sig-audience{
+ background:#EDF3F9;padding:clamp(82px,8vw,130px) 0
+}
+.dlg-photographic .sig-audience-list{
+ display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;
+ border-top:1px solid #D1DDE9;border-bottom:1px solid #D1DDE9;
+ margin-bottom:29px
+}
+.dlg-photographic .sig-audience-item{
+ display:flex;flex-direction:column;align-items:flex-start;gap:15px;
+ padding:29px 24px 28px;border:0;border-right:1px solid #D1DDE9;
+ background:none;min-height:246px;transition:background-color .2s
+}
+.dlg-photographic .sig-audience-item:first-child{padding-left:0}
+.dlg-photographic .sig-audience-item:last-child{border-right:0}
+.dlg-photographic .sig-audience-item:hover{background:#F7F9FC;padding-left:24px}
+.dlg-photographic .sig-audience-item:first-child:hover{padding-left:0}
+.dlg-photographic .sig-audience-num{color:#3F78AB;font:400 17px/1.5 Georgia,serif}
+.dlg-photographic .sig-audience-copy h3{color:#234563;font-size:18px;font-weight:630;line-height:1.55}
+.dlg-photographic .sig-audience-copy p{color:#62768B;font-size:12px;line-height:1.9}
+.dlg-photographic .sig-audience-arrow{margin-top:auto;color:#3270A3;font-size:18px;transform:none}
+.dlg-photographic .sig-audience-item:hover .sig-audience-arrow{transform:none}
+.dlg-signature-home.dlg-photographic .sig-process{
+ background:#fff;padding:clamp(86px,8vw,128px) 0
+}
+.dlg-photographic .sig-process-grid{
+ display:grid;grid-template-columns:repeat(3,minmax(0,1fr));
+ gap:clamp(28px,4vw,59px);margin:40px 0 27px
+}
+.dlg-photographic .sig-process-step{border-top:1px solid #D1DCE8;padding-top:23px}
+.dlg-photographic .sig-process-step>span{color:#467AA8;font:400 28px/1 Georgia,serif}
+.dlg-photographic .sig-process-step h3{color:#213F5C;font-size:18px;font-weight:630}
+.dlg-photographic .sig-process-step p{color:#65778A;font-size:13px;line-height:1.88}
+.dlg-signature-home.dlg-photographic .sig-insights{
+ background:#F6F8FB;padding:clamp(82px,8vw,122px) 0
+}
+.dlg-photographic .sig-resource-grid{
+ display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:32px
+}
+.dlg-photographic .sig-resource-grid .resource-card{
+ background:#fff;border:1px solid #DCE5EE;border-top:2px solid #3472B9;
+ border-radius:0;box-shadow:none;transform:none;
+ transition:border-color .2s
+}
+.dlg-photographic .sig-resource-grid .resource-card:hover{
+ border-color:#8AAAC9;box-shadow:none;transform:none
+}
+.dlg-photographic .sig-resource-grid .resource-cover{display:none}
+.dlg-photographic .sig-resource-grid .resource-card:before{
+ content:"";display:block;height:8px;background:#E9F0F7
+}
+.dlg-photographic .sig-resource-grid .resource-card-copy{padding:25px 27px 27px}
+.dlg-photographic .sig-resource-grid .resource-card h3{
+ color:#1B3D5F;font-size:20px;line-height:1.55;font-weight:610
+}
+.dlg-photographic .sig-resource-grid .resource-card p{color:#64798D;font-size:12px;line-height:1.84}
+.dlg-signature-home.dlg-photographic .sig-contact{
+ background:#0F2946;padding:clamp(88px,8vw,132px) 0;color:#fff
+}
+.dlg-photographic .sig-contact-grid{
+ display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);
+ gap:clamp(42px,7vw,108px);align-items:center
+}
+.dlg-photographic .sig-contact .sig-kicker{color:#9BC1E6}
+.dlg-photographic .sig-contact h2{
+ margin-top:15px;color:#fff;line-height:1.52;font-weight:570
+}
+.dlg-photographic .sig-contact-grid>div>p:last-child{color:#BECDDB;font-size:13px;line-height:1.93}
+.dlg-photographic .sig-contact-main{
+ border-radius:2px;background:#EAF2FB;color:#173956;
+ min-height:59px;font-weight:630;transition:background-color .2s
+}
+.dlg-photographic .sig-contact-main:hover{background:#fff}
+.dlg-photographic .sig-contact-secondary{color:#EDF5FF;border-bottom-color:#7D9FBF}
+.dlg-photographic .sig-contact-actions small{color:#BBCDDD}
+
+/* All public interior pages share the boutique blue palette. */
+.digital-site{
+ --deep:#102A48;--signal:#3472B9;--grid:#D9E3EC;
+ --tech:#3472B9;--tech-soft:#EDF3F9;
+ color:#172E47
+}
+.digital-site .digital-page-hero{
+ background:#F6F8FB;border-bottom:1px solid #DDE6EF;
+ padding-block:clamp(55px,6vw,91px)
+}
+.digital-site .digital-page-hero h1{
+ color:#1B3957;font-weight:580;
+ line-height:1.51!important;letter-spacing:-.03em;overflow-wrap:anywhere
+}
+html[lang=en] .digital-site .digital-page-hero h1{
+ font:400 clamp(41px,4vw,60px)/1.2 Georgia,"Times New Roman",serif!important
+}
+.digital-site .eyebrow,.digital-site .mono,.digital-site .digital-page-hero .eyebrow{
+ color:#27669F
+}
+.digital-site .digital-lead{color:#64798B;line-height:1.95}
+.digital-site .digital-section{background:#fff}
+.digital-site .digital-wash{background:#F6F8FB}
+.digital-site .practice-grid{
+ display:grid;grid-template-columns:repeat(3,minmax(0,1fr));
+ gap:16px
+}
+.digital-site .practice-card,.digital-site .solution-card{
+ background:#fff;border:1px solid #DCE5EE;border-radius:2px;
+ box-shadow:none;transform:none;transition:border-color .2s
+}
+.digital-site .practice-card:hover,.digital-site .solution-card:hover{
+ border-color:#86A5C5;box-shadow:none;transform:none
+}
+.digital-site .practice-card h3,.digital-site .solution-card h3{color:#213F60}
+.digital-site .practice-card p,.digital-site .solution-question{color:#65798B}
+.digital-site .card-arrow{color:#3472B9}
+.digital-site .digital-cta{background:#102A48}
+.digital-site .digital-cta h2{color:#fff}
+.digital-site .digital-cta p{color:#C8D6E5}
+.digital-site .button-primary{
+ background:#2F6EAF;border:1px solid #2F6EAF;color:#fff;border-radius:2px
+}
+.digital-site .button-primary:hover{background:#20548A;border-color:#20548A}
+.digital-site .digital-cta .button-primary{background:#fff;border-color:#fff;color:#173957}
+.digital-site .button-secondary{border-radius:2px}
+.digital-site .service-layout,.digital-site .service-layout>*,
+.digital-site .service-layout aside,.digital-site .deliverable-card,
+.digital-site .portfolio-credential-grid article,
+.digital-site .portfolio-module-grid article{
+ min-width:0;max-width:100%;overflow-wrap:anywhere;
+}
+.digital-site .service-layout aside,.digital-site .deliverable-card,
+.digital-site .portfolio-credential-grid article,
+.digital-site .portfolio-module-grid article{
+ border-radius:2px;box-shadow:none;border-color:#DCE4EE
+}
+.resource-page{background:#fff}
+.resource-page .resource-card{border-color:#DCE5EE;border-radius:2px;box-shadow:none}
+.resource-page .resource-card:hover{border-color:#9AB6D1}
+.site-footer.law-footer{background:#0C223C;color:#D1DBE6}
+.site-footer .law-brand-monogram{display:none}
+.site-footer .law-brand-text strong{color:#fff}
+.site-footer .law-brand-text small{color:#BCD4EE}
+.site-footer .law-footer-about p,.site-footer .law-footer-group,
+.site-footer .law-footer-bottom{color:#C3CFDB}
+.site-footer .law-footer-title{color:#fff}
+.site-footer a:hover{color:#B9D7FA}
+
+@media(max-width:1150px){
+ .site-header .law-brand-tagline{display:none}
+ .site-header .header-inner{gap:14px}
+ .dlg-photo-hero-grid{gap:32px}
+ .dlg-signature-home.dlg-photographic .sig-hero .dlg-photo-hero-copy h1{font-size:clamp(36px,3.9vw,50px)}
+ html[lang=en] .dlg-signature-home.dlg-photographic .sig-hero .dlg-photo-hero-copy h1{font-size:clamp(45px,5vw,62px)}
+}
+@media(max-width:980px){
+ .dlg-photo-hero-grid{grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr)}
+ .dlg-signature-home.dlg-photographic .sig-hero .dlg-photo-hero-copy h1{font-size:clamp(33px,4.1vw,42px)}
+ .dlg-hero-summary{font-size:12px}
+ .dlg-hero-positioning{font-size:13px}
+ .dlg-hero-practice-links a{font-size:10px}
+ .dlg-photographic .sig-service-list{gap:0 20px}
+ .dlg-photographic .sig-service-row{min-height:295px}
+ .digital-site .practice-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media(max-width:800px){
+ .dlg-photo-hero-grid{grid-template-columns:1fr;gap:42px;padding-top:56px;padding-bottom:44px}
+ .dlg-signature-home.dlg-photographic .sig-hero .dlg-photo-hero-copy h1{max-width:660px;font-size:clamp(37px,6vw,54px)}
+ html[lang=en] .dlg-signature-home.dlg-photographic .sig-hero .dlg-photo-hero-copy h1{font-size:clamp(49px,7vw,68px)}
+ .dlg-photo-hero-media{max-width:650px}
+ .dlg-building-photo{height:340px}
+ .dlg-photographic .sig-about-grid{gap:46px}
+}
+@media(max-width:700px){
+ .container{width:calc(100% - 38px)}
+ .site-header .header-inner{min-height:72px;padding-block:10px}
+ .law-brand-text strong{font-size:21px}
+ .law-brand-text small{font-size:9px}
+ .dlg-photo-hero-grid{padding-top:43px;padding-bottom:42px;gap:36px}
+ .dlg-signature-home.dlg-photographic .sig-hero .dlg-photo-hero-copy h1{font-size:clamp(32px,8.7vw,44px);line-height:1.39}
+ html[lang=en] .dlg-signature-home.dlg-photographic .sig-hero .dlg-photo-hero-copy h1{font-size:clamp(45px,10vw,61px);line-height:1.1}
+ .dlg-eyebrow{font-size:9px;margin-bottom:21px}
+ .dlg-hero-positioning{margin-top:21px;font-size:13px}
+ .dlg-hero-summary{margin-top:14px;font-size:12px;line-height:1.92}
+ .dlg-hero-actions{margin-top:27px;gap:16px}
+ .dlg-hero-primary{width:100%;justify-content:space-between}
+ .dlg-hero-explore{min-height:40px}
+ .dlg-founder-direct{margin-top:31px}
+ .dlg-building-photo{height:250px}
+ .dlg-architecture-caption{padding:14px 15px}
+ .dlg-architecture-caption strong{font-size:11px}
+ .dlg-hero-practice-links a{padding-block:16px;font-size:10px}
+ .dlg-hero-bottom{font-size:9px;padding-block:15px}
+ .dlg-credentials .sig-proofbar{grid-template-columns:repeat(2,minmax(0,1fr));padding-block:15px}
+ .dlg-credentials .sig-proofbar>div{border:0;border-bottom:1px solid #D2E0EB;padding:14px 10px 14px 0}
+ .dlg-credentials .sig-proofbar>div:nth-child(even){padding-left:15px;border-left:1px solid #D2E0EB}
+ .dlg-credentials .sig-proofbar strong{font-size:13px}
+ .dlg-credentials .sig-proofbar span{font-size:10px}
+ .dlg-signature-home.dlg-photographic .sig-about,
+ .dlg-signature-home.dlg-photographic .sig-services,
+ .dlg-signature-home.dlg-photographic .sig-audience,
+ .dlg-signature-home.dlg-photographic .sig-process,
+ .dlg-signature-home.dlg-photographic .sig-insights,
+ .dlg-signature-home.dlg-photographic .sig-contact,
+ .dlg-solutions{padding-block:67px}
+ .dlg-photographic .sig-about-grid,
+ .dlg-photographic .sig-section-heading-split,
+ .dlg-photographic .sig-contact-grid,
+ .dlg-solutions .dlg-solutions-heading{grid-template-columns:1fr;gap:25px}
+ .dlg-photographic .sig-about h2,.dlg-photographic .sig-section-heading h2{font-size:30px;line-height:1.48}
+ html[lang=en] .dlg-photographic .sig-about h2,
+ html[lang=en] .dlg-photographic .sig-section-heading h2{font-size:38px}
+ .dlg-about-portrait{max-width:345px;margin-top:25px}
+ .dlg-photographic .sig-focus-list{grid-template-columns:1fr}
+ .dlg-photographic .sig-section-heading{margin-bottom:29px}
+ .dlg-photographic .sig-service-list{grid-template-columns:1fr;gap:0}
+ .dlg-photographic .sig-service-row{min-height:0;padding:25px 0 27px}
+ .dlg-photographic .sig-service-copy h3{font-size:21px}
+ .dlg-photographic .sig-service-copy p{font-size:12px}
+ .dlg-photographic .sig-service-detail{margin-top:13px}
+ .dlg-photographic .sig-services-footer{flex-direction:column;align-items:flex-start;gap:13px}
+ .dlg-solutions-grid{grid-template-columns:1fr}
+ .dlg-solution{padding-block:26px}
+ .dlg-photographic .sig-audience-list{grid-template-columns:1fr}
+ .dlg-photographic .sig-audience-item,.dlg-photographic .sig-audience-item:first-child{
+  border-right:0;border-bottom:1px solid #D1DDE9;min-height:0;padding:26px 0
+ }
+ .dlg-photographic .sig-audience-item:last-child{border-bottom:0}
+ .dlg-photographic .sig-audience-item:hover,.dlg-photographic .sig-audience-item:first-child:hover{padding-left:0}
+ .dlg-photographic .sig-process-grid{grid-template-columns:1fr;gap:25px}
+ .dlg-photographic .sig-resource-grid{grid-template-columns:1fr;gap:18px}
+ .digital-site .practice-grid,.digital-site .solution-grid{grid-template-columns:1fr}
+ .digital-site .service-layout{display:block}
+ .digital-site .service-layout>*{width:100%;max-width:100%}
+ .digital-site .service-layout aside{margin-top:25px}
+ .digital-site .digital-page-hero h1{font-size:32px;line-height:1.42!important}
+}
+@media(max-width:480px){
+ .site-header .law-header-cta{display:none}
+ .dlg-signature-home.dlg-photographic .sig-hero .dlg-photo-hero-copy h1{font-size:clamp(30px,8.8vw,39px)}
+ html[lang=en] .dlg-signature-home.dlg-photographic .sig-hero .dlg-photo-hero-copy h1{font-size:clamp(42px,10vw,51px)}
+ .dlg-hero-practice-links{grid-template-columns:1fr}
+ .dlg-hero-practice-links a:nth-child(2n){padding-left:0}
+ .dlg-building-photo{height:220px}
+ .dlg-architecture-top{font-size:8px}
+ .dlg-photographic .sig-service-row{grid-template-columns:49px minmax(0,1fr);gap:0 12px}
+ .dlg-photographic .atelier-service-symbol{width:48px}
+ .dlg-photographic .atelier-service-symbol svg{width:42px;height:42px}
+ .dlg-photographic .sig-service-copy h3{font-size:19px}
+ .dlg-photographic .sig-service-points li{font-size:11px}
+ .dlg-solutions .dlg-solutions-heading h2{font-size:29px}
+}
+@media(prefers-reduced-motion:reduce){
+ html{scroll-behavior:auto}
+ .dlg-hero-primary,.dlg-solution,.dlg-photographic .sig-service-row{transition:none}
+}
