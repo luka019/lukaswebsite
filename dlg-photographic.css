@@ -72,13 +72,13 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid #75
  color:#C7DCEF;font-size:10px;letter-spacing:.065em;line-height:1.65;font-weight:630
 }
 .dlg-eyebrow-rule{display:block;width:29px;height:1px;flex:none;background:#A1BBD9}
-.dlg-photo-hero-copy h1{
+.dlg-signature-home.dlg-photographic .sig-hero .dlg-photo-hero-copy h1{
  margin:0;max-width:685px;color:#FFF;
  font:570 clamp(42px,4.05vw,65px)/1.37 NotoGeo,Arial,sans-serif;
  letter-spacing:-.045em;text-wrap:balance
 }
 .dlg-hero-highlight{display:block;color:#B8D7FF}
-html[lang=en] .dlg-photo-hero-copy h1{
+html[lang=en] .dlg-signature-home.dlg-photographic .sig-hero .dlg-photo-hero-copy h1{
  font:400 clamp(53px,5vw,79px)/1.09 Georgia,"Times New Roman",serif;
  letter-spacing:-.05em
 }
@@ -506,12 +506,12 @@ html[lang=en] .digital-site .digital-page-hero h1{
  .site-header .law-brand-tagline{display:none}
  .site-header .header-inner{gap:14px}
  .dlg-photo-hero-grid{gap:32px}
- .dlg-photo-hero-copy h1{font-size:clamp(36px,3.9vw,50px)}
- html[lang=en] .dlg-photo-hero-copy h1{font-size:clamp(45px,5vw,62px)}
+ .dlg-signature-home.dlg-photographic .sig-hero .dlg-photo-hero-copy h1{font-size:clamp(36px,3.9vw,50px)}
+ html[lang=en] .dlg-signature-home.dlg-photographic .sig-hero .dlg-photo-hero-copy h1{font-size:clamp(45px,5vw,62px)}
 }
 @media(max-width:980px){
  .dlg-photo-hero-grid{grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr)}
- .dlg-photo-hero-copy h1{font-size:clamp(33px,4.1vw,42px)}
+ .dlg-signature-home.dlg-photographic .sig-hero .dlg-photo-hero-copy h1{font-size:clamp(33px,4.1vw,42px)}
  .dlg-hero-summary{font-size:12px}
  .dlg-hero-positioning{font-size:13px}
  .dlg-hero-practice-links a{font-size:10px}
@@ -521,8 +521,8 @@ html[lang=en] .digital-site .digital-page-hero h1{
 }
 @media(max-width:800px){
  .dlg-photo-hero-grid{grid-template-columns:1fr;gap:42px;padding-top:56px;padding-bottom:44px}
- .dlg-photo-hero-copy h1{max-width:660px;font-size:clamp(37px,6vw,54px)}
- html[lang=en] .dlg-photo-hero-copy h1{font-size:clamp(49px,7vw,68px)}
+ .dlg-signature-home.dlg-photographic .sig-hero .dlg-photo-hero-copy h1{max-width:660px;font-size:clamp(37px,6vw,54px)}
+ html[lang=en] .dlg-signature-home.dlg-photographic .sig-hero .dlg-photo-hero-copy h1{font-size:clamp(49px,7vw,68px)}
  .dlg-photo-hero-media{max-width:650px}
  .dlg-building-photo{height:340px}
  .dlg-photographic .sig-about-grid{gap:46px}
@@ -533,8 +533,8 @@ html[lang=en] .digital-site .digital-page-hero h1{
  .law-brand-text strong{font-size:21px}
  .law-brand-text small{font-size:9px}
  .dlg-photo-hero-grid{padding-top:43px;padding-bottom:42px;gap:36px}
- .dlg-photo-hero-copy h1{font-size:clamp(32px,8.7vw,44px);line-height:1.39}
- html[lang=en] .dlg-photo-hero-copy h1{font-size:clamp(45px,10vw,61px);line-height:1.1}
+ .dlg-signature-home.dlg-photographic .sig-hero .dlg-photo-hero-copy h1{font-size:clamp(32px,8.7vw,44px);line-height:1.39}
+ html[lang=en] .dlg-signature-home.dlg-photographic .sig-hero .dlg-photo-hero-copy h1{font-size:clamp(45px,10vw,61px);line-height:1.1}
  .dlg-eyebrow{font-size:9px;margin-bottom:21px}
  .dlg-hero-positioning{margin-top:21px;font-size:13px}
  .dlg-hero-summary{margin-top:14px;font-size:12px;line-height:1.92}
@@ -593,8 +593,8 @@ html[lang=en] .digital-site .digital-page-hero h1{
 }
 @media(max-width:480px){
  .site-header .law-header-cta{display:none}
- .dlg-photo-hero-copy h1{font-size:clamp(30px,8.8vw,39px)}
- html[lang=en] .dlg-photo-hero-copy h1{font-size:clamp(42px,10vw,51px)}
+ .dlg-signature-home.dlg-photographic .sig-hero .dlg-photo-hero-copy h1{font-size:clamp(30px,8.8vw,39px)}
+ html[lang=en] .dlg-signature-home.dlg-photographic .sig-hero .dlg-photo-hero-copy h1{font-size:clamp(42px,10vw,51px)}
  .dlg-hero-practice-links{grid-template-columns:1fr}
  .dlg-hero-practice-links a:nth-child(2n){padding-left:0}
  .dlg-building-photo{height:220px}
