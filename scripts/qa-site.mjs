@@ -1,5 +1,5 @@
-/* DLG public build and publishing verification.
-   Static smoke checks are not a replacement for real-browser visual QA. */
+/* DLG public-site verification: approved photographic boutique direction.
+   Static smoke tests complement, but do not replace, real-browser QA. */
 import fs from 'node:fs';
 import path from 'node:path';
 import vm from 'node:vm';
@@ -11,73 +11,65 @@ const home=file('index.html');
 const englishHome=file('en/index.html');
 const css=file('firm.css');
 const signatureCss=file('dlg-signature.css');
-const atelierCss=file('dlg-atelier.css');
+const photoCss=file('dlg-photographic.css');
 const interaction=file('dlg-signature.js');
 const script=file('firm-interactions.js');
-assert(home.includes('class="law-home dlg-signature-home dlg-atelier"'),'Atelier legal practice homepage missing');
+assert(home.includes('class="law-home dlg-signature-home dlg-photographic"'),'Approved photographic homepage missing');
 assert(home.includes('class="site-header law-header dlg-integrated-header"'),'Shared professional masthead missing');
-assert(home.includes('law-brand-tagline') && home.includes('იურიდიული მომსახურება ციფრული ბიზნესისთვის'),'Agreed header tagline missing');
-assert(home.includes('data-en="Legal Support for Digital Business"'),'English header tagline missing');
-assert(home.includes('href="/dlg-signature.css?v=20261112-signature1"'),'Signature design system not loaded');
-assert(home.includes('href="/dlg-atelier.css?v=20261118-atelier1"'),'Editorial atelier stylesheet missing');
-assert(atelierCss.includes('--atelier-ink:#142E41') && atelierCss.includes('--atelier-paper:#FCFCFA'),'Editorial palette missing');
-assert(atelierCss.includes('.atelier-art-panel') && atelierCss.includes('.atelier-service-symbol'),'Illustrated editorial layout missing');
-assert(!home.includes('dlg-signature.js'),'Retired app-style service interactions must not load');
-assert(!home.includes('firm-hero.js'),'Retired illustrated hero must not be loaded');
-assert(home.includes('id="hero-title" data-en="Specialist law for a changing digital world."'),'Specialist bilingual heading missing');
-assert(home.includes('ტექნოლოგიებისა და AI-ის სამართალი თანამედროვე ბიზნესისთვის.'),'Georgian specialist heading missing');
-assert(home.includes('data-en="INDEPENDENT BOUTIQUE LEGAL PRACTICE"'),'Boutique positioning missing');
+assert(home.includes('law-brand-tagline') && home.includes('იურიდიული მომსახურება ციფრული ბიზნესისთვის'),'Brand tagline missing');
+assert(home.includes('data-en="Legal Support for Digital Business"'),'English brand tagline missing');
+assert(home.includes('href="/dlg-signature.css?v=20261112-signature1"'),'Base responsive design system missing');
+assert(home.includes('href="/dlg-photographic.css?v=20261118-approved1"'),'Approved photographic stylesheet missing');
+assert(photoCss.includes('--dlg-navy:#102A48') && photoCss.includes('--dlg-paper:#FFFFFF'),'Photographic navy palette missing');
+assert(photoCss.includes('.dlg-building-photo') && photoCss.includes('.dlg-hero-practice-links'),'Building photograph and specialist links missing');
+assert((photoCss.match(/\{/g)||[]).length===(photoCss.match(/\}/g)||[]).length,'Unbalanced photographic CSS');
+assert(!home.includes('dlg-signature.js') && !home.includes('firm-hero.js'),'Retired interactive hero scripts must stay unloaded');
+assert(home.includes('id="hero-title"') && home.includes('იურიდიული მომსახურება') && home.includes('ციფრული ბიზნესისთვის.'),'Approved Georgian headline missing');
+assert(home.includes('data-en="Legal counsel"') && home.includes('data-en="for the digital economy."'),'English editorial headline missing');
+assert(home.includes('data-en="TECHNOLOGY LAW · AI GOVERNANCE"'),'Technology and AI positioning missing');
 assert((home.match(/<h1\b/g)||[]).length===1,'Homepage must contain one H1');
-assert((home.match(/<section\b/g)||[]).length===7,'Keep exactly seven purposeful homepage sections');
+assert((home.match(/<section\b/g)||[]).length===8,'Keep eight purposeful homepage sections');
 assert(home.indexOf('id="about"')<home.indexOf('id="services"') &&
-       home.indexOf('id="services"')<home.indexOf('id="business"') &&
+       home.indexOf('id="services"')<home.indexOf('id="solutions"') &&
+       home.indexOf('id="solutions"')<home.indexOf('id="business"') &&
        home.indexOf('id="business"')<home.indexOf('id="approach"'),
-       'Founder, services, business needs and delivery must follow the right order');
+       'Firm, expertise, solutions, clients and delivery must be ordered naturally');
 assert((home.match(/class="sig-service-row"/g)||[]).length===8,'Eight specialist practice rows required');
-assert(!home.includes('role="tablist"') && !home.includes('data-sig-tab'),'App-like tabs must not return');
-assert(home.includes('class="sig-focus-list"'),'Boutique focus list missing');
-assert(home.includes('src="/assets/luka-shakhkulashvili.png"'),'Founder portrait required');
-assert(home.includes('src="/assets/dlg-editorial-hero.svg"'),'Original architectural illustration missing');
-assert(home.includes('src="/assets/dlg-editorial-emblem.svg"'),'Original editorial emblem missing');
-assert((home.match(/class="atelier-service-symbol"/g)||[]).length===8,'Original service drawings missing');
-assert((home.match(/src="\/assets\/luka-shakhkulashvili.png"/g)||[]).length===1,'Do not duplicate the founder portrait');
+assert((home.match(/class="dlg-solution"/g)||[]).length===4,'Four defined-scope legal solutions required');
+assert(!home.includes('role="tablist"') && !home.includes('data-sig-tab'),'App-style service tabs must not return');
+assert(home.includes('class="sig-focus-list"'),'Boutique practice focus missing');
+assert(home.includes('src="/assets/london-architecture.jpg"'),'Approved building photography must lead');
+assert(home.includes('src="/assets/luka-shakhkulashvili.png"'),'Real founder portrait missing');
+assert((home.match(/src="\/assets\/luka-shakhkulashvili.png"/g)||[]).length===1,'Avoid repeated founder portrait');
 assert(home.includes('ლუკა შახყულაშვილი'),'Founder must be identifiable');
-assert((home.match(/class="container sig-proofbar"/g)||[]).length===1,'Substantiated credentials strip required');
-assert(home.includes('href="/services/"') && home.includes('href="/business/"'),'Detailed service and business directory links required');
-assert(home.includes('href="/services/digital-products/"'),'Digital product offer must remain accessible');
-assert(home.includes('href="/services/contracts/"'),'Contract practice link required');
-assert(home.includes('href="/services/data-protection/"'),'Data protection practice link required');
-assert(home.includes('href="/services/ai/"'),'AI legal practice link required');
-assert((home.match(/class="sig-audience-item"/g)||[]).length===3,'Three practical client situations required');
+assert((home.match(/class="container sig-proofbar"/g)||[]).length===1,'Factual credentials strip required');
+assert((home.match(/class="atelier-service-symbol"/g)||[]).length===8,'Eight restrained line illustrations required');
+for(const path of ['/services/','/business/','/services/digital-products/','/services/contracts/','/services/data-protection/','/services/ai/','/solutions/ai-governance/','/solutions/privacy-review/','/solutions/contract-review/','/solutions/enter-georgia/']){
+ assert(home.includes('href="'+path+'"'),'Important client offer missing: '+path);
+}
+assert((home.match(/class="sig-audience-item"/g)||[]).length===3,'Three relevant client scenarios required');
 assert((home.match(/class="sig-process-step"/g)||[]).length===3,'Three transparent delivery steps required');
-assert((home.match(/class="resource-card visual-resource"/g)||[]).length<=2,'Insights must not crowd the homepage');
+assert((home.match(/class="resource-card visual-resource"/g)||[]).length<=2,'Insights must not crowd homepage');
 assert(home.includes('href="mailto:digitallawgeorgia@gmail.com"'),'Email contact required');
 assert(home.includes('https://wa.me/995598451132'),'WhatsApp contact required');
 assert(home.includes('უსაფრთხო არხის შეთანხმებამდე'),'Confidentiality instruction missing');
-assert(!home.includes('LegalStepy') && !home.includes('Sopho'),'Distinct brand identity required');
-assert(!home.includes('class="dlg-illustration"'),'Remove artificial hero illustrations');
-assert(!home.includes('images.unsplash.com'),'Do not depend on remote synthetic hero imagery');
-assert(!home.includes('law-tech-canvas'),'Retired technology canvas must not return');
-for(const id of ['services','approach','about','contact']){
- assert(home.includes('id="'+id+'"'),'Homepage anchor missing: '+id);
-}
-for(const hook of ['sig-service-row','data-menu-toggle']){
- assert(englishHome.includes(hook),'English version lost interaction hook '+hook);
-}
-assert(englishHome.includes('Specialist law for a changing digital world.'),'English heading must be pre-rendered');
-assert(englishHome.includes('FinTech &amp; Digital Assets') && englishHome.includes('Software &amp; Intellectual Property'),'English practice areas missing');
-assert(signatureCss.includes('prefers-reduced-motion'),'Respect reduced-motion preferences');
-assert(signatureCss.includes('@media(max-width:700px)') && signatureCss.includes('@media(max-width:480px)'),'Responsive mobile breakpoints missing');
-assert(signatureCss.includes('#F6F2EC') && signatureCss.includes('#1B2B37'),'Signature visual palette missing');
-assert((signatureCss.match(/\{/g)||[]).length===(signatureCss.match(/\}/g)||[]).length,'Unbalanced signature CSS');
-assert((atelierCss.match(/\{/g)||[]).length===(atelierCss.match(/\}/g)||[]).length,'Unbalanced atelier CSS');
+assert(!home.includes('LegalStepy')&&!home.includes('Sopho'),'Independent brand identity required');
+assert(!home.includes('class="dlg-illustration"') && !home.includes('law-tech-canvas'),'Do not return to synthetic app-style artwork');
+assert(!home.includes('images.unsplash.com'),'Never depend on remote stock imagery');
+for(const id of ['services','solutions','approach','about','contact'])assert(home.includes('id="'+id+'"'),'Homepage anchor missing '+id);
+for(const hook of ['sig-service-row','data-menu-toggle','dlg-solution'])assert(englishHome.includes(hook),'English version missing '+hook);
+assert(englishHome.includes('Legal counsel') && englishHome.includes('for the digital economy.'),'English headline not server rendered');
+assert(englishHome.includes('FinTech &amp; Digital Assets') && englishHome.includes('Software &amp; Intellectual Property'),'English specialist practice areas missing');
+assert(signatureCss.includes('prefers-reduced-motion'),'Reduced-motion preferences missing');
+assert(signatureCss.includes('@media(max-width:700px)') && signatureCss.includes('@media(max-width:480px)'),'Responsive base breakpoints missing');
+assert((signatureCss.match(/\{/g)||[]).length===(signatureCss.match(/\}/g)||[]).length,'Unbalanced base CSS');
 assert((css.match(/\{/g)||[]).length===(css.match(/\}/g)||[]).length,'Unbalanced shared CSS');
 new vm.Script(interaction,{filename:'dlg-signature.js'});total++;
-assert(!home.includes('data-sig-practices'),'No interactive practice-tab dependency');
-assert(!interaction.includes('setInterval'),'Unwanted automatic content switching must not return');
+assert(!home.includes('data-sig-practices'),'Retired app-style interaction must remain removed');
+assert(!interaction.includes('setInterval'),'Unwanted automatic carousel switching must not return');
 new vm.Script(script,{filename:'firm-interactions.js'});total++;
 for(const p of [
-  'styles.css','firm.css','dlg-signature.css','dlg-atelier.css','dlg-signature.js','script.js','favicon.svg','services/index.html',
+  'styles.css','firm.css','dlg-signature.css','dlg-photographic.css','dlg-signature.js','script.js','favicon.svg','services/index.html',
   'services/contracts/index.html','services/data-protection/index.html',
   'services/ai/index.html','services/fintech/index.html','services/ongoing-legal-support/index.html','services/georgia-market-entry/index.html','services/intellectual-property/index.html',
   'resources/index.html','privacy/index.html'
@@ -99,7 +91,7 @@ assert(home.includes('href="/services/"'),'Homepage must link to the full servic
 assert(!home.includes('class="dlg-audience-card"') && !home.includes('class="dlg-offer-card"'),'Full audience and offer catalogues must not clutter the homepage');
 assert(directory.includes('ფინტექი') && directory.includes('სტარტაპები'),'FinTech and startups must be discoverable in the full directory');
 assert(home.includes('ქართულ და საერთაშორისო კომპანიებს'),'Homepage must address Georgian and international businesses');
-assert(home.includes('ტექნოლოგიებისა და AI-ის სამართალი თანამედროვე ბიზნესისთვის.'),'Technology and AI law positioning missing');
+assert(home.includes('ციფრული ბიზნესისთვის.'),'Digital business legal positioning missing');
 assert((home.match(/class="sig-service-row"/g)||[]).length===8,'Eight distinct editorial service rows required');
 assert(!fs.existsSync(path.join(root,'client')),'Retired client portal must not be deployed');
 assert(!fs.existsSync(path.join(root,'admin','inbox')),'Retired inbox must not be deployed');
@@ -136,7 +128,7 @@ for(const name of publicHtml){
  if(name.includes(path.sep+'en'+path.sep))assert(content.includes('<html lang="en"'),'English document language missing: '+name);
 }
 for(const p of ['business/','business/georgia/','business/international/','business/growing-business/','about/','services/legal-operations/'])file(p+'index.html');
-assert(home.includes('LLM Distinction') && home.includes('Queen Mary') && home.includes('Chevening') && !home.includes('<strong>IAPP · AIGP</strong>'),'Founder credentials must be present and accurate');
+assert(home.includes('LLM · Distinction') && home.includes('Queen Mary') && home.includes('Chevening') && !home.includes('<strong>IAPP · AIGP</strong>'),'Founder credentials must be present and accurate');
 assert(!home.includes('LegalStepy')&&!home.includes('6+'),'Unsupported profile copy');
 assert(file('en/business/international/index.html').includes('International Expansion &amp; Client Readiness'),'English must be pre-rendered');
 console.log('DLG public site smoke checks passed: '+total+' checks across '+publicHtml.length+' public HTML pages.');
