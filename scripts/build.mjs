@@ -15,7 +15,7 @@ const all=validateResources(JSON.parse(fs.readFileSync(process.env.SITE_RESOURCE
 const today=new Date().toISOString().slice(0,10);
 const rows=all.filter(r=>r.status==='published'&&r.date<=today).sort((a,b)=>b.date.localeCompare(a.date));
 fs.rmSync(out,{recursive:true,force:true}); fs.mkdirSync(out,{recursive:true});
-for(const file of ['styles.css','firm.css','dlg-signature.css','dlg-photographic.css','dlg-refinement.css','dlg-boutique-ui.css','dlg-hero-carousel.js','dlg-service-discovery.js','dlg-signature.js','script.js','firm-interactions.js','firm-hero.js','visual-experience.js','favicon.svg','catalogue.mjs','digital.css','digital.mjs','workspace.css','workspace.mjs','delivery-templates.mjs'])fs.copyFileSync(file,path.join(out,file));
+for(const file of ['styles.css','firm.css','dlg-signature.css','dlg-photographic.css','dlg-refinement.css','dlg-boutique-ui.css','dlg-reference-home.css','dlg-hero-carousel.js','dlg-service-discovery.js','dlg-signature.js','script.js','firm-interactions.js','firm-hero.js','visual-experience.js','favicon.svg','catalogue.mjs','digital.css','digital.mjs','workspace.css','workspace.mjs','delivery-templates.mjs'])fs.copyFileSync(file,path.join(out,file));
 fs.cpSync('assets',path.join(out,'assets'),{recursive:true}); fs.cpSync('admin',path.join(out,'admin'),{recursive:true});
 // The old enquiry inbox is retired; the resource admin remains available.
 fs.rmSync(path.join(out,'admin','inbox'),{recursive:true,force:true}); // Retired client workspace is excluded from public deployment.
