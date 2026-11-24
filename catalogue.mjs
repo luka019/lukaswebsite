@@ -465,7 +465,7 @@ export const practices = [
     "slug": "fintech",
     "code": "02 / FINANCE",
     "name": {
-      "ka": "ფინტექი და საგადახდო მომსახურებები",
+      "ka": "ფინტექი და საგადახდო მომსახურება",
       "en": "FinTech & Payment Services"
     },
     "summary": {

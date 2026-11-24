@@ -180,6 +180,8 @@ assert(aboutProfile.includes('Queen Mary')&&aboutProfile.includes('Chevening')&&
 const visibleHome=home.replace(/<script\b[^>]*>[\s\S]*?<\/script>/gi,'');
 assert(!visibleHome.includes('LLM · Distinction')&&!visibleHome.includes('Queen Mary')&&!visibleHome.includes('Chevening'),'Personal qualifications belong on the profile, not visible homepage content');
 assert(aboutProfile.includes('https://arxiv.org/abs/2607.21345'),'Verified research missing from profile');
+assert(/data-en="Practice Areas">მომსახურება<\/a>/.test(home),'Georgian service navigation must use singular');
+for(const name of publicHtml){if(name.endsWith('404.html'))continue;const page=fs.readFileSync(name,'utf8').replace(/<script\b[^>]*>[\s\S]*?<\/script>/gi,'');if(!page.includes('<html lang="ka"'))continue;assert(!/მომსახურებ(?:ები|ების|ებს)/.test(page),'Georgian plural service wording in '+name);}
 assert(home.includes('დამოუკიდებელი იურიდიული ფირმა')&&home.includes('დაგვიკავშირდით'),'Natural Georgian positioning and CTA missing');
 assert(!visibleHome.includes('ბუტიკური იურიდიული პრაქტიკა')&&!visibleHome.includes('AI-ის მმართველობა'),'Retired literal translations must not return');
 assert(file('services/data-protection/index.html').includes('მონაცემთა დაცვაზე ზეგავლენის შეფასება'),'Statutory data protection terminology missing');

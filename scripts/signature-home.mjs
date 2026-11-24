@@ -110,20 +110,20 @@ export function signatureServices(){
   '<button type="button" data-dlg-practice-filter="'+key+'" aria-pressed="'+(key==='all'?'true':'false')+'" data-en="'+en+'">'+ka+'</button>').join('');
  return '<section class="sig-services" id="services" aria-labelledby="services-heading"><div class="container">'+
   '<div class="sig-section-heading sig-section-heading-split">'+
-   '<div><p class="sig-kicker">'+tr('მომსახურებები','PRACTICE AREAS')+'</p>'+
+   '<div><p class="sig-kicker">'+tr('მომსახურება','PRACTICE AREAS')+'</p>'+
    '<h2 id="services-heading" data-en="Our expertise">ჩვენი სპეციალიზაცია</h2></div>'+
    tr('იურიდიული მომსახურება ტექნოლოგიური პროდუქტის შექმნიდან კომპანიის ყოველდღიურ საქმიანობამდე.',
       'Legal support for developing technology products, growing businesses and everyday operations.','p')+
   '</div>'+
   '<div class="dlg-practice-toolbar" data-dlg-practice-tools hidden>'+
-   '<div class="dlg-practice-filters" role="group" aria-label="მომსახურებების კატეგორიები" data-en-aria="Filter practice areas">'+filters+'</div>'+
+   '<div class="dlg-practice-filters" role="group" aria-label="მომსახურების მიმართულებები" data-en-aria="Filter practice areas">'+filters+'</div>'+
    '<label class="dlg-practice-search-wrap"><input type="search" data-dlg-practice-search autocomplete="off" placeholder="მოძებნეთ მომსახურება" data-en-placeholder="Find a service" aria-label="მომსახურების ძიება" data-en-aria="Search practice areas"></label>'+
    '<span class="dlg-practice-count" role="status" aria-live="polite" data-dlg-practice-count data-en="8 areas">8 მიმართულება</span>'+
   '</div>'+
   '<div class="sig-service-list">'+rows+'</div>'+
   '<p class="dlg-practice-empty" data-dlg-practice-empty hidden data-en="No matching practice area. Try another keyword or select All.">ასეთი მომსახურება ვერ მოიძებნა. სცადეთ სხვა სიტყვა ან აირჩიეთ „ყველა“.</p>'+
   '<div class="sig-services-footer"><a href="/services/" class="sig-underlink" data-site-link>'+
-   tr('მომსახურებების სრული სია','Explore all services')+'<span aria-hidden="true">↗</span></a>'+
+   tr('მომსახურების სრული ჩამონათვალი','Explore all services')+'<span aria-hidden="true">↗</span></a>'+
    '<span data-en="Also available: VASP regulatory assessments, ongoing legal support and legal operations.">ასევე გთავაზობთ ვირტუალური აქტივების რეგულირებასთან დაკავშირებულ კონსულტაციას, მუდმივ იურიდიულ მომსახურებასა და იურიდიული პროცესების მოწესრიგებას.</span>'+
   '</div></div></section>';
 }
