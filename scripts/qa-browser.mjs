@@ -58,15 +58,16 @@ try{
     check(geometry.image&&geometry.image.width>100,'Approved building photograph invisible at '+width);
     check(geometry.paper==='rgb(16, 42, 72)','Approved navy hero not applied at '+width+': '+geometry.paper);
     check(geometry.bodyColour==='rgb(255, 255, 255)','Hero headline contrast against navy failed at '+width+': '+geometry.bodyColour);
-    check((await page.locator('.sig-service-row').count())===8,'Expected eight legal practice rows at '+width);
+    check((await page.locator('.sig-service-row').count())===6,'Expected six grouped practice rows at '+width);
     const serviceColor=await page.locator('.sig-services .sig-section-heading h2').evaluate(el=>getComputedStyle(el).color);
     check(serviceColor==='rgb(23, 50, 79)','Services heading must have dark-on-light contrast at '+width+': '+serviceColor);
-    check(await page.locator('[data-dlg-practice-tools]').isVisible(),'Client practice finder missing at '+width);
+    check((await page.locator('[data-dlg-practice-tools]').count())===0,'Redundant filters must remain absent');
     if(width>=1280) check(geometry.hero.height<850,'Oversized desktop hero returned at '+width+': '+geometry.hero.height);
     if(width===390) check(geometry.hero.height<1350,'Oversized mobile hero returned: '+geometry.hero.height);
-    check((await page.locator('.sig-service-row a[href^="/services/"]').count())>=8,'Service destination links missing at '+width);
-    check((await page.locator('.atelier-service-symbol svg').count())===8,'Subtle practice-area drawings missing at '+width);
-    check((await page.locator('.dlg-solution').count())===4,'Four defined legal solutions missing at '+width);
+    check((await page.locator('.sig-service-row a[href^="/services/#area-"]').count())===6,'Grouped service destination links missing at '+width);
+    check((await page.locator('.atelier-service-symbol svg').count())===6,'Subtle practice-area drawings missing at '+width);
+    check((await page.locator('.dlg-solution').count())===0,'Duplicate solution cards must remain absent');
+    check((await page.locator('.dlg-sector-card').count())===6,'Six sector cards missing');
     check((await page.locator('.dlg-advisory-card').count())===3,'Three advisory packages missing at '+width);
     check((await page.locator('.dlg-service-strip .dlg-hero-practice-links a').count())===4,'Four service strip links missing at '+width);
     check((await page.locator('.dlg-credentials, .sig-proofbar').count())===0,'Old personal credentials strip returned at '+width);
@@ -85,18 +86,6 @@ try{
     check(await page.locator('.dlg-building-photo').evaluate(img=>img.complete&&img.naturalWidth>0),'Original architectural photograph did not load at '+width);
     check(await page.locator('[data-dlg-slide=""] img').count()===0 || (await page.locator('[data-dlg-slide] img').count())===4,'All four local slide images required at '+width);
     if(width===1440){
-      await page.locator('[data-dlg-practice-filter="ai"]').click();
-      check((await page.locator('.sig-service-row:visible').count())===2,'AI/Data filter must reveal two practices');
-      await page.locator('[data-dlg-practice-filter="digital"]').click();
-      check((await page.locator('.sig-service-row:visible').count())===4,'Digital category filter must reveal four practices');
-      await page.locator('[data-dlg-practice-filter="all"]').click();
-      await page.locator('[data-dlg-practice-search]').fill('SaaS');
-      check((await page.locator('.sig-service-row:visible').count())===1,'Search must find technology contracts');
-      await page.locator('[data-dlg-practice-search]').fill('zzzx-never-matches');
-      check((await page.locator('.sig-service-row:visible').count())===0,'Unknown query must hide practice cards');
-      check(await page.locator('[data-dlg-practice-empty]').isVisible(),'Search empty-state missing');
-      await page.locator('[data-dlg-practice-search]').fill('');
-      check((await page.locator('.sig-service-row:visible').count())===8,'Clearing search must restore all practice areas');
       await page.locator('[data-dlg-next]').click();
       check((await page.locator('[data-dlg-count]').innerText()).trim()==='02 / 04','Next slide control failed');
       check((await page.locator('[data-dlg-slide-to="1"]').getAttribute('aria-pressed'))==='true','Next slide indicator not selected');
@@ -131,7 +120,7 @@ try{
     await page.locator('.sig-hero h1').waitFor();
     check((await page.locator('html').getAttribute('lang'))==='en','English language code failed at '+width);
     check((await page.locator('.sig-hero h1').innerText()).includes('Legal counsel'),'English hero missing at '+width);
-    check((await page.locator('.sig-service-row').count())===8,'English legal services missing at '+width);
+    check((await page.locator('.sig-service-row').count())===6,'English legal services missing at '+width);
     await overflow(page,width,'/en/');
     await page.locator('[data-language="ka"]').click();
     await page.waitForURL(base+'/');
@@ -146,6 +135,7 @@ try{
     '/services/fintech/','/services/virtual-assets/','/services/startups-investment/',
     '/services/georgia-market-entry/','/services/legal-operations/',
     '/business/','/business/georgia/','/business/international/','/about/','/resources/','/privacy/',
+    ...['technology','financial-services','commerce','startups-investors','international','legal-teams'].flatMap(slug=>['/business/sectors/'+slug+'/','/en/business/sectors/'+slug+'/']),
     '/solutions/','/solutions/ai-governance/','/solutions/privacy-review/','/solutions/contract-review/','/solutions/enter-georgia/',
     '/en/services/','/en/services/startups-investment/','/en/about/',
     '/advisory/','/advisory/ai-readiness/','/advisory/ai-governance-implementation/','/advisory/external-ai-technology-counsel/','/en/advisory/','/en/advisory/ai-readiness/','/en/advisory/ai-governance-implementation/','/en/advisory/external-ai-technology-counsel/'
@@ -165,12 +155,12 @@ try{
   await noJs.goto(base+'/en/',{waitUntil:'networkidle'});
   check((await noJs.locator('html').getAttribute('lang'))==='en','English no-JS HTML language failed');
   check((await noJs.locator('.sig-hero h1').innerText()).includes('Legal counsel'),'English content requires JavaScript');
-  check((await noJs.locator('.sig-service-row').count())===8,'No-JS service directory incomplete');
+  check((await noJs.locator('.sig-service-row').count())===6,'No-JS service directory incomplete');
   await noJs.close();
   const reduced=await browser.newPage({viewport:{width:390,height:844},reducedMotion:'reduce'});
   await reduced.goto(base+'/',{waitUntil:'networkidle'});
   check((await reduced.locator('.sig-hero h1').isVisible()),'Reduced motion hides the hero');
-  check((await reduced.locator('.sig-service-row').count())===8,'Reduced motion hides services');
+  check((await reduced.locator('.sig-service-row').count())===6,'Reduced motion hides services');
   check((await reduced.locator('[data-dlg-count]').innerText()).trim()==='01 / 04','Reduced motion should retain initial slide');
   await reduced.locator('[data-dlg-next]').click();
   check((await reduced.locator('[data-dlg-count]').innerText()).trim()==='02 / 04','Reduced motion must permit manual slide changes');

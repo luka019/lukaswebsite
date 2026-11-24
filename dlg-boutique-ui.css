@@ -544,3 +544,45 @@ html[lang=en] .digital-site .digital-page-hero h1{
 @media(max-width:1000px){.dlg-service-strip .dlg-service-strip-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.dlg-service-strip .dlg-service-strip-grid>a:nth-child(3){border-left:0;padding-left:0}.dlg-service-strip .dlg-service-strip-grid>a:nth-child(n+3){border-top:1px solid #d2d3cf}.dlg-service-strip .dlg-service-strip-grid>a{min-height:76px}.dlg-signature-home .dlg-advisory-home .dlg-advisory-card{grid-template-columns:58px minmax(0,1fr) minmax(0,1fr);gap:10px 14px}.dlg-signature-home .dlg-advisory-home .dlg-advisory-link{grid-column:2/-1}}
 @media(max-width:700px){.dlg-signature-home .dlg-carousel-stage{height:clamp(235px,58vw,350px)}.dlg-service-strip .dlg-service-strip-grid>a,.dlg-service-strip .dlg-service-strip-grid>a:nth-child(2n){padding:12px 8px 12px;grid-template-columns:15px minmax(0,1fr) 12px;gap:5px;min-height:96px}.dlg-service-strip .dlg-service-strip-grid>a:nth-child(odd){padding-left:0}.dlg-service-strip-grid>a strong{font-size:12px}.dlg-service-strip-grid>a em{font-size:10px}.dlg-signature-home.dlg-photographic .sig-service-list{grid-template-columns:1fr;gap:0}.dlg-signature-home.dlg-photographic .sig-service-row{grid-template-columns:26px minmax(0,1fr) 35px;gap:6px 10px;padding:17px 0}.dlg-signature-home.dlg-photographic .sig-service-copy h3{font-size:16px}.dlg-signature-home .dlg-advisory-home .dlg-advisory-card{grid-template-columns:30px minmax(0,1fr);gap:6px 10px;padding:16px 0}.dlg-signature-home .dlg-advisory-home .dlg-advisory-summary,.dlg-signature-home .dlg-advisory-home .dlg-advisory-link{grid-column:2}.dlg-signature-home .dlg-advisory-home .dlg-advisory-card h3{font-size:17px}.dlg-signature-home .dlg-advisory-home .dlg-advisory-number{font-size:9px;letter-spacing:0}.dlg-research-feature{grid-template-columns:minmax(0,1fr) 18px;gap:8px}.dlg-research-label{grid-column:1/-1}.dlg-research-copy strong{font-size:18px}}
 @media(prefers-reduced-motion:reduce){.dlg-signature-home .sig-resource-grid img{transition:none}}
+
+/* Six-area catalogue and sector-led discovery; retain existing navy photographic identity. */
+.dlg-signature-home .sig-services-footer{gap:16px 24px;flex-wrap:wrap}
+.dlg-signature-home .sig-service-row .sig-service-copy{min-width:0}
+.dlg-signature-home .sig-service-row .sig-service-copy h3{overflow-wrap:anywhere}
+.dlg-signature-home.dlg-photographic .dlg-sector-section{background:#f7f7f4}
+.dlg-sector-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:25px 22px;margin:0 0 26px}
+.dlg-sector-card{display:block;min-width:0;color:#17324f;text-decoration:none;background:transparent;border:0;border-bottom:1px solid #d4dce3}
+.dlg-sector-photo{aspect-ratio:16/8.5;overflow:hidden;background:#dce4e9}
+.dlg-sector-photo img{display:block;width:100%;height:100%;object-fit:cover;transition:transform .3s}
+.dlg-sector-card:hover .dlg-sector-photo img{transform:scale(1.025)}
+.dlg-sector-copy{position:relative;padding:14px 26px 18px 0;min-height:116px}
+.dlg-sector-label{display:block;color:#60798e;font-size:10px;line-height:1.5;margin-bottom:7px}
+.dlg-sector-copy h3{margin:0 0 7px;font-size:17px;line-height:1.5;color:#17324f}
+.dlg-sector-copy p{margin:0;color:#526578;font-size:12px;line-height:1.65}
+.dlg-sector-arrow{position:absolute;right:0;top:38px;font-size:19px;color:#2b638d}
+.dlg-sector-card:hover h3{text-decoration:underline;text-underline-offset:4px}
+.dlg-sector-card:focus-visible,.dlg-specialist-link:focus-visible,.dlg-group-jump:focus-visible{outline:2px solid #286ba8;outline-offset:4px}
+.dlg-group-jumps{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 24px;margin-bottom:34px;border-top:1px solid #d3dce3}
+.dlg-group-jump{display:grid;grid-template-columns:30px minmax(0,1fr) 18px;gap:10px;align-items:center;min-height:57px;padding:13px 0;border-bottom:1px solid #d3dce3;color:#17324f;font-size:14px;line-height:1.55;text-decoration:none}
+.dlg-group-jump>span:first-child{font-size:11px;color:#61798d}
+.dlg-group-jump:hover,.dlg-specialist-link:hover h3{text-decoration:underline;text-underline-offset:4px}
+.dlg-practice-group{display:grid;grid-template-columns:minmax(0,.84fr) minmax(0,1.16fr);gap:22px 36px;align-items:start;padding:26px 0;border-top:1px solid #cdd8e0;scroll-margin-top:110px}
+.dlg-practice-group-head .mono{font-size:11px;color:#60798e}
+.dlg-practice-group-head h2{font-size:clamp(20px,2vw,26px);line-height:1.4;color:#17324f;margin:9px 0 12px}
+.dlg-practice-group-head p{font-size:13px;line-height:1.75;color:#526578;margin:0}
+.dlg-specialist-link{display:grid;grid-template-columns:minmax(0,1fr) 18px;gap:14px;align-items:start;min-width:0;padding:13px 0;border-bottom:1px solid #d7dfe5;color:#17324f;text-decoration:none}
+.dlg-specialist-link:first-child{padding-top:0}
+.dlg-specialist-link h3{font-size:15px;line-height:1.5;margin:0 0 5px}
+.dlg-specialist-link p{font-size:12px;line-height:1.7;color:#526578;margin:0}
+.dlg-specialist-link>span{color:#286ba8}
+.dlg-group-directory .law-directory-feature{margin-top:24px}
+.dlg-sector-detail>img{display:block;width:100%;aspect-ratio:16/9;object-fit:cover;margin:0 0 20px}
+.dlg-sector-back,.dlg-sector-related{margin-top:24px;display:flex;flex-wrap:wrap;gap:16px}
+.dlg-sector-related a,.dlg-sector-back a{color:#235b85;text-decoration:underline;text-underline-offset:3px}
+@media(max-width:1000px){.dlg-sector-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:22px 18px}}
+@media(max-width:700px){.dlg-practice-group{grid-template-columns:1fr;gap:18px;padding:22px 0}.dlg-group-jumps{grid-template-columns:1fr;gap:0}.dlg-sector-copy{min-height:0;padding:10px 14px 14px 0}.dlg-sector-label{font-size:9px}.dlg-sector-copy h3{font-size:14px}.dlg-sector-copy p{font-size:11px}.dlg-sector-arrow{font-size:14px;top:29px}.dlg-sector-grid{gap:19px 12px}.dlg-sector-photo{aspect-ratio:4/3}}
+@media(max-width:380px){.dlg-sector-grid{grid-template-columns:1fr}.dlg-sector-photo{aspect-ratio:16/9}}
+@media(prefers-reduced-motion:reduce){.dlg-sector-photo img{transition:none}}
+
+.site-nav.law-nav{gap:clamp(10px,1.15vw,18px)}
+@media(min-width:1001px) and (max-width:1300px){.site-header .law-brand-tagline{display:none}}

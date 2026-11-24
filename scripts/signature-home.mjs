@@ -1,60 +1,6 @@
 import {tr} from './portfolio-templates.mjs';
 
-const practices = [
- {key:'ai',num:'01',ka:'ხელოვნური ინტელექტის რეგულირება და მართვა',en:'AI Law & Governance',
-  leadKa:'AI-ის უსაფრთხო და პასუხისმგებლიანი გამოყენებისთვის საჭირო სამართლებრივი წესები და პროცედურები.',leadEn:'Legal advice for accountable development, procurement and use of AI.',
-  pointsKa:['AI-ის გამოყენების პოლიტიკა და რისკების შეფასება','ალგორითმული გადაწყვეტილებები და ადამიანური ზედამხედველობა','EU AI Act-ის მოქმედების სფეროს შეფასება'],
-  pointsEn:['AI policies and legal risk reviews','Algorithmic decision-making and human oversight','Assessment of EU AI Act scope'],link:'/services/ai/'},
- {key:'data',num:'02',ka:'პერსონალურ მონაცემთა დაცვა',en:'Data Protection & Privacy',
-  leadKa:'მონაცემთა დამუშავება, კონფიდენციალურობა და საზღვარგარეთ მონაცემების გადაცემა.',leadEn:'Privacy obligations across processing, suppliers and international transfers.',
-  pointsKa:['კანონმდებლობასთან შესაბამისობის შეფასება, DPIA და DPO','კონფიდენციალურობის პოლიტიკა და მონაცემთა დამუშავების ხელშეკრულებები (DPA)','მონაცემთა ინციდენტებზე სამართლებრივი რეაგირება'],
-  pointsEn:['Compliance reviews, DPIA and DPO support','Privacy notices and processing agreements','Legal response to data incidents'],link:'/services/data-protection/'},
- {key:'contracts',num:'03',ka:'ტექნოლოგიური და კომერციული ხელშეკრულებები',en:'Technology & Commercial Contracts',
-  leadKa:'პროგრამული უზრუნველყოფის, SaaS-ისა და IT მომსახურების ხელშეკრულებების მომზადება და შეფასება.',leadEn:'Commercial terms for software, SaaS, outsourcing and technology procurement.',
-  pointsKa:['SaaS, SLA და Cloud ხელშეკრულებები','ლიცენზირება, აუთსორსინგი და IP პირობები','სახელშეკრულებო მოლაპარაკებები და რისკების შეფასება'],
-  pointsEn:['SaaS terms, SLAs and cloud agreements','Licensing, outsourcing and IP provisions','Negotiation and contractual risk review'],link:'/services/contracts/'},
- {key:'product',num:'04',ka:'ციფრული პროდუქტები და ელექტრონული კომერცია',en:'Digital Products & E-commerce',
-  leadKa:'ციფრული პროდუქტების გაშვებასთან, ონლაინ მომსახურებასა და მომხმარებლებთან ურთიერთობასთან დაკავშირებული სამართლებრივი საკითხები.',leadEn:'Launch, operate and grow online products with appropriate terms and compliance.',
-  pointsKa:['Terms of Service, გამოწერები და დაბრუნება','მომხმარებელთა უფლებები და პლატფორმის წესები','ელექტრონული კონტრაქტები და ციფრული რეკლამა'],
-  pointsEn:['Terms of Service, subscriptions and refunds','Consumer protection and platform rules','E-contracts and digital advertising'],link:'/services/digital-products/'},
- {key:'ip',num:'05',ka:'პროგრამული უზრუნველყოფა და ინტელექტუალური საკუთრება',en:'Software & Intellectual Property',
-  leadKa:'პროგრამულ კოდზე, ციფრულ აქტივებსა და ბრენდზე უფლებების დაცვა.',leadEn:'Clear ownership and licensing of code, software and digital assets.',
-  pointsKa:['ინტელექტუალური საკუთრების უფლებების გადაცემისა და ლიცენზირების დოკუმენტები','პროგრამულ კოდზე უფლებები და ღია კოდის პროგრამული უზრუნველყოფა','ბრენდი, სასაქონლო ნიშნები და ტექნოლოგიური აქტივები'],
-  pointsEn:['IP assignments and licensing documents','Software ownership and open-source compliance','Brand protection and technology assets'],link:'/services/intellectual-property/'},
- {key:'cyber',num:'06',ka:'კიბერუსაფრთხოების სამართლებრივი საკითხები',en:'Cybersecurity & Digital Risk',
-  leadKa:'კიბერინციდენტებთან, ინფორმაციულ უსაფრთხოებასა და მომწოდებლების პასუხისმგებლობასთან დაკავშირებული სამართლებრივი საკითხები.',leadEn:'Legal responsibilities around cyber incidents, information security and suppliers.',
-  pointsKa:['სექტორული მოთხოვნები და უსაფრთხოების პოლიტიკები','ინციდენტზე რეაგირების სამართლებრივი გეგმა','ხელშეკრულების პირობები უსაფრთხოებისა და პასუხისმგებლობის შესახებ'],
-  pointsEn:['Sectoral requirements and security policies','Legal incident-response planning','Security and liability clauses'],link:'/services/cyber-digital-risk/'},
- {key:'fintech',num:'07',ka:'ფინტექი და ციფრული აქტივები',en:'FinTech & Digital Assets',
-  leadKa:'საგადახდო მომსახურებისა და ვირტუალური აქტივების სფეროში ბიზნესმოდელების სამართლებრივი შეფასება.',leadEn:'Regulatory advice for payments and virtual-asset business models.',
-  pointsKa:['საგადახდო მომსახურების რეგულირება','VASP-ის რეგისტრაციის საჭიროების შეფასება','ფინანსური პარტნიორობის ხელშეკრულებები'],
-  pointsEn:['Payment-services regulation','VASP registration perimeter review','Financial partnership agreements'],link:'/services/fintech/'},
- {key:'startup',num:'08',ka:'სტარტაპები, ინვესტიციები და საერთაშორისო ბიზნესი',en:'Startups, Investment & Cross-border Business',
-  leadKa:'ტექნოლოგიური კომპანიის დაფუძნება, დამფუძნებლებს შორის ურთიერთობის მოწესრიგება და ინვესტიციის მოზიდვისთვის მომზადება.',leadEn:'Legal foundations for founders, investment and international expansion.',
-  pointsKa:['დამფუძნებლების შეთანხმებები და vesting','ინტელექტუალური საკუთრების უფლებების კუთვნილება და საინვესტიციო დოკუმენტები','საქართველოში ბაზარზე შესვლა და საერთაშორისო კონტრაქტები'],
-  pointsEn:['Founder agreements and vesting','IP ownership and investment documentation','Georgia market entry and cross-border contracts'],link:'/services/startups-investment/'}
-];
-
-const scenarios = [
-  {
-    n:'01',titleKa:'ახალი პროდუქტის გაშვება',titleEn:'Launching a digital product',
-    bodyKa:'პროდუქტით სარგებლობის პირობები, მონაცემთა დაცვა, პარტნიორებთან ხელშეკრულებები და გაშვებამდე მოსამზადებელი დოკუმენტები.',
-    bodyEn:'Customer terms, privacy, commercial partners and legal documents before launch.',
-    href:'/services/digital-products/'
-  },
-  {
-    n:'02',titleKa:'მნიშვნელოვანი ხელშეკრულების გაფორმება',titleEn:'Signing an important agreement',
-    bodyKa:'რას იღებთ, რა ვალდებულებებს კისრულობთ და რომელი პირობები საჭიროებს ცვლილებას.',
-    bodyEn:'Understand your rights, obligations and the clauses that need to change.',
-    href:'/services/contracts/'
-  },
-  {
-    n:'03',titleKa:'ბიზნესის გაფართოება',titleEn:'Expanding your business',
-    bodyKa:'საქართველოში საქმიანობა, საერთაშორისო თანამშრომლობა და პარტნიორული ურთიერთობების მოწესრიგება.',
-    bodyEn:'Operating in Georgia, cross-border cooperation and partnership arrangements.',
-    href:'/business/'
-  }
-];
+import {practiceGroups,sectors,sectorCards} from './practice-structure.mjs';
 
 const atelierMarks={
   ai:'<circle cx="40" cy="40" r="21"/><circle cx="40" cy="40" r="8"/><path d="M40 6v13M40 61v13M6 40h13M61 40h13M16 16l10 10M54 54l10 10M64 16 54 26M26 54 16 64"/><circle cx="40" cy="6" r="2" fill="currentColor"/><circle cx="74" cy="40" r="2" fill="currentColor"/>',
@@ -92,51 +38,29 @@ export function signatureAbout(){
   '</div></div></section>';
 }
 export function signatureServices(){
- const group={ai:'ai',data:'ai',contracts:'digital',product:'digital',ip:'digital',cyber:'digital',fintech:'business',startup:'business'};
- const rows=practices.map(p=>
-  '<article class="sig-service-row" id="practice-'+p.key+'" data-dlg-practice-group="'+group[p.key]+'">'+
-  '<span class="sig-service-number">'+p.num+' / 08</span>'+
-  mark(p.key)+
-  '<div class="sig-service-copy">'+tr(p.ka,p.en,'h3')+tr(p.leadKa,p.leadEn,'p')+'</div>'+
-  '<div class="sig-service-detail"><a class="sig-underlink" href="'+p.link+'" data-site-link>'+
-  tr('მომსახურების დეტალები','View practice details')+'<span aria-hidden="true">↗</span></a></div>'+
+ const rows=practiceGroups.map((p,i)=>
+  '<article class="sig-service-row" id="practice-'+p.key+'">'+
+  '<span class="sig-service-number">0'+(i+1)+' / 06</span>'+
+  mark(p.icon)+
+  '<div class="sig-service-copy">'+tr(p.name.ka,p.name.en,'h3')+tr(p.summary.ka,p.summary.en,'p')+'</div>'+
+  '<div class="sig-service-detail"><a class="sig-underlink" href="/services/#area-'+p.key+'" data-site-link>'+
+  tr('მიმართულების შესახებ','Explore this area')+'<span aria-hidden="true">↗</span></a></div>'+
   '</article>').join('');
- const filters=[
-  ['all','ყველა','All'],
-  ['ai','AI და მონაცემები','AI & Data'],
-  ['digital','ხელშეკრულებები და პროდუქტები','Contracts & Products'],
-  ['business','ფინტექი და სტარტაპები','FinTech & Startups']
- ].map(([key,ka,en])=>
-  '<button type="button" data-dlg-practice-filter="'+key+'" aria-pressed="'+(key==='all'?'true':'false')+'" data-en="'+en+'">'+ka+'</button>').join('');
  return '<section class="sig-services" id="services" aria-labelledby="services-heading"><div class="container">'+
   '<div class="sig-section-heading sig-section-heading-split">'+
-   '<div><p class="sig-kicker">'+tr('მომსახურება','PRACTICE AREAS')+'</p>'+
-   '<h2 id="services-heading" data-en="Our expertise">ჩვენი სპეციალიზაცია</h2></div>'+
-   tr('იურიდიული მომსახურება ტექნოლოგიური პროდუქტის შექმნიდან კომპანიის ყოველდღიურ საქმიანობამდე.',
-      'Legal support for developing technology products, growing businesses and everyday operations.','p')+
-  '</div>'+
-  '<div class="dlg-practice-toolbar" data-dlg-practice-tools hidden>'+
-   '<div class="dlg-practice-filters" role="group" aria-label="მომსახურების მიმართულებები" data-en-aria="Filter practice areas">'+filters+'</div>'+
-   '<label class="dlg-practice-search-wrap"><input type="search" data-dlg-practice-search autocomplete="off" placeholder="მოძებნეთ მომსახურება" data-en-placeholder="Find a service" aria-label="მომსახურების ძიება" data-en-aria="Search practice areas"></label>'+
-   '<span class="dlg-practice-count" role="status" aria-live="polite" data-dlg-practice-count data-en="8 areas">8 მიმართულება</span>'+
-  '</div>'+
+  '<div><p class="sig-kicker">'+tr('მომსახურება','PRACTICE AREAS')+'</p>'+
+  '<h2 id="services-heading" data-en="Our expertise">ჩვენი სპეციალიზაცია</h2></div>'+
+  tr('ტექნოლოგიური და კომერციული სამართლის ექვსი ძირითადი მიმართულება.','Six core areas of technology and commercial law.','p')+'</div>'+
   '<div class="sig-service-list">'+rows+'</div>'+
-  '<p class="dlg-practice-empty" data-dlg-practice-empty hidden data-en="No matching practice area. Try another keyword or select All.">ასეთი მომსახურება ვერ მოიძებნა. სცადეთ სხვა სიტყვა ან აირჩიეთ „ყველა“.</p>'+
   '<div class="sig-services-footer"><a href="/services/" class="sig-underlink" data-site-link>'+
    tr('მომსახურების სრული ჩამონათვალი','Explore all services')+'<span aria-hidden="true">↗</span></a>'+
-   '<span data-en="Also available: VASP regulatory assessments, ongoing legal support and legal operations.">ასევე გთავაზობთ ვირტუალური აქტივების რეგულირებასთან დაკავშირებულ კონსულტაციას, მუდმივ იურიდიულ მომსახურებასა და იურიდიული პროცესების მოწესრიგებას.</span>'+
-  '</div></div></section>';
+   '<a href="/solutions/" class="sig-underlink" data-site-link>'+tr('მომსახურება კონკრეტული საკითხებისთვის','Focused legal services')+'<span aria-hidden="true">↗</span></a></div></div></section>';
 }
-export function signatureAudience() {
- const links=scenarios.map(p=>
-  '<a class="sig-audience-item" href="'+p.href+'" data-site-link><span class="sig-audience-num">'+p.n+'</span>'+
-   '<span class="sig-audience-copy">'+tr(p.titleKa,p.titleEn,'h3')+tr(p.bodyKa,p.bodyEn,'p')+'</span>'+
-   '<span class="sig-audience-arrow" aria-hidden="true">↗</span></a>'
- ).join('');
- return '<section class="sig-audience" id="business" aria-labelledby="business-heading"><div class="container">'+
-   '<div class="sig-section-heading"><p class="sig-kicker">'+tr('ბიზნესის საჭიროებები','BUSINESS NEEDS')+'</p>'+
-      '<h2 id="business-heading" data-en="The right advice at the right moment.">იურიდიული მხარდაჭერა ბიზნესის განვითარების სხვადასხვა ეტაპზე.</h2></div>'+
-   '<div class="sig-audience-list">'+links+'</div>'+
-   '<a class="sig-underlink" href="/business/" data-site-link>'+tr('ვის ვეხმარებით','Who we work with')+'<span aria-hidden="true">↗</span></a>'+
-  '</div></section>';
+export function signatureAudience(){
+ return '<section class="sig-audience dlg-sector-section" id="business" aria-labelledby="business-heading"><div class="container">'+
+ '<div class="sig-section-heading sig-section-heading-split"><div><p class="sig-kicker">'+tr('ბიზნესსექტორები','SECTORS')+'</p>'+
+ '<h2 id="business-heading" data-en="Legal advice for your sector">იურიდიული მომსახურება თქვენი ბიზნესისთვის</h2></div>'+
+ tr('გაეცანით თქვენი საქმიანობისთვის შესაბამის სამართლებრივ მიმართულებებს.','Explore the legal issues relevant to your business.','p')+'</div>'+
+ '<div class="dlg-sector-grid">'+sectorCards()+'</div>'+
+ '<a class="sig-underlink" href="/business/" data-site-link>'+tr('ყველა ბიზნესსექტორი','Explore all sectors')+'<span aria-hidden="true">↗</span></a></div></section>';
 }
