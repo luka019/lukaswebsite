@@ -10,10 +10,6 @@ export const advisoryPackages = [
       "ka": "გაიგეთ, სად და როგორ იყენებს თქვენი კომპანია AI-ს, რა რისკები აქვს და რა უნდა შეცვალოთ პირველ რიგში.",
       "en": "Understand how your organisation uses AI, identify material risks and prioritise practical improvements."
     },
-    "price": {
-      "ka": "3 500 ₾-დან",
-      "en": "From GEL 3,500"
-    },
     "timing": {
       "ka": "დაახლოებით 10 სამუშაო დღე",
       "en": "Approx. 10 working days"
@@ -61,10 +57,6 @@ export const advisoryPackages = [
     "intro": {
       "ka": "შექმენით კომპანიის ყოველდღიურ საქმიანობაზე მორგებული AI-ის მართვის წესები, პასუხისმგებლობები და შეფასების პროცედურები.",
       "en": "Establish practical AI governance rules, responsibilities and assessment procedures tailored to your organisation."
-    },
-    "price": {
-      "ka": "9 000 ₾-დან",
-      "en": "From GEL 9,000"
     },
     "timing": {
       "ka": "დაახლოებით 4–6 კვირა",
@@ -116,10 +108,6 @@ export const advisoryPackages = [
       "ka": "მიიღეთ რეგულარული სამართლებრივი მხარდაჭერა AI-ის, მონაცემთა დაცვის, ტექნოლოგიური ხელშეკრულებებისა და ახალი პროდუქტების საკითხებზე.",
       "en": "Access ongoing legal support for AI, data protection, technology contracts and new digital products."
     },
-    "price": {
-      "ka": "3 000 ₾-დან თვეში",
-      "en": "From GEL 3,000 per month"
-    },
     "timing": {
       "ka": "ყოველთვიური თანამშრომლობა",
       "en": "Monthly engagement"
@@ -160,9 +148,9 @@ export const advisoryPackages = [
 ];
 const escapeHtml = value => String(value).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[c]));
 const bi=(tag,value,cls='')=>'<'+tag+(cls?' class="'+cls+'"':'')+' data-en="'+escapeHtml(value.en)+'">'+escapeHtml(value.ka)+'</'+tag+'>';
-export const advisoryIntro={ka:'AI-ის შეფასებიდან დანერგვასა და მუდმივ სამართლებრივ მხარდაჭერამდე. სამუშაოს ფარგლებს, ვადებსა და საბოლოო საფასურს ინდივიდუალურად ვათანხმებთ.',en:'From AI readiness to implementation and ongoing legal support. We agree the scope, timing and final fees for each engagement.'};
+export const advisoryIntro={ka:'AI-ის შეფასებიდან დანერგვასა და მუდმივ სამართლებრივ მხარდაჭერამდე. სამუშაოს ფარგლებსა და თანამშრომლობის პირობებს ინდივიდუალურად ვათანხმებთ.',en:'From AI readiness to implementation and ongoing legal support. We agree the scope and engagement terms for each organisation.'};
 export function advisoryCards(){
- return '<div class="dlg-advisory-grid">'+advisoryPackages.map(p=>'<article class="dlg-advisory-card"><div class="dlg-advisory-number">0'+Number(p.code)+' / ADVISORY</div>'+bi('h3',p.name)+bi('p',p.intro,'dlg-advisory-summary')+'<div class="dlg-advisory-commercial">'+bi('strong',p.price,'dlg-advisory-price')+bi('span',p.timing,'dlg-advisory-time')+'</div><a class="dlg-advisory-link" data-site-link href="/advisory/'+p.id+'/"><span data-en="Explore service">მომსახურების შესახებ</span><span aria-hidden="true">↗</span></a></article>').join('')+'</div>';
+ return '<div class="dlg-advisory-grid">'+advisoryPackages.map(p=>'<article class="dlg-advisory-card"><div class="dlg-advisory-number">0'+Number(p.code)+' / ADVISORY</div>'+bi('h3',p.name)+bi('p',p.intro,'dlg-advisory-summary')+'<div class="dlg-advisory-commercial">'+bi('span',p.timing,'dlg-advisory-time')+'</div><a class="dlg-advisory-link" data-site-link href="/advisory/'+p.id+'/"><span data-en="Explore service">მომსახურების შესახებ</span><span aria-hidden="true">↗</span></a></article>').join('')+'</div>';
 }
 export function advisoryHome(){
  return '<div class="dlg-advisory-home" id="advisory-packages" role="region" aria-labelledby="advisory-heading"><div class="container"><div class="sig-section-heading dlg-advisory-heading"><div><p class="sig-kicker" data-en="AI & TECHNOLOGY ADVISORY">AI და ტექნოლოგიური კონსულტაცია</p><h2 id="advisory-heading" data-en="From AI adoption to effective governance.">AI-ის დანერგვიდან ეფექტიან მართვამდე.</h2></div>'+bi('p',advisoryIntro)+'</div>'+advisoryCards()+'<a class="sig-underlink dlg-advisory-all" data-site-link href="/advisory/"><span data-en="Explore our advisory services">ყველა საკონსულტაციო მომსახურება</span><span aria-hidden="true">↗</span></a></div></div>';
