@@ -80,12 +80,12 @@ export function signatureAbout(){
   '<figure class="dlg-about-portrait"><img src="/assets/luka-shakhkulashvili.png" width="800" height="800" loading="lazy" decoding="async" alt="ლუკა შახყულაშვილი, Digital Law Georgia-ს დამფუძნებელი" data-en-alt="Luka Shakhkulashvili, founder of Digital Law Georgia"><figcaption><span data-en="FOUNDER & LEGAL COUNSEL">დამფუძნებელი · იურისტი</span><strong data-en="Luka Shakhkulashvili">ლუკა შახყულაშვილი</strong></figcaption></figure>'+
   '</div><div class="sig-about-content">'+
   tr('Digital Law Georgia დამოუკიდებელი ბუტიკური იურიდიული პრაქტიკაა. სპეციალიზებული ვართ ტექნოლოგიებთან, ხელოვნურ ინტელექტთან და ციფრულ ბიზნესთან დაკავშირებულ სამართლებრივ საკითხებზე. ვმუშაობთ კომპანიებთან, სტარტაპების დამფუძნებლებთან და საერთაშორისო ბიზნესთან.',
-    'Digital Law Georgia is an independent boutique legal practice dedicated to legal matters arising from technology, artificial intelligence and digital business. Our clients include established businesses, startup founders and international companies.','p')+
+    'Digital Law Georgia is an independent boutique legal practice dedicated to legal matters arising from technology, artificial intelligence and digital business. We advise established businesses, startup founders and international companies.','p')+
   tr('კლიენტებს ვთავაზობთ მკაფიო სამართლებრივ შეფასებას, საქმიანობაზე მორგებულ ხელშეკრულებებსა და პრაქტიკულ რეკომენდაციებს. მათ უშუალო ურთიერთობა აქვთ იმ იურისტთან, რომელიც საქმეზე მუშაობს. სამუშაოს ფარგლებს, ვადებსა და საფასურს წინასწარ ვათანხმებთ.',
     'We provide clear legal assessments, tailored contracts and practical solutions. Clients communicate directly with the lawyer responsible for the work. Scope, timing and fees are agreed in advance.','p')+
   '<div class="atelier-founder-bio"><span class="atelier-founder-bio-rule" aria-hidden="true"></span>'+
-  tr('პრაქტიკას ხელმძღვანელობს ლუკა შახყულაშვილი, ტექნოლოგიური და კომერციული სამართლის იურისტი 7-წლიანი გამოცდილებით. იგი Queen Mary University of London-ის სამართლის მაგისტრია წარჩინებით (Distinction) და Chevening-ის სტიპენდიატი.',
-    'The practice is led by Luka Shakhkulashvili, a technology and commercial lawyer with seven years of experience, an LLM with Distinction from Queen Mary University of London and a Chevening Scholar.','p')+
+  tr('პრაქტიკას ხელმძღვანელობს ლუკა შახყულაშვილი, ტექნოლოგიური და კომერციული სამართლის იურისტი. პროფესიული გამოცდილებისა და სამეცნიერო საქმიანობის შესახებ ინფორმაცია იხილეთ მის პროფილში.',
+    'The practice is led by Luka Shakhkulashvili, a technology and commercial lawyer. His professional experience and research are described in his profile.','p')+
   '</div><p class="sig-focus-title" data-en="CORE AREAS OF ADVICE">ძირითადი სპეციალიზაცია</p>'+
   '<ul class="sig-focus-list">'+focus.map(([ka,en])=>'<li>'+tr(ka,en)+'</li>').join('')+'</ul>'+
   '<a class="sig-underlink" href="/about/" data-site-link>'+tr('მეტი დამფუძნებლის შესახებ','Meet the founder')+'<span aria-hidden="true">↗</span></a>'+
@@ -111,9 +111,9 @@ export function signatureServices(){
  return '<section class="sig-services" id="services" aria-labelledby="services-heading"><div class="container">'+
   '<div class="sig-section-heading sig-section-heading-split">'+
    '<div><p class="sig-kicker">'+tr('მომსახურებები','PRACTICE AREAS')+'</p>'+
-   '<h2 id="services-heading" data-en="Specialist advice for digital businesses.">ტექნოლოგიური ბიზნესის სამართლებრივი მხარდაჭერა.</h2></div>'+
-   tr('აირჩიეთ თქვენთვის საჭირო მიმართულება. დეტალურ გვერდებზე აღწერილია მომსახურების ფარგლები, მოსალოდნელი შედეგები და თანამშრომლობის პირობები.',
-      'Find the area you need. Each practice page explains the scope, typical deliverables and how we work.','p')+
+   '<h2 id="services-heading" data-en="Our expertise">ჩვენი სპეციალიზაცია</h2></div>'+
+   tr('სამართლებრივი მხარდაჭერა ტექნოლოგიური პროდუქტების შექმნის, განვითარებისა და ბიზნესის ყოველდღიური საქმიანობისთვის.',
+      'Legal support for developing technology products, growing businesses and everyday operations.','p')+
   '</div>'+
   '<div class="dlg-practice-toolbar" data-dlg-practice-tools hidden>'+
    '<div class="dlg-practice-filters" role="group" aria-label="მომსახურებების კატეგორიები" data-en-aria="Filter practice areas">'+filters+'</div>'+

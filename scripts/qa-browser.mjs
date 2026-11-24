@@ -68,7 +68,12 @@ try{
     check((await page.locator('.atelier-service-symbol svg').count())===8,'Subtle practice-area drawings missing at '+width);
     check((await page.locator('.dlg-solution').count())===4,'Four defined legal solutions missing at '+width);
     check((await page.locator('.dlg-advisory-card').count())===3,'Three advisory packages missing at '+width);
-    check((await page.locator('.dlg-hero-practice-links a').count())===4,'Hero specialist links missing at '+width);
+    check((await page.locator('.dlg-service-strip .dlg-hero-practice-links a').count())===4,'Four service strip links missing at '+width);
+    check((await page.locator('.dlg-credentials, .sig-proofbar').count())===0,'Old personal credentials strip returned at '+width);
+    check(await page.locator('.dlg-service-strip').evaluate(el=>getComputedStyle(el).backgroundColor)==='rgb(244, 242, 237)','Ivory service strip missing at '+width);
+    check((await page.locator('.sig-resource-grid .resource-cover:visible').count())===2,'Editorial article covers not visible at '+width);
+    for(const img of await page.locator('.sig-resource-grid .resource-cover img').all()){await img.scrollIntoViewIfNeeded();await img.evaluate(el=>el.decode());check(await img.evaluate(el=>el.complete&&el.naturalWidth>0),'Editorial image did not load at '+width);}
+    await page.evaluate(()=>window.scrollTo(0,0));
     check((await page.locator('[data-dlg-slide]').count())===4,'Four carousel visuals missing at '+width);
     check((await page.locator('[data-dlg-slide-to]').count())===4,'Four manual slide controls missing at '+width);
     check((await page.locator('[data-dlg-slide].is-active').count())===1,'Exactly one active visual expected at '+width);
@@ -102,6 +107,8 @@ try{
       await page.locator('[data-dlg-slide-to="0"]').click();
       check((await page.locator('[data-dlg-count]').innerText()).trim()==='01 / 04','Restoring architecture slide failed');
     }
+    await page.locator('.dlg-about-portrait img').scrollIntoViewIfNeeded();
+    await page.locator('.dlg-about-portrait img').evaluate(img=>img.decode());
     check(await page.locator('.dlg-about-portrait img').evaluate(img=>img.complete&&img.naturalWidth>0),'Founder portrait did not load at '+width);
     if(width<=700){
       check(!geometry.navVisible&&geometry.menuVisible,'Mobile navigation visibility failed at '+width);
