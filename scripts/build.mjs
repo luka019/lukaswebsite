@@ -1,5 +1,6 @@
 import {legalLens} from './visual-system.mjs';
 import fs from 'node:fs';
+import {installSectorPhotos} from './sector-photos.mjs';
 import {signatureAbout,signatureServices,signatureAudience} from './signature-home.mjs';
 import {advisoryHome} from './advisory-content.mjs';
 import {finalizeSeo} from './seo.mjs';
@@ -19,6 +20,7 @@ for(const file of ['styles.css','firm.css','dlg-signature.css','dlg-photographic
 fs.cpSync('assets',path.join(out,'assets'),{recursive:true}); fs.cpSync('admin',path.join(out,'admin'),{recursive:true});
 // The old enquiry inbox is retired; the resource admin remains available.
 fs.rmSync(path.join(out,'admin','inbox'),{recursive:true,force:true}); // Retired client workspace is excluded from public deployment.
+await installSectorPhotos(out);
 generateResourceCovers(out);
 fs.mkdirSync(path.join(out,'resources'),{recursive:true});
 for(const file of ['resources.js','resource-model.mjs'])fs.copyFileSync('resources/'+file,out+'/resources/'+file);

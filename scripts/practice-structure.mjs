@@ -123,8 +123,8 @@ export const sectors = [
       "ka": "IT, SaaS, პროგრამული უზრუნველყოფა და AI პროდუქტები",
       "en": "IT, SaaS, software and AI products"
     },
-    "image": "/assets/resources/ai-pilot.webp",
-    "imagePosition": "center 50%",
+    "image": "/assets/sectors/technology.jpg",
+    "imagePosition": "center",
     "scope": {
       "ka": [
         "პროგრამული უზრუნველყოფის შექმნის, ლიცენზირებისა და SaaS ხელშეკრულებები",
@@ -165,8 +165,8 @@ export const sectors = [
       "ka": "ფინტექი, ბანკები, დაზღვევა და საგადახდო მომსახურება",
       "en": "FinTech, banking, insurance and payments"
     },
-    "image": "/assets/london-architecture.jpg",
-    "imagePosition": "50% 30%",
+    "image": "/assets/sectors/financial-services.jpg",
+    "imagePosition": "center",
     "scope": {
       "ka": [
         "საგადახდო მომსახურებისა და ვირტუალური აქტივების ბიზნესმოდელების სამართლებრივი შეფასება",
@@ -212,7 +212,7 @@ export const sectors = [
       "ka": "ონლაინ ვაჭრობა, პლატფორმები და მომხმარებელთა უფლებები",
       "en": "Online commerce, platforms and consumer rights"
     },
-    "image": "/assets/resources/suppliers.webp",
+    "image": "/assets/sectors/commerce.jpg",
     "imagePosition": "center",
     "scope": {
       "ka": [
@@ -253,7 +253,7 @@ export const sectors = [
       "ka": "დაფუძნება, დამფუძნებელთა შეთანხმებები და ინვესტიციები",
       "en": "Formation, founder agreements and investment"
     },
-    "image": "/assets/illustrations/law-technology-sculpture.webp",
+    "image": "/assets/sectors/startups-investors.jpg",
     "imagePosition": "center",
     "scope": {
       "ka": [
@@ -294,8 +294,8 @@ export const sectors = [
       "ka": "საქართველოში საქმიანობის დაწყება და საერთაშორისო გარიგებები",
       "en": "Market entry in Georgia and cross-border transactions"
     },
-    "image": "/assets/london-architecture.jpg",
-    "imagePosition": "center 76%",
+    "image": "/assets/sectors/international.jpg",
+    "imagePosition": "center",
     "scope": {
       "ka": [
         "ორგანიზაციულ-სამართლებრივი ფორმის შერჩევა და კომპანიის რეგისტრაციაში დახმარება",
@@ -347,7 +347,7 @@ export const sectors = [
       "ka": "სპეციალიზებული გარე იურიდიული მხარდაჭერა",
       "en": "Additional specialist legal counsel"
     },
-    "image": "/assets/resources/contracts.webp",
+    "image": "/assets/sectors/legal-teams.jpg",
     "imagePosition": "center",
     "scope": {
       "ka": [

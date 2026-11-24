@@ -199,3 +199,5 @@ for(const [slug,cover] of [['ai-pilot-at-work','ai-pilot.webp'],['technology-con
 assert(!home.includes('LegalStepy')&&!home.includes('6+'),'Unsupported profile copy');
 assert(file('en/business/international/index.html').includes('International Expansion &amp; Client Readiness'),'English must be pre-rendered');
 console.log('DLG public site smoke checks passed: '+total+' checks across '+publicHtml.length+' public HTML pages.');
+
+for(const slug of ["technology","financial-services","commerce","startups-investors","international","legal-teams"]){const imagePath='/assets/sectors/'+slug+'.jpg';assert(home.includes('src="'+imagePath+'"'),'New sector photograph missing '+slug);assert(fs.existsSync(root+imagePath),'Local sector photograph missing '+slug);}

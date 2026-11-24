@@ -1,0 +1,36 @@
+{
+  "license": "https://www.pexels.com/license/",
+  "note": "Illustrative stock photography. Not photographs of DLG clients, employees or premises. Downloaded at build time; served from local deployment paths.",
+  "photos": [
+    {
+      "slug": "technology",
+      "id": 36496927,
+      "url": "https://images.pexels.com/photos/36496927/pexels-photo-36496927.jpeg?auto=compress&cs=tinysrgb&w=1200&h=760&fit=crop"
+    },
+    {
+      "slug": "financial-services",
+      "id": 18111273,
+      "url": "https://images.pexels.com/photos/18111273/pexels-photo-18111273.jpeg?auto=compress&cs=tinysrgb&w=1200&h=760&fit=crop"
+    },
+    {
+      "slug": "commerce",
+      "id": 5418897,
+      "url": "https://images.pexels.com/photos/5418897/pexels-photo-5418897.jpeg?auto=compress&cs=tinysrgb&w=1200&h=760&fit=crop"
+    },
+    {
+      "slug": "startups-investors",
+      "id": 7433823,
+      "url": "https://images.pexels.com/photos/7433823/pexels-photo-7433823.jpeg?auto=compress&cs=tinysrgb&w=1200&h=760&fit=crop"
+    },
+    {
+      "slug": "international",
+      "id": 36539295,
+      "url": "https://images.pexels.com/photos/36539295/pexels-photo-36539295.jpeg?auto=compress&cs=tinysrgb&w=1200&h=760&fit=crop"
+    },
+    {
+      "slug": "legal-teams",
+      "id": 7109315,
+      "url": "https://images.pexels.com/photos/7109315/pexels-photo-7109315.jpeg?auto=compress&cs=tinysrgb&w=1200&h=760&fit=crop"
+    }
+  ]
+}
