@@ -177,7 +177,8 @@ for(const name of publicHtml){
 for(const p of ['business/','business/georgia/','business/international/','business/growing-business/','about/','services/legal-operations/'])file(p+'index.html');
 const aboutProfile=file('about/index.html');
 assert(aboutProfile.includes('Queen Mary')&&aboutProfile.includes('Chevening')&&aboutProfile.includes('LLM with Distinction')&&!aboutProfile.includes('<strong>IAPP · AIGP</strong>'),'Founder credentials must remain on the profile');
-assert(!home.includes('LLM · Distinction')&&!home.includes('Queen Mary')&&!home.includes('Chevening'),'Personal qualifications belong on the profile, not homepage');
+const visibleHome=home.replace(/<script\b[^>]*>[\s\S]*?<\/script>/gi,'');
+assert(!visibleHome.includes('LLM · Distinction')&&!visibleHome.includes('Queen Mary')&&!visibleHome.includes('Chevening'),'Personal qualifications belong on the profile, not visible homepage content');
 assert(aboutProfile.includes('https://arxiv.org/abs/2607.21345'),'Verified research missing from profile');
 for(const [slug,cover] of [['ai-pilot-at-work','ai-pilot.webp'],['technology-contract-review','contracts.webp'],['supplier-data-review','suppliers.webp']]){for(const lang of ['','en/']){const article=file(lang+'resources/'+slug+'/index.html');assert(article.includes('/assets/resources/'+cover),'Article editorial image missing: '+lang+slug);}}
 assert(!home.includes('LegalStepy')&&!home.includes('6+'),'Unsupported profile copy');
