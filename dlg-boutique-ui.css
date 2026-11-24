@@ -586,3 +586,13 @@ html[lang=en] .digital-site .digital-page-hero h1{
 
 .site-nav.law-nav{gap:clamp(10px,1.15vw,18px)}
 @media(min-width:1001px) and (max-width:1300px){.site-header .law-brand-tagline{display:none}}
+
+/* Quiet editorial practice list: no illustrative glyphs or empty icon columns. */
+.dlg-signature-home.dlg-photographic .sig-service-row{grid-template-columns:32px minmax(0,1fr);grid-template-rows:auto auto;gap:8px 15px;padding:23px 0}
+.dlg-signature-home.dlg-photographic .sig-service-number{font-size:11px;font-weight:500;letter-spacing:.055em;color:#64788b;grid-column:1;grid-row:1}
+.dlg-signature-home.dlg-photographic .sig-service-copy{grid-column:2;grid-row:1}
+.dlg-signature-home.dlg-photographic .sig-service-copy h3{font-size:18px;line-height:1.48;overflow-wrap:normal}
+.dlg-signature-home.dlg-photographic .sig-service-copy p{font-size:13px;line-height:1.75;margin-top:8px}
+.dlg-signature-home.dlg-photographic .sig-service-detail{grid-column:2;grid-row:2;padding:2px 0 0}
+.dlg-signature-home.dlg-photographic .sig-service-detail .sig-underlink{font-size:12px}
+@media(max-width:700px){.dlg-signature-home.dlg-photographic .sig-service-row{grid-template-columns:24px minmax(0,1fr);gap:7px 11px;padding:19px 0}.dlg-signature-home.dlg-photographic .sig-service-copy h3{font-size:16px;overflow-wrap:anywhere}.dlg-signature-home.dlg-photographic .sig-service-copy p{font-size:12px}}

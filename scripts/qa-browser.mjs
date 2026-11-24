@@ -65,7 +65,9 @@ try{
     if(width>=1280) check(geometry.hero.height<850,'Oversized desktop hero returned at '+width+': '+geometry.hero.height);
     if(width===390) check(geometry.hero.height<1350,'Oversized mobile hero returned: '+geometry.hero.height);
     check((await page.locator('.sig-service-row a[href^="/services/#area-"]').count())===6,'Grouped service destination links missing at '+width);
-    check((await page.locator('.atelier-service-symbol svg').count())===6,'Subtle practice-area drawings missing at '+width);
+    check((await page.locator('.sig-service-row svg,.atelier-service-symbol').count())===0,'Decorative practice icons must stay removed at '+width);
+    const columns=await page.locator('.sig-service-row').first().evaluate(el=>getComputedStyle(el).gridTemplateColumns.split(' ').length);
+    check(columns===2,'Practice rows must reclaim the empty icon column at '+width);
     check((await page.locator('.dlg-solution').count())===0,'Duplicate solution cards must remain absent');
     check((await page.locator('.dlg-sector-card').count())===6,'Six sector cards missing');
     check((await page.locator('.dlg-advisory-card').count())===3,'Three advisory packages missing at '+width);

@@ -78,7 +78,8 @@ const stripHtml=home.slice(stripStart,stripEnd);
 for(const route of ['/solutions/ai-governance/','/solutions/privacy-review/','/solutions/contract-review/','/solutions/enter-georgia/'])assert(stripHtml.includes('href="'+route+'"'),'Focused service strip destination missing: '+route);
 assert(!/Queen Mary|Chevening|7 წელი|LLM · Distinction/.test(stripHtml),'Personal credentials must not be in service strip');
 assert(englishHome.includes('class="dlg-service-strip"')&&englishHome.includes('Contract review'),'English focused service strip required');
-assert((home.match(/class="atelier-service-symbol"/g)||[]).length===6,'Six restrained line illustrations required');
+assert(!home.includes('class="atelier-service-symbol"')&&!englishHome.includes('class="atelier-service-symbol"'),'Decorative practice icons must stay removed');
+assert(boutiqueCss.includes('grid-template-columns:32px minmax(0,1fr);grid-template-rows:auto auto;gap:8px 15px'),'Icon-free layout must reclaim the empty column');
 for(const path of ['/services/','/business/','/solutions/','/solutions/ai-governance/','/solutions/privacy-review/','/solutions/contract-review/','/solutions/enter-georgia/']){
  assert(home.includes('href="'+path+'"'),'Important client offer missing: '+path);
 }

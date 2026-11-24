@@ -1,18 +1,7 @@
 import {tr} from './portfolio-templates.mjs';
 
-import {practiceGroups,sectors,sectorCards} from './practice-structure.mjs';
+import {practiceGroups,sectorCards} from './practice-structure.mjs';
 
-const atelierMarks={
-  ai:'<circle cx="40" cy="40" r="21"/><circle cx="40" cy="40" r="8"/><path d="M40 6v13M40 61v13M6 40h13M61 40h13M16 16l10 10M54 54l10 10M64 16 54 26M26 54 16 64"/><circle cx="40" cy="6" r="2" fill="currentColor"/><circle cx="74" cy="40" r="2" fill="currentColor"/>',
-  data:'<path d="M20 32V23c0-11 8-19 20-19s20 8 20 19v9"/><rect x="14" y="32" width="52" height="39" rx="2"/><circle cx="40" cy="50" r="6"/><path d="M40 56v7M22 38h36"/>',
-  contracts:'<path d="M21 7h30l10 10v54H21z"/><path d="M51 7v12h10M29 30h24M29 39h24M29 48h15"/><path d="M29 62c7-8 11 4 19-2l5-3"/>',
-  product:'<rect x="8" y="14" width="64" height="51" rx="2"/><path d="M8 27h64M20 20h3M29 20h3M36 39h21M36 47h16"/><rect x="18" y="36" width="11" height="15" rx="1"/>',
-  ip:'<path d="M14 24h37v39H14zM29 11h37v39H54"/><path d="M25 51h17M25 42h20"/><circle cx="56" cy="22" r="5"/>',
-  cyber:'<path d="M40 8 64 18v18c0 16-8 28-24 36-16-8-24-20-24-36V18z"/><path d="m29 40 8 8 16-18"/>',
-  fintech:'<circle cx="21" cy="25" r="10"/><circle cx="59" cy="55" r="10"/><path d="M31 25h24l-7-7M49 55H25l7 7M55 25l-7 7M25 55l7-7"/>',
-  startup:'<path d="M12 65h56M19 65V49h12v16M36 65V35h12v30M53 65V20h12v45"/><path d="m18 34 18-14 13 4 13-15M54 9h8v8"/>'
-};
-const mark=key=>'<span class="atelier-service-symbol" aria-hidden="true"><svg viewBox="0 0 80 80" width="60" height="60" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">'+(atelierMarks[key]||atelierMarks.contracts)+'</svg></span>';
 export function signatureAbout(){
  const focus=[
   ['ხელოვნური ინტელექტის რეგულირება და მართვა','Artificial intelligence law and governance'],
@@ -40,8 +29,7 @@ export function signatureAbout(){
 export function signatureServices(){
  const rows=practiceGroups.map((p,i)=>
   '<article class="sig-service-row" id="practice-'+p.key+'">'+
-  '<span class="sig-service-number">0'+(i+1)+' / 06</span>'+
-  mark(p.icon)+
+  '<span class="sig-service-number">0'+(i+1)+'</span>'+
   '<div class="sig-service-copy">'+tr(p.name.ka,p.name.en,'h3')+tr(p.summary.ka,p.summary.en,'p')+'</div>'+
   '<div class="sig-service-detail"><a class="sig-underlink" href="/services/#area-'+p.key+'" data-site-link>'+
   tr('მიმართულების შესახებ','Explore this area')+'<span aria-hidden="true">↗</span></a></div>'+
