@@ -112,6 +112,11 @@ assert(directory.indexOf('/services/contracts/')<directory.indexOf('/services/fi
 assert(directory.includes('/services/ongoing-legal-support/'),'Ongoing legal support route must be linked');
 const businessDirectory=file('business/index.html');
 assert((businessDirectory.match(/class="dlg-audience-card"/g)||[]).length===5,'Five client groups must remain available on the business page');
+const advisoryDirectory=file('advisory/index.html');
+assert((home.match(/class="dlg-advisory-card"/g)||[]).length===3,'Three AI advisory packages required on home');
+assert((advisoryDirectory.match(/class="dlg-advisory-card"/g)||[]).length===3,'Advisory directory must contain three packages');
+assert(home.includes('href="/advisory/"'),'Advisory navigation missing');
+for(const slug of ['ai-readiness','ai-governance-implementation','external-ai-technology-counsel']){const ka=file('advisory/'+slug+'/index.html'),en=file('en/advisory/'+slug+'/index.html');assert(ka.includes('mailto:digitallawgeorgia@gmail.com?subject='),'Service-specific enquiry missing: '+slug);assert(en.includes('<html lang="en"'),'English advisory page missing: '+slug);}
 const solutionsDirectory=file('solutions/index.html');
 assert(solutionsDirectory.includes('class="solution-card"'),'Dedicated legal solutions catalogue must remain available');
 assert(home.includes('href="/services/"'),'Homepage must link to the full services directory');

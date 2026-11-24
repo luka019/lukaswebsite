@@ -463,3 +463,25 @@ html[lang=en] .digital-site .digital-page-hero h1{
  .dlg-hero-practice-links a{padding-block:8px}
  .dlg-hero-bottom{padding-top:9px;padding-bottom:11px}
 }
+
+/* AI advisory: restrained, accessible, photographic boutique design. */
+.dlg-advisory-home{background:#f5f7f9;padding:clamp(48px,5vw,74px) 0;scroll-margin-top:100px;border-bottom:1px solid #dbe2e9;color:#17324f}
+.dlg-advisory-home .dlg-advisory-heading{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,.85fr);align-items:end;gap:28px;margin-bottom:24px}
+.dlg-advisory-home .dlg-advisory-heading h2{color:#17324f;margin:0}
+.dlg-advisory-heading>p{color:#41556b;font-size:14px;line-height:1.8;margin:0}
+.dlg-advisory-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.dlg-advisory-card{min-width:0;padding:clamp(19px,2.1vw,28px);border:1px solid #d6e0e8;border-top:3px solid #1d567a;background:#fff;display:flex;flex-direction:column;color:#17324f}
+.dlg-advisory-number{font-size:10px;letter-spacing:.12em;color:#48637a;font-weight:650}
+.dlg-advisory-card h3{font-size:clamp(17px,1.55vw,21px);line-height:1.48;margin:12px 0 10px;color:#17324f;overflow-wrap:anywhere}
+.dlg-advisory-summary{font-size:13px;line-height:1.75;color:#41556b;margin:0 0 20px;flex:1}
+.dlg-advisory-commercial{display:flex;flex-direction:column;gap:4px;padding-top:15px;border-top:1px solid #e0e6eb;margin-top:auto}
+.dlg-advisory-price{color:#17324f;font-size:clamp(16px,1.45vw,20px);font-weight:700;line-height:1.4}
+.dlg-advisory-time{font-size:12px;color:#4c6074;line-height:1.6}
+.dlg-advisory-link{display:flex;align-items:center;justify-content:space-between;gap:12px;color:#145d84;text-decoration:none;font-size:13px;font-weight:650;margin-top:18px;padding-top:14px;border-top:1px solid #e0e6eb;min-height:44px}
+.dlg-advisory-link:hover{text-decoration:underline}
+.dlg-advisory-link:focus-visible{outline:2px solid #145d84;outline-offset:4px}
+.dlg-advisory-all{margin-top:22px}
+.dlg-advisory-note{font-size:13px;color:#41556b;max-width:760px;line-height:1.8;margin:20px 0 0}
+.dlg-advisory-feature{margin:0 0 28px}
+.dlg-advisory-detail .button{margin-bottom:10px;max-width:100%;white-space:normal}
+@media(max-width:900px){.dlg-advisory-home .dlg-advisory-heading{grid-template-columns:1fr;gap:10px}.dlg-advisory-grid{grid-template-columns:1fr;gap:12px}.dlg-advisory-card h3{font-size:19px}.dlg-advisory-summary{flex:none}.dlg-advisory-commercial{margin-top:0}}

@@ -67,6 +67,7 @@ try{
     check((await page.locator('.sig-service-row a[href^="/services/"]').count())>=8,'Service destination links missing at '+width);
     check((await page.locator('.atelier-service-symbol svg').count())===8,'Subtle practice-area drawings missing at '+width);
     check((await page.locator('.dlg-solution').count())===4,'Four defined legal solutions missing at '+width);
+    check((await page.locator('.dlg-advisory-card').count())===3,'Three advisory packages missing at '+width);
     check((await page.locator('.dlg-hero-practice-links a').count())===4,'Hero specialist links missing at '+width);
     check((await page.locator('[data-dlg-slide]').count())===4,'Four carousel visuals missing at '+width);
     check((await page.locator('[data-dlg-slide-to]').count())===4,'Four manual slide controls missing at '+width);
@@ -139,7 +140,8 @@ try{
     '/services/georgia-market-entry/','/services/legal-operations/',
     '/business/','/business/georgia/','/business/international/','/about/','/resources/','/privacy/',
     '/solutions/','/solutions/ai-governance/','/solutions/privacy-review/','/solutions/contract-review/','/solutions/enter-georgia/',
-    '/en/services/','/en/services/startups-investment/','/en/about/'
+    '/en/services/','/en/services/startups-investment/','/en/about/',
+    '/advisory/','/advisory/ai-readiness/','/advisory/ai-governance-implementation/','/advisory/external-ai-technology-counsel/','/en/advisory/','/en/advisory/ai-readiness/','/en/advisory/ai-governance-implementation/','/en/advisory/external-ai-technology-counsel/'
   ];
   for(const route of paths){
     const page=await browser.newPage({viewport:{width:390,height:844}});
