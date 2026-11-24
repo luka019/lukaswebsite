@@ -137,7 +137,7 @@ assert(solutionsDirectory.includes('class="solution-card"'),'Dedicated legal sol
 assert(home.includes('href="/services/"'),'Homepage must link to the full services directory');
 assert(!home.includes('class="dlg-audience-card"') && !home.includes('class="dlg-offer-card"'),'Full audience and offer catalogues must not clutter the homepage');
 assert(directory.includes('ფინტექი') && directory.includes('სტარტაპები'),'FinTech and startups must be discoverable in the full directory');
-assert(home.includes('ქართული და საერთაშორისო კომპანიებისთვის'),'Homepage must address Georgian and international businesses');
+assert(home.includes('ქართულ და უცხოურ კომპანიებს'),'Homepage must address Georgian and international businesses');
 assert(home.includes('ციფრული ბიზნესისთვის.'),'Digital business legal positioning missing');
 assert((home.match(/class="sig-service-row"/g)||[]).length===8,'Eight distinct editorial service rows required');
 assert(!fs.existsSync(path.join(root,'client')),'Retired client portal must not be deployed');
@@ -148,7 +148,7 @@ const publicHtml=[];
 function visit(dir){for(const x of fs.readdirSync(dir,{withFileTypes:true})){if(x.name==='admin')continue;const location=path.join(dir,x.name);if(x.isDirectory())visit(location);else if(location.endsWith('.html'))publicHtml.push(location)}}
 visit(root);
 for(const name of publicHtml){const content=fs.readFileSync(name,'utf8');assert(!content.includes('/client/'),'Legacy client route in '+name);assert(!content.includes('კლიენტის სივრცე'),'Legacy client copy in '+name)}
-assert(home.includes('ხელოვნური ინტელექტის სამართალი და მმართველობა'),'AI practice must remain discoverable');
+assert(home.includes('ხელოვნური ინტელექტის რეგულირება და მართვა'),'AI practice must remain discoverable');
 assert(home.includes('href="/services/digital-products/"'),'Digital product support must remain one click away');
 assert(home.includes('https://wa.me/995598451132'),'WhatsApp channel missing');
 assert(home.includes('mailto:digitallawgeorgia@gmail.com'),'Email channel missing');
@@ -180,6 +180,12 @@ assert(aboutProfile.includes('Queen Mary')&&aboutProfile.includes('Chevening')&&
 const visibleHome=home.replace(/<script\b[^>]*>[\s\S]*?<\/script>/gi,'');
 assert(!visibleHome.includes('LLM · Distinction')&&!visibleHome.includes('Queen Mary')&&!visibleHome.includes('Chevening'),'Personal qualifications belong on the profile, not visible homepage content');
 assert(aboutProfile.includes('https://arxiv.org/abs/2607.21345'),'Verified research missing from profile');
+assert(home.includes('დამოუკიდებელი იურიდიული ფირმა')&&home.includes('დაგვიკავშირდით'),'Natural Georgian positioning and CTA missing');
+assert(!visibleHome.includes('ბუტიკური იურიდიული პრაქტიკა')&&!visibleHome.includes('AI-ის მმართველობა'),'Retired literal translations must not return');
+assert(file('services/data-protection/index.html').includes('მონაცემთა დაცვაზე ზეგავლენის შეფასება'),'Statutory data protection terminology missing');
+assert(file('services/virtual-assets/index.html').includes('ვირტუალური აქტივის მომსახურების პროვაიდერი'),'Statutory VASP terminology missing');
+assert(file('advisory/ai-governance-implementation/index.html').includes('პრობლემის შესახებ პასუხისმგებელი პირის ინფორმირების წესი'),'Localised AI governance procedure missing');
+assert(!file('advisory/ai-governance-implementation/index.html').includes('პრობლემების ესკალაცია'),'Retired translation must not return');
 for(const [slug,cover] of [['ai-pilot-at-work','ai-pilot.webp'],['technology-contract-review','contracts.webp'],['supplier-data-review','suppliers.webp']]){for(const lang of ['','en/']){const article=file(lang+'resources/'+slug+'/index.html');assert(article.includes('/assets/resources/'+cover),'Article editorial image missing: '+lang+slug);}}
 assert(!home.includes('LegalStepy')&&!home.includes('6+'),'Unsupported profile copy');
 assert(file('en/business/international/index.html').includes('International Expansion &amp; Client Readiness'),'English must be pre-rendered');

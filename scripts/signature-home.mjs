@@ -1,44 +1,44 @@
 import {tr} from './portfolio-templates.mjs';
 
 const practices = [
- {key:'ai',num:'01',ka:'ხელოვნური ინტელექტის სამართალი და მმართველობა',en:'AI Law & Governance',
-  leadKa:'AI-ის უსაფრთხოდ და პასუხისმგებლობით გამოყენებისთვის საჭირო სამართლებრივი წესები.',leadEn:'Legal advice for accountable development, procurement and use of AI.',
-  pointsKa:['AI-ის გამოყენების პოლიტიკა და რისკების შეფასება','ალგორითმული გადაწყვეტილებები და ადამიანური ზედამხედველობა','EU AI Act-ის გავრცელების შეფასება'],
+ {key:'ai',num:'01',ka:'ხელოვნური ინტელექტის რეგულირება და მართვა',en:'AI Law & Governance',
+  leadKa:'AI-ის უსაფრთხო და პასუხისმგებლიანი გამოყენებისთვის საჭირო სამართლებრივი წესები და პროცედურები.',leadEn:'Legal advice for accountable development, procurement and use of AI.',
+  pointsKa:['AI-ის გამოყენების პოლიტიკა და რისკების შეფასება','ალგორითმული გადაწყვეტილებები და ადამიანური ზედამხედველობა','EU AI Act-ის მოქმედების სფეროს შეფასება'],
   pointsEn:['AI policies and legal risk reviews','Algorithmic decision-making and human oversight','Assessment of EU AI Act scope'],link:'/services/ai/'},
  {key:'data',num:'02',ka:'პერსონალურ მონაცემთა დაცვა',en:'Data Protection & Privacy',
   leadKa:'მონაცემთა დამუშავება, კონფიდენციალურობა და საზღვარგარეთ მონაცემების გადაცემა.',leadEn:'Privacy obligations across processing, suppliers and international transfers.',
-  pointsKa:['შესაბამისობის შეფასება, DPIA და DPO','კონფიდენციალურობის დოკუმენტები და DPA','მონაცემთა ინციდენტებზე სამართლებრივი რეაგირება'],
+  pointsKa:['კანონმდებლობასთან შესაბამისობის შეფასება, DPIA და DPO','კონფიდენციალურობის პოლიტიკა და მონაცემთა დამუშავების ხელშეკრულებები (DPA)','მონაცემთა ინციდენტებზე სამართლებრივი რეაგირება'],
   pointsEn:['Compliance reviews, DPIA and DPO support','Privacy notices and processing agreements','Legal response to data incidents'],link:'/services/data-protection/'},
  {key:'contracts',num:'03',ka:'ტექნოლოგიური და კომერციული ხელშეკრულებები',en:'Technology & Commercial Contracts',
-  leadKa:'კომერციულად გამართული პირობები პროგრამული უზრუნველყოფის, SaaS-ისა და IT მომსახურებისთვის.',leadEn:'Commercial terms for software, SaaS, outsourcing and technology procurement.',
-  pointsKa:['SaaS, SLA და Cloud ხელშეკრულებები','ლიცენზირება, აუთსორსინგი და IP პირობები','ხელშეკრულების მოლაპარაკება და რისკების შეფასება'],
+  leadKa:'პროგრამული უზრუნველყოფის, SaaS-ისა და IT მომსახურების ხელშეკრულებების მომზადება და შეფასება.',leadEn:'Commercial terms for software, SaaS, outsourcing and technology procurement.',
+  pointsKa:['SaaS, SLA და Cloud ხელშეკრულებები','ლიცენზირება, აუთსორსინგი და IP პირობები','სახელშეკრულებო მოლაპარაკებები და რისკების შეფასება'],
   pointsEn:['SaaS terms, SLAs and cloud agreements','Licensing, outsourcing and IP provisions','Negotiation and contractual risk review'],link:'/services/contracts/'},
  {key:'product',num:'04',ka:'ციფრული პროდუქტები და ელექტრონული კომერცია',en:'Digital Products & E-commerce',
-  leadKa:'პროდუქტის გაშვების, ონლაინ მომსახურებისა და პლატფორმის მომხმარებლებთან ურთიერთობის სამართალი.',leadEn:'Launch, operate and grow online products with appropriate terms and compliance.',
+  leadKa:'ციფრული პროდუქტების გაშვებასთან, ონლაინ მომსახურებასა და მომხმარებლებთან ურთიერთობასთან დაკავშირებული სამართლებრივი საკითხები.',leadEn:'Launch, operate and grow online products with appropriate terms and compliance.',
   pointsKa:['Terms of Service, გამოწერები და დაბრუნება','მომხმარებელთა უფლებები და პლატფორმის წესები','ელექტრონული კონტრაქტები და ციფრული რეკლამა'],
   pointsEn:['Terms of Service, subscriptions and refunds','Consumer protection and platform rules','E-contracts and digital advertising'],link:'/services/digital-products/'},
  {key:'ip',num:'05',ka:'პროგრამული უზრუნველყოფა და ინტელექტუალური საკუთრება',en:'Software & Intellectual Property',
   leadKa:'პროგრამულ კოდზე, ციფრულ აქტივებსა და ბრენდზე უფლებების დაცვა.',leadEn:'Clear ownership and licensing of code, software and digital assets.',
-  pointsKa:['IP-ის გადაცემისა და ლიცენზირების დოკუმენტები','პროგრამულ კოდზე უფლებები და Open Source','ბრენდი, სასაქონლო ნიშნები და ტექნოლოგიური აქტივები'],
+  pointsKa:['ინტელექტუალური საკუთრების უფლებების გადაცემისა და ლიცენზირების დოკუმენტები','პროგრამულ კოდზე უფლებები და ღია კოდის პროგრამული უზრუნველყოფა','ბრენდი, სასაქონლო ნიშნები და ტექნოლოგიური აქტივები'],
   pointsEn:['IP assignments and licensing documents','Software ownership and open-source compliance','Brand protection and technology assets'],link:'/services/intellectual-property/'},
  {key:'cyber',num:'06',ka:'კიბერუსაფრთხოების სამართლებრივი საკითხები',en:'Cybersecurity & Digital Risk',
-  leadKa:'ციფრული ინციდენტების, ინფორმაციული უსაფრთხოებისა და მიმწოდებლების პასუხისმგებლობის სამართლებრივი მართვა.',leadEn:'Legal responsibilities around cyber incidents, information security and suppliers.',
-  pointsKa:['სექტორული მოთხოვნები და უსაფრთხოების პოლიტიკები','ინციდენტზე რეაგირების სამართლებრივი გეგმა','კონტრაქტებში უსაფრთხოებისა და პასუხისმგებლობის პირობები'],
+  leadKa:'კიბერინციდენტებთან, ინფორმაციულ უსაფრთხოებასა და მომწოდებლების პასუხისმგებლობასთან დაკავშირებული სამართლებრივი საკითხები.',leadEn:'Legal responsibilities around cyber incidents, information security and suppliers.',
+  pointsKa:['სექტორული მოთხოვნები და უსაფრთხოების პოლიტიკები','ინციდენტზე რეაგირების სამართლებრივი გეგმა','ხელშეკრულების პირობები უსაფრთხოებისა და პასუხისმგებლობის შესახებ'],
   pointsEn:['Sectoral requirements and security policies','Legal incident-response planning','Security and liability clauses'],link:'/services/cyber-digital-risk/'},
  {key:'fintech',num:'07',ka:'ფინტექი და ციფრული აქტივები',en:'FinTech & Digital Assets',
-  leadKa:'საგადახდო მომსახურებებისა და ვირტუალური აქტივების ბიზნესმოდელების სამართლებრივი შეფასება.',leadEn:'Regulatory advice for payments and virtual-asset business models.',
+  leadKa:'საგადახდო მომსახურებისა და ვირტუალური აქტივების სფეროში ბიზნესმოდელების სამართლებრივი შეფასება.',leadEn:'Regulatory advice for payments and virtual-asset business models.',
   pointsKa:['საგადახდო მომსახურების რეგულირება','VASP-ის რეგისტრაციის საჭიროების შეფასება','ფინანსური პარტნიორობის ხელშეკრულებები'],
   pointsEn:['Payment-services regulation','VASP registration perimeter review','Financial partnership agreements'],link:'/services/fintech/'},
  {key:'startup',num:'08',ka:'სტარტაპები, ინვესტიციები და საერთაშორისო ბიზნესი',en:'Startups, Investment & Cross-border Business',
-  leadKa:'ტექნოლოგიური კომპანიის დაფუძნება, დამფუძნებლების ურთიერთობა და ინვესტიციისთვის მზადყოფნა.',leadEn:'Legal foundations for founders, investment and international expansion.',
-  pointsKa:['დამფუძნებლების შეთანხმებები და vesting','IP-ის კუთვნილება და საინვესტიციო დოკუმენტები','საქართველოში ბაზარზე შესვლა და საერთაშორისო კონტრაქტები'],
+  leadKa:'ტექნოლოგიური კომპანიის დაფუძნება, დამფუძნებლებს შორის ურთიერთობის მოწესრიგება და ინვესტიციის მოზიდვისთვის მომზადება.',leadEn:'Legal foundations for founders, investment and international expansion.',
+  pointsKa:['დამფუძნებლების შეთანხმებები და vesting','ინტელექტუალური საკუთრების უფლებების კუთვნილება და საინვესტიციო დოკუმენტები','საქართველოში ბაზარზე შესვლა და საერთაშორისო კონტრაქტები'],
   pointsEn:['Founder agreements and vesting','IP ownership and investment documentation','Georgia market entry and cross-border contracts'],link:'/services/startups-investment/'}
 ];
 
 const scenarios = [
   {
     n:'01',titleKa:'ახალი პროდუქტის გაშვება',titleEn:'Launching a digital product',
-    bodyKa:'პროდუქტის პირობები, მონაცემთა დაცვა, პარტნიორები და საჭირო დოკუმენტები — გაშვებამდე.',
+    bodyKa:'პროდუქტით სარგებლობის პირობები, მონაცემთა დაცვა, პარტნიორებთან ხელშეკრულებები და გაშვებამდე მოსამზადებელი დოკუმენტები.',
     bodyEn:'Customer terms, privacy, commercial partners and legal documents before launch.',
     href:'/services/digital-products/'
   },
@@ -69,22 +69,22 @@ const atelierMarks={
 const mark=key=>'<span class="atelier-service-symbol" aria-hidden="true"><svg viewBox="0 0 80 80" width="60" height="60" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">'+(atelierMarks[key]||atelierMarks.contracts)+'</svg></span>';
 export function signatureAbout(){
  const focus=[
-  ['ხელოვნური ინტელექტის სამართალი და მმართველობა','Artificial intelligence law and governance'],
+  ['ხელოვნური ინტელექტის რეგულირება და მართვა','Artificial intelligence law and governance'],
   ['პერსონალურ მონაცემთა დაცვა','Data protection and privacy'],
   ['ტექნოლოგიური და კომერციული ხელშეკრულებები','Technology and commercial contracts'],
   ['ციფრული ბიზნესი და საერთაშორისო საქმიანობა','Digital business and cross-border matters']
  ];
  return '<section class="sig-about" id="about" aria-labelledby="about-heading"><div class="container sig-about-grid">'+
   '<div class="sig-about-heading"><p class="sig-kicker">'+tr('ჩვენ შესახებ','ABOUT THE PRACTICE')+'</p>'+
-  '<h2 id="about-heading" data-en="Specialist knowledge. Personal attention.">სპეციალიზებული ცოდნა. უშუალო ურთიერთობა.</h2>'+
+  '<h2 id="about-heading" data-en="Specialist knowledge. Personal attention.">ტექნოლოგიური და კომერციული სამართლის სპეციალიზაცია</h2>'+
   '<figure class="dlg-about-portrait"><img src="/assets/luka-shakhkulashvili.png" width="800" height="800" loading="lazy" decoding="async" alt="ლუკა შახყულაშვილი, Digital Law Georgia-ს დამფუძნებელი" data-en-alt="Luka Shakhkulashvili, founder of Digital Law Georgia"><figcaption><span data-en="FOUNDER & LEGAL COUNSEL">დამფუძნებელი · იურისტი</span><strong data-en="Luka Shakhkulashvili">ლუკა შახყულაშვილი</strong></figcaption></figure>'+
   '</div><div class="sig-about-content">'+
-  tr('Digital Law Georgia დამოუკიდებელი ბუტიკური იურიდიული პრაქტიკაა. სპეციალიზებული ვართ ტექნოლოგიებთან, ხელოვნურ ინტელექტთან და ციფრულ ბიზნესთან დაკავშირებულ სამართლებრივ საკითხებზე. ვმუშაობთ კომპანიებთან, სტარტაპების დამფუძნებლებთან და საერთაშორისო ბიზნესთან.',
+  tr('Digital Law Georgia დამოუკიდებელი იურიდიული ფირმაა. ჩვენი სპეციალიზაცია ტექნოლოგიური და კომერციული სამართალი, ხელოვნური ინტელექტის რეგულირება და პერსონალურ მონაცემთა დაცვაა. ვმუშაობთ ქართულ და უცხოურ კომპანიებთან, სტარტაპებსა და მათ დამფუძნებლებთან.',
     'Digital Law Georgia is an independent boutique legal practice dedicated to legal matters arising from technology, artificial intelligence and digital business. We advise established businesses, startup founders and international companies.','p')+
-  tr('კლიენტებს ვთავაზობთ მკაფიო სამართლებრივ შეფასებას, საქმიანობაზე მორგებულ ხელშეკრულებებსა და პრაქტიკულ რეკომენდაციებს. მათ უშუალო ურთიერთობა აქვთ იმ იურისტთან, რომელიც საქმეზე მუშაობს. სამუშაოს ფარგლებს, ვადებსა და საფასურს წინასწარ ვათანხმებთ.',
+  tr('კლიენტებს ვთავაზობთ სამართლებრივ შეფასებას, მათ საქმიანობაზე მორგებულ ხელშეკრულებებსა და პრაქტიკულ რეკომენდაციებს. საქმის მიმდინარეობისას უშუალოდ პასუხისმგებელ იურისტთან ექნებათ კომუნიკაცია. მომსახურების მოცულობას, ვადებსა და ანაზღაურებას წინასწარ ვათანხმებთ.',
     'We provide clear legal assessments, tailored contracts and practical solutions. Clients communicate directly with the lawyer responsible for the work. Scope, timing and fees are agreed in advance.','p')+
   '<div class="atelier-founder-bio"><span class="atelier-founder-bio-rule" aria-hidden="true"></span>'+
-  tr('პრაქტიკას ხელმძღვანელობს ლუკა შახყულაშვილი, ტექნოლოგიური და კომერციული სამართლის იურისტი. პროფესიული გამოცდილებისა და სამეცნიერო საქმიანობის შესახებ ინფორმაცია იხილეთ მის პროფილში.',
+  tr('ფირმას ხელმძღვანელობს ლუკა შახყულაშვილი, ტექნოლოგიური და კომერციული სამართლის იურისტი. მისი პროფესიული გამოცდილებისა და კვლევების შესახებ ინფორმაცია იხილეთ პროფილზე.',
     'The practice is led by Luka Shakhkulashvili, a technology and commercial lawyer. His professional experience and research are described in his profile.','p')+
   '</div><p class="sig-focus-title" data-en="CORE AREAS OF ADVICE">ძირითადი სპეციალიზაცია</p>'+
   '<ul class="sig-focus-list">'+focus.map(([ka,en])=>'<li>'+tr(ka,en)+'</li>').join('')+'</ul>'+
@@ -112,7 +112,7 @@ export function signatureServices(){
   '<div class="sig-section-heading sig-section-heading-split">'+
    '<div><p class="sig-kicker">'+tr('მომსახურებები','PRACTICE AREAS')+'</p>'+
    '<h2 id="services-heading" data-en="Our expertise">ჩვენი სპეციალიზაცია</h2></div>'+
-   tr('სამართლებრივი მხარდაჭერა ტექნოლოგიური პროდუქტების შექმნის, განვითარებისა და ბიზნესის ყოველდღიური საქმიანობისთვის.',
+   tr('იურიდიული მომსახურება ტექნოლოგიური პროდუქტის შექმნიდან კომპანიის ყოველდღიურ საქმიანობამდე.',
       'Legal support for developing technology products, growing businesses and everyday operations.','p')+
   '</div>'+
   '<div class="dlg-practice-toolbar" data-dlg-practice-tools hidden>'+
@@ -124,7 +124,7 @@ export function signatureServices(){
   '<p class="dlg-practice-empty" data-dlg-practice-empty hidden data-en="No matching practice area. Try another keyword or select All.">ასეთი მომსახურება ვერ მოიძებნა. სცადეთ სხვა სიტყვა ან აირჩიეთ „ყველა“.</p>'+
   '<div class="sig-services-footer"><a href="/services/" class="sig-underlink" data-site-link>'+
    tr('მომსახურებების სრული სია','Explore all services')+'<span aria-hidden="true">↗</span></a>'+
-   '<span data-en="Also available: VASP regulatory assessments, ongoing legal support and legal operations.">ასევე: VASP-ის რეგულირება, მუდმივი იურიდიული მხარდაჭერა და იურიდიული პროცესების მართვა.</span>'+
+   '<span data-en="Also available: VASP regulatory assessments, ongoing legal support and legal operations.">ასევე გთავაზობთ ვირტუალური აქტივების რეგულირებასთან დაკავშირებულ კონსულტაციას, მუდმივ იურიდიულ მომსახურებასა და იურიდიული პროცესების მოწესრიგებას.</span>'+
   '</div></div></section>';
 }
 export function signatureAudience() {
@@ -135,7 +135,7 @@ export function signatureAudience() {
  ).join('');
  return '<section class="sig-audience" id="business" aria-labelledby="business-heading"><div class="container">'+
    '<div class="sig-section-heading"><p class="sig-kicker">'+tr('ბიზნესის საჭიროებები','BUSINESS NEEDS')+'</p>'+
-      '<h2 id="business-heading" data-en="The right advice at the right moment.">იურიდიული მხარდაჭერა, როცა ის ყველაზე მეტად გჭირდებათ.</h2></div>'+
+      '<h2 id="business-heading" data-en="The right advice at the right moment.">იურიდიული მხარდაჭერა ბიზნესის განვითარების სხვადასხვა ეტაპზე.</h2></div>'+
    '<div class="sig-audience-list">'+links+'</div>'+
    '<a class="sig-underlink" href="/business/" data-site-link>'+tr('ვის ვეხმარებით','Who we work with')+'<span aria-hidden="true">↗</span></a>'+
   '</div></section>';
