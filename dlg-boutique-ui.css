@@ -596,3 +596,13 @@ html[lang=en] .digital-site .digital-page-hero h1{
 .dlg-signature-home.dlg-photographic .sig-service-detail{grid-column:2;grid-row:2;padding:2px 0 0}
 .dlg-signature-home.dlg-photographic .sig-service-detail .sig-underlink{font-size:12px}
 @media(max-width:700px){.dlg-signature-home.dlg-photographic .sig-service-row{grid-template-columns:24px minmax(0,1fr);gap:7px 11px;padding:19px 0}.dlg-signature-home.dlg-photographic .sig-service-copy h3{font-size:16px;overflow-wrap:anywhere}.dlg-signature-home.dlg-photographic .sig-service-copy p{font-size:12px}}
+
+/* Legal AI consulting: understated typography without decorative icons. */
+.dlg-advisory-directory .dlg-advisory-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+.dlg-legal-ai-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:36px}
+.dlg-legal-ai-row{display:grid;grid-template-columns:28px minmax(0,1fr);gap:12px;align-items:start;border-top:1px solid #d4dde4;padding:20px 0;min-width:0}
+.dlg-legal-ai-row>.mono{font-size:11px;color:#61768a;padding-top:4px}
+.dlg-legal-ai-row h3{font-size:17px;line-height:1.45;margin:0 0 7px;color:#17324f}
+.dlg-legal-ai-row p{font-size:13px;line-height:1.75;margin:0;color:#526578}
+.dlg-legal-ai-safeguards .digital-list{max-width:920px}
+@media(max-width:700px){.dlg-advisory-directory .dlg-advisory-grid,.dlg-legal-ai-list{grid-template-columns:1fr}.dlg-legal-ai-row{grid-template-columns:23px minmax(0,1fr);gap:9px;padding:17px 0}}

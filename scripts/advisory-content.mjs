@@ -144,11 +144,61 @@ export const advisoryPackages = [
       "ka": "წინასწარ ვათანხმებთ სამუშაოს მოცულობას, პასუხის გაცემის ვადასა და თანამშრომლობის სხვა პირობებს. მომსახურება არ გულისხმობს სამუშაოს შეუზღუდავ მოცულობას ან დღე-ღამის ნებისმიერ დროს კონსულტაციას.",
       "en": "Scope, availability and engagement terms are agreed in advance. This is not unlimited support or a 24-hour service."
     }
+  },
+  {
+    "id": "legal-ai-automation",
+    "code": "04",
+    "name": {
+      "ka": "იურიდიულ საქმიანობაში AI-ის დანერგვა და ავტომატიზაცია",
+      "en": "Legal AI & Automation Consulting"
+    },
+    "intro": {
+      "ka": "იურიდიულ ფირმებსა და კომპანიების იურიდიულ სამსახურებს ვეხმარებით AI ინსტრუმენტების შერჩევაში, სამუშაო პროცესების ავტომატიზაციასა და მათ საჭიროებებზე მორგებული AI სისტემების საპილოტე დანერგვაში.",
+      "en": "We help law firms and in-house legal teams select AI tools, automate workflows and pilot AI systems tailored to their needs."
+    },
+    "timing": {
+      "ka": "პროექტის მოცულობის მიხედვით",
+      "en": "Timeline based on project scope"
+    },
+    "scope": {
+      "ka": [
+        "იურიდიული სამუშაო პროცესების შეფასება და ავტომატიზაციის შესაძლებლობების გამოვლენა",
+        "AI-ის დანერგვის სტრატეგიისა და სამოქმედო გეგმის შემუშავება",
+        "AI ინსტრუმენტების შერჩევა, შეფასება და დანერგვაში დახმარება",
+        "ინდივიდუალური AI აგენტების მოთხოვნების განსაზღვრა და საპილოტე გამოცდა",
+        "იურისტების პრაქტიკული ტრენინგი და დანერგვის შემდგომი მხარდაჭერის დაგეგმვა"
+      ],
+      "en": [
+        "Review legal workflows and identify automation opportunities",
+        "Develop an AI adoption strategy and roadmap",
+        "Select and assess AI tools and support implementation",
+        "Define requirements for customised AI agents and pilot the agreed solution",
+        "Provide practical training and plan post-implementation support"
+      ]
+    },
+    "outputs": {
+      "ka": [
+        "სამუშაო პროცესების აღწერა და რეკომენდაციები პრიორიტეტების მიხედვით",
+        "დანერგვის გეგმა და ტექნიკური მოთხოვნები",
+        "შეთანხმებული საპილოტე გადაწყვეტა, თუ ტექნიკური დანერგვა პროექტის ფარგლებშია გათვალისწინებული",
+        "გამოყენების ინსტრუქცია, ტესტირების კრიტერიუმები და გადამოწმების პროცედურები"
+      ],
+      "en": [
+        "Workflow map and prioritised recommendations",
+        "Implementation roadmap and technical requirements",
+        "Agreed pilot where technical delivery is in scope",
+        "Operating guidance, test criteria and review procedures"
+      ]
+    },
+    "boundary": {
+      "ka": "ტექნიკური დანერგვის მოცულობას, ინტეგრაციებსა და მხარდაჭერის პირობებს ცალკე ვათანხმებთ. სამართლებრივი შეფასების საბოლოო შედეგს იურისტი ამოწმებს. AI-ის გამოყენება არ იძლევა უშეცდომო შედეგის ან კანონმდებლობასთან სრული შესაბამისობის გარანტიას.",
+      "en": "Technical implementation, integrations and support are agreed separately. A lawyer reviews the final legal assessment. AI use does not guarantee error-free output or full regulatory compliance."
+    }
   }
 ];
 const escapeHtml = value => String(value).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[c]));
 const bi=(tag,value,cls='')=>'<'+tag+(cls?' class="'+cls+'"':'')+' data-en="'+escapeHtml(value.en)+'">'+escapeHtml(value.ka)+'</'+tag+'>';
-export const advisoryIntro={ka:'ხელოვნური ინტელექტის დანერგვის შეფასება, მართვის წესების შემუშავება და მუდმივი იურიდიული მხარდაჭერა. მომსახურების პირობებს თითოეულ კომპანიასთან ინდივიდუალურად ვათანხმებთ.',en:'From AI readiness to implementation and ongoing legal support. We agree the scope and engagement terms for each organisation.'};
+export const advisoryIntro={ka:'ხელოვნური ინტელექტის გამოყენების შეფასება, მართვის წესების შემუშავება, იურიდიული პროცესების ავტომატიზაცია და მუდმივი იურიდიული მხარდაჭერა. მომსახურების პირობებს თითოეულ კომპანიასთან ინდივიდუალურად ვათანხმებთ.',en:'AI readiness, governance, legal workflow automation and ongoing legal support. We agree the scope and engagement terms for each organisation.'};
 export function advisoryCards(){
  return '<div class="dlg-advisory-grid">'+advisoryPackages.map(p=>'<article class="dlg-advisory-card"><div class="dlg-advisory-number">0'+Number(p.code)+' / ADVISORY</div>'+bi('h3',p.name)+bi('p',p.intro,'dlg-advisory-summary')+'<div class="dlg-advisory-commercial">'+bi('span',p.timing,'dlg-advisory-time')+'</div><a class="dlg-advisory-link" data-site-link href="/advisory/'+p.id+'/"><span data-en="Explore service">მომსახურების შესახებ</span><span aria-hidden="true">↗</span></a></article>').join('')+'</div>';
 }

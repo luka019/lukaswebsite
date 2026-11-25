@@ -70,7 +70,7 @@ try{
     check(columns===2,'Practice rows must reclaim the empty icon column at '+width);
     check((await page.locator('.dlg-solution').count())===0,'Duplicate solution cards must remain absent');
     check((await page.locator('.dlg-sector-card').count())===6,'Six sector cards missing');
-    check((await page.locator('.dlg-advisory-card').count())===3,'Three advisory packages missing at '+width);
+    check((await page.locator('.dlg-advisory-card').count())===4,'Four advisory directions missing at '+width);
     check((await page.locator('.dlg-service-strip .dlg-hero-practice-links a').count())===4,'Four service strip links missing at '+width);
     check((await page.locator('.dlg-credentials, .sig-proofbar').count())===0,'Old personal credentials strip returned at '+width);
     check(await page.locator('.dlg-service-strip').evaluate(el=>getComputedStyle(el).backgroundColor)==='rgb(244, 242, 237)','Ivory service strip missing at '+width);
@@ -140,7 +140,7 @@ try{
     ...['technology','financial-services','commerce','startups-investors','international','legal-teams'].flatMap(slug=>['/business/sectors/'+slug+'/','/en/business/sectors/'+slug+'/']),
     '/solutions/','/solutions/ai-governance/','/solutions/privacy-review/','/solutions/contract-review/','/solutions/enter-georgia/',
     '/en/services/','/en/services/startups-investment/','/en/about/',
-    '/advisory/','/advisory/ai-readiness/','/advisory/ai-governance-implementation/','/advisory/external-ai-technology-counsel/','/en/advisory/','/en/advisory/ai-readiness/','/en/advisory/ai-governance-implementation/','/en/advisory/external-ai-technology-counsel/'
+    '/advisory/','/advisory/ai-readiness/','/advisory/ai-governance-implementation/','/advisory/external-ai-technology-counsel/','/en/advisory/','/en/advisory/ai-readiness/','/en/advisory/ai-governance-implementation/','/en/advisory/external-ai-technology-counsel/','/advisory/legal-ai-automation/','/en/advisory/legal-ai-automation/'
   ];
   for(const route of paths){
     const page=await browser.newPage({viewport:{width:390,height:844}});

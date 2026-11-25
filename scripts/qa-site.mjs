@@ -134,11 +134,17 @@ for(const slug of specialist){assert(directory.includes('href="/services/'+slug+
 for(const slug of ['technology','financial-services','commerce','startups-investors','international','legal-teams']){const route='/business/sectors/'+slug+'/';assert(home.includes('href="'+route+'"')&&businessDirectory.includes('href="'+route+'"'),'Sector discoverability missing '+slug);const ka=file(route.slice(1)+'index.html'),en=file('en'+route+'index.html');assert(ka.includes('class="deliverable-card dlg-sector-detail"')&&ka.includes('class="practice-card"'),'Sector content missing '+slug);assert(en.includes('<html lang="en"')&&en.includes('class="practice-card"'),'English sector missing '+slug);assert(en.includes('href="/en/services/'),'English specialist links missing in '+slug);}
 assert(home.includes('data-en="Sectors">ბიზნესსექტორები</a>'),'Sector menu item missing');
 const advisoryDirectory=file('advisory/index.html');
-assert((home.match(/class="dlg-advisory-card"/g)||[]).length===3,'Three AI advisory packages required on home');
-assert((advisoryDirectory.match(/class="dlg-advisory-card"/g)||[]).length===3,'Advisory directory must contain three packages');
+const legalAi=file('advisory/legal-ai-automation/index.html'),legalAiEn=file('en/advisory/legal-ai-automation/index.html');
+for(const page of [home,advisoryDirectory,file('business/sectors/legal-teams/index.html')])assert(page.includes('href="/advisory/legal-ai-automation/"'),'Legal AI service discoverability missing');
+assert(englishHome.includes('href="/en/advisory/legal-ai-automation/"'),'English legal AI link missing');
+for(const page of [legalAi,legalAiEn]){assert((page.match(/class="dlg-legal-ai-row"/g)||[]).length===10,'Six illustrative use cases and four steps required');assert(page.includes('class="digital-section digital-wash dlg-legal-ai-safeguards"'),'Safeguards required');}
+assert(legalAi.includes('სამართლებრივი გადაწყვეტილების მიღება იურისტის მიერ'),'Human legal review required');
+assert(legalAiEn.includes('AI use does not guarantee error-free output or full regulatory compliance'),'Service limitations required');
+assert((home.match(/class="dlg-advisory-card"/g)||[]).length===4,'Four AI advisory directions required on home');
+assert((advisoryDirectory.match(/class="dlg-advisory-card"/g)||[]).length===4,'Advisory directory must contain four directions');
 assert(home.includes('href="/advisory/"'),'Advisory navigation missing');
-for(const slug of ['ai-readiness','ai-governance-implementation','external-ai-technology-counsel']){const ka=file('advisory/'+slug+'/index.html'),en=file('en/advisory/'+slug+'/index.html');assert(ka.includes('mailto:digitallawgeorgia@gmail.com?subject='),'Service-specific enquiry missing: '+slug);assert(en.includes('<html lang="en"'),'English advisory page missing: '+slug);}
-for(const route of ['index.html','en/index.html','advisory/index.html','en/advisory/index.html',...['ai-readiness','ai-governance-implementation','external-ai-technology-counsel'].flatMap(slug=>['advisory/'+slug+'/index.html','en/advisory/'+slug+'/index.html'])]){const page=file(route);assert(!/dlg-advisory-price|₾|\bGEL\s*[\d,]+|Indicative starting fee/i.test(page),'Public advisory fee leaked: '+route);}
+for(const slug of ['ai-readiness','ai-governance-implementation','external-ai-technology-counsel','legal-ai-automation']){const ka=file('advisory/'+slug+'/index.html'),en=file('en/advisory/'+slug+'/index.html');assert(ka.includes('mailto:digitallawgeorgia@gmail.com?subject='),'Service-specific enquiry missing: '+slug);assert(en.includes('<html lang="en"'),'English advisory page missing: '+slug);}
+for(const route of ['index.html','en/index.html','advisory/index.html','en/advisory/index.html',...['ai-readiness','ai-governance-implementation','external-ai-technology-counsel','legal-ai-automation'].flatMap(slug=>['advisory/'+slug+'/index.html','en/advisory/'+slug+'/index.html'])]){const page=file(route);assert(!/dlg-advisory-price|₾|\bGEL\s*[\d,]+|Indicative starting fee/i.test(page),'Public advisory fee leaked: '+route);}
 const solutionsDirectory=file('solutions/index.html');
 assert(solutionsDirectory.includes('class="solution-card"'),'Dedicated legal solutions catalogue must remain available');
 assert(home.includes('href="/services/"'),'Homepage must link to the full services directory');

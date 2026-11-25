@@ -340,8 +340,8 @@ export const sectors = [
       "en": "Specialist advice · Ongoing support"
     },
     "summary": {
-      "ka": "კომპანიის შიდა იურიდიულ სამსახურს ვთავაზობთ დამატებით სპეციალიზებულ მხარდაჭერას ტექნოლოგიური სამართლის, AI-ისა და პერსონალურ მონაცემთა დაცვის საკითხებზე.",
-      "en": "Additional specialist legal capacity for in-house legal teams on technology, AI and data protection."
+      "ka": "იურიდიულ ფირმებსა და კომპანიების იურიდიულ სამსახურებს ვთავაზობთ სპეციალიზებულ მხარდაჭერას ტექნოლოგიური სამართლის, AI-ის გამოყენებისა და სამუშაო პროცესების ავტომატიზაციის საკითხებზე.",
+      "en": "Specialist support for law firms and in-house legal teams in technology law, AI adoption and legal workflow automation."
     },
     "short": {
       "ka": "სპეციალიზებული გარე იურიდიული მხარდაჭერა",
@@ -369,6 +369,13 @@ export const sectors = [
       "contracts",
       "ai",
       "data-protection"
+    ],
+    "links": [
+      {
+        "href": "/advisory/legal-ai-automation/",
+        "ka": "იურიდიულ საქმიანობაში AI-ის დანერგვა და ავტომატიზაცია",
+        "en": "Legal AI & Automation Consulting"
+      }
     ]
   }
 ];
