@@ -117,6 +117,16 @@ for(const name of publicHtml){
 }
 for(const p of ['business/','business/georgia/','business/international/','business/growing-business/','about/','services/legal-operations/'])file(p+'index.html');
 const aboutProfile=file('about/index.html');
+const aboutEn=file('en/about/index.html');
+for(const page of [aboutProfile,aboutEn]){assert(page.includes('LegalTech Georgia')&&page.includes('LegalStepy'),'Founder initiatives missing');assert(page.includes('https://legaltechgeorgia.com/about'),'Public LTG profile reference missing');for(const p of ['founder-portrait','london-tech-week-2026','chevening-conference-2026'])assert(page.includes('/assets/profile/'+p+'.webp'),'Profile photo missing '+p);}
+assert(aboutProfile.includes('თანადამფუძნებელი და აღმასრულებელი დირექტორი')&&aboutEn.includes('Co-Founder &amp; Executive Director'),'LTG role missing');
+assert(aboutProfile.includes('იურიდიული მიმართულების ხელმძღვანელი')&&aboutEn.includes('Head of Legal'),'LegalStepy role missing');
+for(const p of ['founder-portrait','london-tech-week-2026','chevening-conference-2026']){const b=fs.readFileSync(path.join(root,'assets/profile/'+p+'.webp'));assert(b.toString('ascii',0,4)==='RIFF'&&b.toString('ascii',8,12)==='WEBP','Invalid portrait asset '+p);}
+assert(home.includes('class="home-founder-reference"')&&englishHome.includes('class="home-founder-reference"'),'Compact homepage founder missing');
+assert(directory.includes('id="engagement-fees"')&&directoryEn.includes('id="engagement-fees"'),'Fee arrangements missing');
+assert((directory.match(/class="dlg-fee-model"/g)||[]).length===3&&(directoryEn.match(/class="dlg-fee-model"/g)||[]).length===3,'Three fee models required');
+assert(!/₾|\bGEL\s*[\d,]+/.test(directory)&&!/₾|\bGEL\s*[\d,]+/.test(directoryEn),'No numerical fees until approved');
+assert(home.includes('href="/services/#engagement-fees"')&&englishHome.includes('href="/en/services/#engagement-fees"'),'Fee information discoverability missing');
 assert(aboutProfile.includes('Queen Mary')&&aboutProfile.includes('Chevening')&&aboutProfile.includes('LLM with Distinction')&&!aboutProfile.includes('<strong>IAPP · AIGP</strong>'),'Founder credentials must remain on the profile');
 
 assert(!visibleHome.includes('LLM · Distinction')&&!visibleHome.includes('Queen Mary')&&!visibleHome.includes('Chevening'),'Personal qualifications belong on the profile, not visible homepage content');
