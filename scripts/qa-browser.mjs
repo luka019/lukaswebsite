@@ -40,8 +40,10 @@ try{
     check(response.status()===200,'Homepage HTTP error');
     await overflow(page,width,'/');
     check((await page.locator('.practice-card').count())===6,'Six practice cards missing');
-    await page.locator('.practice-human-photo').scrollIntoViewIfNeeded();
-    check(await page.locator('.practice-human-photo img').evaluate(i=>i.complete&&i.naturalWidth>0),'Photo failed');
+    await page.locator('.practice-editorial-photo').scrollIntoViewIfNeeded();
+    check(await page.locator('.practice-editorial-photo img').evaluate(i=>i.complete&&i.naturalWidth>0),'Architecture image failed');
+    await page.locator('.contract-editorial-photo').scrollIntoViewIfNeeded();
+    check(await page.locator('.contract-editorial-photo').evaluate(i=>i.complete&&i.naturalWidth>0),'Legal workspace image failed');
     await page.locator('[data-hero-next]').click();
     check((await page.locator('#hero-counter').innerText()).trim()==='02 / 03','Hero next failed');
     await page.locator('[data-hero-prev]').click();

@@ -22,7 +22,7 @@ for(const [page,lang] of [[home,'ka'],[englishHome,'en']]){
  assert((page.match(/data-hero-scene="\d+"/g)||[]).length===3,'Three manually controlled hero scenes required');
  assert((page.match(/data-filter="(?:all|ai|data|contracts)"/g)||[]).length===4,'Four article filters required');
  assert(page.includes('class="enquiry-form"')&&page.includes('id="enquiry-mailto"'),'Enquiry composer missing');
- assert(page.includes('src="/assets/editorial/consultation.webp"')&&page.includes('src="/assets/editorial/contract-work.webp"'),'Human editorial imagery missing');
+ assert(page.includes('src="/assets/editorial/architectural-interior.webp"')&&page.includes('src="/assets/editorial/legal-technology-workspace.webp"'),'Architectural and legal workspace imagery missing');
  assert(!page.includes('images.pexels.com')&&!page.includes('r0lodtw2w'),'No external preview or stock-image dependency');
  assert(page.includes('href="/" data-language-link="ka"')||page.includes('data-language-link="ka"'),'Georgian language link required');
  assert(page.includes('href="/en/"'),'Static English language link required');
@@ -30,7 +30,7 @@ for(const [page,lang] of [[home,'ka'],[englishHome,'en']]){
  assert(page.includes('href="https://arxiv.org/abs/2607.21345"'),'Research link missing');
  assert(page.includes('href="mailto:digitallawgeorgia@gmail.com"')&&page.includes('https://wa.me/995598451132'),'Contact links missing');
 }
-for(const p of ['assets/editorial/consultation.webp','assets/editorial/contract-work.webp']){const b=fs.readFileSync(path.join(root,p));assert(b.toString('ascii',0,4)==='RIFF'&&b.toString('ascii',8,12)==='WEBP'&&b.length>10000,'Invalid local image '+p)}
+for(const p of ['assets/editorial/architectural-interior.webp','assets/editorial/legal-technology-workspace.webp']){const b=fs.readFileSync(path.join(root,p));assert(b.toString('ascii',0,4)==='RIFF'&&b.toString('ascii',8,12)==='WEBP'&&b.length>10000,'Invalid local image '+p)}
 assert(englishHome.includes('Legal counsel')&&englishHome.includes('for the digital economy.'),'English hero must be server rendered');
 assert(englishHome.includes('Risk assessment and action plan'),'English advisory default must be static');
 assert(home.includes('რისკების შეფასება და სამოქმედო გეგმა')&&home.includes('უსაფრთხო არხის შეთანხმებამდე'),'Default advice and enquiry privacy instructions missing');
@@ -145,3 +145,5 @@ assert(file('en/business/international/index.html').includes('International Expa
 console.log('DLG public site smoke checks passed: '+total+' checks across '+publicHtml.length+' public HTML pages.');
 
 for(const slug of ["technology","financial-services","commerce","startups-investors","international","legal-teams"]){const imagePath='/assets/sectors/'+slug+'.jpg';assert(businessDirectory.includes('src="'+imagePath+'"'),'Sector directory photograph missing '+slug);assert(fs.existsSync(root+imagePath),'Local sector photograph missing '+slug);}
+
+for(const p of ['assets/editorial/consultation.webp','assets/editorial/contract-work.webp']){assert(!fs.existsSync(path.join(root,p)),'Superseded human image must not be deployed: '+p);assert(!home.includes(p)&&!englishHome.includes(p),'Superseded image reference');}
