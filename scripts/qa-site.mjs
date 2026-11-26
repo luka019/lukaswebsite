@@ -42,7 +42,7 @@ for(const [page,lang] of [[home,'ka'],[englishHome,'en']]){
 }
 for(const slug of ['practice-collaboration','legal-technology-review']){const photo=fs.readFileSync(path.join(root,'assets/editorial/'+slug+'.jpg'));assert(photo.length>10000&&photo[0]===255&&photo[1]===216,'Invalid editorial photograph '+slug);}
 assert(hybridJs.includes('function heroGo(delta)')&&hybridJs.includes('data-hero-next'),'Original hero controls required');
-assert(englishHome.includes('Legal counsel')&&englishHome.includes('for the digital economy.'),'English hero must be server rendered');
+assert(englishHome.includes('Legal services')&&englishHome.includes('for digital businesses.')&&englishHome.includes('We help Georgian and international companies with technology contracts, AI adoption, data protection and setting up operations in Georgia.'),'English hero must be server rendered');
 assert(englishHome.includes('Risk assessment and action plan'),'English advisory default must be static');
 assert(home.includes('რისკების შეფასება და სამოქმედო გეგმა')&&home.includes('უსაფრთხო არხის შეთანხმებამდე'),'Default advice and enquiry privacy instructions missing');
 assert(!home.includes('LegalStepy')&&!home.includes('Sopho'),'Independent brand required');

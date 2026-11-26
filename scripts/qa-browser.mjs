@@ -67,7 +67,7 @@ try{
     check(await page.locator('#enquiry-result').isVisible(),'Local enquiry draft missing');check((await page.locator('#enquiry-mailto').getAttribute('href')).includes('test%40example.invalid'),'Email draft missing input');check(requests.length===before,'Enquiry form must not initiate a network request');
     await page.locator('[data-language-link="en"]').click();await page.waitForURL(base+'/en/');
     check((await page.locator('html').getAttribute('lang'))==='en','English language link failed');
-    check((await page.locator('h1').innerText()).includes('Legal counsel'),'English headline missing');
+    check((await page.locator('h1').innerText()).replace(/\s+/g,' ').trim()==='Legal services for digital businesses.','English headline missing');
     await page.locator('[data-tab="2"]').click();check((await page.locator('#stage-link').getAttribute('href'))==='/en/advisory/legal-ai-automation/','English advisory route failed');
     await page.locator('[data-language-link="ka"]').click();await page.waitForURL(base+'/');
     await overflow(page,width,'/');check(errors.length===0,'Page script errors '+errors.join('; '));
@@ -136,7 +136,7 @@ try{
   const noJs=await browser.newPage({javaScriptEnabled:false,viewport:{width:390,height:844}});
   await noJs.goto(base+'/en/',{waitUntil:'networkidle'});
   check((await noJs.locator('html').getAttribute('lang'))==='en','English no-JS HTML language failed');
-  check((await noJs.locator('.hero h1').innerText()).includes('Legal counsel'),'English content requires JavaScript');
+  check((await noJs.locator('.hero h1').innerText()).replace(/\s+/g,' ').trim()==='Legal services for digital businesses.','English content requires JavaScript');
   check((await noJs.locator('.practice-card').count())===6,'No-JS service directory incomplete');
   await noJs.goto(base+'/en/business/georgia/');
   await noJs.locator('[data-language-link="ka"]').click();
