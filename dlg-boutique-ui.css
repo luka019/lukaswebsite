@@ -606,3 +606,7 @@ html[lang=en] .digital-site .digital-page-hero h1{
 .dlg-legal-ai-row p{font-size:13px;line-height:1.75;margin:0;color:#526578}
 .dlg-legal-ai-safeguards .digital-list{max-width:920px}
 @media(max-width:700px){.dlg-advisory-directory .dlg-advisory-grid,.dlg-legal-ai-list{grid-template-columns:1fr}.dlg-legal-ai-row{grid-template-columns:23px minmax(0,1fr);gap:9px;padding:17px 0}}
+
+/* Shared interior palette aligned to approved editorial homepage. */
+:root{--dlg-ui-navy:#17334c;--dlg-ui-ink:#17334c;--dlg-ui-blue:#2865a6;--dlg-ui-blue-soft:#dce8f3;--dlg-ui-mist:#f2f7fc;--dlg-ui-line:#d9e3ed;--dlg-ui-muted:#52677a;--dlg-ui-brass:#2865a6;--dlg-navy:#17334c;--dlg-dark:#10283c;--dlg-blue:#2865a6;--dlg-sand:#9db6d0;--firm-navy:#17334c;--firm-blue:#2865a6;--accent:#2865a6;--line:#d9e3ed}
+.digital-site .digital-wash{background:#f2f7fc}.site-header .law-header-cta{background:#17334c;border-color:#17334c}.site-header .law-brand-monogram{display:block;color:#17334c;font-size:29px;font-weight:750;letter-spacing:-.09em}.site-header .law-brand-text strong{font-family:Arial,sans-serif;font-size:12px;font-weight:700;letter-spacing:.03em}.site-header .law-brand-text small{font-size:10px;letter-spacing:.14em;color:#17334c}.site-header .law-brand-tagline{color:#52677a}.site-footer{background:#10283c}@media(max-width:600px){.site-header .law-brand-monogram{font-size:25px}.site-header .law-brand-text strong{font-size:11px}.site-header .law-brand-text small{font-size:9px}}

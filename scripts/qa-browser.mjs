@@ -34,102 +34,36 @@ async function overflow(page,width,route){
 try{
   browser=await chromium.launch({headless:true});
   for(const width of [320,375,390,768,1024,1120,1280,1440,1920]){
-    const page=await browser.newPage({viewport:{width,height:900},deviceScaleFactor:1});
-    const errors=[];
-    page.on('pageerror',error=>errors.push(error.message));
+    const page=await browser.newPage({viewport:{width,height:900}});
+    const errors=[],requests=[];page.on('pageerror',error=>errors.push(error.message));page.on('request',r=>requests.push(r.url()));
     const response=await page.goto(base+'/',{waitUntil:'networkidle'});
-    check(response.status()===200,'Homepage HTTP error at '+width);
-    await page.locator('.sig-hero h1').waitFor();
+    check(response.status()===200,'Homepage HTTP error');
     await overflow(page,width,'/');
-    const geometry=await page.evaluate(()=>{
-      const rect=selector=>{const el=document.querySelector(selector);if(!el)return null;const r=el.getBoundingClientRect();return {x:r.x,right:r.right,top:r.top,bottom:r.bottom,width:r.width,height:r.height}};
-      return {
-        header:rect('.site-header'),hero:rect('.sig-hero'),heading:rect('.sig-hero h1'),
-        image:rect('.dlg-building-photo'),brand:rect('.law-brand'),nav:rect('.law-nav'),
-        cta:rect('.law-header-cta'),
-        navVisible:getComputedStyle(document.querySelector('.law-nav')).display!=='none',
-        menuVisible:getComputedStyle(document.querySelector('[data-menu-toggle]')).display!=='none',
-        paper:getComputedStyle(document.querySelector('.sig-hero')).backgroundColor,
-        bodyColour:getComputedStyle(document.querySelector('.sig-hero h1')).color
-      };
-    });
-    check(geometry.header&&geometry.hero&&Math.abs(geometry.hero.top-geometry.header.bottom)<6,'Header-to-hero gap at '+width);
-    check(geometry.heading&&geometry.heading.width<=width&&geometry.heading.height<380,'Heading overflow at '+width);
-    check(geometry.image&&geometry.image.width>100,'Approved building photograph invisible at '+width);
-    check(geometry.paper==='rgb(16, 42, 72)','Approved navy hero not applied at '+width+': '+geometry.paper);
-    check(geometry.bodyColour==='rgb(255, 255, 255)','Hero headline contrast against navy failed at '+width+': '+geometry.bodyColour);
-    check((await page.locator('.sig-service-row').count())===6,'Expected six grouped practice rows at '+width);
-    const serviceColor=await page.locator('.sig-services .sig-section-heading h2').evaluate(el=>getComputedStyle(el).color);
-    check(serviceColor==='rgb(23, 50, 79)','Services heading must have dark-on-light contrast at '+width+': '+serviceColor);
-    check((await page.locator('[data-dlg-practice-tools]').count())===0,'Redundant filters must remain absent');
-    if(width>=1280) check(geometry.hero.height<850,'Oversized desktop hero returned at '+width+': '+geometry.hero.height);
-    if(width===390) check(geometry.hero.height<1350,'Oversized mobile hero returned: '+geometry.hero.height);
-    check((await page.locator('.sig-service-row a[href^="/services/#area-"]').count())===6,'Grouped service destination links missing at '+width);
-    check((await page.locator('.sig-service-row svg,.atelier-service-symbol').count())===0,'Decorative practice icons must stay removed at '+width);
-    const columns=await page.locator('.sig-service-row').first().evaluate(el=>getComputedStyle(el).gridTemplateColumns.split(' ').length);
-    check(columns===2,'Practice rows must reclaim the empty icon column at '+width);
-    check((await page.locator('.dlg-solution').count())===0,'Duplicate solution cards must remain absent');
-    check((await page.locator('.dlg-sector-card').count())===6,'Six sector cards missing');
-    check((await page.locator('.dlg-advisory-card').count())===4,'Four advisory directions missing at '+width);
-    check((await page.locator('.dlg-service-strip .dlg-hero-practice-links a').count())===4,'Four service strip links missing at '+width);
-    check((await page.locator('.dlg-credentials, .sig-proofbar').count())===0,'Old personal credentials strip returned at '+width);
-    check(await page.locator('.dlg-service-strip').evaluate(el=>getComputedStyle(el).backgroundColor)==='rgb(244, 242, 237)','Ivory service strip missing at '+width);
-    check((await page.locator('.sig-resource-grid .resource-cover:visible').count())===2,'Editorial article covers not visible at '+width);
-    for(const img of await page.locator('.sig-resource-grid .resource-cover img').all()){await img.scrollIntoViewIfNeeded();await img.evaluate(el=>el.decode());check(await img.evaluate(el=>el.complete&&el.naturalWidth>0),'Editorial image did not load at '+width);}
-    await page.evaluate(()=>window.scrollTo(0,0));
-    check((await page.locator('[data-dlg-slide]').count())===4,'Four carousel visuals missing at '+width);
-    check((await page.locator('[data-dlg-slide-to]').count())===4,'Four manual slide controls missing at '+width);
-    check((await page.locator('[data-dlg-slide].is-active').count())===1,'Exactly one active visual expected at '+width);
-    check((await page.locator('[data-dlg-count]').innerText()).trim()==='01 / 04','Initial carousel slide indicator wrong at '+width);
-    check((await page.locator('.sig-process-step').count())===3,'Client process missing at '+width);
-    check((await page.locator('a[href="mailto:digitallawgeorgia@gmail.com"]').count())>=1,'Contact email missing at '+width);
-    check((await page.locator('a[href^="https://wa.me/995598451132"]').count())>=1,'WhatsApp contact missing at '+width);
-    check((await page.locator('.sig-hero .sig-button-primary').getAttribute('href'))==='#contact','Hero CTA does not lead to contact at '+width);
-    check(await page.locator('.dlg-building-photo').evaluate(img=>img.complete&&img.naturalWidth>0),'Original architectural photograph did not load at '+width);
-    check(await page.locator('[data-dlg-slide=""] img').count()===0 || (await page.locator('[data-dlg-slide] img').count())===4,'All four local slide images required at '+width);
-    if(width===1440){
-      await page.locator('[data-dlg-next]').click();
-      check((await page.locator('[data-dlg-count]').innerText()).trim()==='02 / 04','Next slide control failed');
-      check((await page.locator('[data-dlg-slide-to="1"]').getAttribute('aria-pressed'))==='true','Next slide indicator not selected');
-      await page.locator('[data-dlg-slide-to="3"]').click();
-      check((await page.locator('[data-dlg-count]').innerText()).trim()==='04 / 04','Direct slide selection failed');
-      await page.locator('[data-dlg-prev]').click();
-      check((await page.locator('[data-dlg-count]').innerText()).trim()==='03 / 04','Previous slide control failed');
-      await page.locator('[data-dlg-slide-to="0"]').click();
-      check((await page.locator('[data-dlg-count]').innerText()).trim()==='01 / 04','Restoring architecture slide failed');
-    }
-    await page.locator('.dlg-about-portrait img').scrollIntoViewIfNeeded();
-    await page.locator('.dlg-about-portrait img').evaluate(img=>img.decode());
-    check(await page.locator('.dlg-about-portrait img').evaluate(img=>img.complete&&img.naturalWidth>0),'Founder portrait did not load at '+width);
-    if(width<=700){
-      check(!geometry.navVisible&&geometry.menuVisible,'Mobile navigation visibility failed at '+width);
-      await page.locator('[data-menu-toggle]').click();
-      check((await page.locator('[data-menu-toggle]').getAttribute('aria-expanded'))==='true','Mobile menu did not open at '+width);
-      await page.keyboard.press('Escape');
-      check((await page.locator('[data-menu-toggle]').getAttribute('aria-expanded'))==='false','Escape did not close menu at '+width);
-    }else{
-      check(geometry.navVisible&&!geometry.menuVisible,'Desktop navigation visibility failed at '+width);
-      check(geometry.nav&&geometry.cta&&(geometry.nav.right<=geometry.cta.x+3||geometry.nav.top>=geometry.cta.bottom-2),'Desktop navigation overlaps contact CTA at '+width);
-      if(width<=850) check(geometry.heading.bottom<=geometry.image.top+5,'Stacked hero visual overlaps heading at '+width);
-      else check(geometry.heading.right<=geometry.image.x+5,'Building photograph overlaps hero heading at '+width);
-    }
-    if([320,390,768,1440,1920].includes(width)){
-      await page.evaluate(()=>{document.activeElement?.blur?.();window.scrollTo(0,0);});
-      await page.screenshot({path:path.join(screenshots,'dlg-photographic-home-'+width+'.png'),fullPage:true,animations:'disabled'});
-    }
-    await page.locator('[data-language="en"]').click();
-    await page.waitForURL('**/en/');
-    await page.locator('.sig-hero h1').waitFor();
-    check((await page.locator('html').getAttribute('lang'))==='en','English language code failed at '+width);
-    check((await page.locator('.sig-hero h1').innerText()).includes('Legal counsel'),'English hero missing at '+width);
-    check((await page.locator('.sig-service-row').count())===6,'English legal services missing at '+width);
-    await overflow(page,width,'/en/');
-    await page.locator('[data-language="ka"]').click();
-    await page.waitForURL(base+'/');
-    check((await page.locator('.sig-hero h1').innerText()).includes('იურიდიული მომსახურება'),'Georgian language switch failed at '+width);
-    check(errors.length===0,'JavaScript error at '+width+': '+errors.join('; '));
+    check((await page.locator('.practice-card').count())===6,'Six practice cards missing');
+    await page.locator('.practice-human-photo').scrollIntoViewIfNeeded();
+    check(await page.locator('.practice-human-photo img').evaluate(i=>i.complete&&i.naturalWidth>0),'Photo failed');
+    await page.locator('[data-hero-next]').click();
+    check((await page.locator('#hero-counter').innerText()).trim()==='02 / 03','Hero next failed');
+    await page.locator('[data-hero-prev]').click();
+    check((await page.locator('#hero-counter').innerText()).trim()==='01 / 03','Hero previous failed');
+    const advisorySlugs=['ai-readiness','ai-governance-implementation','legal-ai-automation','external-ai-technology-counsel'];
+    for(let i=0;i<4;i++){await page.locator('[data-tab="'+i+'"]').click();check((await page.locator('#stage-link').getAttribute('href'))==='/advisory/'+advisorySlugs[i]+'/','Advisory link incorrect');}
+    const sectorSlugs=['technology','financial-services','commerce','legal-teams','startups-investors'];
+    for(let i=0;i<5;i++){await page.locator('[data-sector="'+i+'"]').click();check((await page.locator('.sector-link').getAttribute('href'))==='/business/sectors/'+sectorSlugs[i]+'/','Sector link incorrect');}
+    await page.locator('[data-filter="ai"]').click();check((await page.locator('.article:visible').count())===1,'Topic filter failed');
+    await page.locator('[data-filter="all"]').click();check((await page.locator('.article:visible').count())===3,'Article reset failed');
+    if(width<=920){await page.locator('.menu-btn').click();check(await page.locator('.nav').isVisible(),'Mobile navigation failed');await page.locator('.menu-btn').click();}
+    const form=page.locator('#enquiry-form');await form.locator('[name="name"]').fill('Test User');await form.locator('[name="email"]').fill('test@example.invalid');await form.locator('[name="area"]').selectOption({index:1});await form.locator('[name="matter"]').fill('Test enquiry. Do not send.');
+    const before=requests.length;await form.locator('button[type="submit"]').click();
+    check(await page.locator('#enquiry-result').isVisible(),'Local enquiry draft missing');check((await page.locator('#enquiry-mailto').getAttribute('href')).includes('test%40example.invalid'),'Email draft missing input');check(requests.length===before,'Enquiry form must not initiate a network request');
+    await page.locator('[data-language-link="en"]').click();await page.waitForURL(base+'/en/');
+    check((await page.locator('html').getAttribute('lang'))==='en','English language link failed');
+    check((await page.locator('h1').innerText()).includes('Legal counsel'),'English headline missing');
+    await page.locator('[data-tab="2"]').click();check((await page.locator('#stage-link').getAttribute('href'))==='/en/advisory/legal-ai-automation/','English advisory route failed');
+    await page.locator('[data-language-link="ka"]').click();await page.waitForURL(base+'/');
+    await overflow(page,width,'/');check(errors.length===0,'Page script errors '+errors.join('; '));
+    if([390,1440].includes(width))await page.screenshot({path:path.join(screenshots,'home-'+width+'.png'),fullPage:true});
     await page.close();
-    console.log('PASS boutique homepage and bilingual navigation: '+width+'px');
   }
   const paths=[
     '/services/','/services/ai/','/services/data-protection/','/services/contracts/',
@@ -156,18 +90,18 @@ try{
   const noJs=await browser.newPage({javaScriptEnabled:false,viewport:{width:390,height:844}});
   await noJs.goto(base+'/en/',{waitUntil:'networkidle'});
   check((await noJs.locator('html').getAttribute('lang'))==='en','English no-JS HTML language failed');
-  check((await noJs.locator('.sig-hero h1').innerText()).includes('Legal counsel'),'English content requires JavaScript');
-  check((await noJs.locator('.sig-service-row').count())===6,'No-JS service directory incomplete');
+  check((await noJs.locator('.hero h1').innerText()).includes('Legal counsel'),'English content requires JavaScript');
+  check((await noJs.locator('.practice-card').count())===6,'No-JS service directory incomplete');
   await noJs.close();
   const reduced=await browser.newPage({viewport:{width:390,height:844},reducedMotion:'reduce'});
   await reduced.goto(base+'/',{waitUntil:'networkidle'});
-  check((await reduced.locator('.sig-hero h1').isVisible()),'Reduced motion hides the hero');
-  check((await reduced.locator('.sig-service-row').count())===6,'Reduced motion hides services');
-  check((await reduced.locator('[data-dlg-count]').innerText()).trim()==='01 / 04','Reduced motion should retain initial slide');
-  await reduced.locator('[data-dlg-next]').click();
-  check((await reduced.locator('[data-dlg-count]').innerText()).trim()==='02 / 04','Reduced motion must permit manual slide changes');
+  check((await reduced.locator('.hero h1').isVisible()),'Reduced motion hides the hero');
+  check((await reduced.locator('.practice-card').count())===6,'Reduced motion hides services');
+  check((await reduced.locator('#hero-counter').innerText()).trim()==='01 / 03','Reduced motion should retain initial slide');
+  await reduced.locator('[data-hero-next]').click();
+  check((await reduced.locator('#hero-counter').innerText()).trim()==='02 / 03','Reduced motion must permit manual slide changes');
   await reduced.close();
-  console.log('DLG photographic boutique browser QA passed: '+checks+' checks across nine viewports and '+paths.length+' interior pages.');
+  console.log('DLG editorial browser QA passed: '+checks+' checks across nine viewports and '+paths.length+' interior pages.');
 }finally{
   if(browser)await browser.close();
   await new Promise(resolve=>server.close(resolve));

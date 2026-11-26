@@ -1,6 +1,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import {practices} from '../catalogue.mjs';
+import {advisoryPackages} from './advisory-content.mjs';
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const decode=s=>String(s??'').replace(/&(?:amp|lt|gt|quot|apos|#39|#x[\da-f]+|#\d+);/gi,m=>({'&amp;':'&','&lt;':'<','&gt;':'>','&quot;':'"','&apos;':"'",'&#39;':"'"}[m]??String.fromCodePoint(m[2].toLowerCase()==='x'?parseInt(m.slice(3,-1),16):parseInt(m.slice(2,-1),10))));
 // Preserve bare attributes as well as quoted/unquoted values. Empty data hooks
@@ -32,7 +33,8 @@ function englishHtml(source,knownPaths){
   if(a['data-language'])a['aria-pressed']=String(a['data-language']==='en');
   if(a['data-content-language']==='ka')a.hidden='';
   if(a['data-content-language']==='en')delete a.hidden;
-  if(a.href?.startsWith('/')&&!a.href.startsWith('//')){
+  if(a['data-language-link']){if(a['data-language-link']==='en')a['aria-current']='page';else delete a['aria-current'];}
+  if(a.href?.startsWith('/')&&!a.href.startsWith('//')&&!a['data-language-link']){
    const route=a.href.split(/[?#]/)[0];
    if(knownPaths.has(route))a.href='/en'+a.href;
   }
@@ -58,6 +60,7 @@ export function finalizeSeo({out,siteUrl}){
   if(route!=='/')nodes.push({'@type':'BreadcrumbList',itemListElement:[{'@type':'ListItem',position:1,name:lang==='en'?'Home':'მთავარი',item:siteUrl+prefix+'/'},{'@type':'ListItem',position:2,name:title.split(' — Digital Law')[0],item:url}]});
   const practice=practices.find(p=>route===`/services/${p.slug}/`);
   if(practice)nodes.push({'@type':'Service',name:practice.name[lang],description:practice.summary[lang],url,provider:{'@id':provider['@id']}});
+  const advisory=advisoryPackages.find(p=>route===`/advisory/${p.id}/`);if(advisory)nodes.push({'@type':'Service',name:advisory.name[lang],description:advisory.intro[lang],url,provider:{'@id':provider['@id']}});
   for(const value of old){if(value['@type']==='BlogPosting')nodes.push({...value,headline:title.split(' — Digital Law')[0],description,inLanguage:lang,url,mainEntityOfPage:url,author:{'@id':person['@id']}});}
   return {'@context':'https://schema.org','@graph':nodes};
  };
