@@ -25,6 +25,8 @@ for(const [page,lang] of [[home,'ka'],[englishHome,'en']]){
  assert(page.includes('class="enquiry-form"')&&page.includes('id="enquiry-mailto"'),'Enquiry composer missing');
  assert(!page.includes('/assets/editorial/architectural-interior.webp')&&!page.includes('/assets/editorial/legal-technology-workspace.webp'),'Synthetic office imagery must not appear on homepage');
  assert(page.includes('src="/assets/profile/founder-portrait.webp"'),'Authentic founder portrait required');
+ assert((page.match(/class="dlg-authentic-photo /g)||[]).length===2,'Exactly two editorial photographs required');
+ for(const slug of ['practice-collaboration','legal-technology-review'])assert(page.includes('src="/assets/editorial/'+slug+'.jpg"'),'Missing editorial photograph '+slug);
  assert(!page.includes('images.pexels.com')&&!page.includes('r0lodtw2w'),'No external preview or stock-image dependency');
  assert(page.includes('href="/" data-language-link="ka"')||page.includes('data-language-link="ka"'),'Georgian language link required');
  assert(page.includes('href="/en/"'),'Static English language link required');
@@ -32,6 +34,7 @@ for(const [page,lang] of [[home,'ka'],[englishHome,'en']]){
  assert(page.includes('href="https://arxiv.org/abs/2607.21345"'),'Research link missing');
  assert(page.includes('href="mailto:digitallawgeorgia@gmail.com"')&&page.includes('https://wa.me/995598451132'),'Contact links missing');
 }
+for(const slug of ['practice-collaboration','legal-technology-review']){const photo=fs.readFileSync(path.join(root,'assets/editorial/'+slug+'.jpg'));assert(photo.length>10000&&photo[0]===255&&photo[1]===216,'Invalid editorial photograph '+slug);}
 const heroPhoto=fs.readFileSync(path.join(root,'assets/london-architecture.jpg'));assert(heroPhoto[0]===255&&heroPhoto[1]===216&&heroPhoto.length>10000,'Invalid architecture JPEG');
 assert(englishHome.includes('Legal counsel')&&englishHome.includes('for the digital economy.'),'English hero must be server rendered');
 assert(englishHome.includes('Risk assessment and action plan'),'English advisory default must be static');

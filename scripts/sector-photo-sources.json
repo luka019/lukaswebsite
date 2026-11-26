@@ -31,6 +31,22 @@
       "slug": "legal-teams",
       "id": 7109315,
       "url": "https://images.pexels.com/photos/7109315/pexels-photo-7109315.jpeg?auto=compress&cs=tinysrgb&w=1200&h=760&fit=crop"
+    },
+    {
+      "slug": "practice-collaboration",
+      "id": 7731358,
+      "folder": "editorial",
+      "credit": "Mikhail Nilov / Pexels",
+      "source": "https://www.pexels.com/photo/unrecognizable-coworkers-using-netbook-and-writing-information-on-papers-7731358/",
+      "url": "https://images.pexels.com/photos/7731358/pexels-photo-7731358.jpeg?auto=compress&cs=tinysrgb&w=1100&h=700&fit=crop"
+    },
+    {
+      "slug": "legal-technology-review",
+      "id": 7972282,
+      "folder": "editorial",
+      "credit": "George Pak / Pexels",
+      "source": "https://www.pexels.com/photo/close-up-shot-of-a-person-holding-a-papers-7972282/",
+      "url": "https://images.pexels.com/photos/7972282/pexels-photo-7972282.jpeg?auto=compress&cs=tinysrgb&w=1100&h=700&fit=crop"
     }
   ]
 }

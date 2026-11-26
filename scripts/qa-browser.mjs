@@ -42,6 +42,7 @@ try{
     check((await page.locator('.practice-card').count())===6,'Six practice cards missing');
     check(await page.locator('.hero-photo img').evaluate(i=>i.complete&&i.naturalWidth>0),'Architecture image failed');
     check((await page.locator('.practice-glyph').count())===6,'Six functional icons required');
+    for(const photo of ['.practice-photo img','.approach-photo img']){await page.locator(photo).scrollIntoViewIfNeeded();await page.locator(photo).evaluate(i=>i.decode());check(await page.locator(photo).evaluate(i=>i.complete&&i.naturalWidth>0),'Editorial photograph failed: '+photo);}
     check((await page.locator('#stage-deliverables li').count())===3,'Advisory deliverables missing');
     check((await page.locator('#sector-matters li').count())===3,'Sector matters missing');
     const advisorySlugs=['ai-readiness','ai-governance-implementation','legal-ai-automation','external-ai-technology-counsel'];
