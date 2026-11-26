@@ -10,6 +10,7 @@ const decode=s=>String(s??'').replace(/&(?:amp|lt|gt|quot|apos|#39|#x[\da-f]+|#\
 const attrs=s=>Object.fromEntries([...s.matchAll(/\s+([^\s"'<>\/=]+)(?:\s*=\s*(?:"([^"]*)"|'([^']*)'|([^\s"'<>`=]+)))?/g)].map(m=>[m[1],decode(m[2]??m[3]??m[4]??'')]));
 const voids=new Set(['area','base','br','col','embed','hr','img','input','link','meta','param','source','track','wbr']);
 const plain=nodes=>nodes.map(n=>n.children?plain(n.children):n.raw?.startsWith('<')?'':decode(n.raw)).join('');
+const linkArrow='<svg class="dlg-inline-arrow" width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" focusable="false"><path d="M3 13 13 3M5 3h8v8"/></svg>';
 
 // A small build-time HTML tree preserves semantic markup and translates authored
 // text before delivery. English pages remain readable and indexable without JS.
@@ -67,7 +68,9 @@ export function finalizeSeo({out,siteUrl}){
   return {'@context':'https://schema.org','@graph':nodes};
  };
  for(const file of files){
-  const route=routeOf(file),source=fs.readFileSync(file,'utf8'),body=attrs(source.match(/<body\b[^>]*>/)?.[0]||'');
+  const route=routeOf(file);
+  const source=fs.readFileSync(file,'utf8').replace(/(<span\b[^>]*aria-hidden="true"[^>]*>)↗(<\/span>)/g,`$1${linkArrow}$2`);
+  const body=attrs(source.match(/<body\b[^>]*>/)?.[0]||'');
   const old=[...source.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)].flatMap(m=>{try{return [JSON.parse(m[1])];}catch{return [];}});
   const existingTitle=decode(source.match(/<title>([\s\S]*?)<\/title>/)?.[1]||'Digital Law Georgia');
   const existingDescription=attrs(source.match(/<meta name="description"[^>]*>/)?.[0]||'').content||'';

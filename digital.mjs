@@ -13,8 +13,27 @@ document.addEventListener('site:language',e=>{lang=e.detail.language;preview();r
 
 const enquiry=$('#contact-page-form');
 if(enquiry){
- const area=enquiry.elements.area,requested=new URLSearchParams(location.search).get('area');
- if(requested&&requested.length<150){const opt=document.createElement('option');opt.value=requested;opt.textContent=requested;area.append(opt);area.value=requested;}
- enquiry.addEventListener('submit',e=>{e.preventDefault();if(!enquiry.reportValidity())return;const d=new FormData(enquiry),labels=lang==='en'?['Name','Email','Company','Area','Matter']:['სახელი და გვარი','ელფოსტა','ორგანიზაცია','მიმართულება','საკითხი'];const body=labels.map((label,i)=>label+': '+String(d.get(['name','email','company','area','matter'][i])||'')).join('\n');$('#contact-page-mailto').href='mailto:digitallawgeorgia@gmail.com?subject='+encodeURIComponent('Digital Law Georgia | '+String(d.get('area')||'Consultation enquiry'))+'&body='+encodeURIComponent(body);$('#contact-page-result').hidden=false;});
+ const area=enquiry.elements.area;
+ const requested=new URLSearchParams(location.search).get('area');
+ if(requested&&requested.length<150){
+  const existing=[...area.options].find(option=>option.value===requested||option.dataset.en===requested);
+  if(existing){
+   existing.selected=true;
+  }else{
+   const option=new Option(requested,requested,true,true);
+   area.add(option);
+  }
+ }
+ enquiry.addEventListener('submit',e=>{
+  e.preventDefault();
+  if(!enquiry.reportValidity())return;
+  const data=new FormData(enquiry);
+  const topic=area.selectedOptions[0].textContent;
+  const fields=['name','email','company','area','matter'];
+  const labels=lang==='en'?['Name','Email','Company','Area','Matter']:['სახელი და გვარი','ელფოსტა','ორგანიზაცია','მიმართულება','საკითხი'];
+  const body=labels.map((label,i)=>label+': '+(fields[i]==='area'?topic:String(data.get(fields[i])||''))).join('\n');
+  $('#contact-page-mailto').href='mailto:digitallawgeorgia@gmail.com?subject='+encodeURIComponent('Digital Law Georgia | '+topic)+'&body='+encodeURIComponent(body);
+  $('#contact-page-result').hidden=false;
+ });
  enquiry.hidden=false;
 }

@@ -715,8 +715,8 @@ export const practices = [
     "slug": "georgia-market-entry",
     "code": "09 / CROSS-BORDER",
     "name": {
-      "ka": "საქართველოში საქმიანობის დაწყება და განვითარება",
-      "en": "Doing Business in Georgia"
+      "ka": "კომპანიის დაფუძნება და საქმიანობის დაწყება საქართველოში",
+      "en": "Georgia Market Entry & Company Setup"
     },
     "summary": {
       "ka": "იურიდიული მომსახურება უცხოური ტექნოლოგიური და საკონსულტაციო კომპანიებისთვის საქართველოში — დაფუძნებიდან ყოველდღიურ საქმიანობამდე.",

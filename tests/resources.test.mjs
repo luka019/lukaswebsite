@@ -14,7 +14,11 @@ test('author text remains escaped, including HTML and script payloads',()=>{
 });
 test('production output contains authored resources, not raw templates or source data',()=>{
  execFileSync(process.execPath,['scripts/build.mjs']);
- const home=fs.readFileSync('dist/index.html','utf8');assert.equal((home.match(/data-resource-card/g)||[]).length,3);assert.ok(!home.includes('matsne.gov.ge'));assert.ok(!home.includes('OFFICIAL SOURCE'));
+ const home=fs.readFileSync('dist/index.html','utf8');
+ const insights=[...home.matchAll(/<a class="article"[^>]* href="(\/resources\/[^"]+\/)"/g)].map(match=>match[1]);
+ assert.deepEqual(new Set(insights),new Set(rows.filter(row=>row.status==='published'&&row.featured).map(row=>`/resources/${row.slug}/`)));
+ assert.equal(insights.length,new Set(insights).size);
+ assert.ok(!home.includes('matsne.gov.ge'));assert.ok(!home.includes('OFFICIAL SOURCE'));
  for(const p of ['dist/resources/index.html','dist/services/ai/index.html',...rows.map(r=>`dist/resources/${r.slug}/index.html`)]){const html=fs.readFileSync(p,'utf8');assert.ok(!html.includes('{%'));assert.ok(!html.includes('{{'));}
  assert.ok(!fs.existsSync('dist/_data'));assert.ok(!fs.existsSync('dist/PUBLISHING.md'));
 });

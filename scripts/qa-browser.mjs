@@ -75,6 +75,40 @@ try{
     await page.close();
   }
   const paths=[];
+  for(const [prefix,width] of [['',390],['/en',1440]]){
+    const page=await browser.newPage({viewport:{width,height:900}});
+    const errors=[];
+    page.on('pageerror',error=>errors.push(error.message));
+    await page.goto(base+prefix+'/',{waitUntil:'networkidle'});
+    const feature=page.locator('#georgia-business');
+    const photo=feature.locator('img');
+    await photo.scrollIntoViewIfNeeded();
+    await photo.evaluate(image=>image.decode());
+    check(await photo.evaluate(image=>image.naturalWidth===1400),'Tbilisi photograph failed');
+    await feature.locator('.dlg-international-link').click();
+    await page.waitForURL(base+prefix+'/business/georgia/');
+    await overflow(page,width,prefix+'/business/georgia/');
+    check(await page.locator('.dlg-georgia-services article').count()===4,'Georgia service overview incomplete');
+    await page.screenshot({path:path.join(screenshots,'georgia-'+width+'.png'),fullPage:true});
+    await page.locator('.dlg-georgia-hero .dlg-international-link').click();
+    await page.waitForURL(base+prefix+'/contact/?area=georgia-market-entry');
+    const form=page.locator('#contact-page-form');
+    await form.waitFor({state:'visible'});
+    const area=form.locator('[name="area"]');
+    check(await area.inputValue()==='georgia-market-entry','Georgia enquiry topic was not selected');
+    await form.locator('[name="name"]').fill('Test User');
+    await form.locator('[name="email"]').fill('test@example.invalid');
+    await form.locator('[name="matter"]').fill('Test enquiry. Do not send.');
+    const requests=[];
+    page.on('request',request=>requests.push(request.url()));
+    await form.locator('button[type="submit"]').click();
+    await form.locator('#contact-page-result').waitFor({state:'visible'});
+    const draft=decodeURIComponent(await form.locator('#contact-page-mailto').getAttribute('href'));
+    check(draft.includes(prefix?'Doing business in Georgia':'საქართველოში საქმიანობა'),'Georgia email draft topic was not localised');
+    check(draft.includes('test@example.invalid')&&requests.length===0,'The enquiry must prepare a local draft');
+    check(errors.length===0,'Georgia client journey page errors '+errors.join(', '));
+    await page.close();
+  }
   function collect(dir){for(const e of fs.readdirSync(dir,{withFileTypes:true})){if(e.name==='admin')continue;const file=path.join(dir,e.name);if(e.isDirectory())collect(file);else if(e.name==='index.html'){const route='/'+path.relative(root,dir).split(path.sep).filter(Boolean).join('/')+(dir===root?'':'/');if(route!=='/'&&route!=='/en/')paths.push(route);}}}
   collect(root);
   for(const route of paths){
