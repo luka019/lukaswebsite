@@ -42,11 +42,11 @@ try{
     check((await page.locator('.practice-card').count())===6,'Six practice cards missing');
     const serviceRoutes=["/services/ai/","/services/privacy-and-cybersecurity/","/services/contracts/","/services/digital-products-and-ip/","/services/fintech-and-financial-regulation/","/services/corporate-and-commercial/"];
     for(let i=0;i<serviceRoutes.length;i++)check(await page.locator('.practice-card').nth(i).getAttribute('href')===serviceRoutes[i],'Homepage direct route '+i);
-    check((await page.locator('.hero-scene>svg').count())===3,'Three original hero illustrations missing');
-    check((await page.locator('#hero-counter').innerText()).trim()==='01 / 03','Initial hero scene incorrect');
-    await page.locator('[data-hero-next]').click();check((await page.locator('#hero-counter').innerText()).trim()==='02 / 03','Hero next failed');
-    check(await page.locator('.hero-scene.active').getAttribute('data-hero-scene')==='1','Incorrect active hero scene');
-    await page.locator('[data-hero-prev]').click();check((await page.locator('#hero-counter').innerText()).trim()==='01 / 03','Hero previous failed');
+    const heroPhoto=page.locator('.hero-photo img');
+    check(await heroPhoto.count()===1,'Missing hero photograph');
+    await heroPhoto.evaluate(image=>image.decode());
+    check(await heroPhoto.evaluate(image=>image.naturalWidth>0&&image.getBoundingClientRect().width>0),'Hero photograph failed to render');
+    check((await heroPhoto.getAttribute('alt')).length>20,'Hero photograph needs descriptive alt text');
     check((await page.locator('.practice-glyph').count())===6,'Six functional icons required');
     check((await page.locator('.legacy-service-art>svg').count())===6,'Six original service illustrations missing');
     for(const svg of await page.locator('.legacy-service-art>svg,.legacy-insight-art>svg').all()){check(await svg.evaluate(e=>{const r=e.getBoundingClientRect();return r.width>0&&r.height>0;}),'Original vector has invalid size');}
@@ -147,8 +147,7 @@ try{
   await reduced.goto(base+'/',{waitUntil:'networkidle'});
   check((await reduced.locator('.hero h1').isVisible()),'Reduced motion hides the hero');
   check((await reduced.locator('.practice-card').count())===6,'Reduced motion hides services');
-  await reduced.locator('[data-hero-next]').click();
-  check((await reduced.locator('#hero-counter').innerText()).trim()==='02 / 03','Reduced motion must permit hero selection');
+  check(await reduced.locator('.hero-photo img').isVisible(),'Reduced motion hides the hero photograph');
   await reduced.locator('[data-tab="2"]').click();
   check((await reduced.locator('#stage-title').innerText()).includes('საპილოტე'),'Reduced motion must permit advisory selection');
   await reduced.close();
