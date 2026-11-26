@@ -1,49 +1,6 @@
 (() => {
-  const body = document.body;
-  const languageButtons = [...document.querySelectorAll('[data-language]')];
-  let storedLanguage;
-  try { storedLanguage = localStorage.getItem('dlg-language'); } catch {}
+  const language = document.documentElement.lang === 'en' ? 'en' : 'ka';
   let activeService = 'contracts', activeScenario = 'startup';
-  const requestedLanguage = new URLSearchParams(location.search).get('lang');
-  let language = ['ka','en'].includes(requestedLanguage) ? requestedLanguage : location.pathname.startsWith('/en/') ? 'en' : body.dataset.defaultLanguage || 'ka';
-
-  function translate() {
-    body.lang = language;
-    document.documentElement.lang = language;
-    document.querySelectorAll('[data-en]').forEach((element) => {
-      if (!element.dataset.ka) element.dataset.ka = element.textContent;
-      element.textContent = language === 'en' ? element.dataset.en : element.dataset.ka;
-    });
-    document.querySelectorAll('[data-en-placeholder]').forEach((element) => {
-      if (!element.dataset.kaPlaceholder) element.dataset.kaPlaceholder = element.getAttribute('placeholder') || '';
-      element.setAttribute('placeholder', language === 'en' ? element.dataset.enPlaceholder : element.dataset.kaPlaceholder);
-    });
-    languageButtons.forEach((button) => button.setAttribute('aria-pressed', String(button.dataset.language === language)));
-    document.querySelectorAll('[data-en-alt]').forEach((element) => {
-      if (!element.dataset.kaAlt) element.dataset.kaAlt = element.getAttribute('alt') || '';
-      element.alt = language === 'en' ? element.dataset.enAlt : element.dataset.kaAlt;
-    });
-    document.querySelectorAll('[data-en-aria]').forEach(el => {
-      if (!el.dataset.kaAria) el.dataset.kaAria = el.getAttribute('aria-label') || '';
-      el.setAttribute('aria-label', language === 'en' ? el.dataset.enAria : el.dataset.kaAria);
-    });
-    const description = document.querySelector('meta[name="description"]');
-    if (description && body.dataset.descriptionKa) description.content = language === 'en' ? body.dataset.descriptionEn : body.dataset.descriptionKa;
-    document.dispatchEvent(new CustomEvent('site:language', {detail: {language}}));
-    const title = document.querySelector('title');
-    if (title && document.body.dataset.titleEn) title.textContent = language === 'en' ? document.body.dataset.titleEn : document.body.dataset.titleKa;
-  }
-
-  languageButtons.forEach((button) => button.addEventListener('click', () => {
-    language = button.dataset.language;
-    try { localStorage.setItem('dlg-language', language); } catch {}
-    const url = new URL(location.href);
-    const basePath = url.pathname.replace(/^\/en(?=\/)/, '');
-    url.pathname = language === 'en' ? '/en' + basePath : basePath;
-    url.searchParams.delete('lang');
-    location.assign(url.href);
-  }));
-  translate();
 
   const menuToggle = document.querySelector('[data-menu-toggle]');
   const nav = document.getElementById('site-nav');
@@ -55,9 +12,12 @@
         ? (open ? 'Close menu' : 'Open menu')
         : (open ? 'მენიუს დახურვა' : 'მენიუს გახსნა'));
     };
-    menuToggle.addEventListener('click', () => setMenuState(!nav.classList.contains('open')));
+    menuToggle.addEventListener('click', () => {
+      const open = !nav.classList.contains('open');
+      setMenuState(open);
+      if (open) nav.querySelector('a')?.focus();
+    });
     nav.querySelectorAll('a').forEach((link) => link.addEventListener('click', () => setMenuState(false)));
-    document.addEventListener('site:language', () => setMenuState(nav.classList.contains('open')));
     const desktopMenu = window.matchMedia('(min-width: 701px)');
     const resetOnDesktop = () => { if (desktopMenu.matches) setMenuState(false); };
     if (desktopMenu.addEventListener) desktopMenu.addEventListener('change', resetOnDesktop);
@@ -134,7 +94,6 @@
   }
   scenarioTabs.forEach((tab) => tab.addEventListener('click', () => selectScenario(tab.dataset.scenario)));
   selectScenario('startup');
-  document.addEventListener('site:language', () => { selectService(activeService); selectScenario(activeScenario); });
   scenarioTabs.forEach((tab, index) => tab.addEventListener('keydown', (event) => {
     let next;
     if (event.key === 'ArrowRight' || event.key === 'ArrowDown') next = (index + 1) % scenarioTabs.length;
@@ -153,5 +112,4 @@
     revealItems.forEach((item) => observer.observe(item));
   } else revealItems.forEach((item) => item.classList.add('is-visible'));
 
-  window.addEventListener('storage', (event) => { if (event.key === 'dlg-language') { language = event.newValue === 'en' ? 'en' : 'ka'; translate(); } });
 })();

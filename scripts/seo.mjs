@@ -32,7 +32,6 @@ function englishHtml(source,knownPaths){
   for(const [from,to,ka] of [['data-en-alt','alt','data-ka-alt'],['data-en-aria','aria-label','data-ka-aria'],['data-en-placeholder','placeholder','data-ka-placeholder']])if(from in a){a[ka]=a[to]||'';a[to]=a[from];}
   if(node.tag==='html')a.lang='en';
   if(node.tag==='body')a['data-default-language']='en';
-  if(a['data-language'])a['aria-pressed']=String(a['data-language']==='en');
   if(a['data-content-language']==='ka')a.hidden='';
   if(a['data-content-language']==='en')delete a.hidden;
   if(a['data-language-link']){if(a['data-language-link']==='en')a['aria-current']='page';else delete a['aria-current'];}
@@ -77,6 +76,8 @@ export function finalizeSeo({out,siteUrl}){
   for(const lang of ['ka','en']){
    const prefix=lang==='en'?'/en':'',url=siteUrl+prefix+route,title=body[lang==='en'?'data-title-en':'data-title-ka']||existingTitle,description=body[lang==='en'?'data-description-en':'data-description-ka']||existingDescription;
    let html=lang==='en'?englishHtml(source,knownPaths):source;
+   html=html.replace(/<a\b[^>]*\bdata-language-link="(ka|en)"[^>]*>/g,(tag,targetLanguage)=>
+    tag.replace(/\bhref="[^"]*"/,`href="${targetLanguage==='en'?'/en':''}${route}"`));
    html=html.replace(/<script type="application\/ld\+json">[\s\S]*?<\/script>/g,'').replace(/<link rel="(?:canonical|alternate)"[^>]*>/g,'');
    html=html.replace(/<title>[\s\S]*?<\/title>/,'<title>'+esc(title)+'</title>');
    html=html.replace(/<meta (?:name="(?:description|twitter:title|twitter:description)"|property="(?:og:title|og:description|og:url|og:locale|og:locale:alternate)")[^>]*>/g,m=>{

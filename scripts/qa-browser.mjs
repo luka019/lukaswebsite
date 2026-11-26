@@ -106,6 +106,15 @@ try{
     const draft=decodeURIComponent(await form.locator('#contact-page-mailto').getAttribute('href'));
     check(draft.includes(prefix?'Doing business in Georgia':'საქართველოში საქმიანობა'),'Georgia email draft topic was not localised');
     check(draft.includes('test@example.invalid')&&requests.length===0,'The enquiry must prepare a local draft');
+    await form.locator('[name="matter"]').fill('An updated enquiry');
+    check(await form.locator('#contact-page-result').isHidden(),'Editing must hide the old email draft');
+    await form.locator('button[type="submit"]').click();
+    const revisedDraft=decodeURIComponent(await form.locator('#contact-page-mailto').getAttribute('href'));
+    check(revisedDraft.includes('An updated enquiry'),'The email draft must reflect the latest edit');
+    const alternate=prefix?'':'/en';
+    await page.locator('[data-language-link="'+(prefix?'ka':'en')+'"]').click();
+    await page.waitForURL(base+alternate+'/contact/?area=georgia-market-entry');
+    check(await area.inputValue()==='georgia-market-entry','Contact topic disappeared when switching language');
     check(errors.length===0,'Georgia client journey page errors '+errors.join(', '));
     await page.close();
   }
@@ -129,6 +138,10 @@ try{
   check((await noJs.locator('html').getAttribute('lang'))==='en','English no-JS HTML language failed');
   check((await noJs.locator('.hero h1').innerText()).includes('Legal counsel'),'English content requires JavaScript');
   check((await noJs.locator('.practice-card').count())===6,'No-JS service directory incomplete');
+  await noJs.goto(base+'/en/business/georgia/');
+  await noJs.locator('[data-language-link="ka"]').click();
+  await noJs.waitForURL(base+'/business/georgia/');
+  check(await noJs.locator('html').getAttribute('lang')==='ka','Inner-page language link requires JavaScript');
   await noJs.close();
   const reduced=await browser.newPage({viewport:{width:390,height:844},reducedMotion:'reduce'});
   await reduced.goto(base+'/',{waitUntil:'networkidle'});

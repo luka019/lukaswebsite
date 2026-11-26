@@ -1,4 +1,4 @@
-import {scopeAreas} from './catalogue.mjs';
+import {practices,scopeAreas} from './catalogue.mjs';
 const $=s=>document.querySelector(s),esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 let lang=document.documentElement.lang==='en'?'en':'ka',product='product',last=null;
 const say=(ka,en)=>lang==='en'?en:ka;
@@ -20,7 +20,8 @@ if(enquiry){
   if(existing){
    existing.selected=true;
   }else{
-   const option=new Option(requested,requested,true,true);
+   const practice=practices.find(item=>item.slug===requested||item.name.en===requested||item.name.ka===requested);
+   const option=new Option(practice?.name[lang]??requested,requested,true,true);
    area.add(option);
   }
  }
@@ -34,6 +35,10 @@ if(enquiry){
   const body=labels.map((label,i)=>label+': '+(fields[i]==='area'?topic:String(data.get(fields[i])||''))).join('\n');
   $('#contact-page-mailto').href='mailto:digitallawgeorgia@gmail.com?subject='+encodeURIComponent('Digital Law Georgia | '+topic)+'&body='+encodeURIComponent(body);
   $('#contact-page-result').hidden=false;
+ });
+ enquiry.addEventListener('input',()=>{
+  $('#contact-page-result').hidden=true;
+  $('#contact-page-mailto').href='mailto:digitallawgeorgia@gmail.com';
  });
  enquiry.hidden=false;
 }
