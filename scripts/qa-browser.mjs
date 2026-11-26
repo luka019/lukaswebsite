@@ -40,7 +40,11 @@ try{
     check(response.status()===200,'Homepage HTTP error');
     await overflow(page,width,'/');
     check((await page.locator('.practice-card').count())===6,'Six practice cards missing');
-    check(await page.locator('.hero-photo img').evaluate(i=>i.complete&&i.naturalWidth>0),'Reference hero image failed');
+    check((await page.locator('.hero-scene>svg').count())===3,'Three original hero illustrations missing');
+    check((await page.locator('#hero-counter').innerText()).trim()==='01 / 03','Initial hero scene incorrect');
+    await page.locator('[data-hero-next]').click();check((await page.locator('#hero-counter').innerText()).trim()==='02 / 03','Hero next failed');
+    check(await page.locator('.hero-scene.active').getAttribute('data-hero-scene')==='1','Incorrect active hero scene');
+    await page.locator('[data-hero-prev]').click();check((await page.locator('#hero-counter').innerText()).trim()==='01 / 03','Hero previous failed');
     check((await page.locator('.practice-glyph').count())===6,'Six functional icons required');
     check((await page.locator('.legacy-service-art>svg').count())===6,'Six original service illustrations missing');
     for(const svg of await page.locator('.legacy-service-art>svg,.legacy-insight-art>svg').all()){check(await svg.evaluate(e=>{const r=e.getBoundingClientRect();return r.width>0&&r.height>0;}),'Original vector has invalid size');}
@@ -100,6 +104,8 @@ try{
   await reduced.goto(base+'/',{waitUntil:'networkidle'});
   check((await reduced.locator('.hero h1').isVisible()),'Reduced motion hides the hero');
   check((await reduced.locator('.practice-card').count())===6,'Reduced motion hides services');
+  await reduced.locator('[data-hero-next]').click();
+  check((await reduced.locator('#hero-counter').innerText()).trim()==='02 / 03','Reduced motion must permit hero selection');
   await reduced.locator('[data-tab="2"]').click();
   check((await reduced.locator('#stage-title').innerText()).includes('საპილოტე'),'Reduced motion must permit advisory selection');
   await reduced.close();

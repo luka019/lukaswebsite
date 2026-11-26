@@ -19,7 +19,8 @@ for(const [page,lang] of [[home,'ka'],[englishHome,'en']]){
  assert((page.match(/class="practice-card"/g)||[]).length===6,'Six expertise cards required');
  assert((page.match(/data-tab="\d+"/g)||[]).length===4,'Four advisory tabs required');
  assert((page.match(/data-sector="\d+"/g)||[]).length===5,'Five interactive sector tabs required');
- assert(page.includes('class="hero-photo reference-hero"')&&page.includes('src="/assets/reference/hero.webp"')&&!page.includes('data-hero-scene='),'Selected architectural hero required');
+ assert((page.match(/data-hero-scene="\d+"/g)||[]).length===3&&page.includes('class="hero-art-frame"')&&page.includes('id="hero-counter"')&&page.includes('data-hero-next=')&&page.includes('data-hero-prev='),'Exact original three-scene interactive hero required');
+ assert(!page.includes('class="hero-photo reference-hero"')&&!page.includes('src="/assets/reference/hero.webp"'),'Superseded photographic hero still present');
  assert((page.match(/class="reference-service-art legacy-service-art"/g)||[]).length===6,'Six original service illustrations required');
  assert((page.match(/data-stage="\d+"/g)||[]).length===4,'Four original advisory illustrations required');
  assert((page.match(/data-sector-art="\d+"/g)||[]).length===5,'Five original sector illustrations required');
@@ -40,7 +41,7 @@ for(const [page,lang] of [[home,'ka'],[englishHome,'en']]){
  assert(page.includes('href="mailto:digitallawgeorgia@gmail.com"')&&page.includes('https://wa.me/995598451132'),'Contact links missing');
 }
 for(const slug of ['practice-collaboration','legal-technology-review']){const photo=fs.readFileSync(path.join(root,'assets/editorial/'+slug+'.jpg'));assert(photo.length>10000&&photo[0]===255&&photo[1]===216,'Invalid editorial photograph '+slug);}
-const selectedHero=fs.readFileSync(path.join(root,'assets/reference/hero.webp'));assert(selectedHero.length>1000&&selectedHero.toString('ascii',0,4)==='RIFF'&&selectedHero.toString('ascii',8,12)==='WEBP','Invalid retained hero artwork');
+assert(hybridJs.includes('function heroGo(delta)')&&hybridJs.includes('data-hero-next'),'Original hero controls required');
 assert(englishHome.includes('Legal counsel')&&englishHome.includes('for the digital economy.'),'English hero must be server rendered');
 assert(englishHome.includes('Risk assessment and action plan'),'English advisory default must be static');
 assert(home.includes('რისკების შეფასება და სამოქმედო გეგმა')&&home.includes('უსაფრთხო არხის შეთანხმებამდე'),'Default advice and enquiry privacy instructions missing');
