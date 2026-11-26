@@ -19,10 +19,12 @@ for(const [page,lang] of [[home,'ka'],[englishHome,'en']]){
  assert((page.match(/class="practice-card"/g)||[]).length===6,'Six expertise cards required');
  assert((page.match(/data-tab="\d+"/g)||[]).length===4,'Four advisory tabs required');
  assert((page.match(/data-sector="\d+"/g)||[]).length===5,'Five interactive sector tabs required');
- assert((page.match(/data-hero-scene="\d+"/g)||[]).length===3,'Three manually controlled hero scenes required');
+ assert(page.includes('class="hero-photo"')&&page.includes('src="/assets/london-architecture.jpg"')&&!page.includes('data-hero-scene='),'Single photographic hero required');
+ assert((page.match(/class="practice-glyph"/g)||[]).length===6&&page.includes('id="stage-deliverables"')&&page.includes('id="sector-matters"'),'Content-driven visual navigation required');
  assert((page.match(/data-filter="(?:all|ai|data|contracts)"/g)||[]).length===4,'Four article filters required');
  assert(page.includes('class="enquiry-form"')&&page.includes('id="enquiry-mailto"'),'Enquiry composer missing');
- assert(page.includes('src="/assets/editorial/architectural-interior.webp"')&&page.includes('src="/assets/editorial/legal-technology-workspace.webp"'),'Architectural and legal workspace imagery missing');
+ assert(!page.includes('/assets/editorial/architectural-interior.webp')&&!page.includes('/assets/editorial/legal-technology-workspace.webp'),'Synthetic office imagery must not appear on homepage');
+ assert(page.includes('src="/assets/profile/founder-portrait.webp"'),'Authentic founder portrait required');
  assert(!page.includes('images.pexels.com')&&!page.includes('r0lodtw2w'),'No external preview or stock-image dependency');
  assert(page.includes('href="/" data-language-link="ka"')||page.includes('data-language-link="ka"'),'Georgian language link required');
  assert(page.includes('href="/en/"'),'Static English language link required');
@@ -30,7 +32,7 @@ for(const [page,lang] of [[home,'ka'],[englishHome,'en']]){
  assert(page.includes('href="https://arxiv.org/abs/2607.21345"'),'Research link missing');
  assert(page.includes('href="mailto:digitallawgeorgia@gmail.com"')&&page.includes('https://wa.me/995598451132'),'Contact links missing');
 }
-for(const p of ['assets/editorial/architectural-interior.webp','assets/editorial/legal-technology-workspace.webp']){const b=fs.readFileSync(path.join(root,p));assert(b.toString('ascii',0,4)==='RIFF'&&b.toString('ascii',8,12)==='WEBP'&&b.length>10000,'Invalid local image '+p)}
+const heroPhoto=fs.readFileSync(path.join(root,'assets/london-architecture.jpg'));assert(heroPhoto[0]===255&&heroPhoto[1]===216&&heroPhoto.length>10000,'Invalid architecture JPEG');
 assert(englishHome.includes('Legal counsel')&&englishHome.includes('for the digital economy.'),'English hero must be server rendered');
 assert(englishHome.includes('Risk assessment and action plan'),'English advisory default must be static');
 assert(home.includes('რისკების შეფასება და სამოქმედო გეგმა')&&home.includes('უსაფრთხო არხის შეთანხმებამდე'),'Default advice and enquiry privacy instructions missing');

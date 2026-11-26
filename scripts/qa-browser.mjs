@@ -40,18 +40,14 @@ try{
     check(response.status()===200,'Homepage HTTP error');
     await overflow(page,width,'/');
     check((await page.locator('.practice-card').count())===6,'Six practice cards missing');
-    await page.locator('.practice-editorial-photo').scrollIntoViewIfNeeded();
-    check(await page.locator('.practice-editorial-photo img').evaluate(i=>i.complete&&i.naturalWidth>0),'Architecture image failed');
-    await page.locator('.contract-editorial-photo').scrollIntoViewIfNeeded();
-    check(await page.locator('.contract-editorial-photo').evaluate(i=>i.complete&&i.naturalWidth>0),'Legal workspace image failed');
-    await page.locator('[data-hero-next]').click();
-    check((await page.locator('#hero-counter').innerText()).trim()==='02 / 03','Hero next failed');
-    await page.locator('[data-hero-prev]').click();
-    check((await page.locator('#hero-counter').innerText()).trim()==='01 / 03','Hero previous failed');
+    check(await page.locator('.hero-photo img').evaluate(i=>i.complete&&i.naturalWidth>0),'Architecture image failed');
+    check((await page.locator('.practice-glyph').count())===6,'Six functional icons required');
+    check((await page.locator('#stage-deliverables li').count())===3,'Advisory deliverables missing');
+    check((await page.locator('#sector-matters li').count())===3,'Sector matters missing');
     const advisorySlugs=['ai-readiness','ai-governance-implementation','legal-ai-automation','external-ai-technology-counsel'];
-    for(let i=0;i<4;i++){await page.locator('[data-tab="'+i+'"]').click();check((await page.locator('#stage-link').getAttribute('href'))==='/advisory/'+advisorySlugs[i]+'/','Advisory link incorrect');}
+    for(let i=0;i<4;i++){await page.locator('[data-tab="'+i+'"]').click();check((await page.locator('#stage-link').getAttribute('href'))==='/advisory/'+advisorySlugs[i]+'/','Advisory link incorrect');check((await page.locator('#stage-deliverables li').count())===3,'Advisory deliverables missing on tab '+i);}
     const sectorSlugs=['technology','financial-services','commerce','legal-teams','startups-investors'];
-    for(let i=0;i<5;i++){await page.locator('[data-sector="'+i+'"]').click();check((await page.locator('.sector-link').getAttribute('href'))==='/business/sectors/'+sectorSlugs[i]+'/','Sector link incorrect');}
+    for(let i=0;i<5;i++){await page.locator('[data-sector="'+i+'"]').click();check((await page.locator('.sector-link').getAttribute('href'))==='/business/sectors/'+sectorSlugs[i]+'/','Sector link incorrect');check((await page.locator('#sector-matters li').count())===3,'Sector matters missing on tab '+i);}
     await page.locator('[data-filter="ai"]').click();check((await page.locator('.article:visible').count())===1,'Topic filter failed');
     await page.locator('[data-filter="all"]').click();check((await page.locator('.article:visible').count())===3,'Article reset failed');
     if(width<=920){await page.locator('.menu-btn').click();check(await page.locator('.nav').isVisible(),'Mobile navigation failed');await page.locator('.menu-btn').click();}
@@ -99,9 +95,8 @@ try{
   await reduced.goto(base+'/',{waitUntil:'networkidle'});
   check((await reduced.locator('.hero h1').isVisible()),'Reduced motion hides the hero');
   check((await reduced.locator('.practice-card').count())===6,'Reduced motion hides services');
-  check((await reduced.locator('#hero-counter').innerText()).trim()==='01 / 03','Reduced motion should retain initial slide');
-  await reduced.locator('[data-hero-next]').click();
-  check((await reduced.locator('#hero-counter').innerText()).trim()==='02 / 03','Reduced motion must permit manual slide changes');
+  await reduced.locator('[data-tab="2"]').click();
+  check((await reduced.locator('#stage-title').innerText()).includes('საპილოტე'),'Reduced motion must permit advisory selection');
   await reduced.close();
   console.log('DLG editorial browser QA passed: '+checks+' checks across nine viewports and '+paths.length+' interior pages.');
 }finally{
