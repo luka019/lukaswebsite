@@ -167,7 +167,7 @@ assert(file('en/business/international/index.html').includes('International Expa
 const pagesByPath=new Map(publicHtml.map(name=>[path.resolve(name),fs.readFileSync(name,'utf8')]));
 const missingFragments=[],badAssets=[];
 for(const [name,html] of pagesByPath){
- const route='/'+path.relative(root,path.dirname(name)).split(path.sep).filter(Boolean).join('/')+(path.dirname(name)===root?'':'/');
+ const route='/'+path.relative(root,path.dirname(name)).split(path.sep).filter(Boolean).join('/')+(path.dirname(name)===path.resolve(root)?'':'/');
  for(const m of html.matchAll(/href="([^"]+)"/g)){
   const href=m[1];if(!href.startsWith('/')&&!href.startsWith('#')||href.startsWith('//')||!href.includes('#'))continue;
   const u=new URL(href.replace(/&amp;/g,'&'),'https://audit.invalid'+route);if(!u.hash||u.hash==='#')continue;
