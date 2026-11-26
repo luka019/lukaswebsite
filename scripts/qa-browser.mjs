@@ -40,8 +40,10 @@ try{
     check(response.status()===200,'Homepage HTTP error');
     await overflow(page,width,'/');
     check((await page.locator('.practice-card').count())===6,'Six practice cards missing');
-    check(await page.locator('.hero-photo img').evaluate(i=>i.complete&&i.naturalWidth>0),'Architecture image failed');
+    check(await page.locator('.hero-photo img').evaluate(i=>i.complete&&i.naturalWidth>0),'Reference hero image failed');
     check((await page.locator('.practice-glyph').count())===6,'Six functional icons required');
+    check((await page.locator('.reference-service-art img').count())===6,'Six service illustrations missing');
+    for(const image of await page.locator('.reference-service-art img,.reference-advisory-art img,.reference-sector-art img,.reference-insight-art img').all()){await image.scrollIntoViewIfNeeded();await image.evaluate(i=>i.decode());check(await image.evaluate(i=>i.complete&&i.naturalWidth>0),'Reference visual failed to load');}
     for(const photo of ['.practice-photo img','.approach-photo img']){await page.locator(photo).scrollIntoViewIfNeeded();await page.locator(photo).evaluate(i=>i.decode());check(await page.locator(photo).evaluate(i=>i.complete&&i.naturalWidth>0),'Editorial photograph failed: '+photo);}
     check((await page.locator('#stage-deliverables li').count())===3,'Advisory deliverables missing');
     check((await page.locator('#sector-matters li').count())===3,'Sector matters missing');
