@@ -20,8 +20,11 @@ for(const [page,lang] of [[home,'ka'],[englishHome,'en']]){
  assert((page.match(/data-tab="\d+"/g)||[]).length===4,'Four advisory tabs required');
  assert((page.match(/data-sector="\d+"/g)||[]).length===5,'Five interactive sector tabs required');
  assert(page.includes('class="hero-photo reference-hero"')&&page.includes('src="/assets/reference/hero.webp"')&&!page.includes('data-hero-scene='),'Selected architectural hero required');
- assert((page.match(/class="reference-service-art"/g)||[]).length===6,'Six selected service visuals required');
- for(const slug of ['ai','privacy','contracts','products','fintech','corporate','advisory','sector-technology','insight-ai','insight-contracts','insight-data'])assert(page.includes('src="/assets/reference/'+slug+'.webp"'),'Reference artwork missing '+slug);
+ assert((page.match(/class="reference-service-art legacy-service-art"/g)||[]).length===6,'Six original service illustrations required');
+ assert((page.match(/data-stage="\d+"/g)||[]).length===4,'Four original advisory illustrations required');
+ assert((page.match(/data-sector-art="\d+"/g)||[]).length===5,'Five original sector illustrations required');
+ assert((page.match(/class="article-art reference-insight-art legacy-insight-art"/g)||[]).length===3,'Three original insight illustrations required');
+ for(const slug of ['ai','privacy','contracts','products','fintech','corporate','advisory','sector-technology','insight-ai','insight-contracts','insight-data'])assert(!page.includes('src="/assets/reference/'+slug+'.webp"'),'Superseded raster illustration still present '+slug);
  assert((page.match(/class="practice-glyph"/g)||[]).length===6&&page.includes('id="stage-deliverables"')&&page.includes('id="sector-matters"'),'Content-driven visual navigation required');
  assert((page.match(/data-filter="(?:all|ai|data|contracts)"/g)||[]).length===4,'Four article filters required');
  assert(page.includes('class="enquiry-form"')&&page.includes('id="enquiry-mailto"'),'Enquiry composer missing');
@@ -37,7 +40,7 @@ for(const [page,lang] of [[home,'ka'],[englishHome,'en']]){
  assert(page.includes('href="mailto:digitallawgeorgia@gmail.com"')&&page.includes('https://wa.me/995598451132'),'Contact links missing');
 }
 for(const slug of ['practice-collaboration','legal-technology-review']){const photo=fs.readFileSync(path.join(root,'assets/editorial/'+slug+'.jpg'));assert(photo.length>10000&&photo[0]===255&&photo[1]===216,'Invalid editorial photograph '+slug);}
-for(const slug of ['hero','ai','privacy','contracts','products','fintech','corporate','advisory','sector-technology','insight-ai','insight-contracts','insight-data']){const bytes=fs.readFileSync(path.join(root,'assets/reference/'+slug+'.webp'));assert(bytes.length>1000&&bytes.toString('ascii',0,4)==='RIFF'&&bytes.toString('ascii',8,12)==='WEBP','Invalid reference artwork '+slug);}
+const selectedHero=fs.readFileSync(path.join(root,'assets/reference/hero.webp'));assert(selectedHero.length>1000&&selectedHero.toString('ascii',0,4)==='RIFF'&&selectedHero.toString('ascii',8,12)==='WEBP','Invalid retained hero artwork');
 assert(englishHome.includes('Legal counsel')&&englishHome.includes('for the digital economy.'),'English hero must be server rendered');
 assert(englishHome.includes('Risk assessment and action plan'),'English advisory default must be static');
 assert(home.includes('რისკების შეფასება და სამოქმედო გეგმა')&&home.includes('უსაფრთხო არხის შეთანხმებამდე'),'Default advice and enquiry privacy instructions missing');

@@ -42,15 +42,17 @@ try{
     check((await page.locator('.practice-card').count())===6,'Six practice cards missing');
     check(await page.locator('.hero-photo img').evaluate(i=>i.complete&&i.naturalWidth>0),'Reference hero image failed');
     check((await page.locator('.practice-glyph').count())===6,'Six functional icons required');
-    check((await page.locator('.reference-service-art img').count())===6,'Six service illustrations missing');
-    for(const image of await page.locator('.reference-service-art img,.reference-advisory-art img,.reference-sector-art img,.reference-insight-art img').all()){await image.scrollIntoViewIfNeeded();await image.evaluate(i=>i.decode());check(await image.evaluate(i=>i.complete&&i.naturalWidth>0),'Reference visual failed to load');}
+    check((await page.locator('.legacy-service-art>svg').count())===6,'Six original service illustrations missing');
+    for(const svg of await page.locator('.legacy-service-art>svg,.legacy-insight-art>svg').all()){check(await svg.evaluate(e=>{const r=e.getBoundingClientRect();return r.width>0&&r.height>0;}),'Original vector has invalid size');}
+    check((await page.locator('.legacy-advisory-art>svg').count())===4,'Four original advisory illustrations missing');
+    check((await page.locator('.legacy-sector-art>svg').count())===5,'Five original sector illustrations missing');
     for(const photo of ['.practice-photo img','.approach-photo img']){await page.locator(photo).scrollIntoViewIfNeeded();await page.locator(photo).evaluate(i=>i.decode());check(await page.locator(photo).evaluate(i=>i.complete&&i.naturalWidth>0),'Editorial photograph failed: '+photo);}
     check((await page.locator('#stage-deliverables li').count())===3,'Advisory deliverables missing');
     check((await page.locator('#sector-matters li').count())===3,'Sector matters missing');
     const advisorySlugs=['ai-readiness','ai-governance-implementation','legal-ai-automation','external-ai-technology-counsel'];
-    for(let i=0;i<4;i++){await page.locator('[data-tab="'+i+'"]').click();check((await page.locator('#stage-link').getAttribute('href'))==='/advisory/'+advisorySlugs[i]+'/','Advisory link incorrect');check((await page.locator('#stage-deliverables li').count())===3,'Advisory deliverables missing on tab '+i);}
+    for(let i=0;i<4;i++){await page.locator('[data-tab="'+i+'"]').click();check((await page.locator('#stage-link').getAttribute('href'))==='/advisory/'+advisorySlugs[i]+'/','Advisory link incorrect');check((await page.locator('#stage-deliverables li').count())===3,'Advisory deliverables missing on tab '+i);check(await page.locator('.legacy-advisory-art>svg.active').getAttribute('data-stage')===String(i),'Wrong advisory illustration '+i);}
     const sectorSlugs=['technology','financial-services','commerce','legal-teams','startups-investors'];
-    for(let i=0;i<5;i++){await page.locator('[data-sector="'+i+'"]').click();check((await page.locator('.sector-link').getAttribute('href'))==='/business/sectors/'+sectorSlugs[i]+'/','Sector link incorrect');check((await page.locator('#sector-matters li').count())===3,'Sector matters missing on tab '+i);}
+    for(let i=0;i<5;i++){await page.locator('[data-sector="'+i+'"]').click();check((await page.locator('.sector-link').getAttribute('href'))==='/business/sectors/'+sectorSlugs[i]+'/','Sector link incorrect');check((await page.locator('#sector-matters li').count())===3,'Sector matters missing on tab '+i);check(await page.locator('.legacy-sector-art>svg.active').getAttribute('data-sector-art')===String(i),'Wrong sector illustration '+i);}
     await page.locator('[data-filter="ai"]').click();check((await page.locator('.article:visible').count())===1,'Topic filter failed');
     await page.locator('[data-filter="all"]').click();check((await page.locator('.article:visible').count())===3,'Article reset failed');
     if(width<=920){await page.locator('.menu-btn').click();check(await page.locator('.nav').isVisible(),'Mobile navigation failed');await page.locator('.menu-btn').click();}
