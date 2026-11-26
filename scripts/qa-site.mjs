@@ -59,17 +59,27 @@ for(const p of ['services/index.html','services/contracts/index.html','resources
 }
 const directory=fs.readFileSync(path.join(root,'services/index.html'),'utf8');
 assert(directory.includes('law-directory-feature'),'Ongoing legal counsel needs a featured directory entry');
-assert(directory.indexOf('/services/contracts/')<directory.indexOf('/services/fintech/'),'Contract advice should precede FinTech in the directory');
-assert(directory.includes('/services/ongoing-legal-support/'),'Ongoing legal support route must be linked');
 const businessDirectory=file('business/index.html');
 assert((businessDirectory.match(/class="dlg-sector-card"/g)||[]).length===6,'Six sector entry points required');
 const directoryEn=file('en/services/index.html');
-assert((directory.match(/class="dlg-practice-group"/g)||[]).length===6,'Six groups in services directory required');
-assert((directory.match(/class="dlg-specialist-link"/g)||[]).length===13,'All thirteen specialist pages must remain linked');
-assert((directoryEn.match(/class="dlg-specialist-link"/g)||[]).length===13,'All specialist pages must remain linked in English');
-for(const area of ['ai','privacy','contracts','products','fintech','corporate']){assert(directory.includes('id="area-'+area+'"'),'Missing group '+area);assert(home.includes('href="/services/#area-'+area+'"'),'Homepage group route missing: '+area);assert(englishHome.includes('href="/en/services/#area-'+area+'"'),'English homepage group route missing: '+area);}
+const topRoutes={"ai":"/services/ai/","privacy":"/services/privacy-and-cybersecurity/","contracts":"/services/contracts/","products":"/services/digital-products-and-ip/","fintech":"/services/fintech-and-financial-regulation/","corporate":"/services/corporate-and-commercial/"};
+for(const [key,route] of Object.entries(topRoutes)){
+ assert(directory.includes('id="area-'+key+'" href="'+route+'"'),'Directory must link directly to '+key);
+ assert(home.includes('href="'+route+'"')&&englishHome.includes('href="/en'+route+'"'),'Direct bilingual homepage route missing '+key);
+ assert(!home.includes('/services/#area-'+key)&&!englishHome.includes('/services/#area-'+key),'Homepage anchor detour remains '+key);
+ for(const prefix of ['','en/']){const page=file(prefix+route.slice(1)+'index.html');assert(page.includes('class="dlg-breadcrumb container"')&&page.includes('href="mailto:digitallawgeorgia@gmail.com'),'Practice breadcrumb/contact missing '+route);}
+}
+for(const page of [directory,directoryEn])assert((page.match(/class="dlg-area-card"/g)||[]).length===6&&!page.includes('class="dlg-practice-group"'),'Concise six-card practice directory required');
 const specialist=['contracts','data-protection','ai','digital-products','legal-operations','ongoing-legal-support','fintech','virtual-assets','ecommerce','cyber-digital-risk','georgia-market-entry','intellectual-property','startups-investment'];
-for(const slug of specialist){assert(directory.includes('href="/services/'+slug+'/"'),'Missing specialist '+slug);file('services/'+slug+'/index.html');file('en/services/'+slug+'/index.html');}
+const hubMap={'data-protection':'privacy-and-cybersecurity','cyber-digital-risk':'privacy-and-cybersecurity','digital-products':'digital-products-and-ip','ecommerce':'digital-products-and-ip','intellectual-property':'digital-products-and-ip','fintech':'fintech-and-financial-regulation','virtual-assets':'fintech-and-financial-regulation','startups-investment':'corporate-and-commercial','georgia-market-entry':'corporate-and-commercial','ongoing-legal-support':'corporate-and-commercial','legal-operations':'corporate-and-commercial'};
+for(const slug of specialist){
+ for(const prefix of ['','en/']){
+  const page=file(prefix+'services/'+slug+'/index.html');
+  const parent=file(prefix+'services/'+(hubMap[slug]?hubMap[slug]+'/':'')+'index.html');
+  assert(parent.includes('href="/'+prefix+'services/'+slug+'/"'),'Specialist route unreachable '+prefix+slug);
+  assert(page.includes('class="dlg-breadcrumb container"')&&page.includes('/contact/?area='),'Missing specialist navigation or tailored contact '+prefix+slug);
+ }
+}
 for(const slug of ['technology','financial-services','commerce','startups-investors','international','legal-teams']){const route='/business/sectors/'+slug+'/';assert(home.includes('href="'+route+'"')&&businessDirectory.includes('href="'+route+'"'),'Sector discoverability missing '+slug);const ka=file(route.slice(1)+'index.html'),en=file('en'+route+'index.html');assert(ka.includes('class="deliverable-card dlg-sector-detail"')&&ka.includes('class="practice-card"'),'Sector content missing '+slug);assert(en.includes('<html lang="en"')&&en.includes('class="practice-card"'),'English sector missing '+slug);assert(en.includes('href="/en/services/'),'English specialist links missing in '+slug);}
 
 const advisoryDirectory=file('advisory/index.html');
@@ -88,7 +98,7 @@ const solutionsDirectory=file('solutions/index.html');
 assert(solutionsDirectory.includes('class="solution-card"'),'Dedicated legal solutions catalogue must remain available');
 assert(home.includes('href="/services/"'),'Homepage must link to the full services directory');
 
-assert(directory.includes('ფინტექი') && directory.includes('სტარტაპები'),'FinTech and startups must be discoverable in the full directory');
+assert(directory.includes('ფინტექი')&&file('services/corporate-and-commercial/index.html').includes('სტარტაპ'),'FinTech and startups must be discoverable through the practice hierarchy');
 assert(home.includes('ქართულ და უცხოურ კომპანიებს'),'Homepage must address Georgian and international businesses');
 assert(home.includes('ციფრული ბიზნესისთვის.'),'Digital business legal positioning missing');
 
@@ -101,7 +111,7 @@ function visit(dir){for(const x of fs.readdirSync(dir,{withFileTypes:true})){if(
 visit(root);
 for(const name of publicHtml){const content=fs.readFileSync(name,'utf8');assert(!content.includes('/client/'),'Legacy client route in '+name);assert(!content.includes('კლიენტის სივრცე'),'Legacy client copy in '+name)}
 assert(home.includes('ხელოვნური ინტელექტი')&&home.includes('AI კონსულტაცია და ავტომატიზაცია'),'AI practice must remain discoverable');
-assert(directory.includes('href="/services/digital-products/"'),'Digital product support must remain accessible from the grouped directory');
+assert(file('services/digital-products-and-ip/index.html').includes('href="/services/digital-products/"'),'Digital product support must remain accessible from its own practice page');
 assert(home.includes('https://wa.me/995598451132'),'WhatsApp channel missing');
 assert(home.includes('mailto:digitallawgeorgia@gmail.com'),'Email channel missing');
 assert(home.includes('data-en="Email us"'),'Contact CTA must be bilingual');
@@ -135,9 +145,10 @@ assert(aboutProfile.includes('იურიდიული მიმართუ�
 for(const p of ['founder-portrait','london-tech-week-2026','chevening-conference-2026']){const b=fs.readFileSync(path.join(root,'assets/profile/'+p+'.webp'));assert(b.toString('ascii',0,4)==='RIFF'&&b.toString('ascii',8,12)==='WEBP','Invalid portrait asset '+p);}
 assert(home.includes('class="home-founder-reference"')&&englishHome.includes('class="home-founder-reference"'),'Compact homepage founder missing');
 assert(directory.includes('id="engagement-fees"')&&directoryEn.includes('id="engagement-fees"'),'Fee arrangements missing');
-assert((directory.match(/class="dlg-fee-model"/g)||[]).length===3&&(directoryEn.match(/class="dlg-fee-model"/g)||[]).length===3,'Three fee models required');
-assert(!/₾|\bGEL\s*[\d,]+/.test(directory)&&!/₾|\bGEL\s*[\d,]+/.test(directoryEn),'No numerical fees until approved');
-assert(home.includes('href="/services/#engagement-fees"')&&englishHome.includes('href="/en/services/#engagement-fees"'),'Fee information discoverability missing');
+const fees=file('fees/index.html'),feesEn=file('en/fees/index.html');assert((fees.match(/class="dlg-fee-model"/g)||[]).length===3&&(feesEn.match(/class="dlg-fee-model"/g)||[]).length===3,'Three fee models required on dedicated fee pages');
+assert([directory,directoryEn,fees,feesEn].every(p=>!/₾|\bGEL\s*[\d,]+/.test(p)),'No numerical fees until approved');
+assert(home.includes('href="/fees/"')&&englishHome.includes('href="/en/fees/"'),'Fee information discoverability missing');
+for(const prefix of ['','en/']){const contact=file(prefix+'contact/index.html');assert(contact.includes('id="contact-page-form"')&&contact.includes('id="contact-page-mailto"'),'Contact form missing '+prefix);}
 assert(aboutProfile.includes('Queen Mary')&&aboutProfile.includes('Chevening')&&aboutProfile.includes('LLM with Distinction')&&!aboutProfile.includes('<strong>IAPP · AIGP</strong>'),'Founder credentials must remain on the profile');
 
 assert(!visibleHome.includes('LLM · Distinction')&&!visibleHome.includes('Queen Mary')&&!visibleHome.includes('Chevening'),'Personal qualifications belong on the profile, not visible homepage content');
@@ -153,6 +164,22 @@ assert(!file('advisory/ai-governance-implementation/index.html').includes('პ�
 for(const [slug,cover] of [['ai-pilot-at-work','ai-pilot.webp'],['technology-contract-review','contracts.webp'],['supplier-data-review','suppliers.webp']]){for(const lang of ['','en/']){const article=file(lang+'resources/'+slug+'/index.html');assert(article.includes('/assets/resources/'+cover),'Article editorial image missing: '+lang+slug);}}
 
 assert(file('en/business/international/index.html').includes('International Expansion &amp; Client Readiness'),'English must be pre-rendered');
+const pagesByPath=new Map(publicHtml.map(name=>[path.resolve(name),fs.readFileSync(name,'utf8')]));
+const missingFragments=[],badAssets=[];
+for(const [name,html] of pagesByPath){
+ const route='/'+path.relative(root,path.dirname(name)).split(path.sep).filter(Boolean).join('/')+(path.dirname(name)===root?'':'/');
+ for(const m of html.matchAll(/href="([^"]+)"/g)){
+  const href=m[1];if(!href.startsWith('/')&&!href.startsWith('#')||href.startsWith('//')||!href.includes('#'))continue;
+  const u=new URL(href.replace(/&amp;/g,'&'),'https://audit.invalid'+route);if(!u.hash||u.hash==='#')continue;
+  let destination=path.resolve(root,'.'+u.pathname);if(fs.existsSync(destination)&&fs.statSync(destination).isDirectory())destination=path.join(destination,'index.html');
+  const target=pagesByPath.get(destination);if(!target)continue;
+  const id=decodeURIComponent(u.hash.slice(1));if(!target.includes('id="'+id+'"')&&!target.includes('name="'+id+'"'))missingFragments.push(route+' -> '+href);
+ }
+ for(const m of html.matchAll(/(?:src|href)="(\/assets\/[^"?#]+)[^"]*"/g)){if(!fs.existsSync(path.join(root,m[1])))badAssets.push(route+' -> '+m[1]);}
+ if(!name.endsWith('404.html')&&!['/','/en/'].includes(route)){assert(html.includes('class="dlg-breadcrumb container"'),'Missing visible breadcrumb '+route);assert(html.includes('href="'+(route.startsWith('/en/')?'/en/contact/':'/contact/')+'"'),'Missing contact navigation '+route);}
+}
+assert(badAssets.length===0,'Missing local assets: '+badAssets.slice(0,10).join('; '));
+assert(missingFragments.length===0,'Broken local fragments: '+missingFragments.slice(0,15).join('; '));
 console.log('DLG public site smoke checks passed: '+total+' checks across '+publicHtml.length+' public HTML pages.');
 
 for(const slug of ["technology","financial-services","commerce","startups-investors","international","legal-teams"]){const imagePath='/assets/sectors/'+slug+'.jpg';assert(businessDirectory.includes('src="'+imagePath+'"'),'Sector directory photograph missing '+slug);assert(fs.existsSync(root+imagePath),'Local sector photograph missing '+slug);}

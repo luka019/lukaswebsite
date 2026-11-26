@@ -2,6 +2,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import {practices} from '../catalogue.mjs';
 import {advisoryPackages} from './advisory-content.mjs';
+import {groupedPages,groupRoute,parentsFor} from './site-architecture.mjs';
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const decode=s=>String(s??'').replace(/&(?:amp|lt|gt|quot|apos|#39|#x[\da-f]+|#\d+);/gi,m=>({'&amp;':'&','&lt;':'<','&gt;':'>','&quot;':'"','&apos;':"'",'&#39;':"'"}[m]??String.fromCodePoint(m[2].toLowerCase()==='x'?parseInt(m.slice(3,-1),16):parseInt(m.slice(2,-1),10))));
 // Preserve bare attributes as well as quoted/unquoted values. Empty data hooks
@@ -57,9 +58,10 @@ export function finalizeSeo({out,siteUrl}){
   const page={'@type':route==='/about/'?'ProfilePage':'WebPage','@id':url+'#page',url,name:title,description,inLanguage:lang,isPartOf:{'@id':siteUrl+'/#website'}};
   if(route==='/about/'){page.mainEntity={'@id':person['@id']};person.affiliation=[{'@type':'Organization',name:'LegalTech Georgia',url:'https://legaltechgeorgia.com/about'},{'@type':'Organization',name:'LegalStepy'}];}
   const nodes=[{'@type':'WebSite','@id':siteUrl+'/#website',name:'Digital Law Georgia',url:siteUrl+'/',inLanguage:['ka','en']},provider,person,page];
-  if(route!=='/')nodes.push({'@type':'BreadcrumbList',itemListElement:[{'@type':'ListItem',position:1,name:lang==='en'?'Home':'მთავარი',item:siteUrl+prefix+'/'},{'@type':'ListItem',position:2,name:title.split(' — Digital Law')[0],item:url}]});
+  if(route!=='/')nodes.push({'@type':'BreadcrumbList',itemListElement:[...parentsFor(route).map((p,i)=>({'@type':'ListItem',position:i+1,name:p.name[lang],item:siteUrl+prefix+p.url})),{'@type':'ListItem',position:parentsFor(route).length+1,name:title.split(' — Digital Law')[0],item:url}]});
   const practice=practices.find(p=>route===`/services/${p.slug}/`);
   if(practice)nodes.push({'@type':'Service',name:practice.name[lang],description:practice.summary[lang],url,provider:{'@id':provider['@id']}});
+  const group=groupedPages.find(g=>groupRoute(g)===route);if(group)nodes.push({'@type':'Service',name:group.name[lang],description:group.summary[lang],url,provider:{'@id':provider['@id']}});
   const advisory=advisoryPackages.find(p=>route===`/advisory/${p.id}/`);if(advisory)nodes.push({'@type':'Service',name:advisory.name[lang],description:advisory.intro[lang],url,provider:{'@id':provider['@id']}});
   for(const value of old){if(value['@type']==='BlogPosting')nodes.push({...value,headline:title.split(' — Digital Law')[0],description,inLanguage:lang,url,mainEntityOfPage:url,author:{'@id':person['@id']}});}
   return {'@context':'https://schema.org','@graph':nodes};

@@ -40,6 +40,8 @@ try{
     check(response.status()===200,'Homepage HTTP error');
     await overflow(page,width,'/');
     check((await page.locator('.practice-card').count())===6,'Six practice cards missing');
+    const serviceRoutes=["/services/ai/","/services/privacy-and-cybersecurity/","/services/contracts/","/services/digital-products-and-ip/","/services/fintech-and-financial-regulation/","/services/corporate-and-commercial/"];
+    for(let i=0;i<serviceRoutes.length;i++)check(await page.locator('.practice-card').nth(i).getAttribute('href')===serviceRoutes[i],'Homepage direct route '+i);
     check((await page.locator('.hero-scene>svg').count())===3,'Three original hero illustrations missing');
     check((await page.locator('#hero-counter').innerText()).trim()==='01 / 03','Initial hero scene incorrect');
     await page.locator('[data-hero-next]').click();check((await page.locator('#hero-counter').innerText()).trim()==='02 / 03','Hero next failed');
@@ -72,17 +74,9 @@ try{
     if([390,1440].includes(width))await page.screenshot({path:path.join(screenshots,'home-'+width+'.png'),fullPage:true});
     await page.close();
   }
-  const paths=[
-    '/services/','/services/ai/','/services/data-protection/','/services/contracts/',
-    '/services/digital-products/','/services/intellectual-property/','/services/cyber-digital-risk/',
-    '/services/fintech/','/services/virtual-assets/','/services/startups-investment/',
-    '/services/georgia-market-entry/','/services/legal-operations/',
-    '/business/','/business/georgia/','/business/international/','/about/','/resources/','/privacy/',
-    ...['technology','financial-services','commerce','startups-investors','international','legal-teams'].flatMap(slug=>['/business/sectors/'+slug+'/','/en/business/sectors/'+slug+'/']),
-    '/solutions/','/solutions/ai-governance/','/solutions/privacy-review/','/solutions/contract-review/','/solutions/enter-georgia/',
-    '/en/services/','/en/services/startups-investment/','/en/about/',
-    '/advisory/','/advisory/ai-readiness/','/advisory/ai-governance-implementation/','/advisory/external-ai-technology-counsel/','/en/advisory/','/en/advisory/ai-readiness/','/en/advisory/ai-governance-implementation/','/en/advisory/external-ai-technology-counsel/','/advisory/legal-ai-automation/','/en/advisory/legal-ai-automation/'
-  ];
+  const paths=[];
+  function collect(dir){for(const e of fs.readdirSync(dir,{withFileTypes:true})){if(e.name==='admin')continue;const file=path.join(dir,e.name);if(e.isDirectory())collect(file);else if(e.name==='index.html'){const route='/'+path.relative(root,dir).split(path.sep).filter(Boolean).join('/')+(dir===root?'':'/');if(route!=='/'&&route!=='/en/')paths.push(route);}}}
+  collect(root);
   for(const route of paths){
     const page=await browser.newPage({viewport:{width:390,height:844}});
     const response=await page.goto(base+route,{waitUntil:'networkidle'});
@@ -90,6 +84,8 @@ try{
     check((await page.locator('h1').count())===1,'Missing or multiple H1: '+route);
     check((await page.locator('.site-header').count())===1,'Missing site header: '+route);
     await overflow(page,390,route);
+    check((await page.locator('.dlg-breadcrumb').count())===1,'Missing breadcrumb '+route);
+    check((await page.locator('.site-nav a[href="'+(route.startsWith('/en/')?'/en/contact/':'/contact/')+'"]').count())===1,'Contact route missing '+route);
     check((await page.locator('meta[name="description"]').getAttribute('content')).length>15,'Missing meta description: '+route);
     if(route.startsWith('/en/'))check((await page.locator('html').getAttribute('lang'))==='en','English route is not pre-rendered: '+route);
     await page.close();
