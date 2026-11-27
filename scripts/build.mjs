@@ -9,7 +9,7 @@ import {parentsFor} from './site-architecture.mjs';
 import {generateResourceCovers} from './generate-resource-covers.mjs';
 import path from 'node:path';
 import {validateResources,renderBody,esc,topics,formats} from '../resources/resource-model.mjs';
-const publicAssets='<link rel="stylesheet" href="/dlg-public.css?v=20261127-specialist"><link rel="stylesheet" href="/dlg-polish.css?v=20261127-v1"><link rel="stylesheet" href="/dlg-atlas.css?v=20261127-directory-v3"><script src="/dlg-atlas.js?v=20261127-directory-v3" defer></script><script src="/dlg-polish.js?v=20261127-v1" defer></script><script src="/dlg-language.js?v=20261126-qa" defer></script>';
+const publicAssets='<link rel="stylesheet" href="/dlg-public.css?v=20261127-specialist"><link rel="stylesheet" href="/dlg-polish.css?v=20261127-v1"><link rel="stylesheet" href="/dlg-atlas.css?v=20261127-preferred-finish-v4"><script src="/dlg-atlas.js?v=20261127-directory-v3" defer></script><script src="/dlg-polish.js?v=20261127-v1" defer></script><script src="/dlg-language.js?v=20261126-qa" defer></script>';
 const out=process.env.SITE_OUTPUT||'dist';
 const siteUrl=(process.env.SITE_URL||'https://lukaswebsite.vercel.app').replace(/\/+$/,'');
 if(!['dist','test-dist'].includes(out))throw new Error('Unsupported output directory');
