@@ -332,8 +332,8 @@ export const sectors = [
   {
     "slug": "legal-teams",
     "name": {
-      "ka": "იურიდიული სამსახურები",
-      "en": "In-house Legal Teams"
+      "ka": "იურიდიული ფირმები და დეპარტამენტები",
+      "en": "Law Firms & In-house Legal Teams"
     },
     "label": {
       "ka": "გარე ექსპერტიზა · მუდმივი მხარდაჭერა",
