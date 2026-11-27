@@ -55,24 +55,20 @@ function clientEntrances() {
 }
 
 function homePractices() {
-  const images={ai:'/assets/editorial/human-machine.webp',privacy:'/assets/sectors/technology.jpg',contracts:'/assets/editorial/practice-collaboration.jpg',products:'/assets/sectors/commerce.jpg',fintech:'/assets/sectors/financial-services.jpg',corporate:'/assets/sectors/international.jpg'};
-  const cards = practiceGroups.map((group,i) => `<a class="practice-card" href="${groupRoute(group)}" data-practice-preview="${images[group.key]}">
-    <span class="dlg-practice-index" aria-hidden="true">0${i+1}</span>${practiceIcon(group.key)}
+  const cards=practiceGroups.map(group=>`<a class="practice-card" href="${groupRoute(group)}">
+    ${practiceIcon(group.key)}
     <div>${tr(group.name.ka,group.name.en,'h3')}${tr(shortPractice[group.key][0],shortPractice[group.key][1],'p')}</div>
     ${arrow}
   </a>`).join('\n');
-  const first=practiceGroups[0];
-  return `<section class="section" id="expertise" aria-labelledby="expertise-title"><div class="wrap">
-    <div class="section-head"><div>${tr('ჩვენი სპეციალიზაცია','OUR EXPERTISE','p','dlg-chapter-label')}<h2 id="expertise-title">${tr('სამართლებრივი მხარდაჭერა ბიზნესისთვის','Legal support for business')}</h2></div>${link('/services/','ყველა მიმართულება','All practice areas')}</div>
-    <div class="dlg-practice-explorer">
-      <div class="practice-grid">${cards}</div>
-      <figure class="dlg-practice-stage" aria-hidden="true">
-        <div class="dlg-stage-picture"><img src="${images[first.key]}" alt="" width="1200" height="760" loading="lazy" decoding="async"></div>
-        <figcaption><span class="dlg-stage-index">01 / 06</span><strong class="dlg-stage-title">${tr(first.name.ka,first.name.en)}</strong><span class="dlg-stage-summary">${tr(shortPractice[first.key][0],shortPractice[first.key][1])}</span></figcaption>
-        <svg class="dlg-stage-mark" viewBox="0 0 92 92" width="92" height="92" fill="none" aria-hidden="true"><path d="M0 0h92v92M0 23h69v69M0 46h46v46M0 69h23v23" stroke="currentColor" stroke-width=".8"/></svg>
-      </figure>
+  return `<section class="section" id="expertise" aria-labelledby="expertise-title">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 id="expertise-title">${tr('ჩვენი სპეციალიზაცია','Our expertise')}</h2>
+        ${link('/services/','ყველა მიმართულება','All practice areas')}
+      </div>
+      <div class="practice-grid dlg-practice-directory">${cards}</div>
     </div>
-  </div></section>`;
+  </section>`;
 }
 
 function audience() {
@@ -112,23 +108,6 @@ function about() {
   </section>`;
 }
 
-function engagement() {
-  const steps = [
-    ['საკითხის დაზუსტება', 'Understand the matter', 'ვესაუბრებით თქვენს გუნდს, ვეცნობით საკითხსა და ბიზნესის მიზნებს.', 'We understand your matter, your business objectives and the context.'],
-    ['სამუშაოს ფარგლები', 'Agree the scope', 'წინასწარ ვათანხმებთ სამუშაოს ფარგლებს, ვადასა და ანაზღაურებას.', 'We agree the scope, timing and fees before work begins.'],
-    ['სამართლებრივი მხარდაჭერა', 'Advice and delivery', 'ვამზადებთ შეთანხმებულ დოკუმენტებს, განვმარტავთ რისკებს და გთავაზობთ პრაქტიკულ ნაბიჯებს.', 'We deliver the agreed documents, explain the risks and recommend practical next steps.'],
-  ];
-  return `<section class="section engagement" id="engagement" aria-labelledby="engagement-title">
-    <div class="wrap">
-      <div class="section-head">
-        <h2 id="engagement-title">${tr('როგორ ვმუშაობთ', 'How we work')}</h2>
-        ${link('/how-we-work/', 'თანამშრომლობის პირობები', 'How engagements work')}
-      </div>
-      <ol class="engagement-steps">${steps.map(([ka,en,copyKa,copyEn])=>`<li>${tr(ka,en,'h3')}</li>`).join('')}</ol>
-    </div>
-  </section>`;
-}
-
 function insights(rows) {
   const articles = rows.filter(row => row.featured).slice(0, 3).map(row => `<a class="article" href="/resources/${row.slug}/">
     <figure class="home-article-media"><img src="${row.cover}" alt="" width="1200" height="800" loading="lazy" decoding="async"></figure>
@@ -157,6 +136,6 @@ export function renderHomepage(source, rows) {
     .replace('<!-- international-feature -->', internationalFeature())
     .replace('<!-- home-sectors -->', audience())
     .replace('<!-- home-founder -->', about())
-    .replace('<!-- home-engagement -->', engagement())
+    .replace('<!-- home-engagement -->', '')
     .replace('<!-- home-insights -->', insights(rows));
 }
