@@ -55,23 +55,24 @@ function clientEntrances() {
 }
 
 function homePractices() {
-  const cards = practiceGroups.map(group => `<a class="practice-card" href="${groupRoute(group)}">
-    ${practiceIcon(group.key)}
-    <div>
-      ${tr(group.name.ka, group.name.en, 'h3')}
-      ${tr(shortPractice[group.key][0], shortPractice[group.key][1], 'p')}
-    </div>
+  const images={ai:'/assets/editorial/human-machine.webp',privacy:'/assets/sectors/technology.jpg',contracts:'/assets/editorial/practice-collaboration.jpg',products:'/assets/sectors/commerce.jpg',fintech:'/assets/sectors/financial-services.jpg',corporate:'/assets/sectors/international.jpg'};
+  const cards = practiceGroups.map((group,i) => `<a class="practice-card" href="${groupRoute(group)}" data-practice-preview="${images[group.key]}">
+    <span class="dlg-practice-index" aria-hidden="true">0${i+1}</span>${practiceIcon(group.key)}
+    <div>${tr(group.name.ka,group.name.en,'h3')}${tr(shortPractice[group.key][0],shortPractice[group.key][1],'p')}</div>
     ${arrow}
   </a>`).join('\n');
-  return `<section class="section" id="expertise" aria-labelledby="expertise-title">
-    <div class="wrap">
-      <div class="section-head">
-        <h2 id="expertise-title">${tr('მომსახურების მიმართულებები', 'Our expertise')}</h2>
-        ${link('/services/', 'ყველა მომსახურება', 'All services')}
-      </div>
+  const first=practiceGroups[0];
+  return `<section class="section" id="expertise" aria-labelledby="expertise-title"><div class="wrap">
+    <div class="section-head"><div>${tr('ჩვენი სპეციალიზაცია','OUR EXPERTISE','p','dlg-chapter-label')}<h2 id="expertise-title">${tr('სამართლებრივი მხარდაჭერა ბიზნესისთვის','Legal support for business')}</h2></div>${link('/services/','ყველა მიმართულება','All practice areas')}</div>
+    <div class="dlg-practice-explorer">
       <div class="practice-grid">${cards}</div>
+      <figure class="dlg-practice-stage" aria-hidden="true">
+        <div class="dlg-stage-picture"><img src="${images[first.key]}" alt="" width="1200" height="760" loading="lazy" decoding="async"></div>
+        <figcaption><span class="dlg-stage-index">01 / 06</span><strong class="dlg-stage-title">${tr(first.name.ka,first.name.en)}</strong><span class="dlg-stage-summary">${tr(shortPractice[first.key][0],shortPractice[first.key][1])}</span></figcaption>
+        <svg class="dlg-stage-mark" viewBox="0 0 92 92" width="92" height="92" fill="none" aria-hidden="true"><path d="M0 0h92v92M0 23h69v69M0 46h46v46M0 69h23v23" stroke="currentColor" stroke-width=".8"/></svg>
+      </figure>
     </div>
-  </section>`;
+  </div></section>`;
 }
 
 function audience() {
@@ -81,7 +82,7 @@ function audience() {
   return `<section class="section sectors" id="sectors" aria-labelledby="sectors-heading">
     <div class="wrap">
       <div class="section-head">
-        <h2 id="sectors-heading">${tr('ვის ვუწევთ კონსულტაციას', 'Who we advise')}</h2>
+        <div>${tr('ბიზნესსექტორები','INDUSTRIES','p','dlg-chapter-label')}<h2 id="sectors-heading">${tr('ვის ვუწევთ კონსულტაციას', 'Who we advise')}</h2></div>
         ${link('/business/', 'ყველა სექტორი', 'All sectors')}
       </div>
       <div class="home-sectors">${cards}</div>
@@ -93,29 +94,20 @@ function about() {
   return `<section class="section practice-introduction" id="about" aria-labelledby="about-heading">
     <div class="wrap home-founder-reference">
       <div class="dlg-home-firm-copy">
-        ${tr('ჩვენ შესახებ', 'About the firm', 'p', 'eyebrow')}
-        <h2 id="about-heading">${tr('სამართლებრივი ცოდნა და ბიზნესის გააზრება', 'Legal expertise and commercial understanding')}</h2>
-        ${tr('Digital Law Georgia ტექნოლოგიურ და კომერციულ სამართალში სპეციალიზებული იურიდიული ფირმაა. კომპანიებს ვეხმარებით ტექნოლოგიური პროექტების, კომერციული გარიგებებისა და რეგულაციებთან დაკავშირებული სამართლებრივი საკითხების გადაწყვეტაში.', 'Digital Law Georgia is a specialist technology and commercial law firm. We help businesses address legal issues arising from technology projects, commercial transactions and regulatory requirements.', 'p','dlg-home-firm-lead')}
-        ${tr('სამართლებრივ რჩევას თქვენი კომპანიის საქმიანობასა და მიზნებს ვარგებთ.', 'Our legal advice is tailored to your business and its objectives.', 'p','dlg-home-firm-lead')}
-        <div class="inline-links">${link('/about/', 'გაიცანით ფირმა', 'About the firm')}${link('/how-we-work/', 'როგორ ვმუშაობთ', 'How we work')}</div>
-      </div>
-      <div class="dlg-home-founder-card">
-        <figure class="founder-feature">
-          <img src="/assets/profile/founder-portrait.webp" alt="ლუკა შახყულაშვილი" data-en-alt="Luka Shakhkulashvili" width="900" height="900" loading="lazy" decoding="async">
-        </figure>
-        <div class="dlg-home-founder-copy">
-          ${tr('დამფუძნებელი','Founder','p','eyebrow')}
-          <h3>${tr('ლუკა შახყულაშვილი','Luka Shakhkulashvili')}</h3>
-          ${tr('ტექნოლოგიური და კომერციული სამართლის იურისტი','Technology and commercial lawyer','p','founder-role')}
-          <div class="founder-credentials">${tr('შვიდწლიანი იურიდიული გამოცდილება კერძო და საჯარო სექტორში.','Seven years of legal experience in the private and public sectors.','p')}</div>
-          ${link('/about/founder/', 'პროფესიული პროფილი', 'Professional profile')}
+        ${tr('ჩვენ შესახებ','ABOUT THE FIRM','p','eyebrow')}
+        <h2 id="about-heading">${tr('სამართალი, ტექნოლოგიები და ბიზნესი','Law, technology and business')}</h2>
+        ${tr('Digital Law Georgia ტექნოლოგიურ და კომერციულ სამართალში სპეციალიზებული იურიდიული ფირმაა. ქართულ და საერთაშორისო კომპანიებს ვეხმარებით სამართლებრივი რისკების მართვაში, გარიგებების განხორციელებასა და ტექნოლოგიების დანერგვაში.','Digital Law Georgia is a specialist technology and commercial law firm. We advise Georgian and international businesses on legal risk, transactions and technology adoption.','p','dlg-home-firm-lead')}
+        <div class="inline-links">${link('/about/','ფირმის შესახებ','About the firm')}${link('/how-we-work/','ჩვენი მიდგომა','Our approach')}</div>
+        <div class="dlg-home-firm-principles" aria-label="ჩვენი მიდგომა" data-en-aria="Our approach">
+          <a href="/services/"><span class="dlg-firm-principle-index">01</span>${tr('სპეციალიზებული ცოდნა','Specialist expertise','strong')}${arrow}</a>
+          <a href="/how-we-work/"><span class="dlg-firm-principle-index">02</span>${tr('უშუალო თანამშრომლობა','Direct collaboration','strong')}${arrow}</a>
+          <a href="/business/georgia/"><span class="dlg-firm-principle-index">03</span>${tr('საერთაშორისო საქმიანობა','International business','strong')}${arrow}</a>
         </div>
       </div>
-    </div>
-    <div class="wrap dlg-home-firm-principles" aria-label="ჩვენი მიდგომა" data-en-aria="Our approach">
-      <a href="/services/"><span class="dlg-firm-principle-index">01</span>${tr('სპეციალიზებული სამართლებრივი ცოდნა','Specialist legal expertise','strong')}${arrow}</a>
-      <a href="/how-we-work/"><span class="dlg-firm-principle-index">02</span>${tr('უშუალო თანამშრომლობა','Direct collaboration','strong')}${arrow}</a>
-      <a href="/business/georgia/"><span class="dlg-firm-principle-index">03</span>${tr('ქართულ და საერთაშორისო კომპანიებთან მუშაობა','Georgian and international businesses','strong')}${arrow}</a>
+      <div class="dlg-home-founder-card">
+        <figure class="founder-feature"><img src="/assets/profile/founder-portrait.webp" alt="ლუკა შახყულაშვილი" data-en-alt="Luka Shakhkulashvili" width="900" height="900" loading="lazy" decoding="async"></figure>
+        <div class="dlg-home-founder-copy">${tr('დამფუძნებელი','Founder','p','eyebrow')}<h3>${tr('ლუკა შახყულაშვილი','Luka Shakhkulashvili')}</h3>${tr('ტექნოლოგიური და კომერციული სამართლის იურისტი','Technology and commercial lawyer','p','founder-role')}<div class="founder-credentials">${tr('შვიდწლიანი იურიდიული გამოცდილება','Seven years of legal experience','p')}</div>${link('/about/founder/','პროფესიული პროფილი','Professional profile')}</div>
+      </div>
     </div>
   </section>`;
 }
@@ -151,7 +143,7 @@ function insights(rows) {
   return `<section class="section" id="insights" aria-labelledby="insights-heading">
     <div class="wrap">
       <div class="section-head">
-        <h2 id="insights-heading">${tr('კვლევები და ანალიტიკა', 'Insights and research')}</h2>
+        <div>${tr('ცოდნა და პრაქტიკა','KNOWLEDGE & PRACTICE','p','dlg-chapter-label')}<h2 id="insights-heading">${tr('კვლევები და ანალიტიკა', 'Insights and research')}</h2></div>
         ${link('/resources/', 'ყველა სტატია', 'All insights')}
       </div>
       <div class="article-grid">${articles}</div><a class="home-research-note" href="https://arxiv.org/abs/2607.21345" target="_blank" rel="noopener noreferrer"><div>${tr('სამეცნიერო ნაშრომი · 2026', 'Research paper · 2026', 'p', 'eyebrow')}${tr('ავტონომიური და აგენტური AI-ის რეგულირება', 'Regulating Autonomous and Agentic AI', 'strong')}</div><span class="research-link-label">${tr('ნაშრომის ნახვა', 'Read the paper')} ${arrow}</span></a>
