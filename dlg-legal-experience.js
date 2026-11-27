@@ -23,6 +23,7 @@
  filters.forEach(button=>button.addEventListener('click',()=>{category=button.dataset.dlgFilter;update();}));
  const close=dialog.querySelector('[data-dlg-finder-close]');
  if(close)close.addEventListener('click',()=>dialog.close());
+ dialog.addEventListener('keydown',event=>{if(event.key==='Escape'&&dialog.open){event.preventDefault();dialog.close();}});
  dialog.addEventListener('click',event=>{if(event.target!==dialog)return;const r=dialog.getBoundingClientRect();if(event.clientX<r.left||event.clientX>r.right||event.clientY<r.top||event.clientY>r.bottom)dialog.close();});
  dialog.addEventListener('close',()=>{input.value='';category='all';update();if(opener&&opener.isConnected)opener.focus();opener=null;});
  update();
