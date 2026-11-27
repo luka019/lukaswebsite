@@ -17,8 +17,8 @@ export function internationalFeature() {
       <div>
         ${tr('უცხოური კომპანიებისთვის', 'For international businesses', 'p', 'eyebrow')}
         <h2 id="georgia-business-title">${tr('საქართველოში საქმიანობას იწყებთ?', 'Doing business in Georgia?')}</h2>
-        ${tr('ვმუშაობთ უცხოურ კომპანიებთან და მათ იურიდიულ გუნდებთან. დაგეხმარებით საქმიანობის ფორმის შერჩევაში, ადგილობრივ ხელშეკრულებებსა და ქართული რეგულაციების შეფასებაში.', 'We work with international companies and their in-house teams on market entry, local contracts and Georgian regulatory questions.', 'p', 'dlg-international-copy')}
-        ${link(georgiaPage.route, 'იურიდიული მხარდაჭერა საქართველოში', 'Explore our Georgian legal services', 'primary dlg-international-link')}
+        ${tr('უცხოურ კომპანიებს ვეხმარებით საქართველოში საქმიანობის დაწყებასა და გაფართოებაში.', 'Georgian-law advice for international businesses entering or expanding in Georgia.', 'p', 'dlg-international-copy')}
+        ${link(georgiaPage.route, 'საქართველოში საქმიანობა', 'Doing business in Georgia', 'primary dlg-international-link')}
       </div>
       ${georgiaServiceLinks()}
     </div>
