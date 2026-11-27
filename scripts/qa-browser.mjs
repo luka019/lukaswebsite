@@ -47,6 +47,9 @@ try{
     for(let i=0;i<serviceRoutes.length;i++)check(await page.locator('.practice-card').nth(i).getAttribute('href')===serviceRoutes[i],'Homepage direct route '+i);
     const heroPhoto=page.locator('.hero-photo img');
     check(await heroPhoto.count()===1,'Missing hero photograph');
+    const matterLinks=await page.locator('.matter-nav a').evaluateAll(links=>links.map(link=>link.getAttribute('href')));
+    check(JSON.stringify(matterLinks)===JSON.stringify(['/advisory/','/services/contracts/','/business/georgia/']),'Client entry routes missing');
+    check(await page.locator('.engagement-steps li').count()===3,'Engagement steps missing');
     await heroPhoto.evaluate(image=>image.decode());
     check(await heroPhoto.evaluate(image=>image.naturalWidth>0&&image.getBoundingClientRect().width>0),'Hero photograph failed to render');
     check((await heroPhoto.getAttribute('alt')).length>20,'Hero photograph needs descriptive alt text');

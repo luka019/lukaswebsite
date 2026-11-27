@@ -103,3 +103,25 @@
     height: 24px;
   }
 }
+
+.digital-site .digital-page-hero,
+.resource-page .resource-hero {
+  background: #f5f0e7;
+  border-bottom-color: #ded5c8;
+}
+
+.digital-site .digital-page-hero h1,
+.resource-page .resource-hero h1 {
+  color: #162d43;
+  text-wrap: balance;
+}
+
+.digital-site .dlg-area-card:hover,
+.resource-page .resource-card:hover {
+  background: #fcfaf6;
+  border-color: #9bacbb;
+}
+
+.resource-page .resource-hero-description {
+  color: #4b5d68;
+}

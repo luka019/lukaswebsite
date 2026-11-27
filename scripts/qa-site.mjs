@@ -20,11 +20,12 @@ for(const [page,lang] of [[home,'ka'],[englishHome,'en']]){
  assert((page.match(/data-tab="\d+"/g)||[]).length===4,'Four advisory tabs required');
 
  assert((page.match(/class="home-sector-link"/g)||[]).length===6,'Six visible sector routes required');
- assert(page.includes('class="hero-photo"')&&page.includes('src="/assets/editorial/law-technology-touch.webp"')&&page.includes('law-technology-touch-small.webp 640w')&&page.includes('fetchpriority="high"'),'Responsive technology-law photograph required');
+ assert(page.includes('class="hero-photo"')&&page.includes('src="/assets/editorial/technology-fresco.webp"')&&page.includes('technology-fresco-small.webp 640w')&&page.includes('fetchpriority="high"'),'Responsive technology-law photograph required');
  assert(page.includes('src="/assets/editorial/ai-workflow.webp"'),'AI advisory photograph missing');
  assert((page.match(/class="practice-glyph"/g)||[]).length===6,'Six practice icons required');
  assert((page.match(/role="tabpanel"/g)||[]).length===4,'Four advisory outcomes required');
  assert((page.match(/class="article"/g)||[]).length===3,'Three featured research links required');
+ assert(page.includes('class="matter-nav"')&&page.includes('class="engagement-steps"'),'Client entry points and engagement steps required');
  assert(page.includes('class="enquiry-form"')&&page.includes('id="enquiry-mailto"'),'Enquiry composer missing');
  assert(!page.includes('/assets/editorial/architectural-interior.webp')&&!page.includes('/assets/editorial/legal-technology-workspace.webp'),'Synthetic office imagery must not appear on homepage');
  assert(page.includes('src="/assets/profile/founder-portrait.webp"'),'Authentic founder portrait required');

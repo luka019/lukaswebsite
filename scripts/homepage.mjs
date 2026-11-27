@@ -9,6 +9,16 @@ const arrow = '<span aria-hidden="true">↗</span>';
 const link = (url, ka, en, cls = 'text-link') =>
   `<a class="${cls}" href="${url}">${tr(ka, en)} ${arrow}</a>`;
 
+function clientEntrances() {
+  return `<nav class="matter-nav" aria-label="თქვენი საკითხი" data-en-aria="Find advice for your matter">
+    <div class="wrap matter-nav-inner">
+      ${link('/advisory/', 'ვნერგავთ ხელოვნურ ინტელექტს', 'We are adopting AI')}
+      ${link('/services/contracts/', 'ვაფორმებთ ტექნოლოგიურ ხელშეკრულებას', 'We are negotiating a tech contract')}
+      ${link('/business/georgia/', 'ვიწყებთ საქმიანობას საქართველოში', 'We are setting up in Georgia')}
+    </div>
+  </nav>`;
+}
+
 function homePractices() {
   const cards = practiceGroups.map(group => `<a class="practice-card" href="${groupRoute(group)}">
     <span class="practice-mark">${practiceIcon(group.key)}${arrow}</span>
@@ -42,6 +52,7 @@ function advisory() {
     return `<div class="advisory-panel" role="tabpanel" id="panel-${id}" aria-labelledby="tab-${id}" tabindex="0"${index ? ' hidden' : ''}>
       ${tr(programme.name.ka, programme.name.en, 'h3')}
       ${tr(programme.intro.ka, programme.intro.en, 'p')}
+      ${tr('რას მიიღებთ', 'What you receive', 'p', 'outcome-label')}
       <ul>${output}</ul>
       ${link('/advisory/'+id+'/', 'გაეცანით პირობებს და შედეგებს', 'Explore scope and deliverables')}
     </div>`;
@@ -123,6 +134,23 @@ function about() {
   </section>`;
 }
 
+function engagement() {
+  const steps = [
+    ['საკითხის დაზუსტება', 'Understand the matter', 'ვარკვევთ, რა გადაწყვეტილება გაქვთ მისაღები და რა ინფორმაცია გვჭირდება შეფასებისთვის.', 'We clarify the decision you need to make and the information needed to advise you.'],
+    ['სამუშაოს ფარგლები', 'Agree the scope', 'წინასწარ ვათანხმებთ სამუშაოს ფარგლებს, ვადასა და ანაზღაურებას.', 'We agree the scope, timing and fees before work begins.'],
+    ['რჩევა და შემდგომი ნაბიჯები', 'Advice and next steps', 'იღებთ შეთანხმებულ დოკუმენტს ან წერილობით შეფასებას ძირითადი რისკებითა და შემდგომი ნაბიჯებით.', 'You receive the agreed document or written advice with the key risks and next steps.'],
+  ];
+  return `<section class="section engagement" id="engagement" aria-labelledby="engagement-title">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 id="engagement-title">${tr('როგორ ვმუშაობთ', 'How we work')}</h2>
+        ${link('/how-we-work/', 'თანამშრომლობის პირობები', 'How engagements work')}
+      </div>
+      <ol class="engagement-steps">${steps.map(([ka,en,copyKa,copyEn])=>`<li>${tr(ka,en,'h3')}${tr(copyKa,copyEn,'p')}</li>`).join('')}</ol>
+    </div>
+  </section>`;
+}
+
 function insights(rows) {
   const articles = rows.filter(row => row.featured).slice(0, 3).map(row => `<a class="article" href="/resources/${row.slug}/">
     <img src="${escape(row.cover)}" alt="" width="1200" height="800" loading="lazy" decoding="async">
@@ -142,10 +170,12 @@ function insights(rows) {
 }
 
 export function renderHomepage(source, rows) {
-  return source.replace('<!-- home-practices -->', homePractices())
+  return source.replace('<!-- home-entrances -->', clientEntrances())
+    .replace('<!-- home-practices -->', homePractices())
     .replace('<!-- home-advisory -->', advisory())
     .replace('<!-- international-feature -->', internationalFeature())
     .replace('<!-- home-sectors -->', audience())
     .replace('<!-- home-founder -->', about())
+    .replace('<!-- home-engagement -->', engagement())
     .replace('<!-- home-insights -->', insights(rows));
 }
