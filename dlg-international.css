@@ -303,3 +303,82 @@ body.resource-page .digital-site .dlg-advisory-directory .dlg-advisory-card { bo
 @media(prefers-reduced-motion:reduce) {
   .home-sector-link::before,.matter-link,body:has(.masthead) .practice-card { transition:none; }
 }
+
+
+/* Light editorial header: restrained blue and ivory, no metallic CTA treatment. */
+body:has(.masthead) .masthead,
+body.resource-page .site-header.law-header {
+  background:#fff; color:#102b40; border-bottom:1px solid #e0e7ee;
+}
+.masthead .brand, .masthead .nav a, .masthead .menu-btn,
+body.resource-page .site-header .law-brand-monogram,
+body.resource-page .site-header .law-brand-text strong,
+body.resource-page .site-header .law-brand-text small,
+body.resource-page .site-header .law-nav>a {
+  color:#102b40;
+}
+.masthead .brand-name,body.resource-page .site-header .law-brand .law-brand-rule { border-color:#c4d4e0; }
+body.resource-page .site-header .law-brand .law-brand-rule { background:#c4d4e0; }
+.masthead .nav a:hover,body.resource-page .site-header .law-nav>a:hover { color:#315f85; }
+.masthead .language a,body.resource-page .site-header .law-languages a { color:#536779; }
+.masthead .language a[aria-current="page"],body.resource-page .site-header .law-languages a[aria-current="page"] { color:#102b40; }
+.masthead .small-cta,body.resource-page .site-header .law-header-cta {
+  color:#fff; background:#315f85; border-color:#315f85;
+}
+.masthead .small-cta:hover,body.resource-page .site-header .law-header-cta:hover {
+  color:#fff; background:#102b40; border-color:#102b40;
+}
+body.resource-page .site-header .law-menu-toggle span { background:#102b40; }
+body:has(.masthead) .hero {
+  color:#102b40; background:linear-gradient(115deg,#fff 0%,#f7f9fb 54%,#edf3f8 100%);
+  border-bottom:1px solid #dce8f0;
+}
+body:has(.masthead) .hero-inner {
+  min-height:clamp(470px,42vw,610px);
+  grid-template-columns:minmax(0,1.06fr) minmax(0,1fr);
+}
+.hero-title { padding-top:clamp(40px,5.5vw,75px); padding-bottom:18px; }
+.hero-copy { padding-bottom:clamp(40px,5.5vw,75px); }
+.hero-title .eyebrow { color:#315f85; letter-spacing:.045em; font-weight:650; }
+.hero-title .eyebrow::after { width:34px; background:#b7a079; margin-top:13px; }
+body:has(.masthead) .hero h1 {
+  color:#102b40; font-weight:600; font-size:clamp(2rem,3.25vw,3.25rem);
+  line-height:1.25; letter-spacing:-.035em;
+}
+body:has(.masthead) .hero h1 em { color:#315f85; }
+body:has(.masthead) .hero .intro { color:#43596b; font-size:clamp(.95rem,1.12vw,1.05rem); line-height:1.8; max-width:35rem; }
+body:has(.masthead) .hero-location { color:#526779; }
+body:has(.masthead) .hero .primary,body:has(.masthead) .contact .primary {
+  color:#fff; background:#315f85; border-color:#315f85;
+}
+body:has(.masthead) .hero .primary:hover,body:has(.masthead) .contact .primary:hover {
+  color:#fff; background:#102b40; border-color:#102b40;
+}
+body:has(.masthead) .hero .secondary {
+  color:#102b40; background:transparent; border-color:#aabdcf;
+}
+body:has(.masthead) .hero .secondary:hover { background:#dce8f0; color:#102b40; border-color:#315f85; }
+body:has(.masthead) .hero-photo { background:#edf3f8; }
+body:has(.masthead) .hero-photo img { filter:saturate(.92); }
+body:has(.masthead) .hero-photo::after {
+  background:linear-gradient(90deg,#f7f9fb 0%,#f7f9fbd9 7%,#f7f9fb55 20%,transparent 39%);
+}
+@media(max-width:1080px) {
+  body:has(.masthead) .hero h1 { font-size:clamp(1.85rem,3.25vw,3rem); }
+}
+@media(max-width:920px) {
+  .masthead .nav,body.resource-page .site-header .site-nav.law-nav.open {
+    background:#fff; border-color:#dce8f0;
+  }
+  .masthead .nav a { border-color:#e0e7ee; }
+  body:has(.masthead) .hero-inner { min-height:460px; }
+}
+@media(max-width:740px) {
+  body:has(.masthead) .hero-inner { min-height:0; grid-template-columns:minmax(0,1fr); }
+  .hero-title { padding:30px 18px 14px; }
+  .hero-copy { padding:0 18px 25px; }
+  body:has(.masthead) .hero h1 { font-size:clamp(1.6rem,6.2vw,2.7rem); }
+  body:has(.masthead) .hero-photo::after {
+    background:linear-gradient(180deg,#f7f9fb44 0%,transparent 19%);
+  }
+}
