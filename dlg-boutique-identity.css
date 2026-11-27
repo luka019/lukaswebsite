@@ -1,0 +1,236 @@
+
+/* Digital Law Georgia | Boutique identity.
+   A quiet, architecture-led legal practice, not an application interface.
+   The previous Atlas visual layer is not loaded. */
+:root{
+ --boutique-ink:#172c38;--boutique-navy:#152b36;--boutique-deep:#0f232d;
+ --boutique-paper:#f8f6f0;--boutique-white:#fffdfa;--boutique-stone:#eeebe3;
+ --boutique-brass:#9a7850;--boutique-gold:#d8bd93;--boutique-muted:#515b5c;
+ --boutique-line:#d5cec0;--boutique-ease:cubic-bezier(.22,.61,.36,1)
+}
+body:has(.masthead),body.resource-page{background:var(--boutique-paper);color:var(--boutique-ink);font-size:15px}
+body:has(.masthead) .wrap,body.resource-page .container{width:min(1200px,calc(100% - clamp(40px,10vw,144px)));max-width:none;margin-inline:auto}
+body:has(.masthead) .masthead,body.resource-page .site-header.law-header{background:var(--boutique-paper);border-bottom:1px solid var(--boutique-line);color:var(--boutique-ink);box-shadow:none}
+body:has(.masthead) .nav-inner,body.resource-page .law-header-inner{min-height:88px;gap:clamp(13px,2vw,26px)}
+body:has(.masthead) .masthead .monogram,body.resource-page .site-header .law-brand-monogram{font:400 37px/1 Georgia,serif;letter-spacing:-.065em;color:var(--boutique-ink);background:transparent}
+body:has(.masthead) .brand-name,body.resource-page .site-header .law-brand-text strong,body.resource-page .site-header .law-brand-text small{font-family:Georgia,serif;text-transform:none;font-size:12px;line-height:1.2;font-weight:400;letter-spacing:.015em;color:var(--boutique-ink)}
+body:has(.masthead) .brand-name,body.resource-page .site-header .law-brand-rule{border-color:#bca98e}
+body.resource-page .site-header .law-brand-rule{background:#bca98e}
+body:has(.masthead) .masthead .nav,body.resource-page .site-header .law-nav{gap:clamp(14px,1.8vw,26px)}
+body:has(.masthead) .masthead .nav a,body.resource-page .site-header .law-nav>a{color:var(--boutique-ink);font-size:.8rem;font-weight:550}
+body:has(.masthead) .small-cta,body.resource-page .site-header .law-header-cta{background:transparent;border:1px solid var(--boutique-brass);color:var(--boutique-ink);font-size:.77rem;font-weight:600;min-height:44px;padding:10px 14px;border-radius:0;box-shadow:none}
+body:has(.masthead) .small-cta:hover,body.resource-page .site-header .law-header-cta:hover{background:var(--boutique-ink);border-color:var(--boutique-ink);color:#fff}
+body:has(.masthead) .language a,body.resource-page .site-header .law-languages a{color:var(--boutique-muted)}
+body:has(.masthead) .language a[aria-current=page],body.resource-page .site-header .law-languages a[aria-current=page]{color:var(--boutique-ink);text-decoration:underline;text-underline-offset:4px}
+/* Full-width photographic opening. Layered architecture and a solid dark reading area. */
+body:has(.masthead) .hero{position:relative;isolation:isolate;background:var(--boutique-navy);border:0;overflow:hidden;padding:0}
+body:has(.masthead) .hero-inner{position:relative;display:grid;grid-template-columns:minmax(0,1fr);grid-template-rows:auto;align-items:center;width:min(1200px,calc(100% - clamp(40px,10vw,144px)));min-height:clamp(450px,36vw,570px);padding:0;gap:0;overflow:visible}
+body:has(.masthead) .hero-photo{position:absolute;top:0;bottom:0;left:45%;right:calc((1200px - 100vw)/2);width:auto;height:100%;min-height:0;max-width:none;margin:0;aspect-ratio:auto;grid-area:auto;background:#6f7168;z-index:-1;isolation:isolate;overflow:hidden;border:0}
+@media(max-width:1344px){body:has(.masthead) .hero-photo{right:calc(-1 * clamp(20px,5vw,72px))}}
+body:has(.masthead) .hero-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:55% 50%;mix-blend-mode:normal;filter:saturate(.48) brightness(.88);transform:none;aspect-ratio:auto}
+body:has(.masthead) .hero-photo::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(90deg,var(--boutique-navy) 0%,#152b36e0 9%,#152b3660 30%,transparent 66%);z-index:1}
+body:has(.masthead) .hero-content{display:block;position:relative;z-index:2;grid-column:1;grid-row:1;align-self:center;width:min(100%,630px);max-width:56%;padding:clamp(44px,5vw,76px) 0;min-width:0}
+body:has(.masthead) .hero-content .hero-title,body:has(.masthead) .hero-content .hero-copy{padding:0}
+body:has(.masthead) .hero-content .eyebrow{font-size:.73rem;letter-spacing:.065em;font-weight:550;color:var(--boutique-gold);margin:0 0 21px;display:flex;align-items:center;gap:12px}
+body:has(.masthead) .hero-content .eyebrow::before{content:"";height:1px;width:30px;background:var(--boutique-gold)}
+body:has(.masthead) .hero-content .eyebrow::after{display:none}
+body:has(.masthead) .hero-content h1{font-size:clamp(2rem,3.45vw,3.48rem);line-height:1.27!important;font-weight:550;letter-spacing:-.025em;margin:0 0 24px;color:#f9f5ec;max-width:100%;text-wrap:pretty}
+body:has(.masthead) .hero-content h1 em{font-style:normal;color:#f9f5ec;font-weight:inherit;display:block;margin:0}
+html[lang=en] body:has(.masthead) .hero-content h1{font-family:Georgia,serif;font-size:clamp(2.5rem,4.3vw,4.65rem);font-weight:400;line-height:1.1!important;letter-spacing:-.04em}
+body:has(.masthead) .hero-content .intro{font-size:.98rem;line-height:1.8;color:#e2e4e0;max-width:49ch;margin:0}
+body:has(.masthead) .hero-content .hero-actions{margin-top:26px;gap:12px}
+body:has(.masthead) .hero .primary{background:#e3cba5;color:var(--boutique-deep);border:1px solid #e3cba5;box-shadow:none}
+body:has(.masthead) .hero .secondary{background:transparent;color:#fbf6eb;border:1px solid #b8b8ae;box-shadow:none}
+body:has(.masthead) .hero .primary,body:has(.masthead) .hero .secondary{font-size:.79rem;min-height:46px;padding:11px 17px;border-radius:0}
+body:has(.masthead) .hero .primary:hover{background:#f4e5ca;border-color:#f4e5ca}
+body:has(.masthead) .hero .secondary:hover{background:#f8f3e7;color:var(--boutique-deep);border-color:#f8f3e7}
+body:has(.masthead) .hero-location{font-size:.7rem;color:#d7c5aa;letter-spacing:.025em;margin:24px 0 0}
+body:has(.masthead) .hero a:focus-visible{outline-color:#e3cba5}
+/* Editorial typography and consistent calm section rhythm. */
+body:has(.masthead) .section{padding-block:clamp(44px,5.9vw,82px)}
+body:has(.masthead) .section-head{align-items:end;gap:20px;margin-bottom:24px}
+body:has(.masthead) .section h2,body.resource-page .digital-site .digital-heading h2{font-size:clamp(1.5rem,2.7vw,2.43rem);line-height:1.42!important;font-weight:550;letter-spacing:-.021em;color:var(--boutique-ink);margin:0}
+html[lang=en] body:has(.masthead) .section h2,html[lang=en] body.resource-page .digital-site .digital-heading h2{font-family:Georgia,serif;font-weight:400;line-height:1.25!important}
+body:has(.masthead) .section-head h2::before{display:none}
+body:has(.masthead) .section .eyebrow,body.resource-page .digital-site .eyebrow,body.resource-page .resource-hero .eyebrow{color:#785b39;font-size:.69rem;font-weight:650;letter-spacing:.065em;margin:0 0 14px}
+body:has(.masthead) .section .eyebrow::after,body.resource-page .digital-site .eyebrow::after{display:none}
+body:has(.masthead) .text-link{color:#795b38;font-size:.79rem;line-height:1.6;font-weight:650;text-decoration:none}
+body:has(.masthead) .text-link:hover{text-decoration:underline;text-underline-offset:4px}
+body:has(.masthead) .section p:not(.eyebrow):not(.article-meta){color:var(--boutique-muted)}
+/* Establish the firm before introducing its work. No CV-like box. */
+body:has(.masthead) #about{background:var(--boutique-white);border:0;padding-block:clamp(44px,6vw,82px)}
+body:has(.masthead) #about .home-founder-reference{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:clamp(35px,7vw,100px);align-items:center}
+body:has(.masthead) #about .dlg-home-firm-copy h2{font-size:clamp(1.6rem,2.75vw,2.45rem);font-weight:550;line-height:1.42;max-width:26ch;margin:0 0 20px;color:var(--boutique-ink)}
+body:has(.masthead) #about .dlg-home-firm-copy .eyebrow{color:#785b39;margin:0 0 14px}
+body:has(.masthead) #about .dlg-home-firm-copy .dlg-home-firm-lead{font-size:.94rem;line-height:1.82;margin:0 0 14px;color:var(--boutique-muted);max-width:65ch}
+body:has(.masthead) #about .dlg-home-firm-copy .inline-links{margin-top:20px;gap:14px 24px}
+body:has(.masthead) #about .dlg-home-founder-card{display:grid;grid-template-columns:minmax(105px,155px) minmax(0,1fr);align-items:center;gap:clamp(16px,3vw,28px);background:transparent;border:0;border-left:1px solid var(--boutique-line);padding:0 0 0 clamp(22px,4vw,48px);min-width:0}
+body:has(.masthead) #about .dlg-home-founder-card .founder-feature{width:100%;max-width:none;aspect-ratio:3/4;margin:0;overflow:hidden}
+body:has(.masthead) #about .dlg-home-founder-card .founder-feature img{width:100%;height:100%;object-fit:cover;object-position:50% 27%;border:0;aspect-ratio:auto;filter:saturate(.65)}
+body:has(.masthead) #about .dlg-home-founder-copy h3{font-size:1.06rem;line-height:1.5;color:var(--boutique-ink);font-weight:600;margin:0 0 8px}
+body:has(.masthead) #about .dlg-home-founder-copy .eyebrow{color:#795b38;font-size:.68rem}
+body:has(.masthead) #about .dlg-home-founder-copy .founder-role{font-size:.8rem;line-height:1.55;color:var(--boutique-ink);margin:0 0 8px}
+body:has(.masthead) #about .dlg-home-founder-copy .founder-credentials p{font-size:.78rem;line-height:1.65;margin:0;color:var(--boutique-muted)}
+/* Legal directory: a single editorial chapter, six direct text links. */
+body:has(.masthead) #expertise{background:var(--boutique-paper);border-block:1px solid var(--boutique-line)}
+.dlg-legal-editorial{display:grid;grid-template-columns:minmax(0,.75fr) minmax(0,1.65fr);gap:clamp(26px,6vw,84px);align-items:start}
+body:has(.masthead) #expertise .section-head{display:block;margin:0}
+body:has(.masthead) #expertise .section-head h2{max-width:17ch;margin-bottom:17px}
+.dlg-section-summary{font-size:.89rem;line-height:1.75;max-width:32ch;margin:0 0 22px}
+body:has(.masthead) #expertise .dlg-practice-directory{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 28px;align-items:stretch;border:0;min-width:0}
+body:has(.masthead) #expertise .practice-card{display:grid;grid-template-columns:minmax(0,1fr) 18px;grid-template-rows:auto;align-items:start;gap:13px;min-height:104px;padding:19px 6px 19px 0;border:0;border-top:1px solid var(--boutique-line);background:transparent;color:var(--boutique-ink);min-width:0}
+body:has(.masthead) #expertise .practice-card:nth-last-child(-n+2){border-bottom:1px solid var(--boutique-line)}
+body:has(.masthead) #expertise .practice-card>div{grid-area:auto;grid-column:1;grid-row:1;min-width:0}
+body:has(.masthead) #expertise .practice-card>span:last-child{grid-area:auto;grid-column:2;grid-row:1;align-self:start;color:#795b38;margin-top:3px}
+body:has(.masthead) #expertise .practice-card h3{font-size:1rem;font-weight:600;line-height:1.55;letter-spacing:-.01em;margin:0 0 8px;color:var(--boutique-ink)}
+body:has(.masthead) #expertise .practice-card p{font-size:.78rem;line-height:1.65;margin:0;color:var(--boutique-muted)}
+body:has(.masthead) #expertise .practice-card:hover{background:transparent}
+body:has(.masthead) #expertise .practice-card:hover h3{color:#795b38;text-decoration:underline;text-underline-offset:4px}
+body:has(.masthead) .matter-nav{background:var(--boutique-paper);border:0;border-bottom:1px solid var(--boutique-line);padding-block:13px}
+body:has(.masthead) .matter-nav>.wrap{display:grid;grid-template-columns:150px minmax(0,1fr);gap:15px;align-items:center}
+body:has(.masthead) .matter-nav .matter-heading{font-size:.72rem;color:var(--boutique-muted)}
+body:has(.masthead) .matter-link{color:var(--boutique-ink);font-size:.75rem;min-height:44px;border-color:var(--boutique-line)}
+body:has(.masthead) .matter-link:hover{background:transparent;color:#795b38}
+body:has(.masthead) .matter-link>span:last-child{color:#795b38}
+/* One architectural photo and a compact industry index. */
+body:has(.masthead) #sectors{background:var(--boutique-white);border:0;color:var(--boutique-ink)}
+.dlg-sector-editorial{display:grid;grid-template-columns:minmax(0,.92fr) minmax(0,1fr);gap:clamp(30px,6vw,84px);align-items:stretch}
+.dlg-sector-feature{margin:0;position:relative;overflow:hidden;min-height:320px;background:#ded9ce}
+.dlg-sector-feature img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;display:block;filter:saturate(.52);transition:transform .65s var(--boutique-ease)}
+.dlg-sector-directory{min-width:0;align-self:center}
+body:has(.masthead) #sectors .section-head{margin:0 0 20px}
+body:has(.masthead) #sectors .section-head h2{color:var(--boutique-ink)}
+body:has(.masthead) #sectors .home-sectors{display:grid;grid-template-columns:1fr;grid-template-rows:auto;gap:0;border:0;border-top:1px solid var(--boutique-line)}
+body:has(.masthead) #sectors .home-sector-link{display:grid;grid-template-columns:minmax(0,1fr) 18px;grid-template-rows:auto;align-items:center;gap:16px;min-height:0;padding:14px 0;border:0;border-bottom:1px solid var(--boutique-line);color:var(--boutique-ink);background:transparent}
+body:has(.masthead) #sectors .home-sector-link h3{font-size:.95rem;line-height:1.5;color:var(--boutique-ink);margin:0;font-weight:600}
+body:has(.masthead) #sectors .home-sector-link>span{color:#795b38}
+body:has(.masthead) #sectors .home-sector-link:hover h3{color:#795b38}
+body:has(.masthead) #sectors .dlg-sector-directory>.text-link{display:inline-flex;margin-top:18px}
+body:has(.masthead) .dlg-international-feature{background:var(--boutique-navy);color:var(--boutique-paper);padding-block:clamp(35px,5vw,65px);border:0}
+body:has(.masthead) .dlg-international-feature .dlg-international-grid{align-items:center;gap:clamp(24px,5vw,70px)}
+body:has(.masthead) .dlg-international-feature h2{color:#f9f5ec;font-size:clamp(1.5rem,2.6vw,2.25rem);font-weight:550}
+body:has(.masthead) .dlg-international-feature .eyebrow{color:var(--boutique-gold)}
+body:has(.masthead) .dlg-international-feature .dlg-international-copy{color:#e2e4e0}
+body:has(.masthead) .dlg-international-feature .dlg-international-link{background:transparent;border:1px solid var(--boutique-gold);color:var(--boutique-gold);box-shadow:none}
+body:has(.masthead) .dlg-international-feature .dlg-international-link:hover{background:var(--boutique-gold);color:var(--boutique-deep)}
+body:has(.masthead) .dlg-international-feature .dlg-georgia-quick-links,body:has(.masthead) .dlg-international-feature .dlg-georgia-quick-links li{border-color:#83918e}
+body:has(.masthead) .dlg-international-feature .dlg-georgia-quick-links a,body:has(.masthead) .dlg-international-feature .dlg-georgia-quick-links a span{color:#f1eee6}
+body:has(.masthead) .dlg-international-feature a:focus-visible{outline-color:var(--boutique-gold)}
+/* Journal index, not a marketing card collection. */
+body:has(.masthead) #insights{background:var(--boutique-paper)}
+body:has(.masthead) #insights .article-grid{display:grid;grid-template-columns:minmax(0,1fr);grid-template-rows:auto;gap:0;border:0;border-top:1px solid var(--boutique-line)}
+body:has(.masthead) #insights .article{display:grid;grid-template-columns:86px minmax(0,1fr) 22px;grid-template-rows:auto;align-items:center;gap:clamp(16px,3.4vw,42px);min-height:0;border:0;border-bottom:1px solid var(--boutique-line);padding:20px 0;color:var(--boutique-ink);background:transparent}
+body:has(.masthead) #insights .article .dlg-article-date{font:400 1.2rem/1 Georgia,serif;color:#795b38}
+body:has(.masthead) #insights .article .home-article-copy{grid-area:auto;min-width:0}
+body:has(.masthead) #insights .article .article-meta{font-size:.69rem;line-height:1.5;color:var(--boutique-muted);margin:0 0 6px}
+body:has(.masthead) #insights .article h3{font-size:clamp(.97rem,1.6vw,1.23rem);font-weight:550;color:var(--boutique-ink);line-height:1.5;margin:0}
+body:has(.masthead) #insights .article>span:last-child{color:#795b38}
+body:has(.masthead) #insights .article:hover h3{color:#795b38;text-decoration:underline;text-underline-offset:4px}
+body:has(.masthead) #insights .home-research-note{margin-top:24px;background:var(--boutique-stone);padding:19px 22px;border:0;border-left:2px solid var(--boutique-brass);color:var(--boutique-ink)}
+body:has(.masthead) #insights .home-research-note .eyebrow{color:#795b38}
+body:has(.masthead) #insights .home-research-note .research-link-label{color:#795b38}
+body:has(.masthead) .contact,body:has(.masthead) .foot,body.resource-page .site-footer{background:var(--boutique-deep);color:#f8f5ed}
+body:has(.masthead) .contact{padding-block:clamp(40px,5vw,64px);border:0}
+body:has(.masthead) .contact h2{color:#f8f5ed;font-size:clamp(1.5rem,2.7vw,2.3rem);font-weight:550}
+body:has(.masthead) .contact p,body:has(.masthead) .contact .text-link,body:has(.masthead) .contact .contact-phone,body:has(.masthead) .contact .enquiry-privacy{color:#e5ddd0}
+body:has(.masthead) .contact .primary{background:var(--boutique-gold);color:var(--boutique-deep);border-color:var(--boutique-gold)}
+body:has(.masthead) .contact .secondary{background:transparent;color:#f5f1e8;border-color:#a9a89e}
+body:has(.masthead) .contact-form-disclosure{border-color:#84918d}
+body:has(.masthead) .contact-form-disclosure>summary{color:#f5f1e8}
+body:has(.masthead) .foot{border-top:1px solid #52636b}
+body:has(.masthead) .foot-inner{gap:12px 18px;font-size:.73rem;color:#d9d9d0}
+body:has(.masthead) .foot-inner a{color:#e3dfd4}
+body:has(.masthead) .foot-inner a:hover{color:var(--boutique-gold)}
+/* Interior practice, sector, article, profile and contact pages use the same restrained palette. */
+body.resource-page .digital-site{--deep:var(--boutique-ink);--tech:#795b38;--grid:var(--boutique-line);--tech-soft:var(--boutique-stone);color:var(--boutique-ink);background:var(--boutique-white)}
+body.resource-page .digital-site .digital-page-hero,body.resource-page .resource-hero{background:var(--boutique-stone);border-color:var(--boutique-line);padding-block:clamp(38px,5.8vw,72px)}
+body.resource-page .digital-site .digital-page-hero h1,body.resource-page .resource-hero h1{font-size:clamp(1.85rem,3.35vw,3.25rem)!important;line-height:1.35!important;font-weight:550;color:var(--boutique-ink);letter-spacing:-.025em;max-width:28ch}
+html[lang=en] body.resource-page .digital-site .digital-page-hero h1,html[lang=en] body.resource-page .resource-hero h1{font-family:Georgia,serif!important;font-weight:400!important;line-height:1.2!important;font-size:clamp(2rem,4vw,3.85rem)!important}
+body.resource-page .digital-site .digital-lead,body.resource-page .resource-hero-description{font-size:.98rem;line-height:1.8;color:var(--boutique-muted);max-width:65ch}
+body.resource-page .digital-site .digital-section:not(.digital-cta){padding-block:clamp(38px,5vw,69px)}
+body.resource-page .digital-site .digital-wash{background:var(--boutique-paper)}
+body.resource-page .digital-site .digital-heading p:not(.eyebrow),body.resource-page .digital-site .service-layout p{color:var(--boutique-muted);line-height:1.78}
+body.resource-page .digital-site .button-primary{background:var(--boutique-navy);border-color:var(--boutique-navy);color:#fff;border-radius:0;box-shadow:none}
+body.resource-page .digital-site .button-primary:hover{background:#795b38;border-color:#795b38}
+body.resource-page .digital-site .button-secondary{background:transparent;border-color:var(--boutique-brass);color:var(--boutique-ink);border-radius:0;box-shadow:none}
+body.resource-page .digital-site .dlg-area-card,body.resource-page .digital-site .dlg-advisory-card,body.resource-page .digital-site .practice-card,body.resource-page .resource-card{border-radius:0;border-color:var(--boutique-line);box-shadow:none;background:transparent}
+body.resource-page .digital-site .dlg-area-card:hover,body.resource-page .resource-card:hover{background:var(--boutique-paper);border-color:var(--boutique-brass)}
+body.resource-page .digital-site .dlg-directory-icon,body.resource-page .digital-site .dlg-area-link,body.resource-page .digital-site .dlg-advisory-link,body.resource-page .resource-back{color:#795b38}
+body.resource-page .digital-site .deliverable-card,body.resource-page .digital-site .dlg-expert-contact,body.resource-page .digital-site .dlg-contact-form{background:var(--boutique-paper);border:0;border-top:2px solid var(--boutique-brass);border-radius:0;box-shadow:none}
+body.resource-page .digital-site .dlg-sector-photo,body.resource-page .resource-cover{border-radius:0;overflow:hidden}
+body.resource-page .digital-site .digital-cta{background:var(--boutique-navy);color:#f8f5ed}
+body.resource-page .digital-site .digital-cta .button-primary{background:var(--boutique-gold);color:var(--boutique-deep);border-color:var(--boutique-gold)}
+body.resource-page .digital-site .digital-cta .button-secondary{background:transparent;color:#f5f1e8;border-color:#a9a89e}
+body.resource-page .site-footer .law-brand-monogram,body.resource-page .site-footer .law-brand-text strong,body.resource-page .site-footer .law-brand-text small,body.resource-page .site-footer .law-footer-title{color:#f9f4e9}
+body.resource-page .site-footer a:hover{color:var(--boutique-gold)}
+body.resource-page .resource-controls{border-radius:0;border-color:var(--boutique-line)}
+body.resource-page .resource-card h2,body.resource-page .resource-card h3,body.resource-page .article-title{color:var(--boutique-ink)}
+body.resource-page .digital-site .dlg-about-hero{background:var(--boutique-navy);border:0;color:var(--boutique-paper)}
+body.resource-page .digital-site .dlg-about-hero-grid{grid-template-columns:minmax(0,1.08fr) minmax(0,.92fr);min-height:0;align-items:center;gap:clamp(30px,5vw,65px);padding-block:clamp(32px,5vw,65px)}
+body.resource-page .digital-site .dlg-about-hero-copy{padding:0}
+body.resource-page .digital-site .dlg-about-hero .eyebrow{color:var(--boutique-gold)}
+body.resource-page .digital-site .dlg-about-hero h1{font-family:Georgia,serif;font-size:clamp(2.15rem,4.5vw,4rem);font-weight:400;line-height:1.13!important;color:#f9f5ec;margin-bottom:20px}
+body.resource-page .digital-site .dlg-about-hero .digital-lead{font-size:1rem;color:#e6e2d9;line-height:1.78}
+body.resource-page .digital-site .dlg-about-hero-art{aspect-ratio:1.45;max-height:365px;min-height:0;overflow:hidden;margin:0}
+body.resource-page .digital-site .dlg-about-hero-art img{filter:saturate(.45);object-fit:cover}
+body.resource-page .digital-site .dlg-about-hero-art::after{content:none}
+body.resource-page .digital-site .dlg-about-hero .digital-actions .button-primary{background:var(--boutique-gold);border-color:var(--boutique-gold);color:var(--boutique-deep)}
+body.resource-page .digital-site .dlg-about-hero .digital-actions .button-secondary{background:transparent;color:#f8f5ed;border-color:#a9a89e}
+body.resource-page .digital-site .dlg-firm-approach{background:var(--boutique-white)}
+body.resource-page .digital-site .dlg-firm-principles article{border-color:var(--boutique-line)}
+body.resource-page .digital-site .dlg-firm-founder,body.resource-page .digital-site .dlg-profile-hero,body.resource-page .digital-site .dlg-profile-initiatives{background:var(--boutique-stone);border-color:var(--boutique-line)}
+body.resource-page .digital-site .dlg-firm-founder-grid{grid-template-columns:minmax(0,260px) minmax(0,1fr);gap:clamp(30px,6vw,85px)}
+body.resource-page .digital-site .dlg-firm-founder-grid figure{max-width:260px;aspect-ratio:4/5}
+body.resource-page .digital-site .dlg-firm-founder-grid img,body.resource-page .digital-site .dlg-profile-hero-grid img{filter:saturate(.7);object-position:center 25%}
+body.resource-page .digital-site .dlg-founder-title{color:#795b38!important}
+body.resource-page .digital-site .dlg-firm-knowledge-links a,body.resource-page .digital-site .dlg-profile-facts article{border-color:var(--boutique-line)}
+body.resource-page .digital-site .dlg-firm-knowledge-links a span,body.resource-page .digital-site .dlg-profile-facts a{color:#795b38}
+body.resource-page .digital-site .dlg-profile-hero h1{color:var(--boutique-ink)}
+body:has(.masthead) a:focus-visible,body.resource-page a:focus-visible{outline-color:#795b38}
+@media(max-width:1100px){
+ body:has(.masthead) .nav-inner,body.resource-page .law-header-inner{gap:13px}
+ body:has(.masthead) .matter-nav>.wrap{grid-template-columns:1fr;gap:5px}
+ body:has(.masthead) #about .dlg-home-founder-card{grid-template-columns:110px minmax(0,1fr);padding-left:25px;gap:16px}
+ .dlg-legal-editorial{grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:34px}
+}
+@media(max-width:960px){
+ .dlg-legal-editorial{grid-template-columns:minmax(0,1fr);gap:25px}
+ body:has(.masthead) #expertise .section-head h2{max-width:none}
+ body:has(.masthead) #expertise .dlg-practice-directory{grid-template-columns:1fr;gap:0}
+ body:has(.masthead) #expertise .practice-card:nth-last-child(2){border-bottom:0}
+ body:has(.masthead) #expertise .practice-card{min-height:0;padding:17px 0}
+ body:has(.masthead) .masthead .nav.open,body.resource-page .site-header .law-nav.open{background:var(--boutique-paper);border-color:var(--boutique-line)}
+ body:has(.masthead) .nav-inner,body.resource-page .law-header-inner{min-height:70px}
+ body:has(.masthead) #about .home-founder-reference{gap:26px}
+ body:has(.masthead) #about .dlg-home-founder-card{grid-template-columns:minmax(80px,105px) minmax(0,1fr);padding-left:18px;gap:12px}
+}
+@media(max-width:740px){
+ body:has(.masthead) .hero-inner{width:100%;grid-template-columns:minmax(0,1fr);grid-template-rows:auto auto;min-height:0;padding:0;gap:0}
+ body:has(.masthead) .hero-content{grid-column:1;grid-row:1;max-width:none;width:auto;padding:30px 20px 25px;margin:0}
+ body:has(.masthead) .hero-content h1{font-size:clamp(1.85rem,6.6vw,2.7rem);margin-bottom:17px;line-height:1.31!important}
+ html[lang=en] body:has(.masthead) .hero-content h1{font-size:clamp(2.1rem,8vw,3.2rem)}
+ body:has(.masthead) .hero-content .eyebrow{margin-bottom:15px}
+ body:has(.masthead) .hero-content .intro{font-size:.92rem}
+ body:has(.masthead) .hero-content .hero-actions{margin-top:18px;gap:9px}
+ body:has(.masthead) .hero .primary,body:has(.masthead) .hero .secondary{font-size:.74rem;padding:10px 12px}
+ body:has(.masthead) .hero-photo{position:relative;inset:auto;grid-column:1;grid-row:2;z-index:0;width:100%;height:clamp(150px,45vw,260px);aspect-ratio:auto}
+ body:has(.masthead) .hero-photo::after{background:linear-gradient(180deg,var(--boutique-navy),#152b3620 28%,transparent 60%)}
+ body:has(.masthead) .hero-photo img{object-position:50% 52%}
+ body:has(.masthead) .hero-location{margin-top:17px}
+ body:has(.masthead) #about .home-founder-reference,.dlg-sector-editorial{grid-template-columns:minmax(0,1fr);gap:25px}
+ body:has(.masthead) #about .dlg-home-founder-card{grid-template-columns:108px minmax(0,1fr);border-left:0;border-top:1px solid var(--boutique-line);padding:21px 0 0;gap:18px}
+ body:has(.masthead) #about .dlg-home-founder-card .founder-feature{aspect-ratio:4/5}
+ body:has(.masthead) .section-head{align-items:start;flex-wrap:wrap}
+ .dlg-sector-feature{min-height:0;aspect-ratio:1.8}
+ body:has(.masthead) #insights .article{grid-template-columns:44px minmax(0,1fr) 16px;gap:12px;padding:17px 0}
+ body:has(.masthead) #insights .article .dlg-article-date{font-size:.95rem}
+ body.resource-page .digital-site .dlg-about-hero-grid,body.resource-page .digital-site .dlg-firm-founder-grid{grid-template-columns:1fr;gap:22px}
+ body.resource-page .digital-site .dlg-about-hero-art{aspect-ratio:1.8;max-height:245px}
+ body.resource-page .digital-site .dlg-firm-founder-grid figure{max-width:190px}
+}
+@media(max-width:360px){
+ body:has(.masthead) .masthead .monogram,body.resource-page .site-header .law-brand-monogram{font-size:29px}
+ body:has(.masthead) .brand-name{font-size:10px}
+ body:has(.masthead) #about .dlg-home-founder-card{grid-template-columns:90px minmax(0,1fr);gap:12px}
+}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important}.dlg-sector-feature img,.practice-card,.home-sector-link,.article{transition:none!important;animation:none!important}}
