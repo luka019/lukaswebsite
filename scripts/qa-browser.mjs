@@ -57,6 +57,9 @@ try{
     check(JSON.stringify(matterLinks)===JSON.stringify(['/advisory/','/services/contracts/','/services/privacy-and-cybersecurity/','/business/georgia/']),'Client entry routes missing');
     check(await page.locator('#engagement,.engagement-steps').count()===0,'Standalone engagement block should be absent');
     await heroPhoto.evaluate(image=>image.decode());
+    check(await heroPhoto.evaluate(image=>getComputedStyle(image).objectFit==='contain'),'Signature artwork must remain uncropped');
+    const articleColumns=await page.locator('#insights .article-grid').evaluate(el=>getComputedStyle(el).gridTemplateColumns.split(' ').length);
+    check(articleColumns===(width>740?3:1),'Publication grid must reflow for mobile');
     check(await heroPhoto.evaluate(image=>image.naturalWidth>0&&image.getBoundingClientRect().width>0),'Hero photograph failed to render');
     check((await heroPhoto.getAttribute('alt')).length>20,'Hero photograph needs descriptive alt text');
     check((await page.locator('.practice-glyph').count())===6,'Six functional icons required');
