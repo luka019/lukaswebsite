@@ -23,7 +23,8 @@ for(const [page,lang] of [[home,'ka'],[englishHome,'en']]){
  assert((page.match(/class="home-sector-link"/g)||[]).length===6,'Six visible sector routes required');
  assert((page.match(/class="home-sector-media"/g)||[]).length===6,'Six editorial sector images required');
  assert((page.match(/class="home-article-media"/g)||[]).length===3,'Three editorial insight images required');
- assert(page.includes('class="founder-credentials"'),'Verified professional credentials must be visible');
+ assert(page.includes('class="home-firm-story"')&&page.includes('class="home-firm-person"')&&page.includes('class="founder-credentials"'),'Firm-first introduction required');
+ assert(page.includes('/dlg-editorial.css?v=20261127-v1'),'Shared editorial system missing');
  assert(page.includes('class="hero-photo"')&&page.includes('src="/assets/editorial/human-machine.webp"')&&page.includes('human-machine-small.webp 640w')&&page.includes('fetchpriority="high"'),'Responsive original technology-law artwork required');
  assert(page.includes(lang==='ka'?'სპეციალიზებული იურიდიული ფირმა':'SPECIALIST LAW FIRM'),'Specialist positioning must be rendered');
  assert((page.match(/class="practice-glyph"[^>]*viewBox="0 0 36 36"/g)||[]).length===6,'Six original practice icons required');
