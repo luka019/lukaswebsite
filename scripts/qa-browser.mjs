@@ -45,8 +45,9 @@ try{
     check(await page.locator('.dlg-home-firm-copy').count()===1&&await page.locator('.dlg-home-founder-card').count()===1,'Firm-first homepage introduction missing');
     check(await page.locator('.dlg-home-firm-principles a').count()===3,'Firm approach links missing');
     check((await page.locator('.dlg-home-founder-card').evaluate(el=>el.getBoundingClientRect().width))<=width,'Founder introduction overflows');
-    check(await page.locator('.dlg-practice-stage').count()===1,'Practice explorer missing');
-    if(width>=960){await page.locator('.practice-card').nth(2).focus();check(await page.locator('.dlg-stage-index').innerText()==='03 / 06','Practice preview must follow keyboard focus');}
+    check(await page.locator('.dlg-practice-directory').count()===1&&await page.locator('.dlg-practice-stage').count()===0,'Compact practice directory required');
+    check(await page.locator('.dlg-practice-directory').evaluate(el=>getComputedStyle(el).gridTemplateColumns.split(' ').length)===(width>850?2:1),'Practice directory must use responsive columns');
+    await page.locator('.practice-card').nth(2).focus();check(await page.locator('.practice-card').nth(2).evaluate(el=>document.activeElement===el),'Practice links must remain keyboard accessible');
     check((await page.locator('.practice-card').count())===6,'Six practice cards missing');
     const serviceRoutes=["/services/ai/","/services/privacy-and-cybersecurity/","/services/contracts/","/services/digital-products-and-ip/","/services/fintech-and-financial-regulation/","/services/corporate-and-commercial/"];
     for(let i=0;i<serviceRoutes.length;i++)check(await page.locator('.practice-card').nth(i).getAttribute('href')===serviceRoutes[i],'Homepage direct route '+i);
@@ -54,7 +55,7 @@ try{
     check(await heroPhoto.count()===1,'Missing hero photograph');
     const matterLinks=await page.locator('.matter-nav a').evaluateAll(links=>links.map(link=>link.getAttribute('href')));
     check(JSON.stringify(matterLinks)===JSON.stringify(['/advisory/','/services/contracts/','/services/privacy-and-cybersecurity/','/business/georgia/']),'Client entry routes missing');
-    check(await page.locator('.engagement-steps li').count()===3,'Engagement steps missing');
+    check(await page.locator('#engagement,.engagement-steps').count()===0,'Standalone engagement block should be absent');
     await heroPhoto.evaluate(image=>image.decode());
     check(await heroPhoto.evaluate(image=>image.naturalWidth>0&&image.getBoundingClientRect().width>0),'Hero photograph failed to render');
     check((await heroPhoto.getAttribute('alt')).length>20,'Hero photograph needs descriptive alt text');
