@@ -21,8 +21,11 @@ const photos=[
   },
   {
     "slug": "startups-investors",
-    "id": 7433823,
-    "url": "https://images.pexels.com/photos/7433823/pexels-photo-7433823.jpeg?auto=compress&cs=tinysrgb&w=1200&h=760&fit=crop"
+    "id": 34221175,
+    "url": "https://images.pexels.com/photos/34221175/pexels-photo-34221175.jpeg?auto=compress&cs=tinysrgb&w=1200&h=760&fit=crop",
+    "credit": "Luis Sevilla / Pexels",
+    "source": "https://www.pexels.com/photo/business-meeting-presentation-in-modern-office-34221175/",
+    "replaceExisting": true
   },
   {
     "slug": "international",
@@ -34,10 +37,10 @@ const photos=[
   },
   {
     "slug": "legal-teams",
-    "id": 4427553,
-    "url": "https://images.pexels.com/photos/4427553/pexels-photo-4427553.jpeg?auto=compress&cs=tinysrgb&w=1200&h=760&fit=crop",
-    "credit": "August de Richelieu / Pexels",
-    "source": "https://www.pexels.com/photo/female-lawyers-in-an-office-looking-at-a-computer-4427553/",
+    "id": 5673489,
+    "url": "https://images.pexels.com/photos/5673489/pexels-photo-5673489.jpeg?auto=compress&cs=tinysrgb&w=1200&h=760&fit=crop",
+    "credit": "Sora Shimazaki / Pexels",
+    "source": "https://www.pexels.com/photo/crop-business-partners-signing-contract-in-office-5673489/",
     "replaceExisting": true
   },
   {
@@ -55,30 +58,6 @@ const photos=[
     "credit": "George Pak / Pexels",
     "source": "https://www.pexels.com/photo/close-up-shot-of-a-person-holding-a-papers-7972282/",
     "url": "https://images.pexels.com/photos/7972282/pexels-photo-7972282.jpeg?auto=compress&cs=tinysrgb&w=1100&h=700&fit=crop"
-  },
-  {
-    "slug": "contracts-editorial",
-    "id": 955390,
-    "credit": "Cytonn Photography / Pexels",
-    "source": "https://www.pexels.com/photo/person-wearing-white-dress-shirt-signing-contract-955390/",
-    "folder": "resources",
-    "url": "https://images.pexels.com/photos/955390/pexels-photo-955390.jpeg?auto=compress&cs=tinysrgb&w=1200&h=800&fit=crop"
-  },
-  {
-    "slug": "suppliers-editorial",
-    "id": 7731374,
-    "credit": "Mikhail Nilov / Pexels",
-    "source": "https://www.pexels.com/photo/documents-and-a-laptop-on-a-table-7731374/",
-    "folder": "resources",
-    "url": "https://images.pexels.com/photos/7731374/pexels-photo-7731374.jpeg?auto=compress&cs=tinysrgb&w=1200&h=800&fit=crop"
-  },
-  {
-    "slug": "ai-governance-editorial",
-    "id": 7876093,
-    "credit": "Kaboompics / Pexels",
-    "source": "https://www.pexels.com/photo/a-lawyer-behind-his-desk-7876093/",
-    "folder": "resources",
-    "url": "https://images.pexels.com/photos/7876093/pexels-photo-7876093.jpeg?auto=compress&cs=tinysrgb&w=1200&h=800&fit=crop"
   }
 ];
 export async function installSectorPhotos(out){
@@ -93,5 +72,5 @@ export async function installSectorPhotos(out){
   const b=Buffer.from(await response.arrayBuffer());if(b.length<10000||b.length>2500000||b[0]!==255||b[1]!==216)throw Error('Invalid JPEG: '+p.slug);
   await fs.writeFile(target,b);
  }));
- console.log('Installed six sector photographs, two practice photographs and three technology-law research photographs into local deployment assets.');
+ console.log('Installed six sector photographs and two practice photographs into local deployment assets.');
 }
