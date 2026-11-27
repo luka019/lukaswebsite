@@ -2,7 +2,6 @@ import {tr} from './portfolio-templates.mjs';
 import {practiceGroups, sectors} from './practice-structure.mjs';
 import {groupRoute} from './site-architecture.mjs';
 import {practiceIcon} from './site-icons.mjs';
-import {advisoryPackages} from './advisory-content.mjs';
 import {internationalFeature} from './international.mjs';
 
 const arrow = '<span aria-hidden="true">↗</span>';
@@ -18,7 +17,7 @@ function clientEntrances() {
   ];
   return `<nav class="matter-nav" id="client-matters" aria-label="თქვენი საკითხი" data-en-aria="Find advice for your matter">
     <div class="wrap">
-      <h2>${tr('რაში გჭირდებათ დახმარება?', 'What do you need help with?')}</h2>
+      <h2>${tr('რაში შეგვიძლია დაგეხმაროთ?', 'How can we help?')}</h2>
       <div class="matter-nav-inner">
       ${matters.map(([url,ka,en,descriptionKa,descriptionEn])=>`<a class="matter-link" href="${url}">
         <div>${tr(ka,en,'strong')}${tr(descriptionKa,descriptionEn,'span','matter-description')}</div>${arrow}
@@ -40,45 +39,10 @@ function homePractices() {
   return `<section class="section" id="expertise" aria-labelledby="expertise-title">
     <div class="wrap">
       <div class="section-head">
-        <h2 id="expertise-title">${tr('ჩვენი სპეციალიზაცია', 'Our practice areas')}</h2>
-        ${link('/services/', 'მომსახურების სრული ჩამონათვალი', 'Explore all services')}
+        <h2 id="expertise-title">${tr('მომსახურების მიმართულებები', 'Our practice areas')}</h2>
+        ${link('/services/', 'ყველა მომსახურება', 'All services')}
       </div>
       <div class="practice-grid">${cards}</div>
-    </div>
-  </section>`;
-}
-
-const advisoryOptions = [
-  ['ai-readiness', 'AI-ის გამოყენების შეფასება', 'AI readiness'],
-  ['ai-governance-implementation', 'AI-ის მართვის წესები', 'AI governance'],
-  ['legal-ai-automation', 'იურიდიული პროცესების ავტომატიზაცია', 'Legal automation'],
-  ['external-ai-technology-counsel', 'მუდმივი იურიდიული მხარდაჭერა', 'Ongoing counsel'],
-];
-
-function advisory() {
-  const tabs = advisoryOptions.map(([id, ka, en], index) => `<button type="button" role="tab" id="tab-${id}" data-tab="${index}" aria-controls="panel-${id}" aria-selected="${index === 0}" tabindex="${index === 0 ? '0' : '-1'}">${tr(ka, en)}</button>`).join('');
-  const panels = advisoryOptions.map(([id], index) => {
-    const programme = advisoryPackages.find(pkg => pkg.id === id);
-    if (!programme) throw new Error('Unknown advisory programme: '+id);
-    const output = programme.outputs.ka.slice(0, 3).map((ka, i) => `<li>${tr(ka, programme.outputs.en[i])}</li>`).join('');
-    return `<div class="advisory-panel" role="tabpanel" id="panel-${id}" aria-labelledby="tab-${id}" tabindex="0"${index ? ' hidden' : ''}>
-      ${tr(programme.name.ka, programme.name.en, 'h3')}
-      ${tr(programme.intro.ka, programme.intro.en, 'p')}
-      ${tr('რას მიიღებთ', 'What you receive', 'p', 'outcome-label')}
-      <ul>${output}</ul>
-      ${link('/advisory/'+id+'/', 'გაეცანით სამუშაოს ფარგლებსა და შედეგებს', 'Explore scope and deliverables')}
-    </div>`;
-  }).join('\n');
-  return `<section class="section advisory" id="advisory" aria-labelledby="advisory-heading">
-    <div class="wrap">
-      <div class="section-head">
-        <h2 id="advisory-heading">${tr('AI კონსულტაცია და ავტომატიზაცია', 'AI advisory and automation')}</h2>
-        ${link('/advisory/', 'ყველა მიმართულება', 'Explore AI advisory')}
-      </div>
-      <div class="advisory-grid">
-        <div class="advisory-tabs" role="tablist" aria-label="AI კონსულტაციის მიმართულებები" data-en-aria="AI advisory options" hidden>${tabs}</div>
-        <div class="advisory-work" data-advisory-panels>${panels}</div>
-      </div>
     </div>
   </section>`;
 }
@@ -159,7 +123,6 @@ function insights(rows) {
 export function renderHomepage(source, rows) {
   return source.replace('<!-- home-entrances -->', clientEntrances())
     .replace('<!-- home-practices -->', homePractices())
-    .replace('<!-- home-advisory -->', advisory())
     .replace('<!-- international-feature -->', internationalFeature())
     .replace('<!-- home-sectors -->', audience())
     .replace('<!-- home-founder -->', about())

@@ -198,10 +198,24 @@ export const advisoryPackages = [
 ];
 const escapeHtml = value => String(value).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[c]));
 const bi=(tag,value,cls='')=>'<'+tag+(cls?' class="'+cls+'"':'')+' data-en="'+escapeHtml(value.en)+'">'+escapeHtml(value.ka)+'</'+tag+'>';
-export const advisoryIntro={ka:'ხელოვნური ინტელექტის გამოყენების შეფასება, მართვის წესების შემუშავება, იურიდიული პროცესების ავტომატიზაცია და მუდმივი იურიდიული მხარდაჭერა. მომსახურების პირობებს თითოეულ კომპანიასთან ინდივიდუალურად ვათანხმებთ.',en:'AI readiness, governance, legal workflow automation and ongoing legal support. We agree the scope and engagement terms for each organisation.'};
-export function advisoryCards(){
- return '<div class="dlg-advisory-grid">'+advisoryPackages.map(p=>'<article class="dlg-advisory-card"><div class="dlg-advisory-number">0'+Number(p.code)+' / ADVISORY</div>'+bi('h3',p.name)+bi('p',p.intro,'dlg-advisory-summary')+'<div class="dlg-advisory-commercial">'+bi('span',p.timing,'dlg-advisory-time')+'</div><a class="dlg-advisory-link" data-site-link href="/advisory/'+p.id+'/"><span data-en="Explore service">მომსახურების შესახებ</span><span aria-hidden="true">↗</span></a></article>').join('')+'</div>';
-}
-export function advisoryHome(){
- return '<div class="dlg-advisory-home" id="advisory-packages" role="region" aria-labelledby="advisory-heading"><div class="container"><div class="sig-section-heading dlg-advisory-heading"><div><p class="sig-kicker" data-en="AI & TECHNOLOGY ADVISORY">AI და ტექნოლოგიური კონსულტაცია</p><h2 id="advisory-heading" data-en="From AI adoption to effective governance.">ხელოვნური ინტელექტის დანერგვა და მართვა ბიზნესში</h2></div>'+bi('p',advisoryIntro)+'</div>'+advisoryCards()+'<a class="sig-underlink dlg-advisory-all" data-site-link href="/advisory/"><span data-en="Explore our advisory services">ყველა საკონსულტაციო მომსახურება</span><span aria-hidden="true">↗</span></a></div></div>';
+export const advisoryIntro = {
+  ka: 'კომპანიებსა და იურიდიულ გუნდებს ვეხმარებით AI-ის დანერგვამდე რისკების შეფასებაში, გამოყენების წესების შემუშავებასა და სამუშაო პროცესების გაუმჯობესებაში.',
+  en: 'We help businesses and legal teams assess the risks of adopting AI, set rules for its use and improve their workflows.',
+};
+
+export function advisoryCards() {
+  const order = ['ai-readiness', 'ai-governance-implementation', 'legal-ai-automation', 'external-ai-technology-counsel'];
+  return `<div class="dlg-advisory-grid">${order.map(id => {
+    const service = advisoryPackages.find(item => item.id === id);
+    const outcomes = service.outputs.ka.slice(0, 2).map((ka, index) =>
+      bi('li', {ka, en: service.outputs.en[index]})).join('');
+    return `<article class="dlg-advisory-card">
+      <div class="dlg-advisory-overview">${bi('h3', service.name)}${bi('p', service.intro, 'dlg-advisory-summary')}</div>
+      <div class="dlg-advisory-outcomes">${bi('p', {ka:'რას მიიღებთ', en:'What you receive'})}<ul>${outcomes}</ul>
+        <a class="dlg-advisory-link" data-site-link href="/advisory/${service.id}/">
+          <span data-en="Scope and deliverables">სამუშაოს ფარგლები და შედეგები</span><span aria-hidden="true">↗</span>
+        </a>
+      </div>
+    </article>`;
+  }).join('')}</div>`;
 }

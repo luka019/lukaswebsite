@@ -22,31 +22,6 @@ window.matchMedia('(min-width: 921px)').addEventListener('change', event => {
   if (event.matches) setMenuState(false);
 });
 
-const tabs = [...document.querySelectorAll('.advisory-tabs [role="tab"]')];
-function selectTab(selected) {
-  tabs.forEach(tab => {
-    const active = tab === selected;
-    tab.setAttribute('aria-selected', String(active));
-    tab.tabIndex = active ? 0 : -1;
-    document.getElementById(tab.getAttribute('aria-controls')).hidden = !active;
-  });
-}
-tabs.forEach((tab, index) => {
-  tab.addEventListener('click', () => selectTab(tab));
-  tab.addEventListener('keydown', event => {
-    let next;
-    if (['ArrowRight', 'ArrowDown'].includes(event.key)) next = (index + 1) % tabs.length;
-    if (['ArrowLeft', 'ArrowUp'].includes(event.key)) next = (index + tabs.length - 1) % tabs.length;
-    if (event.key === 'Home') next = 0;
-    if (event.key === 'End') next = tabs.length - 1;
-    if (next === undefined) return;
-    event.preventDefault();
-    selectTab(tabs[next]);
-    tabs[next].focus();
-  });
-});
-document.querySelector('.advisory-tabs').hidden = false;
-
 const form = document.getElementById('enquiry-form');
 const draft = document.getElementById('enquiry-result');
 const email = document.getElementById('enquiry-mailto');

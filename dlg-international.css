@@ -7,7 +7,7 @@
 
 .dlg-international-feature {
   padding-block: clamp(2.75rem, 5vw, 4.75rem);
-  background: #eef2fa;
+  background: #f2f6fa;
   color: #141f33;
   border-block: 1px solid #d9e5ef;
 }
@@ -40,9 +40,9 @@
 }
 
 .dlg-international-feature .dlg-international-link {
-  background: #2349a0;
+  background: #28568c;
   color: #fff;
-  border: 1px solid #2349a0;
+  border: 1px solid #28568c;
 }
 
 .dlg-international-feature .dlg-international-link:hover {
@@ -67,7 +67,7 @@
   min-height: 3rem;
   padding-block: .6rem;
   font-weight: 650;
-  color: #2349a0;
+  color: #28568c;
 }
 
 .dlg-georgia-hero h1 {
