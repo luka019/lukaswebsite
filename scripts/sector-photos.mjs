@@ -21,10 +21,10 @@ const photos=[
   },
   {
     "slug": "startups-investors",
-    "id": 34221175,
-    "url": "https://images.pexels.com/photos/34221175/pexels-photo-34221175.jpeg?auto=compress&cs=tinysrgb&w=1200&h=760&fit=crop",
-    "credit": "Luis Sevilla / Pexels",
-    "source": "https://www.pexels.com/photo/business-meeting-presentation-in-modern-office-34221175/",
+    "id": 23496871,
+    "url": "https://images.pexels.com/photos/23496871/pexels-photo-23496871.jpeg?auto=compress&cs=tinysrgb&w=1200&h=760&fit=crop",
+    "credit": "Vitaly Gariev / Pexels",
+    "source": "https://www.pexels.com/photo/businessmen-discussing-investments-over-laptop-and-charts-23496871/",
     "replaceExisting": true
   },
   {
