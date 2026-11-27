@@ -1,13 +1,12 @@
-// Original Digital Law Georgia practice icons.
+// DLG editorial icon family: one 36-unit grid, consistent stroke, no containers.
 const marks = {
-  ai: '<circle cx="18" cy="18" r="4"/><circle cx="6" cy="7" r="3"/><circle cx="30" cy="7" r="3"/><circle cx="6" cy="29" r="3"/><circle cx="30" cy="29" r="3"/><path d="M9 9l6 6m6 0 6-6M9 27l6-6m6 0 6 6"/>',
-  privacy: '<path d="M18 3l13 5v10c0 7-5 12-13 15C10 30 5 25 5 18V8z"/><path d="m12 18 4 4 8-9"/>',
-  contracts: '<path d="M8 3h15l6 6v24H8zM23 3v7h6M13 16h11M13 21h11M13 26h7"/><path d="M4 8v24"/>',
-  products: '<rect x="3" y="5" width="30" height="25" rx="1"/><path d="M3 12h30M8 8.5h.1m4 0h.1M9 18h7v7H9zm11 0h8m-8 4h8m-8 3h5"/>',
-  fintech: '<path d="M4 31h28M7 27V16m8 11V9m8 18V13m7 14V5"/><path d="m5 13 10-8 8 4 7-5"/>',
-  corporate: '<path d="M3 12 18 4l15 8H3Zm3 18h24M9 15v11m9-11v11m9-11v11M3 33h30"/>',
+  ai: '<rect x="9" y="9" width="18" height="18" rx="2"/><path d="M13 4v5m5-5v5m5-5v5M13 27v5m5-5v5m5-5v5M4 13h5m-5 5h5m-5 5h5m18-10h5m-5 5h5m-5 5h5"/><path d="m14 22 4-9 4 9m-6.5-3h5"/>',
+  privacy: '<path d="M18 4 30 9v9c0 6-4.7 11-12 14C10.7 29 6 24 6 18V9z"/><rect x="13.5" y="16" width="9" height="7" rx="1.2"/><path d="M15 16v-3a3 3 0 0 1 6 0v3"/>',
+  contracts: '<path d="M8 4h14l6 6v22H8zM22 4v7h6M13 15h9m-9 4h7"/><path d="m13 25 3 3 6-6"/>',
+  products: '<path d="m18 4 13 7.5L18 19 5 11.5 18 4Zm-13 14 13 7.5L31 18M5 24.5 18 32l13-7.5"/>',
+  fintech: '<rect x="5" y="6" width="26" height="24" rx="2"/><path d="M5 12h26M10 24l6-6 5 4 6-7M23 15h4v4"/>',
+  corporate: '<path d="M6 32h24M9 32V5h13v27m0-20h5v20M13 10h5m-5 5h5m-5 5h5m-5 5h5m7-8h2m-2 5h2m-2 5h2"/>',
 };
-
 export function practiceIcon(key, className = 'practice-glyph') {
   return `<svg class="${className}" width="36" height="36" viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">${marks[key]}</svg>`;
 }
