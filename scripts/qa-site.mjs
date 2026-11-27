@@ -9,6 +9,7 @@ function file(p){const full=path.join(root,p);assert(fs.existsSync(full),'Missin
 const home=file('index.html'),englishHome=file('en/index.html'),visibleHome=home.replace(/<script\b[^>]*>[\s\S]*?<\/script>/gi,'');
 const hybridCss=file('dlg-hybrid.css'),hybridJs=file('dlg-hybrid.js');
 new vm.Script(hybridJs,{filename:'dlg-hybrid.js'});total++;
+assert(!hybridJs.includes('dlg-hero-layer')&&!hybridJs.includes('dlg-hero-controls'),'Signature hero must remain static and unobstructed');
 assert(!hybridJs.includes('fetch(')&&!hybridJs.includes('localStorage')&&!hybridJs.includes('sessionStorage'),'Homepage must not send or retain enquiry data');
 assert(hybridJs.includes('event.preventDefault()')&&home.includes('href="mailto:digitallawgeorgia@gmail.com" id="enquiry-mailto"'),'User-controlled enquiry composition required');
 assert(hybridCss.includes('prefers-reduced-motion')&&hybridCss.includes('#28568c')&&hybridCss.includes('#f3f7fb'),'Modern blue and white design missing');
@@ -165,7 +166,7 @@ assert(file('services/data-protection/index.html').includes('მონაცე�
 assert(file('services/virtual-assets/index.html').includes('ვირტუალური აქტივის მომსახურების პროვაიდერი'),'Statutory VASP terminology missing');
 assert(file('advisory/ai-governance-implementation/index.html').includes('პრობლემის შესახებ პასუხისმგებელი პირის ინფორმირების წესი'),'Localised AI governance procedure missing');
 assert(!file('advisory/ai-governance-implementation/index.html').includes('პრობლემების ესკალაცია'),'Retired translation must not return');
-for(const [slug,cover] of [['ai-pilot-at-work','ai-pilot.webp'],['technology-contract-review','contracts.webp'],['supplier-data-review','suppliers.webp']]){for(const lang of ['','en/']){const article=file(lang+'resources/'+slug+'/index.html');assert(article.includes('/assets/resources/'+cover),'Article editorial image missing: '+lang+slug);}}
+for(const [slug,cover] of [['ai-pilot-at-work','ai-governance-editorial.jpg'],['technology-contract-review','contracts-editorial.jpg'],['supplier-data-review','suppliers-editorial.jpg']]){for(const lang of ['','en/']){const article=file(lang+'resources/'+slug+'/index.html');assert(article.includes('/assets/resources/'+cover),'Article editorial image missing: '+lang+slug);}}
 
 assert(file('en/business/international/index.html').includes('International Expansion &amp; Client Readiness'),'English must be pre-rendered');
 const pagesByPath=new Map(publicHtml.map(name=>[path.resolve(name),fs.readFileSync(name,'utf8')]));
