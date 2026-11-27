@@ -1,7 +1,7 @@
 import {tr} from './portfolio-templates.mjs';
 import {practiceGroups, sectors} from './practice-structure.mjs';
 import {groupRoute} from './site-architecture.mjs';
-import {practiceIcon} from './site-icons.mjs';
+import {finderTrigger} from './legal-finder.mjs';
 import {internationalFeature} from './international.mjs';
 
 const shortPractice = {
@@ -44,7 +44,7 @@ function clientEntrances() {
   ];
   return `<nav class="matter-nav" id="client-matters" aria-label="თქვენი საკითხი" data-en-aria="Find advice for your matter">
     <div class="wrap">
-      <h2 class="matter-heading">${tr('სწრაფი ბმულები', 'Explore by need')}</h2>
+      <div class="dlg-matter-intro"><h2 class="matter-heading">${tr('თქვენი სამართლებრივი საკითხი','Your legal matter')}</h2>${finderTrigger('dlg-matter-finder','მომსახურების მოძიება','Find legal advice')}</div>
       <div class="matter-nav-inner">
       ${matters.map(([url,ka,en,descriptionKa,descriptionEn])=>`<a class="matter-link" href="${url}">
         <div>${tr(ka,en,'strong')}</div>${arrow}
@@ -54,19 +54,59 @@ function clientEntrances() {
   </nav>`;
 }
 
+const practiceExamples = {
+  ai: [
+    ['AI-ის გამოყენების სამართლებრივი შეფასება','Legal assessment of AI use'],
+    ['AI-ის შიდა პოლიტიკა და მართვის წესები','Internal AI policies and governance'],
+    ['AI პროდუქტებისა და მიმწოდებლების შეფასება','AI product and supplier assessment']
+  ],
+  privacy: [
+    ['პერსონალურ მონაცემთა დამუშავების სამართლებრივი შეფასება','Legal assessment of personal data processing'],
+    ['კონფიდენციალურობის პოლიტიკა და მონაცემთა დამუშავების შეთანხმებები','Privacy policies and data processing agreements'],
+    ['უსაფრთხოების ვალდებულებები და ინციდენტებზე რეაგირება','Security obligations and incident response']
+  ],
+  contracts: [
+    ['SaaS, პროგრამული უზრუნველყოფა და ლიცენზირება','SaaS, software and licensing'],
+    ['კომერციული ხელშეკრულებების მომზადება და შეფასება','Drafting and review of commercial contracts'],
+    ['მოლაპარაკება, პასუხისმგებლობა და ხელშეკრულების შეწყვეტის პირობები','Negotiation, liability and exit terms']
+  ],
+  products: [
+    ['ციფრული პროდუქტის გაშვებამდე სამართლებრივი შეფასება','Pre-launch legal review of digital products'],
+    ['პლატფორმის პირობები და ელექტრონული კომერცია','Platform terms and e-commerce'],
+    ['პროგრამულ უზრუნველყოფაზე უფლებები და ლიცენზირება','Software rights and licensing']
+  ],
+  fintech: [
+    ['ფინანსური ბიზნესმოდელის სამართლებრივი შეფასება','Legal assessment of financial business models'],
+    ['საგადახდო მომსახურება და რეგისტრაციის მოთხოვნები','Payment services and registration requirements'],
+    ['ვირტუალური აქტივები და VASP რეგულირება','Virtual assets and VASP regulation']
+  ],
+  corporate: [
+    ['კომპანიის დაფუძნება და კორპორაციული მართვა','Company formation and corporate governance'],
+    ['საინვესტიციო და დამფუძნებელთა შეთანხმებები','Investment and founders’ agreements'],
+    ['მუდმივი იურიდიული მხარდაჭერა','Ongoing legal counsel']
+  ]
+};
+
 function homePractices() {
-  const cards=practiceGroups.map(group=>`<a class="practice-card" href="${groupRoute(group)}">
-    ${practiceIcon(group.key)}
-    <div>${tr(group.name.ka,group.name.en,'h3')}${tr(shortPractice[group.key][0],shortPractice[group.key][1],'p')}</div>
-    ${arrow}
-  </a>`).join('\n');
+  const entries=practiceGroups.map((group,i)=>`<details class="dlg-practice-entry" name="dlg-practice-areas">
+    <summary class="dlg-practice-summary">
+      <span class="dlg-practice-number" aria-hidden="true">0${i+1}</span>
+      <span class="dlg-practice-title">${tr(group.name.ka,group.name.en,'strong')}${tr(shortPractice[group.key][0],shortPractice[group.key][1],'span','dlg-practice-short')}</span>
+      <span class="dlg-disclosure-mark" aria-hidden="true"></span>
+    </summary>
+    <div class="dlg-practice-expanded">
+      ${tr('რა საკითხებზე ვმუშაობთ','How we can help','p','dlg-practice-caption')}
+      <ul>${practiceExamples[group.key].map(([ka,en])=>tr(ka,en,'li')).join('')}</ul>
+      ${link(groupRoute(group),'ვრცლად მიმართულების შესახებ','Explore this practice area','practice-card')}
+    </div>
+  </details>`);
   return `<section class="section" id="expertise" aria-labelledby="expertise-title">
     <div class="wrap">
       <div class="section-head">
-        <h2 id="expertise-title">${tr('ჩვენი სპეციალიზაცია','Our expertise')}</h2>
+        <div><h2 id="expertise-title">${tr('ჩვენი სპეციალიზაცია','Our expertise')}</h2>${tr('აირჩიეთ მიმართულება და გაეცანით, რა საკითხებზე ვმუშაობთ.','Select a practice area to see how we can help.','p','dlg-expertise-instruction')}</div>
         ${link('/services/','ყველა მიმართულება','All practice areas')}
       </div>
-      <div class="practice-grid dlg-practice-directory">${cards}</div>
+      <div class="practice-grid dlg-practice-directory">${[entries.slice(0,3),entries.slice(3)].map(col=>`<div class="dlg-practice-column">${col.join('')}</div>`).join('')}</div>
     </div>
   </section>`;
 }
