@@ -10,20 +10,29 @@ const link = (url, ka, en, cls = 'text-link') =>
   `<a class="${cls}" href="${url}">${tr(ka, en)} ${arrow}</a>`;
 
 function clientEntrances() {
-  return `<nav class="matter-nav" aria-label="თქვენი საკითხი" data-en-aria="Find advice for your matter">
+  const matters = [
+    ['/advisory/', 'AI-ის დანერგვა', 'Adopting AI', 'რისკების შეფასება, შიდა წესები და საცდელი პროექტი', 'Risk assessment, internal policies and pilots'],
+    ['/services/contracts/', 'ტექნოლოგიური ხელშეკრულებები', 'Technology contracts', 'SaaS, ლიცენზირება და მოლაპარაკება', 'SaaS, licensing and negotiation'],
+    ['/services/privacy-and-cybersecurity/', 'მონაცემთა დაცვა', 'Data protection', 'კონფიდენციალურობა, მიმწოდებლები და მონაცემთა გადაცემა', 'Privacy, suppliers and data transfers'],
+    ['/business/georgia/', 'საქმიანობა საქართველოში', 'Doing business in Georgia', 'დაფუძნება, ადგილობრივი გუნდი და რეგულაციები', 'Company setup, teams and local regulation'],
+  ];
+  return `<nav class="matter-nav" id="client-matters" aria-label="თქვენი საკითხი" data-en-aria="Find advice for your matter">
     <div class="wrap matter-nav-inner">
-      ${link('/advisory/', 'ვნერგავთ ხელოვნურ ინტელექტს', 'We are adopting AI')}
-      ${link('/services/contracts/', 'ვაფორმებთ ტექნოლოგიურ ხელშეკრულებას', 'We are negotiating a tech contract')}
-      ${link('/business/georgia/', 'ვიწყებთ საქმიანობას საქართველოში', 'We are setting up in Georgia')}
+      ${matters.map(([url,ka,en,descriptionKa,descriptionEn])=>`<a class="matter-link" href="${url}">
+        <div>${tr(ka,en,'strong')}${tr(descriptionKa,descriptionEn,'span','matter-description')}</div>${arrow}
+      </a>`).join('')}
     </div>
   </nav>`;
 }
 
 function homePractices() {
   const cards = practiceGroups.map(group => `<a class="practice-card" href="${groupRoute(group)}">
-    <span class="practice-mark">${practiceIcon(group.key)}${arrow}</span>
-    ${tr(group.name.ka, group.name.en, 'h3')}
-    ${tr(group.summary.ka, group.summary.en, 'p')}
+    ${practiceIcon(group.key)}
+    <div>
+      ${tr(group.name.ka, group.name.en, 'h3')}
+      ${tr(group.summary.ka, group.summary.en, 'p')}
+    </div>
+    ${arrow}
   </a>`).join('\n');
   return `<section class="section" id="expertise" aria-labelledby="expertise-title">
     <div class="wrap">

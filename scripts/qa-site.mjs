@@ -20,7 +20,7 @@ for(const [page,lang] of [[home,'ka'],[englishHome,'en']]){
  assert((page.match(/data-tab="\d+"/g)||[]).length===4,'Four advisory tabs required');
 
  assert((page.match(/class="home-sector-link"/g)||[]).length===6,'Six visible sector routes required');
- assert(page.includes('class="hero-photo"')&&page.includes('src="/assets/editorial/technology-fresco.webp"')&&page.includes('technology-fresco-small.webp 640w')&&page.includes('fetchpriority="high"'),'Responsive technology-law photograph required');
+ assert(page.includes('class="hero-photo"')&&page.includes('src="/assets/editorial/technology-advisory.webp"')&&page.includes('technology-advisory-small.webp 640w')&&page.includes('fetchpriority="high"'),'Responsive technology-law photograph required');
  assert(page.includes('src="/assets/editorial/ai-workflow.webp"'),'AI advisory photograph missing');
  assert((page.match(/class="practice-glyph"/g)||[]).length===6,'Six practice icons required');
  assert((page.match(/role="tabpanel"/g)||[]).length===4,'Four advisory outcomes required');
@@ -32,12 +32,12 @@ for(const [page,lang] of [[home,'ka'],[englishHome,'en']]){
  assert(!page.includes('images.pexels.com')&&!page.includes('r0lodtw2w'),'No external preview or stock-image dependency');
  assert(page.includes('href="/" data-language-link="ka"')||page.includes('data-language-link="ka"'),'Georgian language link required');
  assert(page.includes('href="/en/"'),'Static English language link required');
- const ordered=['id="expertise"','id="advisory"','id="georgia-business"','id="sectors"','id="about"','id="insights"','id="contact"'];assert(ordered.every((id,i)=>page.indexOf(id)>=0&&(!i||page.indexOf(ordered[i-1])<page.indexOf(id))),'Approved homepage order missing');
+ const ordered=['id="expertise"','id="advisory"','id="about"','id="georgia-business"','id="sectors"','id="insights"','id="contact"'];assert(ordered.every((id,i)=>page.indexOf(id)>=0&&(!i||page.indexOf(ordered[i-1])<page.indexOf(id))),'Approved homepage order missing');
  assert(page.includes('href="https://arxiv.org/abs/2607.21345"'),'Research link missing');
  assert(page.includes('href="mailto:digitallawgeorgia@gmail.com"')&&page.includes('https://wa.me/995598451132'),'Contact links missing');
 }
 for(const slug of ['practice-collaboration','legal-technology-review']){const photo=fs.readFileSync(path.join(root,'assets/editorial/'+slug+'.jpg'));assert(photo.length>10000&&photo[0]===255&&photo[1]===216,'Invalid editorial photograph '+slug);}
-assert(englishHome.includes('Legal services')&&englishHome.includes('for digital businesses.')&&englishHome.includes('We help Georgian and international companies with technology contracts, AI adoption, data protection and setting up operations in Georgia.'),'English hero must be server rendered');
+assert(englishHome.includes('Technology law')&&englishHome.includes('and AI advisory')&&englishHome.includes('We advise Georgian and international companies on technology contracts, AI adoption, data protection and doing business in Georgia.'),'English hero must be server rendered');
 assert(englishHome.includes('Initial AI systems inventory'),'English advisory default must be static');
 assert(home.includes('AI სისტემების საწყისი რეესტრი')&&home.includes('უსაფრთხო არხის შეთანხმებამდე'),'Default advice and enquiry privacy instructions missing');
 assert(!home.includes('LegalStepy')&&!home.includes('Sopho'),'Independent brand required');
@@ -95,7 +95,7 @@ assert(home.includes('href="/services/"'),'Homepage must link to the full servic
 
 assert(directory.includes('ფინტექი')&&file('services/corporate-and-commercial/index.html').includes('სტარტაპ'),'FinTech and startups must be discoverable through the practice hierarchy');
 assert(home.includes('ქართულ და უცხოურ კომპანიებს'),'Homepage must address Georgian and international businesses');
-assert(home.includes('ციფრული ბიზნესისთვის.'),'Digital business legal positioning missing');
+assert(home.includes('ტექნოლოგიური სამართალი')&&home.includes('და AI კონსულტაცია'),'Digital business legal positioning missing');
 
 assert(!fs.existsSync(path.join(root,'client')),'Retired client portal must not be deployed');
 assert(!fs.existsSync(path.join(root,'admin','inbox')),'Retired inbox must not be deployed');

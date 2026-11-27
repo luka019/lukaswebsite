@@ -106,8 +106,8 @@
 
 .digital-site .digital-page-hero,
 .resource-page .resource-hero {
-  background: #f5f0e7;
-  border-bottom-color: #ded5c8;
+  background: #f2f6fa;
+  border-bottom-color: #d9e3ed;
 }
 
 .digital-site .digital-page-hero h1,
@@ -118,7 +118,7 @@
 
 .digital-site .dlg-area-card:hover,
 .resource-page .resource-card:hover {
-  background: #fcfaf6;
+  background: #f2f6fa;
   border-color: #9bacbb;
 }
 
