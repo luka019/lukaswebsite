@@ -653,3 +653,66 @@ body.resource-page .site-footer { background:#102b40; }
 @media(prefers-reduced-motion:reduce) {
   .home-sector-media img,.home-article-media img { transition:none; }
 }
+
+
+/* Signature hero: the original human/robot artwork stays permanently visible.
+   Keep both hands intact at every viewport and match the illustration's pale field. */
+:root { --dlg-hero-tone:#e6edf2; }
+body:has(.masthead) .hero-inner {
+  grid-template-columns:minmax(0,1fr) minmax(0,1.09fr);
+  min-height:clamp(460px,41vw,585px);
+}
+body:has(.masthead) .hero h1 {
+  font-size:clamp(2.15rem,3.5vw,3.45rem);
+  font-weight:650;
+  line-height:1.21;
+  letter-spacing:-.035em;
+}
+.hero-title { padding-top:clamp(42px,5vw,72px); padding-bottom:15px; }
+.hero-copy { padding-bottom:clamp(42px,5vw,72px); }
+body:has(.masthead) .hero .intro {
+  font-size:clamp(.91rem,1.04vw,1rem);
+  line-height:1.78;
+  max-width:34rem;
+  color:#3b5568;
+}
+.hero-actions { margin-top:1.4rem; }
+body:has(.masthead) .hero-photo {
+  background:var(--dlg-hero-tone);
+  min-height:0;
+  margin:0;
+  overflow:hidden;
+}
+body:has(.masthead) .hero-photo img {
+  object-fit:contain;
+  object-position:center;
+  filter:none;
+  mix-blend-mode:multiply;
+  opacity:1;
+}
+body:has(.masthead) .hero-photo::after { content:none; }
+.home-article-media { background:#dce6ed; }
+.home-article-media img,body.resource-page .resource-cover img,body.resource-page .article-cover {
+  filter:saturate(.8) contrast(.98);
+}
+.home-sector-media img,body.resource-page .digital-site .dlg-sector-photo img {
+  filter:saturate(.8) contrast(.98);
+}
+@media(max-width:1080px) {
+  body:has(.masthead) .hero h1 { font-size:clamp(1.95rem,3.4vw,3.05rem); }
+}
+@media(max-width:920px) {
+  body:has(.masthead) .hero-inner { min-height:430px; }
+}
+@media(max-width:740px) {
+  body:has(.masthead) .hero-inner {
+    grid-template-columns:minmax(0,1fr);
+    min-height:0;
+  }
+  body:has(.masthead) .hero h1 { font-size:clamp(1.72rem,6.3vw,2.75rem); line-height:1.28; }
+  .hero-title { padding:30px 18px 13px; }
+  .hero-copy { padding:0 18px 20px; }
+  body:has(.masthead) .hero .intro { font-size:.92rem; }
+  body:has(.masthead) .hero-photo { aspect-ratio:2.1; }
+  body:has(.masthead) .hero-photo img { object-fit:contain; }
+}
