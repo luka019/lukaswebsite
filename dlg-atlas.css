@@ -39,30 +39,47 @@ body:has(.masthead) .section-head{align-items:end;margin-bottom:25px;gap:18px}
 body:has(.masthead) .section-head h2{font-size:clamp(1.45rem,2.8vw,2.4rem);font-weight:600;line-height:1.35!important;letter-spacing:-.025em;color:var(--atlas-ink);margin:0}
 html[lang=en] body:has(.masthead) .section-head h2{font-family:Georgia,serif;font-weight:400}
 body:has(.masthead) .section-head .text-link{flex:none;font-size:.78rem;color:var(--atlas-blue)}
-/* Live expertise index: direct links remain usable without JS. */
+
+/* Specialist directory: compact, two-column editorial index, not cards or a slideshow. */
 body:has(.masthead) #expertise{background:var(--atlas-paper)}
-.dlg-practice-explorer{display:grid;grid-template-columns:minmax(0,1.12fr) minmax(0,.88fr);gap:clamp(26px,4.2vw,61px);align-items:stretch}
-body:has(.masthead) .dlg-practice-explorer .practice-grid{display:grid;grid-template-columns:minmax(0,1fr);gap:0;border:0;border-top:1px solid var(--atlas-rule);min-width:0}
-body:has(.masthead) .dlg-practice-explorer .practice-card{display:grid;grid-template-columns:24px 29px minmax(0,1fr) 18px;grid-template-rows:auto;align-items:center;gap:12px;border:0;border-bottom:1px solid var(--atlas-rule);min-height:77px;padding:12px 9px 12px 0;color:var(--atlas-ink);background:transparent;position:relative;overflow:visible}
-body:has(.masthead) .dlg-practice-explorer .practice-card .dlg-practice-index{grid-area:auto;grid-column:1;grid-row:1;align-self:center;color:var(--atlas-blue);font:400 .74rem/1 Georgia,serif}
-body:has(.masthead) .dlg-practice-explorer .practice-card .practice-glyph{grid-area:auto;grid-column:2;grid-row:1;width:26px;height:26px;align-self:center;color:var(--atlas-blue)}
-body:has(.masthead) .dlg-practice-explorer .practice-card>div{grid-column:3;grid-row:1;min-width:0}
-body:has(.masthead) .dlg-practice-explorer .practice-card>span:last-child{grid-column:4;grid-row:1;align-self:center;color:var(--atlas-blue)}
-body:has(.masthead) .dlg-practice-explorer .practice-card h3{font-size:.95rem;line-height:1.5;margin:0;font-weight:600}
-body:has(.masthead) .dlg-practice-explorer .practice-card p{font-size:.78rem;line-height:1.55;margin:3px 0 0;color:var(--atlas-muted)}
-body:has(.masthead) .dlg-practice-explorer .practice-card.dlg-preview-active{background:#e9eff3}
-body:has(.masthead) .dlg-practice-explorer .practice-card.dlg-preview-active h3{color:var(--atlas-blue)}
-.dlg-practice-stage{position:relative;margin:0;min-width:0;background:var(--atlas-navy);color:white;display:flex;flex-direction:column;overflow:hidden;isolation:isolate}
-.dlg-stage-picture{flex:1;min-height:220px;position:relative;overflow:hidden;background:#e4ebef}
-.dlg-stage-picture img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;display:block;filter:saturate(.78)}
-.dlg-stage-picture img[src*="human-machine"]{object-fit:cover;filter:none}
-.dlg-practice-stage figcaption{position:relative;z-index:1;display:grid;gap:7px;padding:clamp(20px,3vw,32px) 64px clamp(20px,3vw,30px) 25px}
-.dlg-stage-index{font-size:.67rem;letter-spacing:.1em;color:#b8d0de}
-.dlg-stage-title{font-size:clamp(1rem,1.65vw,1.4rem);font-weight:600;line-height:1.45}
-.dlg-stage-summary{color:#d0e0e9;font-size:.8rem;line-height:1.55}
-.dlg-stage-mark{position:absolute;bottom:0;right:0;color:#b9d2df;opacity:.43;pointer-events:none}
-@media(prefers-reduced-motion:no-preference){.dlg-stage-picture img.dlg-stage-change{animation:dlg-atlas-image .38s var(--atlas-ease)}@keyframes dlg-atlas-image{from{opacity:.68;transform:scale(1.015)}to{opacity:1;transform:none}}}
-@media(min-width:960px) and (hover:hover){body:has(.masthead) .dlg-practice-explorer .practice-card:hover{background:#e9eff3}}
+body:has(.masthead) #expertise .dlg-practice-directory{
+ display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 clamp(26px,4.2vw,64px);border:0;min-width:0;align-items:stretch
+}
+body:has(.masthead) #expertise .dlg-practice-directory .practice-card{
+ display:grid;grid-template-columns:34px minmax(0,1fr) 18px;grid-template-rows:auto;align-items:start;gap:15px;
+ border:0;border-top:1px solid var(--atlas-rule);background:transparent;
+ min-height:104px;padding:21px 9px 21px 0;position:relative;color:var(--atlas-ink);overflow:visible;
+ transition:background-color .22s ease,border-color .22s ease
+}
+body:has(.masthead) #expertise .dlg-practice-directory .practice-card:nth-last-child(-n+2){border-bottom:1px solid var(--atlas-rule)}
+body:has(.masthead) #expertise .dlg-practice-directory .practice-card .practice-glyph{
+ grid-area:auto;grid-column:1;grid-row:1;width:29px;height:29px;align-self:start;color:var(--atlas-blue);margin:2px 0 0
+}
+body:has(.masthead) #expertise .dlg-practice-directory .practice-card>div{grid-column:2;grid-row:1;min-width:0}
+body:has(.masthead) #expertise .dlg-practice-directory .practice-card>span:last-child{
+ grid-area:auto;grid-column:3;grid-row:1;align-self:center;color:var(--atlas-blue);transition:transform .23s var(--atlas-ease)
+}
+body:has(.masthead) #expertise .dlg-practice-directory .practice-card h3{
+ font-size:clamp(.98rem,1.36vw,1.12rem);font-weight:600;line-height:1.5;letter-spacing:-.015em;margin:0;
+ text-wrap:pretty
+}
+body:has(.masthead) #expertise .dlg-practice-directory .practice-card p{font-size:.8rem;line-height:1.6;margin:7px 0 0;color:var(--atlas-muted)}
+body:has(.masthead) #expertise .dlg-practice-directory .practice-card:focus-visible{outline-offset:-3px;background:#eef3f6}
+@media(hover:hover) and (pointer:fine){
+ body:has(.masthead) #expertise .dlg-practice-directory .practice-card:hover{background:#eef3f6;border-top-color:#87a3b6}
+ body:has(.masthead) #expertise .dlg-practice-directory .practice-card:hover h3{color:var(--atlas-blue);text-decoration:underline;text-underline-offset:4px}
+ body:has(.masthead) #expertise .dlg-practice-directory .practice-card:hover>span:last-child{transform:translate(3px,-2px)}
+}
+@media(max-width:850px){
+ body:has(.masthead) #expertise .dlg-practice-directory{grid-template-columns:minmax(0,1fr);gap:0}
+ body:has(.masthead) #expertise .dlg-practice-directory .practice-card{min-height:0;grid-template-columns:29px minmax(0,1fr) 17px;gap:12px;padding:17px 5px 17px 0}
+ body:has(.masthead) #expertise .dlg-practice-directory .practice-card:nth-last-child(2){border-bottom:0}
+ body:has(.masthead) #expertise .dlg-practice-directory .practice-card .practice-glyph{width:26px;height:26px}
+}
+@media(prefers-reduced-motion:reduce){
+ body:has(.masthead) #expertise .dlg-practice-directory .practice-card,body:has(.masthead) #expertise .dlg-practice-directory .practice-card>span:last-child{transition:none!important;animation:none!important}
+ body:has(.masthead) #expertise .dlg-practice-directory .practice-card:hover>span:last-child{transform:none}
+}
 /* Industries: one visual feature and a compact magazine-like index. */
 body:has(.masthead) #sectors{background:var(--atlas-steel);color:var(--atlas-ink);border-block:1px solid var(--atlas-rule)}
 body:has(.masthead) #sectors .home-sectors{display:grid;grid-template-columns:minmax(0,1.12fr) minmax(0,.88fr);grid-template-rows:repeat(5,minmax(0,auto));gap:0 clamp(24px,4vw,54px);align-items:stretch}
@@ -121,7 +138,6 @@ body:has(.masthead) #insights .article:first-child .home-article-copy{grid-colum
 body:has(.masthead) #insights .article:first-child>span:last-child{grid-column:2;grid-row:2}
 body:has(.masthead) #insights .article:first-child h3{font-size:clamp(1rem,1.4vw,1.18rem)}
 body:has(.masthead) #insights .home-research-note{margin-top:27px;padding:18px 20px;background:var(--atlas-steel);border:0;border-left:3px solid var(--atlas-blue)}
-body:has(.masthead) #engagement{background:var(--atlas-steel);padding-block:28px}
 body:has(.masthead) .contact{background:var(--atlas-navy)}
 body:has(.masthead) .foot,body.resource-page .site-footer{background:#0c2230}
 body:has(.masthead) .contact .contact-grid{align-items:start;gap:clamp(24px,5vw,78px)}
@@ -156,10 +172,6 @@ body.resource-page .digital-site .dlg-firm-founder-grid figure{max-width:245px;a
 @media(max-width:1080px){body:has(.masthead) .matter-nav>.wrap{grid-template-columns:1fr;gap:4px}}
 @media(max-width:959px){
  body:has(.masthead) .hero-content{gap:22px;grid-template-columns:minmax(0,1.13fr) minmax(0,.87fr)}
- .dlg-practice-explorer{grid-template-columns:minmax(0,1fr)}
- .dlg-practice-stage{display:none}
- body:has(.masthead) .dlg-practice-explorer .practice-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:0 20px}
- body:has(.masthead) .dlg-practice-explorer .practice-card{min-height:96px;grid-template-columns:22px 25px minmax(0,1fr) 14px;gap:8px}
  body:has(.masthead) #sectors .home-sector-link{grid-template-columns:83px minmax(0,1fr) 15px;gap:9px}
  body:has(.masthead) #insights .article{grid-template-columns:86px minmax(0,1fr) 15px;gap:9px}
 }
@@ -173,8 +185,6 @@ body.resource-page .digital-site .dlg-firm-founder-grid figure{max-width:245px;a
  .dlg-hero-foot{font-size:.61rem;gap:10px}
  .dlg-hero-foot>span{font-size:.57rem;max-width:15ch}
  body:has(.masthead) .section-head{align-items:start;flex-wrap:wrap;margin-bottom:19px}
- body:has(.masthead) .dlg-practice-explorer .practice-grid{grid-template-columns:minmax(0,1fr);gap:0}
- body:has(.masthead) .dlg-practice-explorer .practice-card{min-height:0;padding:15px 4px 15px 0}
  body:has(.masthead) #sectors .home-sectors,body:has(.masthead) #insights .article-grid{grid-template-columns:minmax(0,1fr);grid-template-rows:auto;gap:0}
  body:has(.masthead) #sectors .home-sector-link,body:has(.masthead) #insights .article{grid-column:1;grid-row:auto;grid-template-columns:95px minmax(0,1fr) 15px;padding:12px 0}
  body:has(.masthead) #sectors .home-sector-link:first-child,body:has(.masthead) #insights .article:first-child{grid-row:auto;grid-column:1;grid-template-rows:auto auto;padding-bottom:13px}
@@ -190,7 +200,6 @@ body.resource-page .digital-site .dlg-firm-founder-grid figure{max-width:245px;a
  body.resource-page .digital-site .dlg-firm-founder-grid figure{max-width:200px}
 }
 @media(max-width:360px){.dlg-hero-foot>span{display:none}body:has(.masthead) #about .dlg-home-founder-card{grid-template-columns:90px minmax(0,1fr)}body:has(.masthead) #about .dlg-home-founder-copy{padding:11px}}
-@media(prefers-reduced-motion:reduce){.dlg-stage-picture img,.dlg-stage-picture img.dlg-stage-change,.dlg-hero-foot a{animation:none!important;transition:none!important}}
 
 /* Signature opening: restore the preferred side-by-side, uncropped artwork.
    Atlas expertise, sectors and other content remain unchanged. */
