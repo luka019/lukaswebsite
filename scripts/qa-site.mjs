@@ -23,7 +23,8 @@ for(const [page,lang] of [[home,'ka'],[englishHome,'en']]){
  assert((page.match(/class="home-sector-link"/g)||[]).length===6,'Six visible sector routes required');
  assert((page.match(/class="home-sector-media"/g)||[]).length===6,'Six editorial sector images required');
  assert((page.match(/class="home-article-media"/g)||[]).length===3,'Three editorial insight images required');
- assert(page.includes('class="founder-credentials"'),'Verified professional credentials must be visible');
+ assert(page.includes('class="founder-credentials"')&&page.includes('class="dlg-home-firm-copy"')&&page.includes('class="dlg-home-founder-card"'),'Firm and founder must be clearly distinguished');
+ assert(page.includes('dlg-home-firm-principles')&&page.includes('/dlg-polish.css?v=20261127-v1')&&page.includes('/dlg-polish.js?v=20261127-v1'),'Shared polish layer and firm approach missing');
  assert(page.includes('class="hero-photo"')&&page.includes('src="/assets/editorial/human-machine.webp"')&&page.includes('human-machine-small.webp 640w')&&page.includes('fetchpriority="high"'),'Responsive original technology-law artwork required');
  assert(page.includes(lang==='ka'?'სპეციალიზებული იურიდიული ფირმა':'SPECIALIST LAW FIRM'),'Specialist positioning must be rendered');
  assert((page.match(/class="practice-glyph"[^>]*viewBox="0 0 36 36"/g)||[]).length===6,'Six original practice icons required');
@@ -197,3 +198,5 @@ console.log('DLG public site smoke checks passed: '+total+' checks across '+publ
 for(const slug of ["technology","financial-services","commerce","startups-investors","international","legal-teams"]){const imagePath='/assets/sectors/'+slug+'.jpg';assert(businessDirectory.includes('src="'+imagePath+'"'),'Sector directory photograph missing '+slug);assert(fs.existsSync(root+imagePath),'Local sector photograph missing '+slug);}
 
 for(const p of ['assets/editorial/consultation.webp','assets/editorial/contract-work.webp']){assert(!fs.existsSync(path.join(root,p)),'Superseded human image must not be deployed: '+p);assert(!home.includes(p)&&!englishHome.includes(p),'Superseded image reference');}
+
+new vm.Script(file('dlg-polish.js'),{filename:'dlg-polish.js'});assert(file('dlg-polish.css').includes('prefers-reduced-motion')&&file('dlg-polish.js').includes('prefers-reduced-motion'),'Motion accessibility is required');
