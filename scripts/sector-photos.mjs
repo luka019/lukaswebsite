@@ -1,6 +1,7 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
 const photos=[
+  {slug:'boutique-colonnade',folder:'editorial',id:37555709,credit:'tommy picone / Pexels',source:'https://www.pexels.com/photo/modern-urban-architecture-with-sunlit-columns-37555709/',url:'https://images.pexels.com/photos/37555709/pexels-photo-37555709.jpeg?auto=compress&cs=tinysrgb&w=1800&h=1200&fit=crop'},
   {
     "slug": "technology",
     "id": 36496927,
@@ -72,5 +73,5 @@ export async function installSectorPhotos(out){
   const b=Buffer.from(await response.arrayBuffer());if(b.length<10000||b.length>2500000||b[0]!==255||b[1]!==216)throw Error('Invalid JPEG: '+p.slug);
   await fs.writeFile(target,b);
  }));
- console.log('Installed six sector photographs and two practice photographs into local deployment assets.');
+ console.log('Installed sector photographs, architecture and practice photographs into local deployment assets.');
 }
