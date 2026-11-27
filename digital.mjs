@@ -14,6 +14,13 @@ document.addEventListener('site:language',e=>{lang=e.detail.language;preview();r
 const enquiry=$('#contact-page-form');
 if(enquiry){
  const area=enquiry.elements.area;
+ let copyText='';
+ const copyStatus=$('#contact-page-copy-status');
+ $('#contact-page-copy')?.addEventListener('click',async()=>{
+  if(!copyText)return;
+  try{await navigator.clipboard.writeText(copyText);copyStatus.textContent=lang==='en'?'Copied.':'ტექსტი დაკოპირებულია.';}
+  catch{copyStatus.textContent=lang==='en'?'Copying is unavailable. Please open the email draft instead.':'კოპირება ვერ მოხერხდა. გახსენით ელფოსტის ტექსტი.';}
+ });
  const requested=new URLSearchParams(location.search).get('area');
  if(requested&&requested.length<150){
   const existing=[...area.options].find(option=>option.value===requested||option.dataset.en===requested);
@@ -34,11 +41,15 @@ if(enquiry){
   const labels=lang==='en'?['Name','Email','Company','Area','Matter']:['სახელი და გვარი','ელფოსტა','ორგანიზაცია','მიმართულება','საკითხი'];
   const body=labels.map((label,i)=>label+': '+(fields[i]==='area'?topic:String(data.get(fields[i])||''))).join('\n');
   $('#contact-page-mailto').href='mailto:digitallawgeorgia@gmail.com?subject='+encodeURIComponent('Digital Law Georgia | '+topic)+'&body='+encodeURIComponent(body);
+  copyText=body;
+  copyStatus.textContent='';
   $('#contact-page-result').hidden=false;
  });
  enquiry.addEventListener('input',()=>{
   $('#contact-page-result').hidden=true;
   $('#contact-page-mailto').href='mailto:digitallawgeorgia@gmail.com';
+  copyText='';
+  copyStatus.textContent='';
  });
  enquiry.hidden=false;
 }
