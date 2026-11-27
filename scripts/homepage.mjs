@@ -44,7 +44,7 @@ function clientEntrances() {
   ];
   return `<nav class="matter-nav" id="client-matters" aria-label="თქვენი საკითხი" data-en-aria="Find advice for your matter">
     <div class="wrap">
-      <h2 class="matter-heading">${tr('პოპულარული მიმართულებები', 'Explore by need')}</h2>
+      <h2 class="matter-heading">${tr('სწრაფი ბმულები', 'Explore by need')}</h2>
       <div class="matter-nav-inner">
       ${matters.map(([url,ka,en,descriptionKa,descriptionEn])=>`<a class="matter-link" href="${url}">
         <div>${tr(ka,en,'strong')}</div>${arrow}
@@ -96,10 +96,10 @@ function about() {
         ${tr('ჩვენ შესახებ', 'About the firm', 'p', 'eyebrow')}
         <h2 id="about-heading">${tr('ლუკა შახყულაშვილი', 'Luka Shakhkulashvili')}</h2>
         ${tr('ტექნოლოგიური და კომერციული სამართლის იურისტი', 'Technology and commercial lawyer', 'p', 'founder-role')}
-        ${tr('ფირმის დამფუძნებელი. გამოცდილება კერძო და საჯარო სექტორში.', 'Founder, with legal experience in the private and public sectors.', 'p')}
-        <div class="founder-credentials">${tr('ავტონომიური და აგენტური AI-ის რეგულირების შესახებ კვლევის თანაავტორი.', 'Co-author of research on autonomous and agentic AI regulation.', 'p')}</div>
+        ${tr('Digital Law Georgia-ს დამფუძნებელი.', 'Founder of Digital Law Georgia.', 'p')}
+        <div class="founder-credentials">${tr('შვიდწლიანი გამოცდილება კერძო და საჯარო სექტორში.', 'Seven years of legal experience across the private and public sectors.', 'p')}</div>
         <div class="inline-links">
-          ${link('/about/', 'პროფესიული გამოცდილება', 'Professional background')}
+          ${link('/about/#selected-experience', 'გამოცდილება და პროექტები', 'Selected experience')}
           ${link('https://arxiv.org/abs/2607.21345', 'კვლევა', 'Read the research')}
         </div>
       </div>
@@ -144,7 +144,7 @@ function insights(rows) {
         <h2 id="insights-heading">${tr('კვლევები და ანალიტიკა', 'Insights and research')}</h2>
         ${link('/resources/', 'ყველა სტატია', 'All insights')}
       </div>
-      <div class="article-grid">${articles}</div>
+      <div class="article-grid">${articles}</div><a class="home-research-note" href="https://arxiv.org/abs/2607.21345" target="_blank" rel="noopener noreferrer"><div>${tr('სამეცნიერო ნაშრომი · 2026', 'Research paper · 2026', 'p', 'eyebrow')}${tr('ავტონომიური და აგენტური AI-ის რეგულირება', 'Regulating Autonomous and Agentic AI', 'strong')}</div><span class="research-link-label">${tr('ნაშრომის ნახვა', 'Read the paper')} ${arrow}</span></a>
     </div>
   </section>`;
 }
