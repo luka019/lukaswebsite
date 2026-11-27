@@ -4,6 +4,33 @@ import {groupRoute} from './site-architecture.mjs';
 import {practiceIcon} from './site-icons.mjs';
 import {internationalFeature} from './international.mjs';
 
+const shortPractice = {
+  "ai": [
+    "AI-ის რეგულირება, რისკები და მართვა",
+    "AI regulation, risk and governance"
+  ],
+  "privacy": [
+    "მონაცემთა დამუშავება, უსაფრთხოება და ინციდენტები",
+    "Data processing, security and incidents"
+  ],
+  "contracts": [
+    "SaaS, ლიცენზირება, IT შესყიდვები და გარიგებები",
+    "SaaS, licensing, IT procurement and transactions"
+  ],
+  "products": [
+    "ციფრული პროდუქტები, ელექტრონული კომერცია და IP",
+    "Digital products, e-commerce and IP"
+  ],
+  "fintech": [
+    "ფინანსური ტექნოლოგიები, გადახდები და ვირტუალური აქტივები",
+    "Financial technology, payments and virtual assets"
+  ],
+  "corporate": [
+    "კომპანიის დაფუძნება, ინვესტიციები და იურიდიული მხარდაჭერა",
+    "Company formation, investment and ongoing counsel"
+  ]
+};
+
 const arrow = '<span aria-hidden="true">↗</span>';
 const link = (url, ka, en, cls = 'text-link') =>
   `<a class="${cls}" href="${url}">${tr(ka, en)} ${arrow}</a>`;
@@ -17,10 +44,10 @@ function clientEntrances() {
   ];
   return `<nav class="matter-nav" id="client-matters" aria-label="თქვენი საკითხი" data-en-aria="Find advice for your matter">
     <div class="wrap">
-      <h2>${tr('რა საკითხზე გჭირდებათ დახმარება?', 'What do you need advice on?')}</h2>
+      <h2 class="matter-heading">${tr('პოპულარული მიმართულებები', 'Explore by need')}</h2>
       <div class="matter-nav-inner">
       ${matters.map(([url,ka,en,descriptionKa,descriptionEn])=>`<a class="matter-link" href="${url}">
-        <div>${tr(ka,en,'strong')}${tr(descriptionKa,descriptionEn,'span','matter-description')}</div>${arrow}
+        <div>${tr(ka,en,'strong')}</div>${arrow}
       </a>`).join('')}
       </div>
     </div>
@@ -32,14 +59,14 @@ function homePractices() {
     ${practiceIcon(group.key)}
     <div>
       ${tr(group.name.ka, group.name.en, 'h3')}
-      ${tr(group.summary.ka, group.summary.en, 'p')}
+      ${tr(shortPractice[group.key][0], shortPractice[group.key][1], 'p')}
     </div>
     ${arrow}
   </a>`).join('\n');
   return `<section class="section" id="expertise" aria-labelledby="expertise-title">
     <div class="wrap">
       <div class="section-head">
-        <div><h2 id="expertise-title">${tr('მომსახურების მიმართულებები', 'Our expertise')}</h2><p class="section-intro">${tr('ტექნოლოგიური და კომერციული სამართლის საკითხებზე ვმუშაობთ ბიზნესის განვითარების სხვადასხვა ეტაპზე.', 'Specialist technology and commercial law advice at every stage of business growth.')}</p></div>
+        <h2 id="expertise-title">${tr('მომსახურების მიმართულებები', 'Our expertise')}</h2>
         ${link('/services/', 'ყველა მომსახურება', 'All services')}
       </div>
       <div class="practice-grid">${cards}</div>
@@ -49,7 +76,7 @@ function homePractices() {
 
 function audience() {
   const cards = sectors.map(sector => `<a class="home-sector-link" href="/business/sectors/${sector.slug}/">
-    <figure class="home-sector-media"><img src="${sector.image}" alt="" width="1200" height="760" loading="lazy" decoding="async"></figure><div class="home-sector-copy">${tr(sector.name.ka, sector.name.en, 'h3')}${tr(sector.short.ka, sector.short.en, 'p')}</div>${arrow}
+    <figure class="home-sector-media"><img src="${sector.image}" alt="" width="1200" height="760" loading="lazy" decoding="async"></figure><div class="home-sector-copy">${tr(sector.name.ka, sector.name.en, 'h3')}</div>${arrow}
   </a>`).join('\n');
   return `<section class="section sectors" id="sectors" aria-labelledby="sectors-heading">
     <div class="wrap">
@@ -69,8 +96,8 @@ function about() {
         ${tr('ჩვენ შესახებ', 'About the firm', 'p', 'eyebrow')}
         <h2 id="about-heading">${tr('ლუკა შახყულაშვილი', 'Luka Shakhkulashvili')}</h2>
         ${tr('ტექნოლოგიური და კომერციული სამართლის იურისტი', 'Technology and commercial lawyer', 'p', 'founder-role')}
-        ${tr('ფირმის დამფუძნებელი ლუკა შახყულაშვილი სპეციალიზებულია ტექნოლოგიურ და კომერციულ სამართალში. მას სამართლებრივი საქმიანობის გამოცდილება აქვს როგორც კერძო, ისე საჯარო სექტორში.', 'Founder Luka Shakhkulashvili specialises in technology and commercial law, with legal experience in both the private and public sectors.', 'p')}
-        <div class="founder-credentials"><div>${tr('უშუალო თანამშრომლობა', 'Direct collaboration', 'strong')}${tr('საკითხებზე უშუალოდ დამფუძნებელ იურისტთან მუშაობა', 'Work directly with the founding lawyer', 'span')}</div><div>${tr('AI-ის რეგულირების კვლევა', 'AI regulation research', 'strong')}${tr('ავტონომიური და აგენტური AI-ის რეგულირების შესახებ კვლევის თანაავტორი', 'Co-author of research on autonomous and agentic AI regulation', 'span')}</div></div>
+        ${tr('ფირმის დამფუძნებელი. გამოცდილება კერძო და საჯარო სექტორში.', 'Founder, with legal experience in the private and public sectors.', 'p')}
+        <div class="founder-credentials">${tr('ავტონომიური და აგენტური AI-ის რეგულირების შესახებ კვლევის თანაავტორი.', 'Co-author of research on autonomous and agentic AI regulation.', 'p')}</div>
         <div class="inline-links">
           ${link('/about/', 'პროფესიული გამოცდილება', 'Professional background')}
           ${link('https://arxiv.org/abs/2607.21345', 'კვლევა', 'Read the research')}
@@ -95,7 +122,7 @@ function engagement() {
         <h2 id="engagement-title">${tr('როგორ ვმუშაობთ', 'How we work')}</h2>
         ${link('/how-we-work/', 'თანამშრომლობის პირობები', 'How engagements work')}
       </div>
-      <ol class="engagement-steps">${steps.map(([ka,en,copyKa,copyEn])=>`<li>${tr(ka,en,'h3')}${tr(copyKa,copyEn,'p')}</li>`).join('')}</ol>
+      <ol class="engagement-steps">${steps.map(([ka,en,copyKa,copyEn])=>`<li>${tr(ka,en,'h3')}</li>`).join('')}</ol>
     </div>
   </section>`;
 }
@@ -106,7 +133,7 @@ function insights(rows) {
     <div class="home-article-copy">
       <p class="article-meta">${tr('პრაქტიკული გზამკვლევი', 'Practical guide', 'span')} <span aria-hidden="true">·</span> <time datetime="${row.date}">${row.date.slice(0,4)}</time></p>
       ${tr(row.title, row.title_en, 'h3')}
-      ${tr(row.summary, row.summary_en, 'p')}
+      
     </div>
     ${arrow}
   </a>`).join('\n');
