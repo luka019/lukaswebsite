@@ -9,7 +9,7 @@ import {parentsFor} from './site-architecture.mjs';
 import {generateResourceCovers} from './generate-resource-covers.mjs';
 import path from 'node:path';
 import {validateResources,renderBody,esc,topics,formats} from '../resources/resource-model.mjs';
-const publicAssets='<link rel="stylesheet" href="/dlg-public.css?v=20261127-specialist"><link rel="stylesheet" href="/dlg-polish.css?v=20261127-v1"><link rel="stylesheet" href="/dlg-atlas.css?v=20261127-directory-v3"><script src="/dlg-atlas.js?v=20261127-directory-v3" defer></script><script src="/dlg-polish.js?v=20261127-v1" defer></script><script src="/dlg-language.js?v=20261126-qa" defer></script>';
+const publicAssets='<link rel="stylesheet" href="/dlg-public.css?v=20261127-specialist"><link rel="stylesheet" href="/dlg-polish.css?v=20261127-v1"><link rel="stylesheet" href="/dlg-boutique-identity.css?v=20261127-v1"><script src="/dlg-polish.js?v=20261127-v1" defer></script><script src="/dlg-language.js?v=20261126-qa" defer></script>';
 const out=process.env.SITE_OUTPUT||'dist';
 const siteUrl=(process.env.SITE_URL||'https://lukaswebsite.vercel.app').replace(/\/+$/,'');
 if(!['dist','test-dist'].includes(out))throw new Error('Unsupported output directory');
@@ -17,7 +17,7 @@ const all=validateResources(JSON.parse(fs.readFileSync(process.env.SITE_RESOURCE
 const today=new Date().toISOString().slice(0,10);
 const rows=all.filter(r=>r.status==='published'&&r.date<=today).sort((a,b)=>b.date.localeCompare(a.date));
 fs.rmSync(out,{recursive:true,force:true}); fs.mkdirSync(out,{recursive:true});
-for(const file of ['dlg-hybrid.css','dlg-hybrid.js','dlg-international.css','dlg-polish.css','dlg-polish.js','dlg-atlas.css','dlg-atlas.js','dlg-public.css','dlg-language.js','styles.css','firm.css','dlg-signature.css','dlg-photographic.css','dlg-refinement.css','dlg-boutique-ui.css','dlg-hero-carousel.js','dlg-service-discovery.js','dlg-signature.js','script.js','firm-interactions.js','firm-hero.js','visual-experience.js','favicon.svg','catalogue.mjs','digital.css','digital.mjs','workspace.css','workspace.mjs','delivery-templates.mjs'])fs.copyFileSync(file,path.join(out,file));
+for(const file of ['dlg-hybrid.css','dlg-hybrid.js','dlg-international.css','dlg-polish.css','dlg-polish.js','dlg-atlas.css','dlg-atlas.js','dlg-boutique-identity.css','dlg-public.css','dlg-language.js','styles.css','firm.css','dlg-signature.css','dlg-photographic.css','dlg-refinement.css','dlg-boutique-ui.css','dlg-hero-carousel.js','dlg-service-discovery.js','dlg-signature.js','script.js','firm-interactions.js','firm-hero.js','visual-experience.js','favicon.svg','catalogue.mjs','digital.css','digital.mjs','workspace.css','workspace.mjs','delivery-templates.mjs'])fs.copyFileSync(file,path.join(out,file));
 fs.cpSync('assets',path.join(out,'assets'),{recursive:true}); fs.cpSync('admin',path.join(out,'admin'),{recursive:true});
 // The old enquiry inbox is retired; the resource admin remains available.
 fs.rmSync(path.join(out,'admin','inbox'),{recursive:true,force:true}); // Retired client workspace is excluded from public deployment.
@@ -50,7 +50,7 @@ function shell({title,title_en,summary,summary_en,url,content,image='',article=f
  const trail=url==='/'||url==='/404.html'?'':`<nav class="dlg-breadcrumb container" aria-label="გვერდის მდებარეობა" data-en-aria="Breadcrumb"><ol>${parentsFor(url).map(({url,name})=>`<li><a href="${url}" data-site-link ${tr(name.ka,name.en)}>${esc(name.ka)}</a></li>`).join('')}<li><span aria-current="page" ${tr(title,title_en||title)}>${esc(title)}</span></li></ol></nav>`;
 
  const canonical=siteUrl+url;
- const imageUrl=image&&!image.endsWith('.svg')?(image.startsWith('/')?siteUrl+image:image):siteUrl+'/assets/editorial/human-machine.webp';
+ const imageUrl=image&&!image.endsWith('.svg')?(image.startsWith('/')?siteUrl+image:image):siteUrl+'/assets/editorial/boutique-colonnade.jpg';
  const articleImages=article&&image&&image.endsWith('.png')?[imageUrl,imageUrl.replace(/\.png$/, '-4x3.png'),imageUrl.replace(/\.png$/, '-1x1.png')]:[imageUrl];
  const keywords=termsFor(url);
  const robots=noindex?'noindex,nofollow':'index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1';
