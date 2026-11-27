@@ -9,8 +9,8 @@ export const practiceGroups = [
       "en": "AI & Technology Regulation"
     },
     "summary": {
-      "ka": "AI-ის დანერგვა, რისკების შეფასება, გამოყენების შიდა წესები და მარეგულირებელი მოთხოვნები.",
-      "en": "AI adoption, governance, risk assessment, internal policies and regulatory requirements."
+      "ka": "AI-ის რეგულირება, სამართლებრივი რისკების შეფასება, გამოყენების წესები და მართვის სისტემის დანერგვა.",
+      "en": "AI regulation, legal risk assessment, internal policies and governance implementation."
     },
     "ids": [
       "ai"
@@ -25,8 +25,8 @@ export const practiceGroups = [
       "en": "Data Protection & Cybersecurity"
     },
     "summary": {
-      "ka": "მონაცემთა დამუშავების კანონმდებლობასთან შესაბამისობა, ინფორმაციული უსაფრთხოება და ინციდენტებზე რეაგირება.",
-      "en": "Privacy compliance, information security obligations and legal incident response."
+      "ka": "პერსონალურ მონაცემთა დაცვა, მონაცემთა დამუშავების პროცესები, კიბერუსაფრთხოების ვალდებულებები და ინციდენტებზე სამართლებრივი რეაგირება.",
+      "en": "Data protection, processing arrangements, cybersecurity obligations and legal incident response."
     },
     "ids": [
       "data-protection",
@@ -42,8 +42,8 @@ export const practiceGroups = [
       "en": "Technology & Commercial Contracts"
     },
     "summary": {
-      "ka": "SaaS, IT მომსახურება, ლიცენზირება, სახელშეკრულებო მოლაპარაკებები და რისკების შეფასება.",
-      "en": "SaaS, IT services, licensing, negotiations and contractual risk assessment."
+      "ka": "ტექნოლოგიური და კომერციული ხელშეკრულებები, SaaS, ლიცენზირება, IT შესყიდვები და მოლაპარაკებები.",
+      "en": "Technology and commercial agreements, SaaS, licensing, IT procurement and negotiations."
     },
     "ids": [
       "contracts"
@@ -58,8 +58,8 @@ export const practiceGroups = [
       "en": "Digital Products & Intellectual Property"
     },
     "summary": {
-      "ka": "პროდუქტების გაშვება, ელექტრონული კომერცია, პროგრამულ უზრუნველყოფაზე უფლებები და ბრენდის დაცვა.",
-      "en": "Product launches, e-commerce, software ownership and brand protection."
+      "ka": "ციფრული პროდუქტების გაშვება, ელექტრონული კომერცია, პროგრამულ უზრუნველყოფაზე უფლებები და ინტელექტუალური საკუთრების დაცვა.",
+      "en": "Digital product launches, e-commerce, software ownership and intellectual property protection."
     },
     "ids": [
       "product",
@@ -76,8 +76,8 @@ export const practiceGroups = [
       "en": "FinTech & Financial Regulation"
     },
     "summary": {
-      "ka": "საგადახდო მომსახურება, ვირტუალური აქტივები, რეგისტრაციისა და სხვა მარეგულირებელი მოთხოვნების შეფასება.",
-      "en": "Payments, virtual assets, registration requirements and regulatory perimeter reviews."
+      "ka": "საგადახდო მომსახურება, ვირტუალური აქტივები და ფინანსური რეგულირების მოთხოვნების შეფასება.",
+      "en": "Payment services, virtual assets and financial regulatory assessment."
     },
     "ids": [
       "fintech",
@@ -93,8 +93,8 @@ export const practiceGroups = [
       "en": "Corporate & Commercial Law"
     },
     "summary": {
-      "ka": "კომპანიის დაფუძნება, ინვესტიციები, საერთაშორისო საქმიანობა და მუდმივი იურიდიული მომსახურება.",
-      "en": "Incorporation, investment, cross-border business and ongoing legal counsel."
+      "ka": "კომპანიის დაფუძნება, კომერციული გარიგებები, საინვესტიციო საკითხები და მუდმივი იურიდიული მხარდაჭერა.",
+      "en": "Company formation, commercial transactions, investment matters and ongoing legal support."
     },
     "ids": [
       "startup",
@@ -116,8 +116,8 @@ export const sectors = [
       "en": "IT · SaaS · AI"
     },
     "summary": {
-      "ka": "პროგრამული უზრუნველყოფის შემქმნელებსა და ტექნოლოგიურ კომპანიებს ვეხმარებით პროდუქტის, ხელშეკრულებებისა და მარეგულირებელი მოთხოვნების სამართლებრივ საკითხებში.",
-      "en": "Legal support for software developers and technology companies across products, contracts and regulation."
+      "ka": "პროგრამული უზრუნველყოფის შემქმნელებსა და ტექნოლოგიურ კომპანიებს ვუწევთ იურიდიულ მომსახურებას პროდუქტის შექმნიდან კომერციულ გარიგებებსა და მარეგულირებელი მოთხოვნების შეფასებამდე.",
+      "en": "Legal advice for software developers and technology companies, from product development to commercial agreements and regulatory requirements."
     },
     "short": {
       "ka": "IT, SaaS, პროგრამული უზრუნველყოფა და AI პროდუქტები",
@@ -158,8 +158,8 @@ export const sectors = [
       "en": "FinTech · Financial institutions"
     },
     "summary": {
-      "ka": "ფინანსური ტექნოლოგიების კომპანიებსა და ფინანსურ ინსტიტუტებს ვთავაზობთ ტექნოლოგიურ და მარეგულირებელ საკითხებზე სპეციალიზებულ იურიდიულ მომსახურებას.",
-      "en": "Specialist technology and regulatory legal advice for FinTech companies and financial institutions."
+      "ka": "ფინტექ კომპანიებს, ბანკებსა და სხვა ფინანსურ ინსტიტუტებს ვეხმარებით ტექნოლოგიური და მარეგულირებელი საკითხების სამართლებრივ შეფასებაში.",
+      "en": "Specialist technology and regulatory legal advice for FinTech companies, banks and other financial institutions."
     },
     "short": {
       "ka": "ფინტექი, ბანკები, დაზღვევა და საგადახდო მომსახურება",
@@ -205,8 +205,8 @@ export const sectors = [
       "en": "E-commerce · Platforms"
     },
     "summary": {
-      "ka": "სავაჭრო და მომსახურების სფეროში მომუშავე კომპანიებს ვეხმარებით ციფრული გაყიდვების, მომხმარებელთა უფლებებისა და ბიზნესპროცესების სამართლებრივ მოწესრიგებაში.",
-      "en": "Legal support for commerce and service businesses across digital sales, consumer rights and business processes."
+      "ka": "სავაჭრო და მომსახურების სფეროში მომუშავე კომპანიებს ვეხმარებით ციფრული გაყიდვების, მომხმარებელთა უფლებებისა და კომერციული პროცესების სამართლებრივ მოწესრიგებაში.",
+      "en": "Legal support for commerce and service businesses across digital sales, consumer rights and commercial processes."
     },
     "short": {
       "ka": "ონლაინ ვაჭრობა, პლატფორმები და მომხმარებელთა უფლებები",
@@ -246,8 +246,8 @@ export const sectors = [
       "en": "Formation · Growth · Investment"
     },
     "summary": {
-      "ka": "ტექნოლოგიურ სტარტაპებსა და ინვესტორებს ვეხმარებით კომპანიის დაფუძნების, უფლებების განაწილებისა და საინვესტიციო გარიგებების სამართლებრივ საკითხებში.",
-      "en": "Legal support for technology founders and investors across formation, ownership and investment transactions."
+      "ka": "ტექნოლოგიურ სტარტაპებსა და ინვესტორებს ვუწევთ იურიდიულ მომსახურებას კომპანიის დაფუძნების, უფლებების განაწილებისა და საინვესტიციო გარიგებების საკითხებზე.",
+      "en": "Legal advice for technology founders and investors on company formation, ownership and investment transactions."
     },
     "short": {
       "ka": "დაფუძნება, დამფუძნებელთა შეთანხმებები და ინვესტიციები",
@@ -287,8 +287,8 @@ export const sectors = [
       "en": "Georgia · Cross-border business"
     },
     "summary": {
-      "ka": "უცხოურ კომპანიებს ვეხმარებით საქართველოში საქმიანობის დაწყებასა და ადგილობრივი სამართლებრივი მოთხოვნების შეფასებაში, ქართულ კომპანიებს კი — უცხოელ პარტნიორებთან თანამშრომლობისთვის მომზადებაში.",
-      "en": "Support for international companies entering Georgia and Georgian companies preparing to work with overseas partners."
+      "ka": "უცხოურ კომპანიებს ვეხმარებით საქართველოში საქმიანობის დაწყებასა და ადგილობრივი სამართლებრივი მოთხოვნების შეფასებაში. ქართულ კომპანიებს ვუწევთ იურიდიულ მომსახურებას საერთაშორისო პარტნიორებთან ურთიერთობისას.",
+      "en": "Georgian-law advice for international companies entering Georgia and support for Georgian businesses working with overseas partners."
     },
     "short": {
       "ka": "საქართველოში საქმიანობის დაწყება და საერთაშორისო გარიგებები",
@@ -340,8 +340,8 @@ export const sectors = [
       "en": "Specialist advice · Ongoing support"
     },
     "summary": {
-      "ka": "იურიდიულ ფირმებსა და კომპანიების იურიდიულ სამსახურებს ვთავაზობთ სპეციალიზებულ მხარდაჭერას ტექნოლოგიური სამართლის, AI-ის გამოყენებისა და სამუშაო პროცესების ავტომატიზაციის საკითხებზე.",
-      "en": "Specialist support for law firms and in-house legal teams in technology law, AI adoption and legal workflow automation."
+      "ka": "იურიდიულ ფირმებსა და კომპანიების იურიდიულ სამსახურებს ვთავაზობთ სპეციალიზებულ მხარდაჭერას ტექნოლოგიური სამართლის, AI-ის გამოყენებისა და იურიდიული პროცესების ავტომატიზაციის საკითხებზე.",
+      "en": "Specialist support for law firms and in-house legal teams on technology law, AI adoption and legal workflow automation."
     },
     "short": {
       "ka": "სპეციალიზებული გარე იურიდიული მხარდაჭერა",
