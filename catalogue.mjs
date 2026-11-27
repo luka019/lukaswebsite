@@ -9,8 +9,8 @@ export const practices = [
       "en": "Technology & Commercial Contracts"
     },
     "summary": {
-      "ka": "კომერციული და ტექნოლოგიური გარიგებების სახელშეკრულებო პირობების მოწესრიგება — სამუშაოს მოცულობა, ანაზღაურება, უფლებები და პასუხისმგებლობა.",
-      "en": "Clear terms for your next deal: scope, payment, ownership and liability."
+      "ka": "ტექნოლოგიური და კომერციული ხელშეკრულებების მომზადება, შეფასება და მოლაპარაკებებში მონაწილეობა, მათ შორის SaaS-ის, ლიცენზირებისა და IT შესყიდვების საკითხებზე.",
+      "en": "Drafting, reviewing and negotiating technology and commercial agreements, including SaaS, licensing and IT procurement."
     },
     "audience": {
       "ka": "IT და SaaS კომპანიები, სააგენტოები და სხვა კომპანიები, რომლებიც ტექნოლოგიურ მომსახურებას ყიდულობენ ან უცხოელ კლიენტებთან თანამშრომლობენ.",
@@ -80,8 +80,8 @@ export const practices = [
       "en": "Data Protection & Privacy"
     },
     "summary": {
-      "ka": "თანამშრომლებისა და მომხმარებლების პერსონალური მონაცემების დაცვა და მიმწოდებლებთან მონაცემთა დამუშავების პირობების მოწესრიგება.",
-      "en": "Privacy arrangements that reflect how your business actually works, across employees, customers and suppliers."
+      "ka": "ორგანიზაციებს ვეხმარებით პერსონალურ მონაცემთა დაცვის მოთხოვნების შესრულებაში, მონაცემთა დამუშავების პროცესების მოწესრიგებასა და მიმწოდებლების შეფასებაში.",
+      "en": "We help organisations meet data protection obligations, establish sound processing practices and assess their suppliers."
     },
     "audience": {
       "ka": "ორგანიზაციები, რომლებიც ამუშავებენ თანამშრომლებისა და მომხმარებლების მონაცემებს, იყენებენ CRM-ს, ღრუბლოვან სერვისებს ან საერთაშორისო მიმწოდებლებს.",
@@ -151,8 +151,8 @@ export const practices = [
       "en": "AI Law & Governance"
     },
     "summary": {
-      "ka": "AI-ის გამოყენების წესები, პასუხისმგებლობების განაწილება და სამართლებრივი კონსულტაცია — შიდა სამუშაო პროცესებიდან ციფრულ პროდუქტებამდე.",
-      "en": "From workplace AI to product features: clear rules, accountable owners and informed legal decisions."
+      "ka": "AI სისტემების დანერგვასთან დაკავშირებული სამართლებრივი რისკების შეფასება, გამოყენების შიდა წესების შემუშავება და მარეგულირებელი მოთხოვნების ანალიზი.",
+      "en": "Legal risk assessment, internal AI governance and regulatory advice for organisations developing or deploying AI systems."
     },
     "audience": {
       "ka": "კომპანიები, რომლებიც AI-ს შიდა საქმიანობაში იყენებენ, პროდუქტს AI-ფუნქციას ამატებენ ან საკუთარ AI-სერვისს ქმნიან.",
@@ -264,8 +264,8 @@ export const practices = [
       "en": "Digital Products, Platforms & E-commerce"
     },
     "summary": {
-      "ka": "ციფრული პროდუქტის სამართლებრივი პირობები — რეგისტრაცია, გადახდა, გამოწერის გაუქმება და თანხის დაბრუნება.",
-      "en": "Legal foundations and a clear customer journey, from sign-up and payment to cancellation and refunds."
+      "ka": "ციფრული პროდუქტებისა და პლატფორმების სამართლებრივი შეფასება, მომხმარებელთან ურთიერთობის პირობები და პროდუქტის გაშვებამდე საჭირო დოკუმენტების მომზადება.",
+      "en": "Legal review of digital products and platforms, customer terms and the documentation needed before launch."
     },
     "audience": {
       "ka": "აპლიკაციები, SaaS-სერვისები, პლატფორმები და ონლაინმაღაზიები, რომლებიც პროდუქტს უშვებენ ან ახალ ბაზარზე გადიან.",
@@ -335,8 +335,8 @@ export const practices = [
       "en": "Legal Operations & Contract Management"
     },
     "summary": {
-      "ka": "ხელშეკრულების მომზადებიდან ხელმოწერამდე — შაბლონები, შიდა შეთანხმების წესი, პასუხისმგებლობების განაწილება და ვადების კონტროლი.",
-      "en": "A clear route from request to signature, with templates, approvals, ownership and deadline tracking."
+      "ka": "იურიდიული მოთხოვნების მიღების, ხელშეკრულებების მომზადების, შეთანხმებისა და შესრულების პროცესების მოწესრიგება, პასუხისმგებლობებისა და ვადების განსაზღვრით.",
+      "en": "Structuring legal intake, contract drafting, approvals and performance monitoring, with clear responsibilities and deadlines."
     },
     "audience": {
       "ka": "მზარდი კომპანიები და იურიდიული სამსახურები, რომლებსაც ხელშეკრულებების შეთანხმების, შენახვისა და ვადების კონტროლის გაუმჯობესება სჭირდებათ.",
@@ -402,8 +402,8 @@ export const practices = [
       "en": "Ongoing Legal Counsel"
     },
     "summary": {
-      "ka": "ხელშეკრულებების, პერსონალურ მონაცემთა დაცვის, AI-ის გამოყენებისა და ყოველდღიური კომერციული საკითხების იურიდიული მხარდაჭერა წინასწარ შეთანხმებული პირობებით.",
-      "en": "A dedicated legal point of contact for contracts, data, AI and commercial matters, within an agreed scope."
+      "ka": "რეგულარული იურიდიული მხარდაჭერა ტექნოლოგიურ ხელშეკრულებებზე, მონაცემთა დაცვაზე, AI-ის გამოყენებასა და მიმდინარე კომერციულ საკითხებზე.",
+      "en": "Ongoing legal support on technology contracts, data protection, AI adoption and day-to-day commercial matters, within an agreed scope."
     },
     "audience": {
       "ka": "კომპანიები, რომლებსაც რეგულარული იურიდიული მომსახურება სჭირდებათ, ასევე იურიდიული სამსახურები, რომლებსაც ტექნოლოგიურ საკითხებზე სპეციალისტის დახმარება სჭირდებათ.",
@@ -469,8 +469,8 @@ export const practices = [
       "en": "FinTech & Payment Services"
     },
     "summary": {
-      "ka": "საგადახდო მომსახურებისა და ციფრული ფინანსური პროდუქტების მარეგულირებელი მოთხოვნების შეფასება.",
-      "en": "Business model assessment and financial regulatory scoping."
+      "ka": "საგადახდო მომსახურებისა და ფინანსური ტექნოლოგიების ბიზნესმოდელების სამართლებრივი შეფასება, რეგისტრაციისა და სხვა მარეგულირებელი მოთხოვნების ანალიზი.",
+      "en": "Legal assessment of payments and FinTech business models, registration requirements and other regulatory obligations."
     },
     "audience": {
       "ka": "ფინანსური ტექნოლოგიების კომპანიები, საგადახდო მომსახურების პროვაიდერები, ბანკები და ღია ბანკინგის პროექტები.",
@@ -532,8 +532,8 @@ export const practices = [
       "en": "Virtual Assets & VASP Regulation"
     },
     "summary": {
-      "ka": "ვირტუალურ აქტივებთან დაკავშირებული მომსახურების სამართლებრივი შეფასება და საქმიანობის დასაწყებად მომზადება.",
-      "en": "Assessment and readiness support for virtual asset services."
+      "ka": "ვირტუალურ აქტივებთან დაკავშირებული ბიზნესმოდელების სამართლებრივი შეფასება, VASP რეგისტრაციის მოთხოვნების ანალიზი და საქმიანობის დაწყებისთვის მომზადება.",
+      "en": "Legal assessment of virtual asset business models, VASP registration requirements and regulatory readiness."
     },
     "audience": {
       "ka": "ვირტუალური აქტივების გაცვლის, შენახვისა და გადაცემის მომსახურების მიმწოდებლები და ბლოკჩეინზე დაფუძნებული პროექტები.",
@@ -595,8 +595,8 @@ export const practices = [
       "en": "Digital commerce & platforms"
     },
     "summary": {
-      "ka": "ონლაინგაყიდვის, გამოწერისა და პლატფორმის მუშაობის სამართლებრივი პირობების მოწესრიგება.",
-      "en": "Clear customer journeys and terms tailored to your business model."
+      "ka": "ონლაინვაჭრობისა და ციფრული პლატფორმების სამართლებრივი შეფასება, მომხმარებელთა უფლებები და გაყიდვის, გამოწერისა და თანხის დაბრუნების პირობები.",
+      "en": "Legal review of online sales and digital platforms, consumer rights, subscription terms and refund arrangements."
     },
     "audience": {
       "ka": "ონლაინმაღაზიები, სავაჭრო პლატფორმები, გამოწერაზე დაფუძნებული სერვისები და სხვა ციფრული ბიზნესი.",
@@ -656,8 +656,8 @@ export const practices = [
       "en": "Cybersecurity & Digital Risk"
     },
     "summary": {
-      "ka": "კიბერინციდენტების სამართლებრივი შეფასება, შეტყობინების ვალდებულებები და მიმწოდებლებთან ხელშეკრულებები.",
-      "en": "Incident response, supplier obligations and digital risk governance."
+      "ka": "კიბერუსაფრთხოების სამართლებრივი მოთხოვნების შეფასება, ინციდენტებზე რეაგირების ვალდებულებები და ტექნოლოგიურ მიმწოდებლებთან ხელშეკრულებები.",
+      "en": "Legal advice on cybersecurity obligations, incident response and agreements with technology suppliers."
     },
     "audience": {
       "ka": "კომპანიების იურიდიული, უსაფრთხოების, შესაბამისობისა და შესყიდვების გუნდები.",
@@ -719,8 +719,8 @@ export const practices = [
       "en": "Georgia Market Entry & Company Setup"
     },
     "summary": {
-      "ka": "იურიდიული მომსახურება უცხოური ტექნოლოგიური და საკონსულტაციო კომპანიებისთვის საქართველოში — დაფუძნებიდან ყოველდღიურ საქმიანობამდე.",
-      "en": "Local legal support for international technology and professional-services businesses, from setup to day-to-day operations."
+      "ka": "საქართველოში საქმიანობის დაწყებისა და გაფართოებისას უცხოურ კომპანიებს ვეხმარებით კომპანიის დაფუძნებაში, ხელშეკრულებების მომზადებასა და ადგილობრივი სამართლებრივი მოთხოვნების შეფასებაში.",
+      "en": "Georgian-law advice for international businesses entering or expanding in Georgia, covering incorporation, contracts and local regulatory requirements."
     },
     "audience": {
       "ka": "უცხოური კომპანიები და მეწარმეები, რომლებიც საქართველოში საქმიანობას იწყებენ, გუნდს ქმნიან ან ბიზნესს აფართოებენ.",
@@ -784,8 +784,8 @@ export const practices = [
       "en": "Intellectual property & technology assets"
     },
     "summary": {
-      "ka": "პროგრამულ უზრუნველყოფაზე, ბრენდსა და სხვა ციფრულ აქტივებზე უფლებების კუთვნილების, გამოყენებისა და გადაცემის პირობების მოწესრიგება.",
-      "en": "Ownership and licensing of software, brands, content and other digital assets."
+      "ka": "პროგრამულ უზრუნველყოფაზე, ბრენდებსა და სხვა ციფრულ აქტივებზე უფლებების დაცვის, გამოყენებისა და გადაცემის სამართლებრივი პირობების განსაზღვრა.",
+      "en": "Legal protection, ownership, licensing and transfer of rights in software, brands and other digital assets."
     },
     "audience": {
       "ka": "ტექნოლოგიური კომპანიები, სტარტაპები, პროდუქტის გუნდები და ინვესტორები, რომლებსაც ციფრულ აქტივებზე საკუთრებისა და გამოყენების უფლებების მკაფიოდ განსაზღვრა სჭირდებათ.",
@@ -845,8 +845,8 @@ export const practices = [
       "en": "Technology Startups & Investment"
     },
     "summary": {
-      "ka": "ტექნოლოგიური კომპანიის დაფუძნებიდან ინვესტორის შესვლამდე: დამფუძნებლების შეთანხმებები, IP-ის კუთვნილება და საინვესტიციო დოკუმენტები.",
-      "en": "From incorporation to investment: founder agreements, ownership of intellectual property and investment documentation."
+      "ka": "ტექნოლოგიური კომპანიების დაფუძნების, ინვესტიციების მოზიდვისა და საინვესტიციო გარიგებების იურიდიული მხარდაჭერა, დამფუძნებელთა შეთანხმებებისა და ინტელექტუალური საკუთრების საკითხების ჩათვლით.",
+      "en": "Legal support for technology companies from incorporation to fundraising, including founder arrangements, IP ownership and investment documentation."
     },
     "audience": {
       "ka": "ტექნოლოგიური სტარტაპები, SaaS და AI პროდუქტების დამფუძნებლები, ინდივიდუალური საწყისი ეტაპის ინვესტორები (angel investors) და საერთაშორისო კომპანიები, რომლებიც საქართველოში საქმიანობას იწყებენ.",
