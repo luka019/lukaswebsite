@@ -24,7 +24,7 @@ for(const [page,lang] of [[home,'ka'],[englishHome,'en']]){
  assert((page.match(/class="home-sector-media"/g)||[]).length===6,'Six editorial sector images required');
  assert((page.match(/class="home-article-media"/g)||[]).length===3,'Three editorial insight images required');
  assert(page.includes('class="founder-credentials"')&&page.includes('class="dlg-home-firm-copy"')&&page.includes('class="dlg-home-founder-card"'),'Firm and founder must be clearly distinguished');
- assert(page.includes('class="dlg-practice-explorer"')&&page.includes('class="dlg-practice-stage"')&&page.includes('class="dlg-hero-foot"'),'Editorial hero and practice explorer required');
+ assert(page.includes('class="dlg-practice-explorer"')&&page.includes('class="dlg-practice-stage"')&&page.includes('class="hero-content"')&&!page.includes('class="dlg-hero-foot"'),'Signature hero and practice explorer required');
  assert(page.includes('dlg-home-firm-principles')&&page.includes('/dlg-polish.css?v=20261127-v1')&&page.includes('/dlg-polish.js?v=20261127-v1'),'Shared polish layer and firm approach missing');
  assert(page.includes('class="hero-photo"')&&page.includes('src="/assets/editorial/human-machine.webp"')&&page.includes('human-machine-small.webp 640w')&&page.includes('fetchpriority="high"'),'Responsive original technology-law artwork required');
  assert(page.includes(lang==='ka'?'სპეციალიზებული იურიდიული ფირმა':'SPECIALIST LAW FIRM'),'Specialist positioning must be rendered');
