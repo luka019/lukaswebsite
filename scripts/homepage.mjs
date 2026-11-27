@@ -92,20 +92,30 @@ function audience() {
 function about() {
   return `<section class="section practice-introduction" id="about" aria-labelledby="about-heading">
     <div class="wrap home-founder-reference">
-      <div>
+      <div class="dlg-home-firm-copy">
         ${tr('ჩვენ შესახებ', 'About the firm', 'p', 'eyebrow')}
-        <h2 id="about-heading">${tr('ლუკა შახყულაშვილი', 'Luka Shakhkulashvili')}</h2>
-        ${tr('ტექნოლოგიური და კომერციული სამართლის იურისტი', 'Technology and commercial lawyer', 'p', 'founder-role')}
-        ${tr('Digital Law Georgia-ს დამფუძნებელი.', 'Founder of Digital Law Georgia.', 'p')}
-        <div class="founder-credentials">${tr('შვიდწლიანი გამოცდილება კერძო და საჯარო სექტორში.', 'Seven years of legal experience across the private and public sectors.', 'p')}</div>
-        <div class="inline-links">
+        <h2 id="about-heading">${tr('სამართლებრივი ცოდნა და ბიზნესის გააზრება', 'Legal expertise and commercial understanding')}</h2>
+        ${tr('Digital Law Georgia ტექნოლოგიურ და კომერციულ სამართალში სპეციალიზებული იურიდიული ფირმაა. კომპანიებს ვეხმარებით ტექნოლოგიური პროექტების, კომერციული გარიგებებისა და რეგულაციებთან დაკავშირებული სამართლებრივი საკითხების გადაწყვეტაში.', 'Digital Law Georgia is a specialist technology and commercial law firm. We help businesses address legal issues arising from technology projects, commercial transactions and regulatory requirements.', 'p','dlg-home-firm-lead')}
+        ${tr('სამართლებრივ რჩევას თქვენი კომპანიის საქმიანობასა და მიზნებს ვარგებთ.', 'Our legal advice is tailored to your business and its objectives.', 'p','dlg-home-firm-lead')}
+        <div class="inline-links">${link('/about/', 'გაიცანით ფირმა', 'About the firm')}${link('/how-we-work/', 'როგორ ვმუშაობთ', 'How we work')}</div>
+      </div>
+      <div class="dlg-home-founder-card">
+        <figure class="founder-feature">
+          <img src="/assets/profile/founder-portrait.webp" alt="ლუკა შახყულაშვილი" data-en-alt="Luka Shakhkulashvili" width="900" height="900" loading="lazy" decoding="async">
+        </figure>
+        <div class="dlg-home-founder-copy">
+          ${tr('დამფუძნებელი','Founder','p','eyebrow')}
+          <h3>${tr('ლუკა შახყულაშვილი','Luka Shakhkulashvili')}</h3>
+          ${tr('ტექნოლოგიური და კომერციული სამართლის იურისტი','Technology and commercial lawyer','p','founder-role')}
+          <div class="founder-credentials">${tr('შვიდწლიანი იურიდიული გამოცდილება კერძო და საჯარო სექტორში.','Seven years of legal experience in the private and public sectors.','p')}</div>
           ${link('/about/founder/', 'პროფესიული პროფილი', 'Professional profile')}
-          ${link('/about/', 'ფირმის შესახებ', 'About the firm')}
         </div>
       </div>
-      <figure class="founder-feature">
-        <img src="/assets/profile/founder-portrait.webp" alt="ლუკა შახყულაშვილი" data-en-alt="Luka Shakhkulashvili" width="900" height="900" loading="lazy" decoding="async">
-      </figure>
+    </div>
+    <div class="wrap dlg-home-firm-principles" aria-label="ჩვენი მიდგომა" data-en-aria="Our approach">
+      <a href="/services/"><span class="dlg-firm-principle-index">01</span>${tr('სპეციალიზებული სამართლებრივი ცოდნა','Specialist legal expertise','strong')}${arrow}</a>
+      <a href="/how-we-work/"><span class="dlg-firm-principle-index">02</span>${tr('უშუალო თანამშრომლობა','Direct collaboration','strong')}${arrow}</a>
+      <a href="/business/georgia/"><span class="dlg-firm-principle-index">03</span>${tr('ქართულ და საერთაშორისო კომპანიებთან მუშაობა','Georgian and international businesses','strong')}${arrow}</a>
     </div>
   </section>`;
 }
