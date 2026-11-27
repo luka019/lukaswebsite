@@ -7,8 +7,8 @@ export const advisoryPackages = [
       "en": "AI Readiness Assessment"
     },
     "intro": {
-      "ka": "ვაფასებთ, როგორ იყენებს თქვენი კომპანია ხელოვნურ ინტელექტს, რა რისკებთან არის ეს დაკავშირებული და რა ცვლილებები უნდა განხორციელდეს პირველ რიგში.",
-      "en": "Understand how your organisation uses AI, identify material risks and prioritise practical improvements."
+      "ka": "ვაფასებთ, როგორ იყენებს თქვენი ორგანიზაცია AI სისტემებს, რა სამართლებრივ და ორგანიზაციულ რისკებს უკავშირდება მათი გამოყენება და რომელი საკითხები მოითხოვს პირველ რიგში რეაგირებას.",
+      "en": "We assess how your organisation uses AI systems, identify legal and organisational risks, and prioritise the actions needed."
     },
     "timing": {
       "ka": "დაახლოებით 10 სამუშაო დღე",
@@ -55,8 +55,8 @@ export const advisoryPackages = [
       "en": "AI Governance Implementation"
     },
     "intro": {
-      "ka": "კომპანიის საქმიანობის გათვალისწინებით ვაყალიბებთ AI-ის გამოყენების შიდა წესებს, ვანაწილებთ პასუხისმგებლობებს და ვამზადებთ რისკების შეფასების პროცედურებს.",
-      "en": "Establish practical AI governance rules, responsibilities and assessment procedures tailored to your organisation."
+      "ka": "ორგანიზაციის საქმიანობის გათვალისწინებით ვამზადებთ AI-ის გამოყენების პოლიტიკას, პასუხისმგებლობების განაწილების წესსა და რისკების შეფასების პროცედურებს.",
+      "en": "We develop AI use policies, clear responsibilities and risk assessment procedures tailored to your organisation."
     },
     "timing": {
       "ka": "დაახლოებით 4–6 კვირა",
@@ -105,8 +105,8 @@ export const advisoryPackages = [
       "en": "External AI & Technology Counsel"
     },
     "intro": {
-      "ka": "გთავაზობთ რეგულარულ იურიდიულ მომსახურებას ხელოვნური ინტელექტის, პერსონალურ მონაცემთა დაცვის, ტექნოლოგიური ხელშეკრულებებისა და ახალი პროდუქტების სამართლებრივ საკითხებზე.",
-      "en": "Access ongoing legal support for AI, data protection, technology contracts and new digital products."
+      "ka": "ორგანიზაციის მიმდინარე საქმიანობისთვის გთავაზობთ მუდმივ იურიდიულ მხარდაჭერას AI-ის, პერსონალურ მონაცემთა დაცვის, ტექნოლოგიური ხელშეკრულებებისა და ციფრული პროდუქტების საკითხებზე.",
+      "en": "Ongoing specialist legal support on AI, data protection, technology contracts and digital products."
     },
     "timing": {
       "ka": "ყოველთვიური თანამშრომლობა",
@@ -153,8 +153,8 @@ export const advisoryPackages = [
       "en": "Legal AI & Automation Consulting"
     },
     "intro": {
-      "ka": "იურიდიულ ფირმებსა და კომპანიების იურიდიულ სამსახურებს ვეხმარებით AI ინსტრუმენტების შერჩევაში, სამუშაო პროცესების ავტომატიზაციასა და მათ საჭიროებებზე მორგებული AI სისტემების საპილოტე დანერგვაში.",
-      "en": "We help law firms and in-house legal teams select AI tools, automate workflows and pilot AI systems tailored to their needs."
+      "ka": "იურიდიულ ფირმებსა და კომპანიების იურიდიულ სამსახურებს ვეხმარებით AI ინსტრუმენტების შერჩევაში, სამუშაო პროცესების მოწესრიგებასა და მათ საჭიროებებზე მორგებული AI სისტემების საცდელი პროექტების დაგეგმვაში.",
+      "en": "We help law firms and in-house legal teams select AI tools, improve workflows and plan AI pilots tailored to their needs."
     },
     "timing": {
       "ka": "პროექტის მოცულობის მიხედვით",
