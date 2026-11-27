@@ -21,14 +21,14 @@ for(const [page,lang] of [[home,'ka'],[englishHome,'en']]){
  assert(!page.includes('class="advisory-tabs"')&&!page.includes('id="advisory-heading"'),'Retired homepage AI module is still present');
 
  assert((page.match(/class="home-sector-link"/g)||[]).length===6,'Six visible sector routes required');
- assert((page.match(/class="home-sector-media"/g)||[]).length===6,'Six editorial sector images required');
- assert((page.match(/class="home-article-media"/g)||[]).length===3,'Three editorial insight images required');
+ assert(page.includes('class="dlg-sector-feature"')&&!page.includes('class="home-sector-media"'),'One editorial architecture feature replaces repeating sector imagery');
+ assert((page.match(/class="dlg-article-date"/g)||[]).length===3&&!page.includes('class="home-article-media"'),'Three publication index rows required');
  assert(page.includes('class="founder-credentials"')&&page.includes('class="dlg-home-firm-copy"')&&page.includes('class="dlg-home-founder-card"'),'Firm and founder must be clearly distinguished');
  assert(page.includes('class="practice-grid dlg-practice-directory"')&&!page.includes('class="dlg-practice-stage"')&&page.includes('class="hero-content"')&&!page.includes('class="dlg-hero-foot"'),'Signature hero and compact practice directory required');
- assert(page.includes('dlg-home-firm-principles')&&page.includes('/dlg-polish.css?v=20261127-v1')&&page.includes('/dlg-polish.js?v=20261127-v1'),'Shared polish layer and firm approach missing');
- assert(page.includes('class="hero-photo"')&&page.includes('src="/assets/editorial/human-machine.webp"')&&page.includes('human-machine-small.webp 640w')&&page.includes('fetchpriority="high"'),'Responsive original technology-law artwork required');
+ assert(page.includes('/dlg-boutique-identity.css?v=20261127-v1')&&page.includes('/dlg-polish.js?v=20261127-v1')&&!page.includes('/dlg-atlas.css?v='),'Distinct law-firm identity layer required');
+ assert(page.includes('class="hero-photo"')&&page.includes('src="/assets/editorial/boutique-colonnade.jpg"')&&page.includes('fetchpriority="high"')&&!page.includes('src="/assets/editorial/human-machine.webp"'),'Architectural law-firm photography required');
  assert(page.includes(lang==='ka'?'სპეციალიზებული იურიდიული ფირმა':'SPECIALIST LAW FIRM'),'Specialist positioning must be rendered');
- assert((page.match(/class="practice-glyph"[^>]*viewBox="0 0 36 36"/g)||[]).length===6,'Six original practice icons required');
+ assert(!page.includes('class="practice-glyph"'),'Homepage practice directory must not use application-style icons');
  assert(!/founder-hologram|founder-dialog|data-founder-open/.test(page),'Removed founder presentation is still present');
  assert((page.match(/class="article"/g)||[]).length===3,'Three featured research links required');
  assert(page.includes('class="matter-nav"')&&!page.includes('id="engagement"')&&!page.includes('class="engagement-steps"')&&page.includes('href="'+(lang==='en'?'/en':'')+'/how-we-work/"'),'Client entry points and approach link required; standalone engagement block removed');
@@ -38,13 +38,13 @@ for(const [page,lang] of [[home,'ka'],[englishHome,'en']]){
  assert(!page.includes('images.pexels.com')&&!page.includes('r0lodtw2w'),'No external preview or stock-image dependency');
  assert(page.includes('href="/" data-language-link="ka"')||page.includes('data-language-link="ka"'),'Georgian language link required');
  assert(page.includes('href="/en/"'),'Static English language link required');
- const ordered=['id="expertise"','id="sectors"','id="georgia-business"','id="about"','id="insights"','id="contact"'];assert(ordered.every((id,i)=>page.indexOf(id)>=0&&(!i||page.indexOf(ordered[i-1])<page.indexOf(id))),'Approved homepage order missing');
+ const ordered=['id="about"','id="expertise"','id="sectors"','id="georgia-business"','id="insights"','id="contact"'];assert(ordered.every((id,i)=>page.indexOf(id)>=0&&(!i||page.indexOf(ordered[i-1])<page.indexOf(id))),'Approved homepage order missing');
  assert(page.includes('href="https://arxiv.org/abs/2607.21345"'),'Research link missing');
  assert(page.includes('href="mailto:digitallawgeorgia@gmail.com"')&&page.includes('https://wa.me/995598451132'),'Contact links missing');
 }
 for(const slug of ['practice-collaboration','legal-technology-review']){const photo=fs.readFileSync(path.join(root,'assets/editorial/'+slug+'.jpg'));assert(photo.length>10000&&photo[0]===255&&photo[1]===216,'Invalid editorial photograph '+slug);}
-assert(englishHome.includes('Legal services')&&englishHome.includes('for digital businesses.')&&(englishHome.includes('We advise Georgian and international businesses on technology and commercial law.') || englishHome.includes('We help Georgian and international companies negotiate technology contracts, adopt AI, protect data and set up operations in Georgia.')),'English hero must be server rendered');
-assert(home.includes('იურიდიული მომსახურება')&&home.includes('ციფრული ბიზნესისთვის.'),'Georgian hero must be server rendered');
+assert(englishHome.includes('Technology and')&&englishHome.includes('commercial law.')&&(englishHome.includes('We advise Georgian and international businesses on technology and commercial law.') || englishHome.includes('We help Georgian and international companies negotiate technology contracts, adopt AI, protect data and set up operations in Georgia.')),'English hero must be server rendered');
+assert(home.includes('ტექნოლოგიური და')&&home.includes('კომერციული სამართალი.'),'Georgian hero must be server rendered');
 assert(home.includes('უსაფრთხო არხის შეთანხმებამდე'),'Default advice and enquiry privacy instructions missing');
 assert(!home.includes('LegalStepy')&&!home.includes('Sopho'),'Independent brand required');
 for(const p of [
@@ -203,3 +203,5 @@ for(const p of ['assets/editorial/consultation.webp','assets/editorial/contract-
 new vm.Script(file('dlg-polish.js'),{filename:'dlg-polish.js'});assert(file('dlg-polish.css').includes('prefers-reduced-motion')&&file('dlg-polish.js').includes('prefers-reduced-motion'),'Motion accessibility is required');
 
 new vm.Script(file('dlg-atlas.js'),{filename:'dlg-atlas.js'});assert(file('dlg-atlas.css').includes('prefers-reduced-motion'),'Editorial motion must respect user settings');
+
+assert(file('dlg-boutique-identity.css').includes('prefers-reduced-motion'),'Respect user motion preferences');
