@@ -142,5 +142,12 @@ html[lang=en] .digital-site .dlg-area-card h2 {
   letter-spacing: -.035em;
 }
 
+/* Supersede the legacy English hero font shorthand. */
+html[lang=en] .digital-site .digital-page-hero h1 {
+  font-family: Arial, sans-serif !important;
+  font-size: clamp(2.1rem, 3.6vw, 3.25rem) !important;
+  font-weight: 650 !important;
+}
+
 .digital-site .dlg-area-card .dlg-area-link { color: #2349a0; }
 .digital-site .dlg-area-card { box-shadow: none; }
