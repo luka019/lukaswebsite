@@ -10,14 +10,14 @@ const link = (url, ka, en, cls = 'text-link') =>
 
 function clientEntrances() {
   const matters = [
-    ['/advisory/', 'AI-ის დანერგვა', 'Adopting AI', 'რისკების შეფასება, შიდა წესები და საცდელი პროექტი', 'Risk assessment, internal policies and pilots'],
-    ['/services/contracts/', 'ტექნოლოგიური ხელშეკრულებები', 'Technology contracts', 'SaaS, ლიცენზირება და მოლაპარაკება', 'SaaS, licensing and negotiation'],
-    ['/services/privacy-and-cybersecurity/', 'მონაცემთა დაცვა', 'Data protection', 'კონფიდენციალურობა, მიმწოდებლები და მონაცემთა გადაცემა', 'Privacy, suppliers and data transfers'],
-    ['/business/georgia/', 'საქმიანობა საქართველოში', 'Doing business in Georgia', 'დაფუძნება, ადგილობრივი გუნდი და რეგულაციები', 'Company setup, teams and local regulation'],
+    ['/advisory/', 'AI-ის დანერგვა', 'Adopting AI', 'AI-ის გამოყენების წესები და სამართლებრივი რისკები', 'AI policies and legal risk assessment'],
+    ['/services/contracts/', 'ტექნოლოგიური ხელშეკრულებები', 'Technology contracts', 'SaaS, პროგრამული უზრუნველყოფა და კომერციული გარიგებები', 'SaaS, software and commercial transactions'],
+    ['/services/privacy-and-cybersecurity/', 'მონაცემთა დაცვა', 'Data protection', 'მონაცემთა დამუშავება, მიმწოდებლები და უსაფრთხოება', 'Data processing, vendors and security'],
+    ['/business/georgia/', 'საქმიანობა საქართველოში', 'Doing business in Georgia', 'კომპანიის დაფუძნება, რეგულაციები და ადგილობრივი მხარდაჭერა', 'Company setup, regulation and local counsel'],
   ];
   return `<nav class="matter-nav" id="client-matters" aria-label="თქვენი საკითხი" data-en-aria="Find advice for your matter">
     <div class="wrap">
-      <h2>${tr('რაში შეგვიძლია დაგეხმაროთ?', 'How can we help?')}</h2>
+      <h2>${tr('რა საკითხზე გჭირდებათ დახმარება?', 'What do you need advice on?')}</h2>
       <div class="matter-nav-inner">
       ${matters.map(([url,ka,en,descriptionKa,descriptionEn])=>`<a class="matter-link" href="${url}">
         <div>${tr(ka,en,'strong')}${tr(descriptionKa,descriptionEn,'span','matter-description')}</div>${arrow}
@@ -39,7 +39,7 @@ function homePractices() {
   return `<section class="section" id="expertise" aria-labelledby="expertise-title">
     <div class="wrap">
       <div class="section-head">
-        <h2 id="expertise-title">${tr('მომსახურების მიმართულებები', 'Our practice areas')}</h2>
+        <div><h2 id="expertise-title">${tr('მომსახურების მიმართულებები', 'Our expertise')}</h2><p class="section-intro">${tr('ტექნოლოგიური და კომერციული სამართლის საკითხებზე ვმუშაობთ ბიზნესის განვითარების სხვადასხვა ეტაპზე.', 'Specialist technology and commercial law advice at every stage of business growth.')}</p></div>
         ${link('/services/', 'ყველა მომსახურება', 'All services')}
       </div>
       <div class="practice-grid">${cards}</div>
@@ -49,12 +49,12 @@ function homePractices() {
 
 function audience() {
   const cards = sectors.map(sector => `<a class="home-sector-link" href="/business/sectors/${sector.slug}/">
-    <div>${tr(sector.name.ka, sector.name.en, 'h3')}${tr(sector.short.ka, sector.short.en, 'p')}</div>${arrow}
+    <figure class="home-sector-media"><img src="${sector.image}" alt="" width="1200" height="760" loading="lazy" decoding="async"></figure><div class="home-sector-copy">${tr(sector.name.ka, sector.name.en, 'h3')}${tr(sector.short.ka, sector.short.en, 'p')}</div>${arrow}
   </a>`).join('\n');
   return `<section class="section sectors" id="sectors" aria-labelledby="sectors-heading">
     <div class="wrap">
       <div class="section-head">
-        <h2 id="sectors-heading">${tr('ვის ვეხმარებით', 'Who we advise')}</h2>
+        <h2 id="sectors-heading">${tr('ვის ვუწევთ კონსულტაციას', 'Who we advise')}</h2>
         ${link('/business/', 'ყველა სექტორი', 'All sectors')}
       </div>
       <div class="home-sectors">${cards}</div>
@@ -66,13 +66,13 @@ function about() {
   return `<section class="section practice-introduction" id="about" aria-labelledby="about-heading">
     <div class="wrap home-founder-reference">
       <div>
-        ${tr('დამფუძნებელი', 'Founder', 'p', 'eyebrow')}
+        ${tr('ჩვენ შესახებ', 'About the firm', 'p', 'eyebrow')}
         <h2 id="about-heading">${tr('ლუკა შახყულაშვილი', 'Luka Shakhkulashvili')}</h2>
         ${tr('ტექნოლოგიური და კომერციული სამართლის იურისტი', 'Technology and commercial lawyer', 'p', 'founder-role')}
-        ${tr('ლუკას პრაქტიკა მოიცავს ტექნოლოგიურ ხელშეკრულებებს, მონაცემთა დაცვასა და ხელოვნური ინტელექტის დანერგვის სამართლებრივ საკითხებს.', 'Luka advises on technology contracts, data protection and the legal questions that arise when businesses adopt AI.', 'p')}
-        ${tr('ის ავტონომიური და აგენტური ხელოვნური ინტელექტის რეგულირების შესახებ კვლევის თანაავტორია.', 'He co-authored research on the regulation of autonomous and agentic AI.', 'p')}
+        ${tr('ფირმის დამფუძნებელი ლუკა შახყულაშვილი სპეციალიზებულია ტექნოლოგიურ და კომერციულ სამართალში. მას სამართლებრივი საქმიანობის გამოცდილება აქვს როგორც კერძო, ისე საჯარო სექტორში.', 'Founder Luka Shakhkulashvili specialises in technology and commercial law, with legal experience in both the private and public sectors.', 'p')}
+        <div class="founder-credentials"><div>${tr('Queen Mary University of London', 'Queen Mary University of London', 'strong')}${tr('ტექნოლოგიების, მედიისა და ტელეკომუნიკაციების სამართლის მაგისტრი', 'LLM in Technology, Media and Telecommunications Law', 'span')}</div><div>${tr('AI-ის რეგულირების კვლევა', 'AI regulation research', 'strong')}${tr('ავტონომიური და აგენტური AI-ის რეგულირების შესახებ კვლევის თანაავტორი', 'Co-author of research on autonomous and agentic AI regulation', 'span')}</div></div>
         <div class="inline-links">
-          ${link('/about/', 'პროფილი', 'View profile')}
+          ${link('/about/', 'პროფესიული გამოცდილება', 'Professional background')}
           ${link('https://arxiv.org/abs/2607.21345', 'კვლევა', 'Read the research')}
         </div>
       </div>
@@ -85,9 +85,9 @@ function about() {
 
 function engagement() {
   const steps = [
-    ['საკითხის დაზუსტება', 'Understand the matter', 'ვარკვევთ, რა გადაწყვეტილება გაქვთ მისაღები და რა ინფორმაცია გვჭირდება შეფასებისთვის.', 'We clarify the decision you need to make and the information needed to advise you.'],
+    ['საკითხის დაზუსტება', 'Understand the matter', 'ვესაუბრებით თქვენს გუნდს, ვეცნობით საკითხსა და ბიზნესის მიზნებს.', 'We understand your matter, your business objectives and the context.'],
     ['სამუშაოს ფარგლები', 'Agree the scope', 'წინასწარ ვათანხმებთ სამუშაოს ფარგლებს, ვადასა და ანაზღაურებას.', 'We agree the scope, timing and fees before work begins.'],
-    ['რჩევა და შემდგომი ნაბიჯები', 'Advice and next steps', 'იღებთ შეთანხმებულ დოკუმენტს ან წერილობით შეფასებას ძირითადი რისკებითა და შემდგომი ნაბიჯებით.', 'You receive the agreed document or written advice with the key risks and next steps.'],
+    ['სამართლებრივი მხარდაჭერა', 'Advice and delivery', 'ვამზადებთ შეთანხმებულ დოკუმენტებს, განვმარტავთ რისკებს და გთავაზობთ პრაქტიკულ ნაბიჯებს.', 'We deliver the agreed documents, explain the risks and recommend practical next steps.'],
   ];
   return `<section class="section engagement" id="engagement" aria-labelledby="engagement-title">
     <div class="wrap">
@@ -102,7 +102,9 @@ function engagement() {
 
 function insights(rows) {
   const articles = rows.filter(row => row.featured).slice(0, 3).map(row => `<a class="article" href="/resources/${row.slug}/">
-    <div>
+    <figure class="home-article-media"><img src="${row.cover}" alt="" width="1200" height="800" loading="lazy" decoding="async"></figure>
+    <div class="home-article-copy">
+      <p class="article-meta">${tr('პრაქტიკული გზამკვლევი', 'Practical guide', 'span')} <span aria-hidden="true">·</span> <time datetime="${row.date}">${row.date.slice(0,4)}</time></p>
       ${tr(row.title, row.title_en, 'h3')}
       ${tr(row.summary, row.summary_en, 'p')}
     </div>
@@ -112,7 +114,7 @@ function insights(rows) {
   return `<section class="section" id="insights" aria-labelledby="insights-heading">
     <div class="wrap">
       <div class="section-head">
-        <h2 id="insights-heading">${tr('კვლევები და ანალიტიკა', 'Research and insights')}</h2>
+        <h2 id="insights-heading">${tr('კვლევები და ანალიტიკა', 'Insights and research')}</h2>
         ${link('/resources/', 'ყველა სტატია', 'All insights')}
       </div>
       <div class="article-grid">${articles}</div>
