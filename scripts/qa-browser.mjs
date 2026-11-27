@@ -45,6 +45,8 @@ try{
     check(await page.locator('.dlg-home-firm-copy').count()===1&&await page.locator('.dlg-home-founder-card').count()===1,'Firm-first homepage introduction missing');
     check(await page.locator('.dlg-home-firm-principles a').count()===3,'Firm approach links missing');
     check((await page.locator('.dlg-home-founder-card').evaluate(el=>el.getBoundingClientRect().width))<=width,'Founder introduction overflows');
+    check(await page.locator('.dlg-practice-stage').count()===1,'Practice explorer missing');
+    if(width>=960){await page.locator('.practice-card').nth(2).focus();check(await page.locator('.dlg-stage-index').innerText()==='03 / 06','Practice preview must follow keyboard focus');}
     check((await page.locator('.practice-card').count())===6,'Six practice cards missing');
     const serviceRoutes=["/services/ai/","/services/privacy-and-cybersecurity/","/services/contracts/","/services/digital-products-and-ip/","/services/fintech-and-financial-regulation/","/services/corporate-and-commercial/"];
     for(let i=0;i<serviceRoutes.length;i++)check(await page.locator('.practice-card').nth(i).getAttribute('href')===serviceRoutes[i],'Homepage direct route '+i);
