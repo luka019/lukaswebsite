@@ -20,9 +20,10 @@ for(const [page,lang] of [[home,'ka'],[englishHome,'en']]){
  assert((page.match(/data-tab="\d+"/g)||[]).length===4,'Four advisory tabs required');
 
  assert((page.match(/class="home-sector-link"/g)||[]).length===6,'Six visible sector routes required');
- assert(page.includes('class="hero-photo"')&&page.includes('src="/assets/editorial/technology-advisory.webp"')&&page.includes('technology-advisory-small.webp 640w')&&page.includes('fetchpriority="high"'),'Responsive technology-law photograph required');
+ assert(page.includes('class="hero-photo"')&&page.includes('src="/assets/editorial/technology-counsel.webp"')&&page.includes('technology-counsel-small.webp 640w')&&page.includes('fetchpriority="high"'),'Responsive technology-law photograph required');
  assert(page.includes('src="/assets/editorial/ai-workflow.webp"'),'AI advisory photograph missing');
- assert((page.match(/class="practice-glyph"/g)||[]).length===6,'Six practice icons required');
+ assert((page.match(/class="practice-glyph"[^>]*viewBox="0 0 36 36"/g)||[]).length===6,'Six original practice icons required');
+ assert(!/founder-hologram|founder-dialog|data-founder-open/.test(page),'Removed founder presentation is still present');
  assert((page.match(/role="tabpanel"/g)||[]).length===4,'Four advisory outcomes required');
  assert((page.match(/class="article"/g)||[]).length===3,'Three featured research links required');
  assert(page.includes('class="matter-nav"')&&page.includes('class="engagement-steps"'),'Client entry points and engagement steps required');
@@ -138,11 +139,8 @@ for(const page of [aboutProfile,aboutEn]){assert(page.includes('LegalTech Georgi
 assert(aboutProfile.includes('თანადამფუძნებელი და აღმასრულებელი დირექტორი')&&aboutEn.includes('Co-Founder &amp; Executive Director'),'LTG role missing');
 assert(aboutProfile.includes('იურიდიული მიმართულების ხელმძღვანელი')&&aboutEn.includes('Head of Legal'),'LegalStepy role missing');
 for(const p of ['founder-portrait','london-tech-week-2026','chevening-conference-2026']){const b=fs.readFileSync(path.join(root,'assets/profile/'+p+'.webp'));assert(b.toString('ascii',0,4)==='RIFF'&&b.toString('ascii',8,12)==='WEBP','Invalid portrait asset '+p);}
+assert(!fs.existsSync(path.join(root,'assets/audio/founder-en.mp3'))&&!fs.existsSync(path.join(root,'assets/audio/founder-ka.mp3')),'Removed founder audio is public');
 assert(home.includes('class="wrap home-founder-reference"')&&englishHome.includes('class="wrap home-founder-reference"'),'Homepage founder missing');
-for(const lang of ['ka','en']){
- const data=fs.readFileSync(path.join(root,'assets/audio/founder-'+lang+'.mp3'));
- assert(data.length>10000,'Founder introduction recording missing '+lang);
-}
 for(const page of [home,englishHome,file('business/georgia/index.html'),file('en/business/georgia/index.html')]){
  assert(!page.includes('Jan Stępień')&&!page.includes('tbilisi-panorama.webp'),'Retired photo attribution remains visible');
 }

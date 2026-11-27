@@ -63,7 +63,7 @@ function advisory() {
       ${tr(programme.intro.ka, programme.intro.en, 'p')}
       ${tr('რას მიიღებთ', 'What you receive', 'p', 'outcome-label')}
       <ul>${output}</ul>
-      ${link('/advisory/'+id+'/', 'გაეცანით პირობებს და შედეგებს', 'Explore scope and deliverables')}
+      ${link('/advisory/'+id+'/', 'გაეცანით სამუშაოს ფარგლებსა და შედეგებს', 'Explore scope and deliverables')}
     </div>`;
   }).join('\n');
   return `<section class="section advisory" id="advisory" aria-labelledby="advisory-heading">
@@ -105,8 +105,7 @@ function about() {
   return `<section class="section practice-introduction" id="about" aria-labelledby="about-heading">
     <div class="wrap home-founder-reference">
       <figure class="founder-feature">
-        <img src="/assets/profile/london-tech-week-2026.webp" alt="ლუკა შახყულაშვილი London Tech Week-ზე" data-en-alt="Luka Shakhkulashvili at London Tech Week" width="960" height="1280" loading="lazy" decoding="async">
-        <figcaption>London Tech Week, 2026</figcaption>
+        <img src="/assets/profile/founder-portrait.webp" alt="ლუკა შახყულაშვილი" data-en-alt="Luka Shakhkulashvili" width="900" height="900" loading="lazy" decoding="async">
       </figure>
       <div>
         ${tr('დამფუძნებელი', 'Founder', 'p', 'eyebrow')}
@@ -115,31 +114,11 @@ function about() {
         ${tr('ლუკას პრაქტიკა მოიცავს ტექნოლოგიურ ხელშეკრულებებს, მონაცემთა დაცვასა და ხელოვნური ინტელექტის დანერგვის სამართლებრივ საკითხებს.', 'Luka advises on technology contracts, data protection and the legal questions that arise when businesses adopt AI.', 'p')}
         ${tr('ის ავტონომიური და აგენტური ხელოვნური ინტელექტის რეგულირების შესახებ კვლევის თანაავტორია.', 'He co-authored research on the regulation of autonomous and agentic AI.', 'p')}
         <div class="inline-links">
-          <button class="primary founder-open" type="button" data-founder-open aria-haspopup="dialog" hidden><span aria-hidden="true" class="play-mark"></span>${tr('მოუსმინეთ წარდგენას', 'Listen to the introduction')}</button>
           ${link('/about/', 'პროფილი', 'View profile')}
           ${link('https://arxiv.org/abs/2607.21345', 'კვლევა', 'Read the research')}
         </div>
       </div>
     </div>
-    <dialog class="founder-dialog" aria-labelledby="founder-dialog-heading">
-      <div class="founder-dialog-inner">
-        <form method="dialog" class="founder-close">
-          <button type="submit" aria-label="დახურვა" data-en-aria="Close">×</button>
-        </form>
-        <figure class="founder-hologram">
-          <img src="/assets/profile/founder-portrait.webp" alt="" width="900" height="900" loading="lazy">
-        </figure>
-        <h2 id="founder-dialog-heading">${tr('Digital Law Georgia-ს წარდგენა', 'Introducing Digital Law Georgia')}</h2>
-        <div class="founder-languages" role="group" aria-label="მოსმენის ენა" data-en-aria="Narration language">
-          <button type="button" lang="ka" data-founder-language="ka" aria-pressed="false">ქართული</button>
-          <button type="button" lang="en" data-founder-language="en" aria-pressed="false">English</button>
-        </div>
-        <audio controls preload="none" aria-label="ფირმის აუდიოწარდგენა" data-en-aria="Firm introduction audio"></audio>
-        <p class="founder-transcript" lang="ka" data-founder-copy="ka">გამარჯობა. Digital Law Georgia-ში ვეხმარებით ქართულ და უცხოურ კომპანიებს ტექნოლოგიურ ხელშეკრულებებში, ხელოვნური ინტელექტის დანერგვასა და მონაცემთა დაცვაში. კონკრეტული საკითხის განსახილველად დაგვიკავშირდით.</p>
-        <p class="founder-transcript" lang="en" data-founder-copy="en" hidden>Welcome to Digital Law Georgia. We advise Georgian and international companies on technology contracts, AI adoption and data protection. Please get in touch to discuss your matter.</p>
-        <p class="founder-voice-note">${tr('წარდგენა გახმოვანებულია სინთეზური ხმით.', 'This introduction uses a synthetic voice.')}</p>
-      </div>
-    </dialog>
   </section>`;
 }
 
