@@ -10,7 +10,7 @@ const home=file('index.html'),englishHome=file('en/index.html'),visibleHome=home
 const hybridCss=file('dlg-hybrid.css'),hybridJs=file('dlg-hybrid.js');
 new vm.Script(hybridJs,{filename:'dlg-hybrid.js'});total++;
 assert(!hybridJs.includes('fetch(')&&!hybridJs.includes('localStorage')&&!hybridJs.includes('sessionStorage'),'Homepage must not send or retain enquiry data');
-assert(hybridJs.includes('e.preventDefault()')&&hybridJs.includes('mailto:digitallawgeorgia@gmail.com'),'User-controlled enquiry composition required');
+assert(hybridJs.includes('event.preventDefault()')&&home.includes('href="mailto:digitallawgeorgia@gmail.com" id="enquiry-mailto"'),'User-controlled enquiry composition required');
 assert(hybridCss.includes('prefers-reduced-motion')&&hybridCss.includes('#17334c')&&hybridCss.includes('#f2f7fc'),'Approved accessible blue and white design missing');
 for(const [page,lang] of [[home,'ka'],[englishHome,'en']]){
  assert(page.includes('<html lang="'+lang+'"'),'Homepage language is not static');
@@ -18,32 +18,27 @@ for(const [page,lang] of [[home,'ka'],[englishHome,'en']]){
  assert((page.match(/<h1\b/g)||[]).length===1,'One H1 required');
  assert((page.match(/class="practice-card"/g)||[]).length===6,'Six expertise cards required');
  assert((page.match(/data-tab="\d+"/g)||[]).length===4,'Four advisory tabs required');
- assert((page.match(/data-sector="\d+"/g)||[]).length===5,'Five interactive sector tabs required');
- assert(page.includes('class="hero-photo"')&&page.includes('src="/assets/editorial/rustaveli-hero.webp"')&&page.includes('rustaveli-hero-small.webp 640w')&&page.includes('fetchpriority="high"'),'Responsive Tbilisi hero photograph required');
- assert(!page.includes('class="hero-photo reference-hero"')&&!page.includes('src="/assets/reference/hero.webp"'),'Superseded photographic hero still present');
- assert((page.match(/class="reference-service-art legacy-service-art"/g)||[]).length===6,'Six original service illustrations required');
- assert((page.match(/data-stage="\d+"/g)||[]).length===4,'Four original advisory illustrations required');
- assert((page.match(/data-sector-art="\d+"/g)||[]).length===5,'Five original sector illustrations required');
- assert((page.match(/class="article-art reference-insight-art legacy-insight-art"/g)||[]).length===3,'Three original insight illustrations required');
- for(const slug of ['ai','privacy','contracts','products','fintech','corporate','advisory','sector-technology','insight-ai','insight-contracts','insight-data'])assert(!page.includes('src="/assets/reference/'+slug+'.webp"'),'Superseded raster illustration still present '+slug);
- assert((page.match(/class="practice-glyph"/g)||[]).length===6&&page.includes('id="stage-deliverables"')&&page.includes('id="sector-matters"'),'Content-driven visual navigation required');
- assert((page.match(/data-filter="(?:all|ai|data|contracts)"/g)||[]).length===4,'Four article filters required');
+
+ assert((page.match(/class="home-sector-link"/g)||[]).length===6,'Six visible sector routes required');
+ assert(page.includes('class="hero-photo"')&&page.includes('src="/assets/editorial/technology-law-work.webp"')&&page.includes('technology-law-work-small.webp 640w')&&page.includes('fetchpriority="high"'),'Responsive technology-law photograph required');
+ assert(page.includes('src="/assets/editorial/ai-advisory-review.webp"'),'AI advisory photograph missing');
+ assert((page.match(/class="practice-glyph"/g)||[]).length===6,'Six practice icons required');
+ assert((page.match(/role="tabpanel"/g)||[]).length===4,'Four advisory outcomes required');
+ assert((page.match(/class="article"/g)||[]).length===3,'Three featured research links required');
  assert(page.includes('class="enquiry-form"')&&page.includes('id="enquiry-mailto"'),'Enquiry composer missing');
  assert(!page.includes('/assets/editorial/architectural-interior.webp')&&!page.includes('/assets/editorial/legal-technology-workspace.webp'),'Synthetic office imagery must not appear on homepage');
  assert(page.includes('src="/assets/profile/founder-portrait.webp"'),'Authentic founder portrait required');
- assert((page.match(/class="dlg-authentic-photo /g)||[]).length===2,'Exactly two editorial photographs required');
- for(const slug of ['practice-collaboration','legal-technology-review'])assert(page.includes('src="/assets/editorial/'+slug+'.jpg"'),'Missing editorial photograph '+slug);
  assert(!page.includes('images.pexels.com')&&!page.includes('r0lodtw2w'),'No external preview or stock-image dependency');
  assert(page.includes('href="/" data-language-link="ka"')||page.includes('data-language-link="ka"'),'Georgian language link required');
  assert(page.includes('href="/en/"'),'Static English language link required');
- const ordered=['id="about"','id="expertise"','id="advisory"','id="sectors"','id="insights"','id="contact"'];assert(ordered.every((id,i)=>page.indexOf(id)>=0&&(!i||page.indexOf(ordered[i-1])<page.indexOf(id))),'Approved homepage order missing');
+ const ordered=['id="expertise"','id="advisory"','id="georgia-business"','id="sectors"','id="about"','id="insights"','id="contact"'];assert(ordered.every((id,i)=>page.indexOf(id)>=0&&(!i||page.indexOf(ordered[i-1])<page.indexOf(id))),'Approved homepage order missing');
  assert(page.includes('href="https://arxiv.org/abs/2607.21345"'),'Research link missing');
  assert(page.includes('href="mailto:digitallawgeorgia@gmail.com"')&&page.includes('https://wa.me/995598451132'),'Contact links missing');
 }
 for(const slug of ['practice-collaboration','legal-technology-review']){const photo=fs.readFileSync(path.join(root,'assets/editorial/'+slug+'.jpg'));assert(photo.length>10000&&photo[0]===255&&photo[1]===216,'Invalid editorial photograph '+slug);}
 assert(englishHome.includes('Legal services')&&englishHome.includes('for digital businesses.')&&englishHome.includes('We help Georgian and international companies with technology contracts, AI adoption, data protection and setting up operations in Georgia.'),'English hero must be server rendered');
-assert(englishHome.includes('Risk assessment and action plan'),'English advisory default must be static');
-assert(home.includes('რისკების შეფასება და სამოქმედო გეგმა')&&home.includes('უსაფრთხო არხის შეთანხმებამდე'),'Default advice and enquiry privacy instructions missing');
+assert(englishHome.includes('Initial AI systems inventory'),'English advisory default must be static');
+assert(home.includes('AI სისტემების საწყისი რეესტრი')&&home.includes('უსაფრთხო არხის შეთანხმებამდე'),'Default advice and enquiry privacy instructions missing');
 assert(!home.includes('LegalStepy')&&!home.includes('Sopho'),'Independent brand required');
 for(const p of [
   'styles.css','firm.css','dlg-signature.css','dlg-photographic.css','dlg-refinement.css','dlg-boutique-ui.css','dlg-hero-carousel.js','dlg-service-discovery.js','dlg-signature.js','script.js','favicon.svg','services/index.html',
@@ -142,7 +137,7 @@ for(const page of [aboutProfile,aboutEn]){assert(page.includes('LegalTech Georgi
 assert(aboutProfile.includes('თანადამფუძნებელი და აღმასრულებელი დირექტორი')&&aboutEn.includes('Co-Founder &amp; Executive Director'),'LTG role missing');
 assert(aboutProfile.includes('იურიდიული მიმართულების ხელმძღვანელი')&&aboutEn.includes('Head of Legal'),'LegalStepy role missing');
 for(const p of ['founder-portrait','london-tech-week-2026','chevening-conference-2026']){const b=fs.readFileSync(path.join(root,'assets/profile/'+p+'.webp'));assert(b.toString('ascii',0,4)==='RIFF'&&b.toString('ascii',8,12)==='WEBP','Invalid portrait asset '+p);}
-assert(home.includes('class="home-founder-reference"')&&englishHome.includes('class="home-founder-reference"'),'Compact homepage founder missing');
+assert(home.includes('class="wrap home-founder-reference"')&&englishHome.includes('class="wrap home-founder-reference"'),'Homepage founder missing');
 assert(directory.includes('id="engagement-fees"')&&directoryEn.includes('id="engagement-fees"'),'Fee arrangements missing');
 const fees=file('fees/index.html'),feesEn=file('en/fees/index.html');assert((fees.match(/class="dlg-fee-model"/g)||[]).length===3&&(feesEn.match(/class="dlg-fee-model"/g)||[]).length===3,'Three fee models required on dedicated fee pages');
 assert([directory,directoryEn,fees,feesEn].every(p=>!/₾|\bGEL\s*[\d,]+/.test(p)),'No numerical fees until approved');

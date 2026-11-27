@@ -1,6 +1,7 @@
 import {pathCards,founderSection} from './portfolio-templates.mjs';
 import {practiceGroups,sectors,sectorCards} from './practice-structure.mjs';
 import {groupRoute,groupedPages} from './site-architecture.mjs';
+import {practiceIcon} from './site-icons.mjs';
 import {georgiaEntryPage,georgiaPage} from './international.mjs';
 import fs from 'node:fs';
 import {advisoryPackages,advisoryIntro,advisoryCards} from './advisory-content.mjs';
@@ -82,7 +83,7 @@ export function buildDigitalPages({out,shell,card,rows}){
 
  const coveredIds=practiceGroups.flatMap(g=>g.ids);
  if(new Set(coveredIds).size!==practices.length||coveredIds.length!==practices.length||practices.some(p=>!coveredIds.includes(p.id)))throw Error('Practice groups must cover every existing specialist area exactly once');
- const groupCard=(g,i)=>`<a class="dlg-area-card" id="area-${g.key}" href="${groupRoute(g)}" data-site-link><span class="dlg-area-no">0${i+1} / 06</span><div>${text(g.name,'h2')}${text(g.summary)}<span class="dlg-area-link">${t('მიმართულების შესახებ','Explore practice area')} <span aria-hidden="true">↗</span></span></div></a>`;
+ const groupCard=g=>`<a class="dlg-area-card" id="area-${g.key}" href="${groupRoute(g)}" data-site-link>${practiceIcon(g.key,'dlg-directory-icon')}<div>${text(g.name,'h2')}${text(g.summary)}<span class="dlg-area-link">${t('მიმართულების შესახებ','Explore practice area')} <span aria-hidden="true">↗</span></span></div></a>`;
  const resourceKeys={ai:['ai-pilot-at-work'],contracts:['technology-contract-review'],privacy:['supplier-data-review'],products:['technology-contract-review','supplier-data-review'],fintech:['ai-pilot-at-work','supplier-data-review'],corporate:['technology-contract-review']};
  const insightsFor=g=>{const relevant=rows.filter(r=>(resourceKeys[g.key]||[]).includes(r.slug));return relevant.length?`<section class="digital-section dlg-related-insights"><div class="container">${heading('INSIGHTS','დაკავშირებული ანალიტიკა','Related insights')}<div class="resource-preview-grid">${relevant.map(r=>card(r)).join('')}</div></div></section>`:'';};
  const specialistLinks=g=>`<div class="dlg-area-specialists">${g.ids.map((id,i)=>{const p=getPractice(id);return `<a class="dlg-specialist-link" href="/services/${p.slug}/" data-site-link><div><span class="mono">0${i+1}</span>${text(p.name,'h3')}${text(p.summary)}</div><span aria-hidden="true">↗</span></a>`;}).join('')}</div>`;

@@ -48,19 +48,21 @@ try{
     check(await heroPhoto.evaluate(image=>image.naturalWidth>0&&image.getBoundingClientRect().width>0),'Hero photograph failed to render');
     check((await heroPhoto.getAttribute('alt')).length>20,'Hero photograph needs descriptive alt text');
     check((await page.locator('.practice-glyph').count())===6,'Six functional icons required');
-    check((await page.locator('.legacy-service-art>svg').count())===6,'Six original service illustrations missing');
-    for(const svg of await page.locator('.legacy-service-art>svg,.legacy-insight-art>svg').all()){check(await svg.evaluate(e=>{const r=e.getBoundingClientRect();return r.width>0&&r.height>0;}),'Original vector has invalid size');}
-    check((await page.locator('.legacy-advisory-art>svg').count())===4,'Four original advisory illustrations missing');
-    check((await page.locator('.legacy-sector-art>svg').count())===5,'Five original sector illustrations missing');
-    for(const photo of ['.practice-photo img','.approach-photo img']){await page.locator(photo).scrollIntoViewIfNeeded();await page.locator(photo).evaluate(i=>i.decode());check(await page.locator(photo).evaluate(i=>i.complete&&i.naturalWidth>0),'Editorial photograph failed: '+photo);}
-    check((await page.locator('#stage-deliverables li').count())===3,'Advisory deliverables missing');
-    check((await page.locator('#sector-matters li').count())===3,'Sector matters missing');
+    const advisoryPhoto=page.locator('.advisory-photo img');
+    await advisoryPhoto.scrollIntoViewIfNeeded();
+    await advisoryPhoto.evaluate(img=>img.decode());
+    check(await advisoryPhoto.evaluate(img=>img.naturalWidth>0),'Advisory photograph failed');
     const advisorySlugs=['ai-readiness','ai-governance-implementation','legal-ai-automation','external-ai-technology-counsel'];
-    for(let i=0;i<4;i++){await page.locator('[data-tab="'+i+'"]').click();check((await page.locator('#stage-link').getAttribute('href'))==='/advisory/'+advisorySlugs[i]+'/','Advisory link incorrect');check((await page.locator('#stage-deliverables li').count())===3,'Advisory deliverables missing on tab '+i);check(await page.locator('.legacy-advisory-art>svg.active').getAttribute('data-stage')===String(i),'Wrong advisory illustration '+i);}
-    const sectorSlugs=['technology','financial-services','commerce','legal-teams','startups-investors'];
-    for(let i=0;i<5;i++){await page.locator('[data-sector="'+i+'"]').click();check((await page.locator('.sector-link').getAttribute('href'))==='/business/sectors/'+sectorSlugs[i]+'/','Sector link incorrect');check((await page.locator('#sector-matters li').count())===3,'Sector matters missing on tab '+i);check(await page.locator('.legacy-sector-art>svg.active').getAttribute('data-sector-art')===String(i),'Wrong sector illustration '+i);}
-    await page.locator('[data-filter="ai"]').click();check((await page.locator('.article:visible').count())===1,'Topic filter failed');
-    await page.locator('[data-filter="all"]').click();check((await page.locator('.article:visible').count())===3,'Article reset failed');
+    for(let i=0;i<advisorySlugs.length;i++){
+      const tab=page.locator('[data-tab="'+i+'"]');
+      await tab.click();
+      const panel=page.locator('[role="tabpanel"]:visible');
+      check(await tab.getAttribute('aria-selected')==='true','Advisory tab state incorrect');
+      check(await panel.locator('a').getAttribute('href')==='/advisory/'+advisorySlugs[i]+'/','Advisory link incorrect');
+      check(await panel.locator('li').count()===3,'Advisory outcomes missing');
+    }
+    check(await page.locator('.home-sector-link:visible').count()===6,'Sector links not visible');
+    check(await page.locator('.article:visible').count()===3,'Featured articles not visible');
     if(width<=920){await page.locator('.menu-btn').click();check(await page.locator('.nav').isVisible(),'Mobile navigation failed');await page.locator('.menu-btn').click();}
     const form=page.locator('#enquiry-form');await form.locator('[name="name"]').fill('Test User');await form.locator('[name="email"]').fill('test@example.invalid');await form.locator('[name="area"]').selectOption({index:1});await form.locator('[name="matter"]').fill('Test enquiry. Do not send.');
     const before=requests.length;await form.locator('button[type="submit"]').click();
@@ -68,7 +70,7 @@ try{
     await page.locator('[data-language-link="en"]').click();await page.waitForURL(base+'/en/');
     check((await page.locator('html').getAttribute('lang'))==='en','English language link failed');
     check((await page.locator('h1').innerText()).replace(/\s+/g,' ').trim()==='Legal services for digital businesses.','English headline missing');
-    await page.locator('[data-tab="2"]').click();check((await page.locator('#stage-link').getAttribute('href'))==='/en/advisory/legal-ai-automation/','English advisory route failed');
+    await page.locator('[data-tab="2"]').click();check((await page.locator('[role="tabpanel"]:visible a').getAttribute('href'))==='/en/advisory/legal-ai-automation/','English advisory route failed');
     await page.locator('[data-language-link="ka"]').click();await page.waitForURL(base+'/');
     await overflow(page,width,'/');check(errors.length===0,'Page script errors '+errors.join('; '));
     if([390,1440].includes(width))await page.screenshot({path:path.join(screenshots,'home-'+width+'.png'),fullPage:true});
@@ -149,7 +151,7 @@ try{
   check((await reduced.locator('.practice-card').count())===6,'Reduced motion hides services');
   check(await reduced.locator('.hero-photo img').isVisible(),'Reduced motion hides the hero photograph');
   await reduced.locator('[data-tab="2"]').click();
-  check((await reduced.locator('#stage-title').innerText()).includes('საპილოტე'),'Reduced motion must permit advisory selection');
+  check(await reduced.locator('[role="tabpanel"]:visible a').getAttribute('href')==='/advisory/legal-ai-automation/','Reduced motion must permit advisory selection');
   await reduced.close();
   console.log('DLG editorial browser QA passed: '+checks+' checks across nine viewports and '+paths.length+' interior pages.');
 }finally{

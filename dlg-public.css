@@ -72,3 +72,34 @@
     overscroll-behavior: contain;
   }
 }
+
+.dlg-directory-icon {
+  display: block;
+  width: 28px;
+  height: 28px;
+  color: #245989;
+}
+
+.digital-site .dlg-area-card {
+  border-top-width: 1px;
+  gap: 15px;
+}
+
+.digital-site .digital-page-hero h1 {
+  max-width: 25ch;
+}
+
+.digital-site .digital-page-hero .digital-lead {
+  max-width: 65ch;
+}
+
+.digital-site .digital-section:not(.digital-cta) .digital-heading h2 {
+  text-wrap: pretty;
+}
+
+@media (max-width: 640px) {
+  .dlg-directory-icon {
+    width: 24px;
+    height: 24px;
+  }
+}
