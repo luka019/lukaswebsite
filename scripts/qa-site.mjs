@@ -11,7 +11,7 @@ const hybridCss=file('dlg-hybrid.css'),hybridJs=file('dlg-hybrid.js');
 new vm.Script(hybridJs,{filename:'dlg-hybrid.js'});total++;
 assert(!hybridJs.includes('fetch(')&&!hybridJs.includes('localStorage')&&!hybridJs.includes('sessionStorage'),'Homepage must not send or retain enquiry data');
 assert(hybridJs.includes('event.preventDefault()')&&home.includes('href="mailto:digitallawgeorgia@gmail.com" id="enquiry-mailto"'),'User-controlled enquiry composition required');
-assert(hybridCss.includes('prefers-reduced-motion')&&hybridCss.includes('#17334c')&&hybridCss.includes('#f2f7fc'),'Approved accessible blue and white design missing');
+assert(hybridCss.includes('prefers-reduced-motion')&&hybridCss.includes('#2349a0')&&hybridCss.includes('#f1f4fa'),'Modern blue and white design missing');
 for(const [page,lang] of [[home,'ka'],[englishHome,'en']]){
  assert(page.includes('<html lang="'+lang+'"'),'Homepage language is not static');
  assert(page.includes('class="masthead"')&&page.includes('class="hero"'),'Approved masthead and hero missing');
@@ -20,8 +20,8 @@ for(const [page,lang] of [[home,'ka'],[englishHome,'en']]){
  assert((page.match(/data-tab="\d+"/g)||[]).length===4,'Four advisory tabs required');
 
  assert((page.match(/class="home-sector-link"/g)||[]).length===6,'Six visible sector routes required');
- assert(page.includes('class="hero-photo"')&&page.includes('src="/assets/editorial/technology-counsel.webp"')&&page.includes('technology-counsel-small.webp 640w')&&page.includes('fetchpriority="high"'),'Responsive technology-law photograph required');
- assert(page.includes('src="/assets/editorial/ai-workflow.webp"'),'AI advisory photograph missing');
+ assert(page.includes('class="hero-photo"')&&page.includes('src="/assets/editorial/dlg-law-and-technology.webp"')&&page.includes('dlg-law-and-technology-small.webp 640w')&&page.includes('fetchpriority="high"'),'Responsive original technology-law artwork required');
+ assert(page.includes('class="advisory-work"')&&!page.includes('class="advisory-photo"'),'Advisory work should be presented directly');
  assert((page.match(/class="practice-glyph"[^>]*viewBox="0 0 36 36"/g)||[]).length===6,'Six original practice icons required');
  assert(!/founder-hologram|founder-dialog|data-founder-open/.test(page),'Removed founder presentation is still present');
  assert((page.match(/role="tabpanel"/g)||[]).length===4,'Four advisory outcomes required');
@@ -33,12 +33,12 @@ for(const [page,lang] of [[home,'ka'],[englishHome,'en']]){
  assert(!page.includes('images.pexels.com')&&!page.includes('r0lodtw2w'),'No external preview or stock-image dependency');
  assert(page.includes('href="/" data-language-link="ka"')||page.includes('data-language-link="ka"'),'Georgian language link required');
  assert(page.includes('href="/en/"'),'Static English language link required');
- const ordered=['id="expertise"','id="advisory"','id="about"','id="georgia-business"','id="sectors"','id="insights"','id="contact"'];assert(ordered.every((id,i)=>page.indexOf(id)>=0&&(!i||page.indexOf(ordered[i-1])<page.indexOf(id))),'Approved homepage order missing');
+ const ordered=['id="expertise"','id="advisory"','id="georgia-business"','id="about"','id="sectors"','id="insights"','id="contact"'];assert(ordered.every((id,i)=>page.indexOf(id)>=0&&(!i||page.indexOf(ordered[i-1])<page.indexOf(id))),'Approved homepage order missing');
  assert(page.includes('href="https://arxiv.org/abs/2607.21345"'),'Research link missing');
  assert(page.includes('href="mailto:digitallawgeorgia@gmail.com"')&&page.includes('https://wa.me/995598451132'),'Contact links missing');
 }
 for(const slug of ['practice-collaboration','legal-technology-review']){const photo=fs.readFileSync(path.join(root,'assets/editorial/'+slug+'.jpg'));assert(photo.length>10000&&photo[0]===255&&photo[1]===216,'Invalid editorial photograph '+slug);}
-assert(englishHome.includes('Technology law')&&englishHome.includes('and AI advisory')&&englishHome.includes('We advise Georgian and international companies on technology contracts, AI adoption, data protection and doing business in Georgia.'),'English hero must be server rendered');
+assert(englishHome.includes('Technology law')&&englishHome.includes('and AI advisory')&&englishHome.includes('We help Georgian and international companies negotiate technology contracts, adopt AI, protect data and set up operations in Georgia.'),'English hero must be server rendered');
 assert(englishHome.includes('Initial AI systems inventory'),'English advisory default must be static');
 assert(home.includes('AI სისტემების საწყისი რეესტრი')&&home.includes('უსაფრთხო არხის შეთანხმებამდე'),'Default advice and enquiry privacy instructions missing');
 assert(!home.includes('LegalStepy')&&!home.includes('Sopho'),'Independent brand required');

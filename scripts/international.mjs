@@ -11,13 +11,6 @@ export const georgiaPage = {
 
 const link = (url, ka, en, className = 'text-link') => `<a class="${className}" href="${url}" data-site-link>${tr(ka, en)} <span aria-hidden="true">↗</span></a>`;
 
-function crossBorderPhoto() {
-  return `<!-- Photo by Sora Shimazaki. Pexels 5673468. -->
-  <figure class="dlg-georgia-photo">
-    <img src="/assets/editorial/cross-border-advice.webp" alt="სამუშაო შეხვედრაზე გუნდი დოკუმენტებს განიხილავს" data-en-alt="A team reviewing documents in a working meeting" width="1120" height="622" loading="lazy" decoding="async">
-  </figure>`;
-}
-
 export function internationalFeature() {
   return `<section class="dlg-international-feature" id="georgia-business" aria-labelledby="georgia-business-title">
     <div class="wrap dlg-international-grid">
@@ -27,7 +20,7 @@ export function internationalFeature() {
         ${tr('ვმუშაობთ უცხოურ კომპანიებთან და მათ იურიდიულ გუნდებთან. დაგეხმარებით საქმიანობის ფორმის შერჩევაში, ადგილობრივ ხელშეკრულებებსა და ქართული რეგულაციების შეფასებაში.', 'We work with international companies and their in-house teams on market entry, local contracts and Georgian regulatory questions.', 'p', 'dlg-international-copy')}
         ${link(georgiaPage.route, 'იურიდიული მხარდაჭერა საქართველოში', 'Explore our Georgian legal services', 'primary dlg-international-link')}
       </div>
-      ${crossBorderPhoto()}
+      ${georgiaServiceLinks()}
     </div>
   </section>`;
 }
@@ -51,6 +44,12 @@ const work = [
     '/services/ongoing-legal-support/', 'მუდმივი იურიდიული მომსახურება', 'Ongoing legal counsel'],
 ];
 
+function georgiaServiceLinks() {
+  return `<ul class="dlg-georgia-quick-links">
+    ${work.map(([, , , ,url,ka,en]) => `<li>${link(url, ka, en)}</li>`).join('')}
+  </ul>`;
+}
+
 export function georgiaEntryPage() {
   const title = georgiaPage.title;
   const summary = georgiaPage.summary;
@@ -62,7 +61,7 @@ export function georgiaEntryPage() {
         ${tr(summary.ka, summary.en, 'p', 'digital-lead')}
         ${link('/contact/?area=georgia-market-entry', 'განვიხილოთ თქვენი პროექტი', 'Discuss your Georgia project', 'button button-primary dlg-international-link')}
       </div>
-      ${crossBorderPhoto()}
+      ${georgiaServiceLinks()}
     </div>
   </section>
   <section class="digital-section dlg-georgia-scope" aria-labelledby="georgia-scope-heading">

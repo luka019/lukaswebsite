@@ -91,16 +91,11 @@ export function buildDigitalPages({out,shell,card,rows}){
  const enquiryLink=(name)=>'/contact/?area='+encodeURIComponent(name.en);
  const practiceEnquiry=p=>['georgia','ongoing'].includes(p.id)?'/contact/?area='+p.slug:enquiryLink(p.name);
  const expertContact=(name)=>`<aside class="dlg-expert-contact"><div><img src="/assets/profile/founder-portrait.webp" alt="" loading="lazy" width="900" height="900"><div>${t('ლუკა შახყულაშვილი','Luka Shakhkulashvili','strong')}${t('ტექნოლოგიური და კომერციული სამართლის იურისტი','Technology & Commercial Lawyer','span')}</div></div>${btn(enquiryLink(name),'განვიხილოთ თქვენი საკითხი','Discuss your matter')}${btn('/about/','პროფესიული გამოცდილება','Professional background',true)}${t('სამუშაოს მოცულობასა და ანაზღაურებას წინასწარ ვათანხმებთ.','Scope and fees are agreed in advance.','p','small')}</aside>`;
- const servicesHero = `<section class="digital-page-hero dlg-services-hero">
-   <div class="container">
-     <div>
-       ${t('მომსახურება', 'Our services', 'p', 'eyebrow')}
-       ${t('ტექნოლოგიური და კომერციული სამართალი', 'Technology and commercial law', 'h1')}
-       ${t('კომპანიებს ვეხმარებით ტექნოლოგიური ხელშეკრულებების გაფორმებაში, AI-ის დანერგვაში, მონაცემთა დაცვასა და საქართველოში საქმიანობის დაწყებაში.', 'We advise businesses on technology contracts, AI adoption, data protection and establishing operations in Georgia.', 'p', 'digital-lead')}
-     </div>
-     <img src="/assets/editorial/practice-architecture.webp" width="1000" height="686" alt="" decoding="async">
-   </div>
- </section>`;
+ const servicesHero = hero('OUR EXPERTISE',
+   {ka:'ტექნოლოგიური და კომერციული სამართალი',en:'Technology and commercial law'},
+   {ka:'დაგეხმარებით ტექნოლოგიური ხელშეკრულებების გაფორმებაში, AI-ის დანერგვაში, მონაცემთა დაცვასა და საქართველოში საქმიანობის დაწყებაში.',
+    en:'We advise on technology contracts, AI adoption, data protection and doing business in Georgia.'});
+
  write('/services/','მომსახურება','Services',servicesHero+`<section class="digital-section dlg-area-directory"><div class="container"><div class="dlg-area-grid">${practiceGroups.map(groupCard).join('')}</div><div class="law-directory-feature"><div><span data-en="FOCUSED LEGAL SERVICES">კონკრეტული სამართლებრივი საკითხები</span><h2 data-en="Start with a defined legal question">იურიდიული მომსახურება კონკრეტული ამოცანისთვის</h2></div><a href="/solutions/" data-site-link>${t('გაეცანით მიმართულებებს','Explore focused engagements')} ↗</a></div><div class="law-directory-feature"><div><span data-en="AI & TECHNOLOGY ADVISORY">AI კონსულტაცია</span><h2 data-en="Assess and manage AI">ხელოვნური ინტელექტის დანერგვა და მართვა</h2></div><a href="/advisory/" data-site-link>${t('საკონსულტაციო მომსახურება','Explore advisory')} ↗</a></div><div class="law-directory-feature" id="engagement-fees"><div><span data-en="ENGAGEMENT">თანამშრომლობა</span><h2 data-en="How we agree fees">როგორ განისაზღვრება ანაზღაურება</h2></div><a href="/fees/" data-site-link>${t('ანაზღაურების პირობები','Engagement and fees')} ↗</a></div></div></section>`+cta);
  write('/fees/','ანაზღაურების პირობები','Engagement and fees',hero('ENGAGEMENT',{ka:'ანაზღაურების პირობები',en:'Engagement and fees'},{ka:'ანაზღაურების მოდელს სამუშაოს მოცულობისა და კომპანიის საჭიროებების მიხედვით ვარჩევთ.',en:'We agree an engagement model that reflects the scope of work and your business needs.'})+feeSection+cta);
  for(const g of groupedPages){

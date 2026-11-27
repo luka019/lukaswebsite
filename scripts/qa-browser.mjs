@@ -54,10 +54,7 @@ try{
     check(await heroPhoto.evaluate(image=>image.naturalWidth>0&&image.getBoundingClientRect().width>0),'Hero photograph failed to render');
     check((await heroPhoto.getAttribute('alt')).length>20,'Hero photograph needs descriptive alt text');
     check((await page.locator('.practice-glyph').count())===6,'Six functional icons required');
-    const advisoryPhoto=page.locator('.advisory-photo img');
-    await advisoryPhoto.scrollIntoViewIfNeeded();
-    await advisoryPhoto.evaluate(img=>img.decode());
-    check(await advisoryPhoto.evaluate(img=>img.naturalWidth>0),'Advisory photograph failed');
+    check(await page.locator('.advisory-work').isVisible(),'Interactive advisory section missing');
     const advisorySlugs=['ai-readiness','ai-governance-implementation','legal-ai-automation','external-ai-technology-counsel'];
     for(let i=0;i<advisorySlugs.length;i++){
       const tab=page.locator('[data-tab="'+i+'"]');
@@ -69,7 +66,7 @@ try{
     }
     check(await page.locator('.home-sector-link:visible').count()===6,'Sector links not visible');
     check(await page.locator('.article:visible').count()===3,'Featured articles not visible');
-    check(await page.locator('.article img').count()===3,'Research images missing');
+    check(await page.locator('.article h3').count()===3,'Research article titles missing');
     check(await page.locator('.founder-feature img').count()===1,'Founder portrait missing');
     check(await page.locator('.founder-dialog, .founder-hologram, [data-founder-open]').count()===0,'Removed founder presentation is still present');
     if(width<=920){await page.locator('.menu-btn').click();check(await page.locator('.nav').isVisible(),'Mobile navigation failed');await page.locator('.menu-btn').click();}
@@ -92,10 +89,7 @@ try{
     page.on('pageerror',error=>errors.push(error.message));
     await page.goto(base+prefix+'/',{waitUntil:'networkidle'});
     const feature=page.locator('#georgia-business');
-    const photo=feature.locator('img');
-    await photo.scrollIntoViewIfNeeded();
-    await photo.evaluate(image=>image.decode());
-    check(await photo.evaluate(image=>image.naturalWidth===1120),'Cross-border advice photograph failed');
+    check(await feature.locator('.dlg-georgia-quick-links a').count()===4,'Cross-border service links missing');
     await feature.locator('.dlg-international-link').click();
     await page.waitForURL(base+prefix+'/business/georgia/');
     await overflow(page,width,prefix+'/business/georgia/');

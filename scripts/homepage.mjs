@@ -1,4 +1,4 @@
-import {escape,tr} from './portfolio-templates.mjs';
+import {tr} from './portfolio-templates.mjs';
 import {practiceGroups, sectors} from './practice-structure.mjs';
 import {groupRoute} from './site-architecture.mjs';
 import {practiceIcon} from './site-icons.mjs';
@@ -17,10 +17,13 @@ function clientEntrances() {
     ['/business/georgia/', 'საქმიანობა საქართველოში', 'Doing business in Georgia', 'დაფუძნება, ადგილობრივი გუნდი და რეგულაციები', 'Company setup, teams and local regulation'],
   ];
   return `<nav class="matter-nav" id="client-matters" aria-label="თქვენი საკითხი" data-en-aria="Find advice for your matter">
-    <div class="wrap matter-nav-inner">
+    <div class="wrap">
+      <h2>${tr('რაში გჭირდებათ დახმარება?', 'What do you need help with?')}</h2>
+      <div class="matter-nav-inner">
       ${matters.map(([url,ka,en,descriptionKa,descriptionEn])=>`<a class="matter-link" href="${url}">
         <div>${tr(ka,en,'strong')}${tr(descriptionKa,descriptionEn,'span','matter-description')}</div>${arrow}
       </a>`).join('')}
+      </div>
     </div>
   </nav>`;
 }
@@ -73,14 +76,8 @@ function advisory() {
         ${link('/advisory/', 'ყველა მიმართულება', 'Explore AI advisory')}
       </div>
       <div class="advisory-grid">
-        <!-- Photo from Pexels 7972285. -->
-        <figure class="advisory-photo">
-          <img src="/assets/editorial/ai-workflow.webp" width="960" height="800" alt="ლეპტოპთან გახსნილ დოკუმენტზე შენიშვნებს წერენ" data-en-alt="A person making notes on a document beside a laptop" loading="lazy" decoding="async">
-        </figure>
-        <div class="advisory-work">
-          <div class="advisory-tabs" role="tablist" aria-label="AI კონსულტაციის მიმართულებები" data-en-aria="AI advisory options" hidden>${tabs}</div>
-          <div data-advisory-panels>${panels}</div>
-        </div>
+        <div class="advisory-tabs" role="tablist" aria-label="AI კონსულტაციის მიმართულებები" data-en-aria="AI advisory options" hidden>${tabs}</div>
+        <div class="advisory-work" data-advisory-panels>${panels}</div>
       </div>
     </div>
   </section>`;
@@ -104,9 +101,6 @@ function audience() {
 function about() {
   return `<section class="section practice-introduction" id="about" aria-labelledby="about-heading">
     <div class="wrap home-founder-reference">
-      <figure class="founder-feature">
-        <img src="/assets/profile/founder-portrait.webp" alt="ლუკა შახყულაშვილი" data-en-alt="Luka Shakhkulashvili" width="900" height="900" loading="lazy" decoding="async">
-      </figure>
       <div>
         ${tr('დამფუძნებელი', 'Founder', 'p', 'eyebrow')}
         <h2 id="about-heading">${tr('ლუკა შახყულაშვილი', 'Luka Shakhkulashvili')}</h2>
@@ -118,6 +112,9 @@ function about() {
           ${link('https://arxiv.org/abs/2607.21345', 'კვლევა', 'Read the research')}
         </div>
       </div>
+      <figure class="founder-feature">
+        <img src="/assets/profile/founder-portrait.webp" alt="ლუკა შახყულაშვილი" data-en-alt="Luka Shakhkulashvili" width="900" height="900" loading="lazy" decoding="async">
+      </figure>
     </div>
   </section>`;
 }
@@ -141,9 +138,11 @@ function engagement() {
 
 function insights(rows) {
   const articles = rows.filter(row => row.featured).slice(0, 3).map(row => `<a class="article" href="/resources/${row.slug}/">
-    <img src="${escape(row.cover)}" alt="" width="1200" height="800" loading="lazy" decoding="async">
-    ${tr(row.title, row.title_en, 'h3')}
-    ${tr(row.summary, row.summary_en, 'p')}${arrow}
+    <div>
+      ${tr(row.title, row.title_en, 'h3')}
+      ${tr(row.summary, row.summary_en, 'p')}
+    </div>
+    ${arrow}
   </a>`).join('\n');
   if (!articles) return '';
   return `<section class="section" id="insights" aria-labelledby="insights-heading">

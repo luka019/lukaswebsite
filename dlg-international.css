@@ -7,8 +7,8 @@
 
 .dlg-international-feature {
   padding-block: clamp(2.75rem, 5vw, 4.75rem);
-  background: #edf4fa;
-  color: #17334c;
+  background: #eef2fa;
+  color: #141f33;
   border-block: 1px solid #d9e5ef;
 }
 
@@ -40,9 +40,9 @@
 }
 
 .dlg-international-feature .dlg-international-link {
-  background: #17334c;
+  background: #2349a0;
   color: #fff;
-  border: 1px solid #17334c;
+  border: 1px solid #2349a0;
 }
 
 .dlg-international-feature .dlg-international-link:hover {
@@ -50,34 +50,24 @@
   border-color: #285276;
 }
 
-.dlg-georgia-photo {
+.dlg-georgia-quick-links {
+  list-style: none;
   margin: 0;
-  min-width: 0;
+  padding: 0;
+  border-bottom: 1px solid #cdd6e7;
 }
 
-.dlg-georgia-photo img {
-  display: block;
-  width: 100%;
-  height: auto;
-  aspect-ratio: 2.15;
-  object-fit: cover;
-  background: #dae6f0;
-}
+.dlg-georgia-quick-links li { border-top: 1px solid #cdd6e7; }
 
-.dlg-georgia-photo figcaption {
+.dlg-georgia-quick-links a {
   display: flex;
-  flex-wrap: wrap;
+  align-items: center;
   justify-content: space-between;
-  gap: .1rem 1rem;
-  margin-top: .5rem;
-  color: #455f74;
-  font-size: .75rem;
-  line-height: 1.5;
-}
-
-.dlg-georgia-photo a {
-  text-decoration: underline;
-  text-underline-offset: .15em;
+  gap: 1rem;
+  min-height: 3rem;
+  padding-block: .6rem;
+  font-weight: 650;
+  color: #2349a0;
 }
 
 .dlg-georgia-hero h1 {
