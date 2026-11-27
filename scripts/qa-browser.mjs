@@ -61,6 +61,7 @@ try{
     check(await page.locator('.founder-feature img').count()===1,'Founder portrait missing');
     check(await page.locator('.founder-dialog, .founder-hologram, [data-founder-open]').count()===0,'Removed founder presentation is still present');
     if(width<=920){await page.locator('.menu-btn').click();check(await page.locator('.nav').isVisible(),'Mobile navigation failed');await page.locator('.menu-btn').click();}
+    await page.locator('.contact-form-disclosure > summary').click();
     const form=page.locator('#enquiry-form');await form.locator('[name="name"]').fill('Test User');await form.locator('[name="email"]').fill('test@example.invalid');await form.locator('[name="area"]').selectOption({index:1});await form.locator('[name="matter"]').fill('Test enquiry. Do not send.');
     const before=requests.length;await form.locator('button[type="submit"]').click();
     check(await page.locator('#enquiry-result').isVisible(),'Local enquiry draft missing');check((await page.locator('#enquiry-mailto').getAttribute('href')).includes('test%40example.invalid'),'Email draft missing input');check(requests.length===before,'Enquiry form must not initiate a network request');
