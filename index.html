@@ -18,8 +18,8 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://lukaswebsite.vercel.app/assets/editorial/human-machine.webp">
 <link rel="icon" href="/favicon.svg">
-<link rel="stylesheet" href="/dlg-hybrid.css?v=20261127-editorial">
-<link rel="stylesheet" href="/dlg-international.css?v=20261127-editorial">
+<link rel="stylesheet" href="/dlg-hybrid.css?v=20261127-refined">
+<link rel="stylesheet" href="/dlg-international.css?v=20261127-refined">
 </head>
 <body data-default-language="ka" data-description-en="Specialist technology and commercial law firm in Tbilisi, Georgia. Georgian-law advice in English on market entry, technology contracts, data protection, AI governance and FinTech." data-description-ka="Digital Law Georgia: ტექნოლოგიური და კომერციული სამართალი, AI-ის რეგულირება და ავტომატიზაცია, პერსონალურ მონაცემთა დაცვა, ფინტექი და ხელშეკრულებები საქართველოში." data-title-en="Technology &amp; Commercial Law Firm in Tbilisi | Digital Law Georgia" data-title-ka="ტექნოლოგიური და კომერციული სამართალი | Digital Law Georgia">
 <a class="skip" href="#main">
@@ -67,6 +67,7 @@
 </div>
 <section class="hero">
 <div class="wrap hero-inner">
+<div class="hero-content">
 <div class="hero-title">
 <p class="eyebrow" data-en="SPECIALIST LAW FIRM">სპეციალიზებული იურიდიული ფირმა</p>
 <h1>
@@ -76,7 +77,7 @@
 </h1>
 </div>
 <div class="hero-copy">
-<p class="intro" data-en="We advise Georgian and international companies on technology and commercial law as they develop digital products, adopt new technologies or operate in regulated markets.">ტექნოლოგიური და კომერციული სამართლის საკითხებზე კონსულტაციას ვუწევთ ქართულ და საერთაშორისო კომპანიებს, რომლებიც ქმნიან ციფრულ პროდუქტებს, ნერგავენ ახალ ტექნოლოგიებს ან საქმიანობენ რეგულირებულ ბაზრებზე.</p>
+<p class="intro" data-en="We advise Georgian and international businesses on technology and commercial law.">ქართულ და საერთაშორისო კომპანიებს ვუწევთ იურიდიულ კონსულტაციას ტექნოლოგიური და კომერციული სამართლის საკითხებზე.</p>
 <div class="hero-actions">
 <a class="primary" href="/services/">
 <span data-en="Explore services">მომსახურება</span>
@@ -89,6 +90,7 @@
 </div>
 <p class="hero-location" data-en="Tbilisi, Georgia · Advice in Georgian and English">თბილისი, საქართველო · კონსულტაცია ქართულად და ინგლისურად</p>
 </div>
+</div>
 <figure class="hero-photo">
   <img src="/assets/editorial/human-machine.webp" srcset="/assets/editorial/human-machine-small.webp 640w, /assets/editorial/human-machine.webp 1440w" sizes="(max-width: 740px) 100vw, (max-width: 1540px) 55vw, 850px" width="1440" height="960" fetchpriority="high" alt="ღია ფონზე ადამიანის და რობოტის ხელების თითები ერთმანეთს უახლოვდება" data-en-alt="Human and robotic hands reach towards each other against a light background">
 </figure>
@@ -96,24 +98,25 @@
 </section>
 <!-- home-entrances -->
 <!-- home-practices -->
+<!-- home-sectors -->
 <!-- international-feature -->
 <!-- home-founder -->
-<!-- home-sectors -->
-<!-- home-engagement -->
 <!-- home-insights -->
+<!-- home-engagement -->
 <section class="contact" id="contact">
 <div class="wrap contact-grid">
 <div>
 <h2 data-en="Discuss your matter">განვიხილოთ თქვენი საკითხი</h2>
-<p data-en="Tell us about your business and the legal matter you would like to discuss. We will agree the appropriate scope, timing and fee before work begins.">მოგვწერეთ თქვენი კომპანიისა და სამართლებრივი საკითხის შესახებ. სამუშაოს დაწყებამდე შევათანხმებთ მომსახურების ფარგლებს, ვადებსა და ანაზღაურებას.</p>
+<p data-en="Tell us about your legal matter. We will agree the scope and fees before work begins.">მოგვწერეთ თქვენი სამართლებრივი საკითხის შესახებ. სამუშაოს ფარგლებსა და ანაზღაურებას წინასწარ ვათანხმებთ.</p>
 <a class="text-link contact-fee-link" data-route="/fees/" href="/fees/">
 <span data-en="How we agree fees">როგორ განისაზღვრება ანაზღაურება</span>
 <span aria-hidden="true">↗</span>
 </a>
 </div>
 <div class="contact-enquiry">
+<details class="contact-form-disclosure"><summary data-en="Prepare an email enquiry">მოამზადეთ წერილი</summary>
 <form action="#contact" class="enquiry-form" hidden="" id="enquiry-form" method="post">
-<p class="enquiry-heading" data-en="Consultation enquiry">მოთხოვნა კონსულტაციაზე</p>
+
 <div class="enquiry-fields">
 <label>
 <span data-en="Full name">სახელი და გვარი</span>
@@ -148,13 +151,14 @@
 </textarea>
 </label>
 </div>
-<p class="enquiry-note" data-en="Please do not include confidential documents or sensitive information before a secure communication channel is agreed. The form prepares an email on your device; it does not send or store your data.">უსაფრთხო არხის შეთანხმებამდე ნუ მიუთითებთ კონფიდენციალურ ან მგრძნობიარე ინფორმაციას. ფორმა თქვენს მოწყობილობაზე ამზადებს ელფოსტის ტექსტს; მონაცემები ავტომატურად არ იგზავნება და არ ინახება.</p>
+<p class="enquiry-note" data-en="Do not include confidential information before agreeing a secure channel. This form prepares an email on your device; it does not send or store data.">უსაფრთხო არხის შეთანხმებამდე ნუ მიუთითებთ კონფიდენციალურ ინფორმაციას. ფორმა ამზადებს წერილს თქვენს მოწყობილობაზე; მონაცემებს არ აგზავნის და არ ინახავს.</p>
 <button class="primary" data-en="Prepare email draft" type="submit">ელფოსტის ტექსტის მომზადება</button>
 <div class="enquiry-result" hidden="" id="enquiry-result" role="status">
 <p data-en="Your email draft is ready. Review it before sending.">ელფოსტის ტექსტი მზადაა. გაგზავნამდე გადაამოწმეთ.</p>
 <a class="text-link" data-en="Open email draft" href="mailto:digitallawgeorgia@gmail.com" id="enquiry-mailto">ელფოსტის გახსნა</a>
 </div>
 </form>
+</details>
 <div class="contact-actions">
 <a class="primary" href="mailto:digitallawgeorgia@gmail.com">
 <span data-en="Email us">მოგვწერეთ ელფოსტაზე</span>
@@ -183,7 +187,7 @@
 <a data-en="Contact" data-route="/contact/" href="/contact/">კონტაქტი</a>
 </div>
 </footer>
-<script src="/dlg-hybrid.js?v=20261127-editorial" defer>
+<script src="/dlg-hybrid.js?v=20261127-refined" defer>
 </script>
 </body>
 </html>
