@@ -17,7 +17,7 @@ for(const [page,lang] of [[home,'ka'],[englishHome,'en']]){
  assert(page.includes('<html lang="'+lang+'"'),'Homepage language is not static');
  assert(page.includes('class="masthead"')&&page.includes('class="hero"'),'Approved masthead and hero missing');
  assert((page.match(/<h1\b/g)||[]).length===1,'One H1 required');
- assert((page.match(/class="practice-card"/g)||[]).length===6,'Six expertise cards required');
+ assert((page.match(/class="practice-card"/g)||[]).length===6&&(page.match(/class="dlg-practice-entry"/g)||[]).length===6,'Six native expandable legal practice areas with direct links required');
  assert(!page.includes('class="advisory-tabs"')&&!page.includes('id="advisory-heading"'),'Retired homepage AI module is still present');
 
  assert((page.match(/class="home-sector-link"/g)||[]).length===6,'Six visible sector routes required');
@@ -25,11 +25,12 @@ for(const [page,lang] of [[home,'ka'],[englishHome,'en']]){
  assert((page.match(/class="home-article-media"/g)||[]).length===3,'Three editorial insight images required');
  assert(page.includes('class="founder-credentials"')&&page.includes('class="dlg-home-firm-copy"')&&page.includes('class="dlg-home-founder-card"'),'Firm and founder must be clearly distinguished');
  assert(page.includes('class="practice-grid dlg-practice-directory"')&&!page.includes('class="dlg-practice-stage"')&&page.includes('class="hero-content"')&&!page.includes('class="dlg-hero-foot"'),'Signature hero and compact practice directory required');
- assert(page.includes('/dlg-atlas.css?v=20261127-preferred-finish-v4'),'Preferred finish stylesheet revision required');
+ assert(page.includes('/dlg-atlas.css?v=20261127-preferred-finish-v4')&&page.includes('/dlg-legal-experience.css?v=20261127-v1')&&page.includes('/dlg-legal-experience.js?v=20261127-v1'),'Preferred identity and interactive assets required');
+ assert(page.includes('id="dlg-legal-finder"')&&page.includes('id="dlg-finder-title"')&&page.includes('class="dlg-brand-legal"')&&(page.match(/class="dlg-finder-result"/g)||[]).length===21,'Bilingual local legal finder and explicit law-firm identity required');
  assert(page.includes('dlg-home-firm-principles')&&page.includes('/dlg-polish.css?v=20261127-v1')&&page.includes('/dlg-polish.js?v=20261127-v1'),'Shared polish layer and firm approach missing');
  assert(page.includes('class="hero-photo"')&&page.includes('src="/assets/editorial/human-machine.webp"')&&page.includes('human-machine-small.webp 640w')&&page.includes('fetchpriority="high"'),'Responsive original technology-law artwork required');
  assert(page.includes(lang==='ka'?'სპეციალიზებული იურიდიული ფირმა':'SPECIALIST LAW FIRM'),'Specialist positioning must be rendered');
- assert((page.match(/class="practice-glyph"[^>]*viewBox="0 0 36 36"/g)||[]).length===6,'Six original practice icons required');
+ assert((page.match(/class="dlg-disclosure-mark"/g)||[]).length===6&&!page.includes('class="practice-glyph"'),'Legal directory must use six accessible disclosure controls instead of generic icons');
  assert(!/founder-hologram|founder-dialog|data-founder-open/.test(page),'Removed founder presentation is still present');
  assert((page.match(/class="article"/g)||[]).length===3,'Three featured research links required');
  assert(page.includes('class="matter-nav"')&&!page.includes('id="engagement"')&&!page.includes('class="engagement-steps"')&&page.includes('href="'+(lang==='en'?'/en':'')+'/how-we-work/"'),'Client entry points and approach link required; standalone engagement block removed');
@@ -195,6 +196,11 @@ for(const [name,html] of pagesByPath){
 }
 assert(badAssets.length===0,'Missing local assets: '+badAssets.slice(0,10).join('; '));
 assert(missingFragments.length===0,'Broken local fragments: '+missingFragments.slice(0,15).join('; '));
+new vm.Script(file('dlg-legal-experience.js'),{filename:'dlg-legal-experience.js'});total++;
+for(const [page,prefix] of [[home,''],[englishHome,'/en'],[directory,''],[directoryEn,'/en']]){
+ assert(page.includes('id="dlg-legal-finder"')&&page.includes('id="dlg-finder-title"')&&page.includes('href="'+prefix+'/services/virtual-assets/"'),'Search must include the real bilingual VASP route');
+ assert((page.match(/class="dlg-finder-result"/g)||[]).length===21,'Search index must contain 21 catalogue entries');
+}
 console.log('DLG public site smoke checks passed: '+total+' checks across '+publicHtml.length+' public HTML pages.');
 
 for(const slug of ["technology","financial-services","commerce","startups-investors","international","legal-teams"]){const imagePath='/assets/sectors/'+slug+'.jpg';assert(businessDirectory.includes('src="'+imagePath+'"'),'Sector directory photograph missing '+slug);assert(fs.existsSync(root+imagePath),'Local sector photograph missing '+slug);}
