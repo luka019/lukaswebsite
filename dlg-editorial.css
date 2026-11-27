@@ -1,0 +1,133 @@
+/* DLG Editorial: original unified visual system for the public website. */
+:root{--ed-ink:#183348;--ed-deep:#122a3c;--ed-blue:#345e7b;--ed-paper:#faf9f6;--ed-surface:#e7eef2;--ed-muted:#4b6272;--ed-rule:#c9d5dd;--ed-max:1220px;--ed-gutter:clamp(20px,4vw,64px);--ed-section:clamp(40px,5.1vw,72px)}
+body:has(.masthead),body.resource-page{color:var(--ed-ink);background:#fff;font-size:15px}
+body:has(.masthead) .wrap,body.resource-page .container{width:min(var(--ed-max),calc(100% - 2 * var(--ed-gutter)));max-width:none;margin-inline:auto}
+body:has(.masthead) .masthead,body.resource-page .site-header.law-header{background:var(--ed-surface);border-bottom:1px solid #c7d5de;color:var(--ed-ink)}
+body:has(.masthead) .nav-inner,body.resource-page .law-header-inner{min-height:78px;gap:24px}
+.masthead .monogram,body.resource-page .site-header .law-brand-monogram{font:400 34px/1 Georgia,serif;letter-spacing:-.06em;color:var(--ed-ink)}
+.masthead .brand-name,body.resource-page .site-header .law-brand-text strong,body.resource-page .site-header .law-brand-text small{font-family:Arial,sans-serif;font-size:10px;line-height:1.3;letter-spacing:.09em;color:var(--ed-ink);font-weight:600}
+.masthead .nav a,body.resource-page .site-header .law-nav>a{color:var(--ed-ink);font-weight:600;font-size:.8rem;letter-spacing:0}
+.masthead .nav,body.resource-page .site-nav.law-nav{gap:clamp(13px,1.6vw,24px)}
+.masthead .small-cta,body.resource-page .site-header .law-header-cta{background:var(--ed-ink);border:1px solid var(--ed-ink);color:#fff;min-height:44px;padding:10px 15px;font-size:.77rem;border-radius:0;box-shadow:none}
+.masthead .small-cta:hover,body.resource-page .site-header .law-header-cta:hover{background:var(--ed-blue);border-color:var(--ed-blue)}
+body:has(.masthead) .hero{background:var(--ed-surface);border-bottom:1px solid var(--ed-rule);padding-block:28px 36px}
+body:has(.masthead) .hero-inner{width:min(var(--ed-max),calc(100% - 2 * var(--ed-gutter)));padding:0;min-height:0;display:grid;grid-template-columns:minmax(0,1.04fr) minmax(0,1fr);grid-template-rows:auto;align-items:center;gap:clamp(24px,3.4vw,48px);overflow:visible}
+body:has(.masthead) .hero-content{grid-column:1;grid-row:1;padding:24px 0;align-self:center}
+.hero-content .hero-title,.hero-content .hero-copy{padding:0}
+.hero-content .hero-title .eyebrow{font-size:.71rem;letter-spacing:.035em;color:var(--ed-blue);margin:0 0 18px}
+.hero-content .hero-title .eyebrow::after{display:none}
+body:has(.masthead) .hero-content h1{font-family:inherit;font-weight:600;font-size:clamp(1.85rem,3.15vw,3.05rem);line-height:1.22;letter-spacing:-.035em;margin:0 0 21px;max-width:100%;text-wrap:balance}
+body:has(.masthead) .hero-content h1 em{font-weight:inherit;color:var(--ed-blue);font-style:normal;display:block;margin-top:0}
+html[lang=en] body:has(.masthead) .hero-content h1{font-family:Georgia,serif;font-weight:400;line-height:1.13;font-size:clamp(2.25rem,4vw,3.8rem)}
+body:has(.masthead) .hero-content .intro{font-size:clamp(.93rem,1.06vw,1rem);line-height:1.72;color:var(--ed-muted);max-width:49ch}
+.hero-content .hero-actions{margin-top:24px;gap:10px}
+body:has(.masthead) .hero .primary,body.resource-page .digital-site .button-primary{background:var(--ed-ink);border-color:var(--ed-ink);color:white}
+body:has(.masthead) .hero .secondary{border-color:#aebfc9;color:var(--ed-ink);background:transparent}
+body:has(.masthead) .hero .primary:hover,body.resource-page .digital-site .button-primary:hover{background:var(--ed-blue);border-color:var(--ed-blue)}
+.hero-content .hero-location{margin-top:16px;font-size:.7rem;color:var(--ed-muted)}
+body:has(.masthead) .hero-photo{grid-column:2;grid-row:1;position:relative;align-self:center;margin:0;min-height:0;aspect-ratio:1.6;overflow:hidden;background:var(--ed-surface)}
+body:has(.masthead) .hero-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;object-position:center;mix-blend-mode:multiply;filter:none}
+body:has(.masthead) .hero-photo::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,var(--ed-surface),transparent 13%,transparent 92%,var(--ed-surface));pointer-events:none}
+body:has(.masthead) .matter-nav{background:var(--ed-paper);padding-block:13px;border-color:var(--ed-rule)}
+body:has(.masthead) .matter-nav>.wrap{display:grid;grid-template-columns:155px minmax(0,1fr);align-items:center;gap:18px}
+body:has(.masthead) .matter-heading{font-size:.76rem;font-weight:650;margin:0;color:var(--ed-muted)}
+body:has(.masthead) .matter-link{min-height:46px;align-items:center;padding:10px 12px;font-size:.77rem;line-height:1.5}
+body:has(.masthead) .section{padding-block:var(--ed-section)}
+body:has(.masthead) .section h2{font-weight:600;color:var(--ed-ink);font-size:clamp(1.48rem,2.45vw,2.2rem);line-height:1.35;letter-spacing:-.025em;margin:0}
+html[lang=en] body:has(.masthead) .section h2{font-family:Georgia,serif;font-weight:400;font-size:clamp(1.75rem,3vw,2.6rem)}
+body:has(.masthead) .section-head{align-items:end;margin-bottom:26px;gap:18px}
+body:has(.masthead) .section-head h2::before{display:none}
+.editorial-heading .eyebrow{margin-bottom:10px;color:var(--ed-blue);font-size:.68rem;font-weight:600}
+body:has(.masthead) .text-link{font-size:.78rem;color:var(--ed-blue);font-weight:600;line-height:1.5}
+body:has(.masthead) #expertise{background:#fff}
+body:has(.masthead) .practice-grid{grid-template-columns:repeat(3,minmax(0,1fr));column-gap:30px;row-gap:0;border:0}
+body:has(.masthead) .practice-card{grid-template-columns:34px minmax(0,1fr) 16px;gap:12px;min-height:130px;padding:22px 0;align-items:start;border:0;border-top:1px solid var(--ed-rule);border-bottom:1px solid var(--ed-rule);margin-bottom:-1px}
+body:has(.masthead) .practice-card .practice-glyph{width:29px;height:29px;color:var(--ed-blue)}
+body:has(.masthead) .practice-card h3{font-size:.99rem;font-weight:650;line-height:1.55;margin:0 0 6px}
+body:has(.masthead) .practice-card p{font-size:.8rem;line-height:1.65;color:var(--ed-muted)}
+body:has(.masthead) #sectors{background:var(--ed-paper);color:var(--ed-ink);border-block:1px solid var(--ed-rule)}
+body:has(.masthead) #sectors .section-head h2,body:has(.masthead) #sectors .text-link{color:var(--ed-ink)}
+body:has(.masthead) .home-sectors{gap:25px}
+body:has(.masthead) .home-sector-link{grid-template-columns:minmax(0,1fr) 16px;gap:0 12px;border:0;border-bottom:1px solid var(--ed-rule);padding:0 0 13px}
+.home-sector-media{aspect-ratio:1.92;margin-bottom:12px}
+body:has(.masthead) .home-sector-link h3{font-size:.91rem;font-weight:600;line-height:1.5}
+body:has(.masthead) .dlg-international-feature{background:var(--ed-surface);padding-block:var(--ed-section);border:0}
+body:has(.masthead) .dlg-international-grid{align-items:center;gap:clamp(25px,5vw,76px)}
+body:has(.masthead) .dlg-international-feature .dlg-international-link{background:var(--ed-ink);border-color:var(--ed-ink);color:white}
+body:has(.masthead) .dlg-international-feature h2{font-size:clamp(1.48rem,2.45vw,2.2rem);line-height:1.35;letter-spacing:-.025em}
+body:has(.masthead) .home-founder-reference{grid-template-columns:minmax(0,1.1fr) minmax(0,.85fr);gap:clamp(30px,6vw,82px);align-items:center}
+body:has(.masthead) .practice-introduction{background:#fff;border-bottom:1px solid var(--ed-rule)}
+.home-firm-story .eyebrow{margin-bottom:13px;color:var(--ed-blue)}
+body:has(.masthead) .home-firm-story .home-firm-description{color:var(--ed-muted);max-width:56ch;font-size:.94rem;line-height:1.75;margin:15px 0 18px}
+.home-firm-person{display:grid;grid-template-columns:minmax(84px,130px) minmax(0,1fr);align-items:center;gap:20px;border-block:1px solid var(--ed-rule);padding:20px 0}
+body:has(.masthead) .home-firm-person .founder-feature{width:100%;max-width:none;justify-self:stretch;align-self:center;margin:0}
+body:has(.masthead) .home-firm-person .founder-feature img{width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;object-position:center 25%;border:0}
+.home-firm-person .eyebrow{font-size:.67rem;color:var(--ed-muted);margin:0 0 6px}
+.home-firm-person h3{font-family:inherit!important;font-size:1.02rem;font-weight:650;line-height:1.45;margin:0 0 5px}
+body:has(.masthead) .home-firm-person .founder-role{font-size:.78rem;font-weight:500;line-height:1.5;color:var(--ed-muted);margin:0 0 5px}
+body:has(.masthead) .home-firm-person .founder-credentials{font-size:.75rem;margin:0 0 10px;color:var(--ed-muted)}
+body:has(.masthead) .home-firm-person .founder-credentials span{font-size:inherit;margin:0}
+body:has(.masthead) .article-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:25px}
+.home-article-media{aspect-ratio:1.8;margin-bottom:13px}
+body:has(.masthead) .article h3{font-size:.97rem;font-weight:600;line-height:1.55}
+body:has(.masthead) .engagement{background:var(--ed-paper);padding-block:30px}
+body:has(.masthead) .contact,body:has(.masthead) .foot{background:var(--ed-deep)}
+body:has(.masthead) .contact{padding-block:var(--ed-section)}
+body:has(.masthead) .contact h2{font-size:clamp(1.6rem,3vw,2.35rem)}
+body:has(.masthead) .contact .text-link,body:has(.masthead) .foot-inner .text-link{color:#dce8ef}
+body:has(.masthead) .contact-grid{align-items:start;grid-template-columns:1fr 1fr;gap:clamp(25px,5vw,70px)}
+body:has(.masthead) .foot-inner{font-size:.74rem;gap:12px 18px;justify-content:flex-start}
+body.resource-page .digital-site{--deep:var(--ed-ink);--tech:var(--ed-blue);--grid:var(--ed-rule);--tech-soft:var(--ed-surface);color:var(--ed-ink)}
+body.resource-page .dlg-breadcrumb{font-size:.72rem;padding-block:12px;color:var(--ed-muted)}
+body.resource-page .digital-site .digital-page-hero,body.resource-page .resource-hero{background:var(--ed-surface);border-bottom:1px solid var(--ed-rule);padding-block:clamp(33px,4.5vw,62px)}
+body.resource-page .digital-site .digital-page-hero h1,body.resource-page .resource-hero h1{font-size:clamp(1.85rem,3.1vw,2.95rem);font-weight:600;letter-spacing:-.025em;line-height:1.3!important;max-width:31ch}
+html[lang=en] body.resource-page .digital-site .digital-page-hero h1,html[lang=en] body.resource-page .resource-hero h1{font-family:Georgia,serif!important;font-weight:400!important}
+body.resource-page .digital-site .digital-page-hero .digital-lead{max-width:68ch;color:var(--ed-muted);font-size:.97rem;line-height:1.75}
+body.resource-page .digital-site .digital-page-hero .eyebrow::after,body.resource-page .resource-hero .eyebrow::after{display:none}
+body.resource-page .digital-site .digital-section:not(.digital-cta){padding-block:var(--ed-section)}
+body.resource-page .digital-site .digital-wash{background:var(--ed-paper)}
+body.resource-page .digital-site .digital-heading h2{font-size:clamp(1.4rem,2.3vw,2rem);font-weight:600;line-height:1.4;letter-spacing:-.02em}
+body.resource-page .digital-site .digital-heading p:not(.eyebrow),body.resource-page .digital-site .service-layout p{font-size:.94rem;line-height:1.75;color:var(--ed-muted)}
+body.resource-page .digital-site .dlg-area-card,body.resource-page .digital-site .practice-card,body.resource-page .digital-site .solution-card{border-radius:0;border-color:var(--ed-rule);box-shadow:none;background:transparent}
+body.resource-page .digital-site .deliverable-card,body.resource-page .digital-site .dlg-expert-contact,body.resource-page .digital-site .dlg-contact-form{background:var(--ed-paper);border:0;border-top:2px solid var(--ed-blue);border-radius:0;box-shadow:none}
+body.resource-page .digital-site .dlg-sector-photo{aspect-ratio:1.9;border-radius:0}
+body.resource-page .resource-card,body.resource-page .resource-controls{border:1px solid var(--ed-rule);border-radius:0;box-shadow:none;background:#fff}
+body.resource-page .resource-card:hover{box-shadow:none;border-color:var(--ed-blue)}
+body.resource-page .resource-card .resource-cover{border-radius:0}
+body.resource-page .digital-site .digital-cta{background:var(--ed-deep);padding-block:42px}
+body.resource-page .digital-site .digital-cta .button-primary{background:#e4edf2;color:var(--ed-deep);border-color:#e4edf2}
+body.resource-page .site-footer{background:var(--ed-deep)}
+body.resource-page .site-footer .law-brand-monogram,body.resource-page .site-footer .law-brand-text strong,body.resource-page .site-footer .law-brand-text small{color:#fff}
+body.resource-page .dlg-about-hero{background:var(--ed-surface);padding-block:clamp(24px,3.3vw,44px);border-color:var(--ed-rule)}
+body.resource-page .dlg-about-hero-grid{grid-template-columns:minmax(0,1.04fr) minmax(0,1fr);min-height:0;align-items:center;gap:clamp(28px,5vw,65px)}
+.dlg-about-hero-copy{padding:20px 0}
+.dlg-about-hero .eyebrow{font-size:.72rem;margin:0 0 12px}
+body.resource-page .dlg-about-hero h1{font-size:clamp(1.9rem,3.3vw,3.1rem);line-height:1.25!important;font-weight:600;margin:0 0 17px}
+body.resource-page .dlg-about-hero .digital-lead{font-size:clamp(1.08rem,1.5vw,1.3rem);font-weight:550;line-height:1.6;color:var(--ed-ink);margin:0 0 12px}
+.dlg-about-description{color:var(--ed-muted);font-size:.94rem;line-height:1.75;max-width:52ch}
+body.resource-page .dlg-about-hero-art{aspect-ratio:1.65;min-height:0;max-height:350px;align-self:center}
+body.resource-page .dlg-about-hero-art img{object-fit:cover;filter:saturate(.7)}
+body.resource-page .dlg-about-hero-art::after{content:none}
+.dlg-firm-intro{display:flex;align-items:end;justify-content:space-between;gap:18px}
+.editorial-inline-link{font-size:.81rem;font-weight:600;color:var(--ed-blue);text-decoration:underline;text-underline-offset:4px}
+.dlg-firm-principles{gap:30px;margin-top:25px}
+.dlg-firm-principles article{border-color:var(--ed-rule)}
+.dlg-firm-principles .dlg-principle-number{font-size:1.3rem;color:var(--ed-blue)}
+body.resource-page .dlg-firm-founder{background:var(--ed-paper);border-block:1px solid var(--ed-rule)}
+body.resource-page .dlg-firm-founder-grid{grid-template-columns:minmax(0,220px) minmax(0,1fr);gap:clamp(28px,5vw,68px);align-items:center}
+body.resource-page .dlg-firm-founder-grid figure{width:100%;max-width:220px;aspect-ratio:4/5}
+body.resource-page .dlg-firm-founder-grid img{object-position:center 25%}
+body.resource-page .dlg-firm-founder h2,body.resource-page .dlg-firm-knowledge h2{font-size:clamp(1.4rem,2.4vw,2rem);margin-bottom:10px}
+body.resource-page .dlg-firm-founder p:not(.eyebrow){max-width:60ch;font-size:.9rem;margin-bottom:10px}
+.dlg-founder-links{margin-top:14px}
+.dlg-firm-knowledge-grid{gap:clamp(26px,5vw,72px);align-items:center}
+.dlg-profile-hero{background:var(--ed-surface);padding-block:clamp(30px,4vw,54px)}
+body.resource-page .dlg-profile-hero-grid{grid-template-columns:minmax(0,245px) minmax(0,1fr);gap:clamp(28px,5vw,64px)}
+body.resource-page .dlg-profile-hero-grid figure{max-width:245px;aspect-ratio:4/5}
+body.resource-page .dlg-profile-hero h1{font-size:clamp(1.8rem,3.1vw,2.75rem);line-height:1.3!important;margin-bottom:10px}
+body.resource-page .dlg-profile-detail h2,body.resource-page .dlg-profile-initiatives h2{font-size:clamp(1.4rem,2.2vw,1.9rem)}
+@media(max-width:1060px){body:has(.masthead) .nav-inner,body.resource-page .law-header-inner{gap:14px}body:has(.masthead) .matter-nav>.wrap{grid-template-columns:1fr;gap:5px}body:has(.masthead) .hero-inner{gap:26px}}
+@media(max-width:920px){.masthead .nav,body.resource-page .site-header .site-nav.law-nav.open{background:var(--ed-surface);border-color:var(--ed-rule)}body:has(.masthead) .nav-inner,body.resource-page .law-header-inner{min-height:70px}body:has(.masthead) .practice-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:0 23px}body:has(.masthead) .home-sectors{grid-template-columns:repeat(2,minmax(0,1fr));gap:23px}body:has(.masthead) .home-founder-reference{gap:25px}.home-firm-person{grid-template-columns:95px minmax(0,1fr);gap:12px}}
+@media(max-width:740px){body:has(.masthead) .hero{padding-block:0 20px}body:has(.masthead) .hero-inner{grid-template-columns:minmax(0,1fr);grid-template-rows:auto auto;gap:13px;min-height:0}body:has(.masthead) .hero-content{grid-column:1;grid-row:1;padding:25px 0 4px}body:has(.masthead) .hero-content h1{font-size:clamp(1.75rem,5.9vw,2.6rem);text-wrap:pretty;line-height:1.28;margin-bottom:14px}html[lang=en] body:has(.masthead) .hero-content h1{font-size:clamp(2.1rem,7vw,3.2rem)}.hero-content .hero-title .eyebrow{margin-bottom:12px}.hero-content .hero-actions{margin-top:17px}body:has(.masthead) .hero-photo{grid-column:1;grid-row:2;aspect-ratio:2.2}body:has(.masthead) .matter-nav .matter-nav-inner{grid-template-columns:repeat(2,minmax(0,1fr))}body:has(.masthead) .matter-link{font-size:.76rem;padding:9px 8px;min-height:44px}body:has(.masthead) .matter-link:nth-child(3){border-inline-start:0;padding-inline-start:0}body:has(.masthead) .section-head{align-items:start;flex-wrap:wrap;margin-bottom:20px}body:has(.masthead) .practice-grid{grid-template-columns:minmax(0,1fr)}body:has(.masthead) .practice-card{min-height:0;padding:17px 0}body:has(.masthead) .home-founder-reference,body:has(.masthead) .contact-grid{grid-template-columns:minmax(0,1fr)}.home-firm-person{grid-template-columns:96px minmax(0,1fr);gap:16px}body:has(.masthead) .article-grid{grid-template-columns:minmax(0,1fr);gap:24px}body:has(.masthead) .engagement-steps{gap:12px}body.resource-page .dlg-about-hero-grid,body.resource-page .dlg-firm-founder-grid,body.resource-page .dlg-profile-hero-grid,.dlg-firm-knowledge-grid,.dlg-profile-detail-grid,.dlg-firm-principles{grid-template-columns:minmax(0,1fr);gap:22px}.dlg-about-hero-copy{padding:0}body.resource-page .dlg-about-hero-art{aspect-ratio:1.9;max-height:260px;margin:0}body.resource-page .dlg-firm-founder-grid figure,body.resource-page .dlg-profile-hero-grid figure{max-width:185px}.dlg-firm-intro{align-items:start;flex-wrap:wrap}}
+@media(max-width:440px){body:has(.masthead) .home-sectors{grid-template-columns:minmax(0,1fr)}body:has(.masthead) .hero-actions a{min-height:43px;font-size:.72rem;padding:9px 11px}body:has(.masthead) .nav-inner,body.resource-page .law-header-inner{gap:8px}.masthead .monogram,body.resource-page .site-header .law-brand-monogram{font-size:28px}.masthead .brand-name{font-size:9px;padding-left:9px}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important}.home-sector-media img,.home-article-media img,.practice-card,.resource-card{transition:none!important}}
