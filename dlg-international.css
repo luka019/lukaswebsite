@@ -829,3 +829,30 @@ body.resource-page .digital-site .digital-cta { padding-block:35px; }
  body:has(.masthead) .founder-feature { max-width:225px; }
  body:has(.masthead) .engagement-steps li { padding-block:10px; }
 }
+
+
+/* Final editorial review: experience, research and accessible contact. */
+.home-research-note {display:flex;align-items:center;justify-content:space-between;gap:18px;margin-top:23px;padding:18px 0;border-top:1px solid #bcccd7;border-bottom:1px solid #bcccd7;color:#102b40;text-decoration:none;}
+.home-research-note .eyebrow {font-size:.68rem;margin:0 0 5px;color:#315f85;}
+.home-research-note strong {font-size:.95rem;line-height:1.55;}
+.home-research-note .research-link-label {font-size:.79rem;color:#315f85;flex:none;font-weight:650;}
+.home-research-note:hover strong {text-decoration:underline;text-underline-offset:4px;}
+body.resource-page .digital-site .dlg-selected-experience {background:#fff;}
+.dlg-experience-grid {display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px;}
+.dlg-experience-grid article {border-top:2px solid #315f85;padding:18px 0 12px;min-width:0;}
+.dlg-experience-grid .eyebrow {font-size:.71rem;color:#315f85;font-weight:600;}
+.dlg-experience-grid h3 {font-size:1.13rem;line-height:1.5;margin:12px 0;}
+.dlg-experience-grid p {font-size:.89rem;line-height:1.73;color:#344d61;margin:0 0 16px;}
+.dlg-experience-grid a {color:#315f85;font-size:.82rem;font-weight:650;text-decoration:underline;text-underline-offset:3px;}
+.dlg-experience-note {color:#536b7c;font-size:.8rem;border-top:1px solid #d1dde5;padding-top:12px;margin-top:12px;}
+body:has(.masthead) .contact-actions {align-items:center;flex-wrap:wrap;}
+.contact-phone {font-variant-numeric:tabular-nums;white-space:nowrap;font-size:.86rem;text-decoration:underline;text-underline-offset:3px;color:inherit;}
+.enquiry-privacy {display:block;font-size:.78rem;text-decoration:underline;margin:8px 0 12px;}
+body:has(.masthead) .enquiry-privacy,body:has(.masthead) .contact-phone {color:#e1edf3;}
+.enquiry-copy {border:0;background:transparent;color:inherit;font:inherit;font-size:.8rem;padding:9px 0;cursor:pointer;text-decoration:underline;text-underline-offset:3px;}
+.enquiry-result .enquiry-copy {display:block;min-height:40px;}
+.copy-result {font-size:.77rem;display:block;margin-top:3px;}
+a:focus-visible,button:focus-visible,summary:focus-visible {outline:2px solid #315f85;outline-offset:4px;}
+body:has(.masthead) .contact a:focus-visible,body:has(.masthead) .contact button:focus-visible {outline-color:#dce8f0;}
+@media(max-width:850px) {.dlg-experience-grid {grid-template-columns:1fr;gap:16px;}}
+@media(max-width:520px) {.home-research-note {align-items:flex-start;flex-direction:column;gap:8px;}}
