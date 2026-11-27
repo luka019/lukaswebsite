@@ -43,10 +43,10 @@ try{
     check(response.status()===200,'Homepage HTTP error');
     await overflow(page,width,'/');
     check(await page.locator('.dlg-home-firm-copy').count()===1&&await page.locator('.dlg-home-founder-card').count()===1,'Firm-first homepage introduction missing');
-    check(await page.locator('.dlg-home-firm-principles a').count()===3,'Firm approach links missing');
+    check(await page.locator('.dlg-home-firm-copy a').count()===2,'Firm and engagement links missing');
     check((await page.locator('.dlg-home-founder-card').evaluate(el=>el.getBoundingClientRect().width))<=width,'Founder introduction overflows');
     check(await page.locator('.dlg-practice-directory').count()===1&&await page.locator('.dlg-practice-stage').count()===0,'Compact practice directory required');
-    check(await page.locator('.dlg-practice-directory').evaluate(el=>getComputedStyle(el).gridTemplateColumns.split(' ').length)===(width>850?2:1),'Practice directory must use responsive columns');
+    check(await page.locator('.dlg-practice-directory').evaluate(el=>getComputedStyle(el).gridTemplateColumns.split(' ').length)===(width>960?2:1),'Practice directory must use responsive columns');
     await page.locator('.practice-card').nth(2).focus();check(await page.locator('.practice-card').nth(2).evaluate(el=>document.activeElement===el),'Practice links must remain keyboard accessible');
     check((await page.locator('.practice-card').count())===6,'Six practice cards missing');
     const serviceRoutes=["/services/ai/","/services/privacy-and-cybersecurity/","/services/contracts/","/services/digital-products-and-ip/","/services/fintech-and-financial-regulation/","/services/corporate-and-commercial/"];
@@ -59,7 +59,7 @@ try{
     await heroPhoto.evaluate(image=>image.decode());
     check(await heroPhoto.evaluate(image=>image.naturalWidth>0&&image.getBoundingClientRect().width>0),'Hero photograph failed to render');
     check((await heroPhoto.getAttribute('alt')).length>20,'Hero photograph needs descriptive alt text');
-    check((await page.locator('.practice-glyph').count())===6,'Six functional icons required');
+    check((await page.locator('.practice-glyph').count())===0,'Application-style practice icons retired');
     check(await page.locator('.advisory-tabs, #advisory-heading').count()===0,'Retired homepage AI module is still present');
     check(await page.locator('.home-sector-link:visible').count()===6,'Sector links not visible');
     check(await page.locator('.article:visible').count()===3,'Featured articles not visible');
@@ -73,7 +73,7 @@ try{
     check(await page.locator('#enquiry-result').isVisible(),'Local enquiry draft missing');check((await page.locator('#enquiry-mailto').getAttribute('href')).includes('test%40example.invalid'),'Email draft missing input');check(requests.length===before,'Enquiry form must not initiate a network request');
     await page.locator('[data-language-link="en"]').click();await page.waitForURL(base+'/en/');
     check((await page.locator('html').getAttribute('lang'))==='en','English language link failed');
-    check((await page.locator('h1').innerText()).replace(/\s+/g,' ').trim()==='Legal services for digital businesses.','English headline missing');
+    check((await page.locator('h1').innerText()).replace(/\s+/g,' ').trim()==='Technology and commercial law.','English headline missing');
     check(await page.locator('.matter-nav a').first().getAttribute('href')==='/en/advisory/','English advisory route failed');
     await page.locator('[data-language-link="ka"]').click();await page.waitForURL(base+'/');
     await overflow(page,width,'/');check(errors.length===0,'Page script errors '+errors.join('; '));
