@@ -70,7 +70,7 @@ function about() {
         <h2 id="about-heading">${tr('ლუკა შახყულაშვილი', 'Luka Shakhkulashvili')}</h2>
         ${tr('ტექნოლოგიური და კომერციული სამართლის იურისტი', 'Technology and commercial lawyer', 'p', 'founder-role')}
         ${tr('ფირმის დამფუძნებელი ლუკა შახყულაშვილი სპეციალიზებულია ტექნოლოგიურ და კომერციულ სამართალში. მას სამართლებრივი საქმიანობის გამოცდილება აქვს როგორც კერძო, ისე საჯარო სექტორში.', 'Founder Luka Shakhkulashvili specialises in technology and commercial law, with legal experience in both the private and public sectors.', 'p')}
-        <div class="founder-credentials"><div>${tr('Queen Mary University of London', 'Queen Mary University of London', 'strong')}${tr('ტექნოლოგიების, მედიისა და ტელეკომუნიკაციების სამართლის მაგისტრი', 'LLM in Technology, Media and Telecommunications Law', 'span')}</div><div>${tr('AI-ის რეგულირების კვლევა', 'AI regulation research', 'strong')}${tr('ავტონომიური და აგენტური AI-ის რეგულირების შესახებ კვლევის თანაავტორი', 'Co-author of research on autonomous and agentic AI regulation', 'span')}</div></div>
+        <div class="founder-credentials"><div>${tr('უშუალო თანამშრომლობა', 'Direct collaboration', 'strong')}${tr('საკითხებზე უშუალოდ დამფუძნებელ იურისტთან მუშაობა', 'Work directly with the founding lawyer', 'span')}</div><div>${tr('AI-ის რეგულირების კვლევა', 'AI regulation research', 'strong')}${tr('ავტონომიური და აგენტური AI-ის რეგულირების შესახებ კვლევის თანაავტორი', 'Co-author of research on autonomous and agentic AI regulation', 'span')}</div></div>
         <div class="inline-links">
           ${link('/about/', 'პროფესიული გამოცდილება', 'Professional background')}
           ${link('https://arxiv.org/abs/2607.21345', 'კვლევა', 'Read the research')}
