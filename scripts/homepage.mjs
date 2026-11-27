@@ -44,7 +44,7 @@ function clientEntrances() {
   ];
   return `<nav class="matter-nav" id="client-matters" aria-label="თქვენი საკითხი" data-en-aria="Find advice for your matter">
     <div class="wrap">
-      <h2 class="matter-heading">${tr('სწრაფი ბმულები', 'Explore by need')}</h2>
+      <h2 class="matter-heading">${tr('აქტუალური საკითხები', 'Explore by need')}</h2>
       <div class="matter-nav-inner">
       ${matters.map(([url,ka,en,descriptionKa,descriptionEn])=>`<a class="matter-link" href="${url}">
         <div>${tr(ka,en,'strong')}</div>${arrow}
@@ -66,7 +66,7 @@ function homePractices() {
   return `<section class="section" id="expertise" aria-labelledby="expertise-title">
     <div class="wrap">
       <div class="section-head">
-        <h2 id="expertise-title">${tr('მომსახურების მიმართულებები', 'Our expertise')}</h2>
+        <h2 id="expertise-title">${tr('ჩვენი სპეციალიზაცია', 'Our expertise')}</h2>
         ${link('/services/', 'ყველა მომსახურება', 'All services')}
       </div>
       <div class="practice-grid">${cards}</div>
@@ -81,7 +81,7 @@ function audience() {
   return `<section class="section sectors" id="sectors" aria-labelledby="sectors-heading">
     <div class="wrap">
       <div class="section-head">
-        <h2 id="sectors-heading">${tr('ვის ვუწევთ კონსულტაციას', 'Who we advise')}</h2>
+        <h2 id="sectors-heading">${tr('ბიზნესსექტორები', 'Sectors we advise')}</h2>
         ${link('/business/', 'ყველა სექტორი', 'All sectors')}
       </div>
       <div class="home-sectors">${cards}</div>
@@ -92,20 +92,16 @@ function audience() {
 function about() {
   return `<section class="section practice-introduction" id="about" aria-labelledby="about-heading">
     <div class="wrap home-founder-reference">
-      <div>
-        ${tr('ჩვენ შესახებ', 'About the firm', 'p', 'eyebrow')}
-        <h2 id="about-heading">${tr('ლუკა შახყულაშვილი', 'Luka Shakhkulashvili')}</h2>
-        ${tr('ტექნოლოგიური და კომერციული სამართლის იურისტი', 'Technology and commercial lawyer', 'p', 'founder-role')}
-        ${tr('Digital Law Georgia-ს დამფუძნებელი.', 'Founder of Digital Law Georgia.', 'p')}
-        <div class="founder-credentials">${tr('შვიდწლიანი გამოცდილება კერძო და საჯარო სექტორში.', 'Seven years of legal experience across the private and public sectors.', 'p')}</div>
-        <div class="inline-links">
-          ${link('/about/founder/', 'პროფესიული პროფილი', 'Professional profile')}
-          ${link('/about/', 'ფირმის შესახებ', 'About the firm')}
-        </div>
+      <div class="home-firm-story">
+        ${tr('ფირმის შესახებ', 'The firm', 'p', 'eyebrow')}
+        <h2 id="about-heading">${tr('სპეციალიზებული ცოდნა. პრაქტიკული გადაწყვეტილებები.', 'Specialist knowledge. Practical advice.')}</h2>
+        ${tr('ვმუშაობთ სამართლისა და ტექნოლოგიების გადაკვეთაზე, თქვენი ბიზნესის მიზნებისა და საჭიროებების გათვალისწინებით. თითოეულ საკითხზე უშუალოდ პასუხისმგებელ იურისტთან თანამშრომლობთ.', 'We work at the intersection of law and technology, with your business objectives in mind. You work directly with the lawyer responsible for your matter.', 'p','home-firm-description')}
+        ${link('/about/', 'გაიცანით ფირმა', 'Discover the firm')}
       </div>
-      <figure class="founder-feature">
-        <img src="/assets/profile/founder-portrait.webp" alt="ლუკა შახყულაშვილი" data-en-alt="Luka Shakhkulashvili" width="900" height="900" loading="lazy" decoding="async">
-      </figure>
+      <div class="home-firm-person">
+        <figure class="founder-feature"><img src="/assets/profile/founder-portrait.webp" alt="ლუკა შახყულაშვილი" data-en-alt="Luka Shakhkulashvili" width="900" height="900" loading="lazy" decoding="async"></figure>
+        <div><p class="eyebrow">${tr('დამფუძნებელი','Founder')}</p><h3>${tr('ლუკა შახყულაშვილი','Luka Shakhkulashvili')}</h3>${tr('ტექნოლოგიური და კომერციული სამართალი','Technology and commercial law','p','founder-role')}<div class="founder-credentials">${tr('7-წლიანი პროფესიული გამოცდილება','Seven years of legal experience','span')}</div>${link('/about/founder/', 'პროფესიული პროფილი','Professional profile')}</div>
+      </div>
     </div>
   </section>`;
 }
