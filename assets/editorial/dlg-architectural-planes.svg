@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1000" width="1080" height="1000" role="img" aria-labelledby="title desc">
+<title id="title">Digital Law Georgia editorial artwork</title><desc id="desc">Intersecting translucent blue architectural planes and precise lines on an ivory background.</desc>
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#fafaf6"/><stop offset=".55" stop-color="#e8eff4"/><stop offset="1" stop-color="#bacdda"/></linearGradient>
+  <linearGradient id="glass" x1="0" y1="0" x2=".8" y2="1"><stop stop-color="#c6d8e4" stop-opacity=".16"/><stop offset=".53" stop-color="#799db9" stop-opacity=".45"/><stop offset="1" stop-color="#234765" stop-opacity=".83"/></linearGradient>
+  <linearGradient id="dark" x1="0" y1="0" x2="1" y2=".7"><stop stop-color="#11334e"/><stop offset=".52" stop-color="#436984"/><stop offset="1" stop-color="#93b4c9"/></linearGradient>
+  <linearGradient id="light" x1="0" y1="1" x2="1" y2="0"><stop stop-color="#7394aa" stop-opacity=".72"/><stop offset="1" stop-color="#f7f9f7" stop-opacity=".86"/></linearGradient>
+  <linearGradient id="bronze" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#f4eddb"/><stop offset="1" stop-color="#99876c"/></linearGradient>
+  <radialGradient id="glow" cx=".15" cy=".1" r=".9"><stop stop-color="#fff" stop-opacity=".8"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient>
+  <pattern id="grid" width="70" height="70" patternUnits="userSpaceOnUse"><path d="M70 0H0v70" fill="none" stroke="#31516a" stroke-opacity=".085" stroke-width="1"/></pattern>
+  <filter id="shadow" x="-.4" y="-.4" width="1.8" height="1.8"><feGaussianBlur stdDeviation="30"/></filter>
+</defs>
+<rect width="1080" height="1000" fill="url(#bg)"/><rect width="1080" height="1000" fill="url(#grid)"/><rect width="1080" height="1000" fill="url(#glow)"/>
+<path d="M145 1020 670 220 1120 510 1120 1020Z" fill="#12334e" opacity=".18" filter="url(#shadow)"/>
+<g stroke-linejoin="round">
+  <path d="M-110 645 408 -75 798 146 279 871Z" fill="url(#light)" stroke="#f8fbfd" stroke-width="2"/>
+  <path d="M107 815 626 95 797 146 279 871Z" fill="#638ba7" fill-opacity=".36" stroke="#f1f6fa" stroke-opacity=".8" stroke-width="1.5"/>
+  <path d="M279 871 798 146 1080 320 563 1045Z" fill="url(#dark)" stroke="#e4eef5" stroke-opacity=".6" stroke-width="2"/>
+  <path d="M563 1045 1080 320 1080 589 780 1000Z" fill="#132f46" fill-opacity=".87"/>
+  <path d="M175 1000 669 312 1080 559 1080 1000Z" fill="url(#glass)" stroke="#e9f4f9" stroke-opacity=".8" stroke-width="2"/>
+  <path d="M35 555 482 -62 514 -43 67 574Z" fill="url(#bronze)" opacity=".8"/>
+  <path d="M-15 808 515 73 1069 402" stroke="#f8fbfc" stroke-width="2.2" stroke-opacity=".86" fill="none"/>
+  <path d="M151 1000 669 281 1080 528" stroke="#e0edf5" stroke-width="1.3" stroke-opacity=".8" fill="none"/>
+  <path d="M299 1000 812 289 1080 450M442 1000 956 289M0 751 514 38" stroke="#f7fbff" stroke-opacity=".4" stroke-width="1" fill="none"/>
+  <path d="M0 916 667 0M110 1000 829 0" stroke="#416680" stroke-opacity=".16" fill="none"/>
+</g>
+<g fill="none" stroke="#365b75" stroke-opacity=".42"><circle cx="171" cy="175" r="44"/><circle cx="171" cy="175" r="5" fill="#365b75"/><path d="M171 109v35m0 62v34m-65-65h34m62 0h35"/></g>
+<g stroke="#f8fbff" stroke-opacity=".72" fill="none"><path d="M735 760h140m-70-70v140"/><circle cx="805" cy="760" r="43"/><circle cx="805" cy="760" r="4" fill="#fff"/></g>
+<path d="M45 45h53M45 45v53M1035 955h-53m53 0v-53" stroke="#59768a" stroke-width="1.4" opacity=".7" fill="none"/>
+</svg>
