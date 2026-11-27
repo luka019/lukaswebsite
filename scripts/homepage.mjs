@@ -99,8 +99,8 @@ function about() {
         ${tr('Digital Law Georgia-ს დამფუძნებელი.', 'Founder of Digital Law Georgia.', 'p')}
         <div class="founder-credentials">${tr('შვიდწლიანი გამოცდილება კერძო და საჯარო სექტორში.', 'Seven years of legal experience across the private and public sectors.', 'p')}</div>
         <div class="inline-links">
-          ${link('/about/#selected-experience', 'გამოცდილება და პროექტები', 'Selected experience')}
-          ${link('https://arxiv.org/abs/2607.21345', 'კვლევა', 'Read the research')}
+          ${link('/about/founder/', 'პროფესიული პროფილი', 'Professional profile')}
+          ${link('/about/', 'ფირმის შესახებ', 'About the firm')}
         </div>
       </div>
       <figure class="founder-feature">
