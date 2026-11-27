@@ -9,7 +9,7 @@ import {parentsFor} from './site-architecture.mjs';
 import {generateResourceCovers} from './generate-resource-covers.mjs';
 import path from 'node:path';
 import {validateResources,renderBody,esc,topics,formats} from '../resources/resource-model.mjs';
-const publicAssets='<link rel="stylesheet" href="/dlg-public.css?v=20261127-specialist"><script src="/dlg-language.js?v=20261126-qa" defer></script>';
+const publicAssets='<link rel="stylesheet" href="/dlg-public.css?v=20261127-specialist"><link rel="stylesheet" href="/dlg-editorial.css?v=20261127-v1"><script src="/dlg-language.js?v=20261126-qa" defer></script>';
 const out=process.env.SITE_OUTPUT||'dist';
 const siteUrl=(process.env.SITE_URL||'https://lukaswebsite.vercel.app').replace(/\/+$/,'');
 if(!['dist','test-dist'].includes(out))throw new Error('Unsupported output directory');
@@ -17,7 +17,7 @@ const all=validateResources(JSON.parse(fs.readFileSync(process.env.SITE_RESOURCE
 const today=new Date().toISOString().slice(0,10);
 const rows=all.filter(r=>r.status==='published'&&r.date<=today).sort((a,b)=>b.date.localeCompare(a.date));
 fs.rmSync(out,{recursive:true,force:true}); fs.mkdirSync(out,{recursive:true});
-for(const file of ['dlg-hybrid.css','dlg-hybrid.js','dlg-international.css','dlg-public.css','dlg-language.js','styles.css','firm.css','dlg-signature.css','dlg-photographic.css','dlg-refinement.css','dlg-boutique-ui.css','dlg-hero-carousel.js','dlg-service-discovery.js','dlg-signature.js','script.js','firm-interactions.js','firm-hero.js','visual-experience.js','favicon.svg','catalogue.mjs','digital.css','digital.mjs','workspace.css','workspace.mjs','delivery-templates.mjs'])fs.copyFileSync(file,path.join(out,file));
+for(const file of ['dlg-hybrid.css','dlg-hybrid.js','dlg-international.css','dlg-editorial.css','dlg-public.css','dlg-language.js','styles.css','firm.css','dlg-signature.css','dlg-photographic.css','dlg-refinement.css','dlg-boutique-ui.css','dlg-hero-carousel.js','dlg-service-discovery.js','dlg-signature.js','script.js','firm-interactions.js','firm-hero.js','visual-experience.js','favicon.svg','catalogue.mjs','digital.css','digital.mjs','workspace.css','workspace.mjs','delivery-templates.mjs'])fs.copyFileSync(file,path.join(out,file));
 fs.cpSync('assets',path.join(out,'assets'),{recursive:true}); fs.cpSync('admin',path.join(out,'admin'),{recursive:true});
 // The old enquiry inbox is retired; the resource admin remains available.
 fs.rmSync(path.join(out,'admin','inbox'),{recursive:true,force:true}); // Retired client workspace is excluded from public deployment.
