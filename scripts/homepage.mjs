@@ -1,4 +1,4 @@
-import {tr} from './portfolio-templates.mjs';
+import {escape,tr} from './portfolio-templates.mjs';
 import {practiceGroups, sectors} from './practice-structure.mjs';
 import {groupRoute} from './site-architecture.mjs';
 import {practiceIcon} from './site-icons.mjs';
@@ -53,9 +53,9 @@ function advisory() {
         ${link('/advisory/', 'ყველა მიმართულება', 'Explore AI advisory')}
       </div>
       <div class="advisory-grid">
-        <!-- Photo by Pavel Danilyuk. Pexels 7518956. -->
+        <!-- Photo from Pexels 7972285. -->
         <figure class="advisory-photo">
-          <img src="/assets/editorial/ai-advisory-review.webp" width="1050" height="701" alt="ორი პროფესიონალი სამუშაო მაგიდასთან დოკუმენტებსა და ლეპტოპს განიხილავს" data-en-alt="Two professionals reviewing documents and a laptop at a meeting table" loading="lazy" decoding="async">
+          <img src="/assets/editorial/ai-workflow.webp" width="960" height="800" alt="ლეპტოპთან გახსნილ დოკუმენტზე შენიშვნებს წერენ" data-en-alt="A person making notes on a document beside a laptop" loading="lazy" decoding="async">
         </figure>
         <div class="advisory-work">
           <div class="advisory-tabs" role="tablist" aria-label="AI კონსულტაციის მიმართულებები" data-en-aria="AI advisory options" hidden>${tabs}</div>
@@ -84,24 +84,48 @@ function audience() {
 function about() {
   return `<section class="section practice-introduction" id="about" aria-labelledby="about-heading">
     <div class="wrap home-founder-reference">
-      <img src="/assets/profile/founder-portrait.webp" alt="ლუკა შახყულაშვილი" data-en-alt="Luka Shakhkulashvili" width="900" height="900" loading="lazy" decoding="async">
+      <figure class="founder-feature">
+        <img src="/assets/profile/london-tech-week-2026.webp" alt="ლუკა შახყულაშვილი London Tech Week-ზე" data-en-alt="Luka Shakhkulashvili at London Tech Week" width="960" height="1280" loading="lazy" decoding="async">
+        <figcaption>London Tech Week, 2026</figcaption>
+      </figure>
       <div>
-        ${tr('დამოუკიდებელი იურიდიული ფირმა', 'Independent law firm', 'p', 'eyebrow')}
+        ${tr('დამფუძნებელი', 'Founder', 'p', 'eyebrow')}
         <h2 id="about-heading">${tr('ლუკა შახყულაშვილი', 'Luka Shakhkulashvili')}</h2>
-        ${tr('დამფუძნებელი · ტექნოლოგიური და კომერციული სამართლის იურისტი', 'Founder · Technology and commercial lawyer', 'p', 'founder-role')}
-        ${tr('იურიდიულ რჩევას ბიზნესის კონტექსტს ვარგებთ. სამუშაოს დასაწყისშივე ვათანხმებთ, რა უნდა შეფასდეს, რა დოკუმენტები მომზადდება და როგორ გამოგადგებათ ისინი გადაწყვეტილების მიღებისას.', 'We advise in the context of your business. We agree what we need to assess, which documents you need and how the work will inform your decision.', 'p')}
-        ${tr('ლუკა ავტონომიური და აგენტური ხელოვნური ინტელექტის რეგულირების შესახებ კვლევის თანაავტორია.', 'Luka co-authored research on the regulation of autonomous and agentic AI.', 'p')}
+        ${tr('ტექნოლოგიური და კომერციული სამართლის იურისტი', 'Technology and commercial lawyer', 'p', 'founder-role')}
+        ${tr('ლუკას პრაქტიკა მოიცავს ტექნოლოგიურ ხელშეკრულებებს, მონაცემთა დაცვასა და ხელოვნური ინტელექტის დანერგვის სამართლებრივ საკითხებს.', 'Luka advises on technology contracts, data protection and the legal questions that arise when businesses adopt AI.', 'p')}
+        ${tr('ის ავტონომიური და აგენტური ხელოვნური ინტელექტის რეგულირების შესახებ კვლევის თანაავტორია.', 'He co-authored research on the regulation of autonomous and agentic AI.', 'p')}
         <div class="inline-links">
-          ${link('/about/', 'გაიცანით დამფუძნებელი', 'Meet the founder')}
-          ${link('https://arxiv.org/abs/2607.21345', 'გაეცანით კვლევას', 'Read the research')}
+          <button class="primary founder-open" type="button" data-founder-open aria-haspopup="dialog" hidden><span aria-hidden="true" class="play-mark"></span>${tr('მოუსმინეთ წარდგენას', 'Listen to the introduction')}</button>
+          ${link('/about/', 'პროფილი', 'View profile')}
+          ${link('https://arxiv.org/abs/2607.21345', 'კვლევა', 'Read the research')}
         </div>
       </div>
     </div>
+    <dialog class="founder-dialog" aria-labelledby="founder-dialog-heading">
+      <div class="founder-dialog-inner">
+        <form method="dialog" class="founder-close">
+          <button type="submit" aria-label="დახურვა" data-en-aria="Close">×</button>
+        </form>
+        <figure class="founder-hologram">
+          <img src="/assets/profile/founder-portrait.webp" alt="" width="900" height="900" loading="lazy">
+        </figure>
+        <h2 id="founder-dialog-heading">${tr('Digital Law Georgia-ს წარდგენა', 'Introducing Digital Law Georgia')}</h2>
+        <div class="founder-languages" role="group" aria-label="მოსმენის ენა" data-en-aria="Narration language">
+          <button type="button" lang="ka" data-founder-language="ka" aria-pressed="false">ქართული</button>
+          <button type="button" lang="en" data-founder-language="en" aria-pressed="false">English</button>
+        </div>
+        <audio controls preload="none" aria-label="ფირმის აუდიოწარდგენა" data-en-aria="Firm introduction audio"></audio>
+        <p class="founder-transcript" lang="ka" data-founder-copy="ka">გამარჯობა. Digital Law Georgia-ში ვეხმარებით ქართულ და უცხოურ კომპანიებს ტექნოლოგიურ ხელშეკრულებებში, ხელოვნური ინტელექტის დანერგვასა და მონაცემთა დაცვაში. კონკრეტული საკითხის განსახილველად დაგვიკავშირდით.</p>
+        <p class="founder-transcript" lang="en" data-founder-copy="en" hidden>Welcome to Digital Law Georgia. We advise Georgian and international companies on technology contracts, AI adoption and data protection. Please get in touch to discuss your matter.</p>
+        <p class="founder-voice-note">${tr('წარდგენა გახმოვანებულია სინთეზური ხმით.', 'This introduction uses a synthetic voice.')}</p>
+      </div>
+    </dialog>
   </section>`;
 }
 
 function insights(rows) {
   const articles = rows.filter(row => row.featured).slice(0, 3).map(row => `<a class="article" href="/resources/${row.slug}/">
+    <img src="${escape(row.cover)}" alt="" width="1200" height="800" loading="lazy" decoding="async">
     ${tr(row.title, row.title_en, 'h3')}
     ${tr(row.summary, row.summary_en, 'p')}${arrow}
   </a>`).join('\n');

@@ -355,3 +355,128 @@ img { display: block; max-width: 100%; }
   html { scroll-behavior: auto; }
   .primary, .secondary, .small-cta, .practice-card, .article { transition: none; }
 }
+
+.hero-photo img { aspect-ratio: 1.5; }
+
+.home-founder-reference {
+  grid-template-columns: minmax(230px, 355px) minmax(0, 610px);
+}
+
+.home-founder-reference .founder-feature img {
+  aspect-ratio: 1.04;
+  object-position: 58% 70%;
+}
+
+.founder-feature figcaption {
+  margin-top: .45rem;
+  color: var(--muted);
+  font-size: .73rem;
+}
+
+.play-mark {
+  width: 0;
+  height: 0;
+  border-block: .31rem solid transparent;
+  border-left: .48rem solid currentColor;
+}
+
+.founder-dialog {
+  width: min(490px, calc(100% - 2rem));
+  max-height: min(690px, calc(100% - 2rem));
+  padding: 0;
+  color: var(--ink);
+  background: white;
+  border: 1px solid var(--line);
+  overflow-y: auto;
+}
+
+.founder-dialog::backdrop { background: #0e263cbb; }
+.founder-dialog-inner { position: relative; padding: clamp(1.15rem, 4vw, 2rem); text-align: center; }
+.founder-close { position: absolute; inset: .6rem .6rem auto auto; }
+
+.founder-close button {
+  width: 40px;
+  min-height: 40px;
+  color: var(--navy);
+  background: white;
+  border: 1px solid var(--line);
+  line-height: 1;
+  font-size: 1.45rem;
+}
+
+.founder-hologram {
+  width: 154px;
+  height: 169px;
+  margin: 0 auto 1rem;
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  border: 1px solid #5d8bb4;
+  background: #163c5f;
+}
+
+.founder-hologram img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 30%;
+  mix-blend-mode: luminosity;
+  mask-image: linear-gradient(black 0%, black 57%, transparent 100%);
+}
+
+.founder-hologram::after {
+  content: '';
+  position: absolute;
+  inset-inline: 0;
+  height: 22%;
+  top: 0;
+  pointer-events: none;
+  background: linear-gradient(transparent, #b9e7fc2a, transparent);
+  opacity: 0;
+}
+
+.founder-dialog.is-speaking .founder-hologram::after {
+  opacity: 1;
+  animation: hologram-light 3.1s ease-in-out infinite;
+}
+
+@keyframes hologram-light {
+  from { transform: translateY(-105%); }
+  to { transform: translateY(455%); }
+}
+
+.founder-dialog h2 { font-size: clamp(1.15rem, 4.6vw, 1.55rem); }
+.founder-languages { display: flex; justify-content: center; flex-wrap: wrap; gap: .5rem; margin-block: .9rem; }
+
+.founder-languages button {
+  min-height: 42px;
+  padding-inline: .8rem;
+  color: var(--navy);
+  background: white;
+  border: 1px solid #9fb6cc;
+  font-size: .82rem;
+}
+
+.founder-languages button[aria-pressed="true"] { color: white; background: var(--navy); border-color: var(--navy); }
+.founder-dialog audio { display: block; width: 100%; max-width: 350px; margin: 0 auto .9rem; }
+.founder-transcript { color: var(--ink); font-size: .86rem; line-height: 1.72; }
+.founder-voice-note { color: var(--muted); font-size: .72rem; margin-top: .62rem; }
+
+.article > img {
+  width: calc(100% + 2 * clamp(1.15rem, 2.3vw, 1.75rem));
+  max-width: none;
+  height: auto;
+  aspect-ratio: 2.05;
+  object-fit: cover;
+  margin: calc(-1 * clamp(1.15rem, 2.3vw, 1.75rem)) calc(-1 * clamp(1.15rem, 2.3vw, 1.75rem)) .38rem;
+}
+
+@media (max-width: 700px) {
+  .hero-photo img { aspect-ratio: 1.55; }
+  .home-founder-reference { grid-template-columns: minmax(0, 1fr); }
+  .home-founder-reference .founder-feature img { width: min(100%, 350px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .founder-dialog.is-speaking .founder-hologram::after { animation: none; }
+}

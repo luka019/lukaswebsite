@@ -10,7 +10,7 @@ import {chromium} from 'playwright';
 const root=path.resolve('dist');
 const screenshots=path.resolve('qa-screenshots');
 fs.mkdirSync(screenshots,{recursive:true});
-const mime={'.html':'text/html; charset=utf-8','.css':'text/css; charset=utf-8','.js':'text/javascript; charset=utf-8','.mjs':'text/javascript; charset=utf-8','.svg':'image/svg+xml','.png':'image/png','.webp':'image/webp','.jpg':'image/jpeg','.jpeg':'image/jpeg','.woff2':'font/woff2','.json':'application/json'};
+const mime={'.html':'text/html; charset=utf-8','.css':'text/css; charset=utf-8','.js':'text/javascript; charset=utf-8','.mjs':'text/javascript; charset=utf-8','.svg':'image/svg+xml','.png':'image/png','.webp':'image/webp','.jpg':'image/jpeg','.jpeg':'image/jpeg','.woff2':'font/woff2','.mp3':'audio/mpeg','.json':'application/json'};
 const server=http.createServer((req,res)=>{
   try{
     const requested=decodeURIComponent(new URL(req.url,'http://localhost').pathname);
@@ -35,7 +35,10 @@ try{
   browser=await chromium.launch({headless:true});
   for(const width of [320,375,390,768,1024,1120,1280,1440,1920]){
     const page=await browser.newPage({viewport:{width,height:900}});
-    const errors=[],requests=[];page.on('pageerror',error=>errors.push(error.message));page.on('request',r=>requests.push(r.url()));
+    const errors=[],requests=[];page.on('pageerror',error=>errors.push(error.message));page.on('request',request=>{
+      const url=new URL(request.url());
+      if(request.method()!=='GET'||!['image','media'].includes(request.resourceType())||!url.pathname.startsWith('/assets/')||url.search){requests.push(request.url());}
+    });
     const response=await page.goto(base+'/',{waitUntil:'networkidle'});
     check(response.status()===200,'Homepage HTTP error');
     await overflow(page,width,'/');
@@ -63,6 +66,24 @@ try{
     }
     check(await page.locator('.home-sector-link:visible').count()===6,'Sector links not visible');
     check(await page.locator('.article:visible').count()===3,'Featured articles not visible');
+    check(await page.locator('.article img').count()===3,'Research images missing');
+    if(width===390){
+      const launch=page.locator('[data-founder-open]');
+      const dialog=page.locator('.founder-dialog');
+      const audio=dialog.locator('audio');
+      await launch.click();
+      check(await dialog.isVisible(),'Founder introduction did not open');
+      await page.waitForFunction(()=>document.querySelector('.founder-dialog audio').currentTime>0);
+      check((await audio.getAttribute('src')).endsWith('founder-ka.mp3'),'Georgian introduction did not start');
+      check(await dialog.locator('[data-founder-copy="ka"]').isVisible(),'Georgian transcript missing');
+      await dialog.locator('[data-founder-language="en"]').click();
+      await page.waitForFunction(()=>{const audio=document.querySelector('.founder-dialog audio');return audio.currentSrc.endsWith('founder-en.mp3')&&audio.currentTime>0;});
+      check(await dialog.locator('[data-founder-copy="en"]').isVisible(),'English transcript missing');
+      await page.keyboard.press('Escape');
+      await dialog.waitFor({state:'hidden'});
+      await page.waitForFunction(()=>document.querySelector('.founder-dialog audio').paused);
+      check(await audio.evaluate(player=>player.paused),'Closing the introduction did not pause playback');
+    }
     if(width<=920){await page.locator('.menu-btn').click();check(await page.locator('.nav').isVisible(),'Mobile navigation failed');await page.locator('.menu-btn').click();}
     const form=page.locator('#enquiry-form');await form.locator('[name="name"]').fill('Test User');await form.locator('[name="email"]').fill('test@example.invalid');await form.locator('[name="area"]').selectOption({index:1});await form.locator('[name="matter"]').fill('Test enquiry. Do not send.');
     const before=requests.length;await form.locator('button[type="submit"]').click();
@@ -86,7 +107,7 @@ try{
     const photo=feature.locator('img');
     await photo.scrollIntoViewIfNeeded();
     await photo.evaluate(image=>image.decode());
-    check(await photo.evaluate(image=>image.naturalWidth===1400),'Tbilisi photograph failed');
+    check(await photo.evaluate(image=>image.naturalWidth===1120),'Cross-border advice photograph failed');
     await feature.locator('.dlg-international-link').click();
     await page.waitForURL(base+prefix+'/business/georgia/');
     await overflow(page,width,prefix+'/business/georgia/');

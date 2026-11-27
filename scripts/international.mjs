@@ -11,10 +11,10 @@ export const georgiaPage = {
 
 const link = (url, ka, en, className = 'text-link') => `<a class="${className}" href="${url}" data-site-link>${tr(ka, en)} <span aria-hidden="true">↗</span></a>`;
 
-function tbilisiPhoto() {
-  return `<figure class="dlg-georgia-photo">
-    <img src="/assets/editorial/tbilisi-panorama.webp" alt="თბილისის ხედი ნარიყალადან" data-en-alt="Tbilisi viewed from Narikala" width="1400" height="520" loading="lazy" decoding="async">
-    <figcaption>${tr('თბილისი, საქართველო', 'Tbilisi, Georgia')} <span><a href="https://commons.wikimedia.org/wiki/File:Tbilisi_Sunset_Panorama.jpg">Jan Stępień</a> · <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a> · ${tr('ამოჭრილი ფრაგმენტი', 'cropped')}</span></figcaption>
+function crossBorderPhoto() {
+  return `<!-- Photo by Sora Shimazaki. Pexels 5673468. -->
+  <figure class="dlg-georgia-photo">
+    <img src="/assets/editorial/cross-border-advice.webp" alt="სამუშაო შეხვედრაზე გუნდი დოკუმენტებს განიხილავს" data-en-alt="A team reviewing documents in a working meeting" width="1120" height="622" loading="lazy" decoding="async">
   </figure>`;
 }
 
@@ -27,7 +27,7 @@ export function internationalFeature() {
         ${tr('ვმუშაობთ უცხოურ კომპანიებთან და მათ იურიდიულ გუნდებთან. დაგეხმარებით საქმიანობის ფორმის შერჩევაში, ადგილობრივ ხელშეკრულებებსა და ქართული რეგულაციების შეფასებაში.', 'We work with international companies and their in-house teams on market entry, local contracts and Georgian regulatory questions.', 'p', 'dlg-international-copy')}
         ${link(georgiaPage.route, 'იურიდიული მხარდაჭერა საქართველოში', 'Explore our Georgian legal services', 'primary dlg-international-link')}
       </div>
-      ${tbilisiPhoto()}
+      ${crossBorderPhoto()}
     </div>
   </section>`;
 }
@@ -62,7 +62,7 @@ export function georgiaEntryPage() {
         ${tr(summary.ka, summary.en, 'p', 'digital-lead')}
         ${link('/contact/?area=georgia-market-entry', 'განვიხილოთ თქვენი პროექტი', 'Discuss your Georgia project', 'button button-primary dlg-international-link')}
       </div>
-      ${tbilisiPhoto()}
+      ${crossBorderPhoto()}
     </div>
   </section>
   <section class="digital-section dlg-georgia-scope" aria-labelledby="georgia-scope-heading">

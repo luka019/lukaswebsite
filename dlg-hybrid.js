@@ -70,3 +70,46 @@ form.addEventListener('submit', event => {
   draft.hidden = false;
 });
 form.hidden = false;
+
+const founderDialog = document.querySelector('.founder-dialog');
+const founderTrigger = document.querySelector('[data-founder-open]');
+const introduction = founderDialog.querySelector('audio');
+const audioLanguages = [...founderDialog.querySelectorAll('[data-founder-language]')];
+const transcripts = [...founderDialog.querySelectorAll('[data-founder-copy]')];
+
+function playIntroduction(language) {
+  audioLanguages.forEach(button => {
+    button.setAttribute('aria-pressed', String(button.dataset.founderLanguage === language));
+  });
+  transcripts.forEach(transcript => {
+    transcript.hidden = transcript.dataset.founderCopy !== language;
+  });
+  introduction.lang = language;
+  const recording = '/assets/audio/founder-' + language + '.mp3';
+  if (introduction.getAttribute('src') !== recording) {
+    introduction.src = recording;
+  } else {
+    introduction.currentTime = 0;
+  }
+  introduction.play().catch(() => {
+    // Native playback controls and the transcript remain available.
+  });
+}
+
+audioLanguages.forEach(button => button.addEventListener('click', () => {
+  playIntroduction(button.dataset.founderLanguage);
+}));
+founderTrigger.addEventListener('click', () => {
+  founderDialog.showModal();
+  playIntroduction(english ? 'en' : 'ka');
+});
+founderDialog.addEventListener('close', () => {
+  introduction.pause();
+});
+introduction.addEventListener('playing', () => {
+  founderDialog.classList.add('is-speaking');
+});
+['pause', 'ended', 'emptied', 'error'].forEach(event => {
+  introduction.addEventListener(event, () => founderDialog.classList.remove('is-speaking'));
+});
+founderTrigger.hidden = typeof founderDialog.showModal !== 'function';

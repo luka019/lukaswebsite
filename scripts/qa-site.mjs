@@ -20,8 +20,8 @@ for(const [page,lang] of [[home,'ka'],[englishHome,'en']]){
  assert((page.match(/data-tab="\d+"/g)||[]).length===4,'Four advisory tabs required');
 
  assert((page.match(/class="home-sector-link"/g)||[]).length===6,'Six visible sector routes required');
- assert(page.includes('class="hero-photo"')&&page.includes('src="/assets/editorial/technology-law-work.webp"')&&page.includes('technology-law-work-small.webp 640w')&&page.includes('fetchpriority="high"'),'Responsive technology-law photograph required');
- assert(page.includes('src="/assets/editorial/ai-advisory-review.webp"'),'AI advisory photograph missing');
+ assert(page.includes('class="hero-photo"')&&page.includes('src="/assets/editorial/law-technology-touch.webp"')&&page.includes('law-technology-touch-small.webp 640w')&&page.includes('fetchpriority="high"'),'Responsive technology-law photograph required');
+ assert(page.includes('src="/assets/editorial/ai-workflow.webp"'),'AI advisory photograph missing');
  assert((page.match(/class="practice-glyph"/g)||[]).length===6,'Six practice icons required');
  assert((page.match(/role="tabpanel"/g)||[]).length===4,'Four advisory outcomes required');
  assert((page.match(/class="article"/g)||[]).length===3,'Three featured research links required');
@@ -138,6 +138,14 @@ assert(aboutProfile.includes('თანადამფუძნებელი �
 assert(aboutProfile.includes('იურიდიული მიმართულების ხელმძღვანელი')&&aboutEn.includes('Head of Legal'),'LegalStepy role missing');
 for(const p of ['founder-portrait','london-tech-week-2026','chevening-conference-2026']){const b=fs.readFileSync(path.join(root,'assets/profile/'+p+'.webp'));assert(b.toString('ascii',0,4)==='RIFF'&&b.toString('ascii',8,12)==='WEBP','Invalid portrait asset '+p);}
 assert(home.includes('class="wrap home-founder-reference"')&&englishHome.includes('class="wrap home-founder-reference"'),'Homepage founder missing');
+for(const lang of ['ka','en']){
+ const data=fs.readFileSync(path.join(root,'assets/audio/founder-'+lang+'.mp3'));
+ assert(data.length>10000,'Founder introduction recording missing '+lang);
+}
+for(const page of [home,englishHome,file('business/georgia/index.html'),file('en/business/georgia/index.html')]){
+ assert(!page.includes('Jan Stępień')&&!page.includes('tbilisi-panorama.webp'),'Retired photo attribution remains visible');
+}
+
 assert(directory.includes('id="engagement-fees"')&&directoryEn.includes('id="engagement-fees"'),'Fee arrangements missing');
 const fees=file('fees/index.html'),feesEn=file('en/fees/index.html');assert((fees.match(/class="dlg-fee-model"/g)||[]).length===3&&(feesEn.match(/class="dlg-fee-model"/g)||[]).length===3,'Three fee models required on dedicated fee pages');
 assert([directory,directoryEn,fees,feesEn].every(p=>!/₾|\bGEL\s*[\d,]+/.test(p)),'No numerical fees until approved');
