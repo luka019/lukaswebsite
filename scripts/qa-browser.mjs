@@ -42,6 +42,9 @@ try{
     const response=await page.goto(base+'/',{waitUntil:'networkidle'});
     check(response.status()===200,'Homepage HTTP error');
     await overflow(page,width,'/');
+    check(await page.locator('.dlg-home-firm-copy').count()===1&&await page.locator('.dlg-home-founder-card').count()===1,'Firm-first homepage introduction missing');
+    check(await page.locator('.dlg-home-firm-principles a').count()===3,'Firm approach links missing');
+    check((await page.locator('.dlg-home-founder-card').evaluate(el=>el.getBoundingClientRect().width))<=width,'Founder introduction overflows');
     check((await page.locator('.practice-card').count())===6,'Six practice cards missing');
     const serviceRoutes=["/services/ai/","/services/privacy-and-cybersecurity/","/services/contracts/","/services/digital-products-and-ip/","/services/fintech-and-financial-regulation/","/services/corporate-and-commercial/"];
     for(let i=0;i<serviceRoutes.length;i++)check(await page.locator('.practice-card').nth(i).getAttribute('href')===serviceRoutes[i],'Homepage direct route '+i);
@@ -142,6 +145,8 @@ try{
   await noJs.close();
   const reduced=await browser.newPage({viewport:{width:390,height:844},reducedMotion:'reduce'});
   await reduced.goto(base+'/',{waitUntil:'networkidle'});
+  check(await reduced.locator('.dlg-home-founder-card').count()===1,'Reduced motion must preserve founder content');
+  check(await reduced.evaluate(()=>document.getAnimations().length===0),'Reduced-motion page must not run entrance animations');
   check((await reduced.locator('.hero h1').isVisible()),'Reduced motion hides the hero');
   check((await reduced.locator('.practice-card').count())===6,'Reduced motion hides services');
   check(await reduced.locator('.hero-photo img').isVisible(),'Reduced motion hides the hero photograph');
