@@ -382,3 +382,92 @@ body:has(.masthead) .hero-photo::after {
     background:linear-gradient(180deg,#f7f9fb44 0%,transparent 19%);
   }
 }
+
+
+/* Unified blue-grey masthead and editorial hero with integrated crossfade imagery. */
+:root { --dlg-hero-tone:#dce6ed; --dlg-hero-ink:#102b40; }
+body:has(.masthead) .masthead,
+body.resource-page .site-header.law-header {
+  background:var(--dlg-hero-tone); color:var(--dlg-hero-ink);
+  border-bottom:1px solid #b4c7d544;
+}
+.masthead .nav a,body.resource-page .site-header .law-nav>a { color:#18364d; }
+.masthead .nav a:hover,body.resource-page .site-header .law-nav>a:hover { color:#234f75; }
+.masthead .brand-name { border-color:#9eb5c6; }
+body:has(.masthead) .hero {
+  background:var(--dlg-hero-tone); color:var(--dlg-hero-ink);
+  border-bottom:1px solid #c1d0dc;
+}
+body:has(.masthead) .hero-inner {
+  min-height:clamp(490px,43vw,620px);
+  grid-template-columns:minmax(0,1fr) minmax(0,1.12fr);
+  width:min(1540px,100%); overflow:hidden;
+}
+body:has(.masthead) .hero h1 { color:var(--dlg-hero-ink); }
+body:has(.masthead) .hero h1 em { color:#315f85; }
+body:has(.masthead) .hero .intro { color:#304c61; }
+body:has(.masthead) .hero-location { color:#425d71; }
+.hero-title .eyebrow::after { background:#315f85; }
+body:has(.masthead) .hero-photo {
+  background:var(--dlg-hero-tone); isolation:isolate;
+}
+body:has(.masthead) .hero-photo img {
+  z-index:0; object-position:50% 50%; filter:saturate(.86);
+  transition:opacity 1.15s ease-in-out;
+}
+.hero-photo .dlg-hero-layer {
+  position:absolute; z-index:1; inset:0; opacity:0; pointer-events:none;
+  background-size:cover; background-position:center;
+  transition:opacity 1.15s ease-in-out;
+}
+.hero-photo .dlg-hero-layer--architecture {
+  background-image:url('/assets/editorial/dlg-architectural-planes.svg');
+  background-position:50% 50%;
+}
+.hero-photo .dlg-hero-layer--practice {
+  background-image:url('/assets/editorial/legal-technology-review.jpg');
+  background-position:50% 48%;
+  filter:saturate(.55);
+}
+.hero-photo[data-dlg-slide="1"] .dlg-hero-layer--architecture,
+.hero-photo[data-dlg-slide="2"] .dlg-hero-layer--practice { opacity:1; }
+body:has(.masthead) .hero-photo::after {
+  z-index:2; background:
+    linear-gradient(90deg,var(--dlg-hero-tone) 0%,#dce6edf7 5%,#dce6edb8 15%,#dce6ed40 29%,transparent 48%),
+    linear-gradient(0deg,#dce6ed8c 0%,transparent 24%);
+}
+.hero-photo .dlg-hero-controls {
+  position:absolute; right:clamp(18px,3.2vw,48px); bottom:clamp(16px,2.2vw,32px);
+  z-index:3; display:flex; align-items:center; gap:3px;
+  background:#dce6edf5; color:#102b40;
+  border:1px solid #9bb2c3;
+  padding:3px 6px;
+}
+.dlg-hero-controls .dlg-hero-count {
+  min-width:44px; padding:0 8px; font:600 .71rem/1.3 DLGLatin,Arial,sans-serif;
+  letter-spacing:.04em; font-variant-numeric:tabular-nums;
+}
+.dlg-hero-controls button {
+  background:transparent; color:#102b40; border:0; border-left:1px solid #9bb2c3;
+  min-height:44px; min-width:44px; padding:5px 10px; font-weight:600; font-size:.73rem;
+}
+.dlg-hero-controls button:hover { background:#c3d4e0; }
+.dlg-hero-controls button:focus-visible { outline:2px solid #234f75; outline-offset:2px; }
+@media(max-width:920px) {
+  .masthead .nav,body.resource-page .site-header .site-nav.law-nav.open {
+    background:var(--dlg-hero-tone); border-color:#a9becd;
+  }
+  .masthead .nav a { border-color:#b6c9d5; }
+  body:has(.masthead) .hero-inner { min-height:460px; }
+}
+@media(max-width:740px) {
+  body:has(.masthead) .hero-inner { min-height:0; grid-template-columns:minmax(0,1fr); }
+  body:has(.masthead) .hero-photo { aspect-ratio:1.65; }
+  body:has(.masthead) .hero-photo::after {
+    background:linear-gradient(180deg,var(--dlg-hero-tone) 0%,#dce6ed85 9%,transparent 28%),linear-gradient(0deg,#dce6ed66,transparent 24%);
+  }
+  .hero-photo .dlg-hero-controls { right:12px; bottom:12px; }
+}
+@media(prefers-reduced-motion:reduce) {
+  .hero-photo .dlg-hero-layer,body:has(.masthead) .hero-photo img { transition:none; }
+}
