@@ -47,7 +47,9 @@ try{
     check((await page.locator('.dlg-home-founder-card').evaluate(el=>el.getBoundingClientRect().width))<=width,'Founder introduction overflows');
     check(await page.locator('.dlg-practice-directory').count()===1&&await page.locator('.dlg-practice-stage').count()===0,'Compact practice directory required');
     check(await page.locator('.dlg-practice-directory').evaluate(el=>getComputedStyle(el).gridTemplateColumns.split(' ').length)===(width>850?2:1),'Practice directory must use responsive columns');
-    await page.locator('.practice-card').nth(2).focus();check(await page.locator('.practice-card').nth(2).evaluate(el=>document.activeElement===el),'Practice links must remain keyboard accessible');
+    await page.locator('.dlg-practice-summary').nth(2).focus();await page.keyboard.press('Enter');check(await page.locator('.dlg-practice-entry').nth(2).getAttribute('open')!==null,'Keyboard must expand legal practice');
+    check(await page.locator('.dlg-practice-entry').nth(2).locator('.practice-card').isVisible(),'Expanded legal practice link must be visible');
+    await page.keyboard.press('Enter');
     check((await page.locator('.practice-card').count())===6,'Six practice cards missing');
     const serviceRoutes=["/services/ai/","/services/privacy-and-cybersecurity/","/services/contracts/","/services/digital-products-and-ip/","/services/fintech-and-financial-regulation/","/services/corporate-and-commercial/"];
     for(let i=0;i<serviceRoutes.length;i++)check(await page.locator('.practice-card').nth(i).getAttribute('href')===serviceRoutes[i],'Homepage direct route '+i);
@@ -62,7 +64,14 @@ try{
     check(articleColumns===(width>740?3:1),'Publication grid must reflow for mobile');
     check(await heroPhoto.evaluate(image=>image.naturalWidth>0&&image.getBoundingClientRect().width>0),'Hero photograph failed to render');
     check((await heroPhoto.getAttribute('alt')).length>20,'Hero photograph needs descriptive alt text');
-    check((await page.locator('.practice-glyph').count())===6,'Six functional icons required');
+    check(await page.locator('.dlg-practice-summary').count()===6,'Six expandable legal practice areas required');
+    const finder=page.locator('#dlg-legal-finder');await page.locator('.dlg-matter-finder').click();
+    check(await finder.isVisible(),'Legal finder must open');
+    await finder.locator('input').fill('VASP');check(await finder.locator('.dlg-finder-result:visible').count()===1,'VASP search must resolve to one practice');
+    check(await finder.locator('.dlg-finder-result:visible a').getAttribute('href')==='/services/virtual-assets/','VASP finder route incorrect');
+    await finder.locator('[data-dlg-filter="sector"]').click();check(await finder.locator('.dlg-finder-empty').isVisible(),'Empty filtered search state missing');
+    await page.keyboard.press('Escape');check(!(await finder.isVisible()),'Escape must close legal finder');
+    check(await page.locator('.dlg-matter-finder').evaluate(el=>document.activeElement===el),'Finder must restore focus');
     check(await page.locator('.advisory-tabs, #advisory-heading').count()===0,'Retired homepage AI module is still present');
     check(await page.locator('.home-sector-link:visible').count()===6,'Sector links not visible');
     check(await page.locator('.article:visible').count()===3,'Featured articles not visible');
@@ -78,6 +87,7 @@ try{
     check((await page.locator('html').getAttribute('lang'))==='en','English language link failed');
     check((await page.locator('h1').innerText()).replace(/\s+/g,' ').trim()==='Legal services for digital businesses.','English headline missing');
     check(await page.locator('.matter-nav a').first().getAttribute('href')==='/en/advisory/','English advisory route failed');
+    await page.locator('.dlg-matter-finder').click();await page.locator('#dlg-finder-input').fill('VASP');check(await page.locator('.dlg-finder-result:visible a').getAttribute('href')==='/en/services/virtual-assets/','English legal search route failed');await page.keyboard.press('Escape');
     await page.locator('[data-language-link="ka"]').click();await page.waitForURL(base+'/');
     await overflow(page,width,'/');check(errors.length===0,'Page script errors '+errors.join('; '));
     if([390,1440].includes(width))await page.screenshot({path:path.join(screenshots,'home-'+width+'.png'),fullPage:true});
