@@ -30,18 +30,18 @@ for(const [page,lang] of [[home,'ka'],[englishHome,'en']]){
  assert(!/founder-hologram|founder-dialog|data-founder-open/.test(page),'Removed founder presentation is still present');
  assert((page.match(/class="article"/g)||[]).length===3,'Three featured research links required');
  assert(page.includes('class="matter-nav"')&&page.includes('class="engagement-steps"'),'Client entry points and engagement steps required');
- assert(page.includes('class="enquiry-form"')&&page.includes('id="enquiry-mailto"'),'Enquiry composer missing');
+ assert(page.includes('class="enquiry-form"')&&page.includes('id="enquiry-mailto"')&&page.includes('<details class="contact-form-disclosure">'),'Progressively disclosed enquiry composer missing');
  assert(!page.includes('/assets/editorial/architectural-interior.webp')&&!page.includes('/assets/editorial/legal-technology-workspace.webp'),'Synthetic office imagery must not appear on homepage');
  assert(page.includes('src="/assets/profile/founder-portrait.webp"'),'Authentic founder portrait required');
  assert(!page.includes('images.pexels.com')&&!page.includes('r0lodtw2w'),'No external preview or stock-image dependency');
  assert(page.includes('href="/" data-language-link="ka"')||page.includes('data-language-link="ka"'),'Georgian language link required');
  assert(page.includes('href="/en/"'),'Static English language link required');
- const ordered=['id="expertise"','id="georgia-business"','id="about"','id="sectors"','id="insights"','id="contact"'];assert(ordered.every((id,i)=>page.indexOf(id)>=0&&(!i||page.indexOf(ordered[i-1])<page.indexOf(id))),'Approved homepage order missing');
+ const ordered=['id="expertise"','id="sectors"','id="georgia-business"','id="about"','id="insights"','id="engagement"','id="contact"'];assert(ordered.every((id,i)=>page.indexOf(id)>=0&&(!i||page.indexOf(ordered[i-1])<page.indexOf(id))),'Approved homepage order missing');
  assert(page.includes('href="https://arxiv.org/abs/2607.21345"'),'Research link missing');
  assert(page.includes('href="mailto:digitallawgeorgia@gmail.com"')&&page.includes('https://wa.me/995598451132'),'Contact links missing');
 }
 for(const slug of ['practice-collaboration','legal-technology-review']){const photo=fs.readFileSync(path.join(root,'assets/editorial/'+slug+'.jpg'));assert(photo.length>10000&&photo[0]===255&&photo[1]===216,'Invalid editorial photograph '+slug);}
-assert(englishHome.includes('Legal services')&&englishHome.includes('for digital businesses.')&&(englishHome.includes('We advise Georgian and international companies on technology and commercial law as they develop digital products, adopt new technologies or operate in regulated markets.') || englishHome.includes('We help Georgian and international companies negotiate technology contracts, adopt AI, protect data and set up operations in Georgia.')),'English hero must be server rendered');
+assert(englishHome.includes('Legal services')&&englishHome.includes('for digital businesses.')&&(englishHome.includes('We advise Georgian and international businesses on technology and commercial law.') || englishHome.includes('We help Georgian and international companies negotiate technology contracts, adopt AI, protect data and set up operations in Georgia.')),'English hero must be server rendered');
 assert(home.includes('იურიდიული მომსახურება')&&home.includes('ციფრული ბიზნესისთვის.'),'Georgian hero must be server rendered');
 assert(home.includes('უსაფრთხო არხის შეთანხმებამდე'),'Default advice and enquiry privacy instructions missing');
 assert(!home.includes('LegalStepy')&&!home.includes('Sopho'),'Independent brand required');
@@ -166,7 +166,7 @@ assert(file('services/data-protection/index.html').includes('მონაცე�
 assert(file('services/virtual-assets/index.html').includes('ვირტუალური აქტივის მომსახურების პროვაიდერი'),'Statutory VASP terminology missing');
 assert(file('advisory/ai-governance-implementation/index.html').includes('პრობლემის შესახებ პასუხისმგებელი პირის ინფორმირების წესი'),'Localised AI governance procedure missing');
 assert(!file('advisory/ai-governance-implementation/index.html').includes('პრობლემების ესკალაცია'),'Retired translation must not return');
-for(const [slug,cover] of [['ai-pilot-at-work','ai-governance-editorial.jpg'],['technology-contract-review','contracts-editorial.jpg'],['supplier-data-review','suppliers-editorial.jpg']]){for(const lang of ['','en/']){const article=file(lang+'resources/'+slug+'/index.html');assert(article.includes('/assets/resources/'+cover),'Article editorial image missing: '+lang+slug);}}
+for(const [slug,cover] of [['ai-pilot-at-work','dlg-ai-governance.svg'],['technology-contract-review','dlg-contracts.svg'],['supplier-data-review','dlg-data-protection.svg']]){for(const lang of ['','en/']){const article=file(lang+'resources/'+slug+'/index.html');assert(article.includes('/assets/resources/'+cover),'Article editorial image missing: '+lang+slug);}}
 
 assert(file('en/business/international/index.html').includes('International Expansion &amp; Client Readiness'),'English must be pre-rendered');
 const pagesByPath=new Map(publicHtml.map(name=>[path.resolve(name),fs.readFileSync(name,'utf8')]));
