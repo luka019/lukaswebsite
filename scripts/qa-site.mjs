@@ -152,8 +152,13 @@ for(const page of [home,englishHome,file('business/georgia/index.html'),file('en
 assert(directory.includes('id="engagement-fees"')&&directoryEn.includes('id="engagement-fees"'),'Fee arrangements missing');
 const fees=file('fees/index.html'),feesEn=file('en/fees/index.html');assert((fees.match(/class="dlg-fee-model"/g)||[]).length===3&&(feesEn.match(/class="dlg-fee-model"/g)||[]).length===3,'Three fee models required on dedicated fee pages');
 assert([directory,directoryEn,fees,feesEn].every(p=>!/₾|\bGEL\s*[\d,]+/.test(p)),'No numerical fees until approved');
+assert(home.includes('href="/about/#selected-experience"')&&englishHome.includes('href="/en/about/#selected-experience"'),'Selected experience must be discoverable in both languages');
+assert(aboutProfile.includes('id="selected-experience"')&&aboutEn.includes('id="selected-experience"'),'Selected experience missing');
+assert(home.includes('class="home-research-note"')&&englishHome.includes('class="home-research-note"'),'Published research link missing');
+assert(home.includes('id="enquiry-copy"')&&englishHome.includes('id="enquiry-copy"')&&hybridJs.includes('navigator.clipboard.writeText(copyText)'),'Local enquiry copy control missing');
+assert(home.includes('href="tel:+995598451132"'),'Direct telephone link missing');
 assert(home.includes('href="/fees/"')&&englishHome.includes('href="/en/fees/"'),'Fee information discoverability missing');
-for(const prefix of ['','en/']){const contact=file(prefix+'contact/index.html');assert(contact.includes('id="contact-page-form"')&&contact.includes('id="contact-page-mailto"'),'Contact form missing '+prefix);}
+for(const prefix of ['','en/']){const contact=file(prefix+'contact/index.html');assert(contact.includes('id="contact-page-form"')&&contact.includes('id="contact-page-mailto"')&&contact.includes('id="contact-page-copy"')&&contact.includes('href="tel:+995598451132"'),'Contact form missing '+prefix);}
 assert(aboutProfile.includes('Queen Mary')&&aboutProfile.includes('Chevening')&&aboutProfile.includes('LLM with Distinction')&&!aboutProfile.includes('<strong>IAPP · AIGP</strong>'),'Founder credentials must remain on the profile');
 
 assert(!visibleHome.includes('LLM · Distinction')&&!visibleHome.includes('Queen Mary')&&!visibleHome.includes('Chevening'),'Personal qualifications belong on the profile, not visible homepage content');
