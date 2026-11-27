@@ -1,0 +1,99 @@
+
+/* Refined interaction and editorial hierarchy, preserving the approved DLG preview. */
+:root{--dlg-polish-ink:#102b40;--dlg-polish-blue:#315f85;--dlg-polish-muted:#435e72;--dlg-polish-rule:#bdcdd9;--dlg-polish-light:#f2f6f8;--dlg-polish-ease:cubic-bezier(.22,.61,.36,1)}
+/* Keep navigation stable: no collapsing header or layout shift. */
+.masthead,.site-header.law-header{transition:box-shadow .22s ease,border-color .22s ease}
+.masthead.dlg-scrolled,.site-header.law-header.dlg-scrolled{box-shadow:0 5px 18px #102b400c;border-bottom-color:#b4c7d5}
+.masthead .nav>a,body.resource-page .site-header .law-nav>a:not(.law-nav-mobile-client):not(.law-nav-mobile-cta){position:relative;text-decoration:none}
+@media(min-width:951px) and (hover:hover){
+ .masthead .nav>a::after,body.resource-page .site-header .law-nav>a:not(.law-nav-mobile-client):not(.law-nav-mobile-cta)::after{content:"";position:absolute;left:0;right:0;bottom:4px;height:1px;background:currentColor;transform:scaleX(0);transform-origin:left;transition:transform .23s var(--dlg-polish-ease)}
+ .masthead .nav>a:hover::after,body.resource-page .site-header .law-nav>a:hover::after,.masthead .nav>a[aria-current=page]::after,body.resource-page .site-header .law-nav>a[aria-current=page]::after{transform:scaleX(1)}
+}
+/* Firm-first homepage. Authentic portrait sits with the founder's compact profile. */
+body:has(.masthead) #about{background:#fff;padding-block:clamp(42px,5vw,70px);border-top:1px solid #dbe5ed;border-bottom:1px solid #dbe5ed}
+body:has(.masthead) #about .home-founder-reference{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.95fr);align-items:center;gap:clamp(30px,5vw,72px)}
+.dlg-home-firm-copy{min-width:0}
+body:has(.masthead) #about .dlg-home-firm-copy .eyebrow{margin:0 0 13px;color:var(--dlg-polish-blue);font-size:.72rem;letter-spacing:.045em}
+body:has(.masthead) #about .dlg-home-firm-copy h2{font-size:clamp(1.48rem,2.55vw,2.25rem);font-weight:600;line-height:1.4;margin:0 0 16px;max-width:28ch;letter-spacing:-.025em}
+body:has(.masthead) #about .dlg-home-firm-copy .dlg-home-firm-lead{font-size:.94rem;line-height:1.78;color:var(--dlg-polish-muted);margin:0 0 11px;max-width:62ch}
+body:has(.masthead) #about .dlg-home-firm-copy .inline-links{margin-top:20px;gap:12px 24px}
+.dlg-home-founder-card{display:grid;grid-template-columns:minmax(100px,156px) minmax(0,1fr);gap:clamp(16px,2.6vw,29px);align-items:center;min-width:0;background:var(--dlg-polish-light);border:1px solid #d5e1e9;padding:clamp(16px,2.3vw,27px)}
+body:has(.masthead) #about .dlg-home-founder-card .founder-feature{width:100%;max-width:none;margin:0;overflow:hidden;align-self:center}
+body:has(.masthead) #about .dlg-home-founder-card .founder-feature img{display:block;width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;object-position:center 25%;border:0}
+.dlg-home-founder-copy{min-width:0}
+body:has(.masthead) #about .dlg-home-founder-copy .eyebrow{font-size:.68rem;margin:0 0 8px;color:var(--dlg-polish-blue);letter-spacing:.04em}
+body:has(.masthead) #about .dlg-home-founder-copy h3{font-size:clamp(.98rem,1.45vw,1.24rem);font-weight:650;line-height:1.45;margin:0 0 6px;font-family:inherit}
+body:has(.masthead) #about .dlg-home-founder-copy .founder-role{font-size:.78rem;font-weight:600;line-height:1.55;color:var(--dlg-polish-ink);margin:0 0 9px}
+body:has(.masthead) #about .dlg-home-founder-copy .founder-credentials{margin:0 0 12px;display:block}
+body:has(.masthead) #about .dlg-home-founder-copy .founder-credentials p{font-size:.76rem;line-height:1.64;color:var(--dlg-polish-muted);margin:0}
+body:has(.masthead) #about .dlg-home-founder-copy .text-link{font-size:.75rem}
+.dlg-home-firm-principles{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));margin-top:clamp(25px,3.5vw,43px);border-block:1px solid var(--dlg-polish-rule)}
+.dlg-home-firm-principles a{display:grid;grid-template-columns:24px minmax(0,1fr) 14px;gap:12px;align-items:center;min-height:67px;padding:13px 17px;color:var(--dlg-polish-ink);transition:background .22s ease}
+.dlg-home-firm-principles a:first-child{padding-inline-start:0}
+.dlg-home-firm-principles a+a{border-left:1px solid var(--dlg-polish-rule)}
+.dlg-home-firm-principles strong{font-size:.79rem;font-weight:600;line-height:1.55}
+.dlg-firm-principle-index{font:400 .83rem/1 Georgia,serif;color:var(--dlg-polish-blue)}
+.dlg-home-firm-principles a>span:last-child{color:var(--dlg-polish-blue)}
+.dlg-home-firm-principles a:hover{background:#edf3f7}
+.dlg-home-firm-principles a:hover strong{text-decoration:underline;text-underline-offset:4px}
+.dlg-home-firm-principles a:focus-visible{outline-offset:-3px}
+/* A more balanced interior About page, using the existing artwork and colour scheme. */
+body.resource-page .digital-site .dlg-about-hero-grid{grid-template-columns:minmax(0,1.12fr) minmax(0,.88fr);min-height:0;align-items:center;gap:clamp(28px,4vw,58px);padding-block:clamp(26px,4vw,47px)}
+body.resource-page .digital-site .dlg-about-hero-copy{padding:12px 0}
+body.resource-page .digital-site .dlg-about-hero h1{font-size:clamp(1.85rem,3.15vw,3rem);line-height:1.35!important;max-width:24ch;margin-bottom:16px}
+body.resource-page .digital-site .dlg-about-hero .digital-lead{font-size:.96rem;line-height:1.76;max-width:58ch;margin-bottom:20px}
+body.resource-page .digital-site .dlg-about-hero-art{min-height:0;aspect-ratio:1.56;max-height:350px;width:100%;margin:0}
+body.resource-page .digital-site .dlg-about-hero-art img{object-fit:cover;object-position:50% 50%}
+body.resource-page .digital-site .dlg-firm-founder-grid{grid-template-columns:minmax(0,228px) minmax(0,1fr);gap:clamp(25px,5vw,65px);align-items:center}
+body.resource-page .digital-site .dlg-firm-founder-grid figure{max-width:228px;aspect-ratio:4/5}
+body.resource-page .digital-site .dlg-firm-founder-grid figure img{object-position:center 25%}
+body.resource-page .digital-site .dlg-firm-founder h2{font-size:clamp(1.4rem,2.4vw,2.05rem)}
+body.resource-page .digital-site .dlg-firm-founder p:not(.eyebrow){max-width:63ch}
+body.resource-page .digital-site .dlg-firm-intro{align-items:end}
+body.resource-page .digital-site .dlg-firm-intro h2{max-width:26ch}
+body.resource-page .digital-site .dlg-firm-principles article{border-top:1px solid var(--dlg-polish-rule);padding-top:16px}
+body.resource-page .digital-site .dlg-firm-knowledge-links a{transition:color .2s ease,background .2s ease}
+body.resource-page .digital-site .dlg-profile-hero-grid{grid-template-columns:minmax(0,242px) minmax(0,1fr)}
+body.resource-page .digital-site .dlg-profile-hero-grid figure{max-width:242px;aspect-ratio:4/5}
+/* Refined feedback on interactive elements. Never animate layout dimensions. */
+body:has(.masthead) .section-head h2,body.resource-page .digital-site .digital-heading h2{line-height:1.4;text-wrap:pretty}
+body:has(.masthead) .practice-card,body:has(.masthead) .matter-link,body:has(.masthead) .home-sector-link,body:has(.masthead) .article,body.resource-page .digital-site .dlg-area-card,body.resource-page .resource-card{transition:background-color .22s ease,border-color .22s ease,color .22s ease}
+body:has(.masthead) .practice-card>span:last-child,body:has(.masthead) .matter-link>span:last-child,body:has(.masthead) .home-sector-link>span:last-child,body:has(.masthead) .article>span:last-child,.dlg-home-firm-principles a>span:last-child,body.resource-page .dlg-arrow-icon{transition:transform .24s var(--dlg-polish-ease)}
+body:has(.masthead) .home-sector-media,body:has(.masthead) .home-article-media,body.resource-page .resource-cover,body.resource-page .dlg-sector-photo{overflow:hidden}
+body:has(.masthead) .home-sector-media img,body:has(.masthead) .home-article-media img,body.resource-page .resource-cover img,body.resource-page .dlg-sector-photo img{transition:transform .55s var(--dlg-polish-ease),filter .35s ease}
+@media(hover:hover) and (pointer:fine){
+ body:has(.masthead) .practice-card:hover,body:has(.masthead) .matter-link:hover{background-color:#eef4f8}
+ body:has(.masthead) .practice-card:hover>span:last-child,body:has(.masthead) .matter-link:hover>span:last-child,body:has(.masthead) .home-sector-link:hover>span:last-child,body:has(.masthead) .article:hover>span:last-child,.dlg-home-firm-principles a:hover>span:last-child,body.resource-page a:hover>.dlg-arrow-icon{transform:translate(3px,-3px)}
+ body:has(.masthead) .home-sector-link:hover .home-sector-media img,body:has(.masthead) .article:hover .home-article-media img,body.resource-page .resource-card:hover .resource-cover img,body.resource-page a:hover .dlg-sector-photo img{transform:scale(1.035)}
+}
+@media(prefers-reduced-motion:no-preference){
+ @view-transition{navigation:auto}
+ ::view-transition-old(root){animation:dlg-page-out 120ms ease both}
+ ::view-transition-new(root){animation:dlg-page-in 240ms var(--dlg-polish-ease) both}
+ @keyframes dlg-page-out{to{opacity:.55}}
+ @keyframes dlg-page-in{from{opacity:.72;transform:translateY(3px)}to{opacity:1;transform:none}}
+ @keyframes dlg-menu-in{from{opacity:.7;transform:translateY(-6px)}to{opacity:1;transform:none}}
+ .masthead .nav.open,body.resource-page .site-header .site-nav.law-nav.open{animation:dlg-menu-in .2s var(--dlg-polish-ease) both}
+}
+@media(max-width:1060px){
+ body:has(.masthead) #about .home-founder-reference{gap:27px;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr)}
+ .dlg-home-founder-card{grid-template-columns:minmax(80px,115px) minmax(0,1fr);padding:15px;gap:14px}
+ .dlg-home-firm-principles a{gap:8px;padding-inline:12px}
+}
+@media(max-width:740px){
+ body:has(.masthead) #about .home-founder-reference{grid-template-columns:minmax(0,1fr);gap:23px}
+ .dlg-home-founder-card{grid-template-columns:minmax(95px,138px) minmax(0,1fr);padding:17px;gap:17px}
+ .dlg-home-firm-principles{grid-template-columns:1fr;margin-top:25px}
+ .dlg-home-firm-principles a{min-height:53px;padding:10px 0}
+ .dlg-home-firm-principles a+a{border-left:0;border-top:1px solid var(--dlg-polish-rule)}
+ body.resource-page .digital-site .dlg-about-hero-grid,body.resource-page .digital-site .dlg-firm-founder-grid,body.resource-page .digital-site .dlg-profile-hero-grid{grid-template-columns:minmax(0,1fr);gap:20px}
+ body.resource-page .digital-site .dlg-about-hero-copy{padding:0}
+ body.resource-page .digital-site .dlg-about-hero-art{aspect-ratio:1.9;max-height:245px}
+ body.resource-page .digital-site .dlg-firm-founder-grid figure,body.resource-page .digital-site .dlg-profile-hero-grid figure{max-width:190px}
+}
+@media(max-width:360px){.dlg-home-founder-card{grid-template-columns:88px minmax(0,1fr);gap:12px;padding:13px}}
+@media(prefers-reduced-motion:reduce){
+ *,*::before,*::after{scroll-behavior:auto!important}
+ .masthead,.site-header.law-header,.practice-card,.matter-link,.home-sector-link,.article,.home-sector-media img,.home-article-media img,.resource-card,.resource-cover img,.dlg-arrow-icon,.dlg-home-firm-principles a,.dlg-home-firm-principles a>span:last-child,.dlg-sector-photo img,.nav.open,.site-nav.open{animation:none!important;transition:none!important}
+ .home-sector-link:hover .home-sector-media img,.article:hover .home-article-media img,.resource-card:hover .resource-cover img{transform:none!important}
+}
