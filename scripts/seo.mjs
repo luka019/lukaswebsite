@@ -53,10 +53,11 @@ export function finalizeSeo({out,siteUrl}){
  const knownPaths=new Set(files.map(routeOf));knownPaths.add('/');
  const graph=(route,lang,title,description,old)=>{
   const prefix=lang==='en'?'/en':'',url=siteUrl+prefix+route;
-  const person={'@type':'Person','@id':siteUrl+'/#luka',name:'Luka Shakhkulashvili',alternateName:'ლუკა შახყულაშვილი',url:siteUrl+prefix+'/about/',image:siteUrl+'/assets/profile/founder-portrait.webp',jobTitle:'Technology & Commercial Lawyer',sameAs:['https://www.linkedin.com/in/luka-shakhkulashvili/'],hasCredential:[{'@type':'EducationalOccupationalCredential',name:'LLM with Distinction, Technology, Media and Telecommunications Law',recognizedBy:{'@type':'CollegeOrUniversity',name:'Queen Mary University of London'}}]};
+  const person={'@type':'Person','@id':siteUrl+'/#luka',name:'Luka Shakhkulashvili',alternateName:'ლუკა შახყულაშვილი',url:siteUrl+prefix+'/about/founder/',image:siteUrl+'/assets/profile/founder-portrait.webp',jobTitle:'Technology & Commercial Lawyer',sameAs:['https://www.linkedin.com/in/luka-shakhkulashvili/'],hasCredential:[{'@type':'EducationalOccupationalCredential',name:'LLM with Distinction, Technology, Media and Telecommunications Law',recognizedBy:{'@type':'CollegeOrUniversity',name:'Queen Mary University of London'}}]};
   const provider={'@type':'LegalService','@id':siteUrl+'/#practice',name:'Digital Law Georgia',url:siteUrl+'/',email:'digitallawgeorgia@gmail.com',telephone:'+995598451132',founder:{'@id':person['@id']},areaServed:{'@type':'Country',name:'Georgia'},availableLanguage:['Georgian','English']};
-  const page={'@type':route==='/about/'?'ProfilePage':'WebPage','@id':url+'#page',url,name:title,description,inLanguage:lang,isPartOf:{'@id':siteUrl+'/#website'}};
-  if(route==='/about/'){page.mainEntity={'@id':person['@id']};person.affiliation=[{'@type':'Organization',name:'LegalTech Georgia',url:'https://legaltechgeorgia.com/about'},{'@type':'Organization',name:'LegalStepy'}];}
+  const page={'@type':route==='/about/founder/'?'ProfilePage':route==='/about/'?'AboutPage':'WebPage','@id':url+'#page',url,name:title,description,inLanguage:lang,isPartOf:{'@id':siteUrl+'/#website'}};
+  if(route==='/about/')page.mainEntity={'@id':provider['@id']};
+  if(route==='/about/founder/'){page.mainEntity={'@id':person['@id']};person.affiliation=[{'@type':'Organization',name:'LegalTech Georgia',url:'https://legaltechgeorgia.com/about'},{'@type':'Organization',name:'LegalStepy'}];}
   const nodes=[{'@type':'WebSite','@id':siteUrl+'/#website',name:'Digital Law Georgia',url:siteUrl+'/',inLanguage:['ka','en']},provider,person,page];
   if(route!=='/')nodes.push({'@type':'BreadcrumbList',itemListElement:[...parentsFor(route).map((p,i)=>({'@type':'ListItem',position:i+1,name:p.name[lang],item:siteUrl+prefix+p.url})),{'@type':'ListItem',position:parentsFor(route).length+1,name:title.split(' — Digital Law')[0],item:url}]});
   const practice=practices.find(p=>route===`/services/${p.slug}/`);
