@@ -137,9 +137,11 @@ for(const name of publicHtml){
  if(name.includes(path.sep+'en'+path.sep))assert(content.includes('<html lang="en"'),'English document language missing: '+name);
 }
 for(const p of ['business/','business/georgia/','business/international/','business/growing-business/','about/','services/legal-operations/'])file(p+'index.html');
-const aboutProfile=file('about/index.html');
-const aboutEn=file('en/about/index.html');
-for(const page of [aboutProfile,aboutEn]){assert(page.includes('LegalTech Georgia')&&page.includes('LegalStepy'),'Founder initiatives missing');assert(page.includes('https://legaltechgeorgia.com/about'),'Public LTG profile reference missing');for(const p of ['founder-portrait','london-tech-week-2026','chevening-conference-2026'])assert(page.includes('/assets/profile/'+p+'.webp'),'Profile photo missing '+p);}
+const firmAbout=file('about/index.html'),firmAboutEn=file('en/about/index.html');
+const aboutProfile=file('about/founder/index.html');
+const aboutEn=file('en/about/founder/index.html');
+for(const [page,prefix] of [[firmAbout,''],[firmAboutEn,'/en']]){assert(page.includes('class="dlg-about-hero"')&&page.includes('class="dlg-firm-principles"')&&page.includes('href="'+prefix+'/about/founder/"'),'Firm-first about page missing');const visible=page.replace(/<script\b[^>]*>[\s\S]*?<\/script>/gi,'');assert(!visible.includes('LegalTech Georgia')&&!visible.includes('LegalStepy')&&!visible.includes('Chevening'),'Firm page must not reproduce the founder CV');assert((page.match(/<h1\b/g)||[]).length===1,'One about-page H1 required');}
+for(const page of [aboutProfile,aboutEn]){assert(page.includes('LegalTech Georgia')&&page.includes('LegalStepy'),'Founder initiatives missing');assert(page.includes('https://legaltechgeorgia.com/about'),'Public LTG profile reference missing');assert(page.includes('/assets/profile/founder-portrait.webp'),'Authentic founder portrait missing');}
 assert(aboutProfile.includes('თანადამფუძნებელი და აღმასრულებელი დირექტორი')&&aboutEn.includes('Co-Founder &amp; Executive Director'),'LTG role missing');
 assert(aboutProfile.includes('იურიდიული მიმართულების ხელმძღვანელი')&&aboutEn.includes('Head of Legal'),'LegalStepy role missing');
 for(const p of ['founder-portrait','london-tech-week-2026','chevening-conference-2026']){const b=fs.readFileSync(path.join(root,'assets/profile/'+p+'.webp'));assert(b.toString('ascii',0,4)==='RIFF'&&b.toString('ascii',8,12)==='WEBP','Invalid portrait asset '+p);}
@@ -152,7 +154,7 @@ for(const page of [home,englishHome,file('business/georgia/index.html'),file('en
 assert(directory.includes('id="engagement-fees"')&&directoryEn.includes('id="engagement-fees"'),'Fee arrangements missing');
 const fees=file('fees/index.html'),feesEn=file('en/fees/index.html');assert((fees.match(/class="dlg-fee-model"/g)||[]).length===3&&(feesEn.match(/class="dlg-fee-model"/g)||[]).length===3,'Three fee models required on dedicated fee pages');
 assert([directory,directoryEn,fees,feesEn].every(p=>!/₾|\bGEL\s*[\d,]+/.test(p)),'No numerical fees until approved');
-assert(home.includes('href="/about/#selected-experience"')&&englishHome.includes('href="/en/about/#selected-experience"'),'Selected experience must be discoverable in both languages');
+assert(home.includes('href="/about/founder/"')&&englishHome.includes('href="/en/about/founder/"'),'Selected experience must be discoverable in both languages');
 assert(aboutProfile.includes('id="selected-experience"')&&aboutEn.includes('id="selected-experience"'),'Selected experience missing');
 assert(home.includes('class="home-research-note"')&&englishHome.includes('class="home-research-note"'),'Published research link missing');
 assert(home.includes('id="enquiry-copy"')&&englishHome.includes('id="enquiry-copy"')&&hybridJs.includes('navigator.clipboard.writeText(copyText)'),'Local enquiry copy control missing');
