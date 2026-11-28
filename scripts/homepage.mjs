@@ -55,14 +55,34 @@ function clientEntrances() {
 }
 
 
+// A signature law-and-technology illustration: a classical portico connected to a circuit.
+const advisoryArtwork=`<svg class="dlg-advisory-art" viewBox="0 0 430 230" fill="none" aria-hidden="true" focusable="false">
+ <g class="dlg-art-grid" stroke="#789aae" stroke-width=".65" opacity=".28"><path d="M20 45H410M20 80H410M20 115H410M20 150H410M20 185H410M60 20V210M95 20V210M130 20V210M165 20V210M200 20V210M235 20V210M270 20V210M305 20V210M340 20V210M375 20V210"/><circle cx="215" cy="115" r="89"/><circle cx="215" cy="115" r="108" stroke-dasharray="2 8"/></g>
+ <g class="dlg-art-circuit" stroke="#8ebbc8" stroke-width="1.3"><path d="M140 101H103L79 77H35M140 143H105L78 170H35M290 101H327L351 77H395M290 143H325L352 170H395M215 62V22M215 178V208"/><g fill="#143347"><circle cx="35" cy="77" r="4"/><circle cx="35" cy="170" r="4"/><circle cx="395" cy="77" r="4"/><circle cx="395" cy="170" r="4"/><circle cx="215" cy="22" r="4"/><circle cx="215" cy="208" r="4"/></g></g>
+ <g class="dlg-art-portico" stroke="#e1d1af" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m146 92 69-39 69 39H146Zm10 8h118M154 166h122M147 177h136M168 103v60m31-60v60m32-60v60m31-60v60"/><path d="M163 105h10m-10 56h10m21-56h10m-10 56h10m22-56h10m-10 56h10m21-56h10m-10 56h10"/><circle cx="215" cy="77" r="6"/></g>
+ <g class="dlg-art-signal" fill="#b1d9dd"><circle cx="103" cy="101" r="3"/><circle cx="325" cy="143" r="3"/><circle cx="215" cy="22" r="2"/></g>
+ </svg>`;
 function featuredAdvisory() {
  const offers=[
- ['/advisory/ai-governance-implementation/','AI-ის მართვის სისტემის დანერგვა','AI governance implementation','AI-ის პოლიტიკა, პასუხისმგებლობები და რისკების შეფასების პროცედურები.','AI policies, accountability and risk assessment procedures.'],
- ['/advisory/external-ai-technology-counsel/','მუდმივი იურიდიული მხარდაჭერა','External technology counsel','ტექნოლოგიური პროექტების, ხელშეკრულებებისა და რეგულაციების საკითხებზე.','Ongoing advice on technology projects, contracts and regulation.'],
- ['/services/georgia-market-entry/','საქართველოში საქმიანობის დაწყება','Georgia market entry','დაფუძნება, მარეგულირებელი მოთხოვნები და კომერციული საკითხები.','Company setup, regulatory requirements and commercial matters.'],
- ['/advisory/legal-ai-automation/','AI იურიდიულ საქმიანობაში','Legal AI transformation','სამუშაო პროცესების შეფასება, ინსტრუმენტების შერჩევა და დანერგვის გეგმა.','Workflow review, tool selection and implementation planning.']
+ ['/advisory/ai-governance-implementation/','AI-ის მართვის სისტემის დანერგვა','AI governance implementation','AI-ის პოლიტიკა, პასუხისმგებლობები და რისკების შეფასების პროცედურები.','AI policies, accountability and risk assessment procedures.','ai'],
+ ['/advisory/external-ai-technology-counsel/','მუდმივი იურიდიული მხარდაჭერა','External technology counsel','ტექნოლოგიური პროექტების, ხელშეკრულებებისა და რეგულაციების საკითხებზე.','Ongoing advice on technology projects, contracts and regulation.','contracts'],
+ ['/services/georgia-market-entry/','საქართველოში საქმიანობის დაწყება','Georgia market entry','დაფუძნება, მარეგულირებელი მოთხოვნები და კომერციული საკითხები.','Company setup, regulatory requirements and commercial matters.','fintech'],
+ ['/advisory/legal-ai-automation/','AI იურიდიულ საქმიანობაში','Legal AI transformation','სამუშაო პროცესების შეფასება, ინსტრუმენტების შერჩევა და დანერგვის გეგმა.','Workflow review, tool selection and implementation planning.','corporate']
  ];
- return `<section class="section dlg-commercial-offers" id="featured-advisory" aria-labelledby="featured-advisory-title"><div class="wrap"><div class="section-head"><h2 id="featured-advisory-title">${tr('სამართლებრივი მხარდაჭერა თქვენი ბიზნესისთვის','Specialist support for your business')}</h2>${link('/advisory/','AI და სამართალი','AI and law')}</div><div class="dlg-commercial-grid">${offers.map(([url,ka,en,descKa,descEn],i)=>`<article class="dlg-commercial-offer"><span aria-hidden="true" class="dlg-commercial-index">0${i+1}</span>${tr(ka,en,'h3')}${tr(descKa,descEn,'p')}${link(url,'ვრცლად','Explore service')}</article>`).join('')}</div></div></section>`;
+ return `<section class="section dlg-commercial-offers" id="featured-advisory" aria-labelledby="featured-advisory-title">
+  <div class="wrap dlg-advisory-layout">
+    <div class="dlg-advisory-intro">
+      ${tr('კონსულტაცია და სტრატეგიული მხარდაჭერა','ADVISORY & STRATEGIC SUPPORT','p','dlg-advisory-kicker')}
+      <h2 id="featured-advisory-title">${tr('სამართლებრივი მხარდაჭერა თქვენი ბიზნესისთვის','Specialist support for your business')}</h2>
+      ${tr('დაგეხმარებით ტექნოლოგიური და კომერციული გადაწყვეტილებების მიღებაში, პროექტის დაგეგმვიდან ყოველდღიურ საქმიანობამდე.','We support technology and commercial decisions, from project planning to day-to-day operations.','p','dlg-advisory-lead')}
+      ${advisoryArtwork}
+      ${link('/advisory/','გაეცანით საკონსულტაციო მიმართულებებს','Explore our advisory work','dlg-advisory-all')}
+    </div>
+    <div class="dlg-advisory-options">
+      ${offers.map(([url,ka,en,descKa,descEn,key])=>`<a class="dlg-commercial-offer" href="${url}"><div class="dlg-advisory-option-top"><svg class="dlg-advisory-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">${expertiseIcons[key]}</svg><span class="dlg-advisory-option-arrow" aria-hidden="true">↗</span></div>${tr(ka,en,'h3')}${tr(descKa,descEn,'p')}<span class="dlg-advisory-option-more">${tr('ვრცლად','Explore')}</span></a>`).join('')}
+    </div>
+  </div>
+ </section>`;
 }
 
 // Purpose-built, consistent editorial line illustrations for the six practices.
