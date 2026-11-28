@@ -45,11 +45,11 @@ try{
     check(await page.locator('.dlg-home-firm-copy').count()===1&&await page.locator('.dlg-home-founder-card').count()===1,'Firm-first homepage introduction missing');
     check(await page.locator('.dlg-home-firm-principles a').count()===3,'Firm approach links missing');
     check((await page.locator('.dlg-home-founder-card').evaluate(el=>el.getBoundingClientRect().width))<=width,'Founder introduction overflows');
-    check(await page.locator('.dlg-practice-directory').count()===1&&await page.locator('.dlg-practice-stage').count()===0,'Compact practice directory required');
-    check(await page.locator('.dlg-practice-directory').evaluate(el=>getComputedStyle(el).gridTemplateColumns.split(' ').length)===(width>850?2:1),'Practice directory must use responsive columns');
-    await page.locator('.dlg-practice-summary').nth(2).focus();await page.keyboard.press('Enter');check(await page.locator('.dlg-practice-entry').nth(2).getAttribute('open')!==null,'Keyboard must expand legal practice');
-    check(await page.locator('.dlg-practice-entry').nth(2).locator('.practice-card').isVisible(),'Expanded legal practice link must be visible');
-    await page.keyboard.press('Enter');
+    check(await page.locator('.dlg-expertise-grid').count()===1&&await page.locator('.dlg-practice-entry').count()===0,'Editorial expertise grid required');
+    check(await page.locator('.dlg-expertise-grid').evaluate(el=>getComputedStyle(el).gridTemplateColumns.split(' ').length)===(width>1000?3:width>600?2:1),'Expertise grid must reflow across desktop, tablet and mobile');
+    const practice=page.locator('#expertise .practice-card').nth(2);
+    await practice.focus();check(await practice.evaluate(el=>document.activeElement===el),'Practice card keyboard focus missing');
+    check(await practice.isVisible(),'Practice card should be directly visible');
     check((await page.locator('.practice-card').count())===6,'Six practice cards missing');
     const serviceRoutes=["/services/ai/","/services/privacy-and-cybersecurity/","/services/contracts/","/services/digital-products-and-ip/","/services/fintech-and-financial-regulation/","/services/corporate-and-commercial/"];
     for(let i=0;i<serviceRoutes.length;i++)check(await page.locator('.practice-card').nth(i).getAttribute('href')===serviceRoutes[i],'Homepage direct route '+i);
@@ -64,7 +64,7 @@ try{
     check(articleColumns===(width>740?3:1),'Publication grid must reflow for mobile');
     check(await heroPhoto.evaluate(image=>image.naturalWidth>0&&image.getBoundingClientRect().width>0),'Hero photograph failed to render');
     check((await heroPhoto.getAttribute('alt')).length>20,'Hero photograph needs descriptive alt text');
-    check(await page.locator('.dlg-practice-summary').count()===6,'Six expandable legal practice areas required');
+    check(await page.locator('.dlg-expertise-icon').count()===6,'Six editorial practice icons required');
     const finder=page.locator('#dlg-legal-finder');await page.locator('.dlg-matter-finder').click();
     check(await finder.isVisible(),'Legal finder must open');
     await finder.locator('input').fill('VASP');check(await finder.locator('.dlg-finder-result:visible').count()===1,'VASP search must resolve to one practice');
