@@ -214,6 +214,7 @@ try{
   await reduced.locator('.matter-nav a').first().click();
   await reduced.waitForURL(base+'/advisory/');
   check(await reduced.locator('.dlg-advisory-card').count()===4,'Advisory overview must render in reduced motion');
+  for(const slug of ['contract-lifecycle-management','legal-ai-automation','ai-governance-implementation','digital-compliance']){check(await reduced.locator('.dlg-advisory-card a[href="/advisory/'+slug+'/"]').count()===1,'Missing advisory card '+slug);}
   check(await reduced.locator('.dlg-advisory-outcomes li').count()===8,'Advisory deliverables are incomplete');
   await reduced.close();
   console.log('DLG editorial browser QA passed: '+checks+' checks across nine viewports and '+paths.length+' interior pages.');

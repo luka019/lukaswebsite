@@ -11,7 +11,7 @@ import {parentsFor} from './site-architecture.mjs';
 import {generateResourceCovers} from './generate-resource-covers.mjs';
 import path from 'node:path';
 import {validateResources,renderBody,esc,topics,formats} from '../resources/resource-model.mjs';
-const publicAssets='<script src="/dlg-client-tools.js?v=20261128-ui4" defer></script><link rel="stylesheet" href="/dlg-client-tools.css?v=20261128-tools2"><link rel="stylesheet" href="/dlg-public.css?v=20261127-specialist"><link rel="stylesheet" href="/dlg-polish.css?v=20261127-v1"><link rel="stylesheet" href="/dlg-atlas.css?v=20261127-preferred-finish-v4"><link rel="stylesheet" href="/dlg-legal-experience.css?v=20261128-ui4"><script src="/dlg-legal-experience.js?v=20261128-ui4" defer></script><script src="/dlg-atlas.js?v=20261127-directory-v3" defer></script><script src="/dlg-polish.js?v=20261127-v1" defer></script><script src="/dlg-language.js?v=20261126-qa" defer></script>';
+const publicAssets='<script src="/dlg-client-tools.js?v=20261128-ui4" defer></script><link rel="stylesheet" href="/dlg-client-tools.css?v=20261128-tools2"><link rel="stylesheet" href="/dlg-public.css?v=20261127-specialist"><link rel="stylesheet" href="/dlg-polish.css?v=20261127-v1"><link rel="stylesheet" href="/dlg-atlas.css?v=20261127-preferred-finish-v4"><link rel="stylesheet" href="/dlg-legal-experience.css?v=20261128-advisory5"><script src="/dlg-legal-experience.js?v=20261128-ui4" defer></script><script src="/dlg-atlas.js?v=20261127-directory-v3" defer></script><script src="/dlg-polish.js?v=20261127-v1" defer></script><script src="/dlg-language.js?v=20261126-qa" defer></script>';
 const out=process.env.SITE_OUTPUT||'dist';
 const siteUrl=(process.env.SITE_URL||'https://lukaswebsite.vercel.app').replace(/\/+$/,'');
 if(!['dist','test-dist'].includes(out))throw new Error('Unsupported output directory');
@@ -33,6 +33,11 @@ const resolveLiquid=s=>s.replace(/{{\s*'([^']+)'\s*\|\s*relative_url\s*}}/g,(_,p
 const header=resolveLiquid(fs.readFileSync('_includes/resource-header.html','utf8'));
 const footer=resolveLiquid(fs.readFileSync('_includes/resource-footer.html','utf8'));
 const seoTerms={
+ '/advisory/':['LegalTech Georgia','legal operations consulting Georgia','digital transformation Georgia','იურიდიული პროცესების გაციფრულება','AI კონსულტაცია','ციფრული ტრანსფორმაცია'],
+ '/advisory/contract-lifecycle-management/':['ხელშეკრულებების მართვის სისტემა','ხელშეკრულებების მართვის პლატფორმა','ხელშეკრულებების რეესტრი','CLM Georgia','contract lifecycle management Georgia','contract management software implementation','LegalStepy'],
+ '/advisory/legal-ai-automation/':['იურიდიული პროცესების ავტომატიზაცია','იურიდიული დეპარტამენტის გაციფრულება','დოკუმენტების ავტომატიზაცია','LegalTech consulting Georgia','legal operations','legal process automation','legal AI agents'],
+ '/advisory/ai-governance-implementation/':['ხელოვნური ინტელექტის დანერგვა','AI-ის მართვა','AI-ის გამოყენების პოლიტიკა','AI governance consulting Georgia','AI implementation consulting','AI risk management'],
+ '/advisory/digital-compliance/':['სამართლებრივი შესაბამისობა','კომპანიის შიდა პოლიტიკა','ციფრული რეგულირება','პერსონალურ მონაცემთა დაცვა','digital compliance Georgia','regulatory compliance consulting','internal policies and procedures'],
  '/':['ტექნოლოგიური სამართალი','ციფრული სამართალი','technology lawyer Georgia','digital law Georgia','AI lawyer Georgia','data protection Georgia','technology contracts Georgia'],
  '/resources/':['ტექნოლოგიური სამართალი','AI სამართალი','პერსონალურ მონაცემთა დაცვა','ტექნოლოგიური ხელშეკრულებები','legal tech Georgia'],
  '/resources/technology-contract-review/':['ტექნოლოგიური ხელშეკრულება','SaaS ხელშეკრულება','პროგრამული უზრუნველყოფის ხელშეკრულება','technology contract review','SaaS contract lawyer Georgia'],

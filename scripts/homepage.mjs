@@ -58,17 +58,18 @@ function clientEntrances() {
 
 function featuredAdvisory() {
  const offers=[
- ['/advisory/ai-governance-implementation/','AI-ის მართვის სისტემის დანერგვა','AI governance implementation','AI-ის გამოყენების პოლიტიკა, პასუხისმგებლობების განაწილება და რისკების შეფასების პროცედურები.','AI policies, accountability and risk assessment procedures.','ai'],
- ['/advisory/external-ai-technology-counsel/','მუდმივი იურიდიული მომსახურება','External technology counsel','ტექნოლოგიური პროექტების, ხელშეკრულებებისა და რეგულაციების საკითხებზე.','Ongoing advice on technology projects, contracts and regulation.','contracts'],
- ['/advisory/legal-ai-automation/','AI-ის დანერგვა იურიდიულ საქმიანობაში','Legal AI transformation','სამუშაო პროცესების შეფასება, ინსტრუმენტების შერჩევა და დანერგვის გეგმა.','Workflow review, tool selection and implementation planning.','corporate']
+ ['/advisory/contract-lifecycle-management/','ხელშეკრულებების მართვის სისტემის დანერგვა','Contract Lifecycle Management (CLM)','ერთიანი პლატფორმა, ციფრული რეესტრი, დამტკიცება, ვალდებულებები და ვადები.','CLM software, central repository, approvals, obligations and renewals.','contracts'],
+ ['/advisory/legal-ai-automation/','იურიდიული პროცესების გაციფრულება და ავტომატიზაცია','Legal operations & digital transformation','სამუშაო პროცესების გაუმჯობესება, დოკუმენტების ავტომატიზაცია და AI აგენტები.','Workflow redesign, document automation and AI agents.','corporate'],
+ ['/advisory/ai-governance-implementation/','AI-ის დანერგვა და მართვა','AI implementation & governance','ინსტრუმენტების შერჩევა, დანერგვის გეგმა, პოლიტიკა და რისკების მართვა.','Tool selection, adoption roadmap, AI policy and risk management.','ai'],
+ ['/advisory/digital-compliance/','ციფრული ბიზნესის სამართლებრივი შესაბამისობა','Digital business compliance','სამართლებრივი მოთხოვნების შეფასება, შიდა პოლიტიკა და კონტროლის მექანიზმები.','Legal requirements, internal policies and compliance controls.','privacy']
  ];
  return `<section class="section dlg-commercial-offers" id="featured-advisory" aria-labelledby="featured-advisory-title">
   <div class="wrap dlg-advisory-layout">
     <div class="dlg-advisory-intro">
       ${tr('სპეციალიზებული კონსულტაცია','SPECIALIST ADVISORY','p','dlg-advisory-kicker')}
-      <h2 id="featured-advisory-title">${tr('AI-ის დანერგვა და სამართლებრივი მართვა','AI adoption and governance')}</h2>
-      ${tr('დაგეხმარებით ხელოვნური ინტელექტის დანერგვაში, მისი გამოყენების წესების შემუშავებასა და ტექნოლოგიურ საკითხებზე მუდმივი იურიდიული მხარდაჭერის მიღებაში.','We help businesses introduce AI, establish governance arrangements and access ongoing technology counsel.','p','dlg-advisory-lead')}
-      ${link('/advisory/','ყველა საკონსულტაციო მიმართულება','All advisory services','dlg-advisory-all')}
+      <h2 id="featured-advisory-title">${tr('AI და ციფრული ტრანსფორმაცია','AI & digital transformation')}</h2>
+      ${tr('ვაერთიანებთ სამართლებრივ და ტექნოლოგიურ გამოცდილებას, რათა კომპანიებმა გააუმჯობესონ სამუშაო პროცესები, დანერგონ შესაბამისი სისტემები და მართონ სამართლებრივი რისკები.','We combine legal and technology expertise to help companies improve workflows, implement systems and manage legal risks.','p','dlg-advisory-lead')}
+      ${link('/advisory/','საკონსულტაციო მომსახურება','Explore advisory services','dlg-advisory-all')}
     </div>
     <div class="dlg-advisory-options">
       ${offers.map(([url,ka,en,descKa,descEn,key])=>`<a class="dlg-commercial-offer" href="${url}"><div class="dlg-advisory-option-top"><svg class="dlg-advisory-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">${expertiseIcons[key]}</svg><span class="dlg-advisory-option-arrow" aria-hidden="true">↗</span></div>${tr(ka,en,'h3')}${tr(descKa,descEn,'p')}<span class="dlg-advisory-option-more">${tr('ვრცლად','Explore')}</span></a>`).join('')}

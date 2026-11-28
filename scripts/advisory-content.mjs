@@ -49,14 +49,14 @@ export const advisoryPackages = [
   },
   {
     "id": "ai-governance-implementation",
-    "code": "02",
+    "code": "03",
     "name": {
-      "ka": "AI-ის მართვის სისტემის დანერგვა",
-      "en": "AI Governance Implementation"
+      "ka": "AI-ის დანერგვა და მართვა",
+      "en": "AI implementation & governance"
     },
     "intro": {
-      "ka": "ორგანიზაციის საქმიანობის გათვალისწინებით ვამზადებთ AI-ის გამოყენების პოლიტიკას, პასუხისმგებლობების განაწილების წესსა და რისკების შეფასების პროცედურებს.",
-      "en": "We develop AI use policies, clear responsibilities and risk assessment procedures tailored to your organisation."
+      "ka": "კომპანიებს ვეხმარებით ხელოვნური ინტელექტის გამოყენების დაგეგმვაში, ინსტრუმენტების შეფასებასა და დანერგვაში, სამართლებრივი რისკების მართვასა და შიდა წესების შემუშავებაში.",
+      "en": "We help businesses plan AI adoption, assess and implement tools, manage legal risks and develop internal policies."
     },
     "timing": {
       "ka": "დაახლოებით 4–6 კვირა",
@@ -64,28 +64,34 @@ export const advisoryPackages = [
     },
     "scope": {
       "ka": [
+        "AI-ის გამოყენების მიზნების, შესაძლო ინსტრუმენტების, სამართლებრივი რისკებისა და დანერგვის პრიორიტეტების განსაზღვრა.",
         "AI-ის გამოყენების პოლიტიკის შემუშავება",
         "ახალი AI სისტემების შეფასებისა და დამტკიცების პროცედურა",
         "პასუხისმგებლობების განაწილება, ადამიანის მიერ ზედამხედველობა და პრობლემის შესახებ პასუხისმგებელი პირის ინფორმირების წესი",
         "AI მომსახურების მომწოდებლებისა და მათთან გასაფორმებელი ხელშეკრულებების შეფასების წესები",
-        "თანამშრომელთა პრაქტიკული ტრენინგი"
+        "თანამშრომელთა პრაქტიკული ტრენინგი",
+        "საპილოტე დანერგვის, შედეგების შეფასებისა და შემდგომი მონიტორინგის გეგმის შემუშავება."
       ],
       "en": [
+        "Define AI use cases, candidate tools, legal risks and implementation priorities.",
         "Develop an AI use policy",
         "Design procedures to assess and approve new AI systems",
         "Define responsibilities, human oversight and escalation",
         "Establish AI supplier assessment and contracting controls",
-        "Provide practical staff training"
+        "Provide practical staff training",
+        "Plan a pilot, evaluation and ongoing monitoring."
       ]
     },
     "outputs": {
       "ka": [
+        "AI-ის დანერგვის გეგმა და ინსტრუმენტების შერჩევის კრიტერიუმები.",
         "შიდა პოლიტიკა და სამუშაო პროცედურები",
         "რისკების შეფასების ფორმები და AI სისტემების რეესტრის შაბლონი",
         "პასუხისმგებლობების განაწილების ცხრილი და მომწოდებლის შეფასების კითხვარი",
         "ტრენინგი და განხორციელების გეგმა"
       ],
       "en": [
+        "AI adoption roadmap and tool selection criteria.",
         "Internal policy and operating procedures",
         "Risk assessment and AI inventory templates",
         "Responsibility matrix and supplier questionnaire",
@@ -147,14 +153,14 @@ export const advisoryPackages = [
   },
   {
     "id": "legal-ai-automation",
-    "code": "04",
+    "code": "02",
     "name": {
-      "ka": "იურიდიულ საქმიანობაში AI-ის დანერგვა და ავტომატიზაცია",
-      "en": "Legal AI & Automation Consulting"
+      "ka": "იურიდიული პროცესების გაციფრულება და ავტომატიზაცია",
+      "en": "Legal operations & digital transformation"
     },
     "intro": {
-      "ka": "იურიდიულ ფირმებსა და კომპანიების იურიდიულ სამსახურებს ვეხმარებით AI ინსტრუმენტების შერჩევაში, სამუშაო პროცესების მოწესრიგებასა და მათ საჭიროებებზე მორგებული AI სისტემების საცდელი პროექტების დაგეგმვაში.",
-      "en": "We help law firms and in-house legal teams select AI tools, improve workflows and plan AI pilots tailored to their needs."
+      "ka": "იურიდიულ გუნდებსა და კომპანიებს ვეხმარებით სამუშაო პროცესების მოწესრიგებაში, გაციფრულებასა და ავტომატიზაციაში, მათ შორის დოკუმენტების მართვაში, მოთხოვნების დამუშავებასა და AI აგენტების გამოყენებაში.",
+      "en": "We help businesses and legal teams redesign, digitise and automate their workflows, including legal intake, document management, approvals and AI agents."
     },
     "timing": {
       "ka": "პროექტის მოცულობის მიხედვით",
@@ -162,14 +168,16 @@ export const advisoryPackages = [
     },
     "scope": {
       "ka": [
-        "იურიდიული სამუშაო პროცესების შეფასება და ავტომატიზაციის შესაძლებლობების გამოვლენა",
+        "არსებული იურიდიული პროცესების აღწერა, შეფერხებების გამოვლენა, სამუშაოს მოცულობისა და შედეგების შეფასების მაჩვენებლების განსაზღვრა.",
+        "იურიდიული მოთხოვნების მიღების, დოკუმენტების მომზადების, შეთანხმებისა და ვადების კონტროლის ციფრული პროცესების შემუშავება.",
         "AI-ის დანერგვის სტრატეგიისა და სამოქმედო გეგმის შემუშავება",
         "AI ინსტრუმენტების შერჩევა, შეფასება და დანერგვაში დახმარება",
         "ინდივიდუალური AI აგენტების მოთხოვნების განსაზღვრა და საპილოტე გამოცდა",
         "იურისტების პრაქტიკული ტრენინგი და დანერგვის შემდგომი მხარდაჭერის დაგეგმვა"
       ],
       "en": [
-        "Review legal workflows and identify automation opportunities",
+        "Map current legal processes, identify bottlenecks and agree baseline measures and success criteria.",
+        "Design digital legal intake, document generation, approvals and deadline tracking workflows.",
         "Develop an AI adoption strategy and roadmap",
         "Select and assess AI tools and support implementation",
         "Define requirements for customised AI agents and pilot the agreed solution",
@@ -178,13 +186,13 @@ export const advisoryPackages = [
     },
     "outputs": {
       "ka": [
-        "სამუშაო პროცესების აღწერა და რეკომენდაციები პრიორიტეტების მიხედვით",
+        "არსებული და გაუმჯობესებული პროცესების სქემები, პასუხისმგებლობების განაწილება და პრიორიტეტები.",
         "დანერგვის გეგმა და ტექნიკური მოთხოვნები",
         "შეთანხმებული საპილოტე გადაწყვეტა, თუ ტექნიკური დანერგვა პროექტის ფარგლებშია გათვალისწინებული",
         "გამოყენების ინსტრუქცია, ტესტირების კრიტერიუმები და გადამოწმების პროცედურები"
       ],
       "en": [
-        "Workflow map and prioritised recommendations",
+        "Current and redesigned workflows, responsibility matrix and priorities.",
         "Implementation roadmap and technical requirements",
         "Agreed pilot where technical delivery is in scope",
         "Operating guidance, test criteria and review procedures"
@@ -194,24 +202,126 @@ export const advisoryPackages = [
       "ka": "ტექნიკური დანერგვის მოცულობას, ინტეგრაციებსა და მხარდაჭერის პირობებს ცალკე ვათანხმებთ. სამართლებრივი შეფასების საბოლოო შედეგს იურისტი ამოწმებს. AI-ის გამოყენება არ იძლევა უშეცდომო შედეგის ან კანონმდებლობასთან სრული შესაბამისობის გარანტიას.",
       "en": "Technical implementation, integrations and support are agreed separately. A lawyer reviews the final legal assessment. AI use does not guarantee error-free output or full regulatory compliance."
     }
+  },
+  {
+    "id": "contract-lifecycle-management",
+    "code": "01",
+    "name": {
+      "ka": "ხელშეკრულებების მართვის სისტემის დანერგვა (CLM)",
+      "en": "Contract Lifecycle Management (CLM) implementation"
+    },
+    "intro": {
+      "ka": "კომპანიებს ვეხმარებით ხელშეკრულებების მართვის პლატფორმის შერჩევაში, მოთხოვნების განსაზღვრასა და დანერგვაში. ვაწესრიგებთ ხელშეკრულების სრულ ციკლს: მოთხოვნის მიღებიდან ხელმოწერამდე, ვალდებულებების შესრულებისა და მოქმედების ვადის კონტროლამდე.",
+      "en": "We help businesses select and implement contract lifecycle management (CLM) software, from contract requests and approvals to signing, obligation tracking and renewals."
+    },
+    "timing": {
+      "ka": "ვადას ვათანხმებთ სისტემისა და სამუშაოს მოცულობის მიხედვით",
+      "en": "Timeline agreed according to platform and project scope"
+    },
+    "scope": {
+      "ka": [
+        "არსებული ხელშეკრულებებისა და სამუშაო პროცესების შეფასება; მოთხოვნების, ვადებისა და დამტკიცების ეტაპების განსაზღვრა.",
+        "ხელშეკრულებების ერთიანი ციფრული რეესტრის სტრუქტურა, კატეგორიები, საძიებო მონაცემები და დოკუმენტების გადატანის გეგმა.",
+        "შაბლონები, სტანდარტული სახელშეკრულებო პირობები და გამონაკლისების შეთანხმების წესი.",
+        "პლატფორმის შერჩევა, წვდომის უფლებები, დამტკიცების პროცედურები, ვალდებულებებისა და ვადების შეხსენებები; შესაბამისი ფუნქციების კონფიგურაციაში მხარდაჭერა.",
+        "AI-ის გამოყენების შემთხვევაში ხელშეკრულებების ანალიზის მოთხოვნები, რისკების გადამოწმება და ადამიანის ზედამხედველობა.",
+        "საპილოტე დანერგვა, შეთანხმებული სცენარებით გამოცდა, თანამშრომელთა სწავლება და შემდგომი მხარდაჭერის დაგეგმვა."
+      ],
+      "en": [
+        "Assess the existing contracting process, requirements, deadlines and approval stages.",
+        "Design a central digital contract repository, taxonomy, metadata and migration plan.",
+        "Develop templates, standard contract positions and exception approval rules.",
+        "Select a platform and support configuration of access permissions, approvals, obligations and renewal reminders where available.",
+        "Define requirements for AI-assisted contract analysis, risk review and human oversight where AI is used.",
+        "Support a pilot, scenario-based testing, staff training and planning for ongoing support."
+      ]
+    },
+    "outputs": {
+      "ka": [
+        "ხელშეკრულებების მართვის სამუშაო პროცესის სქემა და პლატფორმის ფუნქციური მოთხოვნები.",
+        "ციფრული რეესტრის სტრუქტურა, შაბლონები და დამტკიცების წესები.",
+        "პლატფორმის შერჩევის რეკომენდაცია და ეტაპობრივი დანერგვის გეგმა.",
+        "შეთანხმებული საპილოტე კონფიგურაცია და მომხმარებლებისთვის განკუთვნილი ინსტრუქცია, თუ ტექნიკური სამუშაო პროექტის ფარგლებშია."
+      ],
+      "en": [
+        "Contract workflow map and functional platform requirements.",
+        "Repository structure, templates and approval rules.",
+        "Platform recommendation and phased implementation roadmap.",
+        "Agreed pilot configuration and user guidance where technical delivery is in scope."
+      ]
+    },
+    "boundary": {
+      "ka": "პლატფორმას ვარჩევთ კლიენტის მოთხოვნების მიხედვით. ერთ-ერთი შესაძლო გადაწყვეტაა LegalStepy, რომლის განვითარებაშიც ფირმის დამფუძნებელი მონაწილეობს. კლიენტი თავისუფალია სხვა პლატფორმის არჩევაში. პროგრამული ლიცენზია, მონაცემების გადატანა, ტექნიკური ინტეგრაცია და მხარდაჭერა ცალკე შეთანხმებას ექვემდებარება; კონკრეტული ფუნქციები დამოკიდებულია შერჩეულ სისტემაზე.",
+      "en": "Platform selection depends on the client's needs. LegalStepy is one option; the firm's founder is involved in its development. Clients are free to choose another platform. Software licensing, data migration, technical integrations and support are agreed separately; functionality depends on the selected platform."
+    }
+  },
+  {
+    "id": "digital-compliance",
+    "code": "04",
+    "name": {
+      "ka": "ციფრული ბიზნესის სამართლებრივი შესაბამისობა",
+      "en": "Digital business compliance & policies"
+    },
+    "intro": {
+      "ka": "ვაფასებთ კომპანიის ციფრულ პროცესებს, პროდუქტებსა და ტექნოლოგიების გამოყენებას შესაბამისი სამართლებრივი მოთხოვნების გათვალისწინებით. ვამზადებთ შიდა პოლიტიკას, პროცედურებსა და მათი შესრულების კონტროლის მექანიზმებს.",
+      "en": "We assess digital business processes, products and technology use against applicable legal requirements and develop internal policies, operating procedures and compliance controls."
+    },
+    "timing": {
+      "ka": "პროექტის მოცულობის მიხედვით",
+      "en": "Timeline based on project scope"
+    },
+    "scope": {
+      "ka": [
+        "კომპანიის ბიზნესმოდელის, ციფრული პროდუქტის, მონაცემთა მოძრაობისა და მომწოდებლებთან ურთიერთობის აღწერა.",
+        "შესაბამისი სამართლებრივი მოთხოვნების განსაზღვრა და არსებული პროცესების შეფასება, მათ შორის მონაცემთა დაცვა, AI, ელექტრონული კომერცია, მომხმარებელთა უფლებები და ტექნოლოგიური ხელშეკრულებები, რამდენადაც რელევანტურია.",
+        "კონფიდენციალურობის, მონაცემთა დაცვის, AI-ის გამოყენების, მომწოდებლების შეფასებისა და ინციდენტებზე რეაგირების შიდა პოლიტიკისა და პროცედურების შემუშავება.",
+        "პასუხისმგებლობების, დამტკიცების წესების, კონტროლის მექანიზმებისა და დოკუმენტირების მოთხოვნების განსაზღვრა.",
+        "თანამშრომელთა სწავლება, ხარვეზების გამოსწორების გეგმა და შესაბამისობის პერიოდული გადახედვის წესები."
+      ],
+      "en": [
+        "Map the business model, digital products, data flows and supplier relationships.",
+        "Identify applicable legal requirements and assess current processes, covering privacy, AI, e-commerce, consumer protection and technology contracting where relevant.",
+        "Develop internal policies and procedures for privacy, data protection, AI use, supplier assessment and incident response.",
+        "Define responsibilities, approvals, controls and documentation requirements.",
+        "Train relevant staff and develop a remediation plan and periodic compliance review procedures."
+      ]
+    },
+    "outputs": {
+      "ka": [
+        "სამართლებრივი მოთხოვნებისა და არსებული ხარვეზების შეფასება.",
+        "რისკებისა და მოსაწესრიგებელი საკითხების პრიორიტეტული ჩამონათვალი.",
+        "კომპანიაზე მორგებული შიდა პოლიტიკა, პროცედურები და კონტროლის ფორმები.",
+        "პასუხისმგებლობების განაწილება და განხორციელების გეგმა."
+      ],
+      "en": [
+        "Assessment of applicable legal requirements and gaps.",
+        "Prioritised risk and remediation register.",
+        "Tailored internal policies, procedures and control templates.",
+        "Responsibility matrix and implementation roadmap."
+      ]
+    },
+    "boundary": {
+      "ka": "შეფასება ეფუძნება შეთანხმებულ ფარგლებს, საქმიანობის სპეციფიკასა და მოწოდებულ ინფორმაციას. ის არ გულისხმობს სერტიფიცირებას, დამოუკიდებელ ტექნიკურ აუდიტს ან კანონმდებლობასთან სრული შესაბამისობის გარანტიას. უცხო ქვეყნის სამართლისა და ტექნიკური ექსპერტიზის საკითხებზე საჭიროების შემთხვევაში ცალკე ვთანხმდებით.",
+      "en": "The assessment is limited to the agreed scope, business context and information supplied. It is not certification, an independent technical audit or a guarantee of full legal compliance. Advice on foreign law and technical expertise are agreed separately where needed."
+    }
   }
 ];
 const escapeHtml = value => String(value).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[c]));
 const bi=(tag,value,cls='')=>'<'+tag+(cls?' class="'+cls+'"':'')+' data-en="'+escapeHtml(value.en)+'">'+escapeHtml(value.ka)+'</'+tag+'>';
 export const advisoryIntro = {
-  ka: 'კომპანიებსა და იურიდიულ გუნდებს ვეხმარებით AI-ის დანერგვამდე რისკების შეფასებაში, გამოყენების წესების შემუშავებასა და სამუშაო პროცესების გაუმჯობესებაში.',
-  en: 'We help businesses and legal teams assess the risks of adopting AI, set rules for its use and improve their workflows.',
+  ka: 'კომპანიებსა და იურიდიულ გუნდებს ვეხმარებით ხელშეკრულებების მართვაში, პროცესების გაციფრულებასა და ავტომატიზაციაში, ხელოვნური ინტელექტის დანერგვასა და სამართლებრივი შესაბამისობის უზრუნველყოფისთვის საჭირო მექანიზმების შემუშავებაში.',
+  en: 'We help businesses and legal teams implement contract management, digitise and automate workflows, adopt AI and develop legal compliance controls.',
 };
 
 export function advisoryCards() {
-  const order = ['ai-readiness', 'ai-governance-implementation', 'legal-ai-automation', 'external-ai-technology-counsel'];
+  const order = ['contract-lifecycle-management', 'legal-ai-automation', 'ai-governance-implementation', 'digital-compliance'];
   return `<div class="dlg-advisory-grid">${order.map(id => {
     const service = advisoryPackages.find(item => item.id === id);
     const outcomes = service.outputs.ka.slice(0, 2).map((ka, index) =>
       bi('li', {ka, en: service.outputs.en[index]})).join('');
     return `<article class="dlg-advisory-card">
       <div class="dlg-advisory-overview">${bi('h3', service.name)}${bi('p', service.intro, 'dlg-advisory-summary')}</div>
-      <div class="dlg-advisory-outcomes">${bi('p', {ka:'რას მიიღებთ', en:'What you receive'})}<ul>${outcomes}</ul>
+      <div class="dlg-advisory-outcomes">${bi('p', {ka:'სამუშაოს შედეგები', en:'Deliverables'})}<ul>${outcomes}</ul>
         <a class="dlg-advisory-link" data-site-link href="/advisory/${service.id}/">
           <span data-en="Scope and deliverables">სამუშაოს ფარგლები და შედეგები</span><span aria-hidden="true">↗</span>
         </a>

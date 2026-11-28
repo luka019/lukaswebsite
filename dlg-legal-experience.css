@@ -458,3 +458,15 @@ body:has(.masthead) .dlg-matter-finder:hover{background:#eaf1f5;text-decoration:
 @media(max-width:800px){body:has(.masthead) #main>.hero .hero-content{width:77%;max-width:570px}body:has(.masthead) #main>.hero .hero-inner{padding-block:30px}body:has(.masthead) #main>.hero .hero-photo::after{background:linear-gradient(90deg,#153347,#153347eb 20%,#153347b9 51%,#15334722)}}
 @media(max-width:600px){body:has(.masthead) #main>.hero .hero-inner{padding:26px 0 115px}body:has(.masthead) #main>.hero .hero-content{width:100%;max-width:none}body:has(.masthead) #main>.hero .hero-content .intro{font-size:13px;line-height:1.7;max-width:100%}body:has(.masthead) #main>.hero .hero-photo::after{background:linear-gradient(180deg,#153347,#1533478c 36%,#15334708 75%)}body:has(.masthead) #georgia-business .dlg-georgia-home-cards{grid-template-columns:minmax(0,1fr);gap:7px}body:has(.masthead) #georgia-business .dlg-georgia-home-cards .dlg-georgia-card{min-height:0;padding:13px;grid-template-columns:27px minmax(0,1fr) 16px}body:has(.masthead) #georgia-business .dlg-georgia-card .dlg-georgia-card-description{font-size:12px}.dlg-insight-subscribe{grid-template-columns:32px minmax(0,1fr);padding:16px;gap:10px}.dlg-news-actions{grid-column:1/-1;gap:10px}.dlg-news-primary,.dlg-news-rss{font-size:12px}.dlg-update-card>a{grid-template-columns:80px minmax(0,1fr) 14px;gap:10px}.dlg-update-card h3{font-size:14px}.dlg-update-card p{font-size:12px}.dlg-rss-intro{grid-template-columns:30px minmax(0,1fr)}.dlg-rss-intro h2{font-size:17px}.dlg-rss-steps{grid-template-columns:1fr}.dlg-rss-controls{grid-template-columns:1fr}.dlg-rss-controls button{justify-self:start}.dlg-rss-feed{padding:11px}.dlg-assessment-save-actions{gap:8px}}
 @media(prefers-reduced-motion:reduce){.dlg-georgia-card,.dlg-georgia-arrow,.dlg-update-arrow,.dlg-expertise-arrow svg,.dlg-advisory-option-arrow{transition:none!important;transform:none!important}}
+
+/* Four clear project-based advisory services; preserve the boutique editorial hierarchy. */
+#featured-advisory .dlg-advisory-options{gap:0}
+#featured-advisory .dlg-commercial-offer{padding-block:13px}
+#featured-advisory .dlg-commercial-offer h3{line-height:1.5}
+#featured-advisory .dlg-commercial-offer p{line-height:1.65}
+.dlg-advisory-supporting{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;margin-top:30px;padding-top:24px;border-top:1px solid #d1dce2}
+.dlg-advisory-supporting>div{min-width:0;padding:15px 0}
+.dlg-advisory-supporting h3{font-size:18px;line-height:1.5;color:#19384c;margin:0 0 8px}
+.dlg-advisory-supporting p{font-size:14px;line-height:1.7;color:#506473;margin:0 0 12px}
+.dlg-operations-links{background:#eef3f5;border-block:1px solid #d1dce2}
+@media(max-width:600px){.dlg-advisory-supporting{grid-template-columns:minmax(0,1fr);gap:10px}.dlg-advisory-supporting>div{padding:12px 0}.dlg-operations-links .digital-actions{align-items:stretch;flex-direction:column}}
