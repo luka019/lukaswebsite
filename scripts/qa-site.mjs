@@ -199,7 +199,7 @@ assert(missingFragments.length===0,'Broken local fragments: '+missingFragments.s
 new vm.Script(file('dlg-legal-experience.js'),{filename:'dlg-legal-experience.js'});total++;
 for(const [page,prefix] of [[home,''],[englishHome,'/en'],[directory,''],[directoryEn,'/en']]){
  assert(page.includes('id="dlg-legal-finder"')&&page.includes('id="dlg-finder-title"')&&page.includes('href="'+prefix+'/services/virtual-assets/"'),'Search must include the real bilingual VASP route');
- assert((page.match(/class="dlg-finder-result"/g)||[]).length===21,'Search index must contain 21 catalogue entries');
+ assert((page.match(/class="dlg-finder-result"/g)||[]).length===25,'Search index must contain 25 catalogue entries');
 }
 console.log('DLG public site smoke checks passed: '+total+' checks across '+publicHtml.length+' public HTML pages.');
 
