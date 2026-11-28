@@ -3,9 +3,10 @@ import assert from 'node:assert/strict';
 import {scopeAreas,practices,solutions} from '../catalogue.mjs';
 import {createDeliveryPack,feeEstimate,documentHTML} from '../delivery-templates.mjs';
 test('scope explorer combines product, features and markets without losing specialist areas',()=>{
- const ids=scopeAreas({product:'crypto',features:['data','payments','ai','critical','consumer'],market:'eu-uk'}).map(x=>x.id);
+ const ids=scopeAreas({product:'crypto',features:['data','payments','ai','critical','consumer','contract-workflow','ongoing-counsel'],market:'enter-georgia'}).map(x=>x.id);
  assert.deepEqual(new Set(ids),new Set(practices.map(x=>x.id)));
  assert.equal(new Set(ids).size,ids.length);
+ assert.ok(!scopeAreas({market:'eu-uk'}).some(x=>x.id==='georgia'));
  assert.ok(!scopeAreas({product:'product',market:'georgia'}).some(x=>x.id==='crypto'));
 });
 test('each offered solution has delivery artefacts and uncompleted documents stay explicit drafts',()=>{

@@ -58,10 +58,31 @@
     menuToggle.addEventListener('click', () => setMenuState(!nav.classList.contains('open')));
     nav.querySelectorAll('a').forEach((link) => link.addEventListener('click', () => setMenuState(false)));
     document.addEventListener('site:language', () => setMenuState(nav.classList.contains('open')));
-    const desktopMenu = window.matchMedia('(min-width: 701px)');
+    document.addEventListener('keydown', event => {
+      if (event.key === 'Escape' && nav.classList.contains('open')) {
+        setMenuState(false);
+        menuToggle.focus();
+      }
+    });
+    document.addEventListener('pointerdown', event => {
+      if (!nav.contains(event.target) && !menuToggle.contains(event.target)) setMenuState(false);
+    });
+    const desktopMenu = window.matchMedia('(min-width: 781px)');
     const resetOnDesktop = () => { if (desktopMenu.matches) setMenuState(false); };
     if (desktopMenu.addEventListener) desktopMenu.addEventListener('change', resetOnDesktop);
     else desktopMenu.addListener?.(resetOnDesktop);
+  }
+
+  const draft = document.getElementById('consultation-draft');
+  if (draft) {
+    draft.hidden = false;
+    draft.addEventListener('submit', event => {
+      event.preventDefault();
+      const fields = new FormData(draft);
+      const subject = language === 'en' ? 'Consultation request' : 'კონსულტაციის მოთხოვნა';
+      const message = fields.get('matter').trim() + '\n\n' + fields.get('sender').trim();
+      location.href = 'mailto:digitallawgeorgia@gmail.com?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(message);
+    });
   }
 
   const choices = [...document.querySelectorAll('[data-service-choice]')];

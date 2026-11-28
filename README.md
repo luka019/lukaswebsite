@@ -29,13 +29,9 @@ WhatsApp: https://wa.me/995598451132 (+995 598 45 11 32). Contact links send no 
 
 The default interface is Georgian; `?lang=en` opens English and `?lang=ka` opens Georgian. An explicit query overrides the saved preference. Resources contain both full-language versions. Language preference is the only item stored in the visitor's browser.
 
-## Direct contact form
+## Consultation enquiries
 
-Public enquiries use `digitallawgeorgia@gmail.com`, which has been activated with FormSubmit. JavaScript submits to FormSubmit's AJAX endpoint so visitors remain on the Digital Law Georgia website; the native POST remains as a no-JavaScript fallback.
-
-Validation runs before submission. The send button is disabled while waiting; duplicate submissions are prevented. Success is shown only when FormSubmit returns an explicit successful result. Provider errors, activation errors and timeouts preserve the visitor's text. If the visitor edits fields during submission, those edits are preserved even after success. Provider acceptance does not independently verify inbox delivery.
-
-No private credentials are embedded. The privacy notice identifies FormSubmit and Gmail as the delivery services.
+Visitors can call the firm, open WhatsApp, email directly or compose a short consultation request on the homepage. The composer opens an email draft in the visitor’s mail app. The visitor reviews and sends it there. The composer does not store or transmit the entered fields to a web service.
 
 ## Positioning and scope
 
