@@ -210,3 +210,22 @@ for(const p of ['assets/editorial/consultation.webp','assets/editorial/contract-
 new vm.Script(file('dlg-polish.js'),{filename:'dlg-polish.js'});assert(file('dlg-polish.css').includes('prefers-reduced-motion')&&file('dlg-polish.js').includes('prefers-reduced-motion'),'Motion accessibility is required');
 
 new vm.Script(file('dlg-atlas.js'),{filename:'dlg-atlas.js'});assert(file('dlg-atlas.css').includes('prefers-reduced-motion'),'Editorial motion must respect user settings');
+
+// Client tools and commercial conversion checks.
+new vm.Script(file('dlg-client-tools.js'),{filename:'dlg-client-tools.js'});
+for(const prefix of ['','en/']){
+ const base=prefix?'/en':'';
+ const landing=file(prefix+'index.html');
+ const assessment=file(prefix+'advisory/assessment/index.html');
+ const consultation=file(prefix+'contact/consultation/index.html');
+ const updates=file(prefix+'resources/legal-updates/index.html');
+ assert((assessment.match(/class="dlg-readiness-question"/g)||[]).length===8,'Eight assessment dimensions required');
+ assert(assessment.includes('id="dlg-readiness-result"')&&assessment.includes('id="dlg-readiness-form"'),'Assessment results and inputs missing');
+ assert(consultation.includes('id="dlg-consultation-form"')&&consultation.includes('id="dlg-consultation-email"'),'Local consultation request missing');
+ assert(updates.includes('/legal-updates.xml')&&updates.includes('/legal-updates-en.xml'),'RSS links missing');
+ for(const route of ['/advisory/assessment/','/contact/consultation/','/resources/legal-updates/'])assert(landing.includes('href="'+base+route+'"'),'Client tool route absent '+base+route);
+ assert((landing.match(/class="dlg-commercial-offer"/g)||[]).length===8,'Four offers and four client tools required');
+}
+for(const feed of ['legal-updates.xml','legal-updates-en.xml'])assert(file(feed).includes('<rss version="2.0">'),'RSS feed missing '+feed);
+assert(!/\bfetch\s*\(|localStorage|sessionStorage/.test(file('dlg-client-tools.js')),'Client tools must not transmit or retain form data');
+console.log('Extended commercial and client-tool checks passed; '+total+' total assertions.');
