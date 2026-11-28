@@ -118,7 +118,7 @@ assert(home.includes('AI და სამართალი')&&home.includes('hr
 assert(file('services/digital-products-and-ip/index.html').includes('href="/services/digital-products/"'),'Digital product support must remain accessible from its own practice page');
 assert(home.includes('https://wa.me/995598451132'),'WhatsApp channel missing');
 assert(home.includes('mailto:digitallawgeorgia@gmail.com'),'Email channel missing');
-assert(home.includes('data-en="Email us"'),'Contact CTA must be bilingual');
+assert(home.includes('data-en="Contact the firm"')&&englishHome.includes('Contact the firm')&&home.includes('დაუკავშირდით ფირმას'),'Dedicated contact CTA must be bilingual');
 
 const broken=[];
 for(const name of publicHtml){const content=fs.readFileSync(name,'utf8');for(const m of content.matchAll(/href="(\/[^"]*)"/g)){
