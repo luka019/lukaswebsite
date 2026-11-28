@@ -3,6 +3,7 @@ import {practiceGroups, sectors} from './practice-structure.mjs';
 import {groupRoute} from './site-architecture.mjs';
 import {finderTrigger} from './legal-finder.mjs';
 import {internationalFeature} from './international.mjs';
+import {clientToolsUpdates} from './client-tools.mjs';
 
 const shortPractice = {
   "ai": [
@@ -158,7 +159,7 @@ function insights(rows) {
         <h2 id="insights-heading">${tr('კვლევები და ანალიტიკა','Insights and research')}</h2>
         ${link('/resources/', 'ყველა სტატია', 'All insights')}
       </div>
-      <div class="article-grid">${articles}</div><a class="home-research-note" href="https://arxiv.org/abs/2607.21345" target="_blank" rel="noopener noreferrer"><div>${tr('სამეცნიერო ნაშრომი · 2026', 'Research paper · 2026', 'p', 'eyebrow')}${tr('ავტონომიური და აგენტური AI-ის რეგულირება', 'Regulating Autonomous and Agentic AI', 'strong')}</div><span class="research-link-label">${tr('ნაშრომის ნახვა', 'Read the paper')} ${arrow}</span></a>
+      <div class="article-grid">${articles}</div><a class="home-research-note" href="https://arxiv.org/abs/2607.21345" target="_blank" rel="noopener noreferrer"><div>${tr('სამეცნიერო ნაშრომი · 2026', 'Research paper · 2026', 'p', 'eyebrow')}${tr('ავტონომიური და აგენტური AI-ის რეგულირება', 'Regulating Autonomous and Agentic AI', 'strong')}</div><span class="research-link-label">${tr('ნაშრომის ნახვა', 'Read the paper')} ${arrow}</span></a>${clientToolsUpdates()}
     </div>
   </section>`;
 }

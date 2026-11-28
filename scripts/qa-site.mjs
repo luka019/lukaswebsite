@@ -224,7 +224,14 @@ for(const prefix of ['','en/']){
  assert(consultation.includes('id="dlg-consultation-form"')&&consultation.includes('id="dlg-consultation-email"'),'Local consultation request missing');
  assert(updates.includes('/legal-updates.xml')&&updates.includes('/legal-updates-en.xml'),'RSS links missing');
  for(const route of ['/advisory/assessment/','/contact/consultation/','/resources/legal-updates/'])assert(landing.includes('href="'+base+route+'"'),'Client tool route absent '+base+route);
- assert((landing.match(/class="dlg-commercial-offer"/g)||[]).length===8,'Four offers and four client tools required');
+ assert((landing.match(/class="dlg-commercial-offer"/g)||[]).length===4,'Four distinct commercial offers required');
+ assert(landing.includes('id="business-tools"')&&landing.indexOf('id="business-tools"')<landing.indexOf('id="expertise"'),'Business tools must be prominent above expertise');
+ assert(landing.includes('class="dlg-assessment-feature"')&&landing.includes('class="dlg-tool-consult"'),'Prominent assessment and consultation features required');
+ assert(landing.includes('class="dlg-insight-subscribe"')&&landing.includes('id="dlg-readiness-prompt"')&&landing.includes('class="dlg-prompt-close"'),'Contextual news and dismissible prompt required');
+ assert(landing.includes('href="'+base+'/business/georgia/"'),'International desk must remain discoverable');
+ assert(assessment.includes('id="dlg-readiness-progress"')&&assessment.includes('id="dlg-readiness-back"')&&assessment.includes('id="dlg-readiness-next"')&&assessment.includes('id="dlg-readiness-finish"'),'Guided assessment navigation missing');
+ assert((assessment.match(/class="dlg-readiness-choice"/g)||[]).length===32&&(assessment.match(/data-answer-count="/g)||[]).length===4,'Assessment answer options or result breakdown missing');
+ assert(assessment.includes('id="dlg-readiness-review"')&&assessment.includes('id="dlg-readiness-restart"'),'Assessment review and restart missing');
  const featured=landing.match(/<section class="section dlg-commercial-offers"[\s\S]*?<\/section>/)?.[0]||'';
  assert(featured.includes('class="dlg-advisory-art"')&&featured.includes('class="dlg-advisory-options"'),'Signature illustrated advisory composition required');
  assert((featured.match(/class="dlg-advisory-icon"/g)||[]).length===4,'Four advisory line icons required');
@@ -241,3 +248,8 @@ console.log('Editorial image checks passed; '+total+' total assertions.');
 
 for(const p of ['assets/editorial/human-machine.webp','assets/editorial/human-machine-small.webp']){const b=fs.readFileSync(path.join(root,p));assert(b.length>1000&&b.toString('ascii',0,4)==='RIFF'&&b.toString('ascii',8,12)==='WEBP','Invalid responsive hero image '+p);assert(home.includes('/'+p)&&englishHome.includes('/'+p),'Responsive hero image missing '+p);}
 console.log('Responsive hero checks passed; '+total+' total assertions.');
+
+new vm.Script(file('dlg-resource-prompt.js'),{filename:'dlg-resource-prompt.js'});
+assert(!/\bfetch\s*\(|localStorage|document\.cookie/.test(file('dlg-resource-prompt.js')),'The prompt must not track visitors or transmit data');
+assert(file('dlg-resource-prompt.js').includes('dlg-readiness-prompt-shown-v1')&&file('dlg-resource-prompt.js').includes("sessionStorage.setItem(key,'1')"),'Only the session display flag may be stored');
+console.log('Prominent resource and assessment wizard checks passed; '+total+' total assertions.');

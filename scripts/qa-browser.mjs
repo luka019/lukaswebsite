@@ -95,6 +95,45 @@ try{
     if([390,1440].includes(width))await page.screenshot({path:path.join(screenshots,'home-'+width+'.png'),fullPage:true});
     await page.close();
   }
+  // Guided assessment and unobtrusive first-visit prompt. Test both languages.
+  for(const [prefix,width] of [['',390],['/en',1440]]){
+    const page=await browser.newPage({viewport:{width,height:900}});
+    const errors=[];page.on('pageerror',err=>errors.push(err.message));
+    await page.goto(base+prefix+'/');
+    const prompt=page.locator('#dlg-readiness-prompt');
+    await prompt.waitFor({state:'visible',timeout:10000});
+    check(await prompt.locator('a').getAttribute('href')===prefix+'/advisory/assessment/','Prompt link language mismatch');
+    await prompt.locator('.dlg-prompt-close').click();
+    check(await prompt.isHidden(),'Prompt must dismiss');
+    await page.reload();
+    await page.waitForTimeout(7000);
+    check(await prompt.isHidden(),'Prompt must not repeat within a session');
+    await page.locator('.dlg-assessment-feature .dlg-tool-cta').click();
+    await page.waitForURL(base+prefix+'/advisory/assessment/');
+    const wizard=page.locator('#dlg-readiness-form');
+    const fields=wizard.locator('fieldset');
+    check(await wizard.locator('fieldset:visible').count()===1,'Show exactly one question');
+    await page.locator('#dlg-readiness-next').click();
+    check(await page.locator('#dlg-readiness-error').isVisible(),'Missing answer feedback required');
+    const answers=['yes','partial','no','unknown','yes','partial','no','yes'];
+    for(let i=0;i<answers.length;i++){
+      const field=fields.nth(i);
+      check(await field.isVisible(),'Question '+i+' not visible');
+      await field.locator('input[value="'+answers[i]+'"]').check();
+      if(i===1){await page.locator('#dlg-readiness-back').click();check(await fields.nth(0).locator('input[value="yes"]').isChecked(),'Previous answer lost');await page.locator('#dlg-readiness-next').click();check(await field.locator('input[value="partial"]').isChecked(),'Answer lost after back');}
+      if(i<answers.length-1)await page.locator('#dlg-readiness-next').click();else await page.locator('#dlg-readiness-finish').click();
+    }
+    check(await page.locator('#dlg-readiness-result').isVisible(),'Assessment result missing');
+    for(const [value,count] of Object.entries({yes:3,partial:2,no:2,unknown:1}))check(await page.locator('[data-answer-count="'+value+'"]').textContent()===String(count),'Incorrect result count '+value);
+    check(await page.locator('#dlg-readiness-priorities li').count()===5,'Actionable results missing');
+    await page.locator('#dlg-readiness-review').click();check(await fields.nth(0).locator('input[value="yes"]').isChecked(),'Review must preserve answers');
+    for(let i=0;i<7;i++)await page.locator('#dlg-readiness-next').click();
+    await page.locator('#dlg-readiness-finish').click();await page.locator('#dlg-readiness-restart').click();
+    check(await fields.nth(0).isVisible()&&!await fields.nth(0).locator('input[value="yes"]').isChecked(),'Restart must clear answers');
+    await overflow(page,width,prefix+'/advisory/assessment/');
+    check(errors.length===0,'Assessment page errors: '+errors.join('; '));
+    await page.close();
+  }
   const paths=[];
   for(const [prefix,width] of [['',390],['/en',1440]]){
     const page=await browser.newPage({viewport:{width,height:900}});
