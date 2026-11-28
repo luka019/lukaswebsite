@@ -9,95 +9,30 @@ let total=0;
 function assert(ok,message){total++;if(!ok)throw new Error('DLG smoke check failed: '+message)}
 function file(p){const full=path.join(root,p);assert(fs.existsSync(full),'Missing '+p);return fs.readFileSync(full,'utf8')}
 const home=file('index.html');
-const css=file('firm.css');
-const script=file('firm-interactions.js');
+const css=file('boutique.css');
 const englishHome=file('en/index.html');
-for(const hook of ['data-hero-rotator','data-hero-pause','data-lens-controls','data-lens-choice','data-menu-toggle','data-reveal']){
- assert(new RegExp('\\s'+hook+'(?:[=\\s>])').test(englishHome),'English generation lost interaction hook: '+hook);
+for (const [document, prefix] of [[home, ''], [englishHome, '/en']]) {
+  for (const marker of ['id="hero-title"', 'class="dl-hero-image"', 'data-menu-toggle', 'id="consultation-draft"', 'id="services"', 'id="approach"', 'id="about"', 'id="contact"']) {
+    assert(document.includes(marker), 'Missing home section or action: ' + marker);
+  }
+  for (const route of ['services/', 'services/contracts/', 'services/data-protection/', 'services/ai/', 'services/digital-products/', 'about/', 'resources/', 'business/']) {
+    assert(document.includes('href="' + prefix + '/' + route + '"'), 'Missing localized destination: ' + prefix + '/' + route);
+  }
+  assert(document.includes('href="tel:+995598451132"'), 'Direct phone missing');
+  assert(document.includes('href="mailto:digitallawgeorgia@gmail.com"'), 'Direct email missing');
+  assert(document.includes('href="https://wa.me/995598451132"'), 'WhatsApp missing');
+  assert(document.includes('aria-controls="site-nav"'), 'Mobile navigation control not associated');
+  assert(document.includes('data-language="ka"') && document.includes('data-language="en"'), 'Language switch missing');
+  assert((document.match(/class="dl-practice"/g) || []).length === 4, 'Expected four featured specialisms');
+  assert((document.match(/data-resource-card/g) || []).length === 3, 'Authored resource previews missing');
 }
-
-assert(home.includes('class="law-home"'),'New homepage not active');
-assert(home.includes('class="dlg-photo-feature"'),'Editorial photo carousel missing');
-assert(home.includes('firm.css'),'Shared public stylesheet not linked');
-assert(home.includes('law-brand-tagline') && home.includes('იურიდიული მომსახურება ციფრული ბიზნესისთვის'),'Georgian header tagline must be present');
-assert(home.includes('data-en="Legal Support for Digital Business"'),'English header tagline must be available');
-assert(home.includes('data-en="TECHNOLOGY & COMMERCIAL LAW"'),'Practice positioning must remain distinct from the brand tagline');
-assert(home.includes('firm-interactions.js'),'Interactions script not linked');
-assert((home.match(/<h1\b/g)||[]).length===1,'Home must have one h1');
-assert(!home.includes('data-showcase-slide'),'Duplicated secondary showcase must be absent');
-assert(home.includes('dlg-feature-section'),'Prominent wide hero feature required');
-assert((home.match(/law-service-glyph/g)||[]).length===8,'Eight differentiated service cards required');
-assert(home.includes('data-back-to-top'),'Back-to-top control missing');
-assert(!home.includes('law-client-shortcut'),'Remove redundant desktop WhatsApp shortcut');
-assert(home.includes('href="mailto:digitallawgeorgia@gmail.com"'),'Direct consultation contact missing');
-for(const id of ['services','approach','about','contact']){
-  assert(home.includes('id="'+id+'"'),'Missing homepage anchor: '+id);
+assert(home.includes('ლუკა შახყულაშვილი') && englishHome.includes('Luka Shakhkulashvili'), 'Localized founder profile missing');
+assert(englishHome.includes('Legal counsel') && englishHome.includes('for a digital world.'), 'English hero must be rendered at build time');
+assert(css.includes('prefers-reduced-motion'), 'Reduced motion support missing');
+assert((css.match(/\{/g)||[]).length===(css.match(/\}/g)||[]).length,'Unbalanced public stylesheet');
+for (const asset of ['assets/column.webp', 'assets/serif-georgian.woff', 'assets/luka-shakhkulashvili.png']) {
+  assert(fs.statSync(path.join(root,asset)).size>0,'Missing or empty asset: '+asset);
 }
-assert(css.includes('@media(max-width:390px)'),'Small mobile breakpoint missing');
-assert(home.includes('dlg-editorial-hero'),'High contrast editorial hero required');
-assert(home.includes('class="dlg-photo-stage"'),'Landscape slide stage required');
-assert(css.includes('prefers-reduced-motion'),'Reduced motion fallback missing');
-assert((css.match(/\{/g)||[]).length===(css.match(/\}/g)||[]).length,'Unbalanced premium CSS');
-new vm.Script(script,{filename:'firm-interactions.js'});total++;
-const heroScript=file('firm-hero.js');
-const uiCss=css;
-const visualCss=css;
-assert(home.includes('data-hero-rotator'),'Accessible hero carousel missing');
-assert(home.includes('class="site-header law-header dlg-integrated-header"'),'Unified masthead wrapper missing');
-assert(home.includes('id="hero-title" data-en="Legal counsel for your business."') && home.includes('თქვენი ბიზნესის სამართლებრივი პარტნიორი.'),'Human-centred Georgian homepage headline missing');
-assert(home.includes('data-en="Legal counsel for your business."'),'English legal practice homepage headline missing');
-assert(home.includes('data-en="TECHNOLOGY & COMMERCIAL LAW"'),'Technology and commercial law positioning must remain in hero eyebrow');
-assert(!home.includes('data-en="Home">მთავარი'),'Redundant homepage navigation');
-const finalCss=css;
-assert(finalCss.includes('--dlg-intro-surface:#F3F6FB'),'Integrated blue intro palette missing');
-assert(finalCss.includes('.law-home .site-header.dlg-integrated-header.dlg-scrolled'),'Scrolled header treatment missing');
-const interactions=file('firm-interactions.js');
-assert(interactions.includes('dlg-scrolled'),'Header must react to scrolling');
-new vm.Script(interactions,{filename:'firm-interactions.js'});total++;
-assert(home.includes('href="/services/digital-products/"'),'Digital products must have a primary card');
-
-assert((home.match(/data-hero-topic="/g)||[]).length===4,'Four clickable hero choices required');
-assert(home.includes('firm-hero.js'),'Hero interaction script must load');
-assert(!home.includes('firm-upgrade.css')&&!home.includes('firm-reference.css')&&!home.includes('firm-premium.css'),'Retired visual patch layers must not load');
-assert(home.includes('law-about-image'),'Founder profile and portrait missing');
-assert(home.includes('class="dlg-founder-signature"') && home.includes('src="/assets/luka-shakhkulashvili.png"'),'Direct founder contact and real portrait missing from hero');
-assert(css.includes('background:linear-gradient(125deg,#f8f7f3'),'Warm editorial legal practice surface missing');
-assert(!home.includes('<h1 id="hero-title"><span data-en="Legal support"'),'Old generic digital-business hero headline must not return');
-assert(home.includes('ლუკა შახყულაშვილი'),'Luka team profile missing');
-assert(!home.includes('dlg-team-member') && !home.includes('dlg-team-monogram'),'Retired team card markup must be absent');
-assert(home.includes('ბიზნესის მიმდინარე იურიდიული მომსახურება'),'Ongoing legal support should remain available');
-assert(home.includes('ფინტექი და საგადახდო მომსახურება'),'FinTech practice missing');
-assert(home.includes('law-more-services'),'Additional services directory missing');
-assert((home.match(/class="law-service(?: law-service-featured)?"/g)||[]).length===8,'Eight core service cards required');
-assert(uiCss.includes('prefers-reduced-motion'),'New animations must honour reduced motion');
-assert(home.includes('dlg-photo-tabs'),'Accessible topical selectors are required');
-assert((home.match(/data-hero-topic="/g)||[]).length===4,'Four accessible manual selectors required');
-assert((home.match(/class="dlg-benefit"/g)||[]).length===4,'Four concise benefit items required');
-assert(home.includes('data-hero-pause'),'Carousel pause control missing');
-assert(home.includes('data-hero-prev') && home.includes('data-hero-next'),'Carousel arrow controls missing');
-assert((home.match(/data-hero-dot=/g)||[]).length===4,'Four progress indicators required');
-assert((home.match(/class="dlg-why-icon"/g)||[]).length===4,'Four clearly explained reasons are required');
-assert(home.indexOf('dlg-photo-stage')<home.indexOf('dlg-photo-tabs'),'Topic selectors should follow the illustrated service');
-assert(home.includes('law-service-featured'),'Featured service card should remain prominent');
-assert(home.includes('data-en="Email us"'),'Clear consultation CTA must be bilingual');
-assert(home.includes('ლუკა შახყულაშვილი'),'Real founder profile required');
-assert(!home.includes('data-hero-slide="architecture"'),'Generic architecture service slide must not return');
-assert((home.match(/class="dlg-illustration"/g)||[]).length===4,'Four service-specific illustrations required');
-assert(!home.includes('class="firm-photo"'),'One static photograph must not replace the service visuals');
-assert(home.includes('class="dlg-sheet"') && home.includes('class="dlg-orbit"'),'Original animated illustration elements required');
-assert(visualCss.includes('.dlg-editorial-hero h1'),'Editorial headline typography must be styled');
-assert(visualCss.includes('.dlg-photo-tab.is-current'),'Active tab styling missing');
-assert((visualCss.match(/\{/g)||[]).length===(visualCss.match(/\}/g)||[]).length,'Unbalanced final design CSS');
-assert(heroScript.includes('dots.forEach'),'Progress indicators must respond to slide selection');
-assert(heroScript.includes('intervalMs = 8000'),'Autoplay pacing must be readable');
-assert(heroScript.includes('setInterval'),'Automatic rotation must be implemented');
-assert(heroScript.includes('visibilitychange') && heroScript.includes('focusin'),'Automatic rotation must pause on inattention/accessibility');
-assert(heroScript.includes('prefers-reduced-motion'),'Reduced motion support required');
-assert(!home.includes('images.unsplash.com'),'Hero artwork must work without third-party image requests');
-assert(heroScript.includes('motionPaused'),'Pause control must stop decorative motion as well as rotation');
-assert(!home.includes('Bakhbakhashvili') && !home.includes('Sopho'),'Additional biography must be absent');
-assert(!home.includes('law-tech-canvas'),'Old oversized abstract hero illustration must be absent');
-new vm.Script(heroScript,{filename:'firm-hero.js'});total++;
 
 for(const p of [
   'styles.css','firm.css','script.js','favicon.svg','services/index.html',
@@ -107,16 +42,13 @@ for(const p of [
 ])file(p);
 for(const p of ['services/index.html','services/contracts/index.html','resources/index.html']){
   const h=fs.readFileSync(path.join(root,p),'utf8');
-  assert(h.includes('firm.css'),'Shared public design missing on '+p);
+  assert(h.includes('boutique.css'),'Shared public design missing on '+p);
   assert(!h.includes('law-client-shortcut'),'Redundant desktop header shortcut on '+p);
 }
 const directory=fs.readFileSync(path.join(root,'services/index.html'),'utf8');
 assert(directory.includes('law-directory-feature'),'Ongoing legal counsel needs a featured directory entry');
 assert(directory.indexOf('/services/contracts/')<directory.indexOf('/services/fintech/'),'Contract advice should precede FinTech in the directory');
 assert(directory.includes('/services/ongoing-legal-support/'),'Ongoing legal support route must be linked');
-assert(home.includes('ვეხმარებით ქართულ და საერთაშორისო კომპანიებს'),'Homepage should explain real legal support for Georgian and international businesses');
-assert(home.includes('ტექნოლოგიური და კომერციული სამართალი'),'Technology-law positioning missing');
-assert((home.match(/data-hero-slide=/g)||[]).length===4,'Four illustrated service slides required');
 assert(!fs.existsSync(path.join(root,'client')),'Retired client portal must not be deployed');
 assert(!fs.existsSync(path.join(root,'admin','inbox')),'Retired inbox must not be deployed');
 new vm.Script(file('script.js'),{filename:'script.js'});total++;
@@ -125,11 +57,8 @@ const publicHtml=[];
 function visit(dir){for(const x of fs.readdirSync(dir,{withFileTypes:true})){if(x.name==='admin')continue;const location=path.join(dir,x.name);if(x.isDirectory())visit(location);else if(location.endsWith('.html'))publicHtml.push(location)}}
 visit(root);
 for(const name of publicHtml){const content=fs.readFileSync(name,'utf8');assert(!content.includes('/client/'),'Legacy client route in '+name);assert(!content.includes('კლიენტის სივრცე'),'Legacy client copy in '+name)}
-assert(home.includes('AI-ის მმართველობა და სამართლებრივი კონსულტაცია'),'AI service not prominent');
-assert(home.includes('ციფრული პროდუქტები და ელექტრონული კომერცია'),'Digital product service link missing');
 assert(home.includes('https://wa.me/995598451132'),'WhatsApp channel missing');
 assert(home.includes('mailto:digitallawgeorgia@gmail.com'),'Email channel missing');
-assert(home.includes('data-en="Email us"'),'Header contact CTA must be bilingual');
 assert(!home.includes('<a class="law-client-shortcut"'),'Header navigation must not be crowded');
 const broken=[];
 for(const name of publicHtml){const content=fs.readFileSync(name,'utf8');for(const m of content.matchAll(/href="(\/[^"]*)"/g)){

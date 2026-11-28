@@ -1212,6 +1212,8 @@ export function scopeAreas({product='product',features=[],market='georgia'}={}){
  if(features.includes('ai'))ids.add('ai');
  if(features.includes('consumer'))ids.add('commerce');
  if(features.includes('critical'))ids.add('cyber');
+ if(features.includes('contract-workflow'))ids.add('legal-operations');
+ if(features.includes('ongoing-counsel'))ids.add('ongoing');
  if(market==='enter-georgia')ids.add('georgia');
  return practices.filter(p=>ids.has(p.id));
 }
