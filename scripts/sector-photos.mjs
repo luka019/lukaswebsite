@@ -59,7 +59,6 @@ const photos=[
     "source": "https://www.pexels.com/photo/close-up-shot-of-a-person-holding-a-papers-7972282/",
     "url": "https://images.pexels.com/photos/7972282/pexels-photo-7972282.jpeg?auto=compress&cs=tinysrgb&w=1100&h=700&fit=crop"
   } ,
-  {"slug":"hero-tech-workspace","id":5710678,"folder":"editorial","credit":"Arina Krasnikova / Pexels","source":"https://www.pexels.com/photo/photo-of-a-laptop-and-a-notebook-on-a-glass-table-5710678/","url":"https://images.pexels.com/photos/5710678/pexels-photo-5710678.jpeg?auto=compress&cs=tinysrgb&w=1600&h=1066&fit=crop"},
   {"slug":"insight-ai-adoption","id":8441819,"folder":"resources","credit":"Kampus Production / Pexels","source":"https://www.pexels.com/photo/a-laptop-and-documents-on-the-table-8441819/","url":"https://images.pexels.com/photos/8441819/pexels-photo-8441819.jpeg?auto=compress&cs=tinysrgb&w=1200&h=800&fit=crop"},
   {"slug":"insight-contract-review","id":6814539,"folder":"resources","credit":"cottonbro studio / Pexels","source":"https://www.pexels.com/photo/man-signing-a-contract-6814539/","url":"https://images.pexels.com/photos/6814539/pexels-photo-6814539.jpeg?auto=compress&cs=tinysrgb&w=1200&h=800&fit=crop"},
   {"slug":"insight-data-protection","id":37605913,"folder":"resources","credit":"panumas nikhomkhai / Pexels","source":"https://www.pexels.com/photo/close-up-of-a-data-server-rack-for-it-infrastructure-37605913/","url":"https://images.pexels.com/photos/37605913/pexels-photo-37605913.jpeg?auto=compress&cs=tinysrgb&w=1200&h=800&fit=crop"}

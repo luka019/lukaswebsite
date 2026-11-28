@@ -28,7 +28,7 @@ for(const [page,lang] of [[home,'ka'],[englishHome,'en']]){
  assert(page.includes('/dlg-atlas.css?v=20261127-preferred-finish-v4')&&page.includes('/dlg-legal-experience.css?v=20261127-v1')&&page.includes('/dlg-legal-experience.js?v=20261127-v1'),'Preferred identity and interactive assets required');
  assert(page.includes('id="dlg-legal-finder"')&&page.includes('id="dlg-finder-title"')&&page.includes('class="dlg-brand-legal"')&&(page.match(/class="dlg-finder-result"/g)||[]).length===21,'Bilingual local legal finder and explicit law-firm identity required');
  assert(page.includes('dlg-home-firm-principles')&&page.includes('/dlg-polish.css?v=20261127-v1')&&page.includes('/dlg-polish.js?v=20261127-v1'),'Shared polish layer and firm approach missing');
- assert(page.includes('class="hero-photo"')&&page.includes('src="/assets/editorial/hero-tech-workspace.jpg"')&&page.includes('fetchpriority="high"')&&!page.includes('src="/assets/editorial/human-machine.webp"'),'Technology workspace hero photograph required');
+ assert(page.includes('class="hero-photo"')&&page.includes('src="/assets/editorial/human-machine.webp"')&&page.includes('human-machine-small.webp 640w')&&page.includes('fetchpriority="high"'),'Responsive human and technology hero artwork required');
  assert(page.includes(lang==='ka'?'სპეციალიზებული იურიდიული ფირმა':'SPECIALIST LAW FIRM'),'Specialist positioning must be rendered');
  assert((page.match(/class="dlg-expertise-arrow"/g)||[]).length===6&&!page.includes('class="dlg-practice-entry"'),'Six direct-link editorial practice cards required');
  assert(!/founder-hologram|founder-dialog|data-founder-open/.test(page),'Removed founder presentation is still present');
@@ -236,5 +236,8 @@ assert(!/\bfetch\s*\(|localStorage|sessionStorage/.test(file('dlg-client-tools.j
 console.log('Extended commercial and client-tool checks passed; '+total+' total assertions.');
 
 // Editorial photography must be local, valid JPEGs and present in both language homepages.
-for(const p of ['assets/editorial/hero-tech-workspace.jpg','assets/resources/insight-ai-adoption.jpg','assets/resources/insight-contract-review.jpg','assets/resources/insight-data-protection.jpg']){const bytes=fs.readFileSync(path.join(root,p));assert(bytes.length>10000&&bytes[0]===255&&bytes[1]===216,'Invalid editorial image '+p);assert(home.includes('/'+p)&&englishHome.includes('/'+p),'Bilingual editorial photo missing '+p);}
+for(const p of ['assets/resources/insight-ai-adoption.jpg','assets/resources/insight-contract-review.jpg','assets/resources/insight-data-protection.jpg']){const bytes=fs.readFileSync(path.join(root,p));assert(bytes.length>10000&&bytes[0]===255&&bytes[1]===216,'Invalid editorial image '+p);assert(home.includes('/'+p)&&englishHome.includes('/'+p),'Bilingual editorial photo missing '+p);}
 console.log('Editorial image checks passed; '+total+' total assertions.');
+
+for(const p of ['assets/editorial/human-machine.webp','assets/editorial/human-machine-small.webp']){const b=fs.readFileSync(path.join(root,p));assert(b.length>1000&&b.toString('ascii',0,4)==='RIFF'&&b.toString('ascii',8,12)==='WEBP','Invalid responsive hero image '+p);assert(home.includes('/'+p)&&englishHome.includes('/'+p),'Responsive hero image missing '+p);}
+console.log('Responsive hero checks passed; '+total+' total assertions.');

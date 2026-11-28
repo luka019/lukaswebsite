@@ -281,3 +281,9 @@ body:has(.masthead) #insights .article:hover .home-article-media img,.resource-p
 @media(max-width:800px){body:has(.masthead) .hero-photo::after{background:linear-gradient(90deg,#153347,#153347eb 20%,#153347bc 50%,#15334733)}}
 @media(max-width:600px){body:has(.masthead) .hero-photo img{object-position:center 60%}body:has(.masthead) .hero-photo::after{background:linear-gradient(180deg,#153347,#1533479c 38%,#15334720)}}
 @media(prefers-reduced-motion:reduce){body:has(.masthead) #insights .home-article-media img,.resource-page .resource-cover img{transition:none!important;transform:none!important}}
+
+/* Restore the original human-technology artwork within the current editorial hero. */
+body:has(.masthead) .hero-photo img{object-position:center 50%;filter:saturate(.84) brightness(.95)}
+body:has(.masthead) .hero-photo::after{background:linear-gradient(90deg,#153347 0%,#153347f5 8%,#153347b3 28%,#15334738 55%,#15334712 100%)}
+@media(max-width:800px){body:has(.masthead) .hero-photo::after{background:linear-gradient(90deg,#153347,#153347e8 20%,#153347ad 49%,#15334725)}}
+@media(max-width:600px){body:has(.masthead) .hero-photo img{object-position:center 50%}body:has(.masthead) .hero-photo::after{background:linear-gradient(180deg,#153347,#15334780 34%,#15334708 72%)}}
