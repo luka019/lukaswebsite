@@ -30,3 +30,21 @@
  dialog.addEventListener('close',()=>{input.value='';category='all';update();if(opener&&opener.isConnected)opener.focus();opener=null;});
  update();
 })();
+/* Accessible disclosure navigation. Core routes remain available without JavaScript. */
+(()=>{'use strict';
+ const root=document.querySelector('[data-dlg-advisory-nav]');if(!root)return;
+ const toggle=root.querySelector('[data-dlg-advisory-toggle]'),panel=root.querySelector('.dlg-advisory-nav-panel'),main=root.querySelector('.dlg-advisory-nav-root');
+ if(!toggle||!panel||!main)return;
+ toggle.hidden=false;
+ function set(open,focus=false){panel.hidden=!open;toggle.setAttribute('aria-expanded',String(open));if(focus)toggle.focus();}
+ toggle.addEventListener('click',()=>set(panel.hidden));
+ root.addEventListener('keydown',e=>{if(e.key==='Escape'&&!panel.hidden){e.preventDefault();e.stopPropagation();set(false,true);}});
+ document.addEventListener('pointerdown',e=>{if(!root.contains(e.target))set(false);});
+ root.addEventListener('focusout',e=>{if(e.relatedTarget&&!root.contains(e.relatedTarget))set(false);});
+ root.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>set(false)));
+ const menu=document.querySelector('.menu-btn,[data-menu-toggle]');
+ if(menu){new MutationObserver(()=>{if(menu.getAttribute('aria-expanded')!=='true')set(false);}).observe(menu,{attributes:true,attributeFilter:['aria-expanded']});}
+ window.matchMedia('(max-width:920px)').addEventListener('change',()=>set(false));
+ const route=location.pathname.replace(/^\/en(?=\/)/,'');
+ if(route.startsWith('/advisory/'))main.setAttribute('aria-current','page');
+})();

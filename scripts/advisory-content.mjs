@@ -320,12 +320,24 @@ export function advisoryCards() {
     const outcomes = service.outputs.ka.slice(0, 2).map((ka, index) =>
       bi('li', {ka, en: service.outputs.en[index]})).join('');
     return `<article class="dlg-advisory-card">
-      <div class="dlg-advisory-overview">${bi('h3', service.name)}${bi('p', service.intro, 'dlg-advisory-summary')}</div>
+      <div class="dlg-advisory-overview"><span class="dlg-advisory-number" aria-hidden="true">${service.code}</span>${bi('h3', service.name)}${bi('p', service.intro, 'dlg-advisory-summary')}</div>
       <div class="dlg-advisory-outcomes">${bi('p', {ka:'სამუშაოს შედეგები', en:'Deliverables'})}<ul>${outcomes}</ul>
         <a class="dlg-advisory-link" data-site-link href="/advisory/${service.id}/">
-          <span data-en="Scope and deliverables">სამუშაოს ფარგლები და შედეგები</span><span aria-hidden="true">↗</span>
+          <span data-en="Explore this service">მომსახურების შესახებ</span><span aria-hidden="true">↗</span>
         </a>
       </div>
     </article>`;
   }).join('')}</div>`;
+}
+
+/* Shared concise service discovery labels for the header and first-visit suggestion. */
+export const advisoryDiscovery = [
+ {id:'contract-lifecycle-management',ka:'ხელშეკრულებების მართვა (CLM)',en:'Contract lifecycle management',descKa:'პლატფორმის შერჩევა და დანერგვა',descEn:'Platform selection and implementation'},
+ {id:'legal-ai-automation',ka:'იურიდიული პროცესების ავტომატიზაცია',en:'Legal process automation',descKa:'პროცესების გაციფრულება და AI აგენტები',descEn:'Digital workflows and AI agents'},
+ {id:'ai-governance-implementation',ka:'AI-ის დანერგვა და მართვა',en:'AI implementation and governance',descKa:'დანერგვის გეგმა, პოლიტიკა და რისკები',descEn:'Adoption roadmap, policies and risks'},
+ {id:'digital-compliance',ka:'სამართლებრივი შესაბამისობა',en:'Digital compliance',descKa:'ციფრული რეგულირება და შიდა პროცედურები',descEn:'Digital regulation and internal procedures'}
+];
+export function advisoryNavigation(){
+ const items=advisoryDiscovery.map(s=>`<a class="dlg-advisory-nav-item" href="/advisory/${s.id}/"><span>${bi('strong',s)}${bi('small',{ka:s.descKa,en:s.descEn})}</span><span aria-hidden="true">↗</span></a>`).join('');
+ return `<div class="dlg-advisory-nav" data-dlg-advisory-nav><div class="dlg-advisory-nav-main"><a class="dlg-advisory-nav-root" href="/advisory/" data-site-link data-route="/advisory/">${bi('span',{ka:'AI და ტექნოლოგიები',en:'AI & technology'})}</a><button class="dlg-advisory-nav-toggle" type="button" hidden data-dlg-advisory-toggle aria-expanded="false" aria-controls="dlg-advisory-nav-panel" aria-label="საკონსულტაციო მიმართულებების ნახვა" data-en-aria="Show advisory services"><svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="m4 6 4 4 4-4"/></svg></button></div><div id="dlg-advisory-nav-panel" class="dlg-advisory-nav-panel" hidden>${bi('p',{ka:'საკონსულტაციო მომსახურება',en:'Specialist advisory services'},'dlg-advisory-nav-label')}${items}<a class="dlg-advisory-nav-all" href="/advisory/">${bi('span',{ka:'ყველა საკონსულტაციო მიმართულება',en:'All advisory services'})} <span aria-hidden="true">↗</span></a></div></div>`;
 }

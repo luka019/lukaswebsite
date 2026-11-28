@@ -56,6 +56,7 @@ function clientEntrances() {
 }
 
 
+const advisoryOutcomes={"contracts":["ერთიანი რეესტრი და ხელშეკრულებების ვადების კონტროლი.","A central repository and renewal tracking."],"corporate":["მოწესრიგებული პროცესები და ნაკლები ხელით შესასრულებელი სამუშაო.","Clear workflows and fewer manual tasks."],"ai":["დანერგვის გეგმა და AI-ის გამოყენების წესები.","An adoption roadmap and rules for AI use."],"privacy":["შიდა პოლიტიკა, პასუხისმგებლობები და სამოქმედო გეგმა.","Internal policies, accountable owners and an action plan."]};
 function featuredAdvisory() {
  const offers=[
  ['/advisory/contract-lifecycle-management/','ხელშეკრულებების მართვის სისტემის დანერგვა','Contract Lifecycle Management (CLM)','ერთიანი პლატფორმა, ციფრული რეესტრი, დამტკიცება, ვალდებულებები და ვადები.','CLM software, central repository, approvals, obligations and renewals.','contracts'],
@@ -66,13 +67,13 @@ function featuredAdvisory() {
  return `<section class="section dlg-commercial-offers" id="featured-advisory" aria-labelledby="featured-advisory-title">
   <div class="wrap dlg-advisory-layout">
     <div class="dlg-advisory-intro">
-      ${tr('სპეციალიზებული კონსულტაცია','SPECIALIST ADVISORY','p','dlg-advisory-kicker')}
+      ${tr('საკონსულტაციო მომსახურება','SPECIALIST ADVISORY','p','dlg-advisory-kicker')}
       <h2 id="featured-advisory-title">${tr('AI და ციფრული ტრანსფორმაცია','AI & digital transformation')}</h2>
-      ${tr('ვაერთიანებთ სამართლებრივ და ტექნოლოგიურ გამოცდილებას, რათა კომპანიებმა გააუმჯობესონ სამუშაო პროცესები, დანერგონ შესაბამისი სისტემები და მართონ სამართლებრივი რისკები.','We combine legal and technology expertise to help companies improve workflows, implement systems and manage legal risks.','p','dlg-advisory-lead')}
-      ${link('/advisory/','საკონსულტაციო მომსახურება','Explore advisory services','dlg-advisory-all')}
+      ${tr('კომპანიებს ვეხმარებით ტექნოლოგიების დანერგვაში, სამუშაო პროცესების გაუმჯობესებასა და სამართლებრივი მოთხოვნების შესრულებისთვის საჭირო წესების შემუშავებაში.','We help companies implement technology, improve workflows and establish controls to address legal requirements.','p','dlg-advisory-lead')}
+      ${link('/advisory/','ყველა მიმართულება','All advisory services','dlg-advisory-all')}
     </div>
     <div class="dlg-advisory-options">
-      ${offers.map(([url,ka,en,descKa,descEn,key])=>`<a class="dlg-commercial-offer" href="${url}"><div class="dlg-advisory-option-top"><svg class="dlg-advisory-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">${expertiseIcons[key]}</svg><span class="dlg-advisory-option-arrow" aria-hidden="true">↗</span></div>${tr(ka,en,'h3')}${tr(descKa,descEn,'p')}<span class="dlg-advisory-option-more">${tr('ვრცლად','Explore')}</span></a>`).join('')}
+      ${offers.map(([url,ka,en,descKa,descEn,key],i)=>`<a class="dlg-commercial-offer" href="${url}"><div class="dlg-advisory-option-top"><svg class="dlg-advisory-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">${expertiseIcons[key]}</svg><span class="dlg-advisory-index" aria-hidden="true">0${i+1}</span></div>${tr(ka,en,'h3')}${tr(descKa,descEn,'p')}<div class="dlg-advisory-benefit">${tr('სამუშაოს შედეგი','Deliverable','strong')}${tr(...advisoryOutcomes[key])}</div><span class="dlg-advisory-option-more">${tr('მომსახურების შესახებ','Explore service')}<span class="dlg-advisory-option-arrow" aria-hidden="true">↗</span></span></a>`).join('')}
     </div>
     ${clientToolsHome()}
   </div>

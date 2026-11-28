@@ -25,7 +25,7 @@ for(const [page,lang] of [[home,'ka'],[englishHome,'en']]){
  assert((page.match(/class="home-article-media"/g)||[]).length===3,'Three editorial insight images required');
  assert(page.includes('class="founder-credentials"')&&page.includes('class="dlg-home-firm-copy"')&&page.includes('class="dlg-home-founder-card"'),'Firm and founder must be clearly distinguished');
  assert(page.includes('class="dlg-expertise-grid"')&&!page.includes('class="dlg-practice-stage"')&&page.includes('class="hero-content"')&&!page.includes('class="dlg-hero-foot"'),'Signature hero and editorial expertise grid required');
- assert(page.includes('/dlg-atlas.css?v=20261127-preferred-finish-v4')&&page.includes('/dlg-legal-experience.css?v=20261128-advisory5')&&page.includes('/dlg-legal-experience.js?v=20261128-ui4'),'Preferred identity and interactive assets required');
+ assert(page.includes('/dlg-atlas.css?v=20261127-preferred-finish-v4')&&page.includes('/dlg-legal-experience.css?v=20261128-discovery6')&&page.includes('/dlg-legal-experience.js?v=20261128-discovery6'),'Preferred identity and interactive assets required');
  assert(page.includes('id="dlg-legal-finder"')&&page.includes('id="dlg-finder-title"')&&page.includes('class="dlg-brand-legal"')&&(page.match(/class="dlg-finder-result"/g)||[]).length===25,'Bilingual local legal finder and explicit law-firm identity required');
  assert(page.includes('dlg-home-firm-principles')&&page.includes('/dlg-polish.css?v=20261127-v1')&&page.includes('/dlg-polish.js?v=20261127-v1'),'Shared polish layer and firm approach missing');
  assert(page.includes('class="hero-photo"')&&page.includes('src="/assets/editorial/human-machine.webp"')&&page.includes('human-machine-small.webp 640w')&&page.includes('fetchpriority="high"'),'Responsive human and technology hero artwork required');
@@ -114,7 +114,7 @@ const publicHtml=[];
 function visit(dir){for(const x of fs.readdirSync(dir,{withFileTypes:true})){if(x.name==='admin')continue;const location=path.join(dir,x.name);if(x.isDirectory())visit(location);else if(location.endsWith('.html'))publicHtml.push(location)}}
 visit(root);
 for(const name of publicHtml){const content=fs.readFileSync(name,'utf8');assert(!content.includes('/client/'),'Legacy client route in '+name);assert(!content.includes('კლიენტის სივრცე'),'Legacy client copy in '+name)}
-assert(home.includes('AI და სამართალი')&&home.includes('href="/advisory/"'),'AI practice must remain discoverable');
+assert(home.includes('AI და ტექნოლოგიები')&&home.includes('href="/advisory/"'),'AI practice must remain discoverable');
 assert(file('services/digital-products-and-ip/index.html').includes('href="/services/digital-products/"'),'Digital product support must remain accessible from its own practice page');
 assert(home.includes('https://wa.me/995598451132'),'WhatsApp channel missing');
 assert(home.includes('mailto:digitallawgeorgia@gmail.com'),'Email channel missing');
@@ -272,3 +272,17 @@ console.log('Readable Georgia cards, news, search and download checks passed; '+
 // Four search-focused service landing pages, with a distinct scope and enquiry option in both languages.
 for(const prefix of ['','en/']){const landing=file(prefix+'index.html'),directory=file(prefix+'advisory/index.html'),contact=file(prefix+'contact/index.html'),ops=file(prefix+'services/legal-operations/index.html');const titles=new Set();for(const slug of ['contract-lifecycle-management','legal-ai-automation','ai-governance-implementation','digital-compliance']){const url=(prefix?'/en':'')+'/advisory/'+slug+'/',page=file(prefix+'advisory/'+slug+'/index.html');assert(landing.includes('href="'+url+'"')&&directory.includes('href="'+url+'"'),'Missing featured service link '+url);assert(page.includes('class="deliverable-card dlg-advisory-detail"')&&page.includes('"@type":"Service"'),'Scope/deliverables and Service structured data required '+url);assert(page.includes('href="'+(prefix?'/en':'')+'/contact/?area='+slug+'"')&&contact.includes('value="'+slug+'"'),'Prefilled enquiry route missing '+url);assert(file('sitemap.xml').includes(url),'Sitemap missing '+url);assert(!/dlg-advisory-price|₾|\bGEL\s*[\d,]+/.test(page),'Unapproved public price');titles.add(page.match(/<title>([^<]+)<\/title>/)?.[1]);}assert(titles.size===4,'Distinct advisory SEO titles required');assert(ops.includes('contract-lifecycle-management/')&&ops.includes('legal-ai-automation/'),'Legal operations service must link to implementation packages');const clm=file(prefix+'advisory/contract-lifecycle-management/index.html');assert(clm.includes('LegalStepy')&&clm.includes(prefix?'Clients are free to choose another platform':'კლიენტი თავისუფალია სხვა პლატფორმის არჩევაში'),'Platform relationship and client choice required');}
 console.log('Four advisory packages, CLM disclosures and SEO checks passed; '+total+' total assertions.');
+
+for(const prefix of ['','en/']){
+ const base=prefix?'/en':'',home=file(prefix+'index.html'),directory=file(prefix+'advisory/index.html');
+ for(const page of [home,directory]){
+  assert(page.includes('class="dlg-advisory-nav"')&&page.includes('aria-controls="dlg-advisory-nav-panel"')&&page.includes('id="dlg-advisory-nav-panel"'),'Accessible advisory header missing');
+  assert((page.match(/class="dlg-advisory-nav-item"/g)||[]).length===4,'Four direct service links required in header');
+  for(const slug of ['contract-lifecycle-management','legal-ai-automation','ai-governance-implementation','digital-compliance'])assert(page.includes('href="'+base+'/advisory/'+slug+'/"'),'Missing advisory route '+slug);
+ }
+ assert((home.match(/class="dlg-prompt-service"/g)||[]).length===4,'First visit invitation must offer four services');
+ assert((home.match(/class="dlg-advisory-benefit"/g)||[]).length===4,'Advisory benefits must be clear');
+ assert((home.match(/id="dlg-readiness-prompt"/g)||[]).length===1,'Only one first visit suggestion');
+}
+assert(file('dlg-legal-experience.js').includes('[data-dlg-advisory-toggle]'),'Disclosure interaction missing');
+console.log('Advisory discovery and editorial service checks passed; '+total+' total assertions.');
