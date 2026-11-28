@@ -3,7 +3,7 @@ import {practiceGroups, sectors} from './practice-structure.mjs';
 import {groupRoute} from './site-architecture.mjs';
 import {finderTrigger} from './legal-finder.mjs';
 import {internationalFeature} from './international.mjs';
-import {clientToolsUpdates} from './client-tools.mjs';
+import {clientToolsUpdates,clientToolsHome} from './client-tools.mjs';
 
 const shortPractice = {
   "ai": [
@@ -45,7 +45,7 @@ function clientEntrances() {
   ];
   return `<nav class="matter-nav" id="client-matters" aria-label="თქვენი საკითხი" data-en-aria="Find advice for your matter">
     <div class="wrap">
-      <div class="dlg-matter-intro"><h2 class="matter-heading">${tr('თქვენი სამართლებრივი საკითხი','Your legal matter')}</h2>${finderTrigger('dlg-matter-finder','მომსახურების მოძიება','Find legal advice')}</div>
+      <div class="dlg-matter-intro"><p class="matter-heading">${tr('რაში დაგეხმარებით','Find the right advice')}</p>${finderTrigger('dlg-matter-finder','მომსახურების მოძიება','Find legal advice')}</div>
       <div class="matter-nav-inner">
       ${matters.map(([url,ka,en,descriptionKa,descriptionEn])=>`<a class="matter-link" href="${url}">
         <div>${tr(ka,en,'strong')}</div>${arrow}
@@ -56,32 +56,24 @@ function clientEntrances() {
 }
 
 
-// A signature law-and-technology illustration: a classical portico connected to a circuit.
-const advisoryArtwork=`<svg class="dlg-advisory-art" viewBox="0 0 430 230" fill="none" aria-hidden="true" focusable="false">
- <g class="dlg-art-grid" stroke="#789aae" stroke-width=".65" opacity=".28"><path d="M20 45H410M20 80H410M20 115H410M20 150H410M20 185H410M60 20V210M95 20V210M130 20V210M165 20V210M200 20V210M235 20V210M270 20V210M305 20V210M340 20V210M375 20V210"/><circle cx="215" cy="115" r="89"/><circle cx="215" cy="115" r="108" stroke-dasharray="2 8"/></g>
- <g class="dlg-art-circuit" stroke="#8ebbc8" stroke-width="1.3"><path d="M140 101H103L79 77H35M140 143H105L78 170H35M290 101H327L351 77H395M290 143H325L352 170H395M215 62V22M215 178V208"/><g fill="#143347"><circle cx="35" cy="77" r="4"/><circle cx="35" cy="170" r="4"/><circle cx="395" cy="77" r="4"/><circle cx="395" cy="170" r="4"/><circle cx="215" cy="22" r="4"/><circle cx="215" cy="208" r="4"/></g></g>
- <g class="dlg-art-portico" stroke="#e1d1af" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m146 92 69-39 69 39H146Zm10 8h118M154 166h122M147 177h136M168 103v60m31-60v60m32-60v60m31-60v60"/><path d="M163 105h10m-10 56h10m21-56h10m-10 56h10m22-56h10m-10 56h10m21-56h10m-10 56h10"/><circle cx="215" cy="77" r="6"/></g>
- <g class="dlg-art-signal" fill="#b1d9dd"><circle cx="103" cy="101" r="3"/><circle cx="325" cy="143" r="3"/><circle cx="215" cy="22" r="2"/></g>
- </svg>`;
 function featuredAdvisory() {
  const offers=[
- ['/advisory/ai-governance-implementation/','AI-ის მართვის სისტემის დანერგვა','AI governance implementation','AI-ის პოლიტიკა, პასუხისმგებლობები და რისკების შეფასების პროცედურები.','AI policies, accountability and risk assessment procedures.','ai'],
- ['/advisory/external-ai-technology-counsel/','მუდმივი იურიდიული მხარდაჭერა','External technology counsel','ტექნოლოგიური პროექტების, ხელშეკრულებებისა და რეგულაციების საკითხებზე.','Ongoing advice on technology projects, contracts and regulation.','contracts'],
- ['/services/georgia-market-entry/','საქართველოში საქმიანობის დაწყება','Georgia market entry','დაფუძნება, მარეგულირებელი მოთხოვნები და კომერციული საკითხები.','Company setup, regulatory requirements and commercial matters.','fintech'],
- ['/advisory/legal-ai-automation/','AI იურიდიულ საქმიანობაში','Legal AI transformation','სამუშაო პროცესების შეფასება, ინსტრუმენტების შერჩევა და დანერგვის გეგმა.','Workflow review, tool selection and implementation planning.','corporate']
+ ['/advisory/ai-governance-implementation/','AI-ის მართვის სისტემის დანერგვა','AI governance implementation','AI-ის გამოყენების პოლიტიკა, პასუხისმგებლობების განაწილება და რისკების შეფასების პროცედურები.','AI policies, accountability and risk assessment procedures.','ai'],
+ ['/advisory/external-ai-technology-counsel/','მუდმივი იურიდიული მომსახურება','External technology counsel','ტექნოლოგიური პროექტების, ხელშეკრულებებისა და რეგულაციების საკითხებზე.','Ongoing advice on technology projects, contracts and regulation.','contracts'],
+ ['/advisory/legal-ai-automation/','AI-ის დანერგვა იურიდიულ საქმიანობაში','Legal AI transformation','სამუშაო პროცესების შეფასება, ინსტრუმენტების შერჩევა და დანერგვის გეგმა.','Workflow review, tool selection and implementation planning.','corporate']
  ];
  return `<section class="section dlg-commercial-offers" id="featured-advisory" aria-labelledby="featured-advisory-title">
   <div class="wrap dlg-advisory-layout">
     <div class="dlg-advisory-intro">
-      ${tr('კონსულტაცია და სტრატეგიული მხარდაჭერა','ADVISORY & STRATEGIC SUPPORT','p','dlg-advisory-kicker')}
-      <h2 id="featured-advisory-title">${tr('სამართლებრივი მხარდაჭერა თქვენი ბიზნესისთვის','Specialist support for your business')}</h2>
-      ${tr('დაგეხმარებით ტექნოლოგიური და კომერციული გადაწყვეტილებების მიღებაში, პროექტის დაგეგმვიდან ყოველდღიურ საქმიანობამდე.','We support technology and commercial decisions, from project planning to day-to-day operations.','p','dlg-advisory-lead')}
-      ${advisoryArtwork}
-      ${link('/advisory/','გაეცანით საკონსულტაციო მიმართულებებს','Explore our advisory work','dlg-advisory-all')}
+      ${tr('სპეციალიზებული კონსულტაცია','SPECIALIST ADVISORY','p','dlg-advisory-kicker')}
+      <h2 id="featured-advisory-title">${tr('AI-ის დანერგვა და სამართლებრივი მართვა','AI adoption and governance')}</h2>
+      ${tr('დაგეხმარებით ხელოვნური ინტელექტის დანერგვაში, მისი გამოყენების წესების შემუშავებასა და ტექნოლოგიურ საკითხებზე მუდმივი იურიდიული მხარდაჭერის მიღებაში.','We help businesses introduce AI, establish governance arrangements and access ongoing technology counsel.','p','dlg-advisory-lead')}
+      ${link('/advisory/','ყველა საკონსულტაციო მიმართულება','All advisory services','dlg-advisory-all')}
     </div>
     <div class="dlg-advisory-options">
       ${offers.map(([url,ka,en,descKa,descEn,key])=>`<a class="dlg-commercial-offer" href="${url}"><div class="dlg-advisory-option-top"><svg class="dlg-advisory-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">${expertiseIcons[key]}</svg><span class="dlg-advisory-option-arrow" aria-hidden="true">↗</span></div>${tr(ka,en,'h3')}${tr(descKa,descEn,'p')}<span class="dlg-advisory-option-more">${tr('ვრცლად','Explore')}</span></a>`).join('')}
     </div>
+    ${clientToolsHome()}
   </div>
  </section>`;
 }
@@ -101,7 +93,7 @@ function homePractices() {
     <div class="dlg-expertise-card-body"><h3>${tr(group.name.ka,group.name.en)}</h3>${tr(shortPractice[group.key][0],shortPractice[group.key][1],'p')}</div>
     <div class="dlg-expertise-card-foot">${tr('ვრცლად','Explore practice')}</div>
   </a>`).join('');
-  return `<section class="section" id="expertise" aria-labelledby="expertise-title"><div class="wrap"><div class="section-head dlg-expertise-head"><div>${tr('სამართალი და ბიზნესი','LAW & BUSINESS','p','dlg-expertise-kicker')}<h2 id="expertise-title">${tr('ჩვენი სპეციალიზაცია','Our expertise')}</h2>${tr('სამართლებრივი მხარდაჭერა ტექნოლოგიების, ბიზნესისა და რეგულირების საკითხებზე.','Specialist legal advice across technology, business and regulation.','p','dlg-expertise-instruction')}</div>${link('/services/','ყველა მიმართულება','All practice areas')}</div><div class="dlg-expertise-grid">${cards}</div></div></section>`;
+  return `<section class="section" id="expertise" aria-labelledby="expertise-title"><div class="wrap"><div class="section-head dlg-expertise-head"><div><h2 id="expertise-title">${tr('ჩვენი სპეციალიზაცია','Our expertise')}</h2></div>${link('/services/','ყველა მიმართულება','All practice areas')}</div><div class="dlg-expertise-grid">${cards}</div></div></section>`;
 }
 
 function audience() {
@@ -111,7 +103,7 @@ function audience() {
   return `<section class="section sectors" id="sectors" aria-labelledby="sectors-heading">
     <div class="wrap">
       <div class="section-head">
-        <h2 id="sectors-heading">${tr('ბიზნესსექტორები','Sectors we advise')}</h2>
+        <h2 id="sectors-heading">${tr('სექტორები','Sectors we advise')}</h2>
         ${link('/business/', 'ყველა სექტორი', 'All sectors')}
       </div>
       <div class="home-sectors">${cards}</div>
@@ -125,18 +117,18 @@ function about() {
       <div class="dlg-home-firm-copy">
         ${tr('ჩვენ შესახებ','ABOUT THE FIRM','p','eyebrow')}
         <h2 id="about-heading">${tr('Digital Law Georgia','Digital Law Georgia')}</h2>
-        ${tr('ტექნოლოგიურ და კომერციულ სამართალში სპეციალიზებული იურიდიული ფირმა. ბიზნესს ვეხმარებით ტექნოლოგიური პროექტების განხორციელებაში, კომერციული ხელშეკრულებების მომზადებასა და რეგულაციებთან დაკავშირებული სამართლებრივი რისკების მართვაში.','A specialist technology and commercial law firm. We support businesses with technology projects, commercial contracts and the management of regulatory risk.','p','dlg-home-firm-lead')}
-        ${tr('სამართლებრივ საკითხებს ვაფასებთ თქვენი კომპანიის საქმიანობისა და კომერციული მიზნების გათვალისწინებით.','We consider each legal matter in the context of your business and commercial objectives.','p','dlg-home-firm-lead')}
+        ${tr('Digital Law Georgia ტექნოლოგიურ და კომერციულ სამართალში სპეციალიზებული იურიდიული ფირმაა. სამართლებრივ საკითხებს ვაფასებთ თქვენი ბიზნესმოდელის, ტექნოლოგიებისა და კომერციული მიზნების გათვალისწინებით.','Digital Law Georgia is a specialist technology and commercial law firm. We consider legal matters in the context of your business model, technology and commercial objectives.','p','dlg-home-firm-lead')}
+        ${tr('კლიენტებთან უშუალოდ ვთანამშრომლობთ და სამუშაოს მოცულობას წინასწარ ვათანხმებთ.','We work directly with clients and agree the scope before work begins.','p','dlg-home-firm-lead')}
         <div class="inline-links">${link('/about/','ვრცლად ფირმის შესახებ','About the firm')}</div>
         <div class="dlg-home-firm-principles" aria-label="ჩვენი მიდგომა" data-en-aria="Our approach">
           <a href="/services/"><span class="dlg-firm-principle-index" aria-hidden="true">01</span>${tr('სპეციალიზებული ცოდნა','Specialist expertise','strong')}${arrow}</a>
           <a href="/how-we-work/"><span class="dlg-firm-principle-index" aria-hidden="true">02</span>${tr('უშუალო თანამშრომლობა','Direct collaboration','strong')}${arrow}</a>
-          <a href="/business/georgia/"><span class="dlg-firm-principle-index" aria-hidden="true">03</span>${tr('საერთაშორისო საქმიანობა','International business','strong')}${arrow}</a>
+          <a href="/fees/"><span class="dlg-firm-principle-index" aria-hidden="true">03</span>${tr('თანამშრომლობის მკაფიო პირობები','Clear engagement terms','strong')}${arrow}</a>
         </div>
       </div>
       <div class="dlg-home-founder-card">
         <figure class="founder-feature"><img src="/assets/profile/founder-portrait.webp" alt="ლუკა შახყულაშვილი" data-en-alt="Luka Shakhkulashvili" width="900" height="900" loading="lazy" decoding="async"></figure>
-        <div class="dlg-home-founder-copy">${tr('დამფუძნებელი','Founder','p','eyebrow')}<h3>${tr('ლუკა შახყულაშვილი','Luka Shakhkulashvili')}</h3>${tr('ტექნოლოგიური და კომერციული სამართლის იურისტი','Technology and commercial lawyer','p','founder-role')}<div class="founder-credentials">${tr('შვიდწლიანი იურიდიული გამოცდილება კერძო და საჯარო სექტორში.','Seven years of legal experience in the private and public sectors.','p')}</div>${link('/about/founder/','პროფესიული პროფილი','Professional profile')}</div>
+        <div class="dlg-home-founder-copy">${tr('დამფუძნებელი','Founder','p','eyebrow')}<h3>${tr('ლუკა შახყულაშვილი','Luka Shakhkulashvili')}</h3>${tr('ტექნოლოგიური და კომერციული სამართლის იურისტი','Technology and commercial lawyer','p','founder-role')}<div class="founder-credentials">${tr('შვიდწლიანი იურიდიული გამოცდილება კერძო და საჯარო სექტორში.','Seven years of legal experience in the private and public sectors.','p')}${tr('ტექნოლოგიური სამართლის მაგისტრი (ლონდონი) და ხელოვნური ინტელექტის რეგულირების შესახებ სამეცნიერო ნაშრომის თანაავტორი.','London-trained technology law LLM graduate and co-author of research on AI regulation.','p')}</div>${link('/about/founder/','პროფესიული პროფილი','Professional profile')}</div>
       </div>
     </div>
   </section>`;
@@ -166,10 +158,10 @@ function insights(rows) {
 
 export function renderHomepage(source, rows) {
   return source.replace('<!-- home-entrances -->', clientEntrances())
-    .replace('<!-- home-practices -->', homePractices()+featuredAdvisory())
+    .replace('<!-- home-practices -->', homePractices())
     .replace('<!-- international-feature -->', internationalFeature())
     .replace('<!-- home-sectors -->', audience())
     .replace('<!-- home-founder -->', about())
-    .replace('<!-- home-engagement -->', '')
+    .replace('<!-- home-engagement -->', featuredAdvisory())
     .replace('<!-- home-insights -->', insights(rows));
 }

@@ -12,5 +12,5 @@ function display(){
  if(document.querySelector('dialog[open], [role="dialog"][aria-modal="true"]:not([hidden])')||document.activeElement?.matches('input, textarea, select, button[aria-expanded="true"]'))return;
  panel.hidden=false;remember();
 }
-setTimeout(display,6500);
+setTimeout(display,8000);
 })();

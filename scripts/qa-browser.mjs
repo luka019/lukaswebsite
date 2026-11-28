@@ -81,10 +81,10 @@ try{
     check(await page.locator('.founder-feature img').count()===1,'Founder portrait missing');
     check(await page.locator('.founder-dialog, .founder-hologram, [data-founder-open]').count()===0,'Removed founder presentation is still present');
     if(width<=920){await page.locator('.menu-btn').click();check(await page.locator('.nav').isVisible(),'Mobile navigation failed');await page.locator('.menu-btn').click();}
-    await page.locator('.contact-form-disclosure > summary').click();
-    const form=page.locator('#enquiry-form');await form.locator('[name="name"]').fill('Test User');await form.locator('[name="email"]').fill('test@example.invalid');await form.locator('[name="area"]').selectOption({index:1});await form.locator('[name="matter"]').fill('Test enquiry. Do not send.');
-    const before=requests.length;await form.locator('button[type="submit"]').click();
-    check(await page.locator('#enquiry-result').isVisible(),'Local enquiry draft missing');check((await page.locator('#enquiry-mailto').getAttribute('href')).includes('test%40example.invalid'),'Email draft missing input');check(requests.length===before,'Enquiry form must not initiate a network request');
+    check(await page.locator('#enquiry-form').count()===0,'No duplicate homepage enquiry form');
+    const order=await page.evaluate(()=>Array.from(document.querySelectorAll('main #expertise,main #about,main #sectors,main #featured-advisory,main #business-tools,main #georgia-business,main #insights,main #contact')).map(x=>x.id));
+    check(JSON.stringify(order)===JSON.stringify(['expertise','about','sectors','featured-advisory','business-tools','georgia-business','insights','contact']),'Homepage hierarchy incorrect');
+    check(await page.locator('.dlg-home-contact-actions > a.primary').getAttribute('href')==='/contact/','Dedicated contact route missing');
     await page.locator('[data-language-link="en"]').click();await page.waitForURL(base+'/en/');
     check((await page.locator('html').getAttribute('lang'))==='en','English language link failed');
     check((await page.locator('h1').innerText()).replace(/\s+/g,' ').trim()==='Legal services for digital businesses.','English headline missing');
@@ -101,12 +101,12 @@ try{
     const errors=[];page.on('pageerror',err=>errors.push(err.message));
     await page.goto(base+prefix+'/');
     const prompt=page.locator('#dlg-readiness-prompt');
-    await prompt.waitFor({state:'visible',timeout:10000});
+    await prompt.waitFor({state:'visible',timeout:14000});
     check(await prompt.locator('a').getAttribute('href')===prefix+'/advisory/assessment/','Prompt link language mismatch');
     await prompt.locator('.dlg-prompt-close').click();
     check(await prompt.isHidden(),'Prompt must dismiss');
     await page.reload();
-    await page.waitForTimeout(7000);
+    await page.waitForTimeout(9000);
     check(await prompt.isHidden(),'Prompt must not repeat within a session');
     await page.locator('.dlg-assessment-feature .dlg-tool-cta').click();
     await page.waitForURL(base+prefix+'/advisory/assessment/');
