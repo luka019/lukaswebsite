@@ -1,0 +1,19 @@
+/* Client tools: accessible, restrained, bilingual. */
+.dlg-client-page{max-width:860px;margin-inline:auto;padding-block:clamp(36px,6vw,80px)}
+.dlg-client-head{margin-bottom:2rem}.dlg-client-head h1{font-size:clamp(1.9rem,4vw,3.25rem);line-height:1.25;margin:.7rem 0 1.1rem}
+.dlg-client-lead{font-size:1.05rem;line-height:1.75;max-width:65ch;color:#465366}
+.dlg-client-note,.dlg-client-result{border:1px solid #cad9e5;background:#f3f7fb;padding:clamp(16px,3vw,28px);margin:1.5rem 0}
+.dlg-client-form{display:grid;gap:1.35rem;margin:2rem 0}.dlg-client-form[hidden],.dlg-client-result[hidden],.dlg-readiness-tip[hidden]{display:none!important}
+.dlg-readiness-question{min-width:0;margin:0;padding:1.2rem 0;border:0;border-bottom:1px solid #d9e3ed}
+.dlg-readiness-question legend{font-weight:650;color:#19283e;line-height:1.65;padding:0}
+.dlg-choice-group{display:flex;flex-wrap:wrap;gap:.7rem 1.3rem}.dlg-choice-group label{display:flex;align-items:center;gap:.45rem;min-height:44px;cursor:pointer}
+.dlg-client-actions{display:flex;flex-wrap:wrap;gap:.7rem;align-items:center;margin-top:1rem}
+.dlg-client-actions .button{white-space:normal;text-align:center;min-height:44px}
+.dlg-field-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.15rem}
+.dlg-field-grid label{display:grid;gap:.5rem;color:#19283e;min-width:0;font-weight:600}
+.dlg-field-grid input,.dlg-field-grid select,.dlg-client-result textarea{min-width:0;width:100%;padding:.7rem;border:1px solid #8fa8bc;border-radius:2px;background:white;color:#19283e;font:inherit}
+.dlg-consult-agree{display:flex;gap:.6rem;align-items:flex-start;line-height:1.6}.dlg-client-result textarea{margin-top:1rem;resize:vertical}
+.dlg-client-page :is(a,button,input,select,textarea):focus-visible{outline:2px solid #28568c;outline-offset:3px}
+.dlg-client-result li{padding:.3rem 0}.dlg-update-list{padding:0;list-style:none}.dlg-update-list li{display:flex;justify-content:space-between;gap:1rem;padding:1rem 0;border-bottom:1px solid #d9e3ed}.dlg-update-list a{text-decoration:underline;text-underline-offset:3px}
+.dlg-client-home{border-top:1px solid #d9e3ed}
+@media(max-width:600px){.dlg-field-grid{grid-template-columns:minmax(0,1fr)}.dlg-choice-group{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}.dlg-update-list li{display:grid;gap:.3rem}}
