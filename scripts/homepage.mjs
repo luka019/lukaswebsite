@@ -87,6 +87,16 @@ const practiceExamples = {
   ]
 };
 
+function featuredAdvisory() {
+ const offers=[
+ ['/advisory/ai-governance-implementation/','AI-ის მართვის სისტემის დანერგვა','AI governance implementation','AI-ის პოლიტიკა, პასუხისმგებლობები და რისკების შეფასების პროცედურები.','AI policies, accountability and risk assessment procedures.'],
+ ['/advisory/external-ai-technology-counsel/','მუდმივი იურიდიული მხარდაჭერა','External technology counsel','ტექნოლოგიური პროექტების, ხელშეკრულებებისა და რეგულაციების საკითხებზე.','Ongoing advice on technology projects, contracts and regulation.'],
+ ['/services/georgia-market-entry/','საქართველოში საქმიანობის დაწყება','Georgia market entry','დაფუძნება, მარეგულირებელი მოთხოვნები და კომერციული საკითხები.','Company setup, regulatory requirements and commercial matters.'],
+ ['/advisory/legal-ai-automation/','AI იურიდიულ საქმიანობაში','Legal AI transformation','სამუშაო პროცესების შეფასება, ინსტრუმენტების შერჩევა და დანერგვის გეგმა.','Workflow review, tool selection and implementation planning.']
+ ];
+ return `<section class="section dlg-commercial-offers" id="featured-advisory" aria-labelledby="featured-advisory-title"><div class="wrap"><div class="section-head"><h2 id="featured-advisory-title">${tr('სამართლებრივი მხარდაჭერა თქვენი ბიზნესისთვის','Specialist support for your business')}</h2>${link('/advisory/','AI და სამართალი','AI and law')}</div><div class="dlg-commercial-grid">${offers.map(([url,ka,en,descKa,descEn],i)=>`<article class="dlg-commercial-offer"><span aria-hidden="true" class="dlg-commercial-index">0${i+1}</span>${tr(ka,en,'h3')}${tr(descKa,descEn,'p')}${link(url,'ვრცლად','Explore service')}</article>`).join('')}</div></div></section>`;
+}
+
 function homePractices() {
   const entries=practiceGroups.map((group,i)=>`<details class="dlg-practice-entry" name="dlg-practice-areas">
     <summary class="dlg-practice-summary">
@@ -173,7 +183,7 @@ function insights(rows) {
 
 export function renderHomepage(source, rows) {
   return source.replace('<!-- home-entrances -->', clientEntrances())
-    .replace('<!-- home-practices -->', homePractices())
+    .replace('<!-- home-practices -->', homePractices()+featuredAdvisory())
     .replace('<!-- international-feature -->', internationalFeature())
     .replace('<!-- home-sectors -->', audience())
     .replace('<!-- home-founder -->', about())
