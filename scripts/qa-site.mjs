@@ -253,3 +253,9 @@ new vm.Script(file('dlg-resource-prompt.js'),{filename:'dlg-resource-prompt.js'}
 assert(!/\bfetch\s*\(|localStorage|document\.cookie/.test(file('dlg-resource-prompt.js')),'The prompt must not track visitors or transmit data');
 assert(file('dlg-resource-prompt.js').includes('dlg-readiness-prompt-shown-v1')&&file('dlg-resource-prompt.js').includes("sessionStorage.setItem(key,'1')"),'Only the session display flag may be stored');
 console.log('Prominent resource and assessment wizard checks passed; '+total+' total assertions.');
+
+const georgianAssessment=file('advisory/assessment/index.html');
+assert(!home.includes('თვითშეფას')&&!georgianAssessment.includes('თვითშეფას'),'Retired Georgian assessment term must not appear');
+assert(home.includes('დაიწყეთ შეფასება')&&georgianAssessment.includes('AI-ის გამოყენებისთვის მზადყოფნის შეფასება')&&georgianAssessment.includes('შეფასების შედეგები'),'Natural Georgian assessment labels missing');
+assert(file('dlg-client-tools.js').includes('პასუხები: '),'Georgian live progress label missing');
+console.log('Georgian client-tool wording checks passed; '+total+' total assertions.');

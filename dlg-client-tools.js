@@ -12,7 +12,7 @@ if(form){
   const answered=questions.filter(q=>selection(q)).length;
   progress.value=answered;
   stepLabel.textContent=t('კითხვა '+(step+1)+' / '+questions.length,'Question '+(step+1)+' / '+questions.length);
-  answeredLabel.textContent=t('გაცემული პასუხი: '+answered+' / '+questions.length,'Answered: '+answered+' / '+questions.length);
+  answeredLabel.textContent=t('პასუხები: '+answered+' / '+questions.length,'Answered: '+answered+' / '+questions.length);
  }
  function showStep(index,focus=true){
   step=Math.max(0,Math.min(index,questions.length-1));
@@ -43,7 +43,7 @@ if(form){
    tip.textContent=field.querySelector('.dlg-readiness-tip').textContent.trim();
    li.append(title,tip);list.append(li);
   }
-  summary.textContent=t('თქვენი პასუხების მიხედვით, რვიდან '+counts.yes+' მიმართულება სრულად გაქვთ მოწესრიგებული. დანარჩენი მიმართულებების მდგომარეობა იხილეთ ქვემოთ.','Based on your answers, '+counts.yes+' of eight areas are fully implemented. See the remaining areas below.');
+  summary.textContent=t('თქვენი პასუხების მიხედვით, 8 საკითხიდან '+counts.yes+' სრულად გაქვთ მოწესრიგებული. ქვემოთ იხილავთ შედეგების შეჯამებას და რეკომენდაციებს.','Based on your answers, '+counts.yes+' of eight areas are fully implemented. See the remaining areas below.');
   Object.keys(counts).forEach(key=>{result.querySelector('[data-answer-count="'+key+'"]').textContent=counts[key];});
   if(counts.yes===questions.length){const li=document.createElement('li');li.textContent=t('შეინარჩუნეთ არსებული მექანიზმები და პერიოდულად გადაამოწმეთ მათი ეფექტიანობა.','Maintain existing measures and periodically review their effectiveness.');list.append(li);}
   form.hidden=true;result.hidden=false;document.getElementById('dlg-readiness-heading').focus();
@@ -58,7 +58,7 @@ if(consult){
  consult.hidden=false;
  consult.addEventListener('submit',e=>{e.preventDefault();if(!consult.reportValidity())return;
  const d=new FormData(consult),matter=consult.elements.matter.selectedOptions[0].textContent.trim();
- const body=[t('გამარჯობა, მსურს კონსულტაციის მოთხოვნა.','Hello, I would like to request a consultation.'),'',t('სახელი: ','Name: ')+d.get('name'),t('ელფოსტა: ','Email: ')+d.get('email'),t('ორგანიზაცია: ','Organisation: ')+(d.get('company')||'-'),t('მიმართულება: ','Matter: ')+matter,t('სასურველი დრო: ','Preferred time: ')+d.get('date')+' '+d.get('time')+' (Asia/Tbilisi)','',t('გთხოვთ, დამიდასტუროთ შეხვედრის შესაძლებლობა.','Please confirm your availability.')].join('\n');
+ const body=[t('გამარჯობა, მსურს კონსულტაციაზე შეხვედრა.','Hello, I would like to request a consultation.'),'',t('სახელი: ','Name: ')+d.get('name'),t('ელფოსტა: ','Email: ')+d.get('email'),t('ორგანიზაცია: ','Organisation: ')+(d.get('company')||'-'),t('მიმართულება: ','Matter: ')+matter,t('სასურველი დრო: ','Preferred time: ')+d.get('date')+' '+d.get('time')+' (Asia/Tbilisi)','',t('გთხოვთ, დამიდასტუროთ, შესაძლებელია თუ არა შეხვედრა აღნიშნულ დროს.','Please confirm your availability.')].join('\n');
  draft.value=body;mail.href='mailto:digitallawgeorgia@gmail.com?subject='+encodeURIComponent(t('კონსულტაციის მოთხოვნა','Consultation request'))+'&body='+encodeURIComponent(body);status.textContent='';result.hidden=false;document.getElementById('dlg-consultation-heading').focus();
  });
  consult.addEventListener('input',()=>{result.hidden=true;draft.value='';mail.href='mailto:digitallawgeorgia@gmail.com';status.textContent='';});
