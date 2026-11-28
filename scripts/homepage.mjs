@@ -54,38 +54,6 @@ function clientEntrances() {
   </nav>`;
 }
 
-const practiceExamples = {
-  ai: [
-    ['AI-ის გამოყენების სამართლებრივი შეფასება','Legal assessment of AI use'],
-    ['AI-ის შიდა პოლიტიკა და მართვის წესები','Internal AI policies and governance'],
-    ['AI პროდუქტებისა და მიმწოდებლების შეფასება','AI product and supplier assessment']
-  ],
-  privacy: [
-    ['პერსონალურ მონაცემთა დამუშავების სამართლებრივი შეფასება','Legal assessment of personal data processing'],
-    ['კონფიდენციალურობის პოლიტიკა და მონაცემთა დამუშავების შეთანხმებები','Privacy policies and data processing agreements'],
-    ['უსაფრთხოების ვალდებულებები და ინციდენტებზე რეაგირება','Security obligations and incident response']
-  ],
-  contracts: [
-    ['SaaS, პროგრამული უზრუნველყოფა და ლიცენზირება','SaaS, software and licensing'],
-    ['კომერციული ხელშეკრულებების მომზადება და შეფასება','Drafting and review of commercial contracts'],
-    ['მოლაპარაკება, პასუხისმგებლობა და ხელშეკრულების შეწყვეტის პირობები','Negotiation, liability and exit terms']
-  ],
-  products: [
-    ['ციფრული პროდუქტის გაშვებამდე სამართლებრივი შეფასება','Pre-launch legal review of digital products'],
-    ['პლატფორმის პირობები და ელექტრონული კომერცია','Platform terms and e-commerce'],
-    ['პროგრამულ უზრუნველყოფაზე უფლებები და ლიცენზირება','Software rights and licensing']
-  ],
-  fintech: [
-    ['ფინანსური ბიზნესმოდელის სამართლებრივი შეფასება','Legal assessment of financial business models'],
-    ['საგადახდო მომსახურება და რეგისტრაციის მოთხოვნები','Payment services and registration requirements'],
-    ['ვირტუალური აქტივები და VASP რეგულირება','Virtual assets and VASP regulation']
-  ],
-  corporate: [
-    ['კომპანიის დაფუძნება და კორპორაციული მართვა','Company formation and corporate governance'],
-    ['საინვესტიციო და დამფუძნებელთა შეთანხმებები','Investment and founders’ agreements'],
-    ['მუდმივი იურიდიული მხარდაჭერა','Ongoing legal counsel']
-  ]
-};
 
 function featuredAdvisory() {
  const offers=[
@@ -97,28 +65,22 @@ function featuredAdvisory() {
  return `<section class="section dlg-commercial-offers" id="featured-advisory" aria-labelledby="featured-advisory-title"><div class="wrap"><div class="section-head"><h2 id="featured-advisory-title">${tr('სამართლებრივი მხარდაჭერა თქვენი ბიზნესისთვის','Specialist support for your business')}</h2>${link('/advisory/','AI და სამართალი','AI and law')}</div><div class="dlg-commercial-grid">${offers.map(([url,ka,en,descKa,descEn],i)=>`<article class="dlg-commercial-offer"><span aria-hidden="true" class="dlg-commercial-index">0${i+1}</span>${tr(ka,en,'h3')}${tr(descKa,descEn,'p')}${link(url,'ვრცლად','Explore service')}</article>`).join('')}</div></div></section>`;
 }
 
+// Purpose-built, consistent editorial line illustrations for the six practices.
+const expertiseIcons={
+ ai:'<rect x="12" y="12" width="24" height="24" rx="3"/><path d="M18 4v8m12-8v8M18 36v8m12-8v8M4 18h8M4 30h8m24-12h8m-8 12h8M18 27l6-11 6 11m-10-4h8"/><circle cx="24" cy="32" r="1" fill="currentColor" stroke="none"/>',
+ privacy:'<path d="M24 4 40 11v12c0 9-6 16-16 21C14 39 8 32 8 23V11Z"/><rect x="17" y="22" width="14" height="10" rx="2"/><path d="M20 22v-4a4 4 0 0 1 8 0v4m-4 4v2"/>',
+ contracts:'<path d="M11 5h18l9 9v29H11Z"/><path d="M29 5v10h9M17 21h15m-15 6h9m-9 6h7m4 4 4 4 9-11"/>',
+ products:'<path d="m24 5 19 10v18L24 43 5 33V15Zm0 19v19M5 15l19 9 19-9M14 10l19 10v8"/><path d="m24 12 5 3-5 3-5-3Z"/>',
+ fintech:'<path d="M6 14 24 5l18 9H6Zm4 23h28M6 43h36M12 17v17m12-17v17m12-17v17"/><circle cx="24" cy="10" r="1" fill="currentColor" stroke="none"/>',
+ corporate:'<rect x="19" y="4" width="10" height="10" rx="1"/><path d="M24 14v9M8 30v-7h32v7"/><rect x="3" y="30" width="10" height="10" rx="1"/><rect x="19" y="30" width="10" height="10" rx="1"/><rect x="35" y="30" width="10" height="10" rx="1"/><path d="M24 23v7"/>'
+};
 function homePractices() {
-  const entries=practiceGroups.map((group,i)=>`<details class="dlg-practice-entry" name="dlg-practice-areas">
-    <summary class="dlg-practice-summary">
-      <span class="dlg-practice-number" aria-hidden="true">0${i+1}</span>
-      <span class="dlg-practice-title">${tr(group.name.ka,group.name.en,'strong')}${tr(shortPractice[group.key][0],shortPractice[group.key][1],'span','dlg-practice-short')}</span>
-      <span class="dlg-disclosure-mark" aria-hidden="true"></span>
-    </summary>
-    <div class="dlg-practice-expanded">
-      ${tr('რა საკითხებზე ვმუშაობთ','How we can help','p','dlg-practice-caption')}
-      <ul>${practiceExamples[group.key].map(([ka,en])=>tr(ka,en,'li')).join('')}</ul>
-      ${link(groupRoute(group),'ვრცლად მიმართულების შესახებ','Explore this practice area','practice-card')}
-    </div>
-  </details>`);
-  return `<section class="section" id="expertise" aria-labelledby="expertise-title">
-    <div class="wrap">
-      <div class="section-head">
-        <div><h2 id="expertise-title">${tr('ჩვენი სპეციალიზაცია','Our expertise')}</h2>${tr('აირჩიეთ მიმართულება და გაეცანით, რა საკითხებზე ვმუშაობთ.','Select a practice area to see how we can help.','p','dlg-expertise-instruction')}</div>
-        ${link('/services/','ყველა მიმართულება','All practice areas')}
-      </div>
-      <div class="practice-grid dlg-practice-directory">${[entries.slice(0,3),entries.slice(3)].map(col=>`<div class="dlg-practice-column">${col.join('')}</div>`).join('')}</div>
-    </div>
-  </section>`;
+  const cards=practiceGroups.map(group=>`<a class="practice-card" data-practice="${group.key}" href="${groupRoute(group)}">
+    <div class="dlg-expertise-card-top"><svg class="dlg-expertise-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">${expertiseIcons[group.key]}</svg><span class="dlg-expertise-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 18 18 6M6 6h12v12"/></svg></span></div>
+    <div class="dlg-expertise-card-body"><h3>${tr(group.name.ka,group.name.en)}</h3>${tr(shortPractice[group.key][0],shortPractice[group.key][1],'p')}</div>
+    <div class="dlg-expertise-card-foot">${tr('ვრცლად','Explore practice')}</div>
+  </a>`).join('');
+  return `<section class="section" id="expertise" aria-labelledby="expertise-title"><div class="wrap"><div class="section-head dlg-expertise-head"><div>${tr('სამართალი და ბიზნესი','LAW & BUSINESS','p','dlg-expertise-kicker')}<h2 id="expertise-title">${tr('ჩვენი სპეციალიზაცია','Our expertise')}</h2>${tr('სამართლებრივი მხარდაჭერა ტექნოლოგიების, ბიზნესისა და რეგულირების საკითხებზე.','Specialist legal advice across technology, business and regulation.','p','dlg-expertise-instruction')}</div>${link('/services/','ყველა მიმართულება','All practice areas')}</div><div class="dlg-expertise-grid">${cards}</div></div></section>`;
 }
 
 function audience() {
