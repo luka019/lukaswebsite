@@ -225,6 +225,11 @@ for(const prefix of ['','en/']){
  assert(updates.includes('/legal-updates.xml')&&updates.includes('/legal-updates-en.xml'),'RSS links missing');
  for(const route of ['/advisory/assessment/','/contact/consultation/','/resources/legal-updates/'])assert(landing.includes('href="'+base+route+'"'),'Client tool route absent '+base+route);
  assert((landing.match(/class="dlg-commercial-offer"/g)||[]).length===8,'Four offers and four client tools required');
+ const featured=landing.match(/<section class="section dlg-commercial-offers"[\s\S]*?<\/section>/)?.[0]||'';
+ assert(featured.includes('class="dlg-advisory-art"')&&featured.includes('class="dlg-advisory-options"'),'Signature illustrated advisory composition required');
+ assert((featured.match(/class="dlg-advisory-icon"/g)||[]).length===4,'Four advisory line icons required');
+ for(const route of ['/advisory/ai-governance-implementation/','/advisory/external-ai-technology-counsel/','/services/georgia-market-entry/','/advisory/legal-ai-automation/'])assert(featured.includes('href="'+base+route+'"'),'Advisory service link missing '+base+route);
+ 
 }
 for(const feed of ['legal-updates.xml','legal-updates-en.xml'])assert(file(feed).includes('<rss version="2.0">'),'RSS feed missing '+feed);
 assert(!/\bfetch\s*\(|localStorage|sessionStorage/.test(file('dlg-client-tools.js')),'Client tools must not transmit or retain form data');
