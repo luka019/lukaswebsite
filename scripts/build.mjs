@@ -52,7 +52,7 @@ function shell({title,title_en,summary,summary_en,url,content,image='',article=f
  const trail=url==='/'||url==='/404.html'?'':`<nav class="dlg-breadcrumb container" aria-label="გვერდის მდებარეობა" data-en-aria="Breadcrumb"><ol>${parentsFor(url).map(({url,name})=>`<li><a href="${url}" data-site-link ${tr(name.ka,name.en)}>${esc(name.ka)}</a></li>`).join('')}<li><span aria-current="page" ${tr(title,title_en||title)}>${esc(title)}</span></li></ol></nav>`;
 
  const canonical=siteUrl+url;
- const imageUrl=image&&!image.endsWith('.svg')?(image.startsWith('/')?siteUrl+image:image):siteUrl+'/assets/editorial/human-machine.webp';
+ const imageUrl=image&&!image.endsWith('.svg')?(image.startsWith('/')?siteUrl+image:image):siteUrl+'/assets/editorial/hero-tech-workspace.jpg';
  const articleImages=article&&image&&image.endsWith('.png')?[imageUrl,imageUrl.replace(/\.png$/, '-4x3.png'),imageUrl.replace(/\.png$/, '-1x1.png')]:[imageUrl];
  const keywords=termsFor(url);
  const robots=noindex?'noindex,nofollow':'index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1';
