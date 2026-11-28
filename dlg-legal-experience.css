@@ -214,23 +214,59 @@ body.resource-page .dlg-client-page .button-primary{background:#19384c;border-co
 @media(prefers-reduced-motion:reduce){.dlg-art-signal{animation:none!important}.dlg-art-circuit,.dlg-art-portico,.dlg-advisory-option-arrow,#featured-advisory .dlg-commercial-offer,body:has(.masthead) #expertise .dlg-expertise-grid .practice-card::after,body:has(.masthead) #sectors .home-sector-media img{animation:none!important;transition:none!important;transform:none!important}}
 
 
-/* Compact, continuous homepage composition. The artwork blends into the hero
-   instead of appearing as a framed, separate card. */
-body:has(.masthead) .hero{background:linear-gradient(105deg,#fcfbf8 0%,#f5f7f6 43%,#e9f0f4 100%);border-bottom:1px solid #d1dce2}
-body:has(.masthead) .hero-inner{width:min(1200px,calc(100% - clamp(36px,8vw,100px)));grid-template-columns:minmax(0,1.12fr) minmax(0,.88fr);gap:clamp(8px,1.6vw,24px);min-height:0;padding-block:clamp(24px,3.25vw,43px);align-items:center}
-body:has(.masthead) .hero-content{display:block;min-width:0;max-width:none;padding:0;position:relative;z-index:2}
-body:has(.masthead) .hero-content .hero-title,body:has(.masthead) .hero-content .hero-copy{padding:0;max-width:none;min-width:0}
-body:has(.masthead) .hero-content .hero-title .eyebrow{font-size:.68rem;font-weight:650;letter-spacing:.005em;margin:0 0 13px;gap:8px;color:#3a647e}
-body:has(.masthead) .hero-content .hero-title .eyebrow::before{width:22px;background:#b49a73}
-body:has(.masthead) .hero-content h1{font-size:clamp(25px,2.6vw,39px);line-height:1.28!important;font-weight:600;letter-spacing:-.025em;margin:0 0 14px;max-width:none;text-wrap:normal}
-body:has(.masthead) .hero-content h1 em{display:block;margin:0;color:#3a647e;line-height:inherit}
-html[lang=en] body:has(.masthead) .hero-content h1{font-size:clamp(32px,3.05vw,46px);font-weight:400;line-height:1.13!important;letter-spacing:-.035em}
-body:has(.masthead) .hero-content .intro{font-size:clamp(.83rem,1vw,.94rem);line-height:1.7;max-width:57ch;margin:0;color:#506473}
-body:has(.masthead) .hero-content .hero-actions{margin-top:17px;gap:9px;align-items:center;flex-wrap:wrap}
-body:has(.masthead) .hero-content .hero-actions a{font-size:.74rem;min-height:43px;padding:9px 15px}
-body:has(.masthead) .hero-content .hero-location{font-size:.67rem;margin:11px 0 0;line-height:1.55;color:#506473}
-body:has(.masthead) .hero-photo{grid-column:2;grid-row:1;align-self:center;width:100%;max-width:none;min-width:0;min-height:0;height:auto;aspect-ratio:1.9;margin:0;border:0;background:transparent;isolation:auto;mix-blend-mode:multiply;overflow:hidden;mask-image:linear-gradient(90deg,transparent 0%,#000 13%,#000 91%,transparent 100%),linear-gradient(180deg,transparent 0%,#000 17%,#000 83%,transparent 100%);mask-composite:intersect}
-body:has(.masthead) .hero-photo::before,body:has(.masthead) .hero-photo::after{display:none;content:none;border:0}
-body:has(.masthead) .hero-photo img{position:absolute;inset:0;width:100%;height:100%;aspect-ratio:auto;object-fit:cover;object-position:50% 50%;mix-blend-mode:normal;filter:none;transform:none}
-@media(max-width:880px){body:has(.masthead) .hero-inner{grid-template-columns:minmax(0,1fr) minmax(0,.74fr);gap:9px;padding-block:25px}body:has(.masthead) .hero-content h1{font-size:clamp(23px,3.1vw,28px)}html[lang=en] body:has(.masthead) .hero-content h1{font-size:clamp(27px,3.6vw,34px)}}
-@media(max-width:700px){body:has(.masthead) .hero-inner{grid-template-columns:minmax(0,1fr);grid-template-rows:auto auto;gap:4px;padding-block:24px 10px}body:has(.masthead) .hero-content h1{font-size:clamp(24px,5.5vw,31px)}html[lang=en] body:has(.masthead) .hero-content h1{font-size:clamp(31px,7vw,40px)}body:has(.masthead) .hero-content .intro{max-width:58ch}body:has(.masthead) .hero-photo{grid-column:1;grid-row:2;aspect-ratio:2.45;max-width:520px;justify-self:center;mask-image:linear-gradient(90deg,transparent,#000 9%,#000 91%,transparent),linear-gradient(180deg,transparent,#000 18%,#000 82%,transparent);mask-composite:intersect}}
+
+/* Architectural editorial direction. A single, integrated hero; no illustration frame. */
+body:has(.masthead) .masthead{background:#fff;border-bottom:1px solid #dde5e9}
+body:has(.masthead) .hero{position:relative;isolation:isolate;overflow:hidden;background:#153347;color:#fff;border-bottom:0;padding:0}
+body:has(.masthead) .hero-inner{position:relative;z-index:2;display:block;width:min(1240px,calc(100% - clamp(36px,8vw,112px)));min-height:0;margin-inline:auto;padding:clamp(38px,5vw,66px) 0}
+body:has(.masthead) .hero-content{display:block;width:62%;max-width:665px;min-width:0;padding:0}
+body:has(.masthead) .hero-content .hero-title,body:has(.masthead) .hero-content .hero-copy{display:block;max-width:none;min-width:0;padding:0;margin:0}
+body:has(.masthead) .hero-content .hero-title .eyebrow{display:flex;align-items:center;gap:10px;color:#c7d9e4;font-size:12px;font-weight:550;letter-spacing:.015em;margin:0 0 20px;line-height:1.55}
+body:has(.masthead) .hero-content .hero-title .eyebrow::before{width:25px;background:#c4ad88;flex:none}
+body:has(.masthead) .hero-content .hero-title .eyebrow::after{display:none}
+body:has(.masthead) .hero-content h1{font-size:clamp(27px,3.05vw,38px);line-height:1.36!important;letter-spacing:-.025em;font-weight:600;color:#fff;max-width:100%;margin:0 0 20px;text-wrap:balance}
+body:has(.masthead) .hero-content h1 em{display:block;color:#d2e2ea;font-style:normal;margin:0;line-height:inherit}
+html[lang=en] body:has(.masthead) .hero-content h1{font-family:Georgia,serif;font-weight:400;font-size:clamp(34px,3.65vw,47px);line-height:1.13!important;letter-spacing:-.035em}
+body:has(.masthead) .hero-content .intro{max-width:46ch;font-size:15px;line-height:1.75;color:#e0e9ee;margin:0;font-weight:400}
+body:has(.masthead) .hero-content .hero-actions{display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin:23px 0 0}
+body:has(.masthead) .hero-content .hero-actions a{min-height:43px;font-size:12px;font-weight:650;padding:10px 17px;border-radius:2px;gap:18px}
+body:has(.masthead) .hero-content .primary{background:#fff;color:#153347;border-color:#fff}
+body:has(.masthead) .hero-content .secondary{background:transparent;color:#fff;border-color:#a2bac8}
+body:has(.masthead) .hero-content .primary:hover{background:#d9e7ef;border-color:#d9e7ef}
+body:has(.masthead) .hero-content .secondary:hover{background:#ffffff15;border-color:#fff}
+body:has(.masthead) .hero-content .hero-location{font-size:11px;line-height:1.6;color:#c4d6e1;margin:17px 0 0}
+body:has(.masthead) .hero-photo{position:absolute;inset:0 0 0 auto;z-index:0;width:66%;height:100%;max-width:none;min-height:0;aspect-ratio:auto;margin:0;border:0;background:none;isolation:isolate;mask-image:none;mix-blend-mode:normal;overflow:hidden}
+body:has(.masthead) .hero-photo img{position:absolute;inset:0;width:100%;height:100%;aspect-ratio:auto;object-fit:cover;object-position:65% 50%;mix-blend-mode:normal;filter:saturate(.53) brightness(.76);transform:none}
+body:has(.masthead) .hero-photo::before{display:none;content:none;border:0}
+body:has(.masthead) .hero-photo::after{display:block;content:"";position:absolute;inset:0;z-index:1;border:0;background:linear-gradient(90deg,#153347 0%,#153347f5 10%,#153347bd 33%,#1533474a 72%,#15334738 100%),linear-gradient(0deg,#15334744,transparent 55%);pointer-events:none}
+body:has(.masthead) .matter-nav{background:#f5f8f9;border-bottom:1px solid #dce5e9;padding-block:10px}
+body:has(.masthead) #expertise{background:#fff}
+body:has(.masthead) #expertise .dlg-expertise-grid{gap:0;background:transparent;border-top:1px solid #d1dce2}
+body:has(.masthead) #expertise .dlg-expertise-grid .practice-card{background:#fff!important;border:0;border-bottom:1px solid #d1dce2;border-right:1px solid #d1dce2;min-height:185px;padding:clamp(19px,2.25vw,28px);gap:10px;color:#19384c}
+body:has(.masthead) #expertise .dlg-expertise-grid .practice-card:nth-child(3n){border-right:0}
+body:has(.masthead) #expertise .dlg-expertise-grid .practice-card .dlg-expertise-card-top{align-items:center}
+body:has(.masthead) #expertise .dlg-expertise-grid .practice-card h3{font-size:clamp(15px,1.35vw,18px);line-height:1.5;letter-spacing:0}
+body:has(.masthead) #expertise .dlg-expertise-grid .practice-card p{font-size:13px;line-height:1.65}
+body:has(.masthead) #expertise .dlg-expertise-icon{width:33px;height:33px;color:#3a647e}
+body:has(.masthead) #expertise .dlg-expertise-arrow{border:0;width:30px;height:30px}
+body:has(.masthead) #expertise .dlg-expertise-grid .practice-card .dlg-expertise-card-foot{font-size:11px;color:#3a647e}
+@media(hover:hover){body:has(.masthead) #expertise .dlg-expertise-grid .practice-card:hover{background:#eff5f7!important;border-color:#a9c0ce;color:#153347}body:has(.masthead) #expertise .dlg-expertise-grid .practice-card:hover :is(h3,p,.dlg-expertise-icon,.dlg-expertise-card-foot,.dlg-expertise-arrow){color:#153347}}
+body:has(.masthead) #featured-advisory{background:#edf3f5;color:#19384c;padding-block:clamp(36px,4vw,58px);border-block:1px solid #d5e1e7}
+body:has(.masthead) #featured-advisory::before{display:none}
+#featured-advisory .dlg-advisory-intro h2{color:#19384c;font-size:clamp(24px,2.5vw,34px);line-height:1.42;max-width:24ch}
+#featured-advisory .dlg-advisory-kicker{color:#3a647e}
+#featured-advisory .dlg-advisory-lead{color:#506473;font-size:14px}
+#featured-advisory .dlg-advisory-art{display:none}
+#featured-advisory .dlg-advisory-all{color:#315f85;border-color:#8ea7b8;margin-top:20px}
+#featured-advisory .dlg-advisory-all:hover{color:#153347;border-color:#153347}
+#featured-advisory .dlg-advisory-options{gap:1px;border:1px solid #d1dce2;background:#d1dce2}
+#featured-advisory .dlg-commercial-offer,#featured-advisory .dlg-commercial-offer:nth-child(2n){min-height:150px;background:#fff;color:#19384c;gap:9px;padding:clamp(18px,2vw,25px)}
+#featured-advisory .dlg-commercial-offer h3{color:#19384c;font-size:16px;line-height:1.5}
+#featured-advisory .dlg-commercial-offer p{color:#506473;font-size:13px;line-height:1.65}
+#featured-advisory .dlg-advisory-option-more,#featured-advisory .dlg-advisory-option-arrow,#featured-advisory .dlg-advisory-icon{color:#315f85}
+#featured-advisory .dlg-advisory-icon{width:29px;height:29px}
+#featured-advisory .dlg-commercial-offer:focus-visible,#featured-advisory .dlg-advisory-all:focus-visible{outline-color:#315f85}
+@media(hover:hover){#featured-advisory .dlg-commercial-offer:hover{background:#f5f9fb}#featured-advisory .dlg-commercial-offer:hover .dlg-advisory-icon{color:#19384c}}
+@media(max-width:1000px){body:has(.masthead) #expertise .dlg-expertise-grid .practice-card:nth-child(3n){border-right:1px solid #d1dce2}body:has(.masthead) #expertise .dlg-expertise-grid .practice-card:nth-child(2n){border-right:0}}
+@media(max-width:800px){body:has(.masthead) .hero-inner{padding:38px 0 32px}body:has(.masthead) .hero-content{width:78%;max-width:570px}body:has(.masthead) .hero-photo{width:80%}body:has(.masthead) .hero-photo::after{background:linear-gradient(90deg,#153347 0%,#153347e8 20%,#153347b0 55%,#15334755 100%)}body:has(.masthead) .hero-content h1{font-size:30px}}
+@media(max-width:600px){body:has(.masthead) .hero-inner{width:calc(100% - 40px);padding:30px 0 125px}body:has(.masthead) .hero-content{width:100%;max-width:none}body:has(.masthead) .hero-content .hero-title .eyebrow{font-size:11px;margin-bottom:13px}body:has(.masthead) .hero-content h1{font-size:clamp(24px,6.5vw,29px);margin-bottom:14px}html[lang=en] body:has(.masthead) .hero-content h1{font-size:clamp(31px,7.6vw,37px)}body:has(.masthead) .hero-content .intro{font-size:13px;line-height:1.7}body:has(.masthead) .hero-content .hero-actions{gap:8px;margin-top:18px}body:has(.masthead) .hero-content .hero-actions a{padding:9px 12px;font-size:12px;gap:9px}body:has(.masthead) .hero-content .hero-location{font-size:10px;margin-top:12px}body:has(.masthead) .hero-photo{inset:auto 0 0;width:100%;height:160px}body:has(.masthead) .hero-photo img{object-position:50% 62%}body:has(.masthead) .hero-photo::after{background:linear-gradient(180deg,#153347,#153347bd 24%,#15334738 75%)}body:has(.masthead) #expertise .dlg-expertise-grid .practice-card:nth-child(n){min-height:0;border-right:0;padding:18px 10px;gap:8px}}
