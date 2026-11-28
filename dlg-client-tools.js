@@ -48,8 +48,30 @@ if(form){
   if(counts.yes===questions.length){const li=document.createElement('li');li.textContent=t('შეინარჩუნეთ არსებული მექანიზმები და პერიოდულად გადაამოწმეთ მათი ეფექტიანობა.','Maintain existing measures and periodically review their effectiveness.');list.append(li);}
   form.hidden=true;result.hidden=false;document.getElementById('dlg-readiness-heading').focus();
  });
- document.getElementById('dlg-readiness-review').addEventListener('click',()=>showStep(0));
- document.getElementById('dlg-readiness-restart').addEventListener('click',()=>{form.reset();list.replaceChildren();summary.textContent='';showStep(0);});
+ const save=document.getElementById('dlg-readiness-save'),saveStatus=document.getElementById('dlg-readiness-save-status');
+ save.addEventListener('click',()=>{
+  if(result.hidden)return;
+  const heading=t('Digital Law Georgia | კომპანიის მზადყოფნა AI-ის გამოსაყენებლად','Digital Law Georgia | AI readiness assessment');
+  const date=new Date().toISOString().slice(0,10);
+  const lines=[heading,date,'',summary.textContent,'',t('პასუხები','Answers'),...questions.map(q=>q.querySelector('.dlg-readiness-category').textContent.trim()+': '+(q.querySelector('input:checked')?.closest('label')?.querySelector('strong')?.textContent.trim()||'')),'',t('რეკომენდაციები','Recommendations'),...Array.from(list.children).map(li=>li.innerText.trim()),'',document.querySelector('.dlg-readiness-disclaimer')?.innerText.trim()||''];
+  const url=URL.createObjectURL(new Blob([lines.join('\n')],{type:'text/plain;charset=utf-8'}));
+  const a=document.createElement('a');a.href=url;a.download='DLG-AI-readiness-'+date+'.txt';document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1000);
+  saveStatus.textContent=t('შედეგების ფაილი მომზადებულია.','Your results file is ready.');
+ });
+ document.getElementById('dlg-readiness-review').addEventListener('click',()=>{saveStatus.textContent='';showStep(0);});
+ document.getElementById('dlg-readiness-restart').addEventListener('click',()=>{form.reset();list.replaceChildren();summary.textContent='';saveStatus.textContent='';showStep(0);});
+}
+for(const field of document.querySelectorAll('[data-feed-path]')){
+ const address=new URL(field.dataset.feedPath,window.location.origin).href;
+ field.value=address;
+}
+for(const button of document.querySelectorAll('[data-dlg-copy-feed]')){
+ button.addEventListener('click',async()=>{
+  const field=document.getElementById(button.dataset.dlgCopyFeed),status=button.closest('.dlg-rss-feed')?.querySelector('.dlg-rss-status');
+  if(!field||!status)return;
+  try{await navigator.clipboard.writeText(field.value);status.textContent=t('ბმული დაკოპირდა.','Feed address copied.');}
+  catch{field.focus();field.select();status.textContent=t('დააკოპირეთ მონიშნული ბმული.','Copy the selected address.');}
+ });
 }
 const consult=document.getElementById('dlg-consultation-form');
 if(consult){

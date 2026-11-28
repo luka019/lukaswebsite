@@ -368,3 +368,93 @@ body:has(.masthead) .contact .dlg-home-contact{align-items:center}
 @media(max-width:740px){body:has(.masthead) #insights .article-grid{grid-template-columns:1fr;gap:12px}body:has(.masthead) #insights .article:nth-child(n){display:grid;grid-template-columns:minmax(92px,27%) minmax(0,1fr);align-items:center;gap:12px}body:has(.masthead) #insights .article:nth-child(n) .home-article-media{aspect-ratio:3/2}body:has(.masthead) #insights .article:nth-child(n) h3{font-size:15px}.resource-page .dlg-resource-research{grid-template-columns:1fr;gap:12px}}
 @media(max-width:600px){body:has(.masthead) #sectors .home-sectors{grid-template-columns:minmax(0,1fr)}body:has(.masthead) #sectors .home-sector-link:nth-child(n){display:grid;grid-template-columns:100px minmax(0,1fr);align-items:center;gap:12px;padding:0 0 11px}body:has(.masthead) #sectors .home-sector-link:nth-child(n) .home-sector-media{aspect-ratio:3/2}body:has(.masthead) #about .dlg-home-founder-card{grid-template-columns:94px minmax(0,1fr);gap:12px}#featured-advisory .dlg-assessment-inline{grid-template-columns:32px minmax(0,1fr);gap:10px;padding:15px}#featured-advisory .dlg-assessment-inline .dlg-tool-cta{grid-column:2;justify-self:start}.dlg-assessment-inline-icon{width:32px;height:32px}.dlg-readiness-prompt{right:10px;bottom:10px;max-width:315px;padding:14px}.dlg-readiness-prompt h2{font-size:15px}}
 @media(prefers-reduced-motion:reduce){body:has(.masthead) #sectors .home-sector-media img,body:has(.masthead) #insights .home-article-media img,.dlg-readiness-prompt{transition:none!important;animation:none!important;transform:none!important}}
+
+
+/* Proportional hero and readable, useful editorial interactions. */
+body:has(.masthead) #main>.hero{padding:0;min-height:0}
+body:has(.masthead) #main>.hero .hero-inner{padding-block:clamp(30px,3.6vw,52px);min-height:0}
+body:has(.masthead) #main>.hero .hero-content{width:61%;max-width:680px}
+body:has(.masthead) #main>.hero .hero-content .hero-copy{width:100%;max-width:none}
+body:has(.masthead) #main>.hero .hero-content .intro{width:100%;max-width:min(100%,590px);font-size:clamp(14px,1.13vw,16px);line-height:1.65;margin:0;color:#e8f0f4}
+body:has(.masthead) #main>.hero .hero-content h1{margin-bottom:15px}
+body:has(.masthead) #main>.hero .hero-content .hero-actions{margin-top:19px}
+body:has(.masthead) #main>.hero .hero-content .hero-location{margin-top:13px}
+body:has(.masthead) #main>.hero .hero-photo::after{background:linear-gradient(90deg,#153347 0%,#153347f5 10%,#153347b8 32%,#15334730 63%,#15334708 100%)}
+
+/* High-contrast market-entry section. The old white span override is explicitly removed. */
+body:has(.masthead) #georgia-business{padding-block:clamp(34px,4.5vw,58px);background:#eef3f5;color:#19384c;border-block:1px solid #d1dce2}
+body:has(.masthead) #georgia-business .dlg-international-grid{display:grid;grid-template-columns:minmax(0,.84fr) minmax(0,1.16fr);align-items:center;gap:clamp(26px,4vw,54px)}
+body:has(.masthead) #georgia-business h2{max-width:22ch;font-size:clamp(24px,2.4vw,32px);line-height:1.4;margin-bottom:13px;color:#19384c}
+body:has(.masthead) #georgia-business .eyebrow{color:#315f85;font-size:11px}
+body:has(.masthead) #georgia-business .dlg-international-copy{font-size:14px;line-height:1.75;max-width:48ch;color:#506473}
+body:has(.masthead) #georgia-business .dlg-international-link{display:inline-flex;min-height:44px;align-items:center;gap:14px;padding:11px 16px;background:#19384c;color:#fff;border-color:#19384c;font-size:13px}
+body:has(.masthead) #georgia-business .dlg-international-link span{color:#fff}
+body:has(.masthead) #georgia-business .dlg-georgia-home-cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;list-style:none;margin:0;padding:0;border:0;background:none}
+body:has(.masthead) #georgia-business .dlg-georgia-home-cards li:nth-child(n){min-width:0;margin:0;padding:0;border:0}
+body:has(.masthead) #georgia-business .dlg-georgia-home-cards .dlg-georgia-card{display:grid;grid-template-columns:30px minmax(0,1fr) 16px;align-items:start;gap:10px;min-height:130px;height:100%;padding:17px 14px;background:#fff;border:1px solid #c7d7e0;color:#19384c!important;text-decoration:none;transition:background .2s ease,border-color .2s ease}
+body:has(.masthead) #georgia-business .dlg-georgia-card .dlg-georgia-icon{color:#315f85;width:26px;height:26px}
+body:has(.masthead) #georgia-business .dlg-georgia-card .dlg-georgia-card-copy{display:grid;gap:6px;color:#19384c!important;min-width:0}
+body:has(.masthead) #georgia-business .dlg-georgia-card .dlg-georgia-card-title{font-size:14px;font-weight:650;line-height:1.55;color:#19384c!important}
+body:has(.masthead) #georgia-business .dlg-georgia-card .dlg-georgia-card-description{font-size:12px;line-height:1.65;color:#506473!important}
+body:has(.masthead) #georgia-business .dlg-georgia-card .dlg-georgia-arrow{font-size:14px;color:#315f85!important;transition:transform .2s ease}
+body:has(.masthead) #georgia-business a:focus-visible{outline:2px solid #315f85;outline-offset:3px}
+@media(hover:hover){body:has(.masthead) #georgia-business .dlg-georgia-home-cards .dlg-georgia-card:hover{background:#f8fbfc;border-color:#7d9caf}body:has(.masthead) #georgia-business .dlg-georgia-card:hover .dlg-georgia-arrow{transform:translate(2px,-2px)}}
+
+/* Clear publication actions; RSS remains an explicitly identified optional feed. */
+.dlg-insight-subscribe{display:grid;grid-template-columns:40px minmax(0,1fr) auto;gap:14px 18px;align-items:center;background:#f1f5f7;border:1px solid #cfdce4;padding:20px 22px}
+.dlg-insight-subscribe h3{font-size:clamp(15px,1.4vw,18px);line-height:1.5;color:#19384c}
+.dlg-insight-subscribe p{font-size:13px;line-height:1.7;color:#506473}
+.dlg-news-actions{display:flex;align-items:center;flex-wrap:wrap;gap:10px 14px}
+.dlg-news-primary{display:inline-flex;align-items:center;justify-content:center;gap:12px;min-height:43px;padding:10px 15px;background:#19384c;color:#fff!important;border:1px solid #19384c;font-size:12px;font-weight:650;text-decoration:none}
+.dlg-news-primary span{color:inherit!important}
+.dlg-news-primary:hover{background:#315f85;border-color:#315f85}
+.dlg-news-rss{display:inline-flex;align-items:center;gap:6px;min-height:43px;color:#315f85!important;font-size:12px;font-weight:650;text-decoration:underline;text-underline-offset:4px}
+.dlg-news-rss span{color:inherit!important}
+.dlg-news-actions a:focus-visible,.dlg-rss-subscribe :focus-visible{outline:2px solid #315f85;outline-offset:3px}
+.dlg-updates-heading{display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap;margin-bottom:15px}
+.dlg-updates-heading h2{margin:0;font-size:22px;color:#19384c}
+.dlg-update-cards{display:grid;gap:1px;background:#d1dce2;border-block:1px solid #d1dce2}
+.dlg-update-card>a{display:grid;grid-template-columns:minmax(95px,150px) minmax(0,1fr) 18px;gap:18px;align-items:center;background:#fff;padding:15px 0;color:#19384c;text-decoration:none}
+.dlg-update-card img{width:100%;height:auto;aspect-ratio:3/2;object-fit:cover}
+.dlg-update-card time{display:block;color:#506473;font-size:11px;margin-bottom:5px}
+.dlg-update-card h3{font-size:16px;line-height:1.55;margin:0 0 6px;color:#19384c}
+.dlg-update-card p{font-size:13px;line-height:1.7;margin:0;color:#506473}
+.dlg-update-arrow{color:#315f85;transition:transform .2s ease}
+.dlg-update-card>a:hover h3{color:#315f85}
+.dlg-update-card>a:hover .dlg-update-arrow{transform:translate(2px,-2px)}
+.dlg-rss-subscribe{margin:30px 0 8px;padding:clamp(18px,3vw,28px);background:#eef3f5;border:1px solid #cfdce4;scroll-margin-top:95px}
+.dlg-rss-intro{display:grid;grid-template-columns:40px minmax(0,1fr);align-items:start;gap:12px}
+.dlg-rss-intro h2{font-size:20px;line-height:1.5;margin:0 0 7px;color:#19384c}
+.dlg-rss-intro p,.dlg-rss-note{font-size:13px;line-height:1.7;color:#506473;margin:0}
+.dlg-rss-steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px;counter-reset:feedsteps;margin:17px 0;padding:0;list-style:none}
+.dlg-rss-steps li{counter-increment:feedsteps;display:flex;align-items:start;gap:8px;padding:11px;background:#fff;border:1px solid #d1dce2;font-size:12px;line-height:1.6;color:#19384c}
+.dlg-rss-steps li::before{content:counter(feedsteps);font-size:12px;font-weight:650;flex:none;color:#315f85}
+.dlg-rss-feeds{display:grid;gap:14px}
+.dlg-rss-feed{padding:14px;background:white;border:1px solid #d1dce2;min-width:0}
+.dlg-rss-feed label{display:block;font-size:13px;font-weight:650;color:#19384c;margin-bottom:8px}
+.dlg-rss-controls{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px}
+.dlg-rss-controls input{min-width:0;width:100%;height:42px;border:1px solid #bdcdd8;background:#f8fafb;color:#19384c;font:inherit;font-size:12px;padding:8px}
+.dlg-rss-controls button{min-height:42px;white-space:normal;font-size:12px}
+.dlg-rss-open{display:inline-flex;gap:7px;color:#315f85;font-size:12px;text-decoration:underline;text-underline-offset:3px;margin-top:10px}
+.dlg-rss-status{display:block;color:#315f85;font-size:12px;margin-top:5px}
+.dlg-rss-status:empty{display:none}
+.dlg-rss-note{margin-top:15px}
+.dlg-assessment-save-actions{display:flex;flex-wrap:wrap;gap:9px}
+.dlg-assessment-save-actions #dlg-readiness-save{display:inline-flex;align-items:center;gap:8px}
+.dlg-assessment-save-note,#dlg-readiness-save-status{font-size:12px;line-height:1.7;color:#506473;margin:8px 0 0}
+#dlg-readiness-save-status:empty{display:none}
+
+/* Suggested legal searches and understated, accessible affordances. */
+.dlg-finder-suggestions{margin-top:11px}
+.dlg-finder-suggestions p{font-size:11px;font-weight:600;color:#506473;margin:0 0 6px}
+.dlg-finder-suggestions>div{display:flex;flex-wrap:wrap;gap:6px}
+.dlg-finder-suggestions button{font:inherit;font-size:11px;line-height:1.45;min-height:32px;padding:6px 9px;color:#315f85;background:#eef3f5;border:1px solid #d1dce2;cursor:pointer}
+.dlg-finder-suggestions button:hover{background:#dce8ef;border-color:#9eb7c7}
+.dlg-finder-suggestions button:focus-visible{outline:2px solid #315f85;outline-offset:2px}
+body:has(.masthead) .dlg-matter-finder{color:#315f85;background:#fff;border:1px solid #c7d7e0;padding:5px 9px;min-height:32px;justify-content:center;align-self:start}
+body:has(.masthead) .dlg-matter-finder:hover{background:#eaf1f5;text-decoration:none}
+@media(hover:hover) and (prefers-reduced-motion:no-preference){body:has(.masthead) .dlg-expertise-arrow svg,body:has(.masthead) .dlg-advisory-option-arrow{transition:transform .2s ease}body:has(.masthead) .practice-card:hover .dlg-expertise-arrow svg,body:has(.masthead) .dlg-commercial-offer:hover .dlg-advisory-option-arrow{transform:translate(2px,-2px)}}
+@media(max-width:1000px){body:has(.masthead) #georgia-business .dlg-international-grid{grid-template-columns:minmax(0,1fr);gap:20px}body:has(.masthead) #georgia-business h2{max-width:none}body:has(.masthead) #georgia-business .dlg-georgia-home-cards .dlg-georgia-card{min-height:104px}.dlg-insight-subscribe{grid-template-columns:36px minmax(0,1fr)}.dlg-news-actions{grid-column:2}}
+@media(max-width:800px){body:has(.masthead) #main>.hero .hero-content{width:77%;max-width:570px}body:has(.masthead) #main>.hero .hero-inner{padding-block:30px}body:has(.masthead) #main>.hero .hero-photo::after{background:linear-gradient(90deg,#153347,#153347eb 20%,#153347b9 51%,#15334722)}}
+@media(max-width:600px){body:has(.masthead) #main>.hero .hero-inner{padding:26px 0 115px}body:has(.masthead) #main>.hero .hero-content{width:100%;max-width:none}body:has(.masthead) #main>.hero .hero-content .intro{font-size:13px;line-height:1.7;max-width:100%}body:has(.masthead) #main>.hero .hero-photo::after{background:linear-gradient(180deg,#153347,#1533478c 36%,#15334708 75%)}body:has(.masthead) #georgia-business .dlg-georgia-home-cards{grid-template-columns:minmax(0,1fr);gap:7px}body:has(.masthead) #georgia-business .dlg-georgia-home-cards .dlg-georgia-card{min-height:0;padding:13px;grid-template-columns:27px minmax(0,1fr) 16px}body:has(.masthead) #georgia-business .dlg-georgia-card .dlg-georgia-card-description{font-size:12px}.dlg-insight-subscribe{grid-template-columns:32px minmax(0,1fr);padding:16px;gap:10px}.dlg-news-actions{grid-column:1/-1;gap:10px}.dlg-news-primary,.dlg-news-rss{font-size:12px}.dlg-update-card>a{grid-template-columns:80px minmax(0,1fr) 14px;gap:10px}.dlg-update-card h3{font-size:14px}.dlg-update-card p{font-size:12px}.dlg-rss-intro{grid-template-columns:30px minmax(0,1fr)}.dlg-rss-intro h2{font-size:17px}.dlg-rss-steps{grid-template-columns:1fr}.dlg-rss-controls{grid-template-columns:1fr}.dlg-rss-controls button{justify-self:start}.dlg-rss-feed{padding:11px}.dlg-assessment-save-actions{gap:8px}}
+@media(prefers-reduced-motion:reduce){.dlg-georgia-card,.dlg-georgia-arrow,.dlg-update-arrow,.dlg-expertise-arrow svg,.dlg-advisory-option-arrow{transition:none!important;transform:none!important}}

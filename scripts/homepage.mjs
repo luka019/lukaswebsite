@@ -45,7 +45,7 @@ function clientEntrances() {
   ];
   return `<nav class="matter-nav" id="client-matters" aria-label="თქვენი საკითხი" data-en-aria="Find advice for your matter">
     <div class="wrap">
-      <div class="dlg-matter-intro"><p class="matter-heading">${tr('რაში დაგეხმარებით','Find the right advice')}</p>${finderTrigger('dlg-matter-finder','მომსახურების მოძიება','Find legal advice')}</div>
+      <div class="dlg-matter-intro"><p class="matter-heading">${tr('რაში დაგეხმარებით','Find the right advice')}</p>${finderTrigger('dlg-matter-finder','მოძებნეთ საკითხი','Search legal matters')}</div>
       <div class="matter-nav-inner">
       ${matters.map(([url,ka,en,descriptionKa,descriptionEn])=>`<a class="matter-link" href="${url}">
         <div>${tr(ka,en,'strong')}</div>${arrow}

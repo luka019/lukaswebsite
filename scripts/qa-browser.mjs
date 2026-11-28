@@ -67,8 +67,10 @@ try{
     check(await heroPhoto.evaluate(image=>image.naturalWidth>0&&image.getBoundingClientRect().width>0),'Hero photograph failed to render');
     check((await heroPhoto.getAttribute('alt')).length>20,'Hero photograph needs descriptive alt text');
     check(await page.locator('.dlg-expertise-icon').count()===6,'Six editorial practice icons required');
+    check(await page.locator('#georgia-business .dlg-georgia-card-title').evaluateAll(els=>els.length===4&&els.every(e=>getComputedStyle(e).color==='rgb(25, 56, 76)'&&e.getBoundingClientRect().height>0)),'Georgia card text must be visible and dark');
     const finder=page.locator('#dlg-legal-finder');await page.locator('.dlg-matter-finder').click();
     check(await finder.isVisible(),'Legal finder must open');
+    await finder.locator('[data-dlg-finder-suggestion="VASP"]').click();check(await finder.locator('input').inputValue()==='VASP','Suggested search must populate input');
     await finder.locator('input').fill('VASP');check(await finder.locator('.dlg-finder-result:visible').count()===1,'VASP search must resolve to one practice');
     check(await finder.locator('.dlg-finder-result:visible a').getAttribute('href')==='/services/virtual-assets/','VASP finder route incorrect');
     await finder.locator('[data-dlg-filter="sector"]').click();check(await finder.locator('.dlg-finder-empty').isVisible(),'Empty filtered search state missing');
@@ -126,6 +128,7 @@ try{
     check(await page.locator('#dlg-readiness-result').isVisible(),'Assessment result missing');
     for(const [value,count] of Object.entries({yes:3,partial:2,no:2,unknown:1}))check(await page.locator('[data-answer-count="'+value+'"]').textContent()===String(count),'Incorrect result count '+value);
     check(await page.locator('#dlg-readiness-priorities li').count()===5,'Actionable results missing');
+    const downloadPromise=page.waitForEvent('download');await page.locator('#dlg-readiness-save').click();const downloaded=await downloadPromise;check(downloaded.suggestedFilename().startsWith('DLG-AI-readiness-'),'Assessment result download missing');
     await page.locator('#dlg-readiness-review').click();check(await fields.nth(0).locator('input[value="yes"]').isChecked(),'Review must preserve answers');
     for(let i=0;i<7;i++)await page.locator('#dlg-readiness-next').click();
     await page.locator('#dlg-readiness-finish').click();await page.locator('#dlg-readiness-restart').click();
@@ -142,6 +145,7 @@ try{
     await page.goto(base+prefix+'/',{waitUntil:'networkidle'});
     const feature=page.locator('#georgia-business');
     check(await feature.locator('.dlg-georgia-quick-links a').count()===4,'Cross-border service links missing');
+    check(await feature.locator('.dlg-georgia-card-title:visible').count()===4,'Market-entry labels missing');
     await feature.locator('.dlg-international-link').click();
     await page.waitForURL(base+prefix+'/business/georgia/');
     await overflow(page,width,prefix+'/business/georgia/');

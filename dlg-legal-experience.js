@@ -18,7 +18,10 @@
   status.textContent=english?count+' matching '+(count===1?'result':'results'):'ნაპოვნია '+count+' მიმართულება';
   scroller.scrollTop=0;
  }
- triggers.forEach(button=>{button.hidden=false;button.addEventListener('click',()=>{if(dialog.open)return;opener=button;input.value='';category='all';update();dialog.showModal();input.focus();});});
+ function openFinder(button){if(dialog.open)return;opener=button;input.value='';category='all';update();dialog.showModal();input.focus();}
+ triggers.forEach(button=>{button.hidden=false;button.addEventListener('click',()=>openFinder(button));});
+ dialog.querySelectorAll('[data-dlg-finder-suggestion]').forEach(button=>button.addEventListener('click',()=>{category='all';input.value=button.dataset.dlgFinderSuggestion;update();input.focus();}));
+ document.addEventListener('keydown',event=>{if(!(event.ctrlKey||event.metaKey)||event.altKey||event.shiftKey||event.key.toLowerCase()!=='k'||dialog.open||document.querySelector('dialog[open]')||document.activeElement?.matches('input, textarea, [contenteditable=true]'))return;const trigger=triggers.find(button=>button.getClientRects().length);if(trigger){event.preventDefault();openFinder(trigger);}});
  input.addEventListener('input',update);
  filters.forEach(button=>button.addEventListener('click',()=>{category=button.dataset.dlgFilter;update();}));
  const close=dialog.querySelector('[data-dlg-finder-close]');

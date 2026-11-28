@@ -16,11 +16,11 @@ export function internationalFeature() {
     <div class="wrap dlg-international-grid">
       <div>
         ${tr('უცხოური კომპანიებისთვის', 'For international businesses', 'p', 'eyebrow')}
-        <h2 id="georgia-business-title">${tr('საქართველოში საქმიანობა', 'Doing business in Georgia')}</h2>
-        ${tr('უცხოურ კომპანიებს ვეხმარებით საქართველოში საქმიანობის დაწყებასა და გაფართოებაში.', 'Georgian-law advice for international businesses entering or expanding in Georgia.', 'p', 'dlg-international-copy')}
-        ${link(georgiaPage.route, 'გაეცანით მომსახურებას', 'Explore market-entry services', 'primary dlg-international-link')}
+        <h2 id="georgia-business-title">${tr('საქართველოში ბიზნესის დაწყება და გაფართოება', 'Establishing and growing your business in Georgia')}</h2>
+        ${tr('უცხოურ კომპანიებს ვეხმარებით საქართველოში ბიზნესის დაწყების, გაფართოებისა და ყოველდღიური საქმიანობის სამართლებრივ საკითხებში.', 'Georgian-law advice for international companies establishing, expanding or operating a business in Georgia.', 'p', 'dlg-international-copy')}
+        ${link(georgiaPage.route, 'იურიდიული მომსახურება საქართველოში', 'Explore our Georgian-law services', 'primary dlg-international-link')}
       </div>
-      ${georgiaServiceLinks()}
+      ${georgiaServiceLinks(true)}
     </div>
   </section>`;
 }
@@ -44,10 +44,21 @@ const work = [
     '/services/ongoing-legal-support/', 'მუდმივი იურიდიული მომსახურება', 'Ongoing legal counsel'],
 ];
 
-function georgiaServiceLinks() {
-  return `<ul class="dlg-georgia-quick-links">
-    ${work.map(([, , , ,url,ka,en]) => `<li>${link(url, ka, en)}</li>`).join('')}
-  </ul>`;
+const georgiaIcons=[
+ '<path d="M4 21h16M6 21V8l6-4 6 4v13M9 12h2m2 0h2m-6 4h2m2 0h2"/>',
+ '<path d="M6 3h8l4 4v14H6Zm8 0v5h4M9 12h6m-6 4h6"/>',
+ '<path d="M12 3 20 7v6c0 4-4 7-8 9-4-2-8-5-8-9V7Z"/><path d="m8 12 3 3 5-6"/>',
+ '<path d="M4 12a8 8 0 0 1 16 0v5a2 2 0 0 1-2 2h-3M4 12v4h4v-5H4m16 1h-4v5h4M11 20h4"/>'
+];
+const homeGeorgia=[
+ ['კომპანიის დაფუძნება','Company establishment','რეგისტრაცია, კორპორაციული დოკუმენტები და ადგილობრივი გუნდი.','Registration, corporate documents and local teams.'],
+ ['კომერციული ხელშეკრულებები','Commercial contracts','ადგილობრივ პარტნიორებთან და მომწოდებლებთან ურთიერთობა.','Agreements with local partners and suppliers.'],
+ ['მონაცემთა დაცვა და ციფრული რისკები','Data protection and digital risk','მონაცემთა დამუშავება, უსაფრთხოება და AI-ის გამოყენება.','Data processing, security and AI use.'],
+ ['მუდმივი იურიდიული მომსახურება','Ongoing legal counsel','ყოველდღიური კორპორაციული და კომერციული საკითხები.','Day-to-day corporate and commercial matters.']
+];
+function georgiaServiceLinks(home=false){
+ if(!home)return `<ul class="dlg-georgia-quick-links">${work.map(([, , , ,url,ka,en])=>`<li>${link(url,ka,en)}</li>`).join('')}</ul>`;
+ return `<ul class="dlg-georgia-quick-links dlg-georgia-home-cards">${work.map(([, , , ,url],i)=>{const [ka,en,desc,descEn]=homeGeorgia[i];return `<li><a class="dlg-georgia-card" href="${url}" data-site-link><svg class="dlg-georgia-icon" viewBox="0 0 24 24" width="27" height="27" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">${georgiaIcons[i]}</svg><span class="dlg-georgia-card-copy">${tr(ka,en,'strong','dlg-georgia-card-title')}${tr(desc,descEn,'span','dlg-georgia-card-description')}</span><span class="dlg-georgia-arrow" aria-hidden="true">↗</span></a></li>`;}).join('')}</ul>`;
 }
 
 export function georgiaEntryPage() {
