@@ -59,7 +59,9 @@ try{
     check(JSON.stringify(matterLinks)===JSON.stringify(['/advisory/','/services/contracts/','/services/privacy-and-cybersecurity/','/business/georgia/']),'Client entry routes missing');
     check(await page.locator('#engagement,.engagement-steps').count()===0,'Standalone engagement block should be absent');
     await heroPhoto.evaluate(image=>image.decode());
-    check(await heroPhoto.evaluate(image=>getComputedStyle(image).objectFit==='contain'),'Signature artwork must remain uncropped');
+    check(await heroPhoto.evaluate(image=>getComputedStyle(image).objectFit==='cover'),'Hero artwork must fill the seamless composition');
+    check(await page.locator('.hero-photo').evaluate(el=>getComputedStyle(el).borderTopWidth==='0px'),'Hero artwork must not have a separate frame');
+    check(await page.locator('.hero-content h1').evaluate(el=>parseFloat(getComputedStyle(el).fontSize)<=39),'Homepage Georgian title must remain compact');
     const articleColumns=await page.locator('#insights .article-grid').evaluate(el=>getComputedStyle(el).gridTemplateColumns.split(' ').length);
     check(articleColumns===(width>740?3:1),'Publication grid must reflow for mobile');
     check(await heroPhoto.evaluate(image=>image.naturalWidth>0&&image.getBoundingClientRect().width>0),'Hero photograph failed to render');
